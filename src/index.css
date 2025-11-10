@@ -1,11 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+    /* palette */
+    --color-bg:        #0b0f14;
+    --color-bg-elev:   #0f1621;
+    --color-text:      #c9d2dc;
+    --color-muted:     #7d8a98;
+    --color-accent:    #00e5ff;
+    --color-accent-2:  #ff3d81;
+    --color-card:      #0d131c;
+
+    /* ombre e raggi custom che useremo come utility */
+    --shadow-soft: 0 12px 30px -20px rgba(0,0,0,.5);
+    --shadow-neon: 0 8px 30px -10px rgba(0,229,255,.35);
+    --radius-xl: 14px;
+}
+
+/* 3) base: background composito + font mono d’appoggio */
+
+body {
+    @apply bg-bg text-text antialiased;
+    /* niente theme() -> usiamo solo immagini per evitare errori del plugin */
+    background-image:
+            radial-gradient(1200px 600px at 10% -10%, rgba(0,229,255,.12), transparent 40%),
+            radial-gradient(1000px 500px at 100% 10%, rgba(255,61,129,.08), transparent 45%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.mono { font-family:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace }
+
+/* motion reduce */
+@media (prefers-reduced-motion: reduce){
+    * { animation: none !important; transition: none !important; }
+}
+
+/* 4) utilities atomi (v4: niente @tailwind utilities/custom layers necessari) */
+
+/* focus ring accessibile */
+.focus-ring { outline: 2px dashed var(--color-accent); outline-offset: 4px; }
+
+/* micro-glitch (solo hover) */
+.glitch { position: relative; }
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+}
+.glitch::before { text-shadow: -1px 0 var(--color-accent); }
+.glitch::after  { text-shadow:  1px 0 var(--color-accent-2); }
+.glitch:hover::before { animation: jitter 120ms infinite; }
+.glitch:hover::after  { animation: jitter 120ms infinite reverse; }
+@keyframes jitter { 0%{transform:translate(0)}50%{transform:translate(1px,-1px)}100%{transform:translate(0)} }
+
+/* scanlines per terminal card */
+.scanlines {
+    background:
+            linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,0)),
+            repeating-linear-gradient(0deg, rgba(0,229,255,.04) 0 1px, transparent 1px 2px);
+}
+
 :root {
+    color-scheme: dark light;
     --font-family: "Roboto Light", Avenir, Helvetica, Arial, sans-serif;
     font-family: var(--font-family), serif;
     --header-h: 72px;
     --footer-h: 40px;
     line-height: 1.5;
     font-weight: 400;box-sizing: border-box;
-    color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     background-color: #242424;
 

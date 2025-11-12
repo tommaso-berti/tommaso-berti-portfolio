@@ -1,4 +1,5 @@
-name: Deploy CodexPane (version-only)
+name: Deploy tommasoberti.com (version-only)
+
 on:
   push:
     branches: ["main"]
@@ -39,18 +40,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "${{ secrets.VPS_SSH_KEY }}" ]; then
-            echo "❌ Missing secret VPS_SSH_KEY"; exit 1
-          fi
+          test -n "${{ secrets.VPS_SSH_KEY }}" || { echo "❌ Missing secret VPS_SSH_KEY"; exit 1; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
           tr -d '\r' < ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
-          if [ $(wc -l < ~/.ssh/deploy_key) -eq 1 ] && grep -q '\\n' ~/.ssh/deploy_key; then
+          if [ "$(wc -l < ~/.ssh/deploy_key)" -eq 1 ] && grep -q '\\n' ~/.ssh/deploy_key; then
             sed 's/\\n/\n/g' ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
           fi
-          awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}1' ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keygen -y -f ~/.ssh/deploy_key > ~/.ssh/deploy_key.pub
           ssh-keyscan -H -t ed25519 "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           ssh-keyscan -H -t rsa     "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           chmod 644 ~/.ssh/known_hosts
@@ -79,5 +76,22 @@ jobs:
         shell: bash
         run: |
           REMOTE_BASE="/srv/www/www.tommasoberti.com"
-          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "ln -sfn '${REMOTE_BASE}/releases/${{ env.RELEASE_DIR }}' '${REMOTE_BASE}/current' && sudo -n systemctl reload caddy || true"
+          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
+            set -e
+            # se "current" è una directory reale, rinominala e usa un symlink
+            if [ -d "'"$REMOTE_BASE"'/current" ] && [ ! -L "'"$REMOTE_BASE"'/current" ]; then
+              mv "'"$REMOTE_BASE"'/current" "'"$REMOTE_BASE"'/current.bak.$(date +%s)"
+            fi
+            ln -sfn "'"$REMOTE_BASE"'/releases/${{ env.RELEASE_DIR }}" "'"$REMOTE_BASE"'/current"
+            sudo -n systemctl reload caddy || true
+          '
+
+      - name: Prune old releases (keep last 5)
+        shell: bash
+        run: |
+          REMOTE_BASE="/srv/www/www.tommasoberti.com"
+          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
+            set -e
+            cd "'"$REMOTE_BASE"'/releases" 2>/dev/null || exit 0
+            ls -1dt v* 2>/dev/null | tail -n +6 | xargs -r rm -rf --
+          '

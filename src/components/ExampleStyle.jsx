@@ -7,6 +7,204 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 import Tag from '../ui/Tag.jsx'
 import TerminalCard from '../ui/TerminalCard.jsx'
 
+
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+
+const DEFAULT_CHARSET =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*+-_?';
+
+function TextShuffle({
+                         text,
+                         duration = 2000,          // più lento
+                         trigger = 'mount',        // 'mount' | 'hover' | 'visible'
+                         charset = DEFAULT_CHARSET,
+                         className = '',
+                     }) {
+    const ref = useRef(null);
+    const [widths, setWidths] = useState([]); // larghezze px per ogni char finale
+    const [state, setState] = useState('idle'); // 'idle' | 'scrambling' | 'done'
+    const [out, setOut] = useState(() => text.split(''));
+    const [vars, setVars] = useState(() =>
+        Array.from({ length: text.length }, () => ({}))
+    );
+    const planRef = useRef(null);
+    const rafRef = useRef(0);
+
+    // Misura per-char PRIMA del paint per evitare flash/fisarmonica
+    useLayoutEffect(() => {
+        if (!ref.current) return;
+        const el = ref.current;
+        const cs = getComputedStyle(el);
+
+        const meas = document.createElement('span');
+        meas.style.position = 'absolute';
+        meas.style.left = '-9999px';
+        meas.style.top = '-9999px';
+        meas.style.whiteSpace = 'pre';
+        meas.style.fontFamily = cs.fontFamily;
+        meas.style.fontWeight = cs.fontWeight;
+        meas.style.fontSize = cs.fontSize;
+        meas.style.letterSpacing = cs.letterSpacing;
+        meas.style.textTransform = cs.textTransform;
+        document.body.appendChild(meas);
+
+        const arr = text.split('').map((ch) => {
+            meas.textContent = ch === ' ' ? '\u00A0' : ch;
+            const w = Math.ceil(meas.getBoundingClientRect().width);
+            return Math.max(w, 1);
+        });
+
+        document.body.removeChild(meas);
+        setWidths(arr);
+    }, [text]);
+
+    const start = useMemo(() => {
+        function run() {
+            if (!ref.current) return;
+            if (widths.length !== text.length) return; // aspetta misura
+
+            cancelAnimationFrame(rafRef.current);
+            const target = text.split('');
+            const n = target.length;
+            const now = performance.now();
+            const T = Math.max(500, duration);
+
+            // finestra per-char (più lunga/morbida)
+            const plan = Array.from({ length: n }, () => {
+                const s = Math.random() * 0.30;          // inizio
+                const w = 0.55 + Math.random() * 0.35;   // durata scramble
+                const e = Math.min(0.99, s + w);
+                return { s, e };
+            });
+            planRef.current = { start: now, T, plan, target };
+
+            setState('scrambling');
+            setOut(Array(n).fill(''));
+            setVars(Array.from({ length: n }, () => ({})));
+
+            const tick = () => {
+                const p = planRef.current; if (!p) return;
+                const t = (performance.now() - p.start) / p.T; // 0..1
+                let done = true;
+                const nextOut = new Array(n);
+                const nextVars = new Array(n);
+
+                for (let i = 0; i < n; i++) {
+                    const { s, e } = p.plan[i];
+                    const final = p.target[i];
+                    const wpx = widths[i] ? widths[i] + 'px' : undefined;
+
+                    if (t <= s) {
+                        nextOut[i] = '';
+                        nextVars[i] = { '--w': wpx, '--op': 0, '--tx': '0px', '--ty': '8px', '--rot': '8deg' };
+                        done = false; continue;
+                    }
+                    if (t >= e) {
+                        nextOut[i] = final === ' ' ? '\u00A0' : final;
+                        nextVars[i] = { '--w': wpx, '--op': 1, '--tx': '0px', '--ty': '0px', '--rot': '0deg' };
+                        continue;
+                    }
+
+                    // fase scramble
+                    done = false;
+                    const prog = (t - s) / (e - s); // 0..1
+                    const c = charset[(Math.random() * charset.length) | 0] || '';
+                    nextOut[i] = final === ' ' ? '\u00A0' : c;
+
+                    const jitter = 10 * (1 - prog);
+                    const dx = (Math.random() - 0.5) * 2 * jitter;
+                    const dy = (Math.random() - 0.5) * 2 * jitter;
+                    const rot = (Math.random() - 0.5) * 12 * (1 - prog);
+
+                    nextVars[i] = {
+                        '--w': wpx,
+                        '--op': 0.85,
+                        '--tx': `${dx.toFixed(1)}px`,
+                        '--ty': `${dy.toFixed(1)}px`,
+                        '--rot': `${rot.toFixed(1)}deg`,
+                    };
+                }
+
+                setOut(nextOut);
+                setVars(nextVars);
+                if (!done) {
+                    rafRef.current = requestAnimationFrame(tick);
+                } else {
+                    setState('done');
+                }
+            };
+
+            rafRef.current = requestAnimationFrame(tick);
+        }
+        return run;
+    }, [text, duration, charset, widths]);
+
+    // trigger: mount
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setState('done');
+            setOut(text.split(''));
+            setVars(Array.from({ length: text.length }, () => ({ '--op': 1 })));
+            return;
+        }
+        if (trigger === 'mount' && widths.length === text.length) start();
+    }, [text, trigger, widths, start]);
+
+    // trigger: hover/focus
+    useEffect(() => {
+        if (trigger !== 'hover' || !ref.current) return;
+        const el = ref.current;
+        const on = () => start();
+        el.addEventListener('mouseenter', on);
+        el.addEventListener('focus', on, true);
+        return () => {
+            el.removeEventListener('mouseenter', on);
+            el.removeEventListener('focus', on, true);
+        };
+    }, [trigger, start]);
+
+    // trigger: visibile in viewport
+    useEffect(() => {
+        if (trigger !== 'visible' || !ref.current) return;
+        const el = ref.current;
+        const io = new IntersectionObserver(
+            ([e]) => { if (e.isIntersecting) { start(); io.disconnect(); } },
+            { threshold: 0.6 }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, [trigger, start]);
+
+    useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+    const ready = widths.length === text.length;
+
+    return (
+        <span
+            ref={ref}
+            className={`text-shuffle ${className}`}
+            data-state={state}
+            aria-label={text}
+        >
+      {/* Ghost invisibile: occupa spazio prima dell'animazione */}
+            {(state === 'idle' || !ready) ? (
+                <span className="text-shuffle__ghost" aria-hidden="true">{text}</span>
+            ) : (
+                out.map((ch, i) => (
+                    <span
+                        key={i}
+                        className="text-shuffle__char"
+                        aria-hidden="true"
+                        style={vars[i]}
+                    >
+            {ch || '\u00A0'}
+          </span>
+                ))
+            )}
+    </span>
+    );
+}
+
 export default function ExampleStyle() {
     return (
         <div className="min-h-screen grid grid-rows-[auto,1fr,auto] font-[Roboto_Flex]">
@@ -143,6 +341,29 @@ export default function ExampleStyle() {
                         <div className="absolute left-1/5 top-0 w-[400px] h-[120px] rounded-full bg-accent/60"></div>
                         <div className="absolute right-1/5 top-0 w-[300px] h-[120px] rounded-full bg-[color:var(--color-accent-2,#ff3d81)]/60"></div>
                     </div>
+                </section>
+
+                <section id="text-shuffle">
+                    <SectionTitle>/text reveal</SectionTitle>
+                    <p className="text-muted max-w-[60ch]">
+                        Lettere che appaiono mescolandosi e ruotando, poi rivelano la parola.
+                    </p>
+
+                    <div className="flex flex-wrap items-center gap-4 mt-4">
+                        <TextShuffle text="Hello, world." trigger="mount" />
+                        <TextShuffle text="Passa qui col mouse" trigger="hover" />
+                        <TextShuffle text="Scroll to reveal" trigger="visible" />
+                    </div>
+
+                    <Card className="mt-4">
+                        <h3 className="text-lg font-semibold">Dentro un Tag</h3>
+                        <p className="text-muted">Funziona anche come child di altri componenti.</p>
+                        <div className="mt-2 flex gap-2">
+                            <Tag><TextShuffle text="Full-stack" trigger="hover" /></Tag>
+                            <Tag><TextShuffle text="React" trigger="hover" /></Tag>
+                            <Tag><TextShuffle text="Tailwind" trigger="hover" /></Tag>
+                        </div>
+                    </Card>
                 </section>
             </main>
 

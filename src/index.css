@@ -83,3 +83,21 @@ body {
     min-width: 320px;
     min-height: 100vh;
 }
+
+/* === Text shuffle (glitch-like reveal) === */
+.text-shuffle { display: inline-flex; align-items: baseline; }
+.text-shuffle__ghost { visibility: hidden; white-space: pre; } /* riserva spazio senza mostrare nulla */
+.text-shuffle__char{
+    display:inline-block;
+    width:var(--w,0.6ch);        /* fissata dalla misura JS */
+    opacity:var(--op,1);
+    transform:translate(var(--tx,0),var(--ty,0)) rotate(var(--rot,0));
+    transition:transform .2s ease, opacity .2s ease;
+    will-change:transform, opacity;
+}
+.text-shuffle[data-state="scrambling"] .text-shuffle__char{
+    filter:drop-shadow(0 0 8px color-mix(in srgb, var(--color-accent) 60%, transparent));
+}
+@media (prefers-reduced-motion: reduce){
+    .text-shuffle__char{ transition:none!important; transform:none!important; opacity:1!important; filter:none!important; }
+}

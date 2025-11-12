@@ -4,6 +4,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import makeTheme from './styles/theme.js'
 import Layout from './components/Layout.jsx';
 import Home from './components/Home.jsx';
+import ExampleStyle from './components/ExampleStyle';
 
 function App() {
     let mode = 'light';
@@ -14,12 +15,9 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route element={<Layout />}>
-                        {
                         <Route index element={<Home />} />
-                            /* <Route path=":docs" element={} />
-                             <Route path=":docs/:section" element={} />
-                             <Route path="*" element={<Navigate to="/" replace />} />*/
-                        }
+                            <Route path="/example-style" element={<ExampleStyle />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

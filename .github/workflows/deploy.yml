@@ -101,6 +101,18 @@ jobs:
           ssh -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey \
               -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true
 
+      - name: Bootstrap base paths (first deploy safe)
+        shell: bash
+        run: |
+          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
+            set -e
+            # crea /srv/www e il vhost root con owner = utente di deploy
+            sudo install -d -o $USER -g $USER -m 755 /srv/www
+            sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com
+            sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com/releases
+            # opzionale: shared o altre sottocartelle
+            # sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com/shared
+
       - name: Ensure remote release dir
         shell: bash
         run: |

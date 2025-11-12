@@ -104,14 +104,15 @@ jobs:
       - name: Bootstrap base paths (first deploy safe)
         shell: bash
         run: |
-          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
-            set -e
-            # crea /srv/www e il vhost root con owner = utente di deploy
-            sudo install -d -o $USER -g $USER -m 755 /srv/www
-            sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com
-            sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com/releases
-            # opzionale: shared o altre sottocartelle
-            # sudo install -d -o $USER -g $USER -m 755 /srv/www/www.tommasoberti.com/shared
+          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" bash -s <<'REMOTE'
+          set -e
+          # crea /srv/www e la root del vhost con owner = utente remoto ($USER)
+          sudo install -d -o "$USER" -g "$USER" -m 755 /srv/www
+          sudo install -d -o "$USER" -g "$USER" -m 755 /srv/www/www.tommasoberti.com
+          sudo install -d -o "$USER" -g "$USER" -m 755 /srv/www/www.tommasoberti.com/releases
+          # opzionale: altre sottocartelle
+          # sudo install -d -o "$USER" -g "$USER" -m 755 /srv/www/www.tommasoberti.com/shared
+          REMOTE
 
       - name: Ensure remote release dir
         shell: bash

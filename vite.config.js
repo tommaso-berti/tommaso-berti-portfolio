@@ -6,8 +6,5 @@ export default defineConfig({
     plugins: [
         react(),
         tailwind(),
-    ],
-    server: {
-        watch: { usePolling: false, interval: 100 },
-    },
+    ]
 })

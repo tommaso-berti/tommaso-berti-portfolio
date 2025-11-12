@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import BreadCrumbs from './Breadcrumbs.jsx';
+import BreadCrumbs from './BreadCrumbs.jsx';
+import DarkModeToggle from "./DarkModeToggle.jsx";
 
 export default function Header() {
     return (
@@ -8,12 +9,15 @@ export default function Header() {
             component="header"
             sx={{
                 width: '100%',
-                display: 'block',
+                display: 'flex',
                 borderBottom: '1px solid',
                 borderColor: 'divider',
+                paddingY: '1rem',
+                justifyContent: 'space-between'
             }}
         >
             <BreadCrumbs />
+            <DarkModeToggle />
         </Box>
     )
 }

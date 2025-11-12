@@ -4,7 +4,7 @@ import { Link, Stack, Breadcrumbs, Typography } from "@mui/material";
 
 export default function BreadCrumbs() {
     const { pathname } = useLocation();
-    const root = { label: 'tommasoberti@ > $ cd' };
+    const root = { label: '> $ cd' };
 
     const crumbs = useMemo(() => {
         const path = pathname.split("/").filter(Boolean);
@@ -26,18 +26,16 @@ export default function BreadCrumbs() {
     }, [pathname]);
 
     return (
-        <Stack spacing={2} direction="row" alignItems="center">
+        <Stack direction="row" alignItems="center">
             <Breadcrumbs separator="/" aria-label="breadcrumb">
                 {crumbs.map((item, idx) => {
                     if (idx === 0) {
                         return (
                             <Typography
                                 key="root"
-                                color="text.secondary"
-                                variant="h5"
-                                sx={{
-                                    fontWeight: 800
-                                }}
+                                color="text.primary"
+                                variant="h4"
+                                fontWeight="semibold"
                             >
                                 {item.label}
                             </Typography>
@@ -46,7 +44,7 @@ export default function BreadCrumbs() {
 
                     const isLast = idx === crumbs.length - 1;
                     return isLast ? (
-                        <Typography key={item.to} color="text.primary">
+                        <Typography variant="h5" key={item.to} color="text.secondary">
                             {item.label}
                         </Typography>
                     ) : (
@@ -57,7 +55,9 @@ export default function BreadCrumbs() {
                             underline="hover"
                             color="inherit"
                         >
-                            {item.label}
+                            <Typography variant="h5" color="text.primary">
+                                {item.label}
+                            </Typography>
                         </Link>
                     );
                 })}

@@ -8,7 +8,8 @@ import ExampleStyle from './pages/ExampleStyle.jsx';
 import Projects from './pages/Projects.jsx';
 
 function App() {
-    let mode = 'light';
+    let mode = localStorage.getItem('mui-mode') || 'light';
+    const [darkMode, setDarkMode] = useState(mode);
     const theme = useMemo(() => makeTheme(mode), [mode]);
 
     return (

@@ -1,7 +1,10 @@
-name: Deploy tommasoberti.com (version-only)
+name: Deploy www.tommasoberti.com (versioned)
 
 on:
   push:
+    branches: ["main"]
+  pull_request:
+    types: [closed]
     branches: ["main"]
 
 concurrency:
@@ -11,13 +14,20 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
           cache: 'npm'
+
+      - name: Install deps
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
       - name: Resolve VERSION
         shell: bash
@@ -27,71 +37,106 @@ jobs:
           echo "VERSION=$V" >> $GITHUB_ENV
           echo "RELEASE_DIR=v$V" >> $GITHUB_ENV
 
-      - name: Install deps
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
-
       - name: Build
         env:
           VITE_APP_VERSION: ${{ env.VERSION }}
         run: npm run build
 
-      - name: Prepare SSH key (robust)
+      # Stop PR runs before touching secrets
+      - name: Skip deploy on PR
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "Pull request run: skipping deploy (no secrets available)."
+          exit 0
+
+      - name: Prepare env
+        run: |
+          echo "SITE_DOMAIN=www.tommasoberti.com" >> $GITHUB_ENV
+          echo "BUILD_DIR=dist" >> $GITHUB_ENV
+          echo "REMOTE_BASE=/srv/www/www.tommasoberti.com" >> $GITHUB_ENV
+          echo "REMOTE_RELEASE=/srv/www/www.tommasoberti.com/releases/${{ env.RELEASE_DIR }}" >> $GITHUB_ENV
+
+      # 🔐 PREPARE SSH KEY (RAW, NO BASE64) — con diagnostica
+      - name: Prepare SSH key (debug first)
         shell: bash
         run: |
           set -euo pipefail
-          test -n "${{ secrets.VPS_SSH_KEY }}" || { echo "❌ Missing secret VPS_SSH_KEY"; exit 1; }
+          if [ -z "${{ secrets.VPS_SSH_KEY }}" ]; then
+            echo "❌ Missing secret VPS_SSH_KEY"; exit 1
+          fi
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+
+          # Normalizza: CRLF -> LF, '\n' letterali -> newline, rimuovi BOM
           tr -d '\r' < ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
           if [ "$(wc -l < ~/.ssh/deploy_key)" -eq 1 ] && grep -q '\\n' ~/.ssh/deploy_key; then
             sed 's/\\n/\n/g' ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
           fi
+          awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}1' ~/.ssh/deploy_key > ~/.ssh/_tmp && mv ~/.ssh/_tmp ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+
+          echo "== header/footer =="
+          sed -n '1p;$p' ~/.ssh/deploy_key || true
+          echo "== primi 16 byte (hex) =="
+          head -c 16 ~/.ssh/deploy_key | od -An -t x1 || true
+          echo "== size/lines =="
+          wc -c ~/.ssh/deploy_key || true
+          wc -l ~/.ssh/deploy_key || true
+          echo "== file type =="
+          file ~/.ssh/deploy_key || true
+
+          # Valida chiave (fallisce se cifrata/corrotta/errato formato)
+          ssh-keygen -y -f ~/.ssh/deploy_key > ~/.ssh/deploy_key.pub
+          echo "Fingerprint:"
+          ssh-keygen -lf ~/.ssh/deploy_key.pub
+
+      - name: Add server host key to known_hosts
+        run: |
           ssh-keyscan -H -t ed25519 "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           ssh-keyscan -H -t rsa     "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           chmod 644 ~/.ssh/known_hosts
 
+      - name: Test SSH connection
+        run: |
+          ssh -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey \
+              -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true
+
       - name: Ensure remote release dir
         shell: bash
         run: |
-          REMOTE_BASE="/srv/www/www.tommasoberti.com"
-          REMOTE_RELEASE="$REMOTE_BASE/releases/${{ env.RELEASE_DIR }}"
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "mkdir -p \"$REMOTE_RELEASE\""
+            "mkdir -p '${{ env.REMOTE_RELEASE }}'"
 
       - name: Rsync build → /releases/vX.Y.Z
         shell: bash
         run: |
-          REMOTE_BASE="/srv/www/www.tommasoberti.com"
-          REMOTE_RELEASE="$REMOTE_BASE/releases/${{ env.RELEASE_DIR }}"
           rsync -az --delete \
             -e "ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key" \
-            dist/ \
-            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${REMOTE_RELEASE}/"
+            "${{ env.BUILD_DIR }}/" \
+            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.REMOTE_RELEASE }}/"
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "echo '${{ env.VERSION }}' > '${REMOTE_RELEASE}/VERSION'"
+            "echo '${{ env.VERSION }}' > '${{ env.REMOTE_RELEASE }}/VERSION'"
 
       - name: Activate release (symlink) & reload caddy
         shell: bash
         run: |
-          REMOTE_BASE="/srv/www/www.tommasoberti.com"
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
             set -e
-            # se "current" è una directory reale, rinominala e usa un symlink
-            if [ -d "'"$REMOTE_BASE"'/current" ] && [ ! -L "'"$REMOTE_BASE"'/current" ]; then
-              mv "'"$REMOTE_BASE"'/current" "'"$REMOTE_BASE"'/current.bak.$(date +%s)"
+            REMOTE_BASE="'"${{ env.REMOTE_BASE }}"'"
+            # Se "current" è directory reale (non symlink), rinominala e poi usa symlink
+            if [ -d "$REMOTE_BASE/current" ] && [ ! -L "$REMOTE_BASE/current" ]; then
+              mv "$REMOTE_BASE/current" "$REMOTE_BASE/current.bak.$(date +%s)"
             fi
-            ln -sfn "'"$REMOTE_BASE"'/releases/${{ env.RELEASE_DIR }}" "'"$REMOTE_BASE"'/current"
+            ln -sfn "'"${{ env.REMOTE_RELEASE }}"'" "$REMOTE_BASE/current"
+            # Con Caddyfile che importa da sites-enabled, un reload basta
             sudo -n systemctl reload caddy || true
           '
 
       - name: Prune old releases (keep last 5)
         shell: bash
         run: |
-          REMOTE_BASE="/srv/www/www.tommasoberti.com"
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
             set -e
-            cd "'"$REMOTE_BASE"'/releases" 2>/dev/null || exit 0
+            cd "'"${{ env.REMOTE_BASE }}"'/releases" 2>/dev/null || exit 0
             ls -1dt v* 2>/dev/null | tail -n +6 | xargs -r rm -rf --
           '

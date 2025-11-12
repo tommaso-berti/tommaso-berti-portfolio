@@ -27,11 +27,18 @@ export default function BreadCrumbs() {
 
     return (
         <Stack spacing={2} direction="row" alignItems="center">
-            <Breadcrumbs separator="/" aria-label="breadcrumb" sx={{ fontFamily: 'monospace' }}>
+            <Breadcrumbs separator="/" aria-label="breadcrumb">
                 {crumbs.map((item, idx) => {
                     if (idx === 0) {
                         return (
-                            <Typography key="root" color="text.secondary">
+                            <Typography
+                                key="root"
+                                color="text.secondary"
+                                variant="h5"
+                                sx={{
+                                    fontWeight: 800
+                                }}
+                            >
                                 {item.label}
                             </Typography>
                         );

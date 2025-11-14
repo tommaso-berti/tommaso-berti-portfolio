@@ -1,20 +1,13 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import IconButton from '@mui/material/IconButton';
+import { useThemeMode } from '../contexts/ThemeContext.jsx'
 
 export default function DarkModeToggle() {
-    let mode = localStorage.getItem('mui-mode') || 'light';
-
-    const handleClick = () => {
-        if(mode === 'light') {
-            localStorage.setItem('mui-mode', 'dark');
-        }
-        else
-            localStorage.setItem('mui-mode', 'light');
-    }
+    const { mode, toggleTheme } = useThemeMode();
 
     return (
-        <IconButton onClick={handleClick}>
+        <IconButton onClick={toggleTheme}>
             { mode === 'light' ? <LightModeIcon /> : <DarkModeIcon /> }
         </IconButton>
     )

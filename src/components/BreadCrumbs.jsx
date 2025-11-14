@@ -1,10 +1,12 @@
 import { useMemo } from "react";
-import { useLocation, Link as RouterLink } from "react-router-dom";
+import { useLocation, Link as RouterLink, useNavigate } from "react-router-dom";
 import { Link, Stack, Breadcrumbs, Typography } from "@mui/material";
+import InputBase from '@mui/material/InputBase';
 
 export default function BreadCrumbs() {
     const { pathname } = useLocation();
-    const root = { label: '> $ cd' };
+    const root = { label: 'tommasoberti@com:~ cd' };
+    const navigate = useNavigate();
 
     const crumbs = useMemo(() => {
         const path = pathname.split("/").filter(Boolean);
@@ -25,17 +27,47 @@ export default function BreadCrumbs() {
         return [root, ...items];
     }, [pathname]);
 
+    const handleBashInput = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            const value = e.target.value;
+            if(value === '..') {
+                navigate(`${crumbs[crumbs.length - 2].to}`)
+            }
+            else
+            navigate(`/${value}`)
+        }
+    }
+
     return (
-        <Stack direction="row" alignItems="center">
-            <Breadcrumbs separator="/" aria-label="breadcrumb">
+        <Stack
+            direction="row"
+            alignItems="center"
+        >
+            <Breadcrumbs
+                separator={
+                    <Typography
+                        variant="h5"
+                    >
+                        /
+                    </Typography>
+                }
+                aria-label="breadcrumb"
+                sx={{
+                    '& .MuiBreadcrumbs-separator': {
+                        marginLeft: 1,
+                        marginRight: 1,
+                    }
+                }}
+            >
                 {crumbs.map((item, idx) => {
                     if (idx === 0) {
                         return (
                             <Typography
                                 key="root"
                                 color="text.primary"
-                                variant="h4"
-                                fontWeight="semibold"
+                                variant="h5"
+                                fontWeight="bold"
                             >
                                 {item.label}
                             </Typography>
@@ -61,6 +93,19 @@ export default function BreadCrumbs() {
                         </Link>
                     );
                 })}
+                <InputBase
+                    onKeyDown={handleBashInput}
+                    autoFocus={true}
+                    sx={{
+                        fontSize: theme => theme.typography.h5.fontSize,
+                        fontWeight: theme => theme.typography.h5.fontWeight,
+                        lineHeight: theme => theme.typography.h5.lineHeight,
+                        color: 'text.secondary',
+                        '& .MuiInputBase-input': {
+                            paddingY: 0
+                        }
+                    }}
+                />
             </Breadcrumbs>
         </Stack>
     );

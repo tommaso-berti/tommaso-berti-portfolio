@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box'
 import profilePic from '../assets/images/profilepicture.jpeg';
+import { useTranslation } from "../hooks/useTranslation.js";
 
 export default function Home() {
+    const { t } = useTranslation();
 
     return (
         <Box
@@ -22,6 +24,7 @@ export default function Home() {
             }}
             >
             </Box>
+            {t('home')}
         </Box>
     )
 }

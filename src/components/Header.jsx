@@ -2,8 +2,7 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import BreadCrumbs from './BreadCrumbs.jsx';
 import DarkModeToggle from "./DarkModeToggle.jsx";
-import TranslateIcon from '@mui/icons-material/Translate';
-import IconButton from '@mui/material/IconButton'
+import LanguageToggle from "./LanguageToggle.jsx";
 
 export default function Header() {
     return (
@@ -20,9 +19,7 @@ export default function Header() {
         >
             <BreadCrumbs />
             <Stack direction="row">
-                <IconButton>
-                    <TranslateIcon />
-                </IconButton>
+                <LanguageToggle />
                 <DarkModeToggle />
             </Stack>
         </Box>

@@ -1,0 +1,14 @@
+{
+  "home": "home",
+  "projects": "Progetti",
+  "about": "About",
+  "blog": "Blog",
+  "example-style": "Stili di esempio",
+  "nav": {
+    "home": "home",
+    "projects": "progetti",
+    "about": "about",
+    "blog": "blog",
+    "example-style": "stili-di-esempio"
+  }
+}

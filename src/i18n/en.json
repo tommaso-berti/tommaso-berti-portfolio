@@ -1,0 +1,14 @@
+{
+  "home": "home",
+  "projects": "Projects",
+  "about": "About",
+  "blog": "Blog",
+  "example-style": "Example style",
+  "nav": {
+    "home": "home",
+    "projects": "projects",
+    "about": "about",
+    "blog": "blog",
+    "example-style": "example-style"
+  }
+}

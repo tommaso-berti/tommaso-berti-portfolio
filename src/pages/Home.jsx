@@ -2,31 +2,39 @@ import Box from '@mui/material/Box'
 import profilePic from '../assets/images/profilepicture.jpeg';
 import { useTranslation } from "../hooks/useTranslation.js";
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import { useBreadcrumb } from "../contexts/BreadcrumbContext.jsx";
+import {useEffect} from "react";
 
 export default function Home() {
     const { t } = useTranslation();
+    const { setBreadcrumb } = useBreadcrumb();
+
+    useEffect(() => {
+        setBreadcrumb(prev => ({
+            ...prev,
+            home: {
+                type: "path",
+                items: [
+                    { title: t("projects"), label: "projects" },
+                    { title: t("about"), label: "about" },
+                    { title: t("blog"), label: "blog" },
+                    { title: t("example-style"), label: "example-style" }
+                ],
+            },
+        }));
+    }, [setBreadcrumb]);
 
     return (
-        <Box
-            component="main"
-            sx={{
-                paddingY: '2rem',
-                height: '100%'
-            }}
-        >
-            <Box
+        <>
+            <Stack
                 component="section"
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignContent: 'center'
-                }}
             >
                 <Typography
                     color="text.primary"
                     variant="h5"
                 >
-                    Hello, I am
+                    Hi, I am
                 </Typography>
                 <Typography
                     color="text.primary"
@@ -41,18 +49,29 @@ export default function Home() {
                 >
                     Software Developer and Delivery Expert
                 </Typography>
-            </Box>
-            <Box
+            </Stack>
+            <Stack
                 component="section"
                 sx={{marginTop: '2rem'}}
                 width={'50%'}
+                gap={1}
             >
                 <Typography
                     variant="body1"
                 >
-                    {t('hero')}
+                    {t('pages.home.hero1')}
                 </Typography>
-            </Box>
-        </Box>
+                <Typography
+                    variant="body1"
+                >
+                    {t('pages.home.hero2')}
+                </Typography>
+                <Typography
+                    variant="body1"
+                >
+                    {t('pages.home.hero3')}
+                </Typography>
+            </Stack>
+        </>
     )
 }

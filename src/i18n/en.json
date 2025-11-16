@@ -11,5 +11,15 @@
     "blog": "blog",
     "example-style": "example-style"
   },
-  "hero": "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in a leading fashion-tech company, specialized in the implementation of new customer features and in optimization and fix of old implementation"
+  "pages": {
+    "home": {
+      "tooltipResume": "Download Resume",
+      "hero1": "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in the leading fashion-tech company Lectra.",
+      "hero2": "I am specialized in the implementation of new customer features and in optimization and fix of old one, making sure it matches the customer expected behavior.",
+      "hero3": "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
+    },
+    "about": {
+      "bio": "Bio"
+    }
+  }
 }

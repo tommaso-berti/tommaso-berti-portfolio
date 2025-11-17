@@ -23,6 +23,7 @@ export default function Footer() {
                 alignItems: 'center',
                 padding: '0.2rem',
                 display: 'inline-flex',
+                zIndex: 100,
             }}
         >
             <Stack
@@ -33,6 +34,7 @@ export default function Footer() {
                     borderColor: 'divider',
                     borderRadius: '1rem',
                     boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.2)',
+                    backgroundColor: "background.paper",
                 }}
             >
                 <Tooltip title="GitHub">

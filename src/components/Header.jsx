@@ -18,7 +18,9 @@ export default function Header() {
                 borderBottom: '1px solid',
                 borderColor: 'divider',
                 paddingY: '1rem',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                backgroundColor: "background.paper",
+                zIndex: 100,
             }}
         >
             <BreadCrumbs />

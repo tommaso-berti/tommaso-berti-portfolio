@@ -14,7 +14,7 @@ export default function Layout() {
                     component="main"
                     sx={{
                         paddingTop: '6rem',
-                        paddingBottom: '4rem',
+                        paddingBottom: '8rem',
                         height: '100%'
                     }}
                 >

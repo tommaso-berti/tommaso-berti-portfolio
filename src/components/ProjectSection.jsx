@@ -20,13 +20,13 @@ export default function ProjectSection({
     const textColumnSx = {
         flexBasis: { xs: "100%", md: "40%" },
         flexGrow: 0,
-        flexShrink: 0,
+        flexShrink: 1,
     };
 
     const previewColumnSx = {
         flexBasis: { xs: "100%", md: "60%" },
         flexGrow: 0,
-        flexShrink: 0,
+        flexShrink: 1,
         display: "flex",
         justifyContent: "center",
     };
@@ -37,6 +37,7 @@ export default function ProjectSection({
             id={id}
             sx={{
                 py: 6,
+                maxWidth: "100%"
             }}
         >
             <Stack
@@ -122,13 +123,19 @@ export default function ProjectSection({
                         </Stack>
                     )}
 
-                    <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 1,
+                        }}
+                    >
                         {
                             technologies ? technologies.map((tech) => (
-                                <Chip key={tech} label={`#${tech}`} variant="outlined"/>
+                                <Chip key={tech} label={`#${tech}`} variant="outlined" sx={{flexBasis:"20%"}}/>
                             )) : null
                         }
-                    </Stack>
+                    </Box>
                 </Stack>
 
                 {preview && (

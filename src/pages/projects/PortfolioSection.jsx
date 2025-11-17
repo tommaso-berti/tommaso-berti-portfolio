@@ -4,20 +4,19 @@ import ProjectSection from "../../components/ProjectSection.jsx";
 export default function CodexPaneSection() {
     return (
         <ProjectSection
-            overline="Main Project · Webapp"
-            title="CodexPane"
+            overline="Main Project · Portfolio"
+            title="Portfolio"
             description="Un ambiente interattivo per lavorare con il codice nel browser."
             primaryAction={{ label: "Apri preview grande" }}
             secondaryAction={{
                 label: "Apri sito",
-                href: "https://www.codexpane.tommasoberti.com",
+                href: "https://www.tommasoberti.com",
             }}
-            reversed={true}
-            id={'codexpane'}
-            technologies={['React', 'Vite', 'HTML', 'CSS', 'MUI', 'JS', 'minisearch']}
+            id={'portfolio'}
+            technologies={['React', 'Vite', 'HTML', 'CSS', 'MUI', 'JS']}
             preview={
                 <MiniWebappPreview
-                    url="https://www.codexpane.tommasoberti.com"
+                    url="https://www.tommasoberti.com"
                     title="CodexPane"
                     overlayLabel="Live Preview"
                     width="100%"

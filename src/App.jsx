@@ -9,6 +9,7 @@ import { BreadCrumbProvider } from "./contexts/BreadCrumbContext.jsx";
 
 import About from "./pages/about/About.jsx";
 import Blog from "./pages/blog/Blog.jsx";
+import ProjectPage from "./pages/projects/ProjectPage.jsx";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                                 <Route index element={<Home />} />
                                     <Route path="/example-style" element={<ExampleStyle />} />
                                     <Route path="/projects" element={<Projects />} />
+                                    <Route path="/projects/:project" element={<ProjectPage />} />
                                     <Route path="/about" element={<About />} />
                                     <Route path="/blog" element={<Blog />} />
                                     <Route path="*" element={<Navigate to="/" replace />} />

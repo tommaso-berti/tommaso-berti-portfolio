@@ -3,6 +3,7 @@ import { useBreadcrumb } from "../../contexts/BreadCrumbContext.jsx";
 import { useEffect } from "react";
 import { useTranslation } from "../../hooks/useTranslation.js";
 import CodexPaneSection from "./CodexPaneSection.jsx";
+import PortfolioSection from "./PortfolioSection.jsx";
 import Typography from "@mui/material/Typography";
 
 export default function About() {
@@ -24,10 +25,11 @@ export default function About() {
     }, [setBreadcrumb]);
 
     return (
-        <Stack id="about" component="article">
+        <Stack id="projects" component="article">
             <Typography variant="h3">
                 Projects
             </Typography>
+            <PortfolioSection />
             <CodexPaneSection />
         </Stack>
     );

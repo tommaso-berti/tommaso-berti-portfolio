@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 
 export default function Layout() {
     return (
-        <Container maxWidth="lg" >
+        <Container maxWidth="lg" disableGutters>
             <Header />
             <Box
                 component="main"

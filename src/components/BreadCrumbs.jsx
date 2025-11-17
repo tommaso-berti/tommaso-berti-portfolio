@@ -35,12 +35,16 @@ export default function BreadCrumbs() {
     const handleMenuClick = (menuItem, parentItem) => {
         const context = breadcrumb[parentItem?.label] ?? {};
         const useHash = context.type === "hash";
-
+        const base = parentItem?.to ?? "/";
+        console.log("base", base);
         if (useHash) {
-            const base = parentItem?.to ?? "/";
             navigate(`${base}#${menuItem.label}`);
         } else {
-            navigate(`/${menuItem.label}`);
+            const safeLabel = menuItem.label.startsWith("/")
+                ? menuItem.label.slice(1)
+                : menuItem.label;
+            const separator = base.endsWith("/") || safeLabel === "" ? "" : "/";
+            navigate(`${base}${separator}${safeLabel}`);
         }
     };
 

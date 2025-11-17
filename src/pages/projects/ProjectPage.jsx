@@ -5,6 +5,7 @@ export default function ProjectPage() {
     const { project } = useParams();
     return (
         <Stack id="about" component="article">
+
         </Stack>
     )
 }

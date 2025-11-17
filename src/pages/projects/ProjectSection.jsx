@@ -1,6 +1,6 @@
 import { Box, Stack, Typography, Button, Link, Modal } from "@mui/material";
 import { useState } from "react";
-import MiniWebappPreview from "./MiniWebappPreview.jsx";
+import MiniWebappPreview from "../../components/MiniWebappPreview.jsx";
 import Chip from "@mui/material/Chip";
 
 export default function ProjectSection({
@@ -97,7 +97,7 @@ export default function ProjectSection({
                                             }}
                                         >
                                             <MiniWebappPreview
-                                                url="https://www.codexpane.tommasoberti.com"
+                                                url={primaryAction.href}
                                                 title="CodexPane"
                                                 overlayLabel="Live Preview"
                                                 width="100%"

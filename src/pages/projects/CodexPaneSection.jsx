@@ -1,5 +1,5 @@
 import MiniWebappPreview from "../../components/MiniWebappPreview.jsx";
-import ProjectSection from "../../components/ProjectSection.jsx";
+import ProjectSection from "./ProjectSection.jsx";
 
 export default function CodexPaneSection() {
     return (
@@ -7,7 +7,10 @@ export default function CodexPaneSection() {
             overline="Main Project · Webapp"
             title="CodexPane"
             description="Un ambiente interattivo per lavorare con il codice nel browser."
-            primaryAction={{ label: "Apri preview grande" }}
+            primaryAction={{
+                label: "Apri preview grande",
+                href: "https://www.codexpane.tommasoberti.com",
+            }}
             secondaryAction={{
                 label: "Apri sito",
                 href: "https://www.codexpane.tommasoberti.com",

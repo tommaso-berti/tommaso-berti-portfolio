@@ -1,14 +1,14 @@
 import { createContext, useState, useContext } from "react";
 
-const BreadcrumbContext = createContext();
+const BreadCrumbContext = createContext();
 
-export function BreadcrumbProvider({ children }) {
+export function BreadCrumbProvider({ children }) {
     const [breadcrumb, setBreadcrumb] = useState({});
     return (
-        <BreadcrumbContext.Provider value={{ breadcrumb, setBreadcrumb }}>
+        <BreadCrumbContext.Provider value={{ breadcrumb, setBreadcrumb }}>
             {children}
-        </BreadcrumbContext.Provider>
+        </BreadCrumbContext.Provider>
     );
 }
 
-export const useBreadcrumb = () => useContext(BreadcrumbContext);
+export const useBreadcrumb = () => useContext(BreadCrumbContext);

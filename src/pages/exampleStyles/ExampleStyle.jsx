@@ -1,11 +1,11 @@
-import Button from '../ui/Button.jsx'
-import Card from '../ui/Card.jsx'
-import GlitchTitle from '../ui/GlitchTitle.jsx'
-import Grid from '../ui/Grid.jsx'
-import NavLink from '../ui/NavLink.jsx'
-import SectionTitle from '../ui/SectionTitle.jsx'
-import Tag from '../ui/Tag.jsx'
-import TerminalCard from '../ui/TerminalCard.jsx'
+import Button from '../../ui/Button.jsx'
+import Card from '../../ui/Card.jsx'
+import GlitchTitle from '../../ui/GlitchTitle.jsx'
+import Grid from '../../ui/Grid.jsx'
+import NavLink from '../../ui/NavLink.jsx'
+import SectionTitle from '../../ui/SectionTitle.jsx'
+import Tag from '../../ui/Tag.jsx'
+import TerminalCard from '../../ui/TerminalCard.jsx'
 
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';

@@ -1,7 +1,7 @@
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "../../hooks/useTranslation.js";
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { useBreadcrumb } from "../contexts/BreadcrumbContext.jsx";
+import { useBreadcrumb } from "../../contexts/BreadCrumbContext.jsx";
 import {useEffect} from "react";
 
 export default function Home() {

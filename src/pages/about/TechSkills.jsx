@@ -1,4 +1,4 @@
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "../../hooks/useTranslation.js";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
@@ -20,7 +20,7 @@ import {
     WebStormIcon,
     PostmanIcon,
     ChatGPTIcon,
-} from "../icons";
+} from "../../icons/index.js";
 
 export default function TechSkills() {
     const { t } = useTranslation();

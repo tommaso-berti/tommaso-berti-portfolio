@@ -9,7 +9,7 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import Stack from "@mui/material/Stack";
 import {useState} from "react";
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "../../hooks/useTranslation.js";
 
 export default function Experience() {
     const { t } = useTranslation();

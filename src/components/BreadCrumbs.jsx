@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import IconMenu from "./IconMenu";
 import { useTranslation } from "../hooks/useTranslation.js";
-import { useBreadcrumb } from "../contexts/BreadcrumbContext.jsx";
+import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 
 export default function BreadCrumbs() {
     const { pathname } = useLocation();

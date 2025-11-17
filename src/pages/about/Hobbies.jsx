@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "../../hooks/useTranslation.js";
 
 export default function Hobbies() {
     const { t } = useTranslation();

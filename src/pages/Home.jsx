@@ -1,5 +1,3 @@
-import Box from '@mui/material/Box'
-import profilePic from '../assets/images/profilepicture.jpeg';
 import { useTranslation } from "../hooks/useTranslation.js";
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';

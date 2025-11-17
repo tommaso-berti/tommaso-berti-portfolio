@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
@@ -11,21 +11,29 @@ import { useTranslation } from "../hooks/useTranslation.js";
 export default function Footer() {
     const { t } = useTranslation();
     return (
-        <Box
+        <Container
+            component="footer"
+            maxWidth="lg"
+            disableGutters
             sx={{
-                backgroundColor: 'background.paper',
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: '1rem',
+                position: 'fixed',
+                bottom: '2rem',
+                justifyContent: 'center',
+                width: '100%',
                 alignItems: 'center',
-                padding: '0.3rem',
-                boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.2)',
+                padding: '0.2rem',
                 display: 'inline-flex',
             }}
         >
             <Stack
                 direction='row'
                 gap={1}
+                sx={{
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    borderRadius: '1rem',
+                    boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.2)',
+                }}
             >
                 <Tooltip title="GitHub">
                     <IconButton
@@ -76,6 +84,6 @@ export default function Footer() {
                     </IconButton>
                 </Tooltip>
             </Stack>
-        </Box>
+        </Container>
     )
 }

@@ -13,23 +13,14 @@ export default function Layout() {
                 <Box
                     component="main"
                     sx={{
-                        paddingY: '2rem',
+                        paddingTop: '6rem',
+                        paddingBottom: '4rem',
                         height: '100%'
                     }}
                 >
                     <Outlet />
                 </Box>
-                <Box
-                    component='footer'
-                    sx={{
-                        position: 'fixed',
-                        bottom: '2rem',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        width: '100%'
-                    }}>
-                    <Footer />
-                </Box>
+                <Footer />
             </Container>
         </BreadcrumbProvider>
     )

@@ -32,27 +32,42 @@ export default function BreadCrumbs() {
         return [root, ...items];
     }, [pathname]);
 
-    const handleMenuClick = (item) => {
-        navigate(`/${item.label}`);
+    const handleMenuClick = (menuItem, parentItem) => {
+        const context = breadcrumb[parentItem?.label] ?? {};
+        const useHash = context.type === "hash";
+
+        if (useHash) {
+            const base = parentItem?.to ?? "/";
+            navigate(`${base}#${menuItem.label}`);
+        } else {
+            navigate(`/${menuItem.label}`);
+        }
     };
 
     const handleBashInput = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            const value = e.target.value.trim();
-            if (!value) return;
+        if (e.key !== "Enter") return;
+        e.preventDefault();
 
-            if (value === "..") {
-                const previous = crumbs.at(-2);
-                if (previous?.to) navigate(previous.to);
-            } else {
-                const current = crumbs.at(-1);
-                const base = current?.to ?? "";
-                const context = breadcrumb[current.label] ?? {};
-                const useHash = context.type === "hash";
+        const value = e.target.value.trim();
+        if (!value) return;
 
-                navigate(useHash ? `${base}#${value}` : `${base}/${value}`);
-            }
+        const current = crumbs.at(-1);
+        const context = breadcrumb[current.label] ?? {};
+        const useHash = context.type === "hash";
+
+        if (value === "..") {
+            const previous = crumbs.at(-2);
+            if (previous?.to) navigate(previous.to);
+            return;
+        }
+
+        if (useHash) {
+            const base = current.to?.split("#")[0] ?? "";
+            navigate(`${base}#${value}`);
+        } else {
+            const base = current?.to ?? "";
+            const separator = base.endsWith("/") ? "" : "/";
+            navigate(`${base}${separator}${value}`);
         }
     };
 
@@ -97,7 +112,7 @@ export default function BreadCrumbs() {
                                 {itemsForMenu.length > 0 && (
                                     <IconMenu
                                         items={itemsForMenu}
-                                        onItemClick={handleMenuClick}
+                                        onItemClick={(menuItem) => handleMenuClick(menuItem, item)}
                                         buttonId="home-button"
                                         menuId="home-menu"
                                         iconButtonProps={{ sx: { p: 0 } }}
@@ -115,7 +130,7 @@ export default function BreadCrumbs() {
                                 </Typography>
                                 <IconMenu
                                     items={itemsForMenu}
-                                    onItemClick={handleMenuClick}
+                                    onItemClick={(menuItem) => handleMenuClick(menuItem, item)}
                                     buttonId="path-button"
                                     menuId="path-menu"
                                     iconButtonProps={{ sx: { p: 0 } }}

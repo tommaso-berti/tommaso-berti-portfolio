@@ -1,9 +1,9 @@
 import MiniWebappPreview from "../../components/MiniWebappPreview.jsx";
-import ProjectSection from "./ProjectSection.jsx";
+import ProjectsSection from "./ProjectsSection.jsx";
 
 export default function CodexPaneSection() {
     return (
-        <ProjectSection
+        <ProjectsSection
             overline="Main Project · Webapp"
             title="CodexPane"
             description="Un ambiente interattivo per lavorare con il codice nel browser."

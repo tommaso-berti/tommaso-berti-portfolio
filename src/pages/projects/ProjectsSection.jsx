@@ -3,7 +3,7 @@ import { useState } from "react";
 import MiniWebappPreview from "../../components/MiniWebappPreview.jsx";
 import Chip from "@mui/material/Chip";
 
-export default function ProjectSection({
+export default function ProjectsSection({
                                         overline,
                                         title,
                                         description,

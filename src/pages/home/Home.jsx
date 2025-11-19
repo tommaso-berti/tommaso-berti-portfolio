@@ -1,27 +1,9 @@
 import { useTranslation } from "../../hooks/useTranslation.js";
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { useBreadcrumb } from "../../contexts/BreadCrumbContext.jsx";
-import {useEffect} from "react";
 
 export default function Home() {
     const { t } = useTranslation();
-    const { setBreadcrumb } = useBreadcrumb();
-
-    useEffect(() => {
-        setBreadcrumb(prev => ({
-            ...prev,
-            home: {
-                type: "path",
-                items: [
-                    { title: t("projects"), label: "projects" },
-                    { title: t("about"), label: "about" },
-                    { title: t("blog"), label: "blog" },
-                    { title: t("example-style"), label: "example-style" }
-                ],
-            },
-        }));
-    }, [setBreadcrumb]);
 
     return (
         <>

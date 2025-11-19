@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import StorageIcon from "@mui/icons-material/Storage";
+import { cloneElement } from "react";
 
 import {
     CustomBashIcon,
@@ -29,6 +30,8 @@ import {
 export default function TechSkills() {
     const { t } = useTranslation();
 
+    const ICON_SIZE = 32;
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: "#fff",
         ...theme.typography.body2,
@@ -40,9 +43,28 @@ export default function TechSkills() {
         }),
     }));
 
+    // Wrapper per garantire dimensioni identiche
+    const IconWrapper = ({ children }) => (
+        <div
+            style={{
+                width: ICON_SIZE,
+                height: ICON_SIZE,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+        >
+            {children}
+        </div>
+    );
+
     const Skill = ({ icon, label }) => (
         <Item sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            {icon}
+            <IconWrapper>
+                {cloneElement(icon, {
+                    sx: { ...(icon.props.sx || {}), fontSize: ICON_SIZE }
+                })}
+            </IconWrapper>
             <Typography variant="subtitle1">{label}</Typography>
         </Item>
     );
@@ -57,96 +79,57 @@ export default function TechSkills() {
             <Typography variant="h3">Tech Skills</Typography>
 
             <Typography variant="h5">Frontend</Typography>
-            <Grid container spacing={2} sx={{ width: "100%" }}>
+            <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomHtmlIcon sx={{ fontSize: 40, color: "#e34c26" }} />}
-                        label="HTML"
-                    />
+                    <Skill icon={<CustomHtmlIcon sx={{ color: "#e34c26" }} />} label="HTML" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomCssIcon sx={{ fontSize: 40, color: "#264de4" }} />}
-                        label="CSS"
-                    />
+                    <Skill icon={<CustomCssIcon sx={{ color: "#264de4" }} />} label="CSS" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomTailwindIcon style={{ width: 40, height: 40 }} />}
-                        label="Tailwind"
-                    />
+                    <Skill icon={<CustomTailwindIcon />} label="Tailwind" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomMuiIcon sx={{ fontSize: 40, color: "#007fff" }} />}
-                        label="MUI"
-                    />
+                    <Skill icon={<CustomMuiIcon sx={{ color: "#007fff" }} />} label="MUI" />
                 </Grid>
             </Grid>
 
             <Typography variant="h5">Backend</Typography>
-            <Grid container spacing={2} sx={{ width: "100%" }}>
+            <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomJavascriptIcon sx={{ fontSize: 40, color: "#f7df1e" }} />}
-                        label="JavaScript"
-                    />
+                    <Skill icon={<CustomJavascriptIcon sx={{ color: "#f7df1e" }} />} label="JavaScript" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomNodeIcon style={{ width: 40, height: 40 }} />}
-                        label="Node.js"
-                    />
+                    <Skill icon={<CustomNodeIcon />} label="Node.js" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomNextJsIcon style={{ width: 40, height: 40 }} />}
-                        label="Next.js"
-                    />
+                    <Skill icon={<CustomNextJsIcon />} label="Next.js" />
                 </Grid>
             </Grid>
 
             <Typography variant="h5">Database</Typography>
-            <Grid container spacing={2} sx={{ width: "100%" }}>
+            <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomMongoDbIcon style={{ width: 40, height: 40 }} />}
-                        label="MongoDB"
-                    />
+                    <Skill icon={<CustomMongoDbIcon />} label="MongoDB" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<StorageIcon sx={{ fontSize: 40, color: "#00758f" }} />}
-                        label="SQL"
-                    />
+                    <Skill icon={<StorageIcon sx={{ color: "#00758f" }} />} label="SQL" />
                 </Grid>
             </Grid>
 
             <Typography variant="h5">Tools</Typography>
-            <Grid container spacing={2} sx={{ width: "100%" }}>
+            <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomPostmanIcon style={{ width: 40, height: 40 }} />}
-                        label="Postman"
-                    />
+                    <Skill icon={<CustomPostmanIcon />} label="Postman" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomWebstormIcon style={{ width: 40, height: 40 }} />}
-                        label="WebStorm"
-                    />
+                    <Skill icon={<CustomWebstormIcon />} label="WebStorm" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomVSCIcon style={{ width: 40, height: 40 }} />}
-                        label="VS Code"
-                    />
+                    <Skill icon={<CustomVSCIcon />} label="VS Code" />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Skill
-                        icon={<CustomGPTIcon style={{ width: 40, height: 40 }} />}
-                        label="ChatGPT"
-                    />
+                    <Skill icon={<CustomGPTIcon />} label="ChatGPT" />
                 </Grid>
             </Grid>
         </Stack>

@@ -11,39 +11,93 @@ import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "../hooks/useTranslation.js";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 
+const ROOT_LABEL = "tommasoberti@com:~ cd";
+
+function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
+    const isHome = item.label === "home";
+    const isHomeAndOnly = isHome && isOnly;
+
+    const isNonClickable =
+        // ultimo crumb diverso da home
+        (isLast && !isHome) ||
+        // home ma unico crumb (path = "/")
+        isHomeAndOnly;
+
+    const content = isNonClickable ? (
+        <Typography variant="h5" color="text.secondary">
+            {t(item.label).toLowerCase()}
+        </Typography>
+    ) : (
+        <Link
+            component={RouterLink}
+            to={item.to}
+            underline="hover"
+            color="inherit"
+        >
+            <Typography variant="h5" color="text.primary">
+                {t(item.label).toLowerCase()}
+            </Typography>
+        </Link>
+    );
+
+    const buttonId = isHome
+        ? "home-button"
+        : `breadcrumb-${item.label}-button`;
+    const menuId = isHome
+        ? "home-menu"
+        : `breadcrumb-${item.label}-menu`;
+
+    return (
+        <Stack direction="row" alignItems="center">
+            {content}
+
+            {itemsForMenu.length > 0 && (
+                <IconMenu
+                    items={itemsForMenu}
+                    onItemClick={(menuItem) => onMenuClick(menuItem, item)}
+                    buttonId={buttonId}
+                    menuId={menuId}
+                    iconButtonProps={{ sx: { p: 0 } }}
+                />
+            )}
+        </Stack>
+    );
+}
+
 export default function BreadCrumbs() {
     const { pathname } = useLocation();
-    const root = { label: "tommasoberti@com:~ cd" };
     const navigate = useNavigate();
     const { breadcrumb } = useBreadcrumb();
     const { t } = useTranslation();
 
     const crumbs = useMemo(() => {
         const path = pathname.split("/").filter(Boolean);
-        const items = path.length === 0
+
+        return path.length === 0
             ? [{ label: "home", to: "/" }]
             : [
                 { label: "home", to: "/" },
                 ...path.map((seg, i) => ({
                     label: decodeURIComponent(seg),
                     to: "/" + path.slice(0, i + 1).join("/")
-                })),
+                }))
             ];
-        return [root, ...items];
     }, [pathname]);
+
+    const getItemsForMenu = (label) =>
+        breadcrumb[label]?.items || breadcrumb[label] || [];
 
     const handleMenuClick = (menuItem, parentItem) => {
         const context = breadcrumb[parentItem?.label] ?? {};
         const useHash = context.type === "hash";
         const base = parentItem?.to ?? "/";
-        console.log("base", base);
+
         if (useHash) {
             navigate(`${base}#${menuItem.label}`);
         } else {
-            const safeLabel = menuItem.label.startsWith("/")
-                ? menuItem.label.slice(1)
-                : menuItem.label;
-            const separator = base.endsWith("/") || safeLabel === "" ? "" : "/";
+            const safeLabel = menuItem.label.replace(/^\//, "");
+            const separator =
+                base.endsWith("/") || safeLabel === "" ? "" : "/";
             navigate(`${base}${separator}${safeLabel}`);
         }
     };
@@ -75,88 +129,41 @@ export default function BreadCrumbs() {
         }
     };
 
+    const hasSingleCrumb = crumbs.length === 1;
+
     return (
         <Stack direction="row" alignItems="center">
+            {/* prompt stile terminale */}
+            <Typography
+                variant="h5"
+                fontWeight="bold"
+                color="text.primary"
+                sx={{ mr: 1 }}
+            >
+                {ROOT_LABEL}
+            </Typography>
+
+            {/* slash iniziale */}
+            <Typography variant="h5" color="text.primary" sx={{ mx: 1 }}>
+                /
+            </Typography>
+
             <Breadcrumbs
                 separator={<Typography variant="h5">/</Typography>}
                 aria-label="breadcrumb"
                 sx={{ "& .MuiBreadcrumbs-separator": { mx: 1 } }}
             >
-                {crumbs.map((item, idx) => {
-                    if (idx === 0) {
-                        return (
-                            <Typography
-                                key="root"
-                                color="text.primary"
-                                variant="h5"
-                                fontWeight="bold"
-                            >
-                                {root.label}
-                            </Typography>
-                        );
-                    }
-
-                    const isLast = idx === crumbs.length - 1;
-                    const itemsForMenu = breadcrumb[item.label]?.items || breadcrumb[item.label] || [];
-
-                    if (item.label === "home") {
-                        return (
-                            <Stack key={item.to} direction="row" alignItems="center">
-                                <Link
-                                    component={RouterLink}
-                                    to={item.to}
-                                    underline="hover"
-                                    color="inherit"
-                                >
-                                    <Typography variant="h5" color="text.primary">
-                                        {t(item.label).toLowerCase()}
-                                    </Typography>
-                                </Link>
-
-                                {itemsForMenu.length > 0 && (
-                                    <IconMenu
-                                        items={itemsForMenu}
-                                        onItemClick={(menuItem) => handleMenuClick(menuItem, item)}
-                                        buttonId="home-button"
-                                        menuId="home-menu"
-                                        iconButtonProps={{ sx: { p: 0 } }}
-                                    />
-                                )}
-                            </Stack>
-                        );
-                    }
-
-                    if (isLast && itemsForMenu.length > 0) {
-                        return (
-                            <Stack key={item.to} direction="row" alignItems="center">
-                                <Typography variant="h5" color="text.secondary">
-                                    {t(item.label).toLowerCase()}
-                                </Typography>
-                                <IconMenu
-                                    items={itemsForMenu}
-                                    onItemClick={(menuItem) => handleMenuClick(menuItem, item)}
-                                    buttonId="path-button"
-                                    menuId="path-menu"
-                                    iconButtonProps={{ sx: { p: 0 } }}
-                                />
-                            </Stack>
-                        );
-                    }
-
-                    return (
-                        <Link
-                            key={item.to}
-                            component={RouterLink}
-                            to={item.to}
-                            underline="hover"
-                            color="inherit"
-                        >
-                            <Typography variant="h5" color="text.primary">
-                                {t(item.label).toLowerCase()}
-                            </Typography>
-                        </Link>
-                    );
-                })}
+                {crumbs.map((item, idx) => (
+                    <CrumbWithMenu
+                        key={item.to}
+                        item={item}
+                        isLast={idx === crumbs.length - 1}
+                        isOnly={hasSingleCrumb}
+                        itemsForMenu={getItemsForMenu(item.label)}
+                        t={t}
+                        onMenuClick={handleMenuClick}
+                    />
+                ))}
 
                 <InputBase
                     onKeyDown={handleBashInput}

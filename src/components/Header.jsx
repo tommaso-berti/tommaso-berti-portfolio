@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
-import BreadCrumbs from './BreadCrumbs.jsx';
+import BreadCrumbs from '../features/BreadCrumbs.jsx';
 import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
 

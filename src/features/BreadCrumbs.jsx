@@ -7,7 +7,7 @@ import {
     Typography,
     InputBase
 } from "@mui/material";
-import IconMenu from "./IconMenu";
+import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "../hooks/useTranslation.js";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 

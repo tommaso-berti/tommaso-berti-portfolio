@@ -9,7 +9,7 @@ import { BreadCrumbProvider } from "./contexts/BreadCrumbContext.jsx";
 
 import About from "./pages/about/About.jsx";
 import Blog from "./pages/blog/Blog.jsx";
-import ProjectPage from "./pages/projects/ProjectPage.jsx";
+import ProjectPage from "./pages/projects/projectsPages/ProjectPage.jsx";
 
 function App() {
     return (

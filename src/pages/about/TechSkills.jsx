@@ -4,23 +4,27 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-
-import HtmlIcon from "@mui/icons-material/Html";
-import CssIcon from "@mui/icons-material/Css";
-import JavascriptIcon from "@mui/icons-material/Javascript";
 import StorageIcon from "@mui/icons-material/Storage";
-import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
 import {
-    TailwindIcon,
-    NodeIcon,
-    NextIcon,
-    MongoIcon,
-    VSCodeIcon,
-    WebStormIcon,
-    PostmanIcon,
-    ChatGPTIcon,
-} from "../../icons/index.js";
+    CustomBashIcon,
+    CustomCssIcon,
+    CustomGitIcon,
+    CustomHtmlIcon,
+    CustomJavascriptIcon,
+    CustomjQueryIcon,
+    CustomMongoDbIcon,
+    CustomMuiIcon,
+    CustomReactIcon,
+    CustomReduxIcon,
+    CustomNodeIcon,
+    CustomGPTIcon,
+    CustomVSCIcon,
+    CustomWebstormIcon,
+    CustomTailwindIcon,
+    CustomNextJsIcon,
+    CustomPostmanIcon
+} from "../../icons/customIcons/index.js";
 
 export default function TechSkills() {
     const { t } = useTranslation();
@@ -56,25 +60,25 @@ export default function TechSkills() {
             <Grid container spacing={2} sx={{ width: "100%" }}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<HtmlIcon sx={{ fontSize: 40, color: "#e34c26" }} />}
+                        icon={<CustomHtmlIcon sx={{ fontSize: 40, color: "#e34c26" }} />}
                         label="HTML"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<CssIcon sx={{ fontSize: 40, color: "#264de4" }} />}
+                        icon={<CustomCssIcon sx={{ fontSize: 40, color: "#264de4" }} />}
                         label="CSS"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<TailwindIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomTailwindIcon style={{ width: 40, height: 40 }} />}
                         label="Tailwind"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<DesignServicesIcon sx={{ fontSize: 40, color: "#007fff" }} />}
+                        icon={<CustomMuiIcon sx={{ fontSize: 40, color: "#007fff" }} />}
                         label="MUI"
                     />
                 </Grid>
@@ -84,19 +88,19 @@ export default function TechSkills() {
             <Grid container spacing={2} sx={{ width: "100%" }}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<JavascriptIcon sx={{ fontSize: 40, color: "#f7df1e" }} />}
+                        icon={<CustomJavascriptIcon sx={{ fontSize: 40, color: "#f7df1e" }} />}
                         label="JavaScript"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<NodeIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomNodeIcon style={{ width: 40, height: 40 }} />}
                         label="Node.js"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<NextIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomNextJsIcon style={{ width: 40, height: 40 }} />}
                         label="Next.js"
                     />
                 </Grid>
@@ -106,7 +110,7 @@ export default function TechSkills() {
             <Grid container spacing={2} sx={{ width: "100%" }}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<MongoIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomMongoDbIcon style={{ width: 40, height: 40 }} />}
                         label="MongoDB"
                     />
                 </Grid>
@@ -122,25 +126,25 @@ export default function TechSkills() {
             <Grid container spacing={2} sx={{ width: "100%" }}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<PostmanIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomPostmanIcon style={{ width: 40, height: 40 }} />}
                         label="Postman"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<WebStormIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomWebstormIcon style={{ width: 40, height: 40 }} />}
                         label="WebStorm"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<VSCodeIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomVSCIcon style={{ width: 40, height: 40 }} />}
                         label="VS Code"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill
-                        icon={<ChatGPTIcon style={{ width: 40, height: 40 }} />}
+                        icon={<CustomGPTIcon style={{ width: 40, height: 40 }} />}
                         label="ChatGPT"
                     />
                 </Grid>

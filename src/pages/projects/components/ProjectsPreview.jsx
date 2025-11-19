@@ -1,9 +1,9 @@
 import { Box, Stack, Typography, Button, Link, Modal } from "@mui/material";
 import { useState } from "react";
-import MiniWebappPreview from "../../components/MiniWebappPreview.jsx";
+import MiniWebappPreview from "./MiniWebappPreview.jsx";
 import Chip from "@mui/material/Chip";
 
-export default function ProjectsSection({
+export default function ProjectsPreview({
                                         overline,
                                         title,
                                         description,

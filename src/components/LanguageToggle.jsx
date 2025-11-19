@@ -1,6 +1,6 @@
 import TranslateIcon from "@mui/icons-material/Translate";
 import { useLanguage } from "../contexts/LanguageContext.jsx";
-import IconMenu from "./IconMenu";
+import IconMenu from "../features/components/IconMenu.jsx";
 
 export default function LanguageToggle() {
     const { language, toggleLanguage } = useLanguage();

@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import TechnologySection from "./TechnologySection.jsx";
 import { useState } from "react";
-import projects from "./projects.json";
+import projects from "./projects.js";
 
 export default function ProjectPage() {
     const { project } = useParams();

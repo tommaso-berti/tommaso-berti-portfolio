@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 
-export default  function TechnologySection({ technologies = [] }) {
+export default function TechnologySection({ technologies = [] }) {
     const [tab, setTab] = useState("All");
 
     if (!technologies.length) return null;
@@ -26,9 +26,7 @@ export default  function TechnologySection({ technologies = [] }) {
 
     return (
         <Stack spacing={4}>
-            <Typography variant="h4">
-                Technologies
-            </Typography>
+            <Typography variant="h4">Technologies</Typography>
 
             <Tabs
                 value={tab}
@@ -58,87 +56,97 @@ export default  function TechnologySection({ technologies = [] }) {
                     gap: 3,
                 }}
             >
-                {filteredTechs.map((tech, index) => (
-                    <Card
-                        key={index}
-                        elevation={3}
-                        sx={{
-                            borderRadius: 3,
-                            p: 1,
-                            height: "100%",
-                            display: "flex",
-                            flexDirection: "column",
-                            transition: "0.25s",
-                            "&:hover": {
-                                transform: "translateY(-4px)",
-                                boxShadow: 6,
-                            },
-                        }}
-                    >
-                        <CardContent
+                {filteredTechs.map((tech, index) => {
+                    const IconComponent = tech.icon; // componente React
+
+                    return (
+                        <Card
+                            key={index}
+                            elevation={3}
                             sx={{
+                                borderRadius: 3,
+                                p: 1,
+                                height: "100%",
                                 display: "flex",
                                 flexDirection: "column",
-                                gap: 2,
-                                flex: 1,
+                                transition: "0.25s",
+                                "&:hover": {
+                                    transform: "translateY(-4px)",
+                                    boxShadow: 6,
+                                },
                             }}
                         >
-                            <Stack direction="row" spacing={2} alignItems="center">
-                                <Avatar
-                                    src={tech.icon}
-                                    alt={tech.name}
-                                    sx={{
-                                        width: 40,
-                                        height: 40,
-                                        bgcolor: "primary.main",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    {!tech.icon && tech.name.charAt(0)}
-                                </Avatar>
-                                <Stack>
-                                    <Typography variant="subtitle1" fontWeight={600}>
-                                        {tech.name}
-                                    </Typography>
-                                    <Typography
-                                        variant="caption"
-                                        sx={{ opacity: 0.7 }}
+                            <CardContent
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: 2,
+                                    flex: 1,
+                                }}
+                            >
+                                <Stack direction="row" spacing={2} alignItems="center">
+                                    <Avatar
+                                        sx={{
+                                            width: 40,
+                                            height: 40,
+                                            backgroundColor: "primary.main",
+                                            fontWeight: 600,
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                        }}
                                     >
-                                        {tech.category}
-                                    </Typography>
-                                </Stack>
-                            </Stack>
+                                        {IconComponent ? (
+                                            <IconComponent />
+                                        ) : (
+                                            tech.name.charAt(0)
+                                        )}
+                                    </Avatar>
 
-                            {tech.description && (
-                                <Typography variant="body2" sx={{ mt: 1 }}>
-                                    {tech.description}
-                                </Typography>
-                            )}
-
-                            {typeof tech.level === "number" && (
-                                <Stack spacing={1}>
-                                    <Stack
-                                        direction="row"
-                                        alignItems="center"
-                                        justifyContent="space-between"
-                                    >
-                                        <Typography variant="caption">
-                                            Peso nel progetto
+                                    <Stack>
+                                        <Typography variant="subtitle1" fontWeight={600}>
+                                            {tech.name}
                                         </Typography>
-                                        <Typography variant="caption" fontWeight={600}>
-                                            {tech.level}%
+                                        <Typography
+                                            variant="caption"
+                                            sx={{ opacity: 0.7 }}
+                                        >
+                                            {tech.category}
                                         </Typography>
                                     </Stack>
-                                    <LinearProgress
-                                        variant="determinate"
-                                        value={tech.level}
-                                        sx={{ borderRadius: 999 }}
-                                    />
                                 </Stack>
-                            )}
-                        </CardContent>
-                    </Card>
-                ))}
+
+                                {tech.description && (
+                                    <Typography variant="body2" sx={{ mt: 1 }}>
+                                        {tech.description}
+                                    </Typography>
+                                )}
+
+                                {typeof tech.level === "number" && (
+                                    <Stack spacing={1}>
+                                        <Stack
+                                            direction="row"
+                                            alignItems="center"
+                                            justifyContent="space-between"
+                                        >
+                                            <Typography variant="caption">
+                                                Peso nel progetto
+                                            </Typography>
+                                            <Typography variant="caption" fontWeight={600}>
+                                                {tech.level}%
+                                            </Typography>
+                                        </Stack>
+                                        <LinearProgress
+                                            variant="determinate"
+                                            value={tech.level}
+                                            sx={{ borderRadius: 999 }}
+                                        />
+                                    </Stack>
+                                )}
+                            </CardContent>
+                        </Card>
+                    );
+                })}
             </Box>
         </Stack>
     );

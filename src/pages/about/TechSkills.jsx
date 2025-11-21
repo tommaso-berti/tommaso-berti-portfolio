@@ -29,7 +29,7 @@ import {
 } from "../../icons/customIcons/index.js";
 
 export default function TechSkills() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('pages.about.tech-skills');
 
     const ICON_SIZE = 22;
 
@@ -76,9 +76,9 @@ export default function TechSkills() {
             component="section"
             sx={{ marginTop: "3rem", width: "100%" }}
         >
-            <Typography variant="h3">Tech Skills</Typography>
+            <Typography variant="h3">{t('title')}</Typography>
 
-            <Typography variant="h5">Frontend</Typography>
+            <Typography variant="h5">{t('frontend')}</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill icon={<CustomHtmlIcon sx={{ color: "#e34c26" }} />} label="HTML" />
@@ -94,7 +94,7 @@ export default function TechSkills() {
                 </Grid>
             </Grid>
 
-            <Typography variant="h5">Backend</Typography>
+            <Typography variant="h5">{t('backend')}</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill icon={<CustomJavascriptIcon />} label="JavaScript" />
@@ -115,7 +115,7 @@ export default function TechSkills() {
                 */}
             </Grid>
 
-            <Typography variant="h5">Database</Typography>
+            <Typography variant="h5">{t('database')}</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill icon={<CustomMongoDbIcon />} label="MongoDB" />
@@ -127,7 +127,7 @@ export default function TechSkills() {
                 */}
             </Grid>
 
-            <Typography variant="h5">Tools</Typography>
+            <Typography variant="h5">{t('tools')}</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={3}>
                     <Skill icon={<CustomGitIcon />} label="Git" />

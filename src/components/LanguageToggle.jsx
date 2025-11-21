@@ -6,12 +6,12 @@ export default function LanguageToggle() {
     const { language, toggleLanguage } = useLanguage();
 
     const languages = [
-        { title: "IT", label: "it" },
-        { title: "EN", label: "en" },
+        { title: "IT", id: "it" },
+        { title: "EN", id: "en" },
     ];
 
     const handleLanguageSelect = (item) => {
-        toggleLanguage(item.label);
+        toggleLanguage(item.id);
     };
 
     return (

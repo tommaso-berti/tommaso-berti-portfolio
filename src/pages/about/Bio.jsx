@@ -5,7 +5,8 @@ import profilePic from "../../assets/images/profilepicture.jpeg";
 import { useTranslation } from "../../hooks/useTranslation.js";
 
 export default function Bio() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('pages.about.bio');
+
     return (
         <Stack
             direction="row"
@@ -16,10 +17,10 @@ export default function Bio() {
         >
             <Stack sx={{flex: 1}} spacing={4}>
                 <Typography variant="h3">
-                    {t('pages.about.bio')}
+                    {t('title')}
                 </Typography>
                 <Typography variant="body1">
-                    I’m Tommaso Berti, 22, passionate about technology and always eager to learn. I enjoy tackling challenges, discovering solutions, and continuously expanding my skills. Working in teams and collaborating efficiently drives me to achieve great results.
+                    {t('description')}
                 </Typography>
             </Stack>
             <Stack

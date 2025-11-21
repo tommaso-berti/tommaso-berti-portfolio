@@ -8,6 +8,7 @@ export default function IconMenu({
                                      buttonId,
                                      menuId,
                                      iconButtonProps,
+                                     icon = <ArrowDropDownIcon />,
                                  }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -37,7 +38,7 @@ export default function IconMenu({
                 onClick={handleOpen}
                 {...iconButtonProps}
             >
-                <ArrowDropDownIcon />
+                {icon}
             </IconButton>
 
             <Menu

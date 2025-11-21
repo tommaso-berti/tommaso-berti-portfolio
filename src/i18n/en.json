@@ -19,7 +19,166 @@
       "hero3": "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
     },
     "about": {
-      "bio": "Bio"
+      "bio": {
+        "title": "Bio",
+        "description": "I’m Tommaso Berti, 22, passionate about technology and always eager to learn. I enjoy tackling challenges, discovering solutions, and continuously expanding my skills. Working in teams and collaborating efficiently drives me to achieve great results."
+      },
+      "hobbies": {
+        "title": "Hobbies",
+        "description1": "I’ve been playing volleyball for 18 years, a sport that has taught me discipline, teamwork, and the joy of constant self-improvement.<br />I’m a setter — one of the most challenging roles in volleyball, as it requires calm, calculated decisions without letting emotions take over. It’s not always easy. Since volleyball isn’t a contact sport, there’s no physical way to release tension or excitement. Your voice becomes your only outlet, which makes high-pressure situations even harder to navigate.<br />\n",
+        "description2": "I’m also a passionate gamer. Through games I’ve explored entire worlds, learned history in unexpected ways, cried over emotional stories, and laughed at unforgettable characters. Gaming is more than entertainment for me — it’s a source of inspiration, creativity, and connection."
+      },
+      "experience": {
+        "title": "Study and Experience",
+        "experiences": [
+          {
+            "year": "2016",
+            "title": "High School Diploma (Scientific Lyceum)",
+            "description": "I completed my Scientific High School studies, gaining solid foundations in mathematics, physics, and computer science. I participated in various school projects that strengthened my analytical thinking and problem-solving abilities. This school experience taught me methodological discipline and how to approach complex topics with structure."
+          },
+          {
+            "year": "2016-2018",
+            "title": "Computer Engineering University in Padua (Veneto, Italy)",
+            "description": "During my first two university years in Padua, I studied the fundamentals of computer engineering and algorithm design. I worked on practical labs and collaborated with classmates on programming projects. This period gave me a strong academic base and teamwork skills applied to software development."
+          },
+          {
+            "year": "2018-2020",
+            "title": "Computer university in Venice (Veneto, Italy)",
+            "description": "Continuing my studies in Venice, I focused on system architectures, databases, and web development. I took part in academic projects that involved building applications and experimenting with modern technologies. This experience strengthened my independence and adaptability."
+          },
+          {
+            "year": "2018-present",
+            "title": "Art.Ap",
+            "description": "I worked as a guide during two temporary exhibitions and managed the organization’s official website. My tasks included visitor assistance, content updates, and coordination with the exhibition team."
+          },
+          {
+            "year": "2019-2020",
+            "title": "DeFra Web - Contractor",
+            "description": "I managed web content using CMS platforms and handled periodic backups. I also worked on catalog updates, migrations, client meetings, documentation, and PHP/CSS/HTML adjustments."
+          },
+          {
+            "year": "2021-present",
+            "title": "Kubix Link (A Lectra Company) - Full time employee",
+            "description": "I contribute to digital solutions for PLM/PIM in the fashion industry. My role involves cross-team collaboration and cloud-based data processes."
+          }
+        ]
+      },
+      "tech-skills": {
+        "title": "Tech Skills",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "tools": "Tools"
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "live_preview": "Live Preview",
+      "primaryAction": "Projects Details",
+      "secondaryAction": "Open site",
+      "codexPane": {
+        "title": "CodexPane",
+        "overline": "Main Project · CodexPane",
+        "description": "",
+        "details": {
+          "introduction": {
+            "title": "CodexPane",
+            "description": [
+              "During my side projects and while progressing through my Full Stack developer course on CodeCademy, I identified a recurring challenge: the need to frequently check code documentation, constantly searching and switching between browser tabs.",
+              "At first, I tried using ChatGPT to search for documentation or example use cases. However, the answers were inconsistent, sometimes inaccurate, and not always aligned with best coding practices.",
+              "Then I experimented with tools and websites that aggregate documentation, but most were either too basic, too complex to navigate, or lacking coverage for all the languages and frameworks I needed.",
+              "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
+            ]
+          },
+          "technologies": [
+            {
+              "icon": "react",
+              "level": 90,
+              "description": "App UI, state management and routing."
+            },
+            {
+              "icon": "node",
+              "level": 70,
+              "description": "Backend API to fetch and cache documentation."
+            },
+            {
+              "icon": "mongodb",
+              "level": 60,
+              "description": "Storage for resources, snippets and cheatsheets."
+            },
+            {
+              "icon": "vsc",
+              "level": 75,
+              "description": "Development environment and tooling configuration."
+            }
+          ],
+          "roadmap": [
+            {
+              "title": "v1.0.0",
+              "content": "First version including core documentation search, basic examples and the initial UI."
+            },
+            {
+              "title": "v2.0.0",
+              "content": "Expanded documentation sources, added advanced filters and the first iteration of custom collections."
+            },
+            {
+              "title": "v3.0.0",
+              "content": "Major update including interactive playgrounds, extended cheatsheets, improved caching and UI refactor."
+            }
+          ]
+        }
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "overline": "Main Project · Portfolio",
+        "description": "",
+        "details": {
+          "introduction": {
+            "title": "Portfolio",
+            "description": [
+              "This portfolio was built to present my work, experience, and personal projects in a clean, modern and accessible way.",
+              "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system.",
+              "It serves both as a personal website and as a demonstration of my frontend engineering style and standards."
+            ]
+          },
+          "technologies": [
+            {
+              "icon": "react",
+              "level": 85,
+              "description": "Main UI framework and component-based structure."
+            },
+            {
+              "icon": "mui",
+              "level": 80,
+              "description": "Design system and responsive layout."
+            },
+            {
+              "icon": "javascript",
+              "level": 90,
+              "description": "Core language used for logic and interactivity."
+            },
+            {
+              "icon": "nextjs",
+              "level": 40,
+              "description": "Future migration path planned for SEO and routing improvements."
+            }
+          ],
+          "roadmap": [
+            {
+              "title": "v1.0.0",
+              "content": "Initial release with pages, navigation, and theme system."
+            },
+            {
+              "title": "v2.0.0",
+              "content": "Added project detail pages, animations, and improved visual consistency."
+            },
+            {
+              "title": "v3.0.0",
+              "content": "Future migration to Next.js, server-side rendering, and improved performance."
+            }
+          ]
+        }
+      }
     }
   }
 }

@@ -12,63 +12,9 @@ import {useState} from "react";
 import { useTranslation } from "../../hooks/useTranslation.js";
 
 export default function Experience() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('pages.about.experience');
     const [hoveredIndex, setHoveredIndex] = useState(0);
-
-    const experiences = [
-        {
-            year: "2016",
-            title: "High School Diploma (Scientific Lyceum)",
-            description: `
-            I completed my Scientific High School studies, gaining solid foundations in mathematics, physics, and computer science.
-            I participated in various school projects that strengthened my analytical thinking and problem-solving abilities.
-            This school experience taught me methodological discipline and how to approach complex topics with structure.
-        `
-        },
-        {
-            year: "2016-2018",
-            title: "Computer Engineering University in Padua (Veneto, Italy)",
-            description: `
-            During my first two university years in Padua, I studied the fundamentals of computer engineering and algorithm design.
-            I worked on practical labs and collaborated with classmates on programming projects.
-            This period gave me a strong academic base and teamwork skills applied to software development.
-        `
-        },
-        {
-            year: "2018-2020",
-            title: "Computer university in Venice (Veneto, Italy)",
-            description: `
-            Continuing my studies in Venice, I focused on system architectures, databases, and web development.
-            I took part in academic projects that involved building applications and experimenting with modern technologies.
-            This experience strengthened my independence and adaptability.
-        `
-        },
-        {
-            year: "2018-present",
-            title: "Art.Ap",
-            description: `
-            I worked as a guide during two temporary exhibitions and managed the organization’s official website.
-            My tasks included visitor assistance, content updates, and coordination with the exhibition team.
-        `
-        },
-        {
-            year: "2019-2020",
-            title: "DeFra Web - Contractor",
-            description: `
-            I managed web content using CMS platforms and handled periodic backups.
-            I also worked on catalog updates, migrations, client meetings, documentation, and PHP/CSS/HTML adjustments.
-        `
-        },
-        {
-            year: "2021-present",
-            title: "Kubix Link (A Lectra Company) - Full time employee",
-            description: `
-            I contribute to digital solutions for PLM/PIM in the fashion industry.
-            My role involves cross-team collaboration and cloud-based data processes.
-        `
-        }
-    ];
-
+    const experiences = t('experiences', { returnObjects: true }) || [];
 
     return (
         <Stack id="study-and-experience" spacing={4} component="section" sx={{ marginTop: "3rem" }}>

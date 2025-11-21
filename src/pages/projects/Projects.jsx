@@ -5,23 +5,23 @@ import ProjectsPreview from "./components/ProjectsPreview.jsx";
 import MiniWebappPreview from "./components/MiniWebappPreview.jsx";
 
 export default function About() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('pages.projects');
 
     return (
         <Stack id="projects" component="article">
             <Typography variant="h3">
-                Projects
+                {t('title')}
             </Typography>
             <ProjectsPreview
-                overline="Main Project · Portfolio"
-                title="Portfolio"
-                description="Un ambiente interattivo per lavorare con il codice nel browser."
+                overline={t('portfolio.overline')}
+                title={t('portfolio.title')}
+                description={t('portfolio.description')}
                 primaryAction={{
-                    label: "Project details",
+                    label: t('primaryAction'),
                     path: "portfolio",
                 }}
                 secondaryAction={{
-                    label: "Apri sito",
+                    label: t('secondaryAction'),
                     href: "https://www.tommasoberti.com",
                 }}
                 id={'portfolio'}
@@ -29,8 +29,8 @@ export default function About() {
                 preview={
                     <MiniWebappPreview
                         url="https://www.tommasoberti.com"
-                        title="CodexPane"
-                        overlayLabel="Live Preview"
+                        title={t('portfolio.title')}
+                        overlayLabel={t('live_preview')}
                         width="100%"
                         height={360}
                         scale={0.8}
@@ -38,15 +38,15 @@ export default function About() {
                 }
             />
             <ProjectsPreview
-                overline="Main Project · Webapp"
-                title="CodexPane"
-                description="Un ambiente interattivo per lavorare con il codice nel browser."
+                overline={t('portfolio.overline')}
+                title={t('portfolio.title')}
+                description={t('portfolio.description')}
                 primaryAction={{
-                    label: "Apri preview grande",
+                    label: t('primaryAction'),
                     path: "codexpane",
                 }}
                 secondaryAction={{
-                    label: "Apri sito",
+                    label: t('secondaryAction'),
                     href: "https://www.codexpane.tommasoberti.com",
                 }}
                 reversed={true}
@@ -55,8 +55,8 @@ export default function About() {
                 preview={
                     <MiniWebappPreview
                         url="https://www.codexpane.tommasoberti.com"
-                        title="CodexPane"
-                        overlayLabel="Live Preview"
+                        title={t('codexPane.title')}
+                        overlayLabel={t('live_preview')}
                         width="100%"
                         height={360}
                         scale={0.8}

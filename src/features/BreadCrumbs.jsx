@@ -133,7 +133,6 @@ export default function BreadCrumbs() {
 
     return (
         <Stack direction="row" alignItems="center">
-            {/* prompt stile terminale */}
             <Typography
                 variant="h5"
                 fontWeight="bold"
@@ -143,7 +142,6 @@ export default function BreadCrumbs() {
                 {ROOT_LABEL}
             </Typography>
 
-            {/* slash iniziale */}
             <Typography variant="h5" color="text.primary" sx={{ mx: 1 }}>
                 /
             </Typography>

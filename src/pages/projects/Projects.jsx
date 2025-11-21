@@ -17,8 +17,8 @@ export default function About() {
                 title="Portfolio"
                 description="Un ambiente interattivo per lavorare con il codice nel browser."
                 primaryAction={{
-                    label: "Apri preview grande",
-                    href: "https://www.tommasoberti.com",
+                    label: "Project details",
+                    path: "portfolio",
                 }}
                 secondaryAction={{
                     label: "Apri sito",
@@ -43,7 +43,7 @@ export default function About() {
                 description="Un ambiente interattivo per lavorare con il codice nel browser."
                 primaryAction={{
                     label: "Apri preview grande",
-                    href: "https://www.codexpane.tommasoberti.com",
+                    path: "codexpane",
                 }}
                 secondaryAction={{
                     label: "Apri sito",

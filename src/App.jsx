@@ -6,6 +6,7 @@ import Projects from './pages/projects/Projects.jsx';
 import { ThemeModeProvider } from "./contexts/ThemeContext.jsx";
 import { LanguageContextProvider } from "./contexts/LanguageContext.jsx";
 import { BreadCrumbProvider } from "./contexts/BreadCrumbContext.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 import About from "./pages/about/About.jsx";
 import Blog from "./pages/blog/Blog.jsx";
@@ -17,17 +18,18 @@ function App() {
             <BreadCrumbProvider>
                 <ThemeModeProvider>
                     <BrowserRouter>
-                        <Routes>
-                            <Route element={<Layout />}>
-                                <Route index element={<Home />} />
-                                    <Route path="/example-style" element={<ExampleStyle />} />
-                                    <Route path="/projects" element={<Projects />} />
-                                    <Route path="/projects/:project" element={<ProjectPage />} />
-                                    <Route path="/about" element={<About />} />
-                                    <Route path="/blog" element={<Blog />} />
-                                    <Route path="*" element={<Navigate to="/" replace />} />
-                            </Route>
-                        </Routes>
+                        <ScrollToTop />
+                            <Routes>
+                                <Route element={<Layout />}>
+                                    <Route index element={<Home />} />
+                                        <Route path="/example-style" element={<ExampleStyle />} />
+                                        <Route path="/projects" element={<Projects />} />
+                                        <Route path="/projects/:project" element={<ProjectPage />} />
+                                        <Route path="/about" element={<About />} />
+                                        <Route path="/blog" element={<Blog />} />
+                                        <Route path="*" element={<Navigate to="/" replace />} />
+                                </Route>
+                            </Routes>
                     </BrowserRouter>
                 </ThemeModeProvider>
             </BreadCrumbProvider>

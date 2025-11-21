@@ -1,6 +1,5 @@
-import { Box, Stack, Typography, Button, Link, Modal } from "@mui/material";
-import { useState } from "react";
-import MiniWebappPreview from "./MiniWebappPreview.jsx";
+import { Box, Stack, Typography, Button, Link } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 
 export default function ProjectsPreview({
@@ -14,9 +13,7 @@ export default function ProjectsPreview({
                                         id,
                                         technologies
                                        }) {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
     const textColumnSx = {
         flexBasis: { xs: "100%", md: "40%" },
         flexGrow: 0,
@@ -30,6 +27,11 @@ export default function ProjectsPreview({
         display: "flex",
         justifyContent: "center",
     };
+
+    const navigate = useNavigate();
+    const onClickPrimaryAction = () => {
+        navigate(primaryAction.path);
+    }
 
     return (
         <Box
@@ -70,43 +72,12 @@ export default function ProjectsPreview({
                     {(primaryAction || secondaryAction) && (
                         <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
                             {primaryAction && (
-                                <>
-                                    <Button
-                                        variant={primaryAction.variant || "contained"}
-                                        onClick={handleOpen}
-                                    >
-                                        {primaryAction.label}
-                                    </Button>
-
-                                    <Modal
-                                        open={open}
-                                        onClose={handleClose}
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                width: "80vw",
-                                                height: "80vh",
-                                                maxWidth: "1400px",
-                                                maxHeight: "900px",
-                                                display: "flex",
-                                            }}
-                                        >
-                                            <MiniWebappPreview
-                                                url={primaryAction.href}
-                                                title="CodexPane"
-                                                overlayLabel="Live Preview"
-                                                width="100%"
-                                                height="100%"
-                                                scale={1}
-                                            />
-                                        </Box>
-                                    </Modal>
-                                </>
+                                <Button
+                                    variant={primaryAction.variant || "contained"}
+                                    onClick={onClickPrimaryAction}
+                                >
+                                    {primaryAction.label}
+                                </Button>
                             )}
 
                             {secondaryAction && (

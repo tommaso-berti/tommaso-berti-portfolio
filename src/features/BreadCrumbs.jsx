@@ -11,21 +11,19 @@ import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "../hooks/useTranslation.js";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 
-const ROOT_LABEL = "tommasoberti@com:~ cd";
+const ROOT_ID = "tommasoberti@com:~ cd";
 
 function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
-    const isHome = item.label === "home";
+    const isHome = item.id === "home";
     const isHomeAndOnly = isHome && isOnly;
 
     const isNonClickable =
-        // ultimo crumb diverso da home
         (isLast && !isHome) ||
-        // home ma unico crumb (path = "/")
         isHomeAndOnly;
 
     const content = isNonClickable ? (
         <Typography variant="h5" color="text.secondary">
-            {t(item.label).toLowerCase()}
+            {t(item.id).toLowerCase()}
         </Typography>
     ) : (
         <Link
@@ -35,17 +33,17 @@ function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
             color="inherit"
         >
             <Typography variant="h5" color="text.primary">
-                {t(item.label).toLowerCase()}
+                {t(item.id).toLowerCase()}
             </Typography>
         </Link>
     );
 
     const buttonId = isHome
         ? "home-button"
-        : `breadcrumb-${item.label}-button`;
+        : `breadcrumb-${item.id}-button`;
     const menuId = isHome
         ? "home-menu"
-        : `breadcrumb-${item.label}-menu`;
+        : `breadcrumb-${item.id}-menu`;
 
     return (
         <Stack direction="row" alignItems="center">
@@ -74,31 +72,36 @@ export default function BreadCrumbs() {
         const path = pathname.split("/").filter(Boolean);
 
         return path.length === 0
-            ? [{ label: "home", to: "/" }]
+            ? [{ id: "home", to: "/" }]
             : [
-                { label: "home", to: "/" },
+                { id: "home", to: "/" },
                 ...path.map((seg, i) => ({
-                    label: decodeURIComponent(seg),
+                    id: decodeURIComponent(seg),
                     to: "/" + path.slice(0, i + 1).join("/")
                 }))
             ];
     }, [pathname]);
 
-    const getItemsForMenu = (label) =>
-        breadcrumb[label]?.items || breadcrumb[label] || [];
+    const getItemsForMenu = (id) =>
+        breadcrumb[id]?.items || breadcrumb[id] || [];
 
     const handleMenuClick = (menuItem, parentItem) => {
-        const context = breadcrumb[parentItem?.label] ?? {};
+
+        if (!menuItem || typeof menuItem.id !== "string") {
+            console.warn("Menu item senza id valido:", menuItem);
+            return;
+        }
+        const context = breadcrumb[parentItem?.id] ?? {};
         const useHash = context.type === "hash";
         const base = parentItem?.to ?? "/";
 
         if (useHash) {
-            navigate(`${base}#${menuItem.label}`);
+            navigate(`${base}#${menuItem.id}`);
         } else {
-            const safeLabel = menuItem.label.replace(/^\//, "");
+            const safeid = menuItem.id.replace(/^\//, "");
             const separator =
-                base.endsWith("/") || safeLabel === "" ? "" : "/";
-            navigate(`${base}${separator}${safeLabel}`);
+                base.endsWith("/") || safeid === "" ? "" : "/";
+            navigate(`${base}${separator}${safeid}`);
         }
     };
 
@@ -110,7 +113,7 @@ export default function BreadCrumbs() {
         if (!value) return;
 
         const current = crumbs.at(-1);
-        const context = breadcrumb[current.label] ?? {};
+        const context = breadcrumb[current.id] ?? {};
         const useHash = context.type === "hash";
 
         if (value === "..") {
@@ -139,7 +142,7 @@ export default function BreadCrumbs() {
                 color="text.primary"
                 sx={{ mr: 1 }}
             >
-                {ROOT_LABEL}
+                {ROOT_ID}
             </Typography>
 
             <Typography variant="h5" color="text.primary" sx={{ mx: 1 }}>
@@ -157,7 +160,7 @@ export default function BreadCrumbs() {
                         item={item}
                         isLast={idx === crumbs.length - 1}
                         isOnly={hasSingleCrumb}
-                        itemsForMenu={getItemsForMenu(item.label)}
+                        itemsForMenu={getItemsForMenu(item.id)}
                         t={t}
                         onMenuClick={handleMenuClick}
                     />

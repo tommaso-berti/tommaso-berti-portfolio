@@ -71,7 +71,7 @@ export default function Experience() {
 
 
     return (
-        <Stack id="experience" spacing={4} component="section" sx={{ marginTop: "3rem" }}>
+        <Stack id="study-and-experience" spacing={4} component="section" sx={{ marginTop: "3rem" }}>
             <Typography variant="h3">
                 Study and experience
             </Typography>

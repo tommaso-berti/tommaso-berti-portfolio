@@ -7,7 +7,6 @@ export default function IconMenu({
                                      onItemClick,
                                      buttonId,
                                      menuId,
-                                     icon = <ArrowDropDownIcon />,
                                      iconButtonProps,
                                  }) {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -38,7 +37,7 @@ export default function IconMenu({
                 onClick={handleOpen}
                 {...iconButtonProps}
             >
-                {icon}
+                <ArrowDropDownIcon />
             </IconButton>
 
             <Menu
@@ -53,7 +52,7 @@ export default function IconMenu({
                 }}
             >
                 {items.map((item) => (
-                    <MenuItem key={item.label} onClick={() => handleClickItem(item)}>
+                    <MenuItem key={item.id} onClick={() => handleClickItem(item)}>
                         {item.title}
                     </MenuItem>
                 ))}

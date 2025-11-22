@@ -76,7 +76,7 @@
       "live_preview": "Live Preview",
       "primaryAction": "Projects Details",
       "secondaryAction": "Open site",
-      "codexPane": {
+      "codexpane": {
         "title": "CodexPane",
         "overline": "Main Project · CodexPane",
         "description": "",
@@ -90,28 +90,34 @@
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
             ]
           },
+          "technologies_title": "Technologies",
           "technologies": [
             {
               "icon": "react",
               "level": 90,
-              "description": "App UI, state management and routing."
+              "description": "App UI, state management and routing.",
+              "category": "Frontend"
             },
             {
               "icon": "node",
               "level": 70,
-              "description": "Backend API to fetch and cache documentation."
+              "description": "Backend API to fetch and cache documentation.",
+              "category": "Backend"
             },
             {
               "icon": "mongodb",
               "level": 60,
-              "description": "Storage for resources, snippets and cheatsheets."
+              "description": "Storage for resources, snippets and cheatsheets.",
+              "category": "Database"
             },
             {
               "icon": "vsc",
               "level": 75,
-              "description": "Development environment and tooling configuration."
+              "description": "Development environment and tooling configuration.",
+              "category": "Tooling"
             }
           ],
+          "roadmap_title": "Roadmap",
           "roadmap": [
             {
               "title": "v1.0.0",
@@ -145,22 +151,26 @@
             {
               "icon": "react",
               "level": 85,
-              "description": "Main UI framework and component-based structure."
+              "description": "Main UI framework and component-based structure.",
+              "category": "Frontend"
             },
             {
               "icon": "mui",
               "level": 80,
-              "description": "Design system and responsive layout."
+              "description": "Design system and responsive layout.",
+              "category": "Frontend"
             },
             {
               "icon": "javascript",
               "level": 90,
-              "description": "Core language used for logic and interactivity."
+              "description": "Core language used for logic and interactivity.",
+              "category": "Frontend"
             },
             {
               "icon": "nextjs",
               "level": 40,
-              "description": "Future migration path planned for SEO and routing improvements."
+              "description": "Future migration path planned for SEO and routing improvements.",
+              "category": "Frontend"
             }
           ],
           "roadmap": [

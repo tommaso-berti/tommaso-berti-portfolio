@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
+import { iconsMap } from "../../../icons/customIcons/iconsMap.js"
 
 export default function TechnologySection({ technologies = [] }) {
     const [tab, setTab] = useState("All");
@@ -57,7 +58,7 @@ export default function TechnologySection({ technologies = [] }) {
                 }}
             >
                 {filteredTechs.map((tech, index) => {
-                    const IconComponent = tech.icon; // componente React
+                    const IconComponent = iconsMap[tech.icon];
 
                     return (
                         <Card

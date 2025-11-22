@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 
 export default function Home() {
-    const { t } = useTranslation();
+    const { t } = useTranslation('pages.home');
 
     return (
         <>
@@ -39,17 +39,17 @@ export default function Home() {
                 <Typography
                     variant="body1"
                 >
-                    {t('pages.home.hero1')}
+                    {t('hero1')}
                 </Typography>
                 <Typography
                     variant="body1"
                 >
-                    {t('pages.home.hero2')}
+                    {t('hero2')}
                 </Typography>
                 <Typography
                     variant="body1"
                 >
-                    {t('pages.home.hero3')}
+                    {t('hero3')}
                 </Typography>
             </Stack>
         </>

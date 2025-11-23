@@ -61,7 +61,7 @@ function TextShuffle({
     const start = useMemo(() => {
         function run() {
             if (!ref.current) return;
-            if (widths.length !== text.length) return; // aspetta misura
+            if (widths.length !== text.length) return;
 
             cancelAnimationFrame(rafRef.current);
             const target = text.split('');

@@ -50,7 +50,7 @@ export default function ProjectPage() {
 
                 <Box component="section" id="roadmap">
                     <Typography variant="h4" sx={{ mb: 4 }}>
-                        {t("roadmap_title")}
+                        {t('roadmap_title')}
                     </Typography>
 
                     <Box>

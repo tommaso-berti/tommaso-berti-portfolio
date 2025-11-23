@@ -73,13 +73,17 @@
     },
     "projects": {
       "title": "Projects",
+      "description": "This collection of projects reflects my passion for building tools that simplify my life, help me experiment, or allow me to practice and strengthen my skills. Some projects are born from curiosity, others from the desire to explore new technologies, improve my workflow, or simply enjoy the process of development.\nAs a full-time software developer, I actively use AI because I see it as a powerful and transformative tool: it speeds up development, helps me write safer and more efficient code, and supports me when exploring new ideas and technologies. Time is a valuable resource, of course, but AI is not just a shortcut — it’s an extension of my workflow. I use it carefully, always validating the output rather than assuming that every answer is correct, just like I would with any technical reference or documentation.",
       "live_preview": "Live Preview",
       "primaryAction": "Projects Details",
       "secondaryAction": "Open site",
+      "all_overline": "All",
+      "main_overline": "Main project",
+      "side_overline": "Side project",
+      "practice_overline": "Practice Project",
       "codexpane": {
         "title": "CodexPane",
-        "overline": "Main Project · CodexPane",
-        "description": "",
+        "description": "Fast and optimized web application to quick access refined documentation, examples, cheatsheet and interactive code playgrounds",
         "details": {
           "introduction": {
             "title": "CodexPane",
@@ -136,7 +140,6 @@
       },
       "portfolio": {
         "title": "Portfolio",
-        "overline": "Main Project · Portfolio",
         "description": "",
         "details": {
           "introduction": {

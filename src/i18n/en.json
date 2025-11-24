@@ -81,6 +81,9 @@
       "main_overline": "Main project",
       "side_overline": "Side project",
       "practice_overline": "Practice Project",
+      "back": "Back",
+      "next": "Next",
+      "project_not_found": "Project not found",
       "codexpane": {
         "title": "CodexPane",
         "description": "Fast and optimized web application to quick access refined documentation, examples, cheatsheet and interactive code playgrounds",
@@ -94,48 +97,40 @@
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
             ]
           },
+          "roadmap_title": "Roadmap",
           "technologies_title": "Technologies",
-          "technologies": [
-            {
-              "icon": "react",
-              "level": 90,
+          "technologies": {
+            "react": {
               "description": "App UI, state management and routing.",
               "category": "Frontend"
             },
-            {
-              "icon": "node",
-              "level": 70,
+            "node": {
               "description": "Backend API to fetch and cache documentation.",
               "category": "Backend"
             },
-            {
-              "icon": "mongodb",
-              "level": 60,
+            "mongodb": {
               "description": "Storage for resources, snippets and cheatsheets.",
               "category": "Database"
             },
-            {
-              "icon": "vsc",
-              "level": 75,
+            "vsc": {
               "description": "Development environment and tooling configuration.",
               "category": "Tooling"
             }
-          ],
-          "roadmap_title": "Roadmap",
-          "roadmap": [
-            {
+          },
+          "roadmap": {
+            "v1": {
               "title": "v1.0.0",
               "content": "First version including core documentation search, basic examples and the initial UI."
             },
-            {
+            "v2": {
               "title": "v2.0.0",
               "content": "Expanded documentation sources, added advanced filters and the first iteration of custom collections."
             },
-            {
+            "v3": {
               "title": "v3.0.0",
               "content": "Major update including interactive playgrounds, extended cheatsheets, improved caching and UI refactor."
             }
-          ]
+          }
         }
       },
       "portfolio": {
@@ -150,46 +145,40 @@
               "It serves both as a personal website and as a demonstration of my frontend engineering style and standards."
             ]
           },
-          "technologies": [
-            {
-              "icon": "react",
-              "level": 85,
+          "technologies_title": "Technologies",
+          "roadmap_title": "Roadmap",
+          "technologies": {
+            "react": {
               "description": "Main UI framework and component-based structure.",
               "category": "Frontend"
             },
-            {
-              "icon": "mui",
-              "level": 80,
+            "mui": {
               "description": "Design system and responsive layout.",
               "category": "Frontend"
             },
-            {
-              "icon": "javascript",
-              "level": 90,
+            "javascript": {
               "description": "Core language used for logic and interactivity.",
               "category": "Frontend"
             },
-            {
-              "icon": "nextjs",
-              "level": 40,
+            "nextjs": {
               "description": "Future migration path planned for SEO and routing improvements.",
               "category": "Frontend"
             }
-          ],
-          "roadmap": [
-            {
+          },
+          "roadmap": {
+            "v1": {
               "title": "v1.0.0",
               "content": "Initial release with pages, navigation, and theme system."
             },
-            {
+            "v2": {
               "title": "v2.0.0",
               "content": "Added project detail pages, animations, and improved visual consistency."
             },
-            {
+            "v3": {
               "title": "v3.0.0",
               "content": "Future migration to Next.js, server-side rendering, and improved performance."
             }
-          ]
+          }
         }
       }
     }

@@ -9,23 +9,56 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import TechnologySection from "./TechnologySection.jsx";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useTranslation } from "../../../hooks/useTranslation.js";
+import { projects } from "./projects.js";
 
 export default function ProjectPage() {
     const { project } = useParams();
     const { t } = useTranslation(`pages.projects.${project}.details`);
-    const technologies = t("technologies", { returnObjects: true });
-    const roadmap = t("roadmap", { returnObjects: true });
+    const { t: tProjects } = useTranslation("pages.projects");
+
+    const projectConfig = useMemo(
+        () => projects.find(p => p.id === project),
+        [project]
+    );
 
     const [activeStep, setActiveStep] = useState(0);
 
+    if (!projectConfig) {return (
+            <Stack component="article">
+                <Typography variant="h3">
+                    {tProjects("project_not_found", "Project not found")}
+                </Typography>
+            </Stack>
+        );
+    }
+
+    const { details } = projectConfig;
+
+    const introductionTitle = t("introduction.title");
+    const introductionParagraphs = t("introduction.description", {
+        returnObjects: true,
+    });
+
+    const technologies = details.technologies.map(tech => ({
+        icon: tech.icon,
+        level: tech.level,
+        description: t(`technologies.${tech.id}.description`),
+        category: t(`technologies.${tech.id}.category`),
+    }));
+
+    const roadmap = details.roadmapIds.map(stepId => ({
+        title: t(`roadmap.${stepId}.title`),
+        content: t(`roadmap.${stepId}.content`),
+    }));
+
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep(prevActiveStep => prevActiveStep + 1);
     };
 
     const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        setActiveStep(prevActiveStep => prevActiveStep - 1);
     };
 
     return (
@@ -34,11 +67,11 @@ export default function ProjectPage() {
 
                 <Box component="section" id="introduction">
                     <Typography variant="h3" sx={{ mb: 4 }}>
-                        {t('introduction.title')}
+                        {introductionTitle}
                     </Typography>
 
                     <Stack spacing={2}>
-                        {t('introduction.description', {returnObjects: true}).map((para, index) => (
+                        {introductionParagraphs.map((para, index) => (
                             <Typography key={index}>{para}</Typography>
                         ))}
                     </Stack>
@@ -50,7 +83,7 @@ export default function ProjectPage() {
 
                 <Box component="section" id="roadmap">
                     <Typography variant="h4" sx={{ mb: 4 }}>
-                        {t('roadmap_title')}
+                        {t("roadmap_title")}
                     </Typography>
 
                     <Box>
@@ -91,14 +124,14 @@ export default function ProjectPage() {
                                 marginTop={2}
                             >
                                 <Button disabled={activeStep === 0} onClick={handleBack}>
-                                    {t("back")}
+                                    {tProjects("back")}
                                 </Button>
 
                                 <Button
                                     disabled={activeStep === roadmap.length - 1}
                                     onClick={handleNext}
                                 >
-                                    {t("next")}
+                                    {tProjects("next")}
                                 </Button>
                             </Stack>
                         </Container>

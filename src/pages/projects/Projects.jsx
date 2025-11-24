@@ -40,7 +40,7 @@ export default function About() {
             <Typography variant="h3">
                 {t('title')}
             </Typography>
-            <Typography variant="body1" marginY={2}>
+            <Typography variant="body1" marginY={4}>
                 {t('description')}
             </Typography>
             <Tabs

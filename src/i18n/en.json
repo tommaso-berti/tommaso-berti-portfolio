@@ -141,8 +141,7 @@
             "title": "Portfolio",
             "description": [
               "This portfolio was built to present my work, experience, and personal projects in a clean, modern and accessible way.",
-              "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system.",
-              "It serves both as a personal website and as a demonstration of my frontend engineering style and standards."
+              "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system."
             ]
           },
           "technologies_title": "Technologies",
@@ -181,6 +180,9 @@
           }
         }
       }
+    },
+    "blog": {
+      "work_in_progress": "Work in progress"
     }
   }
 }

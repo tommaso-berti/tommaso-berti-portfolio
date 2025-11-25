@@ -45,7 +45,8 @@ export default function ProjectPage() {
         icon: tech.icon,
         level: tech.level,
         description: t(`technologies.${tech.id}.description`),
-        category: t(`technologies.${tech.id}.category`),
+        category: tech.category,
+        label: tech.label
     }));
 
     const roadmap = details.roadmapIds.map(stepId => ({

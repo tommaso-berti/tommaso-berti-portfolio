@@ -100,13 +100,13 @@ export default function TechnologySection({ technologies = [] }) {
                                         {IconComponent ? (
                                             <IconComponent />
                                         ) : (
-                                            tech.name.charAt(0)
+                                            tech.label.charAt(0)
                                         )}
                                     </Avatar>
 
                                     <Stack>
                                         <Typography variant="subtitle1" fontWeight={600}>
-                                            {tech.name}
+                                            {tech.label}
                                         </Typography>
                                         <Typography
                                             variant="caption"

@@ -63,7 +63,7 @@ export default function About() {
                     ))
                 }
             </Tabs>
-            { filteredProjects.map(p => (
+            { filteredProjects.length > 0 ? filteredProjects.map(p => (
                 <ProjectsPreview
                     key={p.id}
                     overline={`${t(p.overlineKey)} · ${t(p.titleKey)}`}
@@ -79,7 +79,7 @@ export default function About() {
                         href: p.secondaryAction.href
                     }}
                     id={p.id}
-                    technologies={p.technologies}
+                    technologies={p.details.technologies.map((technology, index) => technology.label)}
                     preview={
                         <MiniWebappPreview
                             url={p.previewProps.url}
@@ -91,7 +91,8 @@ export default function About() {
                         />
                     }
                 />
-            ))};
+            )) : <Typography variant="h4" marginY={4}>No projects found</Typography>
+            }
         </Stack>
     );
 }

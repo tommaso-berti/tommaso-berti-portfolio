@@ -24,7 +24,9 @@ export const projects = [
                 { id: "react", icon: "react", level: 85, label: "React", category: "Frontend" },
                 { id: "mui", icon: "mui", level: 80, label: "MUI", category: "Frontend" },
                 { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "Frontend" },
-                { id: "github", icon: "github", level: 90, label: "GitHub", category: "Tooling" },
+                { id: "github", icon: "github", level: 65, label: "GitHub", category: "Tooling" },
+                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "Tooling" },
+                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "Hosting" }
             ],
             roadmapIds: ["v1", "v2", "v3"],
         },
@@ -51,12 +53,18 @@ export const projects = [
         },
         details: {
             technologies: [
-                { id: "react", icon: "react", level: 90, label: "React", category: "Frontend" },
-                { id: "node", icon: "node", level: 70, label: "Node", category: "Backend" },
-                { id: "mongodb", icon: "mongodb", level: 60, label: "Mongo", category: "Database" },
-                { id: "vsc", icon: "vsc", level: 75, label: "Vsc", category: "Tooling" },
+                { id: "react", icon: "react", level: 85, label: "React", category: "Frontend" },
+                { id: "mui", icon: "mui", level: 80, label: "MUI", category: "Frontend" },
+                { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "Frontend" },
+                { id: "github", icon: "github", level: 65, label: "GitHub", category: "Tooling" },
+                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "Tooling" },
+                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "Hosting" },
+                { id: "minisearch", icon: "minisearch", level: 50, label: "Minisearch", category: "Library" },
+                { id: "tailwindcss", icon: "tailwindcss", level: 10, label: "TailwindCSS", category: "Frontend" },
+                { id: "css", icon: "css", level: 15, label: "CSS", category: "Frontend" },
+
             ],
-            roadmapIds: ["v1", "v2", "v3"],
+            roadmapIds: ["v1", "v2", "v3", "v4"],
         },
     },
 ];

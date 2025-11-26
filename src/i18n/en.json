@@ -84,6 +84,7 @@
       "back": "Back",
       "next": "Next",
       "project_not_found": "Project not found",
+      "impact_on_the_project": "Impact on the project",
       "codexpane": {
         "title": "CodexPane",
         "description": "Fast and optimized web application to quick access refined documentation, examples, cheatsheet and interactive code playgrounds",
@@ -91,7 +92,7 @@
           "introduction": {
             "title": "CodexPane",
             "description": [
-              "During my side projects and while progressing through my Full Stack developer course on CodeCademy, I identified a recurring challenge: the need to frequently check code documentation, constantly searching and switching between browser tabs.",
+              "During my side projects and while progressing through my developer courses, I identified a recurring challenge: the need to frequently check code documentation, constantly searching and switching between browser tabs.",
               "At first, I tried using ChatGPT to search for documentation or example use cases. However, the answers were inconsistent, sometimes inaccurate, and not always aligned with best coding practices.",
               "Then I experimented with tools and websites that aggregate documentation, but most were either too basic, too complex to navigate, or lacking coverage for all the languages and frameworks I needed.",
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
@@ -101,34 +102,65 @@
           "technologies_title": "Technologies",
           "technologies": {
             "react": {
-              "description": "App UI, state management and routing.",
-              "category": "Frontend"
+              "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
             },
-            "node": {
-              "description": "Backend API to fetch and cache documentation.",
-              "category": "Backend"
+            "mui": {
+              "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
             },
-            "mongodb": {
-              "description": "Storage for resources, snippets and cheatsheets.",
-              "category": "Database"
+            "javascript": {
+              "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
             },
-            "vsc": {
-              "description": "Development environment and tooling configuration.",
-              "category": "Tooling"
+            "github": {
+              "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
+            },
+            "webstorm": {
+              "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
+            },
+            "caddy": {
+              "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
+            },
+            "minisearch": {
+              "description": "Lightweight full-text search integration that enables fast client-side indexing and real-time query results."
+            },
+            "tailwindcss": {
+              "description": "Utility-first CSS framework used to build responsive and consistent interfaces with minimal custom styling. I used it to experiment with the library"
+            },
+            "css": {
+              "description": "Styling language used to design some layouts, control visual appearance, and ensure responsive presentation across devices."
             }
           },
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
-              "content": "First version including core documentation search, basic examples and the initial UI."
+              "content": [
+                "First version including core documentation search, basic examples and the initial UI.",
+                "Hosting on VPS",
+                "Automate the webapp release with GitHub workflow, with automatic versioning system"
+              ]
             },
             "v2": {
               "title": "v2.0.0",
-              "content": "Expanded documentation sources, added advanced filters and the first iteration of custom collections."
+              "content": [
+                "Introduce new documentation categories to improve content organization.",
+                "Refine the structure of subsections by strengthening the relationship between IDs and titles.",
+                "Enhance visual consistency across all interactive code playgrounds to improve usability and performance.",
+                "Add additional code playgrounds to expand the number of interactive examples.",
+                "Improve the search feature by indexing section and subsection content and dynamically highlighting matched text (MUI-style)."
+              ]
             },
             "v3": {
               "title": "v3.0.0",
-              "content": "Major update including interactive playgrounds, extended cheatsheets, improved caching and UI refactor."
+              "content": [
+                "Create a contributor guide to help new contributors understand how to participate in the project.",
+                "Display contributor avatars on related documents, sections, and subsections to credit authorship."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "Add cheatsheet-style documentation with options to download or copy content easily.",
+                "Integrate a simple AI chatbot, powered by the existing documentation, to help users find the right information and provide well-formatted responses."
+              ]
             }
           }
         }
@@ -148,34 +180,53 @@
           "roadmap_title": "Roadmap",
           "technologies": {
             "react": {
-              "description": "Main UI framework and component-based structure.",
-              "category": "Frontend"
+              "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
             },
             "mui": {
-              "description": "Design system and responsive layout.",
-              "category": "Frontend"
+              "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
             },
             "javascript": {
-              "description": "Core language used for logic and interactivity.",
-              "category": "Frontend"
+              "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
             },
-            "nextjs": {
-              "description": "Future migration path planned for SEO and routing improvements.",
-              "category": "Frontend"
+            "github": {
+              "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
+            },
+            "webstorm": {
+              "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
+            },
+            "caddy": {
+              "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
             }
           },
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
-              "content": "Initial release with pages, navigation, and theme system."
+              "content": [
+                "Initial release featuring pages, navigation, and a dark/light theme system, with a basic GUI and UX.",
+                "Hosting on VPS",
+                "Automate the webapp release with GitHub workflow, with automatic versioning system",
+                "Localization management with English and Italian translations.",
+                "Advanced terminal-style breadcrumb navigation, including the ability to use `..` to move to the parent category.",
+                "MiniWebApp preview to enable quick interaction with the project.",
+                "A dedicated page for each main project, showcasing its goals, challenges faced, technologies used, and roadmap."
+              ]
             },
             "v2": {
               "title": "v2.0.0",
-              "content": "Added project detail pages, animations, and improved visual consistency."
+              "content": [
+                "Improve user experience through smoother animations and a more consistent visual design.",
+                "Implement dynamic URL updates on the About page to let users navigate directly to specific sections while scrolling.",
+                "Add a status bar to each project page showing the latest commit (via GitHub APIs) along with key project metrics such as code composition and number of commits.",
+                "Show a preview of my GitHub profile on the portfolio homepage, including pinned repositories, recent activity, and relevant highlights."
+              ]
             },
             "v3": {
               "title": "v3.0.0",
-              "content": "Future migration to Next.js, server-side rendering, and improved performance."
+              "content": [
+                "Develop a custom Blog feature for publishing articles, including categories, tags, external links, and rich media support.",
+                "Integrate Redux to handle advanced state management and improve the efficiency of all database CRUD operations.",
+                "Adopt a MongoDB database to securely store, query, and manage all blog posts."
+              ]
             }
           }
         }

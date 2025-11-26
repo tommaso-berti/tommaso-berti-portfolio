@@ -9,9 +9,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { iconsMap } from "../../../icons/customIcons/iconsMap.js"
+import {useTranslation} from "../../../hooks/useTranslation.js";
 
 export default function TechnologySection({ technologies = [] }) {
     const [tab, setTab] = useState("All");
+    const { t } = useTranslation(`pages.projects`);
+
 
     if (!technologies.length) return null;
 
@@ -131,7 +134,7 @@ export default function TechnologySection({ technologies = [] }) {
                                             justifyContent="space-between"
                                         >
                                             <Typography variant="caption">
-                                                Peso nel progetto
+                                                {t('impact_on_the_project')}
                                             </Typography>
                                             <Typography variant="caption" fontWeight={600}>
                                                 {tech.level}%

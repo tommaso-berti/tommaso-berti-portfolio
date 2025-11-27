@@ -7,7 +7,16 @@ export default function DarkModeToggle() {
     const { mode, toggleTheme } = useThemeMode();
 
     return (
-        <IconButton onClick={toggleTheme}>
+        <IconButton
+            onClick={toggleTheme}
+            sx={{
+                transition: "0.25s",
+                "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: 6,
+                }
+            }}
+        >
             { mode === 'light' ? <LightModeIcon /> : <DarkModeIcon /> }
         </IconButton>
     )

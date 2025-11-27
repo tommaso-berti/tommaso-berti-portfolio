@@ -145,6 +145,16 @@
               "Così ho deciso di creare CodexPane: una web app veloce e ottimizzata che fornisce accesso rapido a documentazione curata, esempi, cheatsheet e playground di codice interattivi."
             ]
           },
+          "difficulties_faced": [
+            "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un'interfaccia utente coerente e accessibile",
+            "Implementare una funzionalità di ricerca lato client efficiente, in grado di gestire grandi quantità di documentazione senza compromettere le prestazioni",
+            "Progettare un'interfaccia intuitiva e facile da usare che permetta agli utenti di trovare e navigare rapidamente tra le varie sezioni della documentazione e gli esempi",
+            "Garantire l'accuratezza e la rilevanza dei contenuti della documentazione, attività che ha richiesto la raccolta e l'organizzazione di informazioni da più fonti",
+            "Trovare il giusto equilibrio tra funzionalità e semplicità, evitando un eccesso di feature pur offrendo strumenti utili come playground di codice e cheatsheet",
+            "Definire una struttura chiara delle cartelle del progetto e una convenzione di naming che permettano di gestire e scalare facilmente i contenuti man mano che si aggiungono nuovi linguaggi e framework",
+            "Implementare il routing dinamico per le pagine di dettaglio dei progetti, consentendo una navigazione fluida tra argomenti, sezioni e sottosezioni",
+            "Introdurre una funzione di ricerca che migliori la possibilità di individuare rapidamente le informazioni più rilevanti"
+          ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
@@ -192,8 +202,13 @@
               "Include un design completamente responsive, routing dinamico, supporto all’internazionalizzazione, componenti riutilizzabili e un sistema personalizzato per la pagina di dettaglio dei progetti."
             ]
           },
-          "technologies_title": "Tecnologie",
-          "roadmap_title": "Roadmap",
+          "difficulties_faced": [
+            "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un’interfaccia utente coerente e accessibile",
+            "Configurare l’internazionalizzazione (i18n) per supportare più lingue e garantire una traduzione dei contenuti fluida in tutto il sito",
+            "Implementare il routing dinamico per le pagine dei dettagli dei progetti, consentendo una navigazione semplice e intuitiva",
+            "Creare componenti Icon personalizzati per mantenere uno stile visivo coerente e migliorare le prestazioni",
+            "Creazione di un componente Breadcrumb personalizzato con navigazione in stile terminale, includendo la possibilità di utilizzare `..` per tornare alla categoria superiore."
+          ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",

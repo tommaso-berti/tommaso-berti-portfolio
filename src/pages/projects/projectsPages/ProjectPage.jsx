@@ -6,6 +6,7 @@ import { useMemo } from "react";
 
 import TechnologySection from "./TechnologySection.jsx";
 import RoadmapSection from "./RoadmapSection.jsx";
+import DifficultiesFacedSection from "./DifficultiesFacedSection.jsx";
 import { useTranslation } from "../../../hooks/useTranslation.js";
 import { projects } from "./projects.js";
 import { TECHNOLOGIES } from "./technologies.config.js";
@@ -19,6 +20,8 @@ export default function ProjectPage() {
         () => projects.find((p) => p.id === project),
         [project]
     );
+
+    const difficulties = tProject('difficulties_faced', { returnObjects: true });
 
     if (!projectConfig) {
         return (
@@ -69,10 +72,8 @@ export default function ProjectPage() {
                     </Stack>
                 </Box>
 
-                <Box component="section" id="technologies">
-                    <TechnologySection technologies={technologies} />
-                </Box>
-
+                <DifficultiesFacedSection difficulties={difficulties} />
+                <TechnologySection technologies={technologies} />
                 <RoadmapSection
                     roadmapTitle={tProjects("roadmap")}
                     roadmap={roadmap}

@@ -86,6 +86,7 @@
       "impact_on_the_project": "Impact on the project",
       "technologiesTitle": "Technologies",
       "roadmap": "Roadmap",
+      "difficulties_faced": "Difficulties faced",
       "technologies": {
         "react": {
           "label": "React",
@@ -145,6 +146,16 @@
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
             ]
           },
+          "difficulties_faced": [
+            "Learn how to use MUI components and theming system to create a consistent and accessible user interface",
+            "Implementing an efficient client-side search functionality that can handle large documentation datasets without compromising performance.",
+            "Designing an intuitive and user-friendly interface that allows users to quickly find and navigate through various documentation sections and examples.",
+            "Ensuring the accuracy and relevance of the documentation content, which involved curating and organizing information from multiple sources.",
+            "Understand the right balance between features and simplicity, avoiding feature bloat while still providing valuable tools like code playgrounds and cheatsheets.",
+            "Define a clear project folder hierarchy and naming convention to easily manage and scale the documentation content as new languages and frameworks are added.",
+            "Implementing dynamic routing for project detail pages, allowing easy navigation across different topics, sections and subsections.",
+            "Introducing a search feature that enhance the discoverability of relevant information."
+          ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
@@ -192,8 +203,13 @@
               "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system."
             ]
           },
-          "technologies_title": "Technologies",
-          "roadmap_title": "Roadmap",
+          "difficulties_faced": [
+            "Learn how to use MUI components and theming system to create a consistent and accessible user interface",
+            "Setting up internationalization (i18n) to support multiple languages and ensure seamless content translation across the site.",
+            "Implementing dynamic routing for project detail pages, allowing easy navigation",
+            "Creation of Custom Icon components to maintain a consistent visual style and improve performance.",
+            "Creation of a custom Breadcrumb component with terminal-style navigation, including the ability to use `..` to move to the parent category."
+          ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",

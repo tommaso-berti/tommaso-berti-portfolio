@@ -28,7 +28,14 @@ export default function Header() {
         >
             <BreadCrumbs />
             <Stack direction="row" alignItems="center">
-                <Typography sx={{ lineHeight: 1, mr: 1, fontWeight:500 }} variant="h7" color="textSecondary">
+                <Typography
+                    sx={{
+                        lineHeight: 1,
+                        mr: 1, fontWeight:500
+                    }}
+                    variant="h7"
+                    color="textSecondary"
+                >
                     {`v${APP_VERSION}`}
                 </Typography>
                 <LanguageToggle />

@@ -29,135 +29,137 @@ export default function TechnologySection({ technologies = [] }) {
             : technologies.filter((t) => t.category === tab);
 
     return (
-        <Stack spacing={4}>
-            <Typography variant="h4">{t('technologiesTitle')}</Typography>
+        <Box component="section" id="technologies">
+            <Stack spacing={4}>
+                <Typography variant="h4">{t('technologiesTitle')}</Typography>
 
-            <Tabs
-                value={tab}
-                onChange={(_, newValue) => setTab(newValue)}
-                variant="scrollable"
-                scrollButtons="auto"
-                sx={{
-                    borderBottom: 1,
-                    borderColor: "divider",
-                }}
-            >
-                {categories.map((cat) => (
-                    <Tab
-                        key={cat}
-                        label={t(`tech_categories.${cat}`)}
-                        value={cat}
-                        sx={{
-                            textTransform: "none",
-                            fontWeight: 500
-                        }}
-                    />
-                ))}
-            </Tabs>
-
-            <Box
-                sx={{
-                    display: "grid",
-                    gridTemplateColumns: {
-                        xs: "1fr",
-                        sm: "repeat(2, 1fr)",
-                        md: "repeat(3, 1fr)",
-                    },
-                    gap: 3,
-                }}
-            >
-                {filteredTechs.map((tech, index) => {
-                    const IconComponent = iconsMap[tech.icon];
-
-                    return (
-                        <Card
-                            key={index}
-                            elevation={3}
+                <Tabs
+                    value={tab}
+                    onChange={(_, newValue) => setTab(newValue)}
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    sx={{
+                        borderBottom: 1,
+                        borderColor: "divider",
+                    }}
+                >
+                    {categories.map((cat) => (
+                        <Tab
+                            key={cat}
+                            label={t(`tech_categories.${cat}`)}
+                            value={cat}
                             sx={{
-                                borderRadius: 3,
-                                p: 1,
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column",
-                                transition: "0.25s",
-                                "&:hover": {
-                                    transform: "translateY(-4px)",
-                                    boxShadow: 6,
-                                },
+                                textTransform: "none",
+                                fontWeight: 500
                             }}
-                        >
-                            <CardContent
+                        />
+                    ))}
+                </Tabs>
+
+                <Box
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "1fr",
+                            sm: "repeat(2, 1fr)",
+                            md: "repeat(3, 1fr)",
+                        },
+                        gap: 3,
+                    }}
+                >
+                    {filteredTechs.map((tech, index) => {
+                        const IconComponent = iconsMap[tech.icon];
+
+                        return (
+                            <Card
+                                key={index}
+                                elevation={3}
                                 sx={{
+                                    borderRadius: 3,
+                                    p: 1,
+                                    height: "100%",
                                     display: "flex",
                                     flexDirection: "column",
-                                    gap: 2,
-                                    flex: 1,
+                                    transition: "0.25s",
+                                    "&:hover": {
+                                        transform: "translateY(-4px)",
+                                        boxShadow: 6,
+                                    },
                                 }}
                             >
-                                <Stack direction="row" spacing={2} alignItems="center">
-                                    <Avatar
-                                        sx={{
-                                            width: 40,
-                                            height: 40,
-                                            backgroundColor: "primary.main",
-                                            fontWeight: 600,
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
-                                        {IconComponent ? (
-                                            <IconComponent />
-                                        ) : (
-                                            tech.label.charAt(0)
-                                        )}
-                                    </Avatar>
-
-                                    <Stack>
-                                        <Typography variant="subtitle1" fontWeight={600}>
-                                            {tech.label}
-                                        </Typography>
-                                        <Typography
-                                            variant="caption"
-                                            sx={{ opacity: 0.7 }}
+                                <CardContent
+                                    sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: 2,
+                                        flex: 1,
+                                    }}
+                                >
+                                    <Stack direction="row" spacing={2} alignItems="center">
+                                        <Avatar
+                                            sx={{
+                                                width: 40,
+                                                height: 40,
+                                                backgroundColor: "primary.main",
+                                                fontWeight: 600,
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                            }}
                                         >
-                                            {t(`tech_categories.${tech.category}`)}
-                                        </Typography>
-                                    </Stack>
-                                </Stack>
+                                            {IconComponent ? (
+                                                <IconComponent />
+                                            ) : (
+                                                tech.label.charAt(0)
+                                            )}
+                                        </Avatar>
 
-                                {tech.description && (
-                                    <Typography variant="body2" sx={{ mt: 1 }}>
-                                        {tech.description}
-                                    </Typography>
-                                )}
-
-                                {typeof tech.level === "number" && (
-                                    <Stack spacing={1}>
-                                        <Stack
-                                            direction="row"
-                                            alignItems="center"
-                                            justifyContent="space-between"
-                                        >
-                                            <Typography variant="caption">
-                                                {t('impact_on_the_project')}
+                                        <Stack>
+                                            <Typography variant="subtitle1" fontWeight={600}>
+                                                {tech.label}
                                             </Typography>
-                                            <Typography variant="caption" fontWeight={600}>
-                                                {tech.level}%
+                                            <Typography
+                                                variant="caption"
+                                                sx={{ opacity: 0.7 }}
+                                            >
+                                                {t(`tech_categories.${tech.category}`)}
                                             </Typography>
                                         </Stack>
-                                        <LinearProgress
-                                            variant="determinate"
-                                            value={tech.level}
-                                            sx={{ borderRadius: 999 }}
-                                        />
                                     </Stack>
-                                )}
-                            </CardContent>
-                        </Card>
-                    );
-                })}
-            </Box>
-        </Stack>
+
+                                    {tech.description && (
+                                        <Typography variant="body2" sx={{ mt: 1 }}>
+                                            {tech.description}
+                                        </Typography>
+                                    )}
+
+                                    {typeof tech.level === "number" && (
+                                        <Stack spacing={1}>
+                                            <Stack
+                                                direction="row"
+                                                alignItems="center"
+                                                justifyContent="space-between"
+                                            >
+                                                <Typography variant="caption">
+                                                    {t('impact_on_the_project')}
+                                                </Typography>
+                                                <Typography variant="caption" fontWeight={600}>
+                                                    {tech.level}%
+                                                </Typography>
+                                            </Stack>
+                                            <LinearProgress
+                                                variant="determinate"
+                                                value={tech.level}
+                                                sx={{ borderRadius: 999 }}
+                                            />
+                                        </Stack>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
+                </Box>
+            </Stack>
+        </Box>
     );
 }

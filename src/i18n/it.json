@@ -86,6 +86,7 @@
       "impact_on_the_project": "Impatto sul progetto",
       "technologiesTitle": "Tecnologie",
       "roadmap": "Roadmap",
+      "difficulties_faced": "Sfide affrontate",
       "technologies": {
         "react": {
           "label": "React",

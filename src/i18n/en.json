@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "home": "home",
+    "projects": "Projects",
+    "about": "About",
+    "blog": "Blog",
+    "example-style": "example-style"
+  },
+  "pages": {
+    "home": {
+      "tooltipResume": "Download Resume",
+      "welcome": "Hello, I'm",
+      "and": "and",
+      "hero": [
+        "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in the leading fashion-tech company Lectra.",
+        "I am specialized in the implementation of new customer features and in optimization and fix of old one, making sure it matches the customer expected behavior.",
+        "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
+      ]
+    },
+    "about": {
+      "bio": {
+        "title": "Bio",
+        "description": "I’m Tommaso Berti, 22, passionate about technology and always eager to learn. I enjoy tackling challenges, discovering solutions, and continuously expanding my skills. Working in teams and collaborating efficiently drives me to achieve great results."
+      },
+      "hobbies": {
+        "title": "Hobbies",
+        "description1": "I’ve been playing volleyball for 18 years, a sport that has taught me discipline, teamwork, and the joy of constant self-improvement. I’m a setter — one of the most challenging roles in volleyball, as it requires calm, calculated decisions without letting emotions take over. It’s not always easy. Since volleyball isn’t a contact sport, there’s no physical way to release tension or excitement. Your voice becomes your only outlet, which makes high-pressure situations even harder to navigate.",
+        "description2": "I’m also a passionate gamer. Through games I’ve explored entire worlds, learned history in unexpected ways, cried over emotional stories, and laughed at unforgettable characters. Gaming is more than entertainment for me — it’s a source of inspiration, creativity, and connection."
+      },
+      "experience": {
+        "title": "Study and Experience",
+        "experiences": [
+          {
+            "year": "2016",
+            "title": "High School Diploma (Scientific Lyceum)",
+            "description": "I completed my Scientific High School studies, gaining solid foundations in mathematics, physics, and computer science. I participated in various school projects that strengthened my analytical thinking and problem-solving abilities. This school experience taught me methodological discipline and how to approach complex topics with structure."
+          },
+          {
+            "year": "2016-2018",
+            "title": "Computer Engineering University in Padua (Veneto, Italy)",
+            "description": "During my first two university years in Padua, I studied the fundamentals of computer engineering and algorithm design. I worked on practical labs and collaborated with classmates on programming projects. This period gave me a strong academic base and teamwork skills applied to software development."
+          },
+          {
+            "year": "2018-2020",
+            "title": "Computer university in Venice (Veneto, Italy)",
+            "description": "Continuing my studies in Venice, I focused on system architectures, databases, and web development. I took part in academic projects that involved building applications and experimenting with modern technologies. This experience strengthened my independence and adaptability."
+          },
+          {
+            "year": "2018-present",
+            "title": "Art.Ap",
+            "description": "I worked as a guide during two temporary exhibitions and managed the organization’s official website. My tasks included visitor assistance, content updates, and coordination with the exhibition team."
+          },
+          {
+            "year": "2019-2020",
+            "title": "DeFra Web - Contractor",
+            "description": "I managed web content using CMS platforms and handled periodic backups. I also worked on catalog updates, migrations, client meetings, documentation, and PHP/CSS/HTML adjustments."
+          },
+          {
+            "year": "2021-present",
+            "title": "Kubix Link (A Lectra Company) - Full time employee",
+            "description": "I contribute to digital solutions for PLM/PIM in the fashion industry. My role involves cross-team collaboration and cloud-based data processes."
+          }
+        ]
+      },
+      "tech-skills": {
+        "title": "Tech Skills",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "tools": "Tools"
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "This collection of projects reflects my passion for building tools that simplify my life, help me experiment, or allow me to practice and strengthen my skills. Some projects are born from curiosity, others from the desire to explore new technologies, improve my workflow, or simply enjoy the process of development. As a full-time software developer, I actively use AI because I see it as a powerful and transformative tool: it speeds up development, helps me write safer and more efficient code, and supports me when exploring new ideas and technologies. Time is a valuable resource, of course, but AI is not just a shortcut, it’s an extension of my workflow. I use it carefully, always validating the output rather than assuming that every answer is correct, just like I would with any technical reference or documentation.",
+      "live_preview": "Live Preview",
+      "primaryAction": "Projects Details",
+      "secondaryAction": "Open site",
+      "all_overline": "All",
+      "main_overline": "Main projects",
+      "side_overline": "Side projects",
+      "practice_overline": "Practice Projects",
+      "back": "Back",
+      "next": "Next",
+      "project_not_found": "Project not found",
+      "impact_on_the_project": "Impact on the project",
+      "technologiesTitle": "Technologies",
+      "roadmap": "Roadmap",
+      "difficulties_faced": "Difficulties faced",
+      "technologies": {
+        "react": {
+          "label": "React",
+          "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
+        },
+        "mui": {
+          "label": "MUI",
+          "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
+        },
+        "javascript": {
+          "label": "JavaScript",
+          "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
+        },
+        "github": {
+          "label": "GitHub",
+          "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
+        },
+        "webstorm": {
+          "label": "WebStorm",
+          "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
+        },
+        "caddy": {
+          "label": "Caddy",
+          "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
+        },
+        "minisearch": {
+          "label": "Minisearch",
+          "description": "Lightweight full-text search integration that enables fast client-side indexing and real-time query results."
+        },
+        "tailwindcss": {
+          "label": "TailwindCSS",
+          "description": "Utility-first CSS framework used to build responsive and consistent interfaces with minimal custom styling. I used it to experiment with the library."
+        },
+        "css": {
+          "label": "CSS",
+          "description": "Styling language used to design some layouts, control visual appearance, and ensure responsive presentation across devices."
+        }
+      },
+      "tech_categories": {
+        "all": "All",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tooling": "Tooling",
+        "libraries": "Libraries",
+        "hosting": "Hosting"
+      },
+      "codexpane": {
+        "title": "CodexPane",
+        "description": "Fast and optimized web application to quick access refined documentation, examples, cheatsheet and interactive code playgrounds",
+        "details": {
+          "introduction": {
+            "title": "CodexPane",
+            "description": [
+              "During my side projects and while progressing through my developer courses, I identified a recurring challenge: the need to frequently check code documentation, constantly searching and switching between browser tabs.",
+              "At first, I tried using ChatGPT to search for documentation or example use cases. However, the answers were inconsistent, sometimes inaccurate, and not always aligned with best coding practices.",
+              "Then I experimented with tools and websites that aggregate documentation, but most were either too basic, too complex to navigate, or lacking coverage for all the languages and frameworks I needed.",
+              "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
+            ]
+          },
+          "difficulties_faced": [
+            "Learn how to use MUI components and theming system to create a consistent and accessible user interface",
+            "Implementing an efficient client-side search functionality that can handle large documentation datasets without compromising performance.",
+            "Designing an intuitive and user-friendly interface that allows users to quickly find and navigate through various documentation sections and examples.",
+            "Ensuring the accuracy and relevance of the documentation content, which involved curating and organizing information from multiple sources.",
+            "Understand the right balance between features and simplicity, avoiding feature bloat while still providing valuable tools like code playgrounds and cheatsheets.",
+            "Define a clear project folder hierarchy and naming convention to easily manage and scale the documentation content as new languages and frameworks are added.",
+            "Implementing dynamic routing for project detail pages, allowing easy navigation across different topics, sections and subsections.",
+            "Introducing a search feature that enhance the discoverability of relevant information."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "First version including core documentation search, basic examples and the initial UI.",
+                "Hosting on VPS",
+                "Automate the webapp release with GitHub workflow, with automatic versioning system"
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Introduce new documentation categories to improve content organization.",
+                "Refine the structure of subsections by strengthening the relationship between IDs and titles.",
+                "Enhance visual consistency across all interactive code playgrounds to improve usability and performance.",
+                "Add additional code playgrounds to expand the number of interactive examples.",
+                "Improve the search feature by indexing section and subsection content and dynamically highlighting matched text (MUI-style)."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Create a contributor guide to help new contributors understand how to participate in the project.",
+                "Display contributor avatars on related documents, sections, and subsections to credit authorship."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "Add cheatsheet-style documentation with options to download or copy content easily.",
+                "Integrate a simple AI chatbot, powered by the existing documentation, to help users find the right information and provide well-formatted responses."
+              ]
+            }
+          }
+        }
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "The website you are currently visiting, built to showcase my work, experience, and personal projects in a clean, modern and accessible way.",
+        "details": {
+          "introduction": {
+            "title": "Portfolio",
+            "description": [
+              "This portfolio was built to present my work, experience, and personal projects in a clean, modern and accessible way.",
+              "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system."
+            ]
+          },
+          "difficulties_faced": [
+            "Learn how to use MUI components and theming system to create a consistent and accessible user interface",
+            "Setting up internationalization (i18n) to support multiple languages and ensure seamless content translation across the site.",
+            "Implementing dynamic routing for project detail pages, allowing easy navigation",
+            "Creation of Custom Icon components to maintain a consistent visual style and improve performance.",
+            "Creation of a custom Breadcrumb component with terminal-style navigation, including the ability to use `..` to move to the parent category."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Initial release featuring pages, navigation, and a dark/light theme system, with a basic GUI and UX.",
+                "Hosting on VPS",
+                "Automate the webapp release with GitHub workflow, with automatic versioning system",
+                "Localization management with English and Italian translations.",
+                "Advanced terminal-style breadcrumb navigation, including the ability to use `..` to move to the parent category.",
+                "MiniWebApp preview to enable quick interaction with the project.",
+                "A dedicated page for each main project, showcasing its goals, challenges faced, technologies used, and roadmap."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Improve user experience through smoother animations and a more consistent visual design.",
+                "Implement dynamic URL updates on the About page to let users navigate directly to specific sections while scrolling.",
+                "Add a status bar to each project page showing the latest commit (via GitHub APIs) along with key project metrics such as code composition and number of commits.",
+                "Show a preview of my GitHub profile on the portfolio homepage, including pinned repositories, recent activity, and relevant highlights."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Develop a custom Blog feature for publishing articles, including categories, tags, external links, and rich media support.",
+                "Integrate Redux to handle advanced state management and improve the efficiency of all database CRUD operations.",
+                "Adopt a MongoDB database to securely store, query, and manage all blog posts."
+              ]
+            }
+          }
+        }
+      }
+    },
+    "blog": {
+      "work_in_progress": "Work in progress"
+    }
+  }
+}

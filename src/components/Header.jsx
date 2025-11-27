@@ -1,27 +1,46 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container'
+import Stack from '@mui/material/Stack'
+import BreadCrumbs from '../features/BreadCrumbs.jsx';
+import DarkModeToggle from "./DarkModeToggle.jsx";
+import LanguageToggle from "./LanguageToggle.jsx";
+import { Typography } from "@mui/material";
+import { APP_VERSION } from '../lib/version.js';
+
 
 export default function Header() {
     return (
-        <Box
+        <Container
             component="header"
+            maxWidth="lg"
+            disableGutters
             sx={{
-                position: 'fixed',
-                top: 0,
+                height: '4rem',
                 width: '100%',
-                zIndex: 10,
-                backgroundColor: 'background.paper',
-                color: 'text.primary',
-                borderBottom: 1,
-                borderColor: 'divider',
                 display: 'flex',
-                alignItems: 'center',
+                position: 'fixed',
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                paddingY: '1rem',
                 justifyContent: 'space-between',
-                px: 2.5,
-                height: 'var(--header-h)',
+                backgroundColor: "background.paper",
+                zIndex: 100
             }}
         >
-            Header
-        </Box>
+            <BreadCrumbs />
+            <Stack direction="row" alignItems="center">
+                <Typography
+                    sx={{
+                        lineHeight: 1,
+                        mr: 1, fontWeight:500
+                    }}
+                    variant="h7"
+                    color="textSecondary"
+                >
+                    {`v${APP_VERSION}`}
+                </Typography>
+                <LanguageToggle />
+                <DarkModeToggle />
+            </Stack>
+        </Container>
     )
 }

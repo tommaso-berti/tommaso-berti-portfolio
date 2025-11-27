@@ -1,32 +1,31 @@
 {
-  "home": "home",
-  "projects": "Progetti",
-  "about": "Chi sono",
-  "blog": "Blog",
-  "example-style": "Stile di esempio",
   "nav": {
-    "home": "home",
-    "projects": "progetti",
-    "about": "chi-sono",
-    "blog": "blog",
-    "example-style": "stile-di-esempio"
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi sono",
+    "blog": "Blog",
+    "example-style": "Stile di esempio"
   },
   "pages": {
     "home": {
-      "tooltipResume": "Scarica il Curriculum",
-      "hero1": "Appassionato di tecnologia e coding, con cinque anni di esperienza come Software Developer e Delivery Expert presso la principale azienda fashion-tech Lectra.",
-      "hero2": "Sono specializzato nell’implementazione di nuove funzionalità per i clienti e nell’ottimizzazione e correzione di quelle già esistenti, garantendo che corrispondano al comportamento atteso dal cliente.",
-      "hero3": "Poiché il prodotto Kubix Link su cui lavoro comprende frontend, backend, database, API, integrazioni con servizi esterni e codice personalizzato basato sulle esigenze dei clienti, ho ampliato le mie competenze in tutti gli aspetti che una webapp complessa può avere."
+      "tooltipResume": "Scarica il curriculum",
+      "welcome": "Ciao, sono",
+      "and": "e",
+      "hero": [
+        "Appassionato di tecnologia e coding con cinque anni di esperienza come Software Developer e Delivery Expert presso Lectra, azienda leader nel fashion-tech.",
+        "Sono specializzato nell’implementazione di nuove funzionalità per i clienti e nell’ottimizzazione e correzione di quelle esistenti, assicurandomi che il comportamento del prodotto rispetti sempre le aspettative del cliente.",
+        "Il prodotto su cui lavoro, Kubix Link, copre front-end, back-end, database, API, integrazioni con servizi esterni e codice personalizzato per diverse esigenze dei clienti: questo mi ha permesso di ampliare le mie competenze in tutti gli aspetti che una web app complessa può avere."
+      ]
     },
     "about": {
       "bio": {
-        "title": "Biografia",
-        "description": "Sono Tommaso Berti, 22 anni, appassionato di tecnologia e sempre desideroso di imparare. Mi piace affrontare sfide, trovare soluzioni ed espandere continuamente le mie competenze. Lavorare in team e collaborare in modo efficiente mi motiva a raggiungere ottimi risultati."
+        "title": "Bio",
+        "description": "Sono Tommaso Berti, ho 22 anni, sono appassionato di tecnologia e sempre curioso di imparare. Mi piace affrontare sfide, trovare soluzioni e ampliare continuamente le mie competenze. Lavorare in team e collaborare in modo efficace è ciò che mi permette di ottenere grandi risultati."
       },
       "hobbies": {
         "title": "Hobby",
-        "description1": "Gioco a pallavolo da 18 anni, uno sport che mi ha insegnato disciplina, lavoro di squadra e la gioia del miglioramento costante. Sono un palleggiatore — uno dei ruoli più impegnativi, perché richiede calma e decisioni calcolate, senza lasciarsi sopraffare dalle emozioni. Non è sempre facile: non essendo uno sport di contatto, non c’è un modo fisico per sfogare tensione o emozione. La voce diventa l’unico sfogo, il che rende le situazioni di pressione ancora più difficili da gestire.",
-        "description2": "Sono anche un gamer appassionato. Attraverso i videogiochi ho esplorato mondi interi, imparato storia in modi inaspettati, mi sono emozionato con storie profonde e ho riso grazie a personaggi indimenticabili. Per me il gaming è più che intrattenimento — è una fonte di ispirazione, creatività e connessione."
+        "description1": "Gioco a pallavolo da 18 anni, uno sport che mi ha insegnato disciplina, lavoro di squadra e il piacere del miglioramento costante. Sono un palleggiatore — uno dei ruoli più complessi nella pallavolo, perché richiede decisioni calme e ragionate senza farsi guidare dalle emozioni. Non è sempre facile. La pallavolo non è uno sport di contatto, quindi non c’è un modo fisico per scaricare tensione o entusiasmo. La voce diventa il tuo unico sfogo, e questo rende le situazioni ad alta pressione ancora più difficili da gestire.",
+        "description2": "Sono anche un gamer appassionato. Attraverso i videogiochi ho esplorato mondi interi, imparato la storia in modi inaspettati, mi sono commosso con storie emozionanti e ho riso con personaggi indimenticabili. Il gaming per me è molto più che intrattenimento: è una fonte di ispirazione, creatività e connessione."
       },
       "experience": {
         "title": "Studi ed Esperienze",
@@ -34,32 +33,32 @@
           {
             "year": "2016",
             "title": "Diploma di Liceo Scientifico",
-            "description": "Ho completato gli studi al Liceo Scientifico, acquisendo solide basi in matematica, fisica e informatica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e la mia capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e come affrontare argomenti complessi con struttura."
+            "description": "Ho completato il Liceo Scientifico, acquisendo solide basi in matematica, fisica e informatica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e le capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e un approccio strutturato ai temi complessi."
           },
           {
             "year": "2016-2018",
-            "title": "Ingegneria Informatica – Università di Padova (Veneto, Italia)",
-            "description": "Durante i primi due anni universitari a Padova ho studiato le basi dell’ingegneria informatica e la progettazione di algoritmi. Ho svolto laboratori pratici e collaborato con i colleghi in progetti di programmazione. Questo periodo mi ha dato una forte base accademica e capacità di lavoro di squadra applicate allo sviluppo software."
+            "title": "Ingegneria Informatica — Università di Padova (Veneto, Italia)",
+            "description": "Durante i primi due anni universitari a Padova ho studiato le basi dell’ingegneria informatica e della progettazione di algoritmi. Ho lavorato in laboratorio su esercitazioni pratiche e collaborato con i compagni su progetti di programmazione. Questo periodo mi ha dato una solida base teorica e competenze di lavoro di squadra applicate allo sviluppo software."
           },
           {
             "year": "2018-2020",
-            "title": "Informatica – Università di Venezia (Veneto, Italia)",
-            "description": "Proseguendo gli studi a Venezia, mi sono concentrato su architetture di sistema, database e sviluppo web. Ho partecipato a progetti accademici che prevedevano la realizzazione di applicazioni e l’uso di tecnologie moderne. Questa esperienza ha rafforzato la mia indipendenza e adattabilità."
+            "title": "Informatica — Università di Venezia (Veneto, Italia)",
+            "description": "Proseguendo gli studi a Venezia mi sono concentrato su architetture di sistemi, database e sviluppo web. Ho partecipato a progetti accademici che prevedevano la realizzazione di applicazioni e la sperimentazione con tecnologie moderne. Questa esperienza ha rafforzato la mia autonomia e adattabilità."
           },
           {
-            "year": "2018-presente",
+            "year": "2018-present",
             "title": "Art.Ap",
-            "description": "Ho lavorato come guida durante due mostre temporanee e ho gestito il sito ufficiale dell’organizzazione. Le mie attività includevano assistenza ai visitatori, aggiornamento dei contenuti e coordinamento con il team della mostra."
+            "description": "Ho lavorato come guida durante due mostre temporanee e mi sono occupato della gestione del sito ufficiale dell’associazione. Le mie attività includevano assistenza ai visitatori, aggiornamento dei contenuti e coordinamento con il team delle esposizioni."
           },
           {
             "year": "2019-2020",
-            "title": "DeFra Web - Collaboratore esterno",
-            "description": "Ho gestito contenuti web tramite CMS e gestito backup periodici. Ho lavorato anche sugli aggiornamenti dei cataloghi, migrazioni, incontri con i clienti, documentazione e modifiche in PHP/CSS/HTML."
+            "title": "DeFra Web - Collaboratore",
+            "description": "Ho gestito contenuti web utilizzando piattaforme CMS e mi sono occupato di backup periodici. Ho lavorato anche su aggiornamenti di cataloghi, migrazioni, incontri con i clienti, documentazione e modifiche in PHP/CSS/HTML."
           },
           {
-            "year": "2021-presente",
-            "title": "Kubix Link (Lectra Company) - Dipendente full-time",
-            "description": "Contribuisco allo sviluppo di soluzioni digitali PLM/PIM per l’industria della moda. Il mio ruolo comporta collaborazione tra team e gestione di processi dati in cloud."
+            "year": "2021-present",
+            "title": "Kubix Link (A Lectra Company) - Dipendente full-time",
+            "description": "Contribuisco a soluzioni digitali PLM/PIM per il settore moda. Il mio ruolo coinvolge collaborazione trasversale tra team e processi dati in cloud."
           }
         ]
       },
@@ -73,22 +72,60 @@
     },
     "projects": {
       "title": "Progetti",
-      "description": "Questa raccolta di progetti riflette la mia passione per la creazione di strumenti che semplificano la mia vita, mi aiutano a sperimentare o mi permettono di esercitarmi e rafforzare le mie competenze. Alcuni nascono dalla curiosità, altri dal desiderio di esplorare nuove tecnologie, migliorare il mio workflow o semplicemente godermi il processo di sviluppo. Come sviluppatore full-time, utilizzo attivamente l’AI perché la considero uno strumento potente e trasformativo: accelera lo sviluppo, mi aiuta a scrivere codice più sicuro ed efficiente e mi supporta nell’esplorare nuove idee e tecnologie. Il tempo è una risorsa preziosa, certo, ma l’AI non è solo una scorciatoia — è un’estensione del mio workflow. La uso con attenzione, validando sempre i risultati invece di dare per scontato che ogni risposta sia corretta, proprio come farei con qualsiasi documentazione tecnica o riferimento.",
-      "live_preview": "Live Preview",
-      "primaryAction": "Dettagli del progetto",
+      "description": "Questa raccolta di progetti riflette la mia passione per la creazione di strumenti che semplificano la mia vita, mi aiutano a sperimentare o mi permettono di esercitarmi e rafforzare le mie competenze. Alcuni progetti nascono dalla curiosità, altri dal desiderio di esplorare nuove tecnologie, migliorare il mio workflow o semplicemente dal piacere di sviluppare. Come sviluppatore software full-time utilizzo attivamente l’AI, perché la considero uno strumento potente e trasformativo: accelera lo sviluppo, mi aiuta a scrivere codice più sicuro ed efficiente e mi supporta quando esploro nuove idee e tecnologie. Il tempo è una risorsa preziosa, ma l’AI non è solo una scorciatoia, è un’estensione del mio flusso di lavoro. La uso con attenzione, validando sempre i risultati invece di dare per scontato che ogni risposta sia corretta, proprio come farei con qualsiasi documentazione tecnica o riferimento.",
+      "live_preview": "Anteprima Live",
+      "primaryAction": "Dettagli progetto",
       "secondaryAction": "Apri sito",
       "all_overline": "Tutti",
-      "main_overline": "Progetto principale",
-      "side_overline": "Progetto secondario",
-      "practice_overline": "Progetto di pratica",
+      "main_overline": "Progetti principali",
+      "side_overline": "Progetti secondari",
+      "practice_overline": "Esercizi",
       "back": "Indietro",
       "next": "Avanti",
       "project_not_found": "Progetto non trovato",
       "impact_on_the_project": "Impatto sul progetto",
-      "technologies": "Tecnologie",
+      "technologiesTitle": "Tecnologie",
       "roadmap": "Roadmap",
+      "technologies": {
+        "react": {
+          "label": "React",
+          "description": "Applicazione sviluppata utilizzando l’architettura a componenti di React, che permette una struttura pulita, riuso del codice e aggiornamenti efficienti dell’interfaccia."
+        },
+        "mui": {
+          "label": "MUI",
+          "description": "Utilizzo dei componenti React e del sistema di theming di MUI per sviluppare rapidamente un’interfaccia pulita e accessibile."
+        },
+        "javascript": {
+          "label": "JavaScript",
+          "description": "Logica dell’applicazione sviluppata con le funzionalità moderne di JavaScript, garantendo codice pulito, manutenibile ed efficiente."
+        },
+        "github": {
+          "label": "GitHub",
+          "description": "Integrazione di GitHub per il controllo di versione e per workflow automatizzati tramite GitHub Actions."
+        },
+        "webstorm": {
+          "label": "WebStorm",
+          "description": "Utilizzo di WebStorm come IDE principale, sfruttando analisi avanzata del codice, strumenti di refactoring e workflow di sviluppo integrati."
+        },
+        "caddy": {
+          "label": "Caddy",
+          "description": "Uso di Caddy come web server moderno e reverse proxy, con HTTPS automatico e configurazione semplice per un deploy veloce e affidabile."
+        },
+        "minisearch": {
+          "label": "Minisearch",
+          "description": "Integrazione di un motore di ricerca full-text leggero che permette indicizzazione lato client e risultati in tempo reale."
+        },
+        "tailwindcss": {
+          "label": "TailwindCSS",
+          "description": "Framework CSS utility-first utilizzato per costruire interfacce responsive e consistenti con uno stile personalizzato minimo. L’ho usato per sperimentare con la libreria."
+        },
+        "css": {
+          "label": "CSS",
+          "description": "Linguaggio di stile utilizzato per definire layout, controllo dell’aspetto visivo e presentazione responsive su diversi dispositivi."
+        }
+      },
       "tech_categories": {
-        "all": "Tutti",
+        "all": "Tutte",
         "frontend": "Frontend",
         "backend": "Backend",
         "tooling": "Strumenti",
@@ -97,77 +134,48 @@
       },
       "codexpane": {
         "title": "CodexPane",
-        "description": "Web app veloce e ottimizzata per accedere rapidamente a documentazione raffinata, esempi, cheatsheet e playground di codice interattivi.",
+        "description": "Web app veloce e ottimizzata per accedere rapidamente a documentazione curata, esempi, cheatsheet e playground di codice interattivi.",
         "details": {
           "introduction": {
             "title": "CodexPane",
             "description": [
-              "Durante i miei progetti personali e nel percorso di studi come sviluppatore, ho identificato una difficoltà ricorrente: la necessità di consultare spesso la documentazione, cercando continuamente tra tab del browser.",
-              "All’inizio ho provato a usare ChatGPT per cercare documentazione o esempi d’uso. Tuttavia, le risposte erano incoerenti, talvolta inaccurate e non sempre allineate alle best practice.",
-              "Poi ho provato strumenti e siti che aggregano documentazione, ma la maggior parte era troppo basica, troppo complessa da navigare o semplicemente non copriva tutti i linguaggi e framework di cui avevo bisogno.",
-              "Così ho deciso di creare CodexPane: una web app veloce e ottimizzata che offre accesso rapido a documentazione raffinata, esempi, cheatsheet e playground di codice interattivi."
+              "Durante i miei side project e mentre seguivo corsi da sviluppatore, ho individuato una sfida ricorrente: la necessità di consultare spesso la documentazione, cercando e cambiando continuamente scheda nel browser.",
+              "All’inizio ho provato a usare ChatGPT per cercare documentazione o esempi d’uso. Tuttavia le risposte erano incoerenti, a volte imprecise e non sempre allineate alle best practice di sviluppo.",
+              "Poi ho sperimentato strumenti e siti che aggregano documentazione, ma la maggior parte era troppo basilare, troppo complessa da navigare oppure non copriva tutti i linguaggi e framework di cui avevo bisogno.",
+              "Così ho deciso di creare CodexPane: una web app veloce e ottimizzata che fornisce accesso rapido a documentazione curata, esempi, cheatsheet e playground di codice interattivi."
             ]
-          },
-          "technologies": {
-            "react": {
-              "description": "Applicazione costruita con l’architettura a componenti di React, per una struttura pulita, riusabilità ed efficienti aggiornamenti della UI."
-            },
-            "mui": {
-              "description": "Utilizzo dei componenti React di MUI e del sistema di theming per sviluppare rapidamente un’interfaccia pulita e accessibile."
-            },
-            "javascript": {
-              "description": "Logica sviluppata con funzionalità moderne di JavaScript, garantendo codice pulito, mantenibile ed efficiente."
-            },
-            "github": {
-              "description": "Integrazione con GitHub per il controllo di versione e workflow automatizzati tramite GitHub Actions."
-            },
-            "webstorm": {
-              "description": "IDE principale utilizzato, sfruttando le sue funzionalità avanzate di analisi del codice, refactoring e workflow integrati."
-            },
-            "caddy": {
-              "description": "Utilizzato come server web moderno e reverse proxy, con HTTPS automatico e configurazione semplice per un deployment veloce e affidabile."
-            },
-            "minisearch": {
-              "description": "Integrazione di un motore di ricerca full-text leggero che consente indicizzazione lato client veloce e risultati in tempo reale."
-            },
-            "tailwindcss": {
-              "description": "Framework CSS utility-first utilizzato per costruire interfacce responsive e coerenti con un minimo di stile personalizzato."
-            },
-            "css": {
-              "description": "Linguaggio di stile utilizzato per progettare layout, controllare l’aspetto visivo e garantire una presentazione responsive."
-            }
           },
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Prima versione con ricerca nella documentazione, esempi base e UI iniziale.",
+                "Prima versione con ricerca di documentazione principale, esempi base e interfaccia iniziale.",
                 "Hosting su VPS",
-                "Automazione del rilascio tramite GitHub Workflow, con sistema di versioning automatico."
+                "Automatizzare il rilascio della web app con workflow GitHub, includendo un sistema di versioning automatico."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Introduzione di nuove categorie di documentazione per migliorare l’organizzazione.",
-                "Raffinare la struttura delle sottosezioni migliorando la relazione tra ID e titoli.",
-                "Migliorare la coerenza visiva dei playground interattivi per una migliore usabilità.",
-                "Aggiungere nuovi playground per aumentare il numero di esempi interattivi.",
-                "Migliorare la ricerca indicizzando sezioni e sottosezioni e evidenziando dinamicamente il testo trovato (stile MUI)."
+                "Introdurre nuove categorie di documentazione per migliorare l’organizzazione dei contenuti.",
+                "Raffinare la struttura delle sottosezioni, rafforzando la relazione tra ID e titoli.",
+                "Migliorare la consistenza visiva dei playground di codice interattivi per incrementare usabilità e performance.",
+                "Aggiungere ulteriori playground di codice per ampliare il numero di esempi interattivi.",
+                "Migliorare la ricerca indicizzando il contenuto di sezioni e sottosezioni ed evidenziando dinamicamente il testo corrispondente (stile MUI)."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Creare una guida per i contributor per agevolare la partecipazione di nuovi collaboratori.",
-                "Mostrare gli avatar dei contributor nei documenti e sezioni correlate per attribuire i meriti."
+                "Creare una guida per i contributor per aiutare i nuovi collaboratori a capire come partecipare al progetto.",
+                "Mostrare gli avatar dei contributor sui documenti, sezioni e sottosezioni correlate per dare visibilità agli autori."
               ]
             },
             "v4": {
               "title": "v4.0.0",
               "content": [
-                "Aggiungere documentazione in stile cheatsheet con opzioni per il download o la copia rapida.",
-                "Integrare un semplice chatbot AI basato sulla documentazione esistente, per aiutare gli utenti a trovare le informazioni giuste con risposte ben formattate."
+                "Aggiungere documentazione in stile cheatsheet con opzioni per scaricare o copiare il contenuto facilmente.",
+                "Integrare un semplice chatbot AI, alimentato dalla documentazione esistente, per aiutare gli utenti a trovare le informazioni giuste e fornire risposte ben formattate."
               ]
             }
           }
@@ -175,65 +183,45 @@
       },
       "portfolio": {
         "title": "Portfolio",
-        "description": "Il sito che stai visitando, costruito per mostrare il mio lavoro, la mia esperienza e i miei progetti personali in modo pulito, moderno e accessibile.",
+        "description": "Il sito che stai visitando ora, creato per mostrare il mio lavoro, le mie esperienze e i miei progetti personali in modo pulito, moderno e accessibile.",
         "details": {
           "introduction": {
             "title": "Portfolio",
             "description": [
-              "Questo portfolio è stato creato per presentare il mio lavoro, la mia esperienza e i miei progetti personali in modo pulito, moderno e accessibile.",
-              "Include design completamente responsive, routing dinamico, supporto multilingua, componenti riutilizzabili e un sistema personalizzato per i dettagli dei progetti."
+              "Questo portfolio è stato realizzato per presentare il mio lavoro, le mie esperienze e i miei progetti personali in modo pulito, moderno e accessibile.",
+              "Include un design completamente responsive, routing dinamico, supporto all’internazionalizzazione, componenti riutilizzabili e un sistema personalizzato per la pagina di dettaglio dei progetti."
             ]
           },
           "technologies_title": "Tecnologie",
           "roadmap_title": "Roadmap",
-          "technologies": {
-            "react": {
-              "description": "Applicazione costruita con React, permettendo struttura modulare, riusabilità ed efficienti aggiornamenti dell’interfaccia."
-            },
-            "mui": {
-              "description": "Utilizzo dei componenti MUI e del sistema di theming per creare rapidamente un’interfaccia moderna e accessibile."
-            },
-            "javascript": {
-              "description": "Logica sviluppata con JavaScript moderno, garantendo codice pulito, mantenibile ed efficiente."
-            },
-            "github": {
-              "description": "GitHub utilizzato per il versionamento e l’automazione dei workflow con GitHub Actions."
-            },
-            "webstorm": {
-              "description": "IDE principale utilizzato per coding, refactoring e analisi del codice."
-            },
-            "caddy": {
-              "description": "Utilizzato come server web moderno e reverse proxy con HTTPS automatico per un deployment veloce."
-            }
-          },
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Release iniziale con pagine, navigazione e sistema light/dark theme, GUI e UX base.",
+                "Release iniziale con pagine, navigazione e sistema di tema chiaro/scuro, con interfaccia e UX di base.",
                 "Hosting su VPS",
-                "Automazione del rilascio tramite GitHub workflow e versioning automatico.",
-                "Gestione localizzazione con traduzioni inglesi e italiane.",
-                "Breadcrumb in stile terminale, incluso l’utilizzo di `..` per tornare alla categoria superiore.",
-                "MiniWebApp in preview per interazione rapida.",
-                "Pagina dedicata per ogni progetto principale con obiettivi, sfide, tecnologie e roadmap."
+                "Automatizzare il rilascio della web app con workflow GitHub, con sistema di versioning automatico.",
+                "Gestione della localizzazione con traduzioni in inglese e italiano.",
+                "Breadcrumb avanzato in stile terminale, con possibilità di usare `..` per tornare alla categoria superiore.",
+                "Anteprima MiniWebApp per permettere una rapida interazione con il progetto.",
+                "Pagina dedicata per ogni progetto principale, che mostra obiettivi, sfide affrontate, tecnologie usate e roadmap."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Migliorare l’esperienza utente con animazioni più fluide e design più coerente.",
-                "Aggiornamento dinamico dell’URL nella pagina About per permettere di raggiungere sezioni specifiche durante lo scroll.",
-                "Aggiungere una barra di stato in ogni pagina progetto con l’ultimo commit (via GitHub API) e metriche come composizione del codice e numero di commit.",
-                "Mostrare una preview del mio profilo GitHub nella homepage, con repository pinnati, attività recente e highlight rilevanti."
+                "Migliorare l’esperienza utente con animazioni più fluide e un design visivo più consistente.",
+                "Implementare aggiornamenti dinamici dell’URL nella pagina About, così che gli utenti possano navigare direttamente alle sezioni mentre scorrono.",
+                "Aggiungere una status bar per ogni pagina progetto che mostri l’ultimo commit (via GitHub API) insieme a metriche chiave come composizione del codice e numero di commit.",
+                "Mostrare un’anteprima del mio profilo GitHub nella homepage del portfolio, includendo repository in evidenza, attività recente e highlight rilevanti."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Sviluppare una funzionalità Blog personalizzata per pubblicare articoli, con categorie, tag, link esterni e media.",
-                "Integrare Redux per gestire stato avanzato e rendere più efficienti le operazioni CRUD del database.",
-                "Utilizzare MongoDB per memorizzare in modo sicuro tutti i post del blog."
+                "Sviluppare una funzionalità Blog personalizzata per la pubblicazione di articoli, con categorie, tag, link esterni e supporto per contenuti multimediali.",
+                "Integrare Redux per gestire lo stato avanzato e migliorare l’efficienza delle operazioni CRUD sul database.",
+                "Adottare un database MongoDB per memorizzare, interrogare e gestire in modo sicuro tutti i post del blog."
               ]
             }
           }

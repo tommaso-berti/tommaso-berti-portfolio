@@ -1,43 +1,51 @@
-import { createContext, useState, useContext, useMemo } from "react";
+import { createContext, useContext, useMemo } from "react";
+import { useTranslation } from "../hooks/useTranslation.js";
 
-const BreadCrumbContext = createContext();
-
-const INITIAL_STATIC_BREADCRUMB = {
-    home: {
-        type: "path",
-        items: [
-            { title: "projects", id: "projects" },
-            { title: "about", id: "about" },
-            { title: "blog", id: "blog" },
-            { title: "example-style", id: "example-style" }
-        ]
-    },
-    about: {
-        type: "hash",
-        items: [
-            {title: "Bio", id: "bio"},
-            {title: "Hobbies", id: "hobbies"},
-            {title: "Study and Experience", id: "study-and-experience"},
-            {title: "TechSkills", id: "tech-skills"}
-        ]
-    },
-    projects: {
-        type: "path",
-        items: [
-            {title: "CodexPane", id: "codexpane"},
-            {title: "GamesLog", id: "gameslog"},
-            {title: "Portfolio", id: "portfolio"}
-        ]
-    }
-};
+const BreadCrumbContext = createContext(null);
 
 export function BreadCrumbProvider({ children }) {
-    const [breadcrumb, setBreadcrumb] = useState(INITIAL_STATIC_BREADCRUMB);
+    const { t: tNav } = useTranslation("nav");
+    const { t: tAbout } = useTranslation("pages.about");
 
-    const value = useMemo(() => ({
-        breadcrumb,
-        setBreadcrumb
-    }), [breadcrumb]);
+    const breadcrumb = useMemo(
+        () => ({
+            home: {
+                type: "path",
+                items: [
+                    { title: tNav("projects"), id: "projects" },
+                    { title: tNav("about"), id: "about" },
+                    { title: tNav("blog"), id: "blog" },
+                    //{ title: tNav("example-style"), id: "example-style" },
+                ],
+            },
+            about: {
+                type: "hash",
+                items: [
+                    { title: tAbout("bio.title"), id: "bio" },
+                    { title: tAbout("hobbies.title"), id: "hobbies" },
+                    {
+                        title: tAbout("experience.title"),
+                        id: "study-and-experience",
+                    },
+                    { title: tAbout("tech-skills.title"), id: "tech-skills" },
+                ],
+            },
+            projects: {
+                type: "path",
+                items: [
+                    { title: "CodexPane", id: "codexpane" },
+                    { title: "GamesLog", id: "gameslog" },
+                    { title: "Portfolio", id: "portfolio" },
+                ],
+            },
+        }),
+        [tNav, tAbout]
+    );
+
+    const value = useMemo(
+        () => ({ breadcrumb }),
+        [breadcrumb]
+    );
 
     return (
         <BreadCrumbContext.Provider value={value}>

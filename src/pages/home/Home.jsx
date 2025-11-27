@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 
 export default function Home() {
     const { t } = useTranslation('pages.home');
+    const hero= t('hero', { returnObjects: true });
 
     return (
         <>
@@ -14,7 +15,7 @@ export default function Home() {
                     color="text.primary"
                     variant="h5"
                 >
-                    Hi, I am
+                    {t('welcome')}
                 </Typography>
                 <Typography
                     color="text.primary"
@@ -27,7 +28,7 @@ export default function Home() {
                     color="text.secondary"
                     variant="h6"
                 >
-                    Software Developer and Delivery Expert
+                    {`Software Developer ${t('and')} Delivery Expert`}
                 </Typography>
             </Stack>
             <Stack
@@ -36,21 +37,16 @@ export default function Home() {
                 width={'50%'}
                 gap={1}
             >
-                <Typography
-                    variant="body1"
-                >
-                    {t('hero1')}
-                </Typography>
-                <Typography
-                    variant="body1"
-                >
-                    {t('hero2')}
-                </Typography>
-                <Typography
-                    variant="body1"
-                >
-                    {t('hero3')}
-                </Typography>
+                {
+                    hero.map((paragraph, index) => (
+                        <Typography
+                            key={index}
+                            variant="body1"
+                        >
+                            {paragraph}
+                        </Typography>
+                    ))
+                }
             </Stack>
         </>
     )

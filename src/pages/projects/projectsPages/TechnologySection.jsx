@@ -8,7 +8,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
-import { iconsMap } from "../../../icons/customIcons/iconsMap.js"
+import { iconsMap } from "../../../assets/icons/customIcons/iconsMap.js"
 import { useTranslation } from "../../../hooks/useTranslation.js";
 
 export default function TechnologySection({ technologies = [] }) {
@@ -30,21 +30,27 @@ export default function TechnologySection({ technologies = [] }) {
 
     return (
         <Stack spacing={4}>
-            <Typography variant="h4">{t('technologies')}</Typography>
+            <Typography variant="h4">{t('technologiesTitle')}</Typography>
 
             <Tabs
                 value={tab}
                 onChange={(_, newValue) => setTab(newValue)}
                 variant="scrollable"
                 scrollButtons="auto"
-                sx={{ borderBottom: 1, borderColor: "divider" }}
+                sx={{
+                    borderBottom: 1,
+                    borderColor: "divider",
+                }}
             >
                 {categories.map((cat) => (
                     <Tab
                         key={cat}
                         label={t(`tech_categories.${cat}`)}
                         value={cat}
-                        sx={{ textTransform: "none", fontWeight: 500 }}
+                        sx={{
+                            textTransform: "none",
+                            fontWeight: 500
+                        }}
                     />
                 ))}
             </Tabs>

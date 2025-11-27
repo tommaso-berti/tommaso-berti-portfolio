@@ -1,22 +1,21 @@
 {
-  "home": "home",
-  "projects": "Projects",
-  "about": "About",
-  "blog": "Blog",
-  "example-style": "Example style",
   "nav": {
     "home": "home",
-    "projects": "projects",
-    "about": "about",
-    "blog": "blog",
+    "projects": "Projects",
+    "about": "About",
+    "blog": "Blog",
     "example-style": "example-style"
   },
   "pages": {
     "home": {
       "tooltipResume": "Download Resume",
-      "hero1": "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in the leading fashion-tech company Lectra.",
-      "hero2": "I am specialized in the implementation of new customer features and in optimization and fix of old one, making sure it matches the customer expected behavior.",
-      "hero3": "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
+      "welcome": "Hello, I'm",
+      "and": "and",
+      "hero": [
+        "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in the leading fashion-tech company Lectra.",
+        "I am specialized in the implementation of new customer features and in optimization and fix of old one, making sure it matches the customer expected behavior.",
+        "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
+      ]
     },
     "about": {
       "bio": {
@@ -73,20 +72,58 @@
     },
     "projects": {
       "title": "Projects",
-      "description": "This collection of projects reflects my passion for building tools that simplify my life, help me experiment, or allow me to practice and strengthen my skills. Some projects are born from curiosity, others from the desire to explore new technologies, improve my workflow, or simply enjoy the process of development. As a full-time software developer, I actively use AI because I see it as a powerful and transformative tool: it speeds up development, helps me write safer and more efficient code, and supports me when exploring new ideas and technologies. Time is a valuable resource, of course, but AI is not just a shortcut — it’s an extension of my workflow. I use it carefully, always validating the output rather than assuming that every answer is correct, just like I would with any technical reference or documentation.",
+      "description": "This collection of projects reflects my passion for building tools that simplify my life, help me experiment, or allow me to practice and strengthen my skills. Some projects are born from curiosity, others from the desire to explore new technologies, improve my workflow, or simply enjoy the process of development. As a full-time software developer, I actively use AI because I see it as a powerful and transformative tool: it speeds up development, helps me write safer and more efficient code, and supports me when exploring new ideas and technologies. Time is a valuable resource, of course, but AI is not just a shortcut, it’s an extension of my workflow. I use it carefully, always validating the output rather than assuming that every answer is correct, just like I would with any technical reference or documentation.",
       "live_preview": "Live Preview",
       "primaryAction": "Projects Details",
       "secondaryAction": "Open site",
       "all_overline": "All",
-      "main_overline": "Main project",
-      "side_overline": "Side project",
-      "practice_overline": "Practice Project",
+      "main_overline": "Main projects",
+      "side_overline": "Side projects",
+      "practice_overline": "Practice Projects",
       "back": "Back",
       "next": "Next",
       "project_not_found": "Project not found",
       "impact_on_the_project": "Impact on the project",
-      "technologies": "Technologies",
+      "technologiesTitle": "Technologies",
       "roadmap": "Roadmap",
+      "technologies": {
+        "react": {
+          "label": "React",
+          "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
+        },
+        "mui": {
+          "label": "MUI",
+          "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
+        },
+        "javascript": {
+          "label": "JavaScript",
+          "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
+        },
+        "github": {
+          "label": "GitHub",
+          "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
+        },
+        "webstorm": {
+          "label": "WebStorm",
+          "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
+        },
+        "caddy": {
+          "label": "Caddy",
+          "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
+        },
+        "minisearch": {
+          "label": "Minisearch",
+          "description": "Lightweight full-text search integration that enables fast client-side indexing and real-time query results."
+        },
+        "tailwindcss": {
+          "label": "TailwindCSS",
+          "description": "Utility-first CSS framework used to build responsive and consistent interfaces with minimal custom styling. I used it to experiment with the library."
+        },
+        "css": {
+          "label": "CSS",
+          "description": "Styling language used to design some layouts, control visual appearance, and ensure responsive presentation across devices."
+        }
+      },
       "tech_categories": {
         "all": "All",
         "frontend": "Frontend",
@@ -107,35 +144,6 @@
               "Then I experimented with tools and websites that aggregate documentation, but most were either too basic, too complex to navigate, or lacking coverage for all the languages and frameworks I needed.",
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
             ]
-          },
-          "technologies": {
-            "react": {
-              "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
-            },
-            "mui": {
-              "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
-            },
-            "javascript": {
-              "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
-            },
-            "github": {
-              "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
-            },
-            "webstorm": {
-              "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
-            },
-            "caddy": {
-              "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
-            },
-            "minisearch": {
-              "description": "Lightweight full-text search integration that enables fast client-side indexing and real-time query results."
-            },
-            "tailwindcss": {
-              "description": "Utility-first CSS framework used to build responsive and consistent interfaces with minimal custom styling. I used it to experiment with the library"
-            },
-            "css": {
-              "description": "Styling language used to design some layouts, control visual appearance, and ensure responsive presentation across devices."
-            }
           },
           "roadmap": {
             "v1": {
@@ -186,26 +194,6 @@
           },
           "technologies_title": "Technologies",
           "roadmap_title": "Roadmap",
-          "technologies": {
-            "react": {
-              "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
-            },
-            "mui": {
-              "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
-            },
-            "javascript": {
-              "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
-            },
-            "github": {
-              "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
-            },
-            "webstorm": {
-              "description": "Used WebStorm as the main IDE, leveraging its advanced code analysis, refactoring tools, and integrated development workflows."
-            },
-            "caddy": {
-              "description": "Used Caddy as a modern web server and reverse proxy, leveraging automatic HTTPS and simple configuration for fast, reliable deployment."
-            }
-          },
           "roadmap": {
             "v1": {
               "title": "v1.0.0",

@@ -7,8 +7,8 @@ export const useLanguage = () => useContext(LanguageContext);
 export function LanguageContextProvider({ children })  {
     const [language, setLanguage] = useState(navigator.language === 'it-IT' ? 'it' : 'en');
 
-    const toggleLanguage = (lang) => {
-        setLanguage(lang);
+    const toggleLanguage = () => {
+        language === 'en' ? setLanguage('it') : setLanguage('en');
     }
 
     const value = useMemo(() => ({

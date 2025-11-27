@@ -3,7 +3,7 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function IconMenu({
-                                     items,
+                                     items = [],
                                      onItemClick,
                                      buttonId,
                                      menuId,
@@ -13,18 +13,11 @@ export default function IconMenu({
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
-    const handleOpen = (e) => {
-        setAnchorEl(e.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const handleOpen = (e) => setAnchorEl(e.currentTarget);
+    const handleClose = () => setAnchorEl(null);
 
     const handleClickItem = (item) => {
-        if (onItemClick) {
-            onItemClick(item);
-        }
+        onItemClick?.(item);
         handleClose();
     };
 
@@ -53,7 +46,10 @@ export default function IconMenu({
                 }}
             >
                 {items.map((item) => (
-                    <MenuItem key={item.id} onClick={() => handleClickItem(item)}>
+                    <MenuItem
+                        key={item.id}
+                        onClick={() => handleClickItem(item)}
+                    >
                         {item.title}
                     </MenuItem>
                 ))}

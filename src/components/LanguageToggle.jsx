@@ -1,6 +1,8 @@
-import TranslateIcon from "@mui/icons-material/Translate";
 import { useLanguage } from "../contexts/LanguageContext.jsx";
-import IconMenu from "../features/components/IconMenu.jsx";
+import ItFlag from "../assets/icons/italy.png";
+import EnFlag from "../assets/icons/united-kingdom.png";
+import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
 
 export default function LanguageToggle() {
     const { language, toggleLanguage } = useLanguage();
@@ -10,17 +12,24 @@ export default function LanguageToggle() {
         { title: "EN", id: "en" },
     ];
 
-    const handleLanguageSelect = (item) => {
-        toggleLanguage(item.id);
+    const handleLanguageSelect = () => {
+        toggleLanguage();
     };
 
     return (
-        <IconMenu
-            items={languages}
-            onItemClick={handleLanguageSelect}
-            buttonId="translate-button"
-            menuId="translate-menu"
-            icon={<TranslateIcon />}
-        />
+        <IconButton onClick={handleLanguageSelect}>
+            <Box
+                component="img"
+                src={language === "it" ? ItFlag : EnFlag}
+                alt="language"
+                sx={{
+                    width: 24,
+                    height: 24,
+                    display: "block",
+                    borderRadius: "4px"
+                }}
+            />
+        </IconButton>
+
     );
 }

@@ -26,7 +26,7 @@ import {
     CustomTailwindIcon,
     CustomNextJsIcon,
     CustomPostmanIcon
-} from "../../icons/customIcons/index.js";
+} from "../../assets/icons/customIcons/index.js";
 
 export default function TechSkills() {
     const { t } = useTranslation('pages.about.tech-skills');

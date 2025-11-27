@@ -82,9 +82,7 @@ export default function BreadCrumbs() {
             ];
     }, [pathname]);
 
-    const getItemsForMenu = (id) =>
-        breadcrumb[id]?.items || breadcrumb[id] || [];
-
+    const getItemsForMenu = (id) => breadcrumb[id]?.items ?? [];
     const handleMenuClick = (menuItem, parentItem) => {
 
         if (!menuItem || typeof menuItem.id !== "string") {

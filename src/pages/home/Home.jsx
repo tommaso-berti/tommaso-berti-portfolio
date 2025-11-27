@@ -10,6 +10,9 @@ export default function Home() {
         <>
             <Stack
                 component="section"
+                sx={{
+                    mt: 16,
+                }}
             >
                 <Typography
                     color="text.primary"

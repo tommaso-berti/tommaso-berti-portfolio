@@ -85,6 +85,16 @@
       "next": "Next",
       "project_not_found": "Project not found",
       "impact_on_the_project": "Impact on the project",
+      "technologies": "Technologies",
+      "roadmap": "Roadmap",
+      "tech_categories": {
+        "all": "All",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tooling": "Tooling",
+        "libraries": "Libraries",
+        "hosting": "Hosting"
+      },
       "codexpane": {
         "title": "CodexPane",
         "description": "Fast and optimized web application to quick access refined documentation, examples, cheatsheet and interactive code playgrounds",
@@ -98,8 +108,6 @@
               "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
             ]
           },
-          "roadmap_title": "Roadmap",
-          "technologies_title": "Technologies",
           "technologies": {
             "react": {
               "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."

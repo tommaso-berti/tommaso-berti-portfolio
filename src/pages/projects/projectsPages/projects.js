@@ -21,12 +21,12 @@ export const projects = [
         },
         details: {
             technologies: [
-                { id: "react", icon: "react", level: 85, label: "React", category: "Frontend" },
-                { id: "mui", icon: "mui", level: 80, label: "MUI", category: "Frontend" },
-                { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "Frontend" },
-                { id: "github", icon: "github", level: 65, label: "GitHub", category: "Tooling" },
-                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "Tooling" },
-                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "Hosting" }
+                { id: "react", icon: "react", level: 85, label: "React", category: "frontend" },
+                { id: "mui", icon: "mui", level: 80, label: "MUI", category: "frontend" },
+                { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "frontend" },
+                { id: "github", icon: "github", level: 65, label: "GitHub", category: "tooling" },
+                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "tooling" },
+                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "hosting" }
             ],
             roadmapIds: ["v1", "v2", "v3"],
         },
@@ -53,15 +53,15 @@ export const projects = [
         },
         details: {
             technologies: [
-                { id: "react", icon: "react", level: 85, label: "React", category: "Frontend" },
-                { id: "mui", icon: "mui", level: 80, label: "MUI", category: "Frontend" },
-                { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "Frontend" },
-                { id: "github", icon: "github", level: 65, label: "GitHub", category: "Tooling" },
-                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "Tooling" },
-                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "Hosting" },
-                { id: "minisearch", icon: "minisearch", level: 50, label: "Minisearch", category: "Library" },
-                { id: "tailwindcss", icon: "tailwindcss", level: 10, label: "TailwindCSS", category: "Frontend" },
-                { id: "css", icon: "css", level: 15, label: "CSS", category: "Frontend" },
+                { id: "react", icon: "react", level: 85, label: "React", category: "frontend" },
+                { id: "mui", icon: "mui", level: 80, label: "MUI", category: "frontend" },
+                { id: "javascript", icon: "javascript", level: 90, label: "JavaScript", category: "frontend" },
+                { id: "github", icon: "github", level: 65, label: "GitHub", category: "tooling" },
+                { id: "webstorm", icon: "webstorm", level: 55, label: "Webstorm", category: "tooling" },
+                { id: "caddy", icon: "caddy", level: 60, label: "Caddy", category: "hosting" },
+                { id: "minisearch", icon: "minisearch", level: 50, label: "Minisearch", category: "libraries" },
+                { id: "tailwindcss", icon: "tailwindcss", level: 10, label: "TailwindCSS", category: "frontend" },
+                { id: "css", icon: "css", level: 15, label: "CSS", category: "frontend" },
 
             ],
             roadmapIds: ["v1", "v2", "v3", "v4"],

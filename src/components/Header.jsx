@@ -3,6 +3,9 @@ import Stack from '@mui/material/Stack'
 import BreadCrumbs from '../features/BreadCrumbs.jsx';
 import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
+import { Typography } from "@mui/material";
+import { APP_VERSION } from '../lib/version.js';
+
 
 export default function Header() {
     return (
@@ -20,11 +23,14 @@ export default function Header() {
                 paddingY: '1rem',
                 justifyContent: 'space-between',
                 backgroundColor: "background.paper",
-                zIndex: 100,
+                zIndex: 100
             }}
         >
             <BreadCrumbs />
-            <Stack direction="row">
+            <Stack direction="row" alignItems="center">
+                <Typography sx={{ lineHeight: 1, mr: 1, fontWeight:500 }} variant="h7">
+                    {`v${APP_VERSION}`}
+                </Typography>
                 <LanguageToggle />
                 <DarkModeToggle />
             </Stack>

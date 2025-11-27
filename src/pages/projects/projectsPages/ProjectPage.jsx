@@ -72,7 +72,7 @@ export default function ProjectPage() {
                 </Box>
 
                 <RoadmapSection
-                    roadmapTitle={t("roadmap_title")}
+                    roadmapTitle={tProjects("roadmap")}
                     roadmap={roadmap}
                     backLabel={tProjects("back")}
                     nextLabel={tProjects("next")}

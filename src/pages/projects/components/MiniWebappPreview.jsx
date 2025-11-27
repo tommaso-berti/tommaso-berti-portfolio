@@ -29,6 +29,11 @@ export default function MiniWebappPreview({
                     borderRadius: 3,
                     overflow: "hidden",
                     backgroundColor: "background.paper",
+                    transition: "0.25s",
+                    "&:hover": {
+                        transform: "translateY(-4px)",
+                        boxShadow: 6,
+                    },
                     "&:hover .expand-icon": disableFullscreen
                         ? undefined
                         : { opacity: 1 },

@@ -75,6 +75,13 @@ export default function ProjectsPreview({
                                 <Button
                                     variant={primaryAction.variant || "contained"}
                                     onClick={onClickPrimaryAction}
+                                    sx={{
+                                        transition: "0.25s",
+                                        "&:hover": {
+                                            transform: "translateY(-4px)",
+                                            boxShadow: 6,
+                                        },
+                                    }}
                                 >
                                     {primaryAction.label}
                                 </Button>
@@ -87,6 +94,13 @@ export default function ProjectsPreview({
                                     href={secondaryAction.href}
                                     target={secondaryAction.target ?? "_blank"}
                                     rel={secondaryAction.rel ?? "noreferrer"}
+                                    sx={{
+                                        transition: "0.25s",
+                                        "&:hover": {
+                                            transform: "translateY(-4px)",
+                                            boxShadow: 6,
+                                        },
+                                    }}
                                 >
                                     {secondaryAction.label}
                                 </Button>
@@ -103,7 +117,19 @@ export default function ProjectsPreview({
                     >
                         {
                             technologies ? technologies.map((tech) => (
-                                <Chip key={tech} label={`#${tech}`} variant="outlined" sx={{flexBasis:"20%"}}/>
+                                <Chip
+                                    key={tech}
+                                    label={`#${tech}`}
+                                    variant="outlined"
+                                    sx={{
+                                        flexBasis:"20%",
+                                        transition: "0.25s",
+                                        "&:hover": {
+                                            transform: "translateY(-4px)",
+                                            boxShadow: 6,
+                                        },
+                                    }}
+                                />
                             )) : null
                         }
                     </Box>

@@ -48,7 +48,11 @@ export default function Experience() {
                                 {index < experiences.length - 1 && <TimelineConnector />}
                             </TimelineSeparator>
 
-                            <TimelineContent sx={{ py: 1 }}>
+                            <TimelineContent
+                                sx={{
+                                    py: 1,
+                                }}
+                            >
                                 <Stack direction="column">
                                     <Typography fontWeight={600}>
                                         {exp.title}

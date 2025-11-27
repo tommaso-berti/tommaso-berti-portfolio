@@ -9,28 +9,28 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { iconsMap } from "../../../icons/customIcons/iconsMap.js"
-import {useTranslation} from "../../../hooks/useTranslation.js";
+import { useTranslation } from "../../../hooks/useTranslation.js";
 
 export default function TechnologySection({ technologies = [] }) {
-    const [tab, setTab] = useState("All");
+    const [tab, setTab] = useState("all");
     const { t } = useTranslation(`pages.projects`);
 
 
     if (!technologies.length) return null;
 
     const categories = [
-        "All",
+        "all",
         ...Array.from(new Set(technologies.map((t) => t.category))).sort(),
     ];
 
     const filteredTechs =
-        tab === "All"
+        tab === "all"
             ? technologies
             : technologies.filter((t) => t.category === tab);
 
     return (
         <Stack spacing={4}>
-            <Typography variant="h4">Technologies</Typography>
+            <Typography variant="h4">{t('technologies')}</Typography>
 
             <Tabs
                 value={tab}
@@ -42,7 +42,7 @@ export default function TechnologySection({ technologies = [] }) {
                 {categories.map((cat) => (
                     <Tab
                         key={cat}
-                        label={cat}
+                        label={t(`tech_categories.${cat}`)}
                         value={cat}
                         sx={{ textTransform: "none", fontWeight: 500 }}
                     />
@@ -115,7 +115,7 @@ export default function TechnologySection({ technologies = [] }) {
                                             variant="caption"
                                             sx={{ opacity: 0.7 }}
                                         >
-                                            {tech.category}
+                                            {t(`tech_categories.${tech.category}`)}
                                         </Typography>
                                     </Stack>
                                 </Stack>

@@ -23,7 +23,7 @@ export default function Footer() {
                 alignItems: 'center',
                 padding: '0.2rem',
                 display: 'inline-flex',
-                zIndex: 100,
+                zIndex: 100
             }}
         >
             <Stack
@@ -35,6 +35,11 @@ export default function Footer() {
                     borderRadius: '1rem',
                     boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.2)',
                     backgroundColor: "background.paper",
+                    transition: "0.25s",
+                    "&:hover": {
+                        transform: "translateY(-4px)",
+                        boxShadow: 6,
+                    },
                 }}
             >
                 <Tooltip title="GitHub">
@@ -75,9 +80,9 @@ export default function Footer() {
                 </Tooltip>
                 <Tooltip title={t('pages.home.tooltipResume')}>
                     <IconButton
-                        aria-label="Email"
+                        aria-label="PDF"
                         component="a"
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=tommaso.berti.15@gmail.com&su=We%20are%20interested%20in%20you"
+                        href="../../public/Curriculum_Tommaso_Berti.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         size='large'

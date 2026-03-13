@@ -59,10 +59,35 @@ React SPA built with Vite and MUI.
 ## Release Versioning
 
 - Deploy versioning is tag-based with SemVer format: `vMAJOR.MINOR.PATCH`.
-- On deploy to `main`, bump type is read from commit/PR text tokens (case-insensitive):
+- Automatic deploy runs on push to `main`.
+- On automatic deploy to `main`, bump type is read from commit/PR text tokens (case-insensitive):
   - `#major` or `[major]`
   - `#minor` or `[minor]`
   - `#patch` or `[patch]`
 - Precedence: `major` > `minor` > `patch`.
 - Default when no token is found: `patch`.
 - Rerun safety: if the same commit already has a SemVer tag, the workflow reuses that version and does not create a new one.
+
+## Deploy Procedure
+
+### Automatic Deploy (main)
+
+1. Merge or push to `main`.
+2. GitHub Actions runs `Deploy www.tommasoberti.com (versioned)` automatically.
+3. Version bump is resolved from commit/PR tokens (`#major`, `#minor`, `#patch`).
+4. Build is deployed and release tag is created (if not already present).
+
+### Manual Deploy (workflow_dispatch)
+
+1. Open GitHub repository -> `Actions` -> `Deploy www.tommasoberti.com (versioned)`.
+2. Click `Run workflow`.
+3. Set:
+   - `target_ref`: branch/ref to deploy (for example `main` or `feature/my-branch`)
+   - `bump_level`: `patch`, `minor`, or `major`
+4. Run workflow.
+
+Manual deploy behavior:
+- Deploy can run from any branch/ref.
+- `bump_level` is explicit and does not use commit token parsing.
+- Release tag is created only when `target_ref` is `main`.
+- For non-main refs, deploy still runs but tag creation is skipped.

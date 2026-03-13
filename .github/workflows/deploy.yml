@@ -6,6 +6,22 @@ on:
   pull_request:
     types: [closed]
     branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      target_ref:
+        description: "Branch or ref to deploy"
+        required: true
+        default: "main"
+        type: string
+      bump_level:
+        description: "Version bump level"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 permissions:
   contents: write
@@ -23,6 +39,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.target_ref || github.ref_name }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -40,6 +57,8 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           BEFORE_SHA: ${{ github.event.before }}
           SHA: ${{ github.sha }}
+          TARGET_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.target_ref || github.ref_name }}
+          MANUAL_BUMP: ${{ github.event_name == 'workflow_dispatch' && inputs.bump_level || '' }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
           PR_MERGE_MESSAGE: ${{ github.event.pull_request.merge_commit_message }}
@@ -47,42 +66,53 @@ jobs:
           set -euo pipefail
 
           git fetch --tags --force
+          RESOLVED_SHA="$(git rev-parse HEAD)"
+          echo "RESOLVED_SHA=$RESOLVED_SHA" >> "$GITHUB_ENV"
 
           # Rerun-safe: if HEAD is already tagged with a SemVer release, reuse it.
-          EXISTING_TAG=$(git tag --points-at "$SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
+          EXISTING_TAG=$(git tag --points-at "$RESOLVED_SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
           if [ -n "${EXISTING_TAG}" ]; then
             VERSION="${EXISTING_TAG#v}"
             echo "BUMP_LEVEL=none" >> "$GITHUB_ENV"
             echo "VERSION=$VERSION" >> "$GITHUB_ENV"
             echo "RELEASE_TAG=$EXISTING_TAG" >> "$GITHUB_ENV"
             echo "RELEASE_DIR=$EXISTING_TAG" >> "$GITHUB_ENV"
+            echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
+            echo "event=$EVENT_NAME ref=$TARGET_REF bump=none version=$VERSION (existing tag reused)"
             exit 0
           fi
 
-          RELEASE_TEXT=""
-          if [ "$EVENT_NAME" = "push" ]; then
-            if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
-              RANGE="$BEFORE_SHA..$SHA"
-              RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
-            else
-              RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            case "$MANUAL_BUMP" in
+              major|minor|patch) BUMP_LEVEL="$MANUAL_BUMP" ;;
+              *) BUMP_LEVEL="patch" ;;
+            esac
+          else
+            RELEASE_TEXT=""
+            if [ "$EVENT_NAME" = "push" ]; then
+              if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+                RANGE="$BEFORE_SHA..$SHA"
+                RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
+              else
+                RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
+              fi
             fi
-          fi
 
-          # If PR context is present, include PR metadata.
-          RELEASE_TEXT="$RELEASE_TEXT
-          $PR_TITLE
-          $PR_BODY
-          $PR_MERGE_MESSAGE"
+            # If PR context is present, include PR metadata.
+            RELEASE_TEXT="$RELEASE_TEXT
+            $PR_TITLE
+            $PR_BODY
+            $PR_MERGE_MESSAGE"
 
-          RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
-          BUMP_LEVEL="patch"
-          if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
-            BUMP_LEVEL="major"
-          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#minor|\[minor\]'; then
-            BUMP_LEVEL="minor"
-          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#patch|\[patch\]'; then
+            RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
             BUMP_LEVEL="patch"
+            if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
+              BUMP_LEVEL="major"
+            elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#minor|\[minor\]'; then
+              BUMP_LEVEL="minor"
+            elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#patch|\[patch\]'; then
+              BUMP_LEVEL="patch"
+            fi
           fi
 
           LATEST_TAG=$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1 || true)
@@ -125,6 +155,8 @@ jobs:
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "RELEASE_DIR=$RELEASE_TAG" >> "$GITHUB_ENV"
+          echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
+          echo "event=$EVENT_NAME ref=$TARGET_REF bump=$BUMP_LEVEL version=$VERSION"
 
       - name: Build
         env:
@@ -242,16 +274,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          if [ "${TARGET_REF:-}" != "main" ]; then
+            echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=false (non-main ref)"
+            exit 0
+          fi
+
           if [ -z "${RELEASE_TAG:-}" ]; then
             echo "Missing RELEASE_TAG in environment"; exit 1
           fi
 
           if git ls-remote --tags origin "refs/tags/$RELEASE_TAG" | grep -q .; then
             echo "Tag $RELEASE_TAG already exists on origin, skipping."
+            echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=false (already exists)"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag "$RELEASE_TAG" "$GITHUB_SHA"
+          git tag "$RELEASE_TAG" "${RESOLVED_SHA:-$GITHUB_SHA}"
           git push origin "refs/tags/$RELEASE_TAG"
+          echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=true"

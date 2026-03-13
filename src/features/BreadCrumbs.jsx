@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocation, Link as RouterLink, useNavigate } from "react-router-dom";
 import {
     Box,
@@ -69,18 +69,15 @@ function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
         isHomeAndOnly;
     const label = getTranslatedLabel(item.id, t);
 
-    const content = isNonClickable ? (
-        <Typography variant="h5" color="text.secondary">
-            {label}
-        </Typography>
-    ) : (
+    const content = (
         <Link
-            component={RouterLink}
-            to={item.to}
-            underline="hover"
+            component={isNonClickable ? "span" : RouterLink}
+            to={isNonClickable ? undefined : item.to}
+            underline={isNonClickable ? "none" : "hover"}
             color="inherit"
+            sx={isNonClickable ? { pointerEvents: "none", cursor: "default" } : undefined}
         >
-            <Typography variant="h5" color="text.primary">
+            <Typography variant="h5" color={isNonClickable ? "text.secondary" : "text.primary"}>
                 {label}
             </Typography>
         </Link>
@@ -118,6 +115,7 @@ export default function BreadCrumbs() {
     const [inputValue, setInputValue] = useState("");
     const [suggestionIndex, setSuggestionIndex] = useState(0);
     const [isInputFocused, setIsInputFocused] = useState(false);
+    const [isNavigatingCommand, setIsNavigatingCommand] = useState(false);
     const inputRef = useRef(null);
 
     const crumbs = useMemo(() => {
@@ -174,11 +172,6 @@ export default function BreadCrumbs() {
 
     const suggestionValues = useMemo(() => {
         const values = [];
-        const parentCrumb = crumbs.at(-2);
-        if (parentCrumb?.to) {
-            values.push("..");
-        }
-
         const items = Array.isArray(activeContext.items) ? activeContext.items : [];
         for (const item of items) {
             const localizedTitle = normalizeToken(item.title);
@@ -188,10 +181,16 @@ export default function BreadCrumbs() {
             }
         }
 
+        const parentCrumb = crumbs.at(-2);
+        if (parentCrumb?.to) {
+            values.push("..");
+        }
+
         return values;
     }, [activeContext.items, crumbs]);
 
     useEffect(() => {
+        if (isNavigatingCommand) return;
         if (!suggestionValues.length || inputValue.trim() !== "") return;
 
         const intervalId = setInterval(() => {
@@ -199,11 +198,18 @@ export default function BreadCrumbs() {
         }, SUGGESTION_INTERVAL_MS);
 
         return () => clearInterval(intervalId);
-    }, [suggestionValues, inputValue]);
+    }, [suggestionValues, inputValue, isNavigatingCommand]);
 
     useEffect(() => {
         setSuggestionIndex(0);
     }, [activeContextId, pathname, hash, suggestionValues]);
+
+    useLayoutEffect(() => {
+        if (!isNavigatingCommand) return;
+        setInputValue("");
+        setIsNavigatingCommand(false);
+        setSuggestionIndex(0);
+    }, [pathname, hash, isNavigatingCommand]);
 
     useEffect(() => {
         setIsInputFocused(document.activeElement === inputRef.current);
@@ -258,8 +264,15 @@ export default function BreadCrumbs() {
         const target = allowedCommands.get(normalizedValue);
         if (!target) return;
 
+        const currentTarget = `${pathname}${hash || ""}`;
+        if (target === currentTarget) {
+            setInputValue("");
+            setSuggestionIndex(0);
+            return;
+        }
+
+        setIsNavigatingCommand(true);
         navigate(target);
-        setInputValue("");
     };
 
     const activeSuggestion = suggestionValues.length
@@ -390,7 +403,7 @@ export default function BreadCrumbs() {
 
                     <Box aria-hidden="true" sx={cursorSx} />
 
-                    {isEmptyInput && suggestionSuffix && inputLower.length === 0 && (
+                    {!isNavigatingCommand && isEmptyInput && suggestionSuffix && inputLower.length === 0 && (
                         <Typography
                             variant="h5"
                             color="text.disabled"

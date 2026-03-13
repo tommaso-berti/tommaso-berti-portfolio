@@ -250,5 +250,17 @@
       "work_in_progress_other": "Lavori in corso",
       "work_in_progress_label": "{{status}}"
     }
+  },
+  "releaseNotes": {
+    "title_major": "Note di rilascio Major",
+    "title_minor": "Note di rilascio Minor",
+    "title_patch": "Note di rilascio Patch",
+    "version_label": "Ultima versione deployata: v{{version}}",
+    "compare_label": "Confronto da {{previous}} a {{latest}}",
+    "loading": "Caricamento release notes...",
+    "empty": "Nessuna release note disponibile per questa versione.",
+    "error": "Impossibile caricare le release notes in questo momento. Riprova.",
+    "retry": "Riprova",
+    "close": "Chiudi"
   }
 }

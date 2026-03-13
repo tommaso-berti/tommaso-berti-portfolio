@@ -84,9 +84,7 @@ export default function BreadCrumbs() {
 
     const getItemsForMenu = (id) => breadcrumb[id]?.items ?? [];
     const handleMenuClick = (menuItem, parentItem) => {
-
         if (!menuItem || typeof menuItem.id !== "string") {
-            console.warn("Menu item senza id valido:", menuItem);
             return;
         }
         const context = breadcrumb[parentItem?.id] ?? {};

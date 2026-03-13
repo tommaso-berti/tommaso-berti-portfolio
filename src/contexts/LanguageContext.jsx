@@ -5,7 +5,10 @@ const LanguageContext = createContext();
 export const useLanguage = () => useContext(LanguageContext);
 
 export function LanguageContextProvider({ children })  {
-    const [language, setLanguage] = useState(navigator.language === 'it-IT' ? 'it' : 'en');
+    const [language, setLanguage] = useState(() => {
+        if (typeof navigator === "undefined") return "en";
+        return navigator.language === "it-IT" ? "it" : "en";
+    });
 
     const toggleLanguage = () => {
         language === 'en' ? setLanguage('it') : setLanguage('en');

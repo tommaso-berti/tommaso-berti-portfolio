@@ -82,7 +82,7 @@ export default function Footer() {
                     <IconButton
                         aria-label="PDF"
                         component="a"
-                        href="../../public/Curriculum_Tommaso_Berti.pdf"
+                        href="/Curriculum_Tommaso_Berti.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         size='large'

@@ -14,7 +14,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 export default function RoadmapSection({roadmapTitle, roadmap, backLabel, nextLabel}) {
+    const steps = Array.isArray(roadmap) ? roadmap : [];
     const [activeStep, setActiveStep] = useState(0);
+
+    if (!steps.length) {
+        return null;
+    }
 
     const handleNext = () => {
         setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -32,7 +37,7 @@ export default function RoadmapSection({roadmapTitle, roadmap, backLabel, nextLa
 
             <Box>
                 <Stepper activeStep={activeStep} alternativeLabel>
-                    {roadmap.map((step, index) => (
+                    {steps.map((step, index) => (
                         <Step key={index}>
                             <StepLabel
                                 sx={{
@@ -71,13 +76,13 @@ export default function RoadmapSection({roadmapTitle, roadmap, backLabel, nextLa
                     >
                         <Stack gap={2} direction="column">
                             <Typography variant="h6">
-                                {roadmap[activeStep].title}
+                                {steps[activeStep].title}
                             </Typography>
                             <List>
                                 {
-                                    (Array.isArray(roadmap[activeStep].content)
-                                        ? roadmap[activeStep].content
-                                        : [roadmap[activeStep].content]
+                                    (Array.isArray(steps[activeStep].content)
+                                        ? steps[activeStep].content
+                                        : [steps[activeStep].content]
                                     ).map((content, index) => (
                                         <ListItem key={index} sx={{p: 0}}>
                                             <ListItemIcon sx={{ minWidth: 24 }}>•</ListItemIcon>
@@ -113,7 +118,7 @@ export default function RoadmapSection({roadmapTitle, roadmap, backLabel, nextLa
                         </Button>
 
                         <Button
-                            disabled={activeStep === roadmap.length - 1}
+                            disabled={activeStep === steps.length - 1}
                             onClick={handleNext}
                             variant="contained"
                             sx={{

@@ -8,11 +8,11 @@ import { projects } from "./projectsPages/projects.js";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
+const PROJECT_TABS = ["all", "main", "side", "practice"];
+
 export default function Projects() {
     const { t } = useTranslation("pages.projects");
     const [tab, setTab] = useState("all");
-
-    const tabs = ["all", "main", "side", "practice"];
 
     const translatedTabLabel = (tab) => {
         switch (tab) {
@@ -52,7 +52,7 @@ export default function Projects() {
                 aria-label="projects-tab"
                 sx={{ borderBottom: 1, borderColor: "divider" }}
             >
-                {tabs.map((tab) => (
+                {PROJECT_TABS.map((tab) => (
                     <Tab
                         key={tab}
                         label={translatedTabLabel(tab)}

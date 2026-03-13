@@ -21,8 +21,6 @@ export default function ProjectPage() {
         [project]
     );
 
-    const difficulties = tProject('difficulties_faced', { returnObjects: true });
-
     if (!projectConfig) {
         return (
             <Stack component="article">
@@ -34,13 +32,20 @@ export default function ProjectPage() {
     }
 
     const { details } = projectConfig;
+    const detailsTechnologies = Array.isArray(details.technologies) ? details.technologies : [];
+    const detailsRoadmapIds = Array.isArray(details.roadmapIds) ? details.roadmapIds : [];
 
     const introductionTitle = tProject("introduction.title");
-    const introductionParagraphs = tProject("introduction.description", {
+    const introductionParagraphsRaw = tProject("introduction.description", {
         returnObjects: true,
     });
+    const introductionParagraphs = Array.isArray(introductionParagraphsRaw)
+        ? introductionParagraphsRaw
+        : [];
+    const difficultiesRaw = tProject('difficulties_faced', { returnObjects: true });
+    const difficulties = Array.isArray(difficultiesRaw) ? difficultiesRaw : [];
 
-    const technologies = details.technologies.map(({ id, level }) => {
+    const technologies = detailsTechnologies.map(({ id, level }) => {
         const base = TECHNOLOGIES[id];
 
         return {
@@ -52,7 +57,7 @@ export default function ProjectPage() {
         };
     });
 
-    const roadmap = details.roadmapIds.map((stepId) => ({
+    const roadmap = detailsRoadmapIds.map((stepId) => ({
         title: tProject(`roadmap.${stepId}.title`),
         content: tProject(`roadmap.${stepId}.content`, { returnObjects: true }),
     }));

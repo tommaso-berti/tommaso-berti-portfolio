@@ -174,15 +174,22 @@ export default function BreadCrumbs() {
 
     const suggestionValues = useMemo(() => {
         const values = [];
-        for (const [command] of allowedCommands.entries()) {
-            if (command === "..") {
-                values.push("..");
-            } else if (!values.includes(command)) {
-                values.push(command);
+        const parentCrumb = crumbs.at(-2);
+        if (parentCrumb?.to) {
+            values.push("..");
+        }
+
+        const items = Array.isArray(activeContext.items) ? activeContext.items : [];
+        for (const item of items) {
+            const localizedTitle = normalizeToken(item.title);
+            if (!localizedTitle) continue;
+            if (!values.includes(localizedTitle)) {
+                values.push(localizedTitle);
             }
         }
+
         return values;
-    }, [allowedCommands]);
+    }, [activeContext.items, crumbs]);
 
     useEffect(() => {
         if (!suggestionValues.length || inputValue.trim() !== "") return;
@@ -196,7 +203,7 @@ export default function BreadCrumbs() {
 
     useEffect(() => {
         setSuggestionIndex(0);
-    }, [activeContextId, pathname, hash]);
+    }, [activeContextId, pathname, hash, suggestionValues]);
 
     useEffect(() => {
         setIsInputFocused(document.activeElement === inputRef.current);

@@ -8,6 +8,7 @@ React SPA built with Vite and MUI.
 - `npm run build`: creates production build in `dist/`
 - `npm run preview`: previews the production build locally
 - `npm run lint`: runs ESLint checks
+- `npm run i18n:check`: verifies translation key alignment between `it.json` and `en.json`
 
 ## Project Architecture
 

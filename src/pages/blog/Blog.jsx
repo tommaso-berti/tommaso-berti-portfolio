@@ -4,6 +4,11 @@ import {useTranslation} from "../../hooks/useTranslation.js";
 
 export default function Blog() {
     const { t } = useTranslation('pages.blog');
+    const baseStatus = t('work_in_progress', { count: 1, defaultValue: 'Work in progress' });
+    const statusLabel = t('work_in_progress_label', {
+        values: { status: baseStatus },
+        defaultValue: baseStatus,
+    });
 
     return (
         <Box
@@ -18,7 +23,7 @@ export default function Blog() {
         }}
         >
             <Typography variant="h1">
-                {t('work_in_progress')}
+                {statusLabel}
             </Typography>
         </Box>
     )

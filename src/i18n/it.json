@@ -245,7 +245,10 @@
       }
     },
     "blog": {
-      "work_in_progress": "Lavori in corso"
+      "work_in_progress": "Lavori in corso",
+      "work_in_progress_one": "Lavori in corso",
+      "work_in_progress_other": "Lavori in corso",
+      "work_in_progress_label": "{{status}}"
     }
   }
 }

@@ -6,6 +6,7 @@ const BreadCrumbContext = createContext(null);
 export function BreadCrumbProvider({ children }) {
     const { t: tNav } = useTranslation("nav");
     const { t: tAbout } = useTranslation("pages.about");
+    const { t: tProjects } = useTranslation("pages.projects");
 
     const breadcrumb = useMemo(
         () => ({
@@ -33,13 +34,13 @@ export function BreadCrumbProvider({ children }) {
             projects: {
                 type: "path",
                 items: [
-                    { title: "CodexPane", id: "codexpane" },
-                    { title: "GamesLog", id: "gameslog" },
-                    { title: "Portfolio", id: "portfolio" },
+                    { title: tProjects("codexpane.title", "CodexPane"), id: "codexpane" },
+                    { title: tProjects("gameslog.title", "GamesLog"), id: "gameslog" },
+                    { title: tProjects("portfolio.title", "Portfolio"), id: "portfolio" },
                 ],
             },
         }),
-        [tNav, tAbout]
+        [tNav, tAbout, tProjects]
     );
 
     const value = useMemo(

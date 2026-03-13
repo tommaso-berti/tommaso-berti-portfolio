@@ -22,6 +22,11 @@ on:
           - patch
           - minor
           - major
+      skip_deploy:
+        description: "Skip build/deploy/tag steps"
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -59,6 +64,7 @@ jobs:
           SHA: ${{ github.sha }}
           TARGET_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.target_ref || github.ref_name }}
           MANUAL_BUMP: ${{ github.event_name == 'workflow_dispatch' && inputs.bump_level || '' }}
+          MANUAL_SKIP_DEPLOY: ${{ github.event_name == 'workflow_dispatch' && inputs.skip_deploy || 'false' }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
           PR_MERGE_MESSAGE: ${{ github.event.pull_request.merge_commit_message }}
@@ -69,6 +75,37 @@ jobs:
           RESOLVED_SHA="$(git rev-parse HEAD)"
           echo "RESOLVED_SHA=$RESOLVED_SHA" >> "$GITHUB_ENV"
 
+          RELEASE_TEXT=""
+          if [ "$EVENT_NAME" = "push" ]; then
+            if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+              RANGE="$BEFORE_SHA..$SHA"
+              RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
+            else
+              RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
+            fi
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            RELEASE_TEXT="$(git log --format=%B -n 20 "$RESOLVED_SHA" || true)"
+          fi
+
+          # If PR context is present, include PR metadata.
+          RELEASE_TEXT="$RELEASE_TEXT
+          $PR_TITLE
+          $PR_BODY
+          $PR_MERGE_MESSAGE"
+          RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
+
+          SKIP_DEPLOY="false"
+          SKIP_REASON="none"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "${MANUAL_SKIP_DEPLOY:-false}" = "true" ]; then
+            SKIP_DEPLOY="true"
+            SKIP_REASON="manual_input"
+          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#skip-deploy|\[skip-deploy\]'; then
+            SKIP_DEPLOY="true"
+            SKIP_REASON="token_found"
+          fi
+          echo "SKIP_DEPLOY=$SKIP_DEPLOY" >> "$GITHUB_ENV"
+          echo "SKIP_DEPLOY_REASON=$SKIP_REASON" >> "$GITHUB_ENV"
+
           # Rerun-safe: if HEAD is already tagged with a SemVer release, reuse it.
           EXISTING_TAG=$(git tag --points-at "$RESOLVED_SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
           if [ -n "${EXISTING_TAG}" ]; then
@@ -78,7 +115,7 @@ jobs:
             echo "RELEASE_TAG=$EXISTING_TAG" >> "$GITHUB_ENV"
             echo "RELEASE_DIR=$EXISTING_TAG" >> "$GITHUB_ENV"
             echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
-            echo "event=$EVENT_NAME ref=$TARGET_REF bump=none version=$VERSION (existing tag reused)"
+            echo "event=$EVENT_NAME ref=$TARGET_REF bump=none skip_deploy=$SKIP_DEPLOY version=$VERSION reason=$SKIP_REASON (existing tag reused)"
             exit 0
           fi
 
@@ -88,23 +125,6 @@ jobs:
               *) BUMP_LEVEL="patch" ;;
             esac
           else
-            RELEASE_TEXT=""
-            if [ "$EVENT_NAME" = "push" ]; then
-              if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
-                RANGE="$BEFORE_SHA..$SHA"
-                RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
-              else
-                RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
-              fi
-            fi
-
-            # If PR context is present, include PR metadata.
-            RELEASE_TEXT="$RELEASE_TEXT
-            $PR_TITLE
-            $PR_BODY
-            $PR_MERGE_MESSAGE"
-
-            RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
             BUMP_LEVEL="patch"
             if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
               BUMP_LEVEL="major"
@@ -156,21 +176,25 @@ jobs:
           echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "RELEASE_DIR=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
-          echo "event=$EVENT_NAME ref=$TARGET_REF bump=$BUMP_LEVEL version=$VERSION"
+          echo "event=$EVENT_NAME ref=$TARGET_REF bump=$BUMP_LEVEL skip_deploy=$SKIP_DEPLOY version=$VERSION reason=$SKIP_REASON"
+          if [ "$SKIP_DEPLOY" = "true" ]; then
+            echo "skip-deploy active: reason=$SKIP_REASON"
+          fi
 
       - name: Build
+        if: env.SKIP_DEPLOY != 'true'
         env:
           VITE_APP_VERSION: ${{ env.VERSION }}
         run: npm run build
 
       # Stop PR runs before touching secrets
       - name: Skip deploy on PR
-        if: github.event_name == 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name == 'pull_request'
         run: |
           echo "Pull request run: skipping deploy (no secrets available)."
 
       - name: Prepare env
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         run: |
           echo "SITE_DOMAIN=www.tommasoberti.com" >> $GITHUB_ENV
           echo "BUILD_DIR=dist" >> $GITHUB_ENV
@@ -179,7 +203,7 @@ jobs:
 
       # 🔐 PREPARE SSH KEY (RAW, NO BASE64) — con diagnostica
       - name: Prepare SSH key (debug first)
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
@@ -213,27 +237,27 @@ jobs:
           ssh-keygen -lf ~/.ssh/deploy_key.pub
 
       - name: Add server host key to known_hosts
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         run: |
           ssh-keyscan -H -t ed25519 "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           ssh-keyscan -H -t rsa     "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           chmod 644 ~/.ssh/known_hosts
 
       - name: Test SSH connection
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         run: |
           ssh -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey \
               -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true
 
       - name: Ensure remote release dir
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
             "mkdir -p '${{ env.REMOTE_RELEASE }}'"
 
       - name: Rsync build → /releases/vX.Y.Z
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           rsync -az --delete \
@@ -244,7 +268,7 @@ jobs:
             "echo '${{ env.VERSION }}' > '${{ env.REMOTE_RELEASE }}/VERSION'"
 
       - name: Activate release (symlink) & reload caddy
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
@@ -260,7 +284,7 @@ jobs:
           '
 
       - name: Prune old releases (keep last 5)
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
@@ -270,7 +294,7 @@ jobs:
           '
 
       - name: Create and push release tag
-        if: github.event_name != 'pull_request'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail

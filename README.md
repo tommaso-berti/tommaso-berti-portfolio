@@ -84,6 +84,7 @@ React SPA built with Vite and MUI.
 3. Set:
    - `target_ref`: branch/ref to deploy (for example `main` or `feature/my-branch`)
    - `bump_level`: `patch`, `minor`, or `major`
+   - `skip_deploy`: `true` to skip build/deploy/tag steps, `false` for normal deploy
 4. Run workflow.
 
 Manual deploy behavior:
@@ -91,3 +92,12 @@ Manual deploy behavior:
 - `bump_level` is explicit and does not use commit token parsing.
 - Release tag is created only when `target_ref` is `main`.
 - For non-main refs, deploy still runs but tag creation is skipped.
+- If `skip_deploy=true`, workflow stops after version resolve and skips build/deploy/tag.
+
+### Skip Deploy Token
+
+- You can skip build/deploy/tag by adding `#skip-deploy` (or `[skip-deploy]`) in commit/PR text.
+- Supported sources are the same inspected texts used for version bump discovery:
+  - commit messages (push range)
+  - PR title/body
+  - PR merge commit message

@@ -36,7 +36,7 @@ export default function Header() {
                     variant="h7"
                     color="textSecondary"
                 >
-                    {`v${APP_VERSION}`}
+                    {`v${c}`}
                 </Typography>
                 <LanguageToggle />
                 <DarkModeToggle />

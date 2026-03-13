@@ -23,7 +23,8 @@ React SPA built with Vite and MUI.
 - `src/i18n`: translation dictionaries and i18n entrypoint
 - `src/styles`: theme factory and style configuration
 - `src/ui`: reusable UI primitives used by style/demo page
-- `src/assets`: static media and custom icon components
+- `src/assets`: static media (flags, logo, images)
+- `src/config/brandIcons.js`: centralized free/public brand icon registry (Simple Icons via `react-icons`)
 
 ## Maintenance Guide
 
@@ -47,6 +48,13 @@ React SPA built with Vite and MUI.
 - Keep project data in `src/pages/projects/projectsPages/projects.js`.
 - Project list/detail shaping is centralized in `src/pages/projects/projectsPages/projectSelectors.js`.
 - Projects tabs are defined in `src/pages/projects/projectsPages/projectTabs.config.js`.
+
+### Icon Management
+
+- Brand icons are centralized in `src/config/brandIcons.js` with `BrandIconDefinition`.
+- Always map technologies/tools by stable IDs (for example: `react`, `mui`, `github`, `webstorm`) and reuse those IDs in UI configs.
+- Prefer official `react-icons/si` (Simple Icons) entries for each brand.
+- If an exact brand icon is unavailable, use the closest free/public fallback and document it in the icon `title` (current examples: `vscode` -> VSCodium, `minisearch` -> JavaScript).
 
 ## Release Versioning
 

@@ -4,24 +4,8 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import GitHubIcon from "@mui/icons-material/GitHub";
 
-import {
-    CustomBashIcon,
-    CustomCssIcon,
-    CustomGitIcon,
-    CustomGPTIcon,
-    CustomHtmlIcon,
-    CustomJavascriptIcon,
-    CustomMongoDbIcon,
-    CustomMuiIcon,
-    CustomPostmanIcon,
-    CustomReactIcon,
-    CustomReduxIcon,
-    CustomTailwindIcon,
-    CustomVSCIcon,
-    CustomWebstormIcon,
-} from "../../assets/icons/customIcons/index.js";
+import { getBrandIconDefinition } from "../../config/brandIcons.js";
 
 const ICON_SIZE = 22;
 
@@ -40,34 +24,34 @@ const SKILL_GROUPS = [
     {
         titleKey: "frontend",
         skills: [
-            { label: "HTML", Icon: CustomHtmlIcon, iconSx: { color: "#e34c26" } },
-            { label: "CSS", Icon: CustomCssIcon, iconSx: { color: "#264de4" } },
-            { label: "Tailwind", Icon: CustomTailwindIcon },
-            { label: "MUI", Icon: CustomMuiIcon, iconSx: { color: "#007fff" } },
+            { label: "HTML", iconId: "html" },
+            { label: "CSS", iconId: "css" },
+            { label: "Tailwind", iconId: "tailwindcss" },
+            { label: "MUI", iconId: "mui" },
         ],
     },
     {
         titleKey: "backend",
         skills: [
-            { label: "JavaScript", Icon: CustomJavascriptIcon },
-            { label: "React", Icon: CustomReactIcon },
-            { label: "Redux", Icon: CustomReduxIcon },
+            { label: "JavaScript", iconId: "javascript" },
+            { label: "React", iconId: "react" },
+            { label: "Redux", iconId: "redux" },
         ],
     },
     {
         titleKey: "database",
-        skills: [{ label: "MongoDB", Icon: CustomMongoDbIcon }],
+        skills: [{ label: "MongoDB", iconId: "mongodb" }],
     },
     {
         titleKey: "tools",
         skills: [
-            { label: "Git", Icon: CustomGitIcon },
-            { label: "GitHub", Icon: GitHubIcon },
-            { label: "Postman", Icon: CustomPostmanIcon },
-            { label: "WebStorm", Icon: CustomWebstormIcon },
-            { label: "VS Code", Icon: CustomVSCIcon },
-            { label: "ChatGPT", Icon: CustomGPTIcon },
-            { label: "Bash", Icon: CustomBashIcon },
+            { label: "Git", iconId: "git" },
+            { label: "GitHub", iconId: "github" },
+            { label: "Postman", iconId: "postman" },
+            { label: "WebStorm", iconId: "webstorm" },
+            { label: "VS Code", iconId: "vscode" },
+            { label: "ChatGPT", iconId: "chatgpt" },
+            { label: "Bash", iconId: "bash" },
         ],
     },
 ];
@@ -81,6 +65,9 @@ function IconWrapper({ children }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                backgroundColor: "#ffffff",
+                borderRadius: "6px",
+                border: "1px solid rgba(148, 163, 184, 0.25)",
             }}
         >
             {children}
@@ -88,11 +75,14 @@ function IconWrapper({ children }) {
     );
 }
 
-function SkillCard({ label, Icon, iconSx }) {
+function SkillCard({ label, iconId }) {
+    const iconDefinition = getBrandIconDefinition(iconId);
+    const IconComponent = iconDefinition.component;
+
     return (
         <SkillItem sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <IconWrapper>
-                <Icon sx={{ fontSize: ICON_SIZE, ...(iconSx || {}) }} />
+                <IconComponent size={ICON_SIZE} color={iconDefinition.color} title={iconDefinition.title || label} />
             </IconWrapper>
             <Typography variant="subtitle1">{label}</Typography>
         </SkillItem>
@@ -117,7 +107,7 @@ export default function TechSkills() {
                     <Grid container spacing={2}>
                         {group.skills.map((skill) => (
                             <Grid key={skill.label} item xs={12} sm={6} md={3}>
-                                <SkillCard label={skill.label} Icon={skill.Icon} iconSx={skill.iconSx} />
+                                <SkillCard label={skill.label} iconId={skill.iconId} />
                             </Grid>
                         ))}
                     </Grid>

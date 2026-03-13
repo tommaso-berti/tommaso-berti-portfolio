@@ -8,8 +8,8 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
-import { iconsMap } from "../../../assets/icons/customIcons/iconsMap.js"
 import { useTranslation } from "../../../hooks/useTranslation.js";
+import { getBrandIconDefinition } from "../../../config/brandIcons.js";
 
 export default function TechnologySection({ technologies = [] }) {
     const [tab, setTab] = useState("all");
@@ -68,7 +68,8 @@ export default function TechnologySection({ technologies = [] }) {
                     }}
                 >
                     {filteredTechs.map((tech, index) => {
-                        const IconComponent = iconsMap[tech.icon];
+                        const iconDefinition = getBrandIconDefinition(tech.icon);
+                        const IconComponent = iconDefinition.component;
 
                         return (
                             <Card
@@ -100,18 +101,20 @@ export default function TechnologySection({ technologies = [] }) {
                                             sx={{
                                                 width: 40,
                                                 height: 40,
-                                                backgroundColor: "primary.main",
+                                                backgroundColor: "#ffffff",
+                                                border: "1px solid",
+                                                borderColor: "divider",
                                                 fontWeight: 600,
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",
                                             }}
                                         >
-                                            {IconComponent ? (
-                                                <IconComponent />
-                                            ) : (
-                                                tech.label.charAt(0)
-                                            )}
+                                            <IconComponent
+                                                size={20}
+                                                color={iconDefinition.color}
+                                                title={iconDefinition.title || tech.label}
+                                            />
                                         </Avatar>
 
                                         <Stack>

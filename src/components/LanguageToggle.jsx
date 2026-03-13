@@ -7,11 +7,6 @@ import Box from "@mui/material/Box";
 export default function LanguageToggle() {
     const { language, toggleLanguage } = useLanguage();
 
-    const languages = [
-        { title: "IT", id: "it" },
-        { title: "EN", id: "en" },
-    ];
-
     const handleLanguageSelect = () => {
         toggleLanguage();
     };

@@ -1,57 +1,33 @@
 import { createContext, useContext, useMemo } from "react";
+
 import { useTranslation } from "../hooks/useTranslation.js";
+import { BREADCRUMB_CONTEXT_DEFINITIONS } from "../config/appDefinitions.js";
 
 const BreadCrumbContext = createContext(null);
 
 export function BreadCrumbProvider({ children }) {
-    const { t: tNav } = useTranslation("nav");
-    const { t: tAbout } = useTranslation("pages.about");
+    const { t } = useTranslation();
 
     const breadcrumb = useMemo(
-        () => ({
-            home: {
-                type: "path",
-                items: [
-                    { title: tNav("projects"), id: "projects" },
-                    { title: tNav("about"), id: "about" },
-                    { title: tNav("blog"), id: "blog" },
-                    //{ title: tNav("example-style"), id: "example-style" },
-                ],
-            },
-            about: {
-                type: "hash",
-                items: [
-                    { title: tAbout("bio.title"), id: "bio" },
-                    { title: tAbout("hobbies.title"), id: "hobbies" },
+        () =>
+            Object.fromEntries(
+                Object.entries(BREADCRUMB_CONTEXT_DEFINITIONS).map(([contextId, definition]) => [
+                    contextId,
                     {
-                        title: tAbout("experience.title"),
-                        id: "study-and-experience",
+                        type: definition.type,
+                        items: definition.items.map((item) => ({
+                            id: item.id,
+                            title: t(item.titleKey, item.fallback ?? item.id),
+                        })),
                     },
-                    { title: tAbout("tech-skills.title"), id: "tech-skills" },
-                ],
-            },
-            projects: {
-                type: "path",
-                items: [
-                    { title: "CodexPane", id: "codexpane" },
-                    { title: "GamesLog", id: "gameslog" },
-                    { title: "Portfolio", id: "portfolio" },
-                ],
-            },
-        }),
-        [tNav, tAbout]
+                ])
+            ),
+        [t]
     );
 
-    const value = useMemo(
-        () => ({ breadcrumb }),
-        [breadcrumb]
-    );
+    const value = useMemo(() => ({ breadcrumb }), [breadcrumb]);
 
-    return (
-        <BreadCrumbContext.Provider value={value}>
-            {children}
-        </BreadCrumbContext.Provider>
-    );
+    return <BreadCrumbContext.Provider value={value}>{children}</BreadCrumbContext.Provider>;
 }
 
 export const useBreadcrumb = () => useContext(BreadCrumbContext);

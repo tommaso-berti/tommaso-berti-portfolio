@@ -1,6 +1,7 @@
-import { useMemo } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useLocation, Link as RouterLink, useNavigate } from "react-router-dom";
 import {
+    Box,
     Link,
     Stack,
     Breadcrumbs,
@@ -10,8 +11,39 @@ import {
 import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "../hooks/useTranslation.js";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
+import {
+    getBreadcrumbContextBasePath,
+    resolveBreadcrumbContextId,
+} from "../config/appDefinitions.js";
 
 const ROOT_ID = "tommasoberti@com:~ cd";
+const MISSING = "__missing__";
+const SUGGESTION_INTERVAL_MS = 1800;
+
+function normalizeToken(value) {
+    return `${value ?? ""}`.trim().toLowerCase();
+}
+
+function normalizeSegment(value) {
+    return decodeURIComponent(`${value ?? ""}`).replace(/^\/+|\/+$/g, "");
+}
+
+function prettifyId(value) {
+    return normalizeSegment(value).replace(/[-_]+/g, " ");
+}
+
+function getTranslatedLabel(id, t) {
+    const normalizedId = normalizeSegment(id);
+    if (!normalizedId) return "";
+
+    const navLabel = t(`nav.${normalizedId}`, { defaultValue: MISSING });
+    if (navLabel !== MISSING) return navLabel.toLowerCase();
+
+    const projectLabel = t(`pages.projects.${normalizedId}.title`, { defaultValue: MISSING });
+    if (projectLabel !== MISSING) return projectLabel.toLowerCase();
+
+    return prettifyId(normalizedId).toLowerCase();
+}
 
 function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
     const isHome = item.id === "home";
@@ -20,20 +52,18 @@ function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
     const isNonClickable =
         (isLast && !isHome) ||
         isHomeAndOnly;
+    const label = getTranslatedLabel(item.id, t);
 
-    const content = isNonClickable ? (
-        <Typography variant="h5" color="text.secondary">
-            {t(item.id).toLowerCase()}
-        </Typography>
-    ) : (
+    const content = (
         <Link
-            component={RouterLink}
-            to={item.to}
-            underline="hover"
+            component={isNonClickable ? "span" : RouterLink}
+            to={isNonClickable ? undefined : item.to}
+            underline={isNonClickable ? "none" : "hover"}
             color="inherit"
+            sx={isNonClickable ? { pointerEvents: "none", cursor: "default" } : undefined}
         >
-            <Typography variant="h5" color="text.primary">
-                {t(item.id).toLowerCase()}
+            <Typography variant="h5" color={isNonClickable ? "text.secondary" : "text.primary"}>
+                {label}
             </Typography>
         </Link>
     );
@@ -63,74 +93,219 @@ function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
 }
 
 export default function BreadCrumbs() {
-    const { pathname } = useLocation();
+    const { pathname, hash } = useLocation();
     const navigate = useNavigate();
     const { breadcrumb } = useBreadcrumb();
     const { t } = useTranslation();
+    const [inputValue, setInputValue] = useState("");
+    const [suggestionIndex, setSuggestionIndex] = useState(0);
+    const [isInputFocused, setIsInputFocused] = useState(false);
+    const [isNavigatingCommand, setIsNavigatingCommand] = useState(false);
+    const inputRef = useRef(null);
 
     const crumbs = useMemo(() => {
-        const path = pathname.split("/").filter(Boolean);
+        const path = pathname.split("/").filter(Boolean).map(normalizeSegment);
 
         return path.length === 0
             ? [{ id: "home", to: "/" }]
             : [
                 { id: "home", to: "/" },
                 ...path.map((seg, i) => ({
-                    id: decodeURIComponent(seg),
+                    id: seg,
                     to: "/" + path.slice(0, i + 1).join("/")
                 }))
             ];
     }, [pathname]);
 
+    const activeCrumb = crumbs.at(-1);
+    const activeContextId = resolveBreadcrumbContextId(pathname, activeCrumb?.id, breadcrumb);
+    const activeContext = breadcrumb[activeContextId] ?? { type: "path", items: [] };
+    const contextBasePath = getBreadcrumbContextBasePath(activeContextId, activeCrumb);
+
+    const allowedCommands = useMemo(() => {
+        const map = new Map();
+        const parentCrumb = crumbs.at(-2);
+        if (parentCrumb?.to) {
+            map.set("..", parentCrumb.to);
+        }
+
+        const items = Array.isArray(activeContext.items) ? activeContext.items : [];
+        for (const item of items) {
+            const safeId = normalizeSegment(item.id);
+            if (!safeId) continue;
+
+            const pathTarget = activeContext.type === "hash"
+                ? `${contextBasePath}#${safeId}`
+                : contextBasePath === "/"
+                    ? `/${safeId}`
+                    : `${contextBasePath}/${safeId}`;
+
+            map.set(normalizeToken(safeId), pathTarget);
+            map.set(normalizeToken(item.title), pathTarget);
+        }
+
+        if (map.size === 0) {
+            map.set("..", crumbs.at(-2)?.to || "/");
+        }
+
+        return map;
+    }, [activeContext.items, activeContext.type, contextBasePath, crumbs]);
+
+    const suggestionValues = useMemo(() => {
+        const values = [];
+        const items = Array.isArray(activeContext.items) ? activeContext.items : [];
+        for (const item of items) {
+            const localizedTitle = normalizeToken(item.title);
+            if (!localizedTitle) continue;
+            if (!values.includes(localizedTitle)) {
+                values.push(localizedTitle);
+            }
+        }
+
+        const parentCrumb = crumbs.at(-2);
+        if (parentCrumb?.to) {
+            values.push("..");
+        }
+
+        return values;
+    }, [activeContext.items, crumbs]);
+
+    useEffect(() => {
+        if (isNavigatingCommand) return;
+        if (!suggestionValues.length || inputValue.trim() !== "") return;
+
+        const intervalId = setInterval(() => {
+            setSuggestionIndex((previous) => (previous + 1) % suggestionValues.length);
+        }, SUGGESTION_INTERVAL_MS);
+
+        return () => clearInterval(intervalId);
+    }, [suggestionValues, inputValue, isNavigatingCommand]);
+
+    useEffect(() => {
+        setSuggestionIndex(0);
+    }, [activeContextId, pathname, hash, suggestionValues]);
+
+    useLayoutEffect(() => {
+        if (!isNavigatingCommand) return;
+        setInputValue("");
+        setIsNavigatingCommand(false);
+        setSuggestionIndex(0);
+    }, [pathname, hash, isNavigatingCommand]);
+
+    useEffect(() => {
+        setIsInputFocused(document.activeElement === inputRef.current);
+    }, []);
+
     const getItemsForMenu = (id) => breadcrumb[id]?.items ?? [];
     const handleMenuClick = (menuItem, parentItem) => {
-
         if (!menuItem || typeof menuItem.id !== "string") {
-            console.warn("Menu item senza id valido:", menuItem);
             return;
         }
+
+        const safeId = normalizeSegment(menuItem.id);
+        if (!safeId) return;
+
         const context = breadcrumb[parentItem?.id] ?? {};
         const useHash = context.type === "hash";
         const base = parentItem?.to ?? "/";
 
         if (useHash) {
-            navigate(`${base}#${menuItem.id}`);
+            navigate(`${base.split("#")[0]}#${safeId}`);
         } else {
-            const safeid = menuItem.id.replace(/^\//, "");
             const separator =
-                base.endsWith("/") || safeid === "" ? "" : "/";
-            navigate(`${base}${separator}${safeid}`);
+                base.endsWith("/") || safeId === "" ? "" : "/";
+            navigate(`${base}${separator}${safeId}`);
         }
     };
 
     const handleBashInput = (e) => {
-        if (e.key !== "Enter") return;
-        e.preventDefault();
+        if (e.key === "Tab") {
+            e.preventDefault();
 
-        const value = e.target.value.trim();
-        if (!value) return;
+            const value = inputValue.trim();
+            const normalizedValue = normalizeToken(value);
+            const candidateCommands = Array.from(allowedCommands.keys()).filter((command) => command !== "..");
+            const matchingCommands = candidateCommands.filter((command) =>
+                command.startsWith(normalizedValue)
+            );
 
-        const current = crumbs.at(-1);
-        const context = breadcrumb[current.id] ?? {};
-        const useHash = context.type === "hash";
-
-        if (value === "..") {
-            const previous = crumbs.at(-2);
-            if (previous?.to) navigate(previous.to);
+            // Bash-like behavior: autocomplete only when there is a single unambiguous match.
+            if (matchingCommands.length !== 1) return;
+            setInputValue(matchingCommands[0]);
             return;
         }
 
-        if (useHash) {
-            const base = current.to?.split("#")[0] ?? "";
-            navigate(`${base}#${value}`);
-        } else {
-            const base = current?.to ?? "";
-            const separator = base.endsWith("/") ? "" : "/";
-            navigate(`${base}${separator}${value}`);
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+
+        const value = inputValue.trim();
+        if (!value) return;
+
+        const normalizedValue = normalizeToken(value);
+        const target = allowedCommands.get(normalizedValue);
+        if (!target) return;
+
+        const currentTarget = `${pathname}${hash || ""}`;
+        if (target === currentTarget) {
+            setInputValue("");
+            setSuggestionIndex(0);
+            return;
         }
+
+        setIsNavigatingCommand(true);
+        navigate(target);
     };
 
+    const activeSuggestion = suggestionValues.length
+        ? suggestionValues[suggestionIndex % suggestionValues.length]
+        : "";
+    const inputLower = normalizeToken(inputValue);
+    const suggestionSuffix = useMemo(() => {
+        if (!activeSuggestion) return "";
+        if (!inputLower) return activeSuggestion;
+        if (activeSuggestion.startsWith(inputLower)) {
+            return activeSuggestion.slice(inputLower.length);
+        }
+        return "";
+    }, [activeSuggestion, inputLower]);
+
     const hasSingleCrumb = crumbs.length === 1;
+    const isEmptyInput = inputValue.length === 0;
+    const terminalTypographySx = {
+        fontSize: (theme) => theme.typography.h5.fontSize,
+        fontWeight: (theme) => theme.typography.h5.fontWeight,
+        lineHeight: (theme) => theme.typography.h5.lineHeight,
+        fontFamily: (theme) => theme.typography.fontFamily,
+    };
+    const inputRootSx = {
+        position: "absolute",
+        inset: 0,
+        opacity: 0,
+        zIndex: 1,
+        cursor: "text",
+        "& .MuiInputBase-input": {
+            width: "100%",
+            height: "100%",
+            ...terminalTypographySx,
+            caretColor: "transparent",
+        }
+    };
+    const cursorSx = {
+        width: "0.72ch",
+        height: "0.98em",
+        backgroundColor: "text.secondary",
+        opacity: 1,
+        animation: isInputFocused
+            ? "terminalCursorBlink 1.1s steps(1, end) infinite"
+            : "none",
+        pointerEvents: "none",
+        flexShrink: 0,
+        alignSelf: "center",
+    };
+    const handleTerminalLineMouseDown = (event) => {
+        event.preventDefault();
+        inputRef.current?.focus();
+    };
 
     return (
         <Stack direction="row" alignItems="center">
@@ -164,17 +339,67 @@ export default function BreadCrumbs() {
                     />
                 ))}
 
-                <InputBase
-                    onKeyDown={handleBashInput}
-                    autoFocus
+                <Box
                     sx={{
-                        fontSize: (theme) => theme.typography.h5.fontSize,
-                        fontWeight: (theme) => theme.typography.h5.fontWeight,
-                        lineHeight: (theme) => theme.typography.h5.lineHeight,
-                        color: "text.secondary",
-                        "& .MuiInputBase-input": { py: 0 }
+                        position: "relative",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        minWidth: "9ch",
+                        minHeight: "2rem",
+                        px: 0.5,
+                        borderRadius: 0.5,
+                        cursor: "text",
+                        "@keyframes terminalCursorBlink": {
+                            "0%, 49%": { opacity: 1 },
+                            "50%, 100%": { opacity: 0 },
+                        },
                     }}
-                />
+                    onMouseDown={handleTerminalLineMouseDown}
+                >
+                    <InputBase
+                        inputRef={inputRef}
+                        value={inputValue}
+                        onChange={(event) => setInputValue(event.target.value)}
+                        onKeyDown={handleBashInput}
+                        onFocus={() => setIsInputFocused(true)}
+                        onBlur={() => setIsInputFocused(false)}
+                        autoFocus
+                        sx={inputRootSx}
+                    />
+
+                    {!isEmptyInput && (
+                        <Typography
+                            variant="h5"
+                            color="text.secondary"
+                            sx={{
+                                pointerEvents: "none",
+                                userSelect: "none",
+                                whiteSpace: "pre",
+                                ...terminalTypographySx,
+                            }}
+                        >
+                            {inputValue}
+                        </Typography>
+                    )}
+
+                    <Box aria-hidden="true" sx={cursorSx} />
+
+                    {!isNavigatingCommand && isEmptyInput && suggestionSuffix && inputLower.length === 0 && (
+                        <Typography
+                            variant="h5"
+                            color="text.disabled"
+                            sx={{
+                                pointerEvents: "none",
+                                userSelect: "none",
+                                whiteSpace: "nowrap",
+                                ...terminalTypographySx,
+                            }}
+                        >
+                            {suggestionSuffix}
+                        </Typography>
+                    )}
+
+                </Box>
             </Breadcrumbs>
         </Stack>
     );

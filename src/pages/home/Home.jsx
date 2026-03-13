@@ -4,7 +4,8 @@ import Stack from '@mui/material/Stack';
 
 export default function Home() {
     const { t } = useTranslation('pages.home');
-    const hero= t('hero', { returnObjects: true });
+    const hero = t('hero', { returnObjects: true });
+    const heroParagraphs = Array.isArray(hero) ? hero : [];
 
     return (
         <>
@@ -41,7 +42,7 @@ export default function Home() {
                 gap={1}
             >
                 {
-                    hero.map((paragraph, index) => (
+                    heroParagraphs.map((paragraph, index) => (
                         <Typography
                             key={index}
                             variant="body1"

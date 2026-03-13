@@ -245,7 +245,22 @@
       }
     },
     "blog": {
-      "work_in_progress": "Work in progress"
+      "work_in_progress": "Work in progress",
+      "work_in_progress_one": "Work in progress",
+      "work_in_progress_other": "Work in progress",
+      "work_in_progress_label": "{{status}}"
     }
+  },
+  "releaseNotes": {
+    "title_major": "Major Release Notes",
+    "title_minor": "Minor Release Notes",
+    "title_patch": "Patch Release Notes",
+    "version_label": "Latest deployed version: v{{version}}",
+    "compare_label": "Compared from {{previous}} to {{latest}}",
+    "loading": "Loading release notes...",
+    "empty": "No release notes available for this version.",
+    "error": "Unable to load release notes right now. Please try again.",
+    "retry": "Retry",
+    "close": "Close"
   }
 }

@@ -11,6 +11,10 @@ import {
 import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "../hooks/useTranslation.js";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
+import {
+    getBreadcrumbContextBasePath,
+    resolveBreadcrumbContextId,
+} from "../config/appDefinitions.js";
 
 const ROOT_ID = "tommasoberti@com:~ cd";
 const MISSING = "__missing__";
@@ -39,25 +43,6 @@ function getTranslatedLabel(id, t) {
     if (projectLabel !== MISSING) return projectLabel.toLowerCase();
 
     return prettifyId(normalizedId).toLowerCase();
-}
-
-function getContextId({ pathname, currentId, breadcrumb }) {
-    if (breadcrumb[currentId]) return currentId;
-    if (pathname === "/") return "home";
-    if (pathname.startsWith("/about")) return "about";
-    if (pathname.startsWith("/projects")) return "projects";
-
-    const firstSegment = normalizeSegment(pathname.split("/").filter(Boolean)[0]);
-    if (breadcrumb[firstSegment]) return firstSegment;
-
-    return "home";
-}
-
-function getContextBasePath(contextId, currentCrumb) {
-    if (contextId === "home") return "/";
-    if (contextId === "about") return "/about";
-    if (contextId === "projects") return "/projects";
-    return currentCrumb?.to?.split("#")[0] || "/";
 }
 
 function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
@@ -133,13 +118,9 @@ export default function BreadCrumbs() {
     }, [pathname]);
 
     const activeCrumb = crumbs.at(-1);
-    const activeContextId = getContextId({
-        pathname,
-        currentId: activeCrumb?.id,
-        breadcrumb
-    });
+    const activeContextId = resolveBreadcrumbContextId(pathname, activeCrumb?.id, breadcrumb);
     const activeContext = breadcrumb[activeContextId] ?? { type: "path", items: [] };
-    const contextBasePath = getContextBasePath(activeContextId, activeCrumb);
+    const contextBasePath = getBreadcrumbContextBasePath(activeContextId, activeCrumb);
 
     const allowedCommands = useMemo(() => {
         const map = new Map();

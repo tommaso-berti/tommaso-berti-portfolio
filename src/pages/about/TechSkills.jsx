@@ -4,47 +4,76 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import StorageIcon from "@mui/icons-material/Storage";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { cloneElement } from "react";
 
 import {
     CustomBashIcon,
     CustomCssIcon,
     CustomGitIcon,
+    CustomGPTIcon,
     CustomHtmlIcon,
     CustomJavascriptIcon,
-    CustomjQueryIcon,
     CustomMongoDbIcon,
     CustomMuiIcon,
+    CustomPostmanIcon,
     CustomReactIcon,
     CustomReduxIcon,
-    CustomNodeIcon,
-    CustomGPTIcon,
+    CustomTailwindIcon,
     CustomVSCIcon,
     CustomWebstormIcon,
-    CustomTailwindIcon,
-    CustomNextJsIcon,
-    CustomPostmanIcon
 } from "../../assets/icons/customIcons/index.js";
 
-export default function TechSkills() {
-    const { t } = useTranslation('pages.about.tech-skills');
+const ICON_SIZE = 22;
 
-    const ICON_SIZE = 22;
+const SkillItem = styled(Paper)(({ theme }) => ({
+    backgroundColor: "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1.5),
+    textAlign: "left",
+    color: (theme.vars ?? theme).palette.text.secondary,
+    ...theme.applyStyles("dark", {
+        backgroundColor: "#1A2027",
+    }),
+}));
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: "#fff",
-        ...theme.typography.body2,
-        padding: theme.spacing(1.5),
-        textAlign: "left",
-        color: (theme.vars ?? theme).palette.text.secondary,
-        ...theme.applyStyles("dark", {
-            backgroundColor: "#1A2027",
-        }),
-    }));
+const SKILL_GROUPS = [
+    {
+        titleKey: "frontend",
+        skills: [
+            { label: "HTML", Icon: CustomHtmlIcon, iconSx: { color: "#e34c26" } },
+            { label: "CSS", Icon: CustomCssIcon, iconSx: { color: "#264de4" } },
+            { label: "Tailwind", Icon: CustomTailwindIcon },
+            { label: "MUI", Icon: CustomMuiIcon, iconSx: { color: "#007fff" } },
+        ],
+    },
+    {
+        titleKey: "backend",
+        skills: [
+            { label: "JavaScript", Icon: CustomJavascriptIcon },
+            { label: "React", Icon: CustomReactIcon },
+            { label: "Redux", Icon: CustomReduxIcon },
+        ],
+    },
+    {
+        titleKey: "database",
+        skills: [{ label: "MongoDB", Icon: CustomMongoDbIcon }],
+    },
+    {
+        titleKey: "tools",
+        skills: [
+            { label: "Git", Icon: CustomGitIcon },
+            { label: "GitHub", Icon: GitHubIcon },
+            { label: "Postman", Icon: CustomPostmanIcon },
+            { label: "WebStorm", Icon: CustomWebstormIcon },
+            { label: "VS Code", Icon: CustomVSCIcon },
+            { label: "ChatGPT", Icon: CustomGPTIcon },
+            { label: "Bash", Icon: CustomBashIcon },
+        ],
+    },
+];
 
-    const IconWrapper = ({ children }) => (
+function IconWrapper({ children }) {
+    return (
         <div
             style={{
                 width: ICON_SIZE,
@@ -57,17 +86,21 @@ export default function TechSkills() {
             {children}
         </div>
     );
+}
 
-    const Skill = ({ icon, label }) => (
-        <Item sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+function SkillCard({ label, Icon, iconSx }) {
+    return (
+        <SkillItem sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <IconWrapper>
-                {cloneElement(icon, {
-                    sx: { ...(icon.props.sx || {}), fontSize: ICON_SIZE }
-                })}
+                <Icon sx={{ fontSize: ICON_SIZE, ...(iconSx || {}) }} />
             </IconWrapper>
             <Typography variant="subtitle1">{label}</Typography>
-        </Item>
+        </SkillItem>
     );
+}
+
+export default function TechSkills() {
+    const { t } = useTranslation("pages.about.tech-skills");
 
     return (
         <Stack
@@ -76,81 +109,20 @@ export default function TechSkills() {
             component="section"
             sx={{ marginTop: "3rem", width: "100%" }}
         >
-            <Typography variant="h3">{t('title')}</Typography>
+            <Typography variant="h3">{t("title")}</Typography>
 
-            <Typography variant="h5">{t('frontend')}</Typography>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomHtmlIcon sx={{ color: "#e34c26" }} />} label="HTML" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomCssIcon sx={{ color: "#264de4" }} />} label="CSS" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomTailwindIcon />} label="Tailwind" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomMuiIcon sx={{ color: "#007fff" }} />} label="MUI" />
-                </Grid>
-            </Grid>
-
-            <Typography variant="h5">{t('backend')}</Typography>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomJavascriptIcon />} label="JavaScript" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomReactIcon />} label="React" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomReduxIcon />} label="Redux" />
-                </Grid>
-                {/*
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomNodeIcon />} label="Node.js" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomNextJsIcon />} label="Next.js" />
-                </Grid>
-                */}
-            </Grid>
-
-            <Typography variant="h5">{t('database')}</Typography>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomMongoDbIcon />} label="MongoDB" />
-                </Grid>
-                {/*
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<StorageIcon sx={{ color: "#00758f" }} />} label="SQL" />
-                </Grid>
-                */}
-            </Grid>
-
-            <Typography variant="h5">{t('tools')}</Typography>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomGitIcon />} label="Git" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<GitHubIcon />} label="GitHub" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomPostmanIcon />} label="Postman" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomWebstormIcon />} label="WebStorm" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomVSCIcon />} label="VS Code" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomGPTIcon />} label="ChatGPT" />
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                    <Skill icon={<CustomBashIcon />} label="Bash" />
-                </Grid>
-            </Grid>
+            {SKILL_GROUPS.map((group) => (
+                <Stack key={group.titleKey} spacing={2}>
+                    <Typography variant="h5">{t(group.titleKey)}</Typography>
+                    <Grid container spacing={2}>
+                        {group.skills.map((skill) => (
+                            <Grid key={skill.label} item xs={12} sm={6} md={3}>
+                                <SkillCard label={skill.label} Icon={skill.Icon} iconSx={skill.iconSx} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Stack>
+            ))}
         </Stack>
     );
 }

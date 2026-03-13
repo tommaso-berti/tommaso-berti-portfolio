@@ -100,6 +100,20 @@ function mapAndFilterCommits(commits) {
         .slice(0, MAX_ENTRIES);
 }
 
+function inferReleaseTypeFromCommits(commits) {
+    const messages = (Array.isArray(commits) ? commits : [])
+        .map((commit) => `${commit?.commit?.message ?? ""}`.toLowerCase())
+        .join("\n");
+
+    if (messages.includes("#major") || messages.includes("[major]")) {
+        return "major";
+    }
+    if (messages.includes("#minor") || messages.includes("[minor]")) {
+        return "minor";
+    }
+    return "patch";
+}
+
 async function fetchJson(url, signal) {
     const response = await fetch(url, {
         signal,
@@ -161,7 +175,7 @@ async function fetchLatestReleaseNotes(signal) {
         tag: latest.tag,
         version: latest.tag.replace(/^v/, ""),
         previousTag: null,
-        releaseType: "patch",
+        releaseType: inferReleaseTypeFromCommits(commits),
         entries: mapAndFilterCommits(commits),
         source: "commits",
         error: null,

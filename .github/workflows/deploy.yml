@@ -96,9 +96,11 @@ jobs:
 
           SKIP_DEPLOY="false"
           SKIP_REASON="none"
-          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "${MANUAL_SKIP_DEPLOY:-false}" = "true" ]; then
-            SKIP_DEPLOY="true"
-            SKIP_REASON="manual_input"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ "${MANUAL_SKIP_DEPLOY:-false}" = "true" ]; then
+              SKIP_DEPLOY="true"
+              SKIP_REASON="manual_input"
+            fi
           elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#skip-deploy|\[skip-deploy\]'; then
             SKIP_DEPLOY="true"
             SKIP_REASON="token_found"

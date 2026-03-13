@@ -101,3 +101,4 @@ Manual deploy behavior:
   - commit messages (push range)
   - PR title/body
   - PR merge commit message
+- In manual `workflow_dispatch`, skip is controlled only by the `skip_deploy` input.

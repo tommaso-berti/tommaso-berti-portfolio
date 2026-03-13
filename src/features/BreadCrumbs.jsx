@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, Link as RouterLink, useNavigate } from "react-router-dom";
 import {
     Box,
@@ -117,6 +117,8 @@ export default function BreadCrumbs() {
     const { t } = useTranslation();
     const [inputValue, setInputValue] = useState("");
     const [suggestionIndex, setSuggestionIndex] = useState(0);
+    const [isInputFocused, setIsInputFocused] = useState(false);
+    const inputRef = useRef(null);
 
     const crumbs = useMemo(() => {
         const path = pathname.split("/").filter(Boolean).map(normalizeSegment);
@@ -196,6 +198,10 @@ export default function BreadCrumbs() {
         setSuggestionIndex(0);
     }, [activeContextId, pathname, hash]);
 
+    useEffect(() => {
+        setIsInputFocused(document.activeElement === inputRef.current);
+    }, []);
+
     const getItemsForMenu = (id) => breadcrumb[id]?.items ?? [];
     const handleMenuClick = (menuItem, parentItem) => {
         if (!menuItem || typeof menuItem.id !== "string") {
@@ -247,6 +253,42 @@ export default function BreadCrumbs() {
     }, [activeSuggestion, inputLower]);
 
     const hasSingleCrumb = crumbs.length === 1;
+    const isEmptyInput = inputValue.length === 0;
+    const terminalTypographySx = {
+        fontSize: (theme) => theme.typography.h5.fontSize,
+        fontWeight: (theme) => theme.typography.h5.fontWeight,
+        lineHeight: (theme) => theme.typography.h5.lineHeight,
+        fontFamily: (theme) => theme.typography.fontFamily,
+    };
+    const inputRootSx = {
+        position: "absolute",
+        inset: 0,
+        opacity: 0,
+        zIndex: 1,
+        cursor: "text",
+        "& .MuiInputBase-input": {
+            width: "100%",
+            height: "100%",
+            ...terminalTypographySx,
+            caretColor: "transparent",
+        }
+    };
+    const cursorSx = {
+        width: "0.72ch",
+        height: "0.98em",
+        backgroundColor: "text.secondary",
+        opacity: 1,
+        animation: isInputFocused
+            ? "terminalCursorBlink 1.1s steps(1, end) infinite"
+            : "none",
+        pointerEvents: "none",
+        flexShrink: 0,
+        alignSelf: "center",
+    };
+    const handleTerminalLineMouseDown = (event) => {
+        event.preventDefault();
+        inputRef.current?.focus();
+    };
 
     return (
         <Stack direction="row" alignItems="center">
@@ -285,66 +327,61 @@ export default function BreadCrumbs() {
                         position: "relative",
                         display: "inline-flex",
                         alignItems: "center",
-                        minWidth: "8ch",
+                        minWidth: "9ch",
+                        minHeight: "2rem",
+                        px: 0.5,
+                        borderRadius: 0.5,
+                        cursor: "text",
                         "@keyframes terminalCursorBlink": {
                             "0%, 49%": { opacity: 1 },
                             "50%, 100%": { opacity: 0 },
                         },
                     }}
+                    onMouseDown={handleTerminalLineMouseDown}
                 >
-                    {suggestionSuffix && inputLower.length === 0 && (
+                    <InputBase
+                        inputRef={inputRef}
+                        value={inputValue}
+                        onChange={(event) => setInputValue(event.target.value)}
+                        onKeyDown={handleBashInput}
+                        onFocus={() => setIsInputFocused(true)}
+                        onBlur={() => setIsInputFocused(false)}
+                        autoFocus
+                        sx={inputRootSx}
+                    />
+
+                    {!isEmptyInput && (
+                        <Typography
+                            variant="h5"
+                            color="text.secondary"
+                            sx={{
+                                pointerEvents: "none",
+                                userSelect: "none",
+                                whiteSpace: "pre",
+                                ...terminalTypographySx,
+                            }}
+                        >
+                            {inputValue}
+                        </Typography>
+                    )}
+
+                    <Box aria-hidden="true" sx={cursorSx} />
+
+                    {isEmptyInput && suggestionSuffix && inputLower.length === 0 && (
                         <Typography
                             variant="h5"
                             color="text.disabled"
                             sx={{
-                                position: "absolute",
-                                left: 0,
-                                top: "50%",
-                                transform: "translateY(-50%)",
                                 pointerEvents: "none",
                                 userSelect: "none",
                                 whiteSpace: "nowrap",
+                                ...terminalTypographySx,
                             }}
                         >
                             {suggestionSuffix}
                         </Typography>
                     )}
 
-                    <InputBase
-                        value={inputValue}
-                        onChange={(event) => setInputValue(event.target.value)}
-                        onKeyDown={handleBashInput}
-                        autoFocus
-                        sx={{
-                            fontSize: (theme) => theme.typography.h5.fontSize,
-                            fontWeight: (theme) => theme.typography.h5.fontWeight,
-                            lineHeight: (theme) => theme.typography.h5.lineHeight,
-                            color: "text.secondary",
-                            fontFamily: '"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
-                            "& .MuiInputBase-input": {
-                                py: 0,
-                                pr: "0.8ch",
-                                width: `${Math.max(2, inputValue.length + 1)}ch`,
-                                caretColor: "transparent",
-                            }
-                        }}
-                    />
-
-                    <Box
-                        aria-hidden="true"
-                        sx={{
-                            position: "absolute",
-                            left: `calc(${Math.max(inputValue.length, 0)}ch + 0.02rem)`,
-                            top: "50%",
-                            transform: "translateY(-48%)",
-                            width: "0.72ch",
-                            height: "1.1em",
-                            backgroundColor: "text.secondary",
-                            opacity: 1,
-                            animation: "terminalCursorBlink 1.1s steps(1, end) infinite",
-                            pointerEvents: "none",
-                        }}
-                    />
                 </Box>
             </Breadcrumbs>
         </Stack>

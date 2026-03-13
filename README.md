@@ -21,3 +21,14 @@ React SPA built with Vite and MUI.
 - `src/styles`: theme factory and style configuration
 - `src/ui`: reusable UI primitives used by style/demo page
 - `src/assets`: static media and custom icon components
+
+## Release Versioning
+
+- Deploy versioning is tag-based with SemVer format: `vMAJOR.MINOR.PATCH`.
+- On deploy to `main`, bump type is read from commit/PR text tokens (case-insensitive):
+  - `#major` or `[major]`
+  - `#minor` or `[minor]`
+  - `#patch` or `[patch]`
+- Precedence: `major` > `minor` > `patch`.
+- Default when no token is found: `patch`.
+- Rerun safety: if the same commit already has a SemVer tag, the workflow reuses that version and does not create a new one.

@@ -7,6 +7,9 @@ on:
     types: [closed]
     branches: ["main"]
 
+permissions:
+  contents: write
+
 concurrency:
   group: deploy-www-tommasoberti-com
   cancel-in-progress: true
@@ -18,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,13 +34,97 @@ jobs:
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
-      - name: Resolve VERSION
+      - name: Resolve VERSION and bump level
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          SHA: ${{ github.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_MERGE_MESSAGE: ${{ github.event.pull_request.merge_commit_message }}
         run: |
-          V=$( [ -f VERSION ] && tr -d ' \n\r' < VERSION || node -p "require('./package.json').version" )
-          V=${V#v}
-          echo "VERSION=$V" >> $GITHUB_ENV
-          echo "RELEASE_DIR=v$V" >> $GITHUB_ENV
+          set -euo pipefail
+
+          git fetch --tags --force
+
+          # Rerun-safe: if HEAD is already tagged with a SemVer release, reuse it.
+          EXISTING_TAG=$(git tag --points-at "$SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
+          if [ -n "${EXISTING_TAG}" ]; then
+            VERSION="${EXISTING_TAG#v}"
+            echo "BUMP_LEVEL=none" >> "$GITHUB_ENV"
+            echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+            echo "RELEASE_TAG=$EXISTING_TAG" >> "$GITHUB_ENV"
+            echo "RELEASE_DIR=$EXISTING_TAG" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          RELEASE_TEXT=""
+          if [ "$EVENT_NAME" = "push" ]; then
+            if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+              RANGE="$BEFORE_SHA..$SHA"
+              RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
+            else
+              RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
+            fi
+          fi
+
+          # If PR context is present, include PR metadata.
+          RELEASE_TEXT="$RELEASE_TEXT
+          $PR_TITLE
+          $PR_BODY
+          $PR_MERGE_MESSAGE"
+
+          RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
+          BUMP_LEVEL="patch"
+          if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
+            BUMP_LEVEL="major"
+          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#minor|\[minor\]'; then
+            BUMP_LEVEL="minor"
+          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#patch|\[patch\]'; then
+            BUMP_LEVEL="patch"
+          fi
+
+          LATEST_TAG=$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1 || true)
+          if [ -z "$LATEST_TAG" ]; then
+            if [ -f VERSION ]; then
+              FILE_VERSION=$(tr -d ' \n\r' < VERSION)
+              FILE_VERSION="${FILE_VERSION#v}"
+              if printf '%s' "$FILE_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+                LATEST_TAG="v$FILE_VERSION"
+              else
+                LATEST_TAG="v0.1.0"
+              fi
+            else
+              LATEST_TAG="v0.1.0"
+            fi
+          fi
+
+          BASE_VERSION="${LATEST_TAG#v}"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$BASE_VERSION"
+
+          case "$BUMP_LEVEL" in
+            major)
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+              ;;
+            minor)
+              MINOR=$((MINOR + 1))
+              PATCH=0
+              ;;
+            patch)
+              PATCH=$((PATCH + 1))
+              ;;
+          esac
+
+          VERSION="$MAJOR.$MINOR.$PATCH"
+          RELEASE_TAG="v$VERSION"
+
+          echo "BUMP_LEVEL=$BUMP_LEVEL" >> "$GITHUB_ENV"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
+          echo "RELEASE_DIR=$RELEASE_TAG" >> "$GITHUB_ENV"
 
       - name: Build
         env:
@@ -47,9 +136,9 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           echo "Pull request run: skipping deploy (no secrets available)."
-          exit 0
 
       - name: Prepare env
+        if: github.event_name != 'pull_request'
         run: |
           echo "SITE_DOMAIN=www.tommasoberti.com" >> $GITHUB_ENV
           echo "BUILD_DIR=dist" >> $GITHUB_ENV
@@ -58,6 +147,7 @@ jobs:
 
       # 🔐 PREPARE SSH KEY (RAW, NO BASE64) — con diagnostica
       - name: Prepare SSH key (debug first)
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
@@ -91,23 +181,27 @@ jobs:
           ssh-keygen -lf ~/.ssh/deploy_key.pub
 
       - name: Add server host key to known_hosts
+        if: github.event_name != 'pull_request'
         run: |
           ssh-keyscan -H -t ed25519 "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           ssh-keyscan -H -t rsa     "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
           chmod 644 ~/.ssh/known_hosts
 
       - name: Test SSH connection
+        if: github.event_name != 'pull_request'
         run: |
           ssh -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey \
               -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true
 
       - name: Ensure remote release dir
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
             "mkdir -p '${{ env.REMOTE_RELEASE }}'"
 
       - name: Rsync build → /releases/vX.Y.Z
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           rsync -az --delete \
@@ -118,6 +212,7 @@ jobs:
             "echo '${{ env.VERSION }}' > '${{ env.REMOTE_RELEASE }}/VERSION'"
 
       - name: Activate release (symlink) & reload caddy
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
@@ -133,6 +228,7 @@ jobs:
           '
 
       - name: Prune old releases (keep last 5)
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" '
@@ -140,3 +236,22 @@ jobs:
             cd "'"${{ env.REMOTE_BASE }}"'/releases" 2>/dev/null || exit 0
             ls -1dt v* 2>/dev/null | tail -n +6 | xargs -r rm -rf --
           '
+
+      - name: Create and push release tag
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${RELEASE_TAG:-}" ]; then
+            echo "Missing RELEASE_TAG in environment"; exit 1
+          fi
+
+          if git ls-remote --tags origin "refs/tags/$RELEASE_TAG" | grep -q .; then
+            echo "Tag $RELEASE_TAG already exists on origin, skipping."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "$RELEASE_TAG" "$GITHUB_SHA"
+          git push origin "refs/tags/$RELEASE_TAG"

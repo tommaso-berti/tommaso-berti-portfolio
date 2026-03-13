@@ -225,6 +225,22 @@ export default function BreadCrumbs() {
     };
 
     const handleBashInput = (e) => {
+        if (e.key === "Tab") {
+            e.preventDefault();
+
+            const value = inputValue.trim();
+            const normalizedValue = normalizeToken(value);
+            const candidateCommands = Array.from(allowedCommands.keys()).filter((command) => command !== "..");
+            const matchingCommands = candidateCommands.filter((command) =>
+                command.startsWith(normalizedValue)
+            );
+
+            // Bash-like behavior: autocomplete only when there is a single unambiguous match.
+            if (matchingCommands.length !== 1) return;
+            setInputValue(matchingCommands[0]);
+            return;
+        }
+
         if (e.key !== "Enter") return;
         e.preventDefault();
 

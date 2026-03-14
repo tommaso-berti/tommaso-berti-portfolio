@@ -12,8 +12,9 @@ export default function Home() {
             <Stack
                 component="section"
                 sx={{
-                    mt: 16,
+                    mt: { xs: 10, md: 14 },
                 }}
+                gap={1}
             >
                 <Typography
                     color="text.primary"
@@ -37,9 +38,10 @@ export default function Home() {
             </Stack>
             <Stack
                 component="section"
-                sx={{marginTop: '2rem'}}
-                width={'50%'}
-                gap={1}
+                sx={{ marginTop: { xs: "1.5rem", md: "2rem" } }}
+                width={{ xs: "100%", md: "72%", lg: "62%" }}
+                maxWidth="760px"
+                gap={1.25}
             >
                 {
                     heroParagraphs.map((paragraph, index) => (

@@ -13,15 +13,16 @@ export default function Footer() {
     return (
         <Container
             component="footer"
-            maxWidth="lg"
-            disableGutters
+            maxWidth="xl"
             sx={{
                 position: 'fixed',
-                bottom: '2rem',
+                left: "50%",
+                transform: "translateX(-50%)",
+                bottom: { xs: "1rem", md: "1.5rem" },
                 justifyContent: 'center',
                 width: '100%',
                 alignItems: 'center',
-                padding: '0.2rem',
+                padding: '0.35rem',
                 display: 'inline-flex',
                 zIndex: 100
             }}
@@ -32,13 +33,21 @@ export default function Footer() {
                 sx={{
                     border: '1px solid',
                     borderColor: 'divider',
-                    borderRadius: '1rem',
-                    boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.2)',
+                    borderRadius: '999px',
+                    boxShadow: 1,
                     backgroundColor: "background.paper",
-                    transition: "0.25s",
+                    backgroundImage: (theme) =>
+                        theme.palette.mode === "dark"
+                            ? "linear-gradient(160deg, rgba(125,196,172,0.11), rgba(20,32,28,0.86) 58%)"
+                            : "linear-gradient(160deg, rgba(47,122,98,0.1), rgba(248,251,249,0.94) 58%)",
+                    backdropFilter: "blur(8px)",
+                    transition: "transform 180ms ease, box-shadow 180ms ease",
                     "&:hover": {
-                        transform: "translateY(-4px)",
-                        boxShadow: 6,
+                        transform: "translateY(-1px)",
+                        boxShadow: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "0 8px 24px rgba(125,196,172,0.18)"
+                                : "0 8px 20px rgba(47,122,98,0.16)",
                     },
                 }}
             >

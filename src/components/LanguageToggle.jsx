@@ -15,11 +15,7 @@ export default function LanguageToggle() {
         <IconButton
             onClick={handleLanguageSelect}
             sx={{
-                transition: "0.25s",
-                "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: 6,
-                }
+                mr: 0.25,
             }}
         >
             <Box

@@ -6,13 +6,19 @@ import Box from "@mui/material/Box";
 
 export default function Layout() {
     return (
-        <Container maxWidth="lg" disableGutters>
+        <Container
+            maxWidth="xl"
+            sx={{
+                minHeight: "100dvh",
+                backgroundColor: "transparent",
+            }}
+        >
             <Header />
             <Box
                 component="main"
                 sx={{
-                    paddingTop: '6rem',
-                    paddingBottom: '8rem',
+                    paddingTop: { xs: "5.75rem", md: "6.75rem" },
+                    paddingBottom: { xs: "7rem", md: "8rem" },
                     height: '100%'
                 }}
             >

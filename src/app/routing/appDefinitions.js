@@ -1,12 +1,11 @@
 import { matchPath } from "react-router-dom";
 
-import Home from "../pages/home/Home.jsx";
-import Projects from "../pages/projects/Projects.jsx";
-import ProjectPage from "../pages/projects/projectsPages/ProjectPage.jsx";
-import About from "../pages/about/About.jsx";
-import Blog from "../pages/blog/Blog.jsx";
-import ExampleStyle from "../pages/exampleStyles/ExampleStyle.jsx";
-import { projects } from "../pages/projects/projectsPages/projects.js";
+import Home from "../../pages/home/Home.jsx";
+import Projects from "../../pages/projects/Projects.jsx";
+import ProjectPage from "../../pages/projects/projectsPages/ProjectPage.jsx";
+import About from "../../pages/about/About.jsx";
+import Blog from "../../pages/blog/Blog.jsx";
+import { projects } from "../../pages/projects/projectsPages/projects.js";
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition
@@ -81,15 +80,6 @@ export const PAGE_DEFINITIONS = [
         navKey: "blog",
         showInHomeMenu: true,
         experimental: false,
-    },
-    {
-        id: "example-style",
-        path: "/example-style",
-        component: ExampleStyle,
-        breadcrumbContext: "home",
-        navKey: "example-style",
-        showInHomeMenu: false,
-        experimental: true,
     },
     {
         id: "not-found",

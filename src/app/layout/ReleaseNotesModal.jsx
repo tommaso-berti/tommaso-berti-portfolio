@@ -15,9 +15,9 @@ import {
     Typography,
 } from "@mui/material";
 
-import { APP_VERSION } from "../lib/version.js";
-import { useTranslation } from "../hooks/useTranslation.js";
-import { useLatestReleaseNotes } from "../hooks/useLatestReleaseNotes.js";
+import { APP_VERSION } from "../../lib/version.js";
+import { useTranslation } from "../../hooks/useTranslation.js";
+import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes.js";
 
 function formatDate(value) {
     if (!value) return "";

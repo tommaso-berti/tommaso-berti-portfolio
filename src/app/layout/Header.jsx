@@ -1,10 +1,10 @@
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
-import BreadCrumbs from '../features/BreadCrumbs.jsx';
+import BreadCrumbs from '../../features/BreadCrumbs.jsx';
 import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
 import { Box, ButtonBase, Typography } from "@mui/material";
-import { APP_VERSION } from '../lib/version.js';
+import { APP_VERSION } from '../../lib/version.js';
 import { useState } from "react";
 import ReleaseNotesModal from "./ReleaseNotesModal.jsx";
 

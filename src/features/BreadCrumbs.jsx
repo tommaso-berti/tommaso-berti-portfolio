@@ -14,7 +14,7 @@ import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 import {
     getBreadcrumbContextBasePath,
     resolveBreadcrumbContextId,
-} from "../config/appDefinitions.js";
+} from "../app/routing/appDefinitions.js";
 
 const ROOT_ID = "tommasoberti@com:~ cd";
 const MISSING = "__missing__";

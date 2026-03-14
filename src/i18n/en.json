@@ -3,8 +3,7 @@
     "home": "home",
     "projects": "Projects",
     "about": "About",
-    "blog": "Blog",
-    "example-style": "example-style"
+    "blog": "Blog"
   },
   "pages": {
     "home": {

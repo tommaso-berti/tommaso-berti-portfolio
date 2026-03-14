@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import Layout from "../components/Layout.jsx";
-import { PAGE_DEFINITIONS } from "../config/appDefinitions.js";
+import Layout from "./layout/Layout.jsx";
+import { PAGE_DEFINITIONS } from "./routing/appDefinitions.js";
 
 export default function AppRoutes() {
     return (

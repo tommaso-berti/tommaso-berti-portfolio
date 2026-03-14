@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from "react";
 
 import { useTranslation } from "../hooks/useTranslation.js";
-import { BREADCRUMB_CONTEXT_DEFINITIONS } from "../config/appDefinitions.js";
+import { BREADCRUMB_CONTEXT_DEFINITIONS } from "../app/routing/appDefinitions.js";
 
 const BreadCrumbContext = createContext(null);
 

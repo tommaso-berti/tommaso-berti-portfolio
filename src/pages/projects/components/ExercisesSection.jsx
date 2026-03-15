@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useRef, useState } from "react";
 import {
     Alert,
     Box,
@@ -13,111 +12,17 @@ import {
     Typography,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import CallSplitRoundedIcon from "@mui/icons-material/CallSplitRounded";
+import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { useTranslation } from "../../../hooks/useTranslation.js";
-
-const GITHUB_STARRED_ENDPOINT = "https://api.github.com/users/tommaso-berti/starred";
-const PER_PAGE = 12;
-const EXERCISE_TOPICS = new Set([
-    "exercise",
-    "exercises",
-    "kata",
-    "challenge",
-    "challenges",
-    "practice",
-    "learning",
-    "study",
-]);
+import { getLanguageColor, resolveCustomDescriptionId } from "./exercises.utils.js";
+import { useExercisesData } from "./useExercisesData.js";
 
 export default function ExercisesSection({ isActive }) {
     const { t } = useTranslation("pages.projects");
-    const [items, setItems] = useState([]);
-    const [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
-    const [error, setError] = useState(null);
-    const [hasInitialized, setHasInitialized] = useState(false);
-    const abortRef = useRef(null);
-
-    const fetchPage = useCallback(async (nextPage) => {
-        if (isLoading || !hasMore) return;
-
-        setIsLoading(true);
-        setError(null);
-
-        if (abortRef.current) {
-            abortRef.current.abort();
-        }
-        const controller = new AbortController();
-        abortRef.current = controller;
-
-        try {
-            let currentPage = nextPage;
-            let reachedEnd = false;
-            const nextExerciseRepositories = [];
-
-            // Build visible chunks as "12 exercise repos", scanning raw starred pages as needed.
-            while (nextExerciseRepositories.length < PER_PAGE && !reachedEnd) {
-                const response = await fetch(
-                    `${GITHUB_STARRED_ENDPOINT}?per_page=${PER_PAGE}&page=${currentPage}`,
-                    { signal: controller.signal }
-                );
-
-                if (!response.ok) {
-                    throw new Error(`${response.status} ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                const repositories = Array.isArray(data) ? data : [];
-
-                // Some starred responses may omit topics for specific repos; without topics we exclude the repo.
-                const exerciseRepositories = repositories.filter((repo) => {
-                    if (!repo || repo.fork) return false;
-
-                    const topics = Array.isArray(repo.topics) ? repo.topics : [];
-                    if (topics.length === 0) return false;
-
-                    return topics
-                        .map((topic) => `${topic}`.toLowerCase())
-                        .some((topic) => EXERCISE_TOPICS.has(topic));
-                });
-
-                nextExerciseRepositories.push(...exerciseRepositories);
-
-                reachedEnd = repositories.length < PER_PAGE;
-                if (!reachedEnd) {
-                    currentPage += 1;
-                }
-            }
-
-            setItems((prevItems) => [...prevItems, ...nextExerciseRepositories]);
-            setPage(currentPage);
-            setHasMore(!reachedEnd);
-        } catch (fetchError) {
-            if (fetchError?.name === "AbortError") return;
-            setError(fetchError);
-        } finally {
-            setIsLoading(false);
-        }
-    }, [hasMore, isLoading]);
-
-    useEffect(() => {
-        if (!isActive || hasInitialized) return;
-        setHasInitialized(true);
-        void fetchPage(1);
-    }, [fetchPage, hasInitialized, isActive]);
-
-    useEffect(() => {
-        return () => {
-            if (abortRef.current) {
-                abortRef.current.abort();
-            }
-        };
-    }, []);
-
-    const onLoadMore = () => {
-        if (isLoading || !hasMore) return;
-        void fetchPage(page + 1);
-    };
+    const { items, isLoading, hasMore, error, hasInitialized, onLoadMore } =
+        useExercisesData(isActive);
 
     const showInitialLoading = isActive && isLoading && items.length === 0;
     const showLoadMoreLoading = isActive && isLoading && items.length > 0;
@@ -132,11 +37,7 @@ export default function ExercisesSection({ isActive }) {
     };
 
     return (
-        <Box
-            component="section"
-            aria-live="polite"
-            sx={{ display: isActive ? "block" : "none", py: 4 }}
-        >
+        <Box component="section" aria-live="polite" sx={{ display: isActive ? "block" : "none", py: 4 }}>
             <Stack spacing={2}>
                 <Typography variant="h4" component="h2">
                     {t("exercises.title")}
@@ -146,11 +47,7 @@ export default function ExercisesSection({ isActive }) {
                     {t("exercises.subtitle")}
                 </Typography>
 
-                {error && (
-                    <Alert severity="error">
-                        {t("exercises.error")}
-                    </Alert>
-                )}
+                {error ? <Alert severity="error">{t("exercises.error")}</Alert> : null}
 
                 {showInitialLoading ? (
                     <Stack spacing={2}>
@@ -178,30 +75,150 @@ export default function ExercisesSection({ isActive }) {
                     </Typography>
                 ) : null}
 
-                <Box
-                    sx={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr",
-                        gap: 2,
-                    }}
-                >
+                <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 2 }}>
                     {items.map((repository) => (
-                        <Card key={repository.id} variant="outlined" sx={{ height: "100%" }}>
+                        <Card
+                            key={repository.id}
+                            variant="outlined"
+                            sx={{
+                                height: "100%",
+                                borderColor: "divider",
+                                borderRadius: 1.5,
+                                boxShadow: "none",
+                            }}
+                        >
                             <CardContent>
-                                <Stack spacing={1.25}>
-                                    <Typography variant="h6" component="h3">
+                                <Stack spacing={1.5}>
+                                    <Typography
+                                        variant="h6"
+                                        component="h3"
+                                        sx={{ fontWeight: 600, color: "primary.main" }}
+                                    >
                                         {repository.name}
                                     </Typography>
 
                                     <Typography variant="body2" color="text.secondary">
-                                        {repository.description || t("exercises.fallbackDescription")}
+                                        {(() => {
+                                            const descriptionId = resolveCustomDescriptionId(
+                                                repository.name
+                                            );
+                                            const customDescription = descriptionId
+                                                ? t(`exercises.customDescriptions.${descriptionId}`, {
+                                                    defaultValue: "",
+                                                })
+                                                : "";
+
+                                            return (
+                                                customDescription ||
+                                                repository.description ||
+                                                t("exercises.fallbackDescription")
+                                            );
+                                        })()}
                                     </Typography>
 
-                                    <Chip
-                                        label={repository.language || t("exercises.fallbackLanguage")}
-                                        size="small"
-                                        sx={{ width: "fit-content" }}
-                                    />
+                                    {Array.isArray(repository.topicLabels) &&
+                                    repository.topicLabels.length > 0 ? (
+                                        <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                                            {repository.topicLabels.slice(0, 8).map((topic) => (
+                                                <Chip
+                                                    key={`${repository.id}-topic-${topic}`}
+                                                    label={topic}
+                                                    size="small"
+                                                    sx={{
+                                                        bgcolor: "action.selected",
+                                                        color: "primary.main",
+                                                        borderRadius: 2,
+                                                        fontSize: "0.72rem",
+                                                    }}
+                                                />
+                                            ))}
+                                        </Stack>
+                                    ) : null}
+
+                                    <Stack
+                                        direction="row"
+                                        spacing={2}
+                                        sx={{ color: "text.secondary" }}
+                                        useFlexGap
+                                        flexWrap="wrap"
+                                    >
+                                        <Stack direction="row" spacing={0.5} alignItems="center">
+                                            <StarBorderRoundedIcon sx={{ fontSize: 18 }} />
+                                            <Typography variant="caption">
+                                                {repository.stargazers_count ?? 0}
+                                            </Typography>
+                                        </Stack>
+                                        <Stack direction="row" spacing={0.5} alignItems="center">
+                                            <CallSplitRoundedIcon sx={{ fontSize: 17 }} />
+                                            <Typography variant="caption">
+                                                {repository.forks_count ?? 0}
+                                            </Typography>
+                                        </Stack>
+                                        <Typography variant="caption">
+                                            Updated{" "}
+                                            {repository.updated_at
+                                                ? new Date(repository.updated_at).toLocaleDateString()
+                                                : "-"}
+                                        </Typography>
+                                    </Stack>
+
+                                    {Array.isArray(repository.languageBreakdown) &&
+                                    repository.languageBreakdown.length > 0 ? (
+                                        <Stack spacing={0.75}>
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    width: { xs: "100%", sm: "50%" },
+                                                    height: 8,
+                                                    borderRadius: 999,
+                                                    overflow: "hidden",
+                                                    bgcolor: "action.hover",
+                                                }}
+                                            >
+                                                {repository.languageBreakdown.map((item, index) => (
+                                                    <Box
+                                                        key={`${repository.id}-bar-${item.language}`}
+                                                        sx={{
+                                                            width: `${Math.max(item.percentage, 2)}%`,
+                                                            bgcolor: getLanguageColor(
+                                                                item.language,
+                                                                index
+                                                            ),
+                                                        }}
+                                                    />
+                                                ))}
+                                            </Box>
+                                            <Stack
+                                                direction="row"
+                                                spacing={1.5}
+                                                useFlexGap
+                                                flexWrap="wrap"
+                                                alignItems="center"
+                                            >
+                                                {repository.languageBreakdown.map((item, index) => (
+                                                    <Stack
+                                                        key={`${repository.id}-legend-${item.language}`}
+                                                        direction="row"
+                                                        spacing={0.5}
+                                                        alignItems="center"
+                                                    >
+                                                        <FiberManualRecordRoundedIcon
+                                                            sx={{
+                                                                fontSize: 10,
+                                                                color: getLanguageColor(
+                                                                    item.language,
+                                                                    index
+                                                                ),
+                                                            }}
+                                                        />
+                                                        <Typography variant="caption">
+                                                            {item.language} {item.percentage.toFixed(1)}%
+                                                        </Typography>
+                                                    </Stack>
+                                                ))}
+                                            </Stack>
+                                        </Stack>
+                                    ) : null}
                                 </Stack>
                             </CardContent>
 

@@ -10,10 +10,8 @@ export default function Hobbies() {
             <Typography variant="h3">
                 {t('title')}
             </Typography>
-            <Typography variant="body1">
-                {t('description1')}
-                {t('description2')}
-            </Typography>
+            <Typography variant="body1">{t('description1')}</Typography>
+            <Typography variant="body1">{t('description2')}</Typography>
         </Stack>
     )
 }

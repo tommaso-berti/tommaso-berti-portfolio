@@ -38,7 +38,16 @@ export default function Experience() {
                             onMouseEnter={() => setHoveredIndex(index)}
                         >
                             <TimelineOppositeContent color="textSecondary">
-                                {exp.year}
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontWeight: 600,
+                                        color: "text.secondary",
+                                        letterSpacing: 0.2,
+                                    }}
+                                >
+                                    {exp.year}
+                                </Typography>
                             </TimelineOppositeContent>
 
                             <TimelineSeparator>

@@ -19,12 +19,12 @@
     "about": {
       "bio": {
         "title": "Bio",
-        "description": "Sono Tommaso Berti, ho 22 anni, sono appassionato di tecnologia e sempre curioso di imparare. Mi piace affrontare sfide, trovare soluzioni e ampliare continuamente le mie competenze. Lavorare in team e collaborare in modo efficace è ciò che mi permette di ottenere grandi risultati."
+        "description": "Sono Tommaso Berti, sviluppatore software con una forte passione per la tecnologia e per la creazione di strumenti utili. Mi piace affrontare problemi complessi, trovare soluzioni pratiche e migliorare costantemente il mio modo di lavorare. Nel mio lavoro cerco sempre di combinare curiosità, approccio analitico e pragmatismo, sia quando sviluppo nuove funzionalità sia quando ottimizzo sistemi esistenti."
       },
       "hobbies": {
         "title": "Hobby",
-        "description1": "Gioco a pallavolo da 18 anni, uno sport che mi ha insegnato disciplina, lavoro di squadra e il piacere del miglioramento costante. Sono un palleggiatore — uno dei ruoli più complessi nella pallavolo, perché richiede decisioni calme e ragionate senza farsi guidare dalle emozioni. Non è sempre facile. La pallavolo non è uno sport di contatto, quindi non c’è un modo fisico per scaricare tensione o entusiasmo. La voce diventa il tuo unico sfogo, e questo rende le situazioni ad alta pressione ancora più difficili da gestire.",
-        "description2": "Sono anche un gamer appassionato. Attraverso i videogiochi ho esplorato mondi interi, imparato la storia in modi inaspettati, mi sono commosso con storie emozionanti e ho riso con personaggi indimenticabili. Il gaming per me è molto più che intrattenimento: è una fonte di ispirazione, creatività e connessione."
+        "description1": "Gioco a pallavolo da molti anni, uno sport che mi ha insegnato disciplina, lavoro di squadra e gestione della pressione. Come palleggiatore devo prendere decisioni rapide e ragionate durante il gioco, mantenendo lucidità anche nelle situazioni più intense.",
+        "description2": "Sono anche un appassionato di videogiochi e tecnologia: attraverso il gaming ho esplorato mondi creativi, storie coinvolgenti e nuove prospettive che alimentano la mia curiosità. Amo viaggiare, vivere nuove esperienze e interagire con persone diverse, perché credo che il confronto umano aiuti a crescere sia sul piano personale sia professionale."
       },
       "experience": {
         "title": "Studi ed Esperienze",
@@ -35,27 +35,27 @@
             "description": "Ho completato il Liceo Scientifico, acquisendo solide basi in matematica, fisica e informatica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e le capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e un approccio strutturato ai temi complessi."
           },
           {
-            "year": "2016-2018",
+            "year": "2016–2018",
             "title": "Ingegneria Informatica — Università di Padova (Veneto, Italia)",
             "description": "Durante i primi due anni universitari a Padova ho studiato le basi dell’ingegneria informatica e della progettazione di algoritmi. Ho lavorato in laboratorio su esercitazioni pratiche e collaborato con i compagni su progetti di programmazione. Questo periodo mi ha dato una solida base teorica e competenze di lavoro di squadra applicate allo sviluppo software."
           },
           {
-            "year": "2018-2020",
+            "year": "2018–2020",
             "title": "Informatica — Università di Venezia (Veneto, Italia)",
             "description": "Proseguendo gli studi a Venezia mi sono concentrato su architetture di sistemi, database e sviluppo web. Ho partecipato a progetti accademici che prevedevano la realizzazione di applicazioni e la sperimentazione con tecnologie moderne. Questa esperienza ha rafforzato la mia autonomia e adattabilità."
           },
           {
-            "year": "2018-present",
+            "year": "2018–present",
             "title": "Art.Ap",
             "description": "Ho lavorato come guida durante due mostre temporanee e mi sono occupato della gestione del sito ufficiale dell’associazione. Le mie attività includevano assistenza ai visitatori, aggiornamento dei contenuti e coordinamento con il team delle esposizioni."
           },
           {
-            "year": "2019-2020",
+            "year": "2019–2020",
             "title": "DeFra Web - Collaboratore",
             "description": "Ho gestito contenuti web utilizzando piattaforme CMS e mi sono occupato di backup periodici. Ho lavorato anche su aggiornamenti di cataloghi, migrazioni, incontri con i clienti, documentazione e modifiche in PHP/CSS/HTML."
           },
           {
-            "year": "2021-present",
+            "year": "2021–present",
             "title": "Kubix Link (A Lectra Company) - Dipendente full-time",
             "description": "Contribuisco a soluzioni digitali PLM/PIM per il settore moda. Il mio ruolo coinvolge collaborazione trasversale tra team e processi dati in cloud."
           }
@@ -64,8 +64,9 @@
       "tech-skills": {
         "title": "Competenze Tecniche",
         "frontend": "Frontend",
-        "backend": "Backend",
+        "backend-runtime": "Backend / Runtime",
         "database": "Database",
+        "languages-markup": "Linguaggi / Markup",
         "tools": "Strumenti"
       }
     },

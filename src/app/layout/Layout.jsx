@@ -17,6 +17,9 @@ export default function Layout() {
             <Box
                 component="main"
                 sx={{
+                    width: "100%",
+                    maxWidth: "1020px",
+                    mx: "auto",
                     paddingTop: { xs: "5.75rem", md: "6.75rem" },
                     paddingBottom: { xs: "7rem", md: "8rem" },
                     height: '100%'

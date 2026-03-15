@@ -10,10 +10,11 @@
       "tooltipResume": "Download Resume",
       "welcome": "Hello, I'm",
       "and": "and",
+      "primaryCta": "Explore projects",
       "hero": [
-        "Tech and coding enthusiast with five years of experience as a Software Developer and Delivery Expert in the leading fashion-tech company Lectra.",
-        "I am specialized in the implementation of new customer features and in optimization and fix of old one, making sure it matches the customer expected behavior.",
-        "As the product Kubix Link I am working at takes from front-end to back-end, database, API, integration with external services, custom coding injection for different customer needs, I expanded my knowledge on all the aspects a complex webapp can have"
+        "I work as a Software Developer and Delivery Expert at Lectra, where I focus on developing, optimizing, and tailoring software solutions for complex fashion-tech contexts.",
+        "I implement new features, optimize existing ones, and fix application behaviors, with constant attention to customer needs and product quality.",
+        "The product I work on, Kubix Link, spans front-end, back-end, databases, APIs, external service integrations, and custom code for specific client needs. This experience gave me a broad, practical view of what it takes to build and maintain a complex web application."
       ]
     },
     "about": {

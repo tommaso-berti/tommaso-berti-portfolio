@@ -137,10 +137,10 @@
       "tech_categories": {
         "all": "All",
         "frontend": "Frontend",
-        "backend": "Backend",
-        "tooling": "Tooling",
-        "libraries": "Libraries",
-        "hosting": "Hosting"
+        "backend-runtime": "Back-end / Runtime",
+        "database": "Database",
+        "languages-markup": "Languages / Markup",
+        "tools": "Tools"
       },
       "tech_roles": {
         "core_ui": "Core UI",

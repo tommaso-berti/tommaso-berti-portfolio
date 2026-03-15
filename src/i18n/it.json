@@ -65,7 +65,7 @@
       "tech-skills": {
         "title": "Competenze Tecniche",
         "frontend": "Frontend",
-        "backend-runtime": "Backend / Runtime",
+        "backend-runtime": "Back-end / Runtime",
         "database": "Database",
         "languages-markup": "Linguaggi / Markup",
         "tools": "Strumenti"
@@ -137,18 +137,18 @@
       "tech_categories": {
         "all": "Tutte",
         "frontend": "Frontend",
-        "backend": "Backend",
-        "tooling": "Strumenti",
-        "libraries": "Librerie",
-        "hosting": "Hosting"
+        "backend-runtime": "Back-end / Runtime",
+        "database": "Database",
+        "languages-markup": "Linguaggi / Markup",
+        "tools": "Strumenti"
       },
       "tech_roles": {
-        "core_ui": "Core UI",
-        "application_logic": "Application Logic",
-        "design_system": "Design System",
-        "deployment": "Deployment",
-        "versioning_ci": "Versioning & CI",
-        "development_tooling": "Development Tooling",
+        "core_ui": "Interfaccia principale",
+        "application_logic": "Logica applicativa",
+        "design_system": "Sistema di design",
+        "deployment": "Deploy e infrastruttura",
+        "versioning_ci": "Versionamento e CI",
+        "development_tooling": "Strumenti di sviluppo",
         "ai_support": "Supporto AI"
       },
       "usage_levels": {

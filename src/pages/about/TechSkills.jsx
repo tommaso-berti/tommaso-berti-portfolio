@@ -39,6 +39,7 @@ const SKILL_GROUPS = [
             { label: "Node.js", iconId: "nodejs" },
             { label: "Caddy", iconId: "caddy" },
             { label: "Nginx", iconId: "nginx" },
+            { label: "Cloudflare", iconId: "cloudflare" },
         ],
     },
     {

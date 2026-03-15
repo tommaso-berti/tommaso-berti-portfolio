@@ -1,5 +1,6 @@
 import {
     SiCaddy,
+    SiCloudflare,
     SiCss,
     SiGit,
     SiGithub,
@@ -107,6 +108,12 @@ const BRAND_ICON_REGISTRY = {
     chatgpt: { id: "chatgpt", component: SiOpenai, color: "#412991", title: "ChatGPT" },
     bash: { id: "bash", component: SiGnubash, color: "#4EAA25", title: "Bash" },
     caddy: { id: "caddy", component: SiCaddy, color: "#1F88C0", title: "Caddy" },
+    cloudflare: {
+        id: "cloudflare",
+        component: SiCloudflare,
+        color: "#F38020",
+        title: "Cloudflare",
+    },
     minisearch: {
         id: "minisearch",
         component: SiJavascript,

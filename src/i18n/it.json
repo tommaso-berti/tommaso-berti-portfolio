@@ -83,6 +83,18 @@
       "side_overline": "Progetti secondari",
       "side_project_overline": "Progetto secondario",
       "practice_overline": "Esercizi",
+      "exercises": {
+        "title": "Esercizi",
+        "subtitle": "Repository GitHub stellati che uso come esercizi pratici e riferimenti di studio.",
+        "loadMore": "Carica altri",
+        "loading": "Caricamento...",
+        "empty": "Nessun esercizio disponibile al momento.",
+        "fallbackDescription": "Nessuna descrizione disponibile.",
+        "fallbackLanguage": "Linguaggio non specificato",
+        "openOnGithub": "Apri su GitHub",
+        "error": "Impossibile caricare gli esercizi in questo momento. Riprova.",
+        "retry": "Riprova"
+      },
       "back": "Indietro",
       "next": "Avanti",
       "project_not_found": "Progetto non trovato",

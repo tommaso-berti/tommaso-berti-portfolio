@@ -11,12 +11,14 @@ import {
     buildProjectPreviewModel,
     getProjectsByCategory,
 } from "./projectsPages/projectSelectors.js";
+import ExercisesSection from "./components/ExercisesSection.jsx";
 
 export default function Projects() {
     const { t } = useTranslation("pages.projects");
     const [tab, setTab] = useState("all");
 
     const filteredProjects = getProjectsByCategory(tab);
+    const isPracticeTab = tab === "practice";
 
     return (
         <Stack id="projects" component="article">
@@ -46,7 +48,9 @@ export default function Projects() {
                 ))}
             </Tabs>
 
-            {filteredProjects.length > 0 ? (
+            <ExercisesSection isActive={isPracticeTab} />
+
+            {!isPracticeTab && (filteredProjects.length > 0 ? (
                 filteredProjects.map((project) => {
                     const previewModel = buildProjectPreviewModel(project, t);
 
@@ -78,7 +82,7 @@ export default function Projects() {
                 <Typography variant="h4" marginY={4}>
                     No projects found
                 </Typography>
-            )}
+            ))}
         </Stack>
     );
 }

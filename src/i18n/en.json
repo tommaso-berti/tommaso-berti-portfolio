@@ -83,6 +83,18 @@
       "side_overline": "Side projects",
       "side_project_overline": "Side project",
       "practice_overline": "Practice Projects",
+      "exercises": {
+        "title": "Exercises",
+        "subtitle": "Selected GitHub starred repositories I use as practical exercises and learning references.",
+        "loadMore": "Load more",
+        "loading": "Loading...",
+        "empty": "No exercises found right now.",
+        "fallbackDescription": "No description provided.",
+        "fallbackLanguage": "Unknown language",
+        "openOnGithub": "Open on GitHub",
+        "error": "Unable to load exercises right now. Please try again.",
+        "retry": "Retry"
+      },
       "back": "Back",
       "next": "Next",
       "project_not_found": "Project not found",

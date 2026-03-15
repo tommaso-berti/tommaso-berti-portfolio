@@ -71,12 +71,13 @@
     },
     "projects": {
       "title": "Progetti",
-      "description": "Questa raccolta di progetti riflette la mia passione per la creazione di strumenti che semplificano la mia vita, mi aiutano a sperimentare o mi permettono di esercitarmi e rafforzare le mie competenze. Alcuni progetti nascono dalla curiosità, altri dal desiderio di esplorare nuove tecnologie, migliorare il mio workflow o semplicemente dal piacere di sviluppare. Come sviluppatore software full-time utilizzo attivamente l’AI, perché la considero uno strumento potente e trasformativo: accelera lo sviluppo, mi aiuta a scrivere codice più sicuro ed efficiente e mi supporta quando esploro nuove idee e tecnologie. Il tempo è una risorsa preziosa, ma l’AI non è solo una scorciatoia, è un’estensione del mio flusso di lavoro. La uso con attenzione, validando sempre i risultati invece di dare per scontato che ogni risposta sia corretta, proprio come farei con qualsiasi documentazione tecnica o riferimento.",
-      "live_preview": "Anteprima Live",
-      "primaryAction": "Dettagli progetto",
+      "description": "Questa raccolta di progetti riflette la mia passione per creare strumenti utili, sperimentare nuove tecnologie e migliorare costantemente le mie competenze. Alcuni progetti nascono dalla curiosità, altri dalla volontà di ottimizzare il workflow o esplorare nuove idee. Nel mio lavoro da sviluppatore software utilizzo l’AI come supporto concreto: accelera alcune fasi, migliora la qualità del codice e mi aiuta a validare rapidamente nuove soluzioni, sempre con verifica critica dei risultati.",
+      "live_preview": "Demo interattiva",
+      "primaryAction": "Scopri il progetto",
       "secondaryAction": "Apri sito",
       "all_overline": "Tutti",
       "main_overline": "Progetti principali",
+      "main_project_overline": "Progetto principale",
       "side_overline": "Progetti secondari",
       "practice_overline": "Esercizi",
       "back": "Indietro",
@@ -122,6 +123,10 @@
         "css": {
           "label": "CSS",
           "description": "Linguaggio di stile utilizzato per definire layout, controllo dell’aspetto visivo e presentazione responsive su diversi dispositivi."
+        },
+        "codex": {
+          "label": "Codex",
+          "description": "Strumento AI utilizzato nel workflow di sviluppo per velocizzare attività ripetitive, esplorare soluzioni e migliorare la produttività."
         }
       },
       "tech_categories": {
@@ -134,7 +139,7 @@
       },
       "codexpane": {
         "title": "CodexPane",
-        "description": "Web app veloce e ottimizzata per accedere rapidamente a documentazione curata, esempi, cheatsheet e playground di codice interattivi.",
+        "description": "Piattaforma web pensata per velocizzare lo studio e la consultazione tecnica, combinando documentazione selezionata, esempi pratici, cheatsheet e playground di codice interattivi in un’interfaccia rapida e focalizzata.",
         "details": {
           "introduction": {
             "title": "CodexPane",
@@ -193,7 +198,7 @@
       },
       "portfolio": {
         "title": "Portfolio",
-        "description": "Il sito che stai visitando ora, creato per mostrare il mio lavoro, le mie esperienze e i miei progetti personali in modo pulito, moderno e accessibile.",
+        "description": "Portfolio personale sviluppato per presentare in modo chiaro, moderno e accessibile il mio lavoro, le mie esperienze e i miei progetti.",
         "details": {
           "introduction": {
             "title": "Portfolio",

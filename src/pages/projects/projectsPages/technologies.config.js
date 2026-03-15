@@ -8,4 +8,5 @@ export const TECHNOLOGIES = {
     minisearch:{ icon: "minisearch",category: "libraries"},
     tailwindcss:{icon:"tailwindcss",category: "frontend" },
     css:       { icon: "css",       category: "frontend" },
+    codex:     { icon: "chatgpt",   category: "tooling"  },
 };

@@ -2,7 +2,7 @@ export const projects = [
     {
         id: "portfolio",
         category: "main",
-        overlineKey: "main_overline",
+        overlineKey: "main_project_overline",
         titleKey: "portfolio.title",
         descriptionKey: "portfolio.description",
         reversed: false,
@@ -22,11 +22,12 @@ export const projects = [
         details: {
             technologies: [
                 { id: "react", level: 85 },
-                { id: "mui", level: 80 },
                 { id: "javascript", level: 90 },
+                { id: "mui", level: 80 },
+                { id: "caddy", level: 60 },
                 { id: "github", level: 65 },
                 { id: "webstorm", level: 55 },
-                { id: "caddy", level: 60 },
+                { id: "codex", level: 70 },
             ],
             roadmapIds: ["v1", "v2", "v3"],
         },
@@ -34,7 +35,7 @@ export const projects = [
     {
         id: "codexpane",
         category: "main",
-        overlineKey: "main_overline",
+        overlineKey: "main_project_overline",
         titleKey: "codexpane.title",
         descriptionKey: "codexpane.description",
         reversed: true,
@@ -54,14 +55,15 @@ export const projects = [
         details: {
             technologies: [
                 { id: "react", level: 85 },
-                { id: "mui", level: 80 },
                 { id: "javascript", level: 90 },
+                { id: "mui", level: 80 },
+                { id: "tailwindcss", level: 10 },
+                { id: "minisearch", level: 50 },
+                { id: "caddy", level: 60 },
                 { id: "github", level: 65 },
                 { id: "webstorm", level: 55 },
-                { id: "caddy", level: 60 },
-                { id: "minisearch", level: 50 },
-                { id: "tailwindcss", level: 10 },
                 { id: "css", level: 15 },
+                { id: "codex", level: 70 },
             ],
             roadmapIds: ["v1", "v2", "v3", "v4"],
         },

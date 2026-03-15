@@ -7,11 +7,12 @@ import {
     CardActions,
     CardContent,
     Chip,
-    CircularProgress,
     Link,
+    Skeleton,
     Stack,
     Typography,
 } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTranslation } from "../../../hooks/useTranslation.js";
 
 const GITHUB_STARRED_ENDPOINT = "https://api.github.com/users/tommaso-berti/starred";
@@ -50,36 +51,47 @@ export default function ExercisesSection({ isActive }) {
         abortRef.current = controller;
 
         try {
-            const response = await fetch(
-                `${GITHUB_STARRED_ENDPOINT}?per_page=${PER_PAGE}&page=${nextPage}`,
-                { signal: controller.signal }
-            );
+            let currentPage = nextPage;
+            let reachedEnd = false;
+            const nextExerciseRepositories = [];
 
-            if (!response.ok) {
-                throw new Error(`${response.status} ${response.statusText}`);
+            // Build visible chunks as "12 exercise repos", scanning raw starred pages as needed.
+            while (nextExerciseRepositories.length < PER_PAGE && !reachedEnd) {
+                const response = await fetch(
+                    `${GITHUB_STARRED_ENDPOINT}?per_page=${PER_PAGE}&page=${currentPage}`,
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`${response.status} ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                const repositories = Array.isArray(data) ? data : [];
+
+                // Some starred responses may omit topics for specific repos; without topics we exclude the repo.
+                const exerciseRepositories = repositories.filter((repo) => {
+                    if (!repo || repo.fork) return false;
+
+                    const topics = Array.isArray(repo.topics) ? repo.topics : [];
+                    if (topics.length === 0) return false;
+
+                    return topics
+                        .map((topic) => `${topic}`.toLowerCase())
+                        .some((topic) => EXERCISE_TOPICS.has(topic));
+                });
+
+                nextExerciseRepositories.push(...exerciseRepositories);
+
+                reachedEnd = repositories.length < PER_PAGE;
+                if (!reachedEnd) {
+                    currentPage += 1;
+                }
             }
 
-            const data = await response.json();
-            const repositories = Array.isArray(data) ? data : [];
-            // Some starred responses may omit topics for specific repos; without topics we exclude the repo.
-            const exerciseRepositories = repositories.filter((repo) => {
-                if (!repo || repo.fork) return false;
-
-                const topics = Array.isArray(repo.topics) ? repo.topics : [];
-                if (topics.length === 0) return false;
-
-                return topics
-                    .map((topic) => `${topic}`.toLowerCase())
-                    .some((topic) => EXERCISE_TOPICS.has(topic));
-            });
-
-            setItems((prevItems) => [...prevItems, ...exerciseRepositories]);
-            setPage(nextPage);
-
-            const reachedRawEnd = repositories.length < PER_PAGE;
-            if (reachedRawEnd) {
-                setHasMore(false);
-            }
+            setItems((prevItems) => [...prevItems, ...nextExerciseRepositories]);
+            setPage(currentPage);
+            setHasMore(!reachedEnd);
         } catch (fetchError) {
             if (fetchError?.name === "AbortError") return;
             setError(fetchError);
@@ -108,6 +120,16 @@ export default function ExercisesSection({ isActive }) {
     };
 
     const showInitialLoading = isActive && isLoading && items.length === 0;
+    const showLoadMoreLoading = isActive && isLoading && items.length > 0;
+    const canShowLoadMore = hasInitialized && !showInitialLoading && hasMore;
+    const actionButtonSx = {
+        transition: "0.25s",
+        whiteSpace: "nowrap",
+        "&:hover": {
+            transform: "translateY(-4px)",
+            boxShadow: 6,
+        },
+    };
 
     return (
         <Box
@@ -131,9 +153,22 @@ export default function ExercisesSection({ isActive }) {
                 )}
 
                 {showInitialLoading ? (
-                    <Stack direction="row" spacing={1.5} alignItems="center">
-                        <CircularProgress size={20} />
-                        <Typography variant="body2">{t("exercises.loading")}</Typography>
+                    <Stack spacing={2}>
+                        {[0, 1, 2].map((index) => (
+                            <Card key={index} variant="outlined">
+                                <CardContent>
+                                    <Stack spacing={1.25}>
+                                        <Skeleton variant="text" width="45%" height={34} />
+                                        <Skeleton variant="text" width="100%" />
+                                        <Skeleton variant="text" width="85%" />
+                                        <Skeleton variant="rounded" width={120} height={24} />
+                                    </Stack>
+                                </CardContent>
+                                <CardActions>
+                                    <Skeleton variant="rounded" width={120} height={32} />
+                                </CardActions>
+                            </Card>
+                        ))}
                     </Stack>
                 ) : null}
 
@@ -146,10 +181,7 @@ export default function ExercisesSection({ isActive }) {
                 <Box
                     sx={{
                         display: "grid",
-                        gridTemplateColumns: {
-                            xs: "1fr",
-                            md: "repeat(2, minmax(0, 1fr))",
-                        },
+                        gridTemplateColumns: "1fr",
                         gap: 2,
                     }}
                 >
@@ -175,25 +207,45 @@ export default function ExercisesSection({ isActive }) {
 
                             <CardActions>
                                 <Button
+                                    variant="text"
                                     component={Link}
                                     href={repository.html_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     size="small"
+                                    startIcon={<GitHubIcon fontSize="small" />}
+                                    sx={actionButtonSx}
                                 >
-                                    {t("exercises.openOnGithub")}
+                                    GitHub
                                 </Button>
                             </CardActions>
                         </Card>
                     ))}
                 </Box>
 
-                {hasMore ? (
+                {showLoadMoreLoading ? (
+                    <Stack spacing={2}>
+                        {[0, 1].map((index) => (
+                            <Card key={`loading-${index}`} variant="outlined">
+                                <CardContent>
+                                    <Stack spacing={1.25}>
+                                        <Skeleton variant="text" width="40%" height={30} />
+                                        <Skeleton variant="text" width="100%" />
+                                        <Skeleton variant="rounded" width={110} height={22} />
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </Stack>
+                ) : null}
+
+                {canShowLoadMore ? (
                     <Stack direction="row" justifyContent="center" sx={{ pt: 1 }}>
                         <Button
                             variant="contained"
                             onClick={onLoadMore}
                             disabled={isLoading || !hasInitialized}
+                            sx={actionButtonSx}
                         >
                             {isLoading && items.length > 0
                                 ? t("exercises.loading")

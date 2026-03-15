@@ -11,6 +11,7 @@ export const projects = [
             labelKey: "secondaryAction",
             href: "https://www.tommasoberti.com",
         },
+        githubHref: "https://github.com/tommaso-berti/tommaso-berti-portfolio",
         previewProps: {
             url: "https://www.tommasoberti.com",
             titleKey: "portfolio.title",
@@ -44,6 +45,7 @@ export const projects = [
             labelKey: "secondaryAction",
             href: "https://www.codexpane.tommasoberti.com",
         },
+        githubHref: "https://github.com/tommaso-berti/codexPane",
         previewProps: {
             url: "https://www.codexpane.tommasoberti.com",
             titleKey: "codexpane.title",
@@ -80,6 +82,7 @@ export const projects = [
             labelKey: "secondaryAction",
             href: "https://shop.tommasoberti.com",
         },
+        githubHref: "https://github.com/tommaso-berti/ecommerce-rest-api",
         previewProps: {
             url: "https://shop.tommasoberti.com",
             titleKey: "ecommerce-rest-api.title",

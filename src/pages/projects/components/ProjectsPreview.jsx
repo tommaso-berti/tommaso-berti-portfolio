@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Button, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Chip from "@mui/material/Chip";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function ProjectsPreview({
                                         overline,
@@ -8,6 +9,7 @@ export default function ProjectsPreview({
                                         description,
                                         primaryAction,
                                         secondaryAction,
+                                        githubAction,
                                         preview,
                                         reversed = false,
                                         id,
@@ -32,6 +34,14 @@ export default function ProjectsPreview({
     const onClickPrimaryAction = () => {
         navigate(primaryAction.path);
     }
+    const actionButtonSx = {
+        transition: "0.25s",
+        whiteSpace: "nowrap",
+        "&:hover": {
+            transform: "translateY(-4px)",
+            boxShadow: 6,
+        },
+    };
 
     return (
         <Box
@@ -69,19 +79,13 @@ export default function ProjectsPreview({
                         </Typography>
                     )}
 
-                    {(primaryAction || secondaryAction) && (
+                    {(primaryAction || secondaryAction || githubAction) && (
                         <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
                             {primaryAction && (
                                 <Button
                                     variant={primaryAction.variant || "contained"}
                                     onClick={onClickPrimaryAction}
-                                    sx={{
-                                        transition: "0.25s",
-                                        "&:hover": {
-                                            transform: "translateY(-4px)",
-                                            boxShadow: 6,
-                                        },
-                                    }}
+                                    sx={actionButtonSx}
                                 >
                                     {primaryAction.label}
                                 </Button>
@@ -94,15 +98,23 @@ export default function ProjectsPreview({
                                     href={secondaryAction.href}
                                     target={secondaryAction.target ?? "_blank"}
                                     rel={secondaryAction.rel ?? "noreferrer"}
-                                    sx={{
-                                        transition: "0.25s",
-                                        "&:hover": {
-                                            transform: "translateY(-4px)",
-                                            boxShadow: 6,
-                                        },
-                                    }}
+                                    sx={actionButtonSx}
                                 >
                                     {secondaryAction.label}
+                                </Button>
+                            )}
+
+                            {githubAction && (
+                                <Button
+                                    variant={githubAction.variant || "text"}
+                                    component={Link}
+                                    href={githubAction.href}
+                                    target={githubAction.target ?? "_blank"}
+                                    rel={githubAction.rel ?? "noopener noreferrer"}
+                                    startIcon={<GitHubIcon fontSize="small" />}
+                                    sx={actionButtonSx}
+                                >
+                                    GitHub
                                 </Button>
                             )}
                         </Stack>

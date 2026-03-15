@@ -63,6 +63,7 @@ export default function Projects() {
                             reversed={previewModel.reversed}
                             primaryAction={previewModel.primaryAction}
                             secondaryAction={previewModel.secondaryAction}
+                            githubAction={previewModel.githubAction}
                             id={previewModel.id}
                             technologies={previewModel.technologies}
                             preview={

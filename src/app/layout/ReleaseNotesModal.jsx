@@ -2,7 +2,6 @@ import {
     Alert,
     Box,
     Button,
-    CircularProgress,
     Dialog,
     DialogActions,
     DialogContent,
@@ -11,6 +10,7 @@ import {
     List,
     ListItem,
     ListItemText,
+    Skeleton,
     Stack,
     Typography,
 } from "@mui/material";
@@ -54,9 +54,14 @@ export default function ReleaseNotesModal({ open, onClose }) {
                     )}
 
                     {isLoading && (
-                        <Stack direction="row" spacing={1.5} alignItems="center">
-                            <CircularProgress size={18} />
-                            <Typography variant="body2">{t("loading")}</Typography>
+                        <Stack spacing={1.5}>
+                            <Skeleton variant="text" width="35%" />
+                            {[0, 1, 2, 3].map((index) => (
+                                <Box key={index} sx={{ py: 0.5 }}>
+                                    <Skeleton variant="text" width={index % 2 === 0 ? "88%" : "76%"} />
+                                    <Skeleton variant="text" width="40%" />
+                                </Box>
+                            ))}
                         </Stack>
                     )}
 

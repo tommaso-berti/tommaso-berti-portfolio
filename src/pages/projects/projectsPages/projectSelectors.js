@@ -25,6 +25,12 @@ export function buildProjectPreviewModel(project, tProjects) {
             label: tProjects(project.secondaryAction.labelKey),
             href: project.secondaryAction.href,
         },
+        githubAction: project.githubHref
+            ? {
+                label: tProjects("exercises.openOnGithub"),
+                href: project.githubHref,
+            }
+            : null,
         technologies: project.details.technologies.map(({ id }) =>
             tProjects(`technologies.${id}.label`, id)
         ),

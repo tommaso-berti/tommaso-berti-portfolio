@@ -48,6 +48,7 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
         returnObjects: true,
     });
     const difficultiesRaw = tProject("difficulties_faced", { returnObjects: true });
+    const searchMechanicsRaw = tProject("search_mechanics", { returnObjects: true });
     const lessonsRaw = tProject("lessons_learned", { returnObjects: true });
 
     return {
@@ -56,6 +57,7 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
             ? introductionParagraphsRaw
             : [],
         difficulties: Array.isArray(difficultiesRaw) ? difficultiesRaw : [],
+        searchMechanics: Array.isArray(searchMechanicsRaw) ? searchMechanicsRaw : [],
         lessonsLearned: Array.isArray(lessonsRaw) ? lessonsRaw : [],
         technologies: detailsTechnologies.map(({ id, level, roleKey, usageKey }) => {
             const base = TECHNOLOGIES[id];

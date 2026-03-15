@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import TechnologySection from "./TechnologySection.jsx";
 import RoadmapSection from "./RoadmapSection.jsx";
 import DifficultiesFacedSection from "./DifficultiesFacedSection.jsx";
+import SearchMechanicsSection from "./SearchMechanicsSection.jsx";
 import LessonsLearnedSection from "./LessonsLearnedSection.jsx";
 import { useTranslation } from "../../../hooks/useTranslation.js";
 import {
@@ -48,6 +49,10 @@ export default function ProjectPage() {
                 </Box>
 
                 <DifficultiesFacedSection difficulties={detailsModel.difficulties} />
+                <SearchMechanicsSection
+                    title={tProjects("search_mechanics_title")}
+                    items={detailsModel.searchMechanics}
+                />
                 <LessonsLearnedSection
                     title={tProjects("lessons_learned_title")}
                     items={detailsModel.lessonsLearned}

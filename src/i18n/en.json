@@ -88,6 +88,7 @@
       "impact_on_the_project": "Impact on the project",
       "role_in_project": "Role in the project",
       "usage_level": "Usage level",
+      "search_mechanics_title": "How search works",
       "lessons_learned_title": "What I learned",
       "technologiesTitle": "Technologies",
       "roadmap": "Roadmap",
@@ -149,6 +150,8 @@
         "deployment": "Deployment",
         "versioning_ci": "Versioning & CI",
         "development_tooling": "Development Tooling",
+        "search_engine": "Search Engine",
+        "style_layer": "Style Layer",
         "ai_support": "AI support"
       },
       "usage_levels": {
@@ -163,11 +166,47 @@
           "introduction": {
             "title": "CodexPane",
             "description": [
-              "During my side projects and while progressing through my developer courses, I identified a recurring challenge: the need to frequently check code documentation, constantly searching and switching between browser tabs.",
-              "At first, I tried using ChatGPT to search for documentation or example use cases. However, the answers were inconsistent, sometimes inaccurate, and not always aligned with best coding practices.",
-              "Then I experimented with tools and websites that aggregate documentation, but most were either too basic, too complex to navigate, or lacking coverage for all the languages and frameworks I needed.",
-              "So I decided to create CodexPane: a fast, optimized web application that provides quick access to refined documentation, examples, cheatsheets, and interactive code playgrounds."
+              "CodexPane started from a practical workflow issue: while studying and developing, I was losing time switching between documentation tabs, snippets, and examples. I built the app as a focused workspace for fast access to high-quality technical references.",
+              "The platform combines curated documentation, practical examples, cheatsheets, and interactive playgrounds in a single flow. The goal is to reduce context switching and speed up the path from search to implementation."
             ]
+          },
+          "search_mechanics": [
+            "Content is indexed client-side with MiniSearch, so lookups stay fast without relying on external search services.",
+            "Queries run across section titles and text blocks, returning relevance-ordered results that are easy to scan.",
+            "Data is structured to balance search speed, result quality, and long-term maintainability.",
+            "The search UX is designed to minimize time between a technical question and concrete implementation."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React is the core UI layer: chosen for componentization and reuse, it keeps documentation, examples, and playground areas modular and consistent."
+            },
+            "javascript": {
+              "description": "JavaScript handles navigation, search behavior, and content composition logic while keeping the codebase readable and extensible."
+            },
+            "mui": {
+              "description": "MUI provides an accessible and consistent UI baseline, helping maintain visual coherence and speed up component development."
+            },
+            "tailwindcss": {
+              "description": "Tailwind CSS is used selectively for utility-driven layout control and quick styling refinements where fine-grained tuning was needed."
+            },
+            "minisearch": {
+              "description": "MiniSearch is the client-side search engine: it indexes technical content and returns fast results without server-side dependencies, improving lookup speed and UX."
+            },
+            "caddy": {
+              "description": "Caddy covers deployment as web server and reverse proxy, with automatic HTTPS and a lean configuration for reliable releases."
+            },
+            "github": {
+              "description": "GitHub is used for version control, collaboration, and release automation, keeping changes traceable and the development cycle structured."
+            },
+            "webstorm": {
+              "description": "WebStorm is the primary IDE: static analysis and refactoring tools help preserve code quality and consistency."
+            },
+            "css": {
+              "description": "CSS is used for targeted visual customizations and fine control of style details not fully covered by utility classes."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT was used as technical support to accelerate iterations, compare approaches, and refine implementations with critical review."
+            }
           },
           "difficulties_faced": [
             "Learn how to use MUI components and theming system to create a consistent and accessible user interface",

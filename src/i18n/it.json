@@ -88,6 +88,7 @@
       "impact_on_the_project": "Impatto sul progetto",
       "role_in_project": "Ruolo nel progetto",
       "usage_level": "Livello di utilizzo",
+      "search_mechanics_title": "Come funziona la ricerca",
       "lessons_learned_title": "Cosa ho imparato",
       "technologiesTitle": "Tecnologie",
       "roadmap": "Roadmap",
@@ -149,6 +150,8 @@
         "deployment": "Deploy e infrastruttura",
         "versioning_ci": "Versionamento e CI",
         "development_tooling": "Strumenti di sviluppo",
+        "search_engine": "Motore di ricerca",
+        "style_layer": "Strato di stile",
         "ai_support": "Supporto AI"
       },
       "usage_levels": {
@@ -163,11 +166,47 @@
           "introduction": {
             "title": "CodexPane",
             "description": [
-              "Durante i miei side project e mentre seguivo corsi da sviluppatore, ho individuato una sfida ricorrente: la necessità di consultare spesso la documentazione, cercando e cambiando continuamente scheda nel browser.",
-              "All’inizio ho provato a usare ChatGPT per cercare documentazione o esempi d’uso. Tuttavia le risposte erano incoerenti, a volte imprecise e non sempre allineate alle best practice di sviluppo.",
-              "Poi ho sperimentato strumenti e siti che aggregano documentazione, ma la maggior parte era troppo basilare, troppo complessa da navigare oppure non copriva tutti i linguaggi e framework di cui avevo bisogno.",
-              "Così ho deciso di creare CodexPane: una web app veloce e ottimizzata che fornisce accesso rapido a documentazione curata, esempi, cheatsheet e playground di codice interattivi."
+              "CodexPane nasce da un problema operativo reale: durante lo studio e lo sviluppo perdevo tempo passando continuamente tra tab di documentazione, esempi e snippet. Ho progettato quindi una web app focalizzata su velocità di consultazione e qualità dei contenuti tecnici.",
+              "L’app combina documentazione curata, esempi pratici, cheatsheet e playground interattivi in un flusso unico. L’obiettivo è ridurre il contesto dispersivo e rendere più rapido il passaggio da ricerca a implementazione."
             ]
+          },
+          "search_mechanics": [
+            "I contenuti vengono indicizzati lato client con MiniSearch, così la ricerca è immediata senza dipendere da un servizio esterno.",
+            "Le query interrogano titoli e testo delle sezioni, restituendo risultati ordinati per rilevanza e facili da scansionare.",
+            "La struttura dei dati è organizzata per mantenere un buon equilibrio tra velocità, precisione e manutenibilità.",
+            "L’obiettivo della ricerca è ridurre il tempo tra domanda tecnica e applicazione pratica del codice."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React è il layer principale dell’interfaccia: scelto per componentizzazione e riuso, consente di strutturare documentazione, esempi e playground in moduli coerenti."
+            },
+            "javascript": {
+              "description": "JavaScript gestisce la logica di navigazione, ricerca e composizione dei contenuti, mantenendo il codice estendibile e leggibile nel tempo."
+            },
+            "mui": {
+              "description": "MUI fornisce una base UI accessibile e consistente, utile per mantenere uniformità visiva e velocizzare lo sviluppo dei componenti."
+            },
+            "tailwindcss": {
+              "description": "Tailwind CSS è usato in modo mirato per utility di layout e rifiniture rapide, soprattutto nelle aree dove serviva maggiore controllo stilistico."
+            },
+            "minisearch": {
+              "description": "MiniSearch è il motore di ricerca client-side: indicizza i contenuti tecnici e restituisce risultati rapidi senza dipendenze server-side, migliorando tempi di consultazione e UX."
+            },
+            "caddy": {
+              "description": "Caddy copre lo strato di deploy come web server e reverse proxy, con HTTPS automatico e configurazione essenziale per rilasci affidabili."
+            },
+            "github": {
+              "description": "GitHub è usato per versionamento, collaborazione e automazione dei rilasci, rendendo tracciabili le modifiche e più ordinato il ciclo di sviluppo."
+            },
+            "webstorm": {
+              "description": "WebStorm è l’ambiente di sviluppo principale: analisi statica e strumenti di refactoring aiutano a mantenere qualità e coerenza del codice."
+            },
+            "css": {
+              "description": "CSS è utilizzato per personalizzazioni puntuali e gestione fine di dettagli visivi non coperti dalle utility, mantenendo controllo sul risultato finale."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT è stato usato come supporto tecnico per accelerare iterazioni, confrontare soluzioni e validare approcci, sempre con verifica critica."
+            }
           },
           "difficulties_faced": [
             "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un'interfaccia utente coerente e accessibile",

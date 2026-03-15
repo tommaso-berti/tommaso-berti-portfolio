@@ -37,6 +37,7 @@ const SKILL_GROUPS = [
         titleKey: "backend-runtime",
         skills: [
             { label: "Node.js", iconId: "nodejs" },
+            { label: "Express", iconId: "express" },
             { label: "Caddy", iconId: "caddy" },
             { label: "Nginx", iconId: "nginx" },
             { label: "Cloudflare", iconId: "cloudflare" },

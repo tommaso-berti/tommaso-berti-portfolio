@@ -81,6 +81,7 @@
       "main_overline": "Main projects",
       "main_project_overline": "Main project",
       "side_overline": "Side projects",
+      "side_project_overline": "Side project",
       "practice_overline": "Practice Projects",
       "back": "Back",
       "next": "Next",
@@ -98,6 +99,14 @@
           "label": "React",
           "description": "Built the application using React’s component-based architecture, enabling clean structure, reusability, and efficient UI updates."
         },
+        "vite": {
+          "label": "Vite",
+          "description": "Build and dev tool selected for fast startup, efficient hot reload, and a lean frontend pipeline."
+        },
+        "react-router": {
+          "label": "React Router",
+          "description": "Frontend routing library used to manage client-side navigation and page flows predictably."
+        },
         "mui": {
           "label": "MUI",
           "description": "Leveraged MUI’s React components and theming capabilities to rapidly develop a clean and accessible user interface."
@@ -106,9 +115,37 @@
           "label": "JavaScript",
           "description": "Developed the application logic using modern JavaScript features, ensuring clean, maintainable, and efficient code."
         },
+        "nodejs": {
+          "label": "Node.js",
+          "description": "Backend runtime used to build modular APIs and manage authentication, sessions, and server-side business logic."
+        },
+        "express": {
+          "label": "Express",
+          "description": "Backend framework used to build REST endpoints and organize middleware in a modular way."
+        },
+        "passport": {
+          "label": "Passport",
+          "description": "Authentication library integrated to handle local login and OAuth in an extensible way."
+        },
+        "express-session": {
+          "label": "express-session",
+          "description": "Session middleware used to persist authenticated user state server-side in a secure and consistent way."
+        },
+        "postgresql": {
+          "label": "PostgreSQL",
+          "description": "Relational database chosen for reliability, data integrity, and structured queries across products, carts, and orders."
+        },
         "github": {
           "label": "GitHub",
           "description": "Integrated GitHub for version control and automated workflows through GitHub Actions."
+        },
+        "github-actions": {
+          "label": "GitHub Actions",
+          "description": "CI/CD pipeline used for versioned frontend and backend build/deploy workflows."
+        },
+        "swagger-openapi": {
+          "label": "Swagger / OpenAPI",
+          "description": "API documentation and testing layer used to make endpoints and payloads immediately verifiable."
         },
         "webstorm": {
           "label": "WebStorm",
@@ -149,9 +186,16 @@
         "design_system": "Design System",
         "deployment": "Deployment",
         "versioning_ci": "Versioning & CI",
+        "ci_cd": "CI/CD",
+        "api_docs": "API Documentation",
         "development_tooling": "Development Tooling",
+        "routing": "Routing",
+        "build_tooling": "Build Tooling",
+        "api_layer": "API Layer",
+        "auth_layer": "Auth & Sessions",
         "search_engine": "Search Engine",
         "style_layer": "Style Layer",
+        "data_layer": "Data Layer",
         "ai_support": "AI support"
       },
       "usage_levels": {
@@ -249,6 +293,105 @@
               "content": [
                 "Add cheatsheet-style documentation with options to download or copy content easily.",
                 "Integrate a simple AI chatbot, powered by the existing documentation, to help users find the right information and provide well-formatted responses."
+              ]
+            }
+          }
+        }
+      },
+      "ecommerce-rest-api": {
+        "title": "E-commerce REST API",
+        "description": "Full-stack e-commerce demo with React frontend, Express API, and PostgreSQL, designed for a fast development workflow and structured VPS deployment.",
+        "details": {
+          "introduction": {
+            "title": "E-commerce REST API",
+            "description": [
+              "This project was built to simulate a real full-stack scenario, combining a React frontend and Express API under the same domain, with backend traffic securely proxied through `/api`.",
+              "The goal was to deliver a complete and credible engineering flow: session-based auth, cart/order management, Swagger API documentation, and versioned VPS deployment pipelines."
+            ]
+          },
+          "technologies": {
+            "react": {
+              "description": "React drives the catalog UI and core user flows with modular components designed for fast extension of pages and states."
+            },
+            "vite": {
+              "description": "Vite was chosen to speed up frontend development and builds, reducing iteration time while working on UI and user flows."
+            },
+            "react-router": {
+              "description": "React Router handles transitions between client views and application states, keeping navigation clear and predictable."
+            },
+            "javascript": {
+              "description": "JavaScript is used on both client and server to keep technical consistency across API logic, UI behavior, and shared patterns."
+            },
+            "mui": {
+              "description": "MUI provides accessible and consistent components for the main UI surfaces, reducing implementation time while preserving visual coherence."
+            },
+            "tailwindcss": {
+              "description": "Tailwind CSS is used for utility-first layout control and quick style refinements where fine-grained tuning was needed."
+            },
+            "nodejs": {
+              "description": "Node.js is the Express runtime layer, handling API routing, authentication, sessions, and business logic orchestration."
+            },
+            "express": {
+              "description": "Express structures the app REST services with dedicated middleware for validation, auth, and error handling."
+            },
+            "passport": {
+              "description": "Passport was adopted to keep authentication modular (local + optional Google OAuth) without coupling auth logic to endpoint handlers."
+            },
+            "express-session": {
+              "description": "express-session manages persistence of authenticated user sessions across requests, a key requirement for protected routes like orders and checkout."
+            },
+            "postgresql": {
+              "description": "PostgreSQL is the project data layer, used to persist users, products, carts, and orders through a clear relational schema."
+            },
+            "caddy": {
+              "description": "Caddy manages reverse proxy and automatic HTTPS, serving frontend and backend under one domain with a clean deployment setup."
+            },
+            "github": {
+              "description": "GitHub centralizes version control and CI/CD through separate frontend/backend workflows with versioned releases and symlink activation."
+            },
+            "github-actions": {
+              "description": "GitHub Actions automates build and deployment of both application layers, reducing manual errors and improving release repeatability."
+            },
+            "swagger-openapi": {
+              "description": "Swagger/OpenAPI is used to document and test APIs transparently, improving technical verification and onboarding."
+            },
+            "webstorm": {
+              "description": "WebStorm was the primary IDE for refactoring, debugging, and maintaining code quality in the monorepo workflow."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT supported deployment automation and technical documentation work, with manual validation of architecture decisions."
+            }
+          },
+          "difficulties_faced": [
+            "Designing robust session-based authentication (local login + optional Google OAuth) while keeping the user flow consistent.",
+            "Handling frontend/API routing through a single domain proxy without exposing backend services directly.",
+            "Building a reliable VPS deployment pipeline with versioned releases and controlled activation.",
+            "Managing demo database reset on backend deploy without compromising runtime stability and functional checks.",
+            "Documenting APIs and payloads clearly to keep the project immediately verifiable for recruiters and developers."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Monorepo setup with React/Vite frontend, Express backend, and initial PostgreSQL schema.",
+                "Implementation of core APIs (products, cart, checkout, local authentication).",
+                "VPS deployment with Caddy and systemd services, with backend exposed only via `/api`."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Refine authentication/session flows, including optional Google OAuth integration.",
+                "Improve API input validation and server-side error handling coverage.",
+                "Enhance operational observability (health checks, logging, and deploy troubleshooting)."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Extend automated end-to-end tests for critical flows (auth, cart, checkout).",
+                "Strengthen technical documentation for faster contributor onboarding.",
+                "Introduce baseline API performance metrics and response-time monitoring."
               ]
             }
           }

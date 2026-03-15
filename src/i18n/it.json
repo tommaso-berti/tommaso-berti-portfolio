@@ -81,6 +81,7 @@
       "main_overline": "Progetti principali",
       "main_project_overline": "Progetto principale",
       "side_overline": "Progetti secondari",
+      "side_project_overline": "Progetto secondario",
       "practice_overline": "Esercizi",
       "back": "Indietro",
       "next": "Avanti",
@@ -98,6 +99,14 @@
           "label": "React",
           "description": "Applicazione sviluppata utilizzando l’architettura a componenti di React, che permette una struttura pulita, riuso del codice e aggiornamenti efficienti dell’interfaccia."
         },
+        "vite": {
+          "label": "Vite",
+          "description": "Tool di build e sviluppo scelto per avvio rapido, hot reload efficiente e pipeline frontend snella."
+        },
+        "react-router": {
+          "label": "React Router",
+          "description": "Libreria di routing frontend utilizzata per gestire navigazione client-side e flussi pagina in modo prevedibile."
+        },
         "mui": {
           "label": "MUI",
           "description": "Utilizzo dei componenti React e del sistema di theming di MUI per sviluppare rapidamente un’interfaccia pulita e accessibile."
@@ -106,9 +115,37 @@
           "label": "JavaScript",
           "description": "Logica dell’applicazione sviluppata con le funzionalità moderne di JavaScript, garantendo codice pulito, manutenibile ed efficiente."
         },
+        "nodejs": {
+          "label": "Node.js",
+          "description": "Runtime backend utilizzato per costruire API modulari e gestire autenticazione, sessioni e logica server-side in modo scalabile."
+        },
+        "express": {
+          "label": "Express",
+          "description": "Framework backend usato per costruire endpoint REST e organizzare middleware in modo chiaro e modulare."
+        },
+        "passport": {
+          "label": "Passport",
+          "description": "Libreria di autenticazione integrata per gestire login locale e OAuth in modo estendibile."
+        },
+        "express-session": {
+          "label": "express-session",
+          "description": "Middleware sessionale usato per mantenere autenticazione utente lato server in modo sicuro e consistente."
+        },
+        "postgresql": {
+          "label": "PostgreSQL",
+          "description": "Database relazionale scelto per affidabilità, integrità dei dati e query strutturate su catalogo prodotti, carrelli e ordini."
+        },
         "github": {
           "label": "GitHub",
           "description": "Integrazione di GitHub per il controllo di versione e per workflow automatizzati tramite GitHub Actions."
+        },
+        "github-actions": {
+          "label": "GitHub Actions",
+          "description": "Pipeline CI/CD utilizzata per build e deploy versionati di frontend e backend."
+        },
+        "swagger-openapi": {
+          "label": "Swagger / OpenAPI",
+          "description": "Documentazione API e interfaccia di test usate per rendere endpoint e payload immediatamente verificabili."
         },
         "webstorm": {
           "label": "WebStorm",
@@ -149,9 +186,16 @@
         "design_system": "Sistema di design",
         "deployment": "Deploy e infrastruttura",
         "versioning_ci": "Versionamento e CI",
+        "ci_cd": "CI/CD",
+        "api_docs": "Documentazione API",
         "development_tooling": "Strumenti di sviluppo",
+        "routing": "Routing",
+        "build_tooling": "Build Tooling",
+        "api_layer": "Layer API",
+        "auth_layer": "Autenticazione e sessioni",
         "search_engine": "Motore di ricerca",
         "style_layer": "Strato di stile",
+        "data_layer": "Data Layer",
         "ai_support": "Supporto AI"
       },
       "usage_levels": {
@@ -249,6 +293,105 @@
               "content": [
                 "Aggiungere documentazione in stile cheatsheet con opzioni per scaricare o copiare il contenuto facilmente.",
                 "Integrare un semplice chatbot AI, alimentato dalla documentazione esistente, per aiutare gli utenti a trovare le informazioni giuste e fornire risposte ben formattate."
+              ]
+            }
+          }
+        }
+      },
+      "ecommerce-rest-api": {
+        "title": "E-commerce REST API",
+        "description": "Demo full-stack e-commerce con frontend React, API Express e PostgreSQL, progettata per un workflow di sviluppo rapido e un deploy VPS strutturato.",
+        "details": {
+          "introduction": {
+            "title": "E-commerce REST API",
+            "description": [
+              "Questo progetto nasce per simulare un caso reale full-stack, unendo frontend React e API Express sotto lo stesso dominio, con backend esposto in sicurezza tramite proxy su `/api`.",
+              "L’obiettivo è costruire un flusso tecnico completo e credibile: autenticazione a sessione, gestione carrello/ordini, documentazione API con Swagger e pipeline di deploy versionate su VPS."
+            ]
+          },
+          "technologies": {
+            "react": {
+              "description": "React gestisce l’interfaccia del catalogo e i flussi principali utente, con componenti modulari pensati per estendere rapidamente nuove pagine e stati."
+            },
+            "vite": {
+              "description": "Vite è stato scelto per velocizzare sviluppo e build frontend, riducendo il tempo di iterazione durante il lavoro su UI e flussi utente."
+            },
+            "react-router": {
+              "description": "React Router gestisce il passaggio tra viste e stati applicativi nel client, mantenendo una navigazione chiara e prevedibile."
+            },
+            "javascript": {
+              "description": "JavaScript è usato sia lato client che server per mantenere coerenza tecnica tra API, UI e logica applicativa condivisa."
+            },
+            "mui": {
+              "description": "MUI fornisce componenti accessibili e consistenti per le parti UI principali, riducendo tempi di sviluppo e mantenendo uniformità visiva."
+            },
+            "tailwindcss": {
+              "description": "Tailwind CSS è stato usato per utility di layout e rifiniture rapide, soprattutto dove serviva controllo stilistico fine senza introdurre complessità."
+            },
+            "nodejs": {
+              "description": "Node.js è il runtime del backend Express: gestisce routing API, autenticazione, sessioni e orchestrazione della logica business."
+            },
+            "express": {
+              "description": "Express è il framework che struttura i servizi REST dell’app, con middleware dedicati per validazione, auth e gestione errori."
+            },
+            "passport": {
+              "description": "Passport è stato adottato per rendere modulare l’autenticazione (locale + OAuth Google opzionale) senza accoppiare la logica ai singoli endpoint."
+            },
+            "express-session": {
+              "description": "express-session gestisce la persistenza della sessione autenticata tra richieste, requisito chiave per endpoint protetti come ordini e checkout."
+            },
+            "postgresql": {
+              "description": "PostgreSQL è il layer dati del progetto, utilizzato per persistere utenti, prodotti, carrelli e ordini con schema relazionale chiaro."
+            },
+            "caddy": {
+              "description": "Caddy gestisce reverse proxy e HTTPS automatico, pubblicando frontend e backend sullo stesso dominio con configurazione pulita."
+            },
+            "github": {
+              "description": "GitHub centralizza versionamento e CI/CD tramite workflow separati frontend/backend con rilascio versionato e attivazione via symlink."
+            },
+            "github-actions": {
+              "description": "GitHub Actions automatizza build e deploy dei due layer applicativi, riducendo errori manuali e migliorando ripetibilità dei rilasci."
+            },
+            "swagger-openapi": {
+              "description": "Swagger/OpenAPI è usato per documentare e testare API in modo trasparente, migliorando verificabilità tecnica e onboarding."
+            },
+            "webstorm": {
+              "description": "WebStorm è stato usato come IDE principale per refactoring, debug e mantenimento della qualità del codice in ambiente monorepo."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT ha supportato automazione deploy e documentazione tecnica, con validazione manuale delle scelte architetturali."
+            }
+          },
+          "difficulties_faced": [
+            "Progettare un’autenticazione a sessione robusta (login locale + OAuth Google opzionale) mantenendo un flusso utente coerente.",
+            "Gestire correttamente proxy e routing tra frontend e API sotto lo stesso dominio, evitando esposizione diretta del backend.",
+            "Definire una pipeline di deploy affidabile su VPS con release versionate e attivazione controllata.",
+            "Mantenere il reset del database demo ad ogni deploy backend senza compromettere stabilità e test funzionali.",
+            "Documentare API e payload in modo chiaro per rendere il progetto immediatamente verificabile da recruiter e sviluppatori."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Setup monorepo con frontend React/Vite, backend Express e schema PostgreSQL iniziale.",
+                "Implementazione API core (prodotti, carrello, checkout, autenticazione locale).",
+                "Deploy VPS con Caddy e servizi systemd, con backend raggiungibile solo tramite `/api`."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Raffinare i flussi di autenticazione e sessione, inclusa integrazione OAuth Google opzionale.",
+                "Aggiungere maggiore copertura di validazione input e gestione errori lato API.",
+                "Migliorare osservabilità operativa (health checks, logging e troubleshooting deploy)."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Estendere test automatici end-to-end su flussi critici (auth, cart, checkout).",
+                "Rafforzare documentazione tecnica per onboarding rapido di contributor.",
+                "Introdurre metriche base di performance API e tempi di risposta."
               ]
             }
           }

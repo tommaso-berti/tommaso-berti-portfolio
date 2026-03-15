@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import LinearProgress from "@mui/material/LinearProgress";
+import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -131,31 +132,62 @@ export default function TechnologySection({ technologies = [] }) {
                                     </Stack>
 
                                     {tech.description && (
-                                        <Typography variant="body2" sx={{ mt: 1 }}>
+                                        <Typography variant="body2" sx={{ mt: 1, lineHeight: 1.6 }}>
                                             {tech.description}
                                         </Typography>
                                     )}
 
-                                    {typeof tech.level === "number" && (
-                                        <Stack spacing={1}>
-                                            <Stack
-                                                direction="row"
-                                                alignItems="center"
-                                                justifyContent="space-between"
-                                            >
-                                                <Typography variant="caption">
-                                                    {t('impact_on_the_project')}
-                                                </Typography>
-                                                <Typography variant="caption" fontWeight={600}>
-                                                    {tech.level}%
-                                                </Typography>
-                                            </Stack>
-                                            <LinearProgress
-                                                variant="determinate"
-                                                value={tech.level}
-                                                sx={{ borderRadius: 999 }}
-                                            />
+                                    {(tech.role || tech.usage) ? (
+                                        <Stack spacing={1.25} sx={{ mt: 0.5 }}>
+                                            {tech.role && (
+                                                <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+                                                    <Typography variant="caption" sx={{ opacity: 0.8 }}>
+                                                        {t('role_in_project')}
+                                                    </Typography>
+                                                    <Chip
+                                                        label={tech.role}
+                                                        size="small"
+                                                        variant="outlined"
+                                                        sx={{ borderRadius: 999 }}
+                                                    />
+                                                </Stack>
+                                            )}
+                                            {tech.usage && (
+                                                <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+                                                    <Typography variant="caption" sx={{ opacity: 0.8 }}>
+                                                        {t('usage_level')}
+                                                    </Typography>
+                                                    <Chip
+                                                        label={tech.usage}
+                                                        size="small"
+                                                        variant="outlined"
+                                                        sx={{ borderRadius: 999 }}
+                                                    />
+                                                </Stack>
+                                            )}
                                         </Stack>
+                                    ) : (
+                                        typeof tech.level === "number" && (
+                                            <Stack spacing={1}>
+                                                <Stack
+                                                    direction="row"
+                                                    alignItems="center"
+                                                    justifyContent="space-between"
+                                                >
+                                                    <Typography variant="caption">
+                                                        {t('impact_on_the_project')}
+                                                    </Typography>
+                                                    <Typography variant="caption" fontWeight={600}>
+                                                        {tech.level}%
+                                                    </Typography>
+                                                </Stack>
+                                                <LinearProgress
+                                                    variant="determinate"
+                                                    value={tech.level}
+                                                    sx={{ borderRadius: 999 }}
+                                                />
+                                            </Stack>
+                                        )
                                     )}
                                 </CardContent>
                             </Card>

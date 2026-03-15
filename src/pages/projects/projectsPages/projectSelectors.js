@@ -48,6 +48,7 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
         returnObjects: true,
     });
     const difficultiesRaw = tProject("difficulties_faced", { returnObjects: true });
+    const lessonsRaw = tProject("lessons_learned", { returnObjects: true });
 
     return {
         introductionTitle: tProject("introduction.title"),
@@ -55,15 +56,23 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
             ? introductionParagraphsRaw
             : [],
         difficulties: Array.isArray(difficultiesRaw) ? difficultiesRaw : [],
-        technologies: detailsTechnologies.map(({ id, level }) => {
+        lessonsLearned: Array.isArray(lessonsRaw) ? lessonsRaw : [],
+        technologies: detailsTechnologies.map(({ id, level, roleKey, usageKey }) => {
             const base = TECHNOLOGIES[id];
+            const globalDescription = tProjects(`technologies.${id}.description`);
+            const projectDescription = tProject(
+                `technologies.${id}.description`,
+                globalDescription
+            );
 
             return {
                 icon: base?.icon,
                 level,
+                role: roleKey ? tProjects(`tech_roles.${roleKey}`, roleKey) : undefined,
+                usage: usageKey ? tProjects(`usage_levels.${usageKey}`, usageKey) : undefined,
                 category: base?.category,
                 label: tProjects(`technologies.${id}.label`, id),
-                description: tProjects(`technologies.${id}.description`),
+                description: projectDescription,
             };
         }),
         roadmap: detailsRoadmapIds.map((stepId) => ({

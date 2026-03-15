@@ -86,6 +86,9 @@
       "next": "Next",
       "project_not_found": "Project not found",
       "impact_on_the_project": "Impact on the project",
+      "role_in_project": "Role in the project",
+      "usage_level": "Usage level",
+      "lessons_learned_title": "What I learned",
       "technologiesTitle": "Technologies",
       "roadmap": "Roadmap",
       "difficulties_faced": "Difficulties faced",
@@ -138,6 +141,20 @@
         "tooling": "Tooling",
         "libraries": "Libraries",
         "hosting": "Hosting"
+      },
+      "tech_roles": {
+        "core_ui": "Core UI",
+        "application_logic": "Application Logic",
+        "design_system": "Design System",
+        "deployment": "Deployment",
+        "versioning_ci": "Versioning & CI",
+        "development_tooling": "Development Tooling",
+        "ai_support": "AI support"
+      },
+      "usage_levels": {
+        "primary": "Primary",
+        "relevant": "Relevant",
+        "support": "Support"
       },
       "codexpane": {
         "title": "CodexPane",
@@ -205,9 +222,38 @@
           "introduction": {
             "title": "Portfolio",
             "description": [
-              "This portfolio was built to present my work, experience, and personal projects in a clean, modern and accessible way.",
-              "It features a fully responsive design, dynamic routing, internationalization support, reusable components and a custom-made project detail system."
+              "This portfolio was designed as a modular React application, with reusable components and dynamic routing to keep the codebase organized, scalable, and easy to evolve.",
+              "The interface is built with a strong focus on accessibility, readability, and visual consistency; it includes i18n support, light/dark theme handling, and a technical foundation built to extend new sections without unnecessary complexity."
             ]
+          },
+          "lessons_learned": [
+            "Designing reusable components with clear responsibilities improves maintainability and development speed.",
+            "Integrating i18n early reduces future extension costs and keeps content/UI consistency high.",
+            "Balancing flexibility and simplicity is essential: every new feature should deliver concrete value.",
+            "Automating build and deploy flows improves reliability and helps maintain consistent quality over time."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React is the UI foundation: chosen for componentization and reuse, it enabled a clear page structure and scalable composition of interface blocks."
+            },
+            "javascript": {
+              "description": "JavaScript powers the application logic, from dynamic rendering to section composition, while keeping the codebase readable and maintainable."
+            },
+            "mui": {
+              "description": "MUI was used to build accessible and consistent components quickly, with a visual baseline that is easy to maintain and extend."
+            },
+            "caddy": {
+              "description": "Caddy supports deployment as web server and reverse proxy, with lean configuration and automatic HTTPS for reliable publishing."
+            },
+            "github": {
+              "description": "GitHub is used for version control and collaboration, with clear workflows to track changes and releases in a structured way."
+            },
+            "webstorm": {
+              "description": "WebStorm is the primary IDE: refactoring and code analysis tools improved code quality and day-to-day development productivity."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT was used as technical support to speed up iterations, validate approaches, and refine implementations, always with critical review."
+            }
           },
           "difficulties_faced": [
             "Learn how to use MUI components and theming system to create a consistent and accessible user interface",

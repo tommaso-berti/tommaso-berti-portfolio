@@ -86,6 +86,9 @@
       "next": "Avanti",
       "project_not_found": "Progetto non trovato",
       "impact_on_the_project": "Impatto sul progetto",
+      "role_in_project": "Ruolo nel progetto",
+      "usage_level": "Livello di utilizzo",
+      "lessons_learned_title": "Cosa ho imparato",
       "technologiesTitle": "Tecnologie",
       "roadmap": "Roadmap",
       "difficulties_faced": "Sfide affrontate",
@@ -138,6 +141,20 @@
         "tooling": "Strumenti",
         "libraries": "Librerie",
         "hosting": "Hosting"
+      },
+      "tech_roles": {
+        "core_ui": "Core UI",
+        "application_logic": "Application Logic",
+        "design_system": "Design System",
+        "deployment": "Deployment",
+        "versioning_ci": "Versioning & CI",
+        "development_tooling": "Development Tooling",
+        "ai_support": "Supporto AI"
+      },
+      "usage_levels": {
+        "primary": "Principale",
+        "relevant": "Rilevante",
+        "support": "Di supporto"
       },
       "codexpane": {
         "title": "CodexPane",
@@ -205,9 +222,38 @@
           "introduction": {
             "title": "Portfolio",
             "description": [
-              "Questo portfolio è stato realizzato per presentare il mio lavoro, le mie esperienze e i miei progetti personali in modo pulito, moderno e accessibile.",
-              "Include un design completamente responsive, routing dinamico, supporto all’internazionalizzazione, componenti riutilizzabili e un sistema personalizzato per la pagina di dettaglio dei progetti."
+              "Questo portfolio è stato progettato come applicazione React modulare, con una struttura a componenti riutilizzabili e routing dinamico per mantenere il codice ordinato, scalabile e facile da evolvere.",
+              "L’interfaccia è costruita con attenzione ad accessibilità, leggibilità e coerenza visiva; include supporto i18n, tema chiaro/scuro e una base tecnica pensata per estendere nuove sezioni senza introdurre complessità superflua."
             ]
+          },
+          "lessons_learned": [
+            "Progettare componenti riutilizzabili con responsabilità chiare migliora manutenibilità e velocità di evoluzione.",
+            "Integrare i18n fin dall’inizio riduce il costo delle estensioni e mantiene consistenza tra contenuti e UI.",
+            "Bilanciare flessibilità e semplicità è fondamentale: ogni nuova feature deve avere un valore concreto.",
+            "Automatizzare build e deploy aumenta affidabilità e aiuta a mantenere una qualità costante nel tempo."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React è la base dell’interfaccia: scelto per componentizzazione e riuso, ha permesso una struttura chiara delle pagine e una gestione scalabile dei blocchi UI."
+            },
+            "javascript": {
+              "description": "JavaScript gestisce la logica applicativa del portfolio, dal rendering dinamico alla composizione delle sezioni, mantenendo il codice leggibile e manutenibile."
+            },
+            "mui": {
+              "description": "MUI è stato utilizzato per costruire rapidamente componenti accessibili e coerenti, con una base visiva uniforme e facilmente estendibile."
+            },
+            "caddy": {
+              "description": "Caddy supporta il deploy come web server e reverse proxy, con configurazione essenziale e HTTPS automatico per una pubblicazione affidabile."
+            },
+            "github": {
+              "description": "GitHub è il riferimento per versionamento e collaborazione, con workflow chiari per tracciare modifiche e rilasci in modo ordinato."
+            },
+            "webstorm": {
+              "description": "WebStorm è l’IDE principale: strumenti di refactoring e analisi hanno migliorato qualità del codice e produttività durante lo sviluppo."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT è stato usato come supporto tecnico per accelerare iterazioni, validare approcci e rifinire implementazioni, sempre con revisione critica."
+            }
           },
           "difficulties_faced": [
             "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un’interfaccia utente coerente e accessibile",

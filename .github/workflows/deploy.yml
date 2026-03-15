@@ -94,6 +94,12 @@ jobs:
           $PR_MERGE_MESSAGE"
           RELEASE_TEXT_LOWER=$(printf '%s' "$RELEASE_TEXT" | tr '[:upper:]' '[:lower:]')
 
+          HAS_BUMP_TOKEN="false"
+          if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]|#minor|\[minor\]|#patch|\[patch\]'; then
+            HAS_BUMP_TOKEN="true"
+          fi
+          echo "HAS_BUMP_TOKEN=$HAS_BUMP_TOKEN" >> "$GITHUB_ENV"
+
           SKIP_DEPLOY="false"
           SKIP_REASON="none"
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
@@ -101,9 +107,14 @@ jobs:
               SKIP_DEPLOY="true"
               SKIP_REASON="manual_input"
             fi
-          elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#skip-deploy|\[skip-deploy\]'; then
-            SKIP_DEPLOY="true"
-            SKIP_REASON="token_found"
+          else
+            if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#skip-deploy|\[skip-deploy\]'; then
+              SKIP_DEPLOY="true"
+              SKIP_REASON="token_found"
+            elif [ "$HAS_BUMP_TOKEN" != "true" ]; then
+              SKIP_DEPLOY="true"
+              SKIP_REASON="no_bump_token"
+            fi
           fi
           echo "SKIP_DEPLOY=$SKIP_DEPLOY" >> "$GITHUB_ENV"
           echo "SKIP_DEPLOY_REASON=$SKIP_REASON" >> "$GITHUB_ENV"
@@ -117,7 +128,7 @@ jobs:
             echo "RELEASE_TAG=$EXISTING_TAG" >> "$GITHUB_ENV"
             echo "RELEASE_DIR=$EXISTING_TAG" >> "$GITHUB_ENV"
             echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
-            echo "event=$EVENT_NAME ref=$TARGET_REF bump=none skip_deploy=$SKIP_DEPLOY version=$VERSION reason=$SKIP_REASON (existing tag reused)"
+            echo "event=$EVENT_NAME ref=$TARGET_REF bump=none has_bump_token=$HAS_BUMP_TOKEN skip_deploy=$SKIP_DEPLOY version=$VERSION skip_deploy_reason=$SKIP_REASON (existing tag reused)"
             exit 0
           fi
 
@@ -127,13 +138,16 @@ jobs:
               *) BUMP_LEVEL="patch" ;;
             esac
           else
-            BUMP_LEVEL="patch"
-            if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
-              BUMP_LEVEL="major"
-            elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#minor|\[minor\]'; then
-              BUMP_LEVEL="minor"
-            elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#patch|\[patch\]'; then
+            BUMP_LEVEL="none"
+            if [ "$HAS_BUMP_TOKEN" = "true" ]; then
               BUMP_LEVEL="patch"
+              if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]'; then
+                BUMP_LEVEL="major"
+              elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#minor|\[minor\]'; then
+                BUMP_LEVEL="minor"
+              elif printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#patch|\[patch\]'; then
+                BUMP_LEVEL="patch"
+              fi
             fi
           fi
 
@@ -178,9 +192,9 @@ jobs:
           echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "RELEASE_DIR=$RELEASE_TAG" >> "$GITHUB_ENV"
           echo "TARGET_REF=$TARGET_REF" >> "$GITHUB_ENV"
-          echo "event=$EVENT_NAME ref=$TARGET_REF bump=$BUMP_LEVEL skip_deploy=$SKIP_DEPLOY version=$VERSION reason=$SKIP_REASON"
+          echo "event=$EVENT_NAME ref=$TARGET_REF bump=$BUMP_LEVEL has_bump_token=$HAS_BUMP_TOKEN skip_deploy=$SKIP_DEPLOY version=$VERSION skip_deploy_reason=$SKIP_REASON"
           if [ "$SKIP_DEPLOY" = "true" ]; then
-            echo "skip-deploy active: reason=$SKIP_REASON"
+            echo "skip-deploy active: reason=$SKIP_REASON has_bump_token=$HAS_BUMP_TOKEN"
           fi
 
       - name: Build

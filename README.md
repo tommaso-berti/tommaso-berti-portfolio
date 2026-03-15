@@ -63,7 +63,7 @@ React SPA built with Vite and MUI.
   - `#minor` or `[minor]`
   - `#patch` or `[patch]`
 - Precedence: `major` > `minor` > `patch`.
-- Default when no token is found: `patch`.
+- If no bump token is found on automatic events (`push` / merged `pull_request`), deploy is skipped with reason `no_bump_token`.
 - Rerun safety: if the same commit already has a SemVer tag, the workflow reuses that version and does not create a new one.
 
 ## Deploy Procedure
@@ -73,7 +73,8 @@ React SPA built with Vite and MUI.
 1. Merge or push to `main`.
 2. GitHub Actions runs `Deploy www.tommasoberti.com (versioned)` automatically.
 3. Version bump is resolved from commit/PR tokens (`#major`, `#minor`, `#patch`).
-4. Build is deployed and release tag is created (if not already present).
+4. If no bump token is present, workflow sets `SKIP_DEPLOY=true` (`skip_deploy_reason=no_bump_token`) and skips build/deploy/tag.
+5. If a bump token is present, build is deployed and release tag is created (if not already present).
 
 ### Manual Deploy (workflow_dispatch)
 
@@ -99,4 +100,5 @@ Manual deploy behavior:
   - commit messages (push range)
   - PR title/body
   - PR merge commit message
+- On automatic events, deploy is also skipped when no bump token (`#major/#minor/#patch` or `[major]/[minor]/[patch]`) is found.
 - In manual `workflow_dispatch`, skip is controlled only by the `skip_deploy` input.

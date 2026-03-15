@@ -20,7 +20,7 @@ export default function Layout() {
                     width: "100%",
                     maxWidth: "1020px",
                     mx: "auto",
-                    paddingTop: { xs: "5.75rem", md: "6.75rem" },
+                    paddingTop: { xs: "8.4rem", md: "9.1rem" },
                     paddingBottom: { xs: "7rem", md: "8rem" },
                     height: '100%'
                 }}

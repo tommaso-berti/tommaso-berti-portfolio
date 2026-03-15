@@ -1,6 +1,7 @@
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
 import BreadCrumbs from '../../features/BreadCrumbs.jsx';
+import FriendlyNav from "../../features/FriendlyNav.jsx";
 import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
 import { Box, ButtonBase, Typography } from "@mui/material";
@@ -26,13 +27,10 @@ export default function Header() {
         >
             <Box
                 sx={{
-                    minHeight: "4rem",
+                    minHeight: "4.25rem",
                     width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
                     px: { xs: 1.2, md: 1.5 },
-                    py: { xs: "0.55rem", md: "0.65rem" },
+                    py: { xs: "0.45rem", md: "0.55rem" },
                     border: "1px solid",
                     borderColor: "divider",
                     borderRadius: "16px",
@@ -68,51 +66,70 @@ export default function Header() {
                     },
                 }}
             >
-                <BreadCrumbs />
-                <Stack
-                    direction="row"
-                    alignItems="center"
-                    sx={{
-                        pl: 1.25,
-                        ml: 1,
-                        borderLeft: "1px solid",
-                        borderColor: "divider",
-                    }}
-                >
-                    <ButtonBase
-                        onClick={() => setIsReleaseModalOpen(true)}
-                        sx={{
-                            borderRadius: 2,
-                            px: 1.1,
-                            py: 0.35,
-                            mr: 1.25,
-                            border: "1px solid",
-                            borderColor: "divider",
-                            fontFamily: '"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
-                            "&:hover": {
-                                backgroundColor: "action.hover",
-                                boxShadow: (theme) =>
-                                    theme.palette.mode === "dark"
-                                        ? "0 0 0 1px rgba(125,196,172,0.28), 0 6px 18px rgba(125,196,172,0.14)"
-                                        : "0 0 0 1px rgba(47,122,98,0.24), 0 6px 18px rgba(47,122,98,0.12)",
-                            },
-                        }}
-                        aria-label="Open release notes"
+                <Stack spacing={0.7}>
+                    <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="space-between"
+                        sx={{ minHeight: { xs: 44, md: 48 } }}
                     >
-                        <Typography
+                        <BreadCrumbs />
+                        <Stack
+                            direction="row"
+                            alignItems="center"
                             sx={{
-                                lineHeight: 1,
-                                fontWeight: 600,
-                                letterSpacing: "0.01em",
+                                pl: 1.25,
+                                ml: 1,
+                                borderLeft: "1px solid",
+                                borderColor: "divider",
                             }}
-                            variant="subtitle2"
-                            color="text.secondary"
                         >
-                            {`v${APP_VERSION}`}
-                        </Typography>
-                    </ButtonBase>
-                    <LanguageToggle />
-                    <DarkModeToggle />
+                            <ButtonBase
+                                onClick={() => setIsReleaseModalOpen(true)}
+                                sx={{
+                                    borderRadius: 2,
+                                    px: 1.1,
+                                    py: 0.35,
+                                    mr: 1.25,
+                                    border: "1px solid",
+                                    borderColor: "divider",
+                                    fontFamily: '"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
+                                    "&:hover": {
+                                        backgroundColor: "action.hover",
+                                        boxShadow: (theme) =>
+                                            theme.palette.mode === "dark"
+                                                ? "0 0 0 1px rgba(125,196,172,0.28), 0 6px 18px rgba(125,196,172,0.14)"
+                                                : "0 0 0 1px rgba(47,122,98,0.24), 0 6px 18px rgba(47,122,98,0.12)",
+                                    },
+                                }}
+                                aria-label="Open release notes"
+                            >
+                                <Typography
+                                    sx={{
+                                        lineHeight: 1,
+                                        fontWeight: 600,
+                                        letterSpacing: "0.01em",
+                                    }}
+                                    variant="subtitle2"
+                                    color="text.secondary"
+                                >
+                                    {`v${APP_VERSION}`}
+                                </Typography>
+                            </ButtonBase>
+                            <LanguageToggle />
+                            <DarkModeToggle />
+                        </Stack>
+                    </Stack>
+
+                    <Box
+                        sx={{
+                            borderTop: "1px solid",
+                            borderColor: "divider",
+                            pt: 0.7,
+                        }}
+                    >
+                        <FriendlyNav />
+                    </Box>
                 </Stack>
                 <ReleaseNotesModal
                     open={isReleaseModalOpen}

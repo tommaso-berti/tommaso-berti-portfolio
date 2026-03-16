@@ -15,6 +15,11 @@ const SkillItem = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1.5),
     textAlign: "left",
     color: (theme.vars ?? theme).palette.text.secondary,
+    transition: "0.25s",
+    "&:hover": {
+        transform: "translateY(-4px)",
+        boxShadow: theme.shadows[6],
+    },
     ...theme.applyStyles("dark", {
         backgroundColor: "#1A2027",
     }),

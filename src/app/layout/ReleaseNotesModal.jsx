@@ -53,6 +53,35 @@ export default function ReleaseNotesModal({ open, onClose }) {
                         </Typography>
                     )}
 
+                    {!isLoading && !error && data?.bodyMarkdown && (
+                        <Stack spacing={0.75}>
+                            {data?.releaseUrl ? (
+                                <Link
+                                    href={data.releaseUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    underline="hover"
+                                    sx={{ width: "fit-content" }}
+                                >
+                                    GitHub Release
+                                </Link>
+                            ) : null}
+                            <Box
+                                sx={{
+                                    p: 1.5,
+                                    borderRadius: 1.5,
+                                    bgcolor: "action.hover",
+                                    whiteSpace: "pre-wrap",
+                                    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                                    fontSize: "0.82rem",
+                                    lineHeight: 1.45,
+                                }}
+                            >
+                                {data.bodyMarkdown}
+                            </Box>
+                        </Stack>
+                    )}
+
                     {isLoading && (
                         <Stack spacing={1.5}>
                             <Skeleton variant="text" width="35%" />
@@ -84,7 +113,10 @@ export default function ReleaseNotesModal({ open, onClose }) {
                         </Typography>
                     )}
 
-                    {!isLoading && !error && Array.isArray(data?.entries) && data.entries.length > 0 && (
+                    {!isLoading &&
+                        !error &&
+                        Array.isArray(data?.entries) &&
+                        data.entries.length > 0 && (
                         <List sx={{ p: 0 }}>
                             {data.entries.map((entry) => (
                                 <ListItem key={entry.sha} sx={{ px: 0, alignItems: "flex-start" }}>

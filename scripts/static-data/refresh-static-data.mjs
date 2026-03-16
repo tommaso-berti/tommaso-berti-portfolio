@@ -135,6 +135,17 @@ async function fetchJson(url, token) {
     return response.json();
 }
 
+async function fetchReleaseByTag(tag, token) {
+    try {
+        return await fetchJson(
+            `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/releases/tags/${tag}`,
+            token
+        );
+    } catch (error) {
+        return null;
+    }
+}
+
 function isExerciseRepository(repo) {
     if (!repo || repo.fork) return false;
     const topics = Array.isArray(repo.topics) ? repo.topics : [];
@@ -229,6 +240,7 @@ async function buildReleaseNotesJson(token) {
     for (let index = 0; index < semverTags.length; index += 1) {
         const current = semverTags[index];
         const previous = semverTags[index + 1] ?? null;
+        const release = await fetchReleaseByTag(current.tag, token);
 
         if (previous) {
             const compareData = await fetchJson(
@@ -243,6 +255,9 @@ async function buildReleaseNotesJson(token) {
                 releaseType: resolveReleaseType(current.tag, previous.tag),
                 entries: mapAndFilterCommits(compareData?.commits),
                 source: "compare",
+                bodyMarkdown: `${release?.body ?? ""}`.trim(),
+                releaseUrl: release?.html_url || "",
+                publishedAt: release?.published_at || "",
             });
             continue;
         }
@@ -259,6 +274,9 @@ async function buildReleaseNotesJson(token) {
             releaseType: "patch",
             entries: mapAndFilterCommits(commits),
             source: "commits",
+            bodyMarkdown: `${release?.body ?? ""}`.trim(),
+            releaseUrl: release?.html_url || "",
+            publishedAt: release?.published_at || "",
         });
     }
 
@@ -270,6 +288,9 @@ async function buildReleaseNotesJson(token) {
         previousTag: latest?.previousTag ?? null,
         releaseType: latest?.releaseType ?? "patch",
         entries: latest?.entries ?? [],
+        bodyMarkdown: latest?.bodyMarkdown ?? "",
+        releaseUrl: latest?.releaseUrl ?? "",
+        publishedAt: latest?.publishedAt ?? "",
         history,
     };
 }
@@ -294,4 +315,3 @@ main().catch((error) => {
     console.error(error);
     process.exit(1);
 });
-

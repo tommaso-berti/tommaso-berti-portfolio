@@ -61,6 +61,9 @@ Personal portfolio SPA built with React, Vite and MUI.
 - Data hook: `src/hooks/useLatestReleaseNotes.js`
 - Source:
   - static snapshot: `public/data/release-notes.json`
+- Modal content priority:
+  - GitHub Release body (AI-generated markdown, when available)
+  - commit list fallback/details
 - Commit entries are normalized, deduplicated and filtered for noise.
 - Loading uses MUI Skeleton; errors show retry action.
 

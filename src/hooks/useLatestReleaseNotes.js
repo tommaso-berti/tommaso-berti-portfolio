@@ -18,6 +18,9 @@ const STATIC_RELEASE_NOTES_URL = "/data/release-notes.json";
  * @property {string | null} previousTag
  * @property {"major" | "minor" | "patch"} releaseType
  * @property {ReleaseNotesEntry[]} entries
+ * @property {string} bodyMarkdown
+ * @property {string} releaseUrl
+ * @property {string} publishedAt
  * @property {"static" | "none"} source
  * @property {string | null} error
  */
@@ -44,6 +47,9 @@ async function fetchLatestReleaseNotes(signal) {
             previousTag: null,
             releaseType: "patch",
             entries: [],
+            bodyMarkdown: "",
+            releaseUrl: "",
+            publishedAt: "",
             source: "none",
             error: "NO_TAGS",
         };
@@ -55,6 +61,9 @@ async function fetchLatestReleaseNotes(signal) {
         previousTag: payload?.previousTag ?? null,
         releaseType: payload?.releaseType ?? "patch",
         entries,
+        bodyMarkdown: `${payload?.bodyMarkdown ?? ""}`,
+        releaseUrl: `${payload?.releaseUrl ?? ""}`,
+        publishedAt: `${payload?.publishedAt ?? ""}`,
         source: "static",
         error: null,
     };

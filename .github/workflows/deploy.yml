@@ -33,7 +33,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: deploy-www-tommasoberti-com
+  group: deploy-www-tommasoberti-com-${{ github.ref_type }}-${{ github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -391,7 +391,26 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/static-data/refresh-static-data.mjs
+          run_refresh_and_validate() {
+            node scripts/static-data/refresh-static-data.mjs
+            test -f public/data/exercises.json
+            test -f public/data/release-notes.json
+            LATEST_TAG="$(node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('public/data/release-notes.json','utf8'));process.stdout.write(String(p.latestTag||''));")"
+            if [ "${LATEST_TAG}" != "${RELEASE_TAG}" ]; then
+              echo "Expected latestTag=${RELEASE_TAG}, got latestTag=${LATEST_TAG}" >&2
+              return 1
+            fi
+            return 0
+          }
+
+          if run_refresh_and_validate; then
+            echo "Static snapshots refreshed and aligned to ${RELEASE_TAG}."
+          else
+            echo "Snapshot/tag mismatch detected, retrying after git fetch --tags..." >&2
+            git fetch --tags --force
+            run_refresh_and_validate
+          fi
+
           test -f public/data/exercises.json
           test -f public/data/release-notes.json
 

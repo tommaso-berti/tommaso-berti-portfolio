@@ -134,7 +134,6 @@ function extractResponseText(json) {
     const content = Array.isArray(item?.content) ? item.content : [];
     for (const c of content) {
       if (c?.type === "output_text" && typeof c?.text === "string") parts.push(c.text);
-      if (typeof c?.text === "string") parts.push(c.text);
     }
   }
   return parts.join("\n").trim();
@@ -225,4 +224,3 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-

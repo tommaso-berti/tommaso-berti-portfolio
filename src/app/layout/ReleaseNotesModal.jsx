@@ -14,10 +14,13 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { APP_VERSION } from "../../lib/version.js";
 import { useTranslation } from "../../hooks/useTranslation.js";
 import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes.js";
+import { useLanguage } from "../../contexts/LanguageContext.jsx";
 
 function formatDate(value) {
     if (!value) return "";
@@ -27,19 +30,64 @@ function formatDate(value) {
     return date.toLocaleDateString();
 }
 
+function extractLanguageSection(markdown, language) {
+    const source = `${markdown ?? ""}`.trim();
+    if (!source) return "";
+
+    const topHeadingMatch = source.match(/^#\s+[^\n]+/m);
+    const topHeading = topHeadingMatch ? topHeadingMatch[0].trim() : "";
+    const targetHeading = language === "it" ? "## Italiano" : "## English";
+    const alternateHeading = language === "it" ? "## English" : "## Italiano";
+
+    const targetIndex = source.indexOf(targetHeading);
+    if (targetIndex === -1) return source;
+
+    const fromTarget = source.slice(targetIndex + targetHeading.length).trimStart();
+    const nextMajorHeadingIndex = fromTarget.search(/\n#\s+/);
+    const alternateIndex = fromTarget.indexOf(alternateHeading);
+
+    let endIndex = fromTarget.length;
+    if (alternateIndex !== -1) endIndex = Math.min(endIndex, alternateIndex);
+    if (nextMajorHeadingIndex !== -1) endIndex = Math.min(endIndex, nextMajorHeadingIndex);
+
+    const section = fromTarget
+        .slice(0, endIndex)
+        .replace(/^#\s+[^\n]+\n?/gm, "")
+        .trim();
+    if (!section) return topHeading || source;
+
+    return topHeading ? `${topHeading}\n\n${section}` : section;
+}
+
 export default function ReleaseNotesModal({ open, onClose }) {
     const { t } = useTranslation("releaseNotes");
+    const { language } = useLanguage();
     const { data, isLoading, error, refetch } = useLatestReleaseNotes(open);
 
     const releaseType = data?.releaseType || "patch";
     const title = t(`title_${releaseType}`, t("title_patch"));
     const visibleVersion = data?.version || APP_VERSION;
+    const filteredMarkdown = extractLanguageSection(data?.bodyMarkdown || "", language);
+    const hasMarkdown = Boolean(filteredMarkdown);
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+        <Dialog
+            open={open}
+            onClose={onClose}
+            maxWidth="md"
+            fullWidth
+            PaperProps={{
+                sx: {
+                    width: "min(980px, 94vw)",
+                    maxWidth: "980px",
+                    height: "78vh",
+                    maxHeight: "78vh",
+                },
+            }}
+        >
             <DialogTitle>{title}</DialogTitle>
 
-            <DialogContent dividers>
+            <DialogContent dividers sx={{ overflowY: "auto" }}>
                 <Stack spacing={2}>
                     <Typography variant="body2" color="text.secondary">
                         {t("version_label", { values: { version: visibleVersion } })}
@@ -53,7 +101,7 @@ export default function ReleaseNotesModal({ open, onClose }) {
                         </Typography>
                     )}
 
-                    {!isLoading && !error && data?.bodyMarkdown && (
+                    {!isLoading && !error && hasMarkdown && (
                         <Stack spacing={0.75}>
                             {data?.releaseUrl ? (
                                 <Link
@@ -71,13 +119,33 @@ export default function ReleaseNotesModal({ open, onClose }) {
                                     p: 1.5,
                                     borderRadius: 1.5,
                                     bgcolor: "action.hover",
-                                    whiteSpace: "pre-wrap",
-                                    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-                                    fontSize: "0.82rem",
-                                    lineHeight: 1.45,
+                                    "& h1, & h2, & h3, & h4": {
+                                        mt: 1.25,
+                                        mb: 0.75,
+                                    },
+                                    "& h1": { typography: "h6" },
+                                    "& h2": { typography: "subtitle1", fontWeight: 700 },
+                                    "& h3": { typography: "body1", fontWeight: 700 },
+                                    "& p, & li": {
+                                        typography: "body2",
+                                        lineHeight: 1.55,
+                                    },
+                                    "& ul, & ol": {
+                                        pl: 2.5,
+                                        my: 0.75,
+                                    },
+                                    "& code": {
+                                        fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                                        fontSize: "0.8rem",
+                                    },
+                                    "& a": {
+                                        color: "primary.main",
+                                    },
                                 }}
                             >
-                                {data.bodyMarkdown}
+                                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                    {filteredMarkdown}
+                                </ReactMarkdown>
                             </Box>
                         </Stack>
                     )}
@@ -107,7 +175,7 @@ export default function ReleaseNotesModal({ open, onClose }) {
                         </Alert>
                     )}
 
-                    {!isLoading && !error && (!data?.entries || data.entries.length === 0) && (
+                    {!isLoading && !error && !hasMarkdown && (!data?.entries || data.entries.length === 0) && (
                         <Typography variant="body2" color="text.secondary">
                             {t("empty")}
                         </Typography>
@@ -115,6 +183,7 @@ export default function ReleaseNotesModal({ open, onClose }) {
 
                     {!isLoading &&
                         !error &&
+                        !hasMarkdown &&
                         Array.isArray(data?.entries) &&
                         data.entries.length > 0 && (
                         <List sx={{ p: 0 }}>

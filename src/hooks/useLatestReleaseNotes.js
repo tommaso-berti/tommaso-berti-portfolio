@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { APP_VERSION } from "../lib/version.js";
 
 const STATIC_RELEASE_NOTES_URL = "/data/release-notes.json";
 
@@ -26,7 +27,10 @@ const STATIC_RELEASE_NOTES_URL = "/data/release-notes.json";
  */
 
 async function fetchJson(url, signal) {
-    const response = await fetch(url, { signal });
+    const response = await fetch(url, {
+        signal,
+        cache: "no-store",
+    });
 
     if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -36,7 +40,8 @@ async function fetchJson(url, signal) {
 }
 
 async function fetchLatestReleaseNotes(signal) {
-    const payload = await fetchJson(STATIC_RELEASE_NOTES_URL, signal);
+    const cacheBuster = encodeURIComponent(`${APP_VERSION}`);
+    const payload = await fetchJson(`${STATIC_RELEASE_NOTES_URL}?v=${cacheBuster}`, signal);
     const entries = Array.isArray(payload?.entries) ? payload.entries : [];
     const tag = `${payload?.latestTag ?? ""}`;
 

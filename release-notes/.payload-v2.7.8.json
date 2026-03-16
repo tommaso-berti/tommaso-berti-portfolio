@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-03-16T09:51:41.891Z",
+  "repositoryPath": "/Users/tberti/WebstormProjects/tommaso-berti-portfolio",
+  "version": "v2.7.8",
+  "releaseType": "patch",
+  "fromRef": "v2.7.6",
+  "toRef": "HEAD",
+  "range": "v2.7.6..HEAD",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
+  "commits": [
+    {
+      "sha": "da01a208ea235e951a10740626f013b3a14d4d05",
+      "shortSha": "da01a20",
+      "subject": "docs(release): v2.7.8 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T09:46:14Z"
+    },
+    {
+      "sha": "b01388bb778f6db67cb1d2bafd458f0696397ec2",
+      "shortSha": "b01388b",
+      "subject": "fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T10:44:53+01:00"
+    },
+    {
+      "sha": "a04c806fb087d0a456bc612f902e6a3bd9c705d6",
+      "shortSha": "a04c806",
+      "subject": "feat: enhance release notes generation with version type resolution and improved markdown handling #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T10:42:04+01:00"
+    },
+    {
+      "sha": "d9d390c30abe9742990ead20d6bc25cd8a17d729",
+      "shortSha": "d9d390c",
+      "subject": "docs(release): v2.7.7 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T09:34:19Z"
+    },
+    {
+      "sha": "8d0939a83fb911627ef7ac8d391f9ff884d22d7f",
+      "shortSha": "8d0939a",
+      "subject": "Merge remote-tracking branch 'origin/main'",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T10:31:53+01:00"
+    },
+    {
+      "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
+      "shortSha": "d455d03",
+      "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T10:31:40+01:00"
+    },
+    {
+      "sha": "c6fe13642a95496877015cf74edb1418ed54d801",
+      "shortSha": "c6fe136",
+      "subject": "docs(release): v2.7.6 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T09:14:19Z"
+    }
+  ],
+  "changedFiles": [
+    ".github/workflows/deploy.yml",
+    ".gitignore",
+    "package-lock.json",
+    "package.json",
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/v2.7.6.md",
+    "release-notes/v2.7.7.md",
+    "release-notes/v2.7.8.md",
+    "scripts/release-notes/collect_changes.sh",
+    "scripts/release-notes/generate_notes.mjs",
+    "scripts/release-notes/release_notes_prompt.md",
+    "src/app/layout/ReleaseNotesModal.jsx",
+    "src/hooks/useLatestReleaseNotes.js"
+  ]
+}

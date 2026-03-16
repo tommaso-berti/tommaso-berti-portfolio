@@ -451,6 +451,41 @@ jobs:
           test -f public/data/exercises.json
           test -f public/data/release-notes.json
 
+      - name: Sync refreshed static data to deployed release
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          SSH_OPTS="-o IdentitiesOnly=yes -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
+          RSYNC_SSH="ssh ${SSH_OPTS} -i ~/.ssh/deploy_key"
+          ATTEMPT=1
+          MAX_ATTEMPTS=4
+
+          until ssh $SSH_OPTS -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
+            "mkdir -p '${{ env.REMOTE_RELEASE }}/data'"; do
+            if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+              echo "Failed to prepare remote data dir after ${MAX_ATTEMPTS} attempts." >&2
+              exit 1
+            fi
+            echo "Remote mkdir failed (attempt ${ATTEMPT}/${MAX_ATTEMPTS}), retrying in 5s..."
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 5
+          done
+
+          ATTEMPT=1
+          until rsync -az --delete \
+            -e "$RSYNC_SSH" \
+            public/data/ \
+            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.REMOTE_RELEASE }}/data/"; do
+            if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+              echo "Failed syncing refreshed static data after ${MAX_ATTEMPTS} attempts." >&2
+              exit 1
+            fi
+            echo "Static data sync failed (attempt ${ATTEMPT}/${MAX_ATTEMPTS}), retrying in 10s..."
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+
       - name: Commit release artifacts to main
         if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
         shell: bash

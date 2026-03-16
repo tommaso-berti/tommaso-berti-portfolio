@@ -71,29 +71,29 @@ function buildFallbackMarkdown(payload, version) {
     `# Release Notes ${version}`,
     "",
     "## Italiano",
-    "### Overview",
+    "### Panoramica",
     `- Rilascio generato da commit nel range \`${payload.range}\`.`,
     `- Commit inclusi: ${(payload.commits || []).length}. File modificati: ${(payload.changedFiles || []).length}.`,
     "",
-    "### Nuove funzionalita",
+    "### Novita",
     ...sectionFromCommits(featuresForPatch, "- Nessuna nuova funzionalita rilevata."),
     "",
-    "### Bug Fixes",
+    "### Correzioni",
     ...sectionFromCommits(fixesForPatch, "- Nessun bug fix rilevato."),
     "",
-    "### Refactor & Engineering",
+    "### Migliorie Tecniche",
     ...sectionFromCommits([...c.refactor, ...c.misc], "- Nessuna attivita di refactor/engineering rilevata."),
     "",
-    "### Breaking Changes",
+    "### Modifiche Incompatibili",
     ...sectionFromCommits(c.breaking, "- Nessuna breaking change rilevata."),
     "",
-    "### Migration Notes",
+    "### Note di Migrazione",
     "- Nessuna migrazione richiesta in base ai commit disponibili.",
     "",
-    "### Known Limitations",
+    "### Limiti Noti",
     "- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.",
     "",
-    "### Diff & Commit Range",
+    "### Confronto e Intervallo Commit",
     `- Range: \`${payload.range}\``,
     `- Compare URL: ${payload.compareUrl || "N/A"}`,
     ...((changedFilesPreview.length > 0) ? ["- File principali:", ...changedFilesPreview] : ["- Nessun file cambiato rilevato."]),
@@ -129,6 +129,38 @@ function buildFallbackMarkdown(payload, version) {
   return `${it.join("\n")}\n`;
 }
 
+function normalizeItalianSectionHeadings(text) {
+  const source = `${text || ""}`;
+  const itMarker = "## Italiano";
+  const enMarker = "## English";
+
+  const itStart = source.indexOf(itMarker);
+  if (itStart === -1) return source;
+
+  const afterIt = source.slice(itStart + itMarker.length);
+  const enIndexInAfterIt = afterIt.indexOf(enMarker);
+  const itBlock = enIndexInAfterIt === -1 ? afterIt : afterIt.slice(0, enIndexInAfterIt);
+  const enTail = enIndexInAfterIt === -1 ? "" : afterIt.slice(enIndexInAfterIt);
+
+  const normalizedItBlock = itBlock
+    .replace(/^###\s+Overview$/gm, "### Panoramica")
+    .replace(/^###\s+New Features$/gm, "### Novita")
+    .replace(/^###\s+Nuove funzionalita$/gm, "### Novita")
+    .replace(/^###\s+Bug Fixes$/gm, "### Correzioni")
+    .replace(/^###\s+Correzioni Bug$/gm, "### Correzioni")
+    .replace(/^###\s+Refactor\s*&\s*Engineering$/gm, "### Migliorie Tecniche")
+    .replace(/^###\s+Refactor\s*&\s*Ingegneria$/gm, "### Migliorie Tecniche")
+    .replace(/^###\s+Breaking Changes$/gm, "### Modifiche Incompatibili")
+    .replace(/^###\s+Modifiche Breaking$/gm, "### Modifiche Incompatibili")
+    .replace(/^###\s+Migration Notes$/gm, "### Note di Migrazione")
+    .replace(/^###\s+Known Limitations$/gm, "### Limiti Noti")
+    .replace(/^###\s+Limitazioni Note$/gm, "### Limiti Noti")
+    .replace(/^###\s+Diff\s*&\s*Commit Range$/gm, "### Confronto e Intervallo Commit")
+    .replace(/^###\s+Differenze\s*&\s*Intervallo Commit$/gm, "### Confronto e Intervallo Commit");
+
+  return `${source.slice(0, itStart + itMarker.length)}${normalizedItBlock}${enTail}`;
+}
+
 function extractResponseText(json) {
   if (typeof json?.output_text === "string" && json.output_text.trim()) return json.output_text;
   if (!Array.isArray(json?.output)) return "";
@@ -144,20 +176,22 @@ function extractResponseText(json) {
 }
 
 function hasMinimumSections(text) {
-  const required = [
-    "## Italiano",
-    "### Overview",
-    "### Nuove funzionalita",
-    "### Bug Fixes",
-    "### Refactor & Engineering",
-    "### Breaking Changes",
-    "### Migration Notes",
-    "### Known Limitations",
-    "### Diff & Commit Range",
-    "## English",
-    "### New Features",
-  ];
-  return required.every((marker) => text.includes(marker));
+  const hasIt = text.includes("## Italiano");
+  const hasEn = text.includes("## English");
+  const hasItFeatures = text.includes("### Novita") || text.includes("### Nuove funzionalita");
+  const hasItFixes = text.includes("### Correzioni") || text.includes("### Correzioni Bug") || text.includes("### Bug Fixes");
+  const hasItRefactor =
+    text.includes("### Migliorie Tecniche") ||
+    text.includes("### Refactor & Ingegneria") ||
+    text.includes("### Refactor & Engineering");
+  const hasItDiff =
+    text.includes("### Confronto e Intervallo Commit") ||
+    text.includes("### Differenze & Intervallo Commit") ||
+    text.includes("### Diff & Commit Range");
+  const hasEnFeatures = text.includes("### New Features");
+  const hasEnFixes = text.includes("### Bug Fixes");
+
+  return hasIt && hasEn && hasItFeatures && hasItFixes && hasItRefactor && hasItDiff && hasEnFeatures && hasEnFixes;
 }
 
 async function generateWithOpenAI({ model, apiKey, prompt }) {
@@ -207,6 +241,7 @@ async function main() {
   if (apiKey) {
     try {
       markdown = await generateWithOpenAI({ model, apiKey, prompt });
+      markdown = normalizeItalianSectionHeadings(markdown);
       if (!hasMinimumSections(markdown)) {
         throw new Error("Generated output does not include required sections.");
       }

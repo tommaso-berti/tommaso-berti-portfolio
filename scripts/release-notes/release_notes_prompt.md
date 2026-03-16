@@ -16,14 +16,14 @@ Required section order (IT first, then EN):
 # Release Notes {{VERSION}}
 
 ## Italiano
-### Overview
-### Nuove funzionalita
-### Bug Fixes
-### Refactor & Engineering
-### Breaking Changes
-### Migration Notes
-### Known Limitations
-### Diff & Commit Range
+### Panoramica
+### Novita
+### Correzioni
+### Migliorie Tecniche
+### Modifiche Incompatibili
+### Note di Migrazione
+### Limiti Noti
+### Confronto e Intervallo Commit
 
 ## English
 ### Overview

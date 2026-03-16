@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-16T08:50:56.094Z",
-  "latestTag": "v2.7.2",
-  "latestVersion": "2.7.2",
-  "previousTag": "v2.7.1",
+  "generatedAt": "2026-03-16T08:57:14.784Z",
+  "latestTag": "v2.7.3",
+  "latestVersion": "2.7.3",
+  "previousTag": "v2.7.2",
   "releaseType": "patch",
   "entries": [
     {
-      "sha": "e0229b773e5b554291a01128cda304f9ee69e65a",
+      "sha": "6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
       "subject": "chore(data): refresh static github snapshots [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T08:36:00Z"
+      "date": "2026-03-16T08:40:16Z"
     },
     {
-      "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
-      "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+      "sha": "3c48d7819dc34cc050956fff659c681d7ff1176e",
+      "subject": "feat: simplify release notes generation by using only the latest commit and update GitHub release action #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T08:39:55Z"
+      "date": "2026-03-16T08:50:36Z"
     }
   ],
   "bodyMarkdown": "",
   "releaseUrl": "",
   "publishedAt": "",
   "history": [
+    {
+      "tag": "v2.7.3",
+      "version": "2.7.3",
+      "previousTag": "v2.7.2",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
+          "subject": "chore(data): refresh static github snapshots [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T08:40:16Z"
+        },
+        {
+          "sha": "3c48d7819dc34cc050956fff659c681d7ff1176e",
+          "subject": "feat: simplify release notes generation by using only the latest commit and update GitHub release action #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:50:36Z"
+        }
+      ],
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
+    },
     {
       "tag": "v2.7.2",
       "version": "2.7.2",
@@ -303,8 +329,8 @@
     {
       "tag": "v2.1.0",
       "version": "2.1.0",
-      "previousTag": "v2.0.1",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
@@ -312,19 +338,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
           "author": "Tommaso Berti",
           "date": "2026-03-13T15:47:57Z"
-        }
-      ],
-      "source": "compare",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.0.1",
-      "version": "2.0.1",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "b06db405e9ae791a570dbe599e0691d609475c4d",
           "subject": "feat: infer release type from commits in latest release notes #patch",
@@ -387,13 +401,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/babe5884914d4fc58b3f48846db8ef815d0c818c",
           "author": "Tommaso Berti",
           "date": "2026-03-13T13:30:26Z"
-        },
-        {
-          "sha": "9f786c2379956c9cc14b1387f1e795a77341ba91",
-          "subject": "feat: enhance breadcrumbs component with input focus handling and cursor animation",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/9f786c2379956c9cc14b1387f1e795a77341ba91",
-          "author": "Tommaso Berti",
-          "date": "2026-03-13T13:25:22Z"
         }
       ],
       "source": "commits",

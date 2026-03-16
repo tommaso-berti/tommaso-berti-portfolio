@@ -98,4 +98,9 @@ node "$GENERATE_SCRIPT" \
   --version "$TAG" \
   --out "$OUTPUT_FILE"
 
+if [[ ! -f "$OUTPUT_FILE" ]]; then
+  echo "Release notes file was not generated: $OUTPUT_FILE" >&2
+  exit 1
+fi
+
 echo "Release notes generated: $OUTPUT_FILE"

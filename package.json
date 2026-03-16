@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "i18n:check": "node scripts/check-i18n-keys.mjs"
+    "i18n:check": "node scripts/check-i18n-keys.mjs",
+    "data:refresh": "node scripts/static-data/refresh-static-data.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

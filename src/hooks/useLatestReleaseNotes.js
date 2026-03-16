@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 
-const GITHUB_OWNER = "tommaso-berti";
-const GITHUB_REPO = "tommaso-berti-portfolio";
-const GITHUB_API = "https://api.github.com";
-const SEMVER_TAG_REGEX = /^v(\d+)\.(\d+)\.(\d+)$/;
-const MAX_ENTRIES = 10;
+const STATIC_RELEASE_NOTES_URL = "/data/release-notes.json";
 
 /**
  * @typedef {Object} ReleaseNotesEntry
@@ -22,105 +18,12 @@ const MAX_ENTRIES = 10;
  * @property {string | null} previousTag
  * @property {"major" | "minor" | "patch"} releaseType
  * @property {ReleaseNotesEntry[]} entries
- * @property {"compare" | "commits" | "none"} source
+ * @property {"static" | "none"} source
  * @property {string | null} error
  */
 
-function parseSemverTag(tagName) {
-    const match = `${tagName ?? ""}`.trim().match(SEMVER_TAG_REGEX);
-    if (!match) return null;
-
-    return {
-        tag: match[0],
-        major: Number(match[1]),
-        minor: Number(match[2]),
-        patch: Number(match[3]),
-    };
-}
-
-function compareSemverDesc(a, b) {
-    if (a.major !== b.major) return b.major - a.major;
-    if (a.minor !== b.minor) return b.minor - a.minor;
-    return b.patch - a.patch;
-}
-
-function resolveReleaseType(currentTag, previousTag) {
-    const current = parseSemverTag(currentTag);
-    const previous = parseSemverTag(previousTag);
-
-    if (!current || !previous) return "patch";
-    if (current.major !== previous.major) return "major";
-    if (current.minor !== previous.minor) return "minor";
-    return "patch";
-}
-
-function normalizeCommitSubject(message) {
-    return `${message ?? ""}`
-        .split("\n")[0]
-        .replace(/\s+/g, " ")
-        .trim();
-}
-
-function shouldKeepSubject(subject) {
-    if (!subject) return false;
-
-    const lower = subject.toLowerCase();
-    if (lower.startsWith("merge ")) return false;
-    if (lower.includes("create and push release tag")) return false;
-    if (/^(#|\[)(major|minor|patch)\]?$/i.test(subject)) return false;
-
-    return true;
-}
-
-function mapAndFilterCommits(commits) {
-    const seen = new Set();
-
-    return (Array.isArray(commits) ? commits : [])
-        .map((commit) => {
-            const subject = normalizeCommitSubject(commit?.commit?.message);
-            const author = commit?.commit?.author?.name || "unknown";
-            const date = commit?.commit?.author?.date || "";
-
-            return {
-                sha: commit?.sha || "",
-                subject,
-                url: commit?.html_url || "",
-                author,
-                date,
-            };
-        })
-        .filter((entry) => {
-            if (!shouldKeepSubject(entry.subject)) return false;
-
-            const key = entry.subject.toLowerCase();
-            if (seen.has(key)) return false;
-            seen.add(key);
-            return true;
-        })
-        .slice(0, MAX_ENTRIES);
-}
-
-function inferReleaseTypeFromCommits(commits) {
-    const messages = (Array.isArray(commits) ? commits : [])
-        .map((commit) => `${commit?.commit?.message ?? ""}`.toLowerCase())
-        .join("\n");
-
-    if (messages.includes("#major") || messages.includes("[major]")) {
-        return "major";
-    }
-    if (messages.includes("#minor") || messages.includes("[minor]")) {
-        return "minor";
-    }
-    return "patch";
-}
-
 async function fetchJson(url, signal) {
-    const response = await fetch(url, {
-        signal,
-        headers: {
-            Accept: "application/vnd.github+json",
-        },
-    });
+    const response = await fetch(url, { signal });
 
     if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -130,18 +33,11 @@ async function fetchJson(url, signal) {
 }
 
 async function fetchLatestReleaseNotes(signal) {
-    const tagsUrl = `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/tags?per_page=10`;
-    const tags = await fetchJson(tagsUrl, signal);
+    const payload = await fetchJson(STATIC_RELEASE_NOTES_URL, signal);
+    const entries = Array.isArray(payload?.entries) ? payload.entries : [];
+    const tag = `${payload?.latestTag ?? ""}`;
 
-    const semverTags = tags
-        .map((tag) => parseSemverTag(tag?.name))
-        .filter(Boolean)
-        .sort(compareSemverDesc);
-
-    const latest = semverTags[0];
-    const previous = semverTags[1] ?? null;
-
-    if (!latest) {
+    if (!tag) {
         return {
             tag: "",
             version: "",
@@ -153,31 +49,13 @@ async function fetchLatestReleaseNotes(signal) {
         };
     }
 
-    if (previous) {
-        const compareUrl = `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/compare/${previous.tag}...${latest.tag}`;
-        const compareData = await fetchJson(compareUrl, signal);
-
-        return {
-            tag: latest.tag,
-            version: latest.tag.replace(/^v/, ""),
-            previousTag: previous.tag,
-            releaseType: resolveReleaseType(latest.tag, previous.tag),
-            entries: mapAndFilterCommits(compareData?.commits),
-            source: "compare",
-            error: null,
-        };
-    }
-
-    const commitsUrl = `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/commits?sha=${latest.tag}&per_page=20`;
-    const commits = await fetchJson(commitsUrl, signal);
-
     return {
-        tag: latest.tag,
-        version: latest.tag.replace(/^v/, ""),
-        previousTag: null,
-        releaseType: inferReleaseTypeFromCommits(commits),
-        entries: mapAndFilterCommits(commits),
-        source: "commits",
+        tag,
+        version: `${payload?.latestVersion ?? tag.replace(/^v/, "")}`,
+        previousTag: payload?.previousTag ?? null,
+        releaseType: payload?.releaseType ?? "patch",
+        entries,
+        source: "static",
         error: null,
     };
 }

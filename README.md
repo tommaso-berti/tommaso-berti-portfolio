@@ -45,8 +45,7 @@ Personal portfolio SPA built with React, Vite and MUI.
 - `githubHref` (optional) enables the GitHub action button in project cards.
 - `Practice` tab renders `ExercisesSection` instead of static project cards.
 - Exercises data source:
-  - `GET https://api.github.com/users/tommaso-berti/starred`
-  - request params: `per_page=12` and `page`
+  - static snapshot: `public/data/exercises.json`
 - Exercises filtering rules:
   - exclude forked repositories
   - include only repos with at least one topic in:
@@ -61,24 +60,25 @@ Personal portfolio SPA built with React, Vite and MUI.
 - Modal component: `src/app/layout/ReleaseNotesModal.jsx`
 - Data hook: `src/hooks/useLatestReleaseNotes.js`
 - Source:
-  - latest semver tags from GitHub
-  - compare between latest and previous tags when available
-  - fallback to commits for first release
+  - static snapshot: `public/data/release-notes.json`
 - Commit entries are normalized, deduplicated and filtered for noise.
 - Loading uses MUI Skeleton; errors show retry action.
 
 ## Automated AI Release Notes
 
-This project includes an automated release-notes pipeline that can generate complete bilingual notes (IT + EN) from git history.
+This project includes an automated release-notes and GitHub-data pipeline based on static snapshots (no runtime GitHub API calls from the browser).
 
 ### What is included
 
 - Repo workflow: `.github/workflows/release-notes.yml`
+- Static data workflow: `.github/workflows/refresh-static-data.yml`
 - Local wrapper: `scripts/release-notes/run.sh`
 - Local scripts:
   - `scripts/release-notes/collect_changes.sh`
   - `scripts/release-notes/generate_notes.mjs`
   - `scripts/release-notes/release_notes_prompt.md`
+- Static data generator:
+  - `scripts/static-data/refresh-static-data.mjs`
 - Optional per-project config: `.release-notes.config.json`
 
 ### How it works
@@ -87,6 +87,10 @@ This project includes an automated release-notes pipeline that can generate comp
 - Output file: `release-notes/vX.Y.Z.md`.
 - Release body: updated from the generated markdown file.
 - Fallback mode: if `OPENAI_API_KEY` is missing/failing, notes are generated from commit metadata (no AI synthesis).
+- Static JSON refresh:
+  - on push to `main`
+  - generates `public/data/exercises.json` and `public/data/release-notes.json`
+  - commits changes only when snapshots differ
 
 ### One-time setup
 
@@ -107,6 +111,12 @@ Optional range override:
 scripts/release-notes/run.sh --tag v1.2.3 --from v1.2.2 --to HEAD
 ```
 
+Refresh static snapshots locally:
+
+```bash
+npm run data:refresh
+```
+
 ### CI usage
 
 - Automatic: push a new tag matching `v*`.
@@ -114,6 +124,7 @@ scripts/release-notes/run.sh --tag v1.2.3 --from v1.2.2 --to HEAD
   - `tag` (required)
   - `from` (optional)
   - `to` (optional)
+- Static snapshots are refreshed automatically by workflow `Refresh Static Data` on push to `main`.
 
 ### Notes quality recommendations
 
@@ -122,10 +133,10 @@ scripts/release-notes/run.sh --tag v1.2.3 --from v1.2.2 --to HEAD
 
 ### Troubleshooting
 
-- Running `npm run build` does not generate release notes. The trigger is tag/workflow based, not build based.
+- Running `npm run build` does not generate release notes or static snapshots.
 - CI generation runs only in workflow `Release Notes` (tag push `v*` or manual dispatch).
 - If `OPENAI_API_KEY` is missing or invalid, generation still works in fallback mode using commit metadata.
-- Optional local skill usage is fine, but CI runtime uses only the versioned repo scripts.
+- Static GitHub data refresh runs only in workflow `Refresh Static Data` (push `main`) or via `npm run data:refresh`.
 
 ## Project Architecture
 

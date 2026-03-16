@@ -1,36 +1,55 @@
 {
-  "generatedAt": "2026-03-16T09:46:14.311Z",
-  "latestTag": "v2.7.8",
-  "latestVersion": "2.7.8",
-  "previousTag": "v2.7.7",
-  "releaseType": "patch",
+  "generatedAt": "2026-03-16T09:53:19.750Z",
+  "latestTag": "v2.8.0",
+  "latestVersion": "2.8.0",
+  "previousTag": "v2.7.8",
+  "releaseType": "minor",
   "entries": [
     {
-      "sha": "b01388bb778f6db67cb1d2bafd458f0696397ec2",
-      "subject": "fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b01388bb778f6db67cb1d2bafd458f0696397ec2",
+      "sha": "27ebc53a389bf7437f39658ba1c786b3780d5e5c",
+      "subject": "feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/27ebc53a389bf7437f39658ba1c786b3780d5e5c",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T10:44:53+01:00"
+      "date": "2026-03-16T10:52:00+01:00"
     },
     {
-      "sha": "a04c806fb087d0a456bc612f902e6a3bd9c705d6",
-      "subject": "feat: enhance release notes generation with version type resolution and improved markdown handling #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a04c806fb087d0a456bc612f902e6a3bd9c705d6",
-      "author": "Tommaso Berti",
-      "date": "2026-03-16T10:42:04+01:00"
-    },
-    {
-      "sha": "d9d390c30abe9742990ead20d6bc25cd8a17d729",
-      "subject": "docs(release): v2.7.7 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
+      "sha": "da01a208ea235e951a10740626f013b3a14d4d05",
+      "subject": "docs(release): v2.7.8 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/da01a208ea235e951a10740626f013b3a14d4d05",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T09:34:19Z"
+      "date": "2026-03-16T09:46:14Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Overview\nRilascio patch (releaseType: patch). Migliorata l'affidabilità del deploy (SSH/rsync retry) e aggiornata la generazione delle note di rilascio e gli artefatti di documentazione.\n\n### Nuove funzionalita\nNessuna nuova funzionalità in questo rilascio (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: migliorata affidabilità SSH e rsync con logica di retry nel workflow di deploy. (file modificato: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: risoluzione del tipo di versione e miglior gestione del markdown. (file modificati: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (aggiornamento artefatti/documentazione). (commit automatico da github-actions[bot])\n\n### Breaking Changes\nNessuna breaking change.\n\n### Migration Notes\nNessuna migrazione richiesta.\n\n### Known Limitations\nNessuna limitazione nota specificata nei metadati di commit.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nPatch release (releaseType: patch). Improved deploy reliability (SSH/rsync retry) and updated release-notes generation and documentation artifacts.\n\n### New Features\nNo new features in this release (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow. (file changed: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: version-type resolution and improved markdown handling. (files changed: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (documentation/artifact update). (automated commit by github-actions[bot])\n\n### Breaking Changes\nNo breaking changes.\n\n### Migration Notes\nNo migration required.\n\n### Known Limitations\nNo known limitations specified in the commit metadata.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
-  "publishedAt": "2026-03-16T09:46:11Z",
+  "bodyMarkdown": "# Release Notes v2.8.0\n\n## Italiano\n### Panoramica\n- Tipo rilascio: minor (da v2.7.8 a v2.8.0)\n- Generato: 2026-03-16T09:52:48.020Z\n\n### Novita\n- Aggiunta logica di retry per SSH e rsync nel workflow di deploy (commit 27ebc53).\n- Normalizzazione delle intestazioni della sezione italiana nelle note di rilascio (commit 27ebc53).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo di commit.\n\n### Migliorie Tecniche\n- Aggiornati artifact e metadati delle note di rilascio (commit da01a20).\n- Modifiche agli script per la generazione delle note di rilascio e ai dati pubblici (file modificati: scripts/release-notes/*, public/data/*).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta basata sui commit inclusi.\n\n### Limiti Noti\n- Nessun limite noto registrato nei commit forniti.\n\n### Confronto e Intervallo Commit\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nCommits inclusi:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nFile modificati:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n\n---\n\n## English\n### Overview\n- Release type: minor (from v2.7.8 to v2.8.0)\n- Generated: 2026-03-16T09:52:48.020Z\n\n### New Features\n- Add retry logic for SSH and rsync in the deploy workflow (commit 27ebc53).\n- Normalize Italian section headings in release notes generation (commit 27ebc53).\n\n### Bug Fixes\n- No specific bug fixes in this commit range.\n\n### Refactor & Engineering\n- Updated release artifacts/metadata for v2.7.8 (commit da01a20).\n- Changes to release-notes generation scripts and public data files (see changed files).\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the included commits.\n\n### Known Limitations\n- No known limitations recorded in the provided commits.\n\n### Diff & Commit Range\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nIncluded commits:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nChanged files:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.8.0",
+  "publishedAt": "2026-03-16T09:53:16Z",
   "history": [
+    {
+      "tag": "v2.8.0",
+      "version": "2.8.0",
+      "previousTag": "v2.7.8",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "27ebc53a389bf7437f39658ba1c786b3780d5e5c",
+          "subject": "feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/27ebc53a389bf7437f39658ba1c786b3780d5e5c",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T10:52:00+01:00"
+        },
+        {
+          "sha": "da01a208ea235e951a10740626f013b3a14d4d05",
+          "subject": "docs(release): v2.7.8 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/da01a208ea235e951a10740626f013b3a14d4d05",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T09:46:14Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.8.0\n\n## Italiano\n### Panoramica\n- Tipo rilascio: minor (da v2.7.8 a v2.8.0)\n- Generato: 2026-03-16T09:52:48.020Z\n\n### Novita\n- Aggiunta logica di retry per SSH e rsync nel workflow di deploy (commit 27ebc53).\n- Normalizzazione delle intestazioni della sezione italiana nelle note di rilascio (commit 27ebc53).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo di commit.\n\n### Migliorie Tecniche\n- Aggiornati artifact e metadati delle note di rilascio (commit da01a20).\n- Modifiche agli script per la generazione delle note di rilascio e ai dati pubblici (file modificati: scripts/release-notes/*, public/data/*).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta basata sui commit inclusi.\n\n### Limiti Noti\n- Nessun limite noto registrato nei commit forniti.\n\n### Confronto e Intervallo Commit\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nCommits inclusi:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nFile modificati:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n\n---\n\n## English\n### Overview\n- Release type: minor (from v2.7.8 to v2.8.0)\n- Generated: 2026-03-16T09:52:48.020Z\n\n### New Features\n- Add retry logic for SSH and rsync in the deploy workflow (commit 27ebc53).\n- Normalize Italian section headings in release notes generation (commit 27ebc53).\n\n### Bug Fixes\n- No specific bug fixes in this commit range.\n\n### Refactor & Engineering\n- Updated release artifacts/metadata for v2.7.8 (commit da01a20).\n- Changes to release-notes generation scripts and public data files (see changed files).\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the included commits.\n\n### Known Limitations\n- No known limitations recorded in the provided commits.\n\n### Diff & Commit Range\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nIncluded commits:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nChanged files:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.8.0",
+      "publishedAt": "2026-03-16T09:53:16Z"
+    },
     {
       "tag": "v2.7.8",
       "version": "2.7.8",
@@ -60,7 +79,7 @@
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Overview\nRilascio patch (releaseType: patch). Migliorata l'affidabilità del deploy (SSH/rsync retry) e aggiornata la generazione delle note di rilascio e gli artefatti di documentazione.\n\n### Nuove funzionalita\nNessuna nuova funzionalità in questo rilascio (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: migliorata affidabilità SSH e rsync con logica di retry nel workflow di deploy. (file modificato: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: risoluzione del tipo di versione e miglior gestione del markdown. (file modificati: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (aggiornamento artefatti/documentazione). (commit automatico da github-actions[bot])\n\n### Breaking Changes\nNessuna breaking change.\n\n### Migration Notes\nNessuna migrazione richiesta.\n\n### Known Limitations\nNessuna limitazione nota specificata nei metadati di commit.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nPatch release (releaseType: patch). Improved deploy reliability (SSH/rsync retry) and updated release-notes generation and documentation artifacts.\n\n### New Features\nNo new features in this release (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow. (file changed: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: version-type resolution and improved markdown handling. (files changed: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (documentation/artifact update). (automated commit by github-actions[bot])\n\n### Breaking Changes\nNo breaking changes.\n\n### Migration Notes\nNo migration required.\n\n### Known Limitations\nNo known limitations specified in the commit metadata.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js",
+      "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v2.7.6..HEAD`.\n- Commit inclusi: 7. File modificati: 14.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Migliorie Tecniche\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD\n- File principali:\n- .github/workflows/deploy.yml\n- .gitignore\n- package-lock.json\n- package.json\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.6.md\n- release-notes/v2.7.7.md\n- release-notes/v2.7.8.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/app/layout/ReleaseNotesModal.jsx\n- src/hooks/useLatestReleaseNotes.js\n\n## English\n### Overview\n- Release generated from commits in range `v2.7.6..HEAD`.\n- Included commits: 7. Changed files: 14.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Refactor & Engineering\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
       "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
       "publishedAt": "2026-03-16T09:46:11Z"
     },
@@ -268,8 +287,8 @@
     {
       "tag": "v2.6.0",
       "version": "2.6.0",
-      "previousTag": "v2.5.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "a1126a5888422db70cc55662c1296878255547a1",
@@ -277,19 +296,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a1126a5888422db70cc55662c1296878255547a1",
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:18:00+01:00"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.5.0",
-      "version": "2.5.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "246bf20f0089278c69d30258e21322b89481f359",
           "subject": "feat: add automated release notes generation pipeline with bilingual support and local usage instructions #minor",
@@ -352,13 +359,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/30489f07e60e3d91617b838b00ecd0d8968a1750",
           "author": "Tommaso Berti",
           "date": "2026-03-15T22:12:52+01:00"
-        },
-        {
-          "sha": "37a95085dd21cd168d9f47d548f8d24605bec1ee",
-          "subject": "feat: add lessons learned section and enhance technology details for improved clarity and organization",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/37a95085dd21cd168d9f47d548f8d24605bec1ee",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T22:08:16+01:00"
         }
       ],
       "source": "local",

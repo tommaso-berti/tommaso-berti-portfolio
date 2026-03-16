@@ -288,9 +288,22 @@ jobs:
 
       - name: Test SSH connection
         if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
+        shell: bash
         run: |
-          ssh -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey \
-              -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true
+          set -euo pipefail
+          SSH_OPTS="-o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3"
+          ATTEMPT=1
+          MAX_ATTEMPTS=3
+
+          until ssh $SSH_OPTS -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" true; do
+            if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+              echo "SSH connectivity test failed after ${MAX_ATTEMPTS} attempts." >&2
+              exit 1
+            fi
+            echo "SSH test failed (attempt ${ATTEMPT}/${MAX_ATTEMPTS}), retrying in 5s..."
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 5
+          done
 
       - name: Ensure remote release dir
         if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
@@ -303,12 +316,36 @@ jobs:
         if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'
         shell: bash
         run: |
-          rsync -az --delete \
-            -e "ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key" \
+          set -euo pipefail
+          SSH_OPTS="-o IdentitiesOnly=yes -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
+          RSYNC_SSH="ssh ${SSH_OPTS} -i ~/.ssh/deploy_key"
+          ATTEMPT=1
+          MAX_ATTEMPTS=4
+
+          until rsync -az --delete \
+            -e "$RSYNC_SSH" \
             "${{ env.BUILD_DIR }}/" \
-            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.REMOTE_RELEASE }}/"
-          ssh -o IdentitiesOnly=yes -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "echo '${{ env.VERSION }}' > '${{ env.REMOTE_RELEASE }}/VERSION'"
+            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ env.REMOTE_RELEASE }}/"; do
+            if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+              echo "Rsync failed after ${MAX_ATTEMPTS} attempts." >&2
+              exit 1
+            fi
+            echo "Rsync failed (attempt ${ATTEMPT}/${MAX_ATTEMPTS}), retrying in 10s..."
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+
+          ATTEMPT=1
+          until ssh $SSH_OPTS -i ~/.ssh/deploy_key "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
+            "echo '${{ env.VERSION }}' > '${{ env.REMOTE_RELEASE }}/VERSION'"; do
+            if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+              echo "Failed to write remote VERSION after ${MAX_ATTEMPTS} attempts." >&2
+              exit 1
+            fi
+            echo "Write VERSION failed (attempt ${ATTEMPT}/${MAX_ATTEMPTS}), retrying in 5s..."
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 5
+          done
 
       - name: Activate release (symlink) & reload caddy
         if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request'

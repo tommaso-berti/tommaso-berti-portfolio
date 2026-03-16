@@ -1,19 +1,55 @@
 {
-  "generatedAt": "2026-03-16T08:36:00.531Z",
-  "latestTag": "v2.7.0",
-  "latestVersion": "2.7.0",
-  "previousTag": "v2.6.0",
-  "releaseType": "minor",
+  "generatedAt": "2026-03-16T08:40:16.347Z",
+  "latestTag": "v2.7.1",
+  "latestVersion": "2.7.1",
+  "previousTag": "v2.7.0",
+  "releaseType": "patch",
   "entries": [
     {
-      "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
-      "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
+      "sha": "ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+      "subject": "chore(data): refresh static github snapshots [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T08:29:46Z"
+    },
+    {
+      "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+      "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T08:29:32Z"
+      "date": "2026-03-16T08:35:03Z"
     }
   ],
+  "bodyMarkdown": "",
+  "releaseUrl": "",
+  "publishedAt": "",
   "history": [
+    {
+      "tag": "v2.7.1",
+      "version": "2.7.1",
+      "previousTag": "v2.7.0",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+          "subject": "chore(data): refresh static github snapshots [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T08:29:46Z"
+        },
+        {
+          "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+          "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:35:03Z"
+        }
+      ],
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
+    },
     {
       "tag": "v2.7.0",
       "version": "2.7.0",
@@ -28,7 +64,10 @@
           "date": "2026-03-16T08:29:32Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.6.0",
@@ -44,7 +83,10 @@
           "date": "2026-03-16T08:18:00Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.5.0",
@@ -60,7 +102,10 @@
           "date": "2026-03-16T08:07:20Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.4.0",
@@ -83,7 +128,10 @@
           "date": "2026-03-16T07:44:47Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.3.0",
@@ -113,7 +161,10 @@
           "date": "2026-03-15T22:58:03Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.2.0",
@@ -192,7 +243,10 @@
           "date": "2026-03-15T21:12:52Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.1.1",
@@ -215,7 +269,10 @@
           "date": "2026-03-13T15:59:06Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.1.0",
@@ -231,7 +288,10 @@
           "date": "2026-03-13T15:47:57Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.0.1",
@@ -247,7 +307,10 @@
           "date": "2026-03-13T15:39:58Z"
         }
       ],
-      "source": "compare"
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     },
     {
       "tag": "v2.0.0",
@@ -326,7 +389,10 @@
           "date": "2026-03-13T13:06:25Z"
         }
       ],
-      "source": "commits"
+      "source": "commits",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
     }
   ]
 }

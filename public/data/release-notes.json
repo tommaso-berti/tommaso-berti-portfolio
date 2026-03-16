@@ -1,10 +1,316 @@
 {
-  "generatedAt": "",
-  "latestTag": "",
-  "latestVersion": "",
-  "previousTag": null,
-  "releaseType": "patch",
-  "entries": [],
-  "history": []
+  "generatedAt": "2026-03-16T08:29:46.495Z",
+  "latestTag": "v2.6.0",
+  "latestVersion": "2.6.0",
+  "previousTag": "v2.5.0",
+  "releaseType": "minor",
+  "entries": [
+    {
+      "sha": "a1126a5888422db70cc55662c1296878255547a1",
+      "subject": "feat: add local scripts for release notes generation and enhance README with troubleshooting information #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a1126a5888422db70cc55662c1296878255547a1",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T08:18:00Z"
+    }
+  ],
+  "history": [
+    {
+      "tag": "v2.6.0",
+      "version": "2.6.0",
+      "previousTag": "v2.5.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "a1126a5888422db70cc55662c1296878255547a1",
+          "subject": "feat: add local scripts for release notes generation and enhance README with troubleshooting information #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a1126a5888422db70cc55662c1296878255547a1",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:18:00Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.5.0",
+      "version": "2.5.0",
+      "previousTag": "v2.4.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "246bf20f0089278c69d30258e21322b89481f359",
+          "subject": "feat: add automated release notes generation pipeline with bilingual support and local usage instructions #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/246bf20f0089278c69d30258e21322b89481f359",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:07:20Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.4.0",
+      "version": "2.4.0",
+      "previousTag": "v2.3.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
+          "subject": "feat: refactor ExercisesSection to use custom hooks for data fetching and enhance repository metadata display",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T23:56:00Z"
+        },
+        {
+          "sha": "643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
+          "subject": "feat: enhance exercise descriptions and refactor repository name normalization for improved clarity and functionality #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T07:44:47Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.3.0",
+      "version": "2.3.0",
+      "previousTag": "v2.2.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "ea8410709490d248210762d96b2754f0cb51188f",
+          "subject": "feat: add exercises section with dynamic loading of GitHub starred repositories for enhanced learning resources",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ea8410709490d248210762d96b2754f0cb51188f",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T22:35:13Z"
+        },
+        {
+          "sha": "5d48df0946f2392716d4a2bcdcb39416ee7fd784",
+          "subject": "feat: enhance ExercisesSection with loading states and GitHub links for improved user experience",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5d48df0946f2392716d4a2bcdcb39416ee7fd784",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T22:53:49Z"
+        },
+        {
+          "sha": "36af5009c25ee8764bd6fe4a5de1fe35da06e679",
+          "subject": "feat: update README with enhanced project details, local setup instructions, and deployment procedures for improved clarity #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/36af5009c25ee8764bd6fe4a5de1fe35da06e679",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T22:58:03Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.2.0",
+      "version": "2.2.0",
+      "previousTag": "v2.1.1",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "52fc42b69600bd2ec58279812a3208e8f0d6326b",
+          "subject": "feat: enhance layout and styling across components for improved responsiveness and visual consistency",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52fc42b69600bd2ec58279812a3208e8f0d6326b",
+          "author": "Tommaso Berti",
+          "date": "2026-03-14T14:45:04Z"
+        },
+        {
+          "sha": "5bde5987088229545de27db2468c1b5dc281724f",
+          "subject": "feat: restructure app architecture by moving components and updating routing definitions",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5bde5987088229545de27db2468c1b5dc281724f",
+          "author": "Tommaso Berti",
+          "date": "2026-03-14T14:57:08Z"
+        },
+        {
+          "sha": "457f283c843380937c9b243aedc37ef7de6e2d9d",
+          "subject": "feat: improve layout responsiveness by adjusting width and max-width properties",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/457f283c843380937c9b243aedc37ef7de6e2d9d",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T16:57:12Z"
+        },
+        {
+          "sha": "450ce5759e5486f55117c4f51a6c87f740c50783",
+          "subject": "feat: enhance deploy workflow to handle bump token checks and skip deploy logic",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/450ce5759e5486f55117c4f51a6c87f740c50783",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T17:07:39Z"
+        },
+        {
+          "sha": "5ee920edfb383f55a2d363b0f000702fe4be45f1",
+          "subject": "feat: add FriendlyNav component for improved navigation and update Header layout",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5ee920edfb383f55a2d363b0f000702fe4be45f1",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T17:11:14Z"
+        },
+        {
+          "sha": "1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
+          "subject": "feat: update project descriptions and enhance technology configuration for clarity and consistency",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T20:28:55Z"
+        },
+        {
+          "sha": "fcf4db62b1d6168e9939d12f2324254995f18502",
+          "subject": "feat: update brand icons and enhance experience and hobbies sections for clarity and detail",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/fcf4db62b1d6168e9939d12f2324254995f18502",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T20:47:08Z"
+        },
+        {
+          "sha": "52df89af2f5764354cda45e85f8639a2ca93dbd2",
+          "subject": "feat: update hero section text and add primary call-to-action button for improved user engagement",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52df89af2f5764354cda45e85f8639a2ca93dbd2",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T20:57:07Z"
+        },
+        {
+          "sha": "37a95085dd21cd168d9f47d548f8d24605bec1ee",
+          "subject": "feat: add lessons learned section and enhance technology details for improved clarity and organization",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/37a95085dd21cd168d9f47d548f8d24605bec1ee",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T21:08:16Z"
+        },
+        {
+          "sha": "30489f07e60e3d91617b838b00ecd0d8968a1750",
+          "subject": "feat: add Cloudflare icon and update technology categories for improved organization and clarity",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/30489f07e60e3d91617b838b00ecd0d8968a1750",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T21:12:52Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.1.1",
+      "version": "2.1.1",
+      "previousTag": "v2.1.0",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
+          "subject": "feat: add skip deploy option to manual deploy workflow and update documentation #skip-deploy",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:55:10Z"
+        },
+        {
+          "sha": "56c4f9b70cdb1823e85e53942c30b467f261d751",
+          "subject": "feat: refine skip deploy logic in manual workflow and update documentation",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/56c4f9b70cdb1823e85e53942c30b467f261d751",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:59:06Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.1.0",
+      "version": "2.1.0",
+      "previousTag": "v2.0.1",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
+          "subject": "#minor feat: add manual deploy support with workflow_dispatch and version bump options",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:47:57Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.0.1",
+      "version": "2.0.1",
+      "previousTag": "v2.0.0",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "b06db405e9ae791a570dbe599e0691d609475c4d",
+          "subject": "feat: infer release type from commits in latest release notes #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b06db405e9ae791a570dbe599e0691d609475c4d",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:39:58Z"
+        }
+      ],
+      "source": "compare"
+    },
+    {
+      "tag": "v2.0.0",
+      "version": "2.0.0",
+      "previousTag": null,
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "0fe37d22f638ef00dc5970d31d7fdfdd65ec3368",
+          "subject": "trigger deploy build #major",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0fe37d22f638ef00dc5970d31d7fdfdd65ec3368",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:33:13Z"
+        },
+        {
+          "sha": "2e755d8f595c32b6d1e5592d8bc971deaf562da5",
+          "subject": "release: 2.0.0 #major (#3)",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2e755d8f595c32b6d1e5592d8bc971deaf562da5",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T15:06:10Z"
+        },
+        {
+          "sha": "2c649fdb9f09b7a3d440d41967ec0cc591841236",
+          "subject": "feat: add release notes modal and localization support for release notes",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2c649fdb9f09b7a3d440d41967ec0cc591841236",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T14:57:51Z"
+        },
+        {
+          "sha": "95861c53a38e6774c071b8bb6faa38ca2e9f0430",
+          "subject": "feat: implement centralized brand icon management with react-icons integration",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/95861c53a38e6774c071b8bb6faa38ca2e9f0430",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T14:33:18Z"
+        },
+        {
+          "sha": "2b9728b5b23d14c2086df480dd06b1dde6a46837",
+          "subject": "feat: refactor app structure with centralized routing and context providers",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b9728b5b23d14c2086df480dd06b1dde6a46837",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T14:12:04Z"
+        },
+        {
+          "sha": "25f04e2e7d342c9494f61bce6781135780301947",
+          "subject": "feat: enhance breadcrumbs component with command navigation handling and input reset logic",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/25f04e2e7d342c9494f61bce6781135780301947",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T13:57:08Z"
+        },
+        {
+          "sha": "a3536d94f1c07af6daf559f4d50bc946ad31cdc0",
+          "subject": "feat: enhance breadcrumbs component with dynamic suggestion values based on active context",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3536d94f1c07af6daf559f4d50bc946ad31cdc0",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T13:36:45Z"
+        },
+        {
+          "sha": "babe5884914d4fc58b3f48846db8ef815d0c818c",
+          "subject": "feat: add tab completion for bash-like input handling in breadcrumbs component",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/babe5884914d4fc58b3f48846db8ef815d0c818c",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T13:30:26Z"
+        },
+        {
+          "sha": "9f786c2379956c9cc14b1387f1e795a77341ba91",
+          "subject": "feat: enhance breadcrumbs component with input focus handling and cursor animation",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/9f786c2379956c9cc14b1387f1e795a77341ba91",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T13:25:22Z"
+        },
+        {
+          "sha": "9bd03fde587f0b5be3d2418db97ddf24282f2a4b",
+          "subject": "feat: enhance internationalization support with pluralization and translation key verification",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/9bd03fde587f0b5be3d2418db97ddf24282f2a4b",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T13:06:25Z"
+        }
+      ],
+      "source": "commits"
+    }
+  ]
 }
-

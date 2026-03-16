@@ -1,5 +1,170 @@
 {
-  "generatedAt": "",
-  "items": []
+  "generatedAt": "2026-03-16T08:29:43.826Z",
+  "items": [
+    {
+      "id": 1164252414,
+      "name": "mvc-to-do-list",
+      "html_url": "https://github.com/tommaso-berti/mvc-to-do-list",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-15T23:32:28Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 7315,
+          "percentage": 73.39955849889624
+        },
+        {
+          "language": "HTML",
+          "bytes": 1721,
+          "percentage": 17.26871362632952
+        },
+        {
+          "language": "CSS",
+          "bytes": 930,
+          "percentage": 9.331727874774232
+        }
+      ]
+    },
+    {
+      "id": 1118537929,
+      "name": "boss-machine",
+      "html_url": "https://github.com/tommaso-berti/boss-machine",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-15T23:32:18Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 1285432,
+          "percentage": 98.81963674270787
+        },
+        {
+          "language": "CSS",
+          "bytes": 14833,
+          "percentage": 1.1403105506978088
+        },
+        {
+          "language": "HTML",
+          "bytes": 521,
+          "percentage": 0.04005270659432066
+        }
+      ]
+    },
+    {
+      "id": 1069849789,
+      "name": "redditMini",
+      "html_url": "https://github.com/tommaso-berti/redditMini",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-15T23:32:09Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 14275,
+          "percentage": 77.19554401903525
+        },
+        {
+          "language": "CSS",
+          "bytes": 3858,
+          "percentage": 20.863075924724207
+        },
+        {
+          "language": "HTML",
+          "bytes": 359,
+          "percentage": 1.9413800562405363
+        }
+      ]
+    },
+    {
+      "id": 1107762395,
+      "name": "find-your-hat",
+      "html_url": "https://github.com/tommaso-berti/find-your-hat",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-15T23:32:00Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 5282,
+          "percentage": 100
+        }
+      ]
+    },
+    {
+      "id": 1022535011,
+      "name": "jammming",
+      "html_url": "https://github.com/tommaso-berti/jammming",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-15T23:31:48Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 17347,
+          "percentage": 76.10002193463478
+        },
+        {
+          "language": "CSS",
+          "bytes": 3445,
+          "percentage": 15.112963369159903
+        },
+        {
+          "language": "HTML",
+          "bytes": 1721,
+          "percentage": 7.549901294143453
+        },
+        {
+          "language": "Shell",
+          "bytes": 282,
+          "percentage": 1.2371134020618557
+        }
+      ]
+    },
+    {
+      "id": 967512603,
+      "name": "lodash-copy",
+      "html_url": "https://github.com/tommaso-berti/lodash-copy",
+      "description": "",
+      "topics": [
+        "practice"
+      ],
+      "topicLabels": [],
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-03-16T07:22:38Z",
+      "languageBreakdown": [
+        {
+          "language": "JavaScript",
+          "bytes": 13256,
+          "percentage": 100
+        }
+      ]
+    }
+  ]
 }
-

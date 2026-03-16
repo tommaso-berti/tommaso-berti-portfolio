@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-16T08:40:16.347Z",
-  "latestTag": "v2.7.1",
-  "latestVersion": "2.7.1",
-  "previousTag": "v2.7.0",
+  "generatedAt": "2026-03-16T08:50:56.094Z",
+  "latestTag": "v2.7.2",
+  "latestVersion": "2.7.2",
+  "previousTag": "v2.7.1",
   "releaseType": "patch",
   "entries": [
     {
-      "sha": "ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+      "sha": "e0229b773e5b554291a01128cda304f9ee69e65a",
       "subject": "chore(data): refresh static github snapshots [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T08:29:46Z"
+      "date": "2026-03-16T08:36:00Z"
     },
     {
-      "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
-      "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+      "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+      "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T08:35:03Z"
+      "date": "2026-03-16T08:39:55Z"
     }
   ],
   "bodyMarkdown": "",
   "releaseUrl": "",
   "publishedAt": "",
   "history": [
+    {
+      "tag": "v2.7.2",
+      "version": "2.7.2",
+      "previousTag": "v2.7.1",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "e0229b773e5b554291a01128cda304f9ee69e65a",
+          "subject": "chore(data): refresh static github snapshots [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T08:36:00Z"
+        },
+        {
+          "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+          "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:39:55Z"
+        }
+      ],
+      "source": "compare",
+      "bodyMarkdown": "",
+      "releaseUrl": "",
+      "publishedAt": ""
+    },
     {
       "tag": "v2.7.1",
       "version": "2.7.1",
@@ -296,7 +322,7 @@
     {
       "tag": "v2.0.1",
       "version": "2.0.1",
-      "previousTag": "v2.0.0",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
         {
@@ -305,19 +331,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b06db405e9ae791a570dbe599e0691d609475c4d",
           "author": "Tommaso Berti",
           "date": "2026-03-13T15:39:58Z"
-        }
-      ],
-      "source": "compare",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.0.0",
-      "version": "2.0.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "0fe37d22f638ef00dc5970d31d7fdfdd65ec3368",
           "subject": "trigger deploy build #major",
@@ -380,13 +394,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/9f786c2379956c9cc14b1387f1e795a77341ba91",
           "author": "Tommaso Berti",
           "date": "2026-03-13T13:25:22Z"
-        },
-        {
-          "sha": "9bd03fde587f0b5be3d2418db97ddf24282f2a4b",
-          "subject": "feat: enhance internationalization support with pluralization and translation key verification",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/9bd03fde587f0b5be3d2418db97ddf24282f2a4b",
-          "author": "Tommaso Berti",
-          "date": "2026-03-13T13:06:25Z"
         }
       ],
       "source": "commits",

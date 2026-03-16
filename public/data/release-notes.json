@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-16T09:14:18.735Z",
-  "latestTag": "v2.7.6",
-  "latestVersion": "2.7.6",
-  "previousTag": "v2.7.5",
+  "generatedAt": "2026-03-16T09:34:19.483Z",
+  "latestTag": "v2.7.7",
+  "latestVersion": "2.7.7",
+  "previousTag": "v2.7.6",
   "releaseType": "patch",
   "entries": [
     {
-      "sha": "30907b86d838a172f30a9a948dfb437f7e067a77",
-      "subject": "feat: enhance deploy workflow to handle tag pushes and streamline release notes generation #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/30907b86d838a172f30a9a948dfb437f7e067a77",
+      "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
+      "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d455d03a9fe31941605ab7605f199e90e23d678b",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T10:13:08+01:00"
+      "date": "2026-03-16T10:31:40+01:00"
     },
     {
-      "sha": "8049c1f002234cea614e70409d3ced96fcd2159b",
-      "subject": "chore(data): refresh static github snapshots [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8049c1f002234cea614e70409d3ced96fcd2159b",
+      "sha": "c6fe13642a95496877015cf74edb1418ed54d801",
+      "subject": "docs(release): v2.7.6 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6fe13642a95496877015cf74edb1418ed54d801",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T09:05:51Z"
+      "date": "2026-03-16T09:14:19Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.7.6\n\n## Italiano\n### Overview\n- Release focalizzata su miglioramenti ai workflow di GitHub Actions e aggiornamento di snapshot/static data usati per il sito.\n\n### Nuove funzionalita\n- Migliorato il workflow di deploy per gestire anche push di tag e semplificare la generazione delle release notes (commit 30907b8).\n\n### Bug Fixes\n- Nessun bug fix esplicito nei commit forniti.\n\n### Refactor & Engineering\n- Aggiornati snapshot/static data GitHub usati nel repository (commit 8049c1f).\n- Modificati i workflow: deploy, refresh-static-data, release-notes.\n- Aggiornati file di dati pubblici: public/data/exercises.json, public/data/release-notes.json.\n- Aggiornamento di README.md.\n\n### Breaking Changes\n- Nessuna breaking change identificata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta basata sulle modifiche presenti.\n\n### Known Limitations\n- Nessuna limitazione esplicita documentata nei commit/changes forniti.\n\n### Diff & Commit Range\n- Range: v2.7.5..v2.7.6\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.5...v2.7.6\n- Commit chiave:\n  - 30907b8 — feat: enhance deploy workflow to handle tag pushes and streamline release notes generation #patch (Tommaso Berti)\n  - 8049c1f — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - .github/workflows/refresh-static-data.yml\n  - .github/workflows/release-notes.yml\n  - README.md\n  - public/data/exercises.json\n  - public/data/release-notes.json\n\n---\n\n## English\n### Overview\n- Release focused on GitHub Actions workflow improvements and updates to static/site data.\n\n### New Features\n- Enhanced deploy workflow to handle tag pushes and streamline release notes generation (commit 30907b8).\n\n### Bug Fixes\n- No explicit bug fixes in the provided commits.\n\n### Refactor & Engineering\n- Refreshed static GitHub snapshots/data (commit 8049c1f).\n- Updated workflows: deploy, refresh-static-data, release-notes.\n- Updated public data files: public/data/exercises.json, public/data/release-notes.json.\n- README.md updated.\n\n### Breaking Changes\n- No breaking changes identified in the provided commits.\n\n### Migration Notes\n- No migration required based on the changes present.\n\n### Known Limitations\n- No explicit limitations documented in the provided commits/changes.\n\n### Diff & Commit Range\n- Range: v2.7.5..v2.7.6\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.5...v2.7.6\n- Key commits:\n  - 30907b8 — feat: enhance deploy workflow to handle tag pushes and streamline release notes generation #patch (Tommaso Berti)\n  - 8049c1f — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - .github/workflows/refresh-static-data.yml\n  - .github/workflows/release-notes.yml\n  - README.md\n  - public/data/exercises.json\n  - public/data/release-notes.json\n# Release Notes v2.7.6\n\n## Italiano\n### Overview\n- Release focalizzata su miglioramenti ai workflow di GitHub Actions e aggiornamento di snapshot/static data usati per il sito.\n\n### Nuove funzionalita\n- Migliorato il workflow di deploy per gestire anche push di tag e semplificare la generazione delle release notes (commit 30907b8).\n\n### Bug Fixes\n- Nessun bug fix esplicito nei commit forniti.\n\n### Refactor & Engineering\n- Aggiornati snapshot/static data GitHub usati nel repository (commit 8049c1f).\n- Modificati i workflow: deploy, refresh-static-data, release-notes.\n- Aggiornati file di dati pubblici: public/data/exercises.json, public/data/release-notes.json.\n- Aggiornamento di README.md.\n\n### Breaking Changes\n- Nessuna breaking change identificata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta basata sulle modifiche presenti.\n\n### Known Limitations\n- Nessuna limitazione esplicita documentata nei commit/changes forniti.\n\n### Diff & Commit Range\n- Range: v2.7.5..v2.7.6\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.5...v2.7.6\n- Commit chiave:\n  - 30907b8 — feat: enhance deploy workflow to handle tag pushes and streamline release notes generation #patch (Tommaso Berti)\n  - 8049c1f — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - .github/workflows/refresh-static-data.yml\n  - .github/workflows/release-notes.yml\n  - README.md\n  - public/data/exercises.json\n  - public/data/release-notes.json\n\n---\n\n## English\n### Overview\n- Release focused on GitHub Actions workflow improvements and updates to static/site data.\n\n### New Features\n- Enhanced deploy workflow to handle tag pushes and streamline release notes generation (commit 30907b8).\n\n### Bug Fixes\n- No explicit bug fixes in the provided commits.\n\n### Refactor & Engineering\n- Refreshed static GitHub snapshots/data (commit 8049c1f).\n- Updated workflows: deploy, refresh-static-data, release-notes.\n- Updated public data files: public/data/exercises.json, public/data/release-notes.json.\n- README.md updated.\n\n### Breaking Changes\n- No breaking changes identified in the provided commits.\n\n### Migration Notes\n- No migration required based on the changes present.\n\n### Known Limitations\n- No explicit limitations documented in the provided commits/changes.\n\n### Diff & Commit Range\n- Range: v2.7.5..v2.7.6\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.5...v2.7.6\n- Key commits:\n  - 30907b8 — feat: enhance deploy workflow to handle tag pushes and streamline release notes generation #patch (Tommaso Berti)\n  - 8049c1f — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - .github/workflows/refresh-static-data.yml\n  - .github/workflows/release-notes.yml\n  - README.md\n  - public/data/exercises.json\n  - public/data/release-notes.json",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.6",
-  "publishedAt": "2026-03-16T09:14:16Z",
+  "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Release patch che aggiorna la gestione delle note di rilascio con supporto Markdown e migliora la validazione dei dati statici.\n- Include aggiornamenti agli artefatti di release v2.7.6 e modifiche a script e componenti che leggono le release notes.\n\n### Nuove funzionalita\n- Supporto Markdown per la gestione delle release notes (aggiornamento della generazione/visualizzazione).\n\n### Bug Fixes\n- Migliorata la validazione dei dati statici usati per le release notes ed altri payload (riduce errori di parsing/validazione).\n\n### Refactor & Engineering\n- Modificati script e componenti coinvolti:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Aggiornati file di dati e artefatti:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Aggiornati file di build/CI:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- Nessuna breaking change rilevata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta dai cambiamenti elencati.\n\n### Known Limitations\n- Nessuna limitazione specifica documentata nei commit inclusi in questo range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Commiti inclusi:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)\n\n---\n\n## English\n### Overview\n- Patch release that updates release-notes handling with Markdown support and improves static data validation.\n- Includes updated v2.7.6 release artifacts and changes to scripts and components that consume release notes.\n\n### New Features\n- Markdown support for release-notes generation/display.\n\n### Bug Fixes\n- Improved validation of static data used for release notes and other payloads (reduces parsing/validation errors).\n\n### Refactor & Engineering\n- Modified scripts and components:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Updated data files and artifacts:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Updated build/CI and package files:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the changes in this range.\n\n### Known Limitations\n- No specific limitations documented in the commits included in this range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Included commits:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.7",
+  "publishedAt": "2026-03-16T09:34:17Z",
   "history": [
+    {
+      "tag": "v2.7.7",
+      "version": "2.7.7",
+      "previousTag": "v2.7.6",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
+          "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d455d03a9fe31941605ab7605f199e90e23d678b",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T10:31:40+01:00"
+        },
+        {
+          "sha": "c6fe13642a95496877015cf74edb1418ed54d801",
+          "subject": "docs(release): v2.7.6 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6fe13642a95496877015cf74edb1418ed54d801",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T09:14:19Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Release patch che aggiorna la gestione delle note di rilascio con supporto Markdown e migliora la validazione dei dati statici.\n- Include aggiornamenti agli artefatti di release v2.7.6 e modifiche a script e componenti che leggono le release notes.\n\n### Nuove funzionalita\n- Supporto Markdown per la gestione delle release notes (aggiornamento della generazione/visualizzazione).\n\n### Bug Fixes\n- Migliorata la validazione dei dati statici usati per le release notes ed altri payload (riduce errori di parsing/validazione).\n\n### Refactor & Engineering\n- Modificati script e componenti coinvolti:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Aggiornati file di dati e artefatti:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Aggiornati file di build/CI:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- Nessuna breaking change rilevata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta dai cambiamenti elencati.\n\n### Known Limitations\n- Nessuna limitazione specifica documentata nei commit inclusi in questo range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Commiti inclusi:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)\n\n---\n\n## English\n### Overview\n- Patch release that updates release-notes handling with Markdown support and improves static data validation.\n- Includes updated v2.7.6 release artifacts and changes to scripts and components that consume release notes.\n\n### New Features\n- Markdown support for release-notes generation/display.\n\n### Bug Fixes\n- Improved validation of static data used for release notes and other payloads (reduces parsing/validation errors).\n\n### Refactor & Engineering\n- Modified scripts and components:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Updated data files and artifacts:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Updated build/CI and package files:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the changes in this range.\n\n### Known Limitations\n- No specific limitations documented in the commits included in this range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Included commits:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.7",
+      "publishedAt": "2026-03-16T09:34:17Z"
+    },
     {
       "tag": "v2.7.6",
       "version": "2.7.6",
@@ -240,8 +266,8 @@
     {
       "tag": "v2.4.0",
       "version": "2.4.0",
-      "previousTag": "v2.3.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
@@ -256,19 +282,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
           "author": "Tommaso Berti",
           "date": "2026-03-16T00:56:00+01:00"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.3.0",
-      "version": "2.3.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "36af5009c25ee8764bd6fe4a5de1fe35da06e679",
           "subject": "feat: update README with enhanced project details, local setup instructions, and deployment procedures for improved clarity #minor",
@@ -324,20 +338,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52df89af2f5764354cda45e85f8639a2ca93dbd2",
           "author": "Tommaso Berti",
           "date": "2026-03-15T21:57:07+01:00"
-        },
-        {
-          "sha": "fcf4db62b1d6168e9939d12f2324254995f18502",
-          "subject": "feat: update brand icons and enhance experience and hobbies sections for clarity and detail",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/fcf4db62b1d6168e9939d12f2324254995f18502",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T21:47:08+01:00"
-        },
-        {
-          "sha": "1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
-          "subject": "feat: update project descriptions and enhance technology configuration for clarity and consistency",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T21:28:55+01:00"
         }
       ],
       "source": "local",

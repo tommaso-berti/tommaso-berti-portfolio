@@ -67,6 +67,61 @@ Personal portfolio SPA built with React, Vite and MUI.
 - Commit entries are normalized, deduplicated and filtered for noise.
 - Loading uses MUI Skeleton; errors show retry action.
 
+## Automated AI Release Notes
+
+This project includes an automated release-notes pipeline that can generate complete bilingual notes (IT + EN) from git history.
+
+### What is included
+
+- Repo workflow: `.github/workflows/release-notes.yml`
+- Local wrapper: `scripts/release-notes/run.sh`
+- Optional per-project config: `.release-notes.config.json`
+- Reusable global skill:
+  - `~/.codex/skills/release-notes-pro/SKILL.md`
+  - `~/.codex/skills/release-notes-pro/scripts/collect_changes.sh`
+  - `~/.codex/skills/release-notes-pro/scripts/generate_notes.mjs`
+  - `~/.codex/skills/release-notes-pro/templates/release_notes_prompt.md`
+
+### How it works
+
+- Trigger: push tag `v*` (for example `v1.2.3`) or manual `workflow_dispatch`.
+- Output file: `release-notes/vX.Y.Z.md`.
+- Release body: updated from the generated markdown file.
+- Fallback mode: if `OPENAI_API_KEY` is missing/failing, notes are generated from commit metadata (no AI synthesis).
+
+### One-time setup
+
+1. Ensure the global skill exists in `~/.codex/skills/release-notes-pro`.
+2. Add repository secret `OPENAI_API_KEY` in GitHub Actions settings.
+3. Use SemVer tags: `vMAJOR.MINOR.PATCH`.
+
+### Local usage
+
+Generate notes locally with the same pipeline used in CI:
+
+```bash
+scripts/release-notes/run.sh --tag v1.2.3
+```
+
+Optional range override:
+
+```bash
+scripts/release-notes/run.sh --tag v1.2.3 --from v1.2.2 --to HEAD
+```
+
+### CI usage
+
+- Automatic: push a new tag matching `v*`.
+- Manual: run workflow `Release Notes` and provide:
+  - `tag` (required)
+  - `from` (optional)
+  - `to` (optional)
+
+### Notes quality recommendations
+
+- Prefer conventional commit prefixes (`feat`, `fix`, `refactor`, `docs`, `chore`) for better categorization.
+- Keep commit messages explicit and user-impact oriented where possible.
+
 ## Project Architecture
 
 - `src/app`: app providers, routing and top-level composition

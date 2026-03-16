@@ -1,29 +1,69 @@
 {
-  "generatedAt": "2026-03-16T09:34:19.483Z",
-  "latestTag": "v2.7.7",
-  "latestVersion": "2.7.7",
-  "previousTag": "v2.7.6",
+  "generatedAt": "2026-03-16T09:46:14.311Z",
+  "latestTag": "v2.7.8",
+  "latestVersion": "2.7.8",
+  "previousTag": "v2.7.7",
   "releaseType": "patch",
   "entries": [
     {
-      "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
-      "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d455d03a9fe31941605ab7605f199e90e23d678b",
+      "sha": "b01388bb778f6db67cb1d2bafd458f0696397ec2",
+      "subject": "fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b01388bb778f6db67cb1d2bafd458f0696397ec2",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T10:31:40+01:00"
+      "date": "2026-03-16T10:44:53+01:00"
     },
     {
-      "sha": "c6fe13642a95496877015cf74edb1418ed54d801",
-      "subject": "docs(release): v2.7.6 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6fe13642a95496877015cf74edb1418ed54d801",
+      "sha": "a04c806fb087d0a456bc612f902e6a3bd9c705d6",
+      "subject": "feat: enhance release notes generation with version type resolution and improved markdown handling #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a04c806fb087d0a456bc612f902e6a3bd9c705d6",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T10:42:04+01:00"
+    },
+    {
+      "sha": "d9d390c30abe9742990ead20d6bc25cd8a17d729",
+      "subject": "docs(release): v2.7.7 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T09:14:19Z"
+      "date": "2026-03-16T09:34:19Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Release patch che aggiorna la gestione delle note di rilascio con supporto Markdown e migliora la validazione dei dati statici.\n- Include aggiornamenti agli artefatti di release v2.7.6 e modifiche a script e componenti che leggono le release notes.\n\n### Nuove funzionalita\n- Supporto Markdown per la gestione delle release notes (aggiornamento della generazione/visualizzazione).\n\n### Bug Fixes\n- Migliorata la validazione dei dati statici usati per le release notes ed altri payload (riduce errori di parsing/validazione).\n\n### Refactor & Engineering\n- Modificati script e componenti coinvolti:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Aggiornati file di dati e artefatti:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Aggiornati file di build/CI:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- Nessuna breaking change rilevata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta dai cambiamenti elencati.\n\n### Known Limitations\n- Nessuna limitazione specifica documentata nei commit inclusi in questo range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Commiti inclusi:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)\n\n---\n\n## English\n### Overview\n- Patch release that updates release-notes handling with Markdown support and improves static data validation.\n- Includes updated v2.7.6 release artifacts and changes to scripts and components that consume release notes.\n\n### New Features\n- Markdown support for release-notes generation/display.\n\n### Bug Fixes\n- Improved validation of static data used for release notes and other payloads (reduces parsing/validation errors).\n\n### Refactor & Engineering\n- Modified scripts and components:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Updated data files and artifacts:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Updated build/CI and package files:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the changes in this range.\n\n### Known Limitations\n- No specific limitations documented in the commits included in this range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Included commits:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.7",
-  "publishedAt": "2026-03-16T09:34:17Z",
+  "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Overview\nRilascio patch (releaseType: patch). Migliorata l'affidabilità del deploy (SSH/rsync retry) e aggiornata la generazione delle note di rilascio e gli artefatti di documentazione.\n\n### Nuove funzionalita\nNessuna nuova funzionalità in questo rilascio (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: migliorata affidabilità SSH e rsync con logica di retry nel workflow di deploy. (file modificato: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: risoluzione del tipo di versione e miglior gestione del markdown. (file modificati: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (aggiornamento artefatti/documentazione). (commit automatico da github-actions[bot])\n\n### Breaking Changes\nNessuna breaking change.\n\n### Migration Notes\nNessuna migrazione richiesta.\n\n### Known Limitations\nNessuna limitazione nota specificata nei metadati di commit.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nPatch release (releaseType: patch). Improved deploy reliability (SSH/rsync retry) and updated release-notes generation and documentation artifacts.\n\n### New Features\nNo new features in this release (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow. (file changed: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: version-type resolution and improved markdown handling. (files changed: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (documentation/artifact update). (automated commit by github-actions[bot])\n\n### Breaking Changes\nNo breaking changes.\n\n### Migration Notes\nNo migration required.\n\n### Known Limitations\nNo known limitations specified in the commit metadata.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
+  "publishedAt": "2026-03-16T09:46:11Z",
   "history": [
+    {
+      "tag": "v2.7.8",
+      "version": "2.7.8",
+      "previousTag": "v2.7.7",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "b01388bb778f6db67cb1d2bafd458f0696397ec2",
+          "subject": "fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b01388bb778f6db67cb1d2bafd458f0696397ec2",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T10:44:53+01:00"
+        },
+        {
+          "sha": "a04c806fb087d0a456bc612f902e6a3bd9c705d6",
+          "subject": "feat: enhance release notes generation with version type resolution and improved markdown handling #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a04c806fb087d0a456bc612f902e6a3bd9c705d6",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T10:42:04+01:00"
+        },
+        {
+          "sha": "d9d390c30abe9742990ead20d6bc25cd8a17d729",
+          "subject": "docs(release): v2.7.7 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T09:34:19Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Overview\nRilascio patch (releaseType: patch). Migliorata l'affidabilità del deploy (SSH/rsync retry) e aggiornata la generazione delle note di rilascio e gli artefatti di documentazione.\n\n### Nuove funzionalita\nNessuna nuova funzionalità in questo rilascio (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: migliorata affidabilità SSH e rsync con logica di retry nel workflow di deploy. (file modificato: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: risoluzione del tipo di versione e miglior gestione del markdown. (file modificati: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (aggiornamento artefatti/documentazione). (commit automatico da github-actions[bot])\n\n### Breaking Changes\nNessuna breaking change.\n\n### Migration Notes\nNessuna migrazione richiesta.\n\n### Known Limitations\nNessuna limitazione nota specificata nei metadati di commit.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nPatch release (releaseType: patch). Improved deploy reliability (SSH/rsync retry) and updated release-notes generation and documentation artifacts.\n\n### New Features\nNo new features in this release (releaseType: patch).\n\n### Bug Fixes\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow. (file changed: .github/workflows/deploy.yml)\n\n### Refactor & Engineering\n- a04c806 — enhance release notes generation: version-type resolution and improved markdown handling. (files changed: scripts/release-notes/generate_notes.mjs, scripts/release-notes/collect_changes.sh, scripts/release-notes/release_notes_prompt.md, src/hooks/useLatestReleaseNotes.js, public/data/release-notes.json, release-notes/v2.7.7.md)\n- d9d390c — docs(release): v2.7.7 artifacts (documentation/artifact update). (automated commit by github-actions[bot])\n\n### Breaking Changes\nNo breaking changes.\n\n### Migration Notes\nNo migration required.\n\n### Known Limitations\nNo known limitations specified in the commit metadata.\n\n### Diff & Commit Range\nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.7...v2.7.8  \nRange: v2.7.7..v2.7.8\n\nCommits:\n- b01388b — fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch — Tommaso Berti — 2026-03-16T10:44:53+01:00\n- a04c806 — feat: enhance release notes generation with version type resolution and improved markdown handling #minor — Tommaso Berti — 2026-03-16T10:42:04+01:00\n- d9d390c — docs(release): v2.7.7 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:34:19Z\n\nFiles changed:\n- .github/workflows/deploy.yml\n- .gitignore\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.7.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/hooks/useLatestReleaseNotes.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
+      "publishedAt": "2026-03-16T09:46:11Z"
+    },
     {
       "tag": "v2.7.7",
       "version": "2.7.7",
@@ -46,7 +86,7 @@
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Release patch che aggiorna la gestione delle note di rilascio con supporto Markdown e migliora la validazione dei dati statici.\n- Include aggiornamenti agli artefatti di release v2.7.6 e modifiche a script e componenti che leggono le release notes.\n\n### Nuove funzionalita\n- Supporto Markdown per la gestione delle release notes (aggiornamento della generazione/visualizzazione).\n\n### Bug Fixes\n- Migliorata la validazione dei dati statici usati per le release notes ed altri payload (riduce errori di parsing/validazione).\n\n### Refactor & Engineering\n- Modificati script e componenti coinvolti:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Aggiornati file di dati e artefatti:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Aggiornati file di build/CI:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- Nessuna breaking change rilevata nei commit forniti.\n\n### Migration Notes\n- Nessuna migrazione richiesta dai cambiamenti elencati.\n\n### Known Limitations\n- Nessuna limitazione specifica documentata nei commit inclusi in questo range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Commiti inclusi:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)\n\n---\n\n## English\n### Overview\n- Patch release that updates release-notes handling with Markdown support and improves static data validation.\n- Includes updated v2.7.6 release artifacts and changes to scripts and components that consume release notes.\n\n### New Features\n- Markdown support for release-notes generation/display.\n\n### Bug Fixes\n- Improved validation of static data used for release notes and other payloads (reduces parsing/validation errors).\n\n### Refactor & Engineering\n- Modified scripts and components:\n  - scripts/release-notes/generate_notes.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Updated data files and artifacts:\n  - public/data/release-notes.json\n  - release-notes/v2.7.6.md\n  - public/data/exercises.json\n- Updated build/CI and package files:\n  - .github/workflows/deploy.yml\n  - package.json / package-lock.json\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the changes in this range.\n\n### Known Limitations\n- No specific limitations documented in the commits included in this range.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...v2.7.7\n- Range: v2.7.6..v2.7.7\n- Included commits:\n  - d455d03 — fix: update release notes handling with markdown support and improve static data validation #patch (Tommaso Berti, 2026-03-16T10:31:40+01:00)\n  - c6fe136 — docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (github-actions[bot], 2026-03-16T09:14:19Z)\n  - 8d0939a — Merge remote-tracking branch 'origin/main' (Tommaso Berti, 2026-03-16T10:31:53+01:00)",
+      "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Rilascio generato da commit nel range `v2.7.6..HEAD`.\n- Commit inclusi: 4. File modificati: 10.\n\n### Nuove funzionalita\n- Nessuna nuova funzionalita rilevata.\n\n### Bug Fixes\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n\n### Refactor & Engineering\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- Nessuna breaking change rilevata.\n\n### Migration Notes\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Known Limitations\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD\n- File principali:\n- .github/workflows/deploy.yml\n- package-lock.json\n- package.json\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.6.md\n- release-notes/v2.7.7.md\n- scripts/release-notes/generate_notes.mjs\n- src/app/layout/ReleaseNotesModal.jsx\n- src/hooks/useLatestReleaseNotes.js\n\n## English\n### Overview\n- Release generated from commits in range `v2.7.6..HEAD`.\n- Included commits: 4. Changed files: 10.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n\n### Refactor & Engineering\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
       "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.7",
       "publishedAt": "2026-03-16T09:34:17Z"
     },
@@ -247,8 +287,8 @@
     {
       "tag": "v2.5.0",
       "version": "2.5.0",
-      "previousTag": "v2.4.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "246bf20f0089278c69d30258e21322b89481f359",
@@ -256,19 +296,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/246bf20f0089278c69d30258e21322b89481f359",
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:07:20+01:00"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.4.0",
-      "version": "2.4.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
           "subject": "feat: enhance exercise descriptions and refactor repository name normalization for improved clarity and functionality #minor",
@@ -331,13 +359,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/37a95085dd21cd168d9f47d548f8d24605bec1ee",
           "author": "Tommaso Berti",
           "date": "2026-03-15T22:08:16+01:00"
-        },
-        {
-          "sha": "52df89af2f5764354cda45e85f8639a2ca93dbd2",
-          "subject": "feat: update hero section text and add primary call-to-action button for improved user engagement",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52df89af2f5764354cda45e85f8639a2ca93dbd2",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T21:57:07+01:00"
         }
       ],
       "source": "local",

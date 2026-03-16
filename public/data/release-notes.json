@@ -1,29 +1,69 @@
 {
-  "generatedAt": "2026-03-16T09:53:19.750Z",
-  "latestTag": "v2.8.0",
-  "latestVersion": "2.8.0",
-  "previousTag": "v2.7.8",
+  "generatedAt": "2026-03-16T10:28:04.577Z",
+  "latestTag": "v2.9.0",
+  "latestVersion": "2.9.0",
+  "previousTag": "v2.8.0",
   "releaseType": "minor",
   "entries": [
     {
-      "sha": "27ebc53a389bf7437f39658ba1c786b3780d5e5c",
-      "subject": "feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/27ebc53a389bf7437f39658ba1c786b3780d5e5c",
+      "sha": "50b5e1a551694219c251c6120c9196f4ad613dba",
+      "subject": "feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/50b5e1a551694219c251c6120c9196f4ad613dba",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T10:52:00+01:00"
+      "date": "2026-03-16T11:26:38+01:00"
     },
     {
-      "sha": "da01a208ea235e951a10740626f013b3a14d4d05",
-      "subject": "docs(release): v2.7.8 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/da01a208ea235e951a10740626f013b3a14d4d05",
+      "sha": "2a04e753c615f188459bbabd94aac431197df39c",
+      "subject": "feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2a04e753c615f188459bbabd94aac431197df39c",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T11:00:40+01:00"
+    },
+    {
+      "sha": "550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
+      "subject": "docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T09:46:14Z"
+      "date": "2026-03-16T09:53:24Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.8.0\n\n## Italiano\n### Panoramica\n- Tipo rilascio: minor (da v2.7.8 a v2.8.0)\n- Generato: 2026-03-16T09:52:48.020Z\n\n### Novita\n- Aggiunta logica di retry per SSH e rsync nel workflow di deploy (commit 27ebc53).\n- Normalizzazione delle intestazioni della sezione italiana nelle note di rilascio (commit 27ebc53).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo di commit.\n\n### Migliorie Tecniche\n- Aggiornati artifact e metadati delle note di rilascio (commit da01a20).\n- Modifiche agli script per la generazione delle note di rilascio e ai dati pubblici (file modificati: scripts/release-notes/*, public/data/*).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta basata sui commit inclusi.\n\n### Limiti Noti\n- Nessun limite noto registrato nei commit forniti.\n\n### Confronto e Intervallo Commit\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nCommits inclusi:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nFile modificati:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n\n---\n\n## English\n### Overview\n- Release type: minor (from v2.7.8 to v2.8.0)\n- Generated: 2026-03-16T09:52:48.020Z\n\n### New Features\n- Add retry logic for SSH and rsync in the deploy workflow (commit 27ebc53).\n- Normalize Italian section headings in release notes generation (commit 27ebc53).\n\n### Bug Fixes\n- No specific bug fixes in this commit range.\n\n### Refactor & Engineering\n- Updated release artifacts/metadata for v2.7.8 (commit da01a20).\n- Changes to release-notes generation scripts and public data files (see changed files).\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the included commits.\n\n### Known Limitations\n- No known limitations recorded in the provided commits.\n\n### Diff & Commit Range\n- Range: v2.7.8..v2.8.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.8...v2.8.0\n\nIncluded commits:\n- 27ebc53 — feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor — Tommaso Berti — 2026-03-16T10:52:00+01:00\n- da01a20 — docs(release): v2.7.8 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-16T09:46:14Z\n\nChanged files:\n- .github/workflows/deploy.yml\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v2.7.8.json\n- release-notes/v2.7.8.md\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.8.0",
-  "publishedAt": "2026-03-16T09:53:16Z",
+  "bodyMarkdown": "# Release Notes v2.9.0\n\n## Italiano\n### Panoramica\n- Versione: v2.9.0\n- Tipo di rilascio: minor\n- Intervallo commit: v2.8.0..v2.9.0 (4 commit)\n\n### Novita\n- Refactor della sezione Experience: introdotto il componente CareerTimeline per presentare la carriera. (commit 50b5e1a)\n- Anteprime progetti con caricamento differito e supporto tooltip nel componente MiniWebappPreview. (commit 2a04e75)\n  \n### Correzioni\n- Nessuna correzione segnalata nei commit di questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: modificati src/i18n/en.json e src/i18n/it.json.\n- Modifiche ai file di progetto e selettori: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Articoli di rilascio e metadati aggiornati: public/data/release-notes.json, release-notes/v2.8.0.md e commit di artefatti di rilascio. (commit 550a062)\n- Merge dalla main integrato. (commit c23ad27)\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata in questo intervallo.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto registrato nei metadati dei commit.\n\n### Confronto e Intervallo Commit\n- Confronto completo: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Intervallo: v2.8.0..v2.9.0\n- Commit inclusi:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]\n\n---\n\n## English\n### Overview\n- Version: v2.9.0\n- Release type: minor\n- Commit range: v2.8.0..v2.9.0 (4 commits)\n\n### New Features\n- Refactor of the Experience section: introduced a new CareerTimeline component. (commit 50b5e1a)\n- Deferred loading for project previews with tooltip support in the MiniWebappPreview component. (commit 2a04e75)\n\n### Bug Fixes\n- No bug-fix commits in this range.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json and src/i18n/it.json modified.\n- Project pages and selectors updated: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Release artifacts and metadata updated: public/data/release-notes.json, release-notes/v2.8.0.md and related docs commit. (commit 550a062)\n- Merge from main integrated. (commit c23ad27)\n\n### Breaking Changes\n- No breaking changes detected in this range.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations recorded in the commit metadata.\n\n### Diff & Commit Range\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Range: v2.8.0..v2.9.0\n- Commits:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.9.0",
+  "publishedAt": "2026-03-16T10:28:00Z",
   "history": [
+    {
+      "tag": "v2.9.0",
+      "version": "2.9.0",
+      "previousTag": "v2.8.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "50b5e1a551694219c251c6120c9196f4ad613dba",
+          "subject": "feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/50b5e1a551694219c251c6120c9196f4ad613dba",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T11:26:38+01:00"
+        },
+        {
+          "sha": "2a04e753c615f188459bbabd94aac431197df39c",
+          "subject": "feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2a04e753c615f188459bbabd94aac431197df39c",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T11:00:40+01:00"
+        },
+        {
+          "sha": "550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
+          "subject": "docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T09:53:24Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.9.0\n\n## Italiano\n### Panoramica\n- Versione: v2.9.0\n- Tipo di rilascio: minor\n- Intervallo commit: v2.8.0..v2.9.0 (4 commit)\n\n### Novita\n- Refactor della sezione Experience: introdotto il componente CareerTimeline per presentare la carriera. (commit 50b5e1a)\n- Anteprime progetti con caricamento differito e supporto tooltip nel componente MiniWebappPreview. (commit 2a04e75)\n  \n### Correzioni\n- Nessuna correzione segnalata nei commit di questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: modificati src/i18n/en.json e src/i18n/it.json.\n- Modifiche ai file di progetto e selettori: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Articoli di rilascio e metadati aggiornati: public/data/release-notes.json, release-notes/v2.8.0.md e commit di artefatti di rilascio. (commit 550a062)\n- Merge dalla main integrato. (commit c23ad27)\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata in questo intervallo.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto registrato nei metadati dei commit.\n\n### Confronto e Intervallo Commit\n- Confronto completo: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Intervallo: v2.8.0..v2.9.0\n- Commit inclusi:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]\n\n---\n\n## English\n### Overview\n- Version: v2.9.0\n- Release type: minor\n- Commit range: v2.8.0..v2.9.0 (4 commits)\n\n### New Features\n- Refactor of the Experience section: introduced a new CareerTimeline component. (commit 50b5e1a)\n- Deferred loading for project previews with tooltip support in the MiniWebappPreview component. (commit 2a04e75)\n\n### Bug Fixes\n- No bug-fix commits in this range.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json and src/i18n/it.json modified.\n- Project pages and selectors updated: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Release artifacts and metadata updated: public/data/release-notes.json, release-notes/v2.8.0.md and related docs commit. (commit 550a062)\n- Merge from main integrated. (commit c23ad27)\n\n### Breaking Changes\n- No breaking changes detected in this range.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations recorded in the commit metadata.\n\n### Diff & Commit Range\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Range: v2.8.0..v2.9.0\n- Commits:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.9.0",
+      "publishedAt": "2026-03-16T10:28:00Z"
+    },
     {
       "tag": "v2.8.0",
       "version": "2.8.0",
@@ -268,8 +308,8 @@
     {
       "tag": "v2.7.0",
       "version": "2.7.0",
-      "previousTag": "v2.6.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
@@ -277,19 +317,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:29:32+01:00"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.6.0",
-      "version": "2.6.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "a1126a5888422db70cc55662c1296878255547a1",
           "subject": "feat: add local scripts for release notes generation and enhance README with troubleshooting information #minor",
@@ -352,13 +380,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5044067ce875023d6ff6b19e54ea5824f703e2c4",
           "author": "Tommaso Berti",
           "date": "2026-03-15T22:19:30+01:00"
-        },
-        {
-          "sha": "30489f07e60e3d91617b838b00ecd0d8968a1750",
-          "subject": "feat: add Cloudflare icon and update technology categories for improved organization and clarity",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/30489f07e60e3d91617b838b00ecd0d8968a1750",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T22:12:52+01:00"
         }
       ],
       "source": "local",

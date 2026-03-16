@@ -77,12 +77,9 @@ jobs:
 
           RELEASE_TEXT=""
           if [ "$EVENT_NAME" = "push" ]; then
-            if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
-              RANGE="$BEFORE_SHA..$SHA"
-              RELEASE_TEXT="$(git log --format=%B "$RANGE" || true)"
-            else
-              RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
-            fi
+            # Use only the latest pushed commit for bump tokens (#major/#minor/#patch),
+            # so the current commit intent is not overridden by older commits in the push range.
+            RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             RELEASE_TEXT="$(git log --format=%B -n 20 "$RESOLVED_SHA" || true)"
           fi

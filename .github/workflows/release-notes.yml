@@ -57,6 +57,13 @@ jobs:
             exit 1
           fi
 
+      - name: Create or update GitHub release body
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TARGET_TAG }}
+          body_path: release-notes/${{ env.TARGET_TAG }}.md
+          generate_release_notes: false
+
       - name: Refresh static JSON snapshots
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,10 +89,3 @@ jobs:
             git commit -m "docs(release-notes): ${TARGET_TAG} + static data [skip ci]"
             git push origin "$DEFAULT_BRANCH"
           fi
-
-      - name: Create or update GitHub release body
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.TARGET_TAG }}
-          body_path: release-notes/${{ env.TARGET_TAG }}.md
-          generate_release_notes: false

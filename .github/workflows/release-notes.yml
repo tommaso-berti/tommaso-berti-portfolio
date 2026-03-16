@@ -57,6 +57,14 @@ jobs:
             exit 1
           fi
 
+      - name: Refresh static JSON snapshots
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/static-data/refresh-static-data.mjs
+          test -f public/data/exercises.json
+          test -f public/data/release-notes.json
+
       - name: Commit notes on default branch
         run: |
           git config user.name "github-actions[bot]"
@@ -67,11 +75,11 @@ jobs:
             echo "Missing release notes file after checkout: release-notes/${TARGET_TAG}.md" >&2
             exit 1
           fi
-          git add "release-notes/${TARGET_TAG}.md"
+          git add "release-notes/${TARGET_TAG}.md" public/data/exercises.json public/data/release-notes.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "docs(release-notes): ${TARGET_TAG}"
+            git commit -m "docs(release-notes): ${TARGET_TAG} + static data [skip ci]"
             git push origin "$DEFAULT_BRANCH"
           fi
 

@@ -1,19 +1,35 @@
 {
-  "generatedAt": "2026-03-16T08:29:46.495Z",
-  "latestTag": "v2.6.0",
-  "latestVersion": "2.6.0",
-  "previousTag": "v2.5.0",
+  "generatedAt": "2026-03-16T08:36:00.531Z",
+  "latestTag": "v2.7.0",
+  "latestVersion": "2.7.0",
+  "previousTag": "v2.6.0",
   "releaseType": "minor",
   "entries": [
     {
-      "sha": "a1126a5888422db70cc55662c1296878255547a1",
-      "subject": "feat: add local scripts for release notes generation and enhance README with troubleshooting information #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a1126a5888422db70cc55662c1296878255547a1",
+      "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
+      "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T08:18:00Z"
+      "date": "2026-03-16T08:29:32Z"
     }
   ],
   "history": [
+    {
+      "tag": "v2.7.0",
+      "version": "2.7.0",
+      "previousTag": "v2.6.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
+          "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T08:29:32Z"
+        }
+      ],
+      "source": "compare"
+    },
     {
       "tag": "v2.6.0",
       "version": "2.6.0",

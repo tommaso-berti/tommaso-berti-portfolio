@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-16T08:57:14.784Z",
-  "latestTag": "v2.7.3",
-  "latestVersion": "2.7.3",
-  "previousTag": "v2.7.2",
+  "generatedAt": "2026-03-16T09:05:51.076Z",
+  "latestTag": "v2.7.4",
+  "latestVersion": "2.7.4",
+  "previousTag": "v2.7.3",
   "releaseType": "patch",
   "entries": [
     {
-      "sha": "6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
-      "subject": "chore(data): refresh static github snapshots [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
-      "author": "github-actions[bot]",
-      "date": "2026-03-16T08:40:16Z"
+      "sha": "b74976b3713dc90d1310e0ed2d81881d3a39cea2",
+      "subject": "feat: add release notes generation and static data refresh workflow for deployments #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b74976b3713dc90d1310e0ed2d81881d3a39cea2",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T09:56:58+01:00"
     },
     {
-      "sha": "3c48d7819dc34cc050956fff659c681d7ff1176e",
-      "subject": "feat: simplify release notes generation by using only the latest commit and update GitHub release action #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
-      "author": "Tommaso Berti",
-      "date": "2026-03-16T08:50:36Z"
+      "sha": "5f783fe4001738bed803d96c2f3804a1f78c73fd",
+      "subject": "chore(data): refresh static github snapshots [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5f783fe4001738bed803d96c2f3804a1f78c73fd",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T08:50:56Z"
     }
   ],
-  "bodyMarkdown": "",
-  "releaseUrl": "",
-  "publishedAt": "",
+  "bodyMarkdown": "# Release Notes v2.7.4\n\n## Italiano\n### Overview\n- Release v2.7.4 introduce la generazione automatica delle release notes e l'aggiornamento dei dati statici usati per il deployment. Contiene 2 commit e modifiche a workflow e dati pubblici.\n\n### Nuove funzionalita\n- feat (b74976b): aggiunta della generazione delle release notes e del workflow di refresh dei dati statici per i deployment.\n  - File principali coinvolti: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- Nessuno in questo rilascio.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh degli snapshot statici GitHub (dati pubblici aggiornati).\n  - File modificati: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- Nessuna breaking change segnalata.\n\n### Migration Notes\n- Nessuna migrazione richiesta.\n\n### Known Limitations\n- Nessuna limitazione nota nei metadati forniti.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n\n---\n\n## English\n### Overview\n- Release v2.7.4 adds automatic release-notes generation and a static data refresh workflow for deployments. Contains 2 commits and changes to workflow and public data.\n\n### New Features\n- feat (b74976b): add release notes generation and static data refresh workflow for deployments.\n  - Main files affected: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- None in this release.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh static GitHub snapshots (public data updated).\n  - Files changed: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration required.\n\n### Known Limitations\n- No known limitations in the provided metadata.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n# Release Notes v2.7.4\n\n## Italiano\n### Overview\n- Release v2.7.4 introduce la generazione automatica delle release notes e l'aggiornamento dei dati statici usati per il deployment. Contiene 2 commit e modifiche a workflow e dati pubblici.\n\n### Nuove funzionalita\n- feat (b74976b): aggiunta della generazione delle release notes e del workflow di refresh dei dati statici per i deployment.\n  - File principali coinvolti: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- Nessuno in questo rilascio.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh degli snapshot statici GitHub (dati pubblici aggiornati).\n  - File modificati: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- Nessuna breaking change segnalata.\n\n### Migration Notes\n- Nessuna migrazione richiesta.\n\n### Known Limitations\n- Nessuna limitazione nota nei metadati forniti.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n\n---\n\n## English\n### Overview\n- Release v2.7.4 adds automatic release-notes generation and a static data refresh workflow for deployments. Contains 2 commits and changes to workflow and public data.\n\n### New Features\n- feat (b74976b): add release notes generation and static data refresh workflow for deployments.\n  - Main files affected: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- None in this release.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh static GitHub snapshots (public data updated).\n  - Files changed: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration required.\n\n### Known Limitations\n- No known limitations in the provided metadata.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.4",
+  "publishedAt": "2026-03-16T08:58:02Z",
   "history": [
+    {
+      "tag": "v2.7.4",
+      "version": "2.7.4",
+      "previousTag": "v2.7.3",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "b74976b3713dc90d1310e0ed2d81881d3a39cea2",
+          "subject": "feat: add release notes generation and static data refresh workflow for deployments #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b74976b3713dc90d1310e0ed2d81881d3a39cea2",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T09:56:58+01:00"
+        },
+        {
+          "sha": "5f783fe4001738bed803d96c2f3804a1f78c73fd",
+          "subject": "chore(data): refresh static github snapshots [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5f783fe4001738bed803d96c2f3804a1f78c73fd",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T08:50:56Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.7.4\n\n## Italiano\n### Overview\n- Release v2.7.4 introduce la generazione automatica delle release notes e l'aggiornamento dei dati statici usati per il deployment. Contiene 2 commit e modifiche a workflow e dati pubblici.\n\n### Nuove funzionalita\n- feat (b74976b): aggiunta della generazione delle release notes e del workflow di refresh dei dati statici per i deployment.\n  - File principali coinvolti: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- Nessuno in questo rilascio.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh degli snapshot statici GitHub (dati pubblici aggiornati).\n  - File modificati: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- Nessuna breaking change segnalata.\n\n### Migration Notes\n- Nessuna migrazione richiesta.\n\n### Known Limitations\n- Nessuna limitazione nota nei metadati forniti.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n\n---\n\n## English\n### Overview\n- Release v2.7.4 adds automatic release-notes generation and a static data refresh workflow for deployments. Contains 2 commits and changes to workflow and public data.\n\n### New Features\n- feat (b74976b): add release notes generation and static data refresh workflow for deployments.\n  - Main files affected: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- None in this release.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh static GitHub snapshots (public data updated).\n  - Files changed: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration required.\n\n### Known Limitations\n- No known limitations in the provided metadata.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n# Release Notes v2.7.4\n\n## Italiano\n### Overview\n- Release v2.7.4 introduce la generazione automatica delle release notes e l'aggiornamento dei dati statici usati per il deployment. Contiene 2 commit e modifiche a workflow e dati pubblici.\n\n### Nuove funzionalita\n- feat (b74976b): aggiunta della generazione delle release notes e del workflow di refresh dei dati statici per i deployment.\n  - File principali coinvolti: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- Nessuno in questo rilascio.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh degli snapshot statici GitHub (dati pubblici aggiornati).\n  - File modificati: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- Nessuna breaking change segnalata.\n\n### Migration Notes\n- Nessuna migrazione richiesta.\n\n### Known Limitations\n- Nessuna limitazione nota nei metadati forniti.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])\n\n---\n\n## English\n### Overview\n- Release v2.7.4 adds automatic release-notes generation and a static data refresh workflow for deployments. Contains 2 commits and changes to workflow and public data.\n\n### New Features\n- feat (b74976b): add release notes generation and static data refresh workflow for deployments.\n  - Main files affected: .github/workflows/deploy.yml, public/data/release-notes.json\n\n### Bug Fixes\n- None in this release.\n\n### Refactor & Engineering\n- chore (5f783fe): refresh static GitHub snapshots (public data updated).\n  - Files changed: public/data/exercises.json, public/data/release-notes.json\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration required.\n\n### Known Limitations\n- No known limitations in the provided metadata.\n\n### Diff & Commit Range\n- Range: v2.7.3..v2.7.4\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.3...v2.7.4\n- Commit list:\n  - b74976b — feat: add release notes generation and static data refresh workflow for deployments #patch (Tommaso Berti)\n  - 5f783fe — chore(data): refresh static github snapshots [skip ci] (github-actions[bot])",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.4",
+      "publishedAt": "2026-03-16T08:58:02Z"
+    },
     {
       "tag": "v2.7.3",
       "version": "2.7.3",
@@ -31,21 +57,21 @@
       "releaseType": "patch",
       "entries": [
         {
+          "sha": "3c48d7819dc34cc050956fff659c681d7ff1176e",
+          "subject": "feat: simplify release notes generation by using only the latest commit and update GitHub release action #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T09:50:36+01:00"
+        },
+        {
           "sha": "6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
           "subject": "chore(data): refresh static github snapshots [skip ci]",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
           "author": "github-actions[bot]",
           "date": "2026-03-16T08:40:16Z"
-        },
-        {
-          "sha": "3c48d7819dc34cc050956fff659c681d7ff1176e",
-          "subject": "feat: simplify release notes generation by using only the latest commit and update GitHub release action #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T08:50:36Z"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -57,21 +83,21 @@
       "releaseType": "patch",
       "entries": [
         {
+          "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+          "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T09:39:55+01:00"
+        },
+        {
           "sha": "e0229b773e5b554291a01128cda304f9ee69e65a",
           "subject": "chore(data): refresh static github snapshots [skip ci]",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
           "author": "github-actions[bot]",
           "date": "2026-03-16T08:36:00Z"
-        },
-        {
-          "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
-          "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T08:39:55Z"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -83,21 +109,21 @@
       "releaseType": "patch",
       "entries": [
         {
+          "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+          "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T09:35:03+01:00"
+        },
+        {
           "sha": "ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
           "subject": "chore(data): refresh static github snapshots [skip ci]",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
           "author": "github-actions[bot]",
           "date": "2026-03-16T08:29:46Z"
-        },
-        {
-          "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
-          "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T08:35:03Z"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -113,10 +139,10 @@
           "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
           "author": "Tommaso Berti",
-          "date": "2026-03-16T08:29:32Z"
+          "date": "2026-03-16T09:29:32+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -132,10 +158,10 @@
           "subject": "feat: add local scripts for release notes generation and enhance README with troubleshooting information #minor",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a1126a5888422db70cc55662c1296878255547a1",
           "author": "Tommaso Berti",
-          "date": "2026-03-16T08:18:00Z"
+          "date": "2026-03-16T09:18:00+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -151,10 +177,10 @@
           "subject": "feat: add automated release notes generation pipeline with bilingual support and local usage instructions #minor",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/246bf20f0089278c69d30258e21322b89481f359",
           "author": "Tommaso Berti",
-          "date": "2026-03-16T08:07:20Z"
+          "date": "2026-03-16T09:07:20+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -166,21 +192,21 @@
       "releaseType": "minor",
       "entries": [
         {
-          "sha": "3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
-          "subject": "feat: refactor ExercisesSection to use custom hooks for data fetching and enhance repository metadata display",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T23:56:00Z"
-        },
-        {
           "sha": "643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
           "subject": "feat: enhance exercise descriptions and refactor repository name normalization for improved clarity and functionality #minor",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
           "author": "Tommaso Berti",
-          "date": "2026-03-16T07:44:47Z"
+          "date": "2026-03-16T08:44:47+01:00"
+        },
+        {
+          "sha": "3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
+          "subject": "feat: refactor ExercisesSection to use custom hooks for data fetching and enhance repository metadata display",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3ffaa5e0a380847759bd87d9bb67a6c7d7d29012",
+          "author": "Tommaso Berti",
+          "date": "2026-03-16T00:56:00+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -192,28 +218,28 @@
       "releaseType": "minor",
       "entries": [
         {
-          "sha": "ea8410709490d248210762d96b2754f0cb51188f",
-          "subject": "feat: add exercises section with dynamic loading of GitHub starred repositories for enhanced learning resources",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ea8410709490d248210762d96b2754f0cb51188f",
+          "sha": "36af5009c25ee8764bd6fe4a5de1fe35da06e679",
+          "subject": "feat: update README with enhanced project details, local setup instructions, and deployment procedures for improved clarity #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/36af5009c25ee8764bd6fe4a5de1fe35da06e679",
           "author": "Tommaso Berti",
-          "date": "2026-03-15T22:35:13Z"
+          "date": "2026-03-15T23:58:03+01:00"
         },
         {
           "sha": "5d48df0946f2392716d4a2bcdcb39416ee7fd784",
           "subject": "feat: enhance ExercisesSection with loading states and GitHub links for improved user experience",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5d48df0946f2392716d4a2bcdcb39416ee7fd784",
           "author": "Tommaso Berti",
-          "date": "2026-03-15T22:53:49Z"
+          "date": "2026-03-15T23:53:49+01:00"
         },
         {
-          "sha": "36af5009c25ee8764bd6fe4a5de1fe35da06e679",
-          "subject": "feat: update README with enhanced project details, local setup instructions, and deployment procedures for improved clarity #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/36af5009c25ee8764bd6fe4a5de1fe35da06e679",
+          "sha": "ea8410709490d248210762d96b2754f0cb51188f",
+          "subject": "feat: add exercises section with dynamic loading of GitHub starred repositories for enhanced learning resources",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ea8410709490d248210762d96b2754f0cb51188f",
           "author": "Tommaso Berti",
-          "date": "2026-03-15T22:58:03Z"
+          "date": "2026-03-15T23:35:13+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -225,77 +251,77 @@
       "releaseType": "minor",
       "entries": [
         {
-          "sha": "52fc42b69600bd2ec58279812a3208e8f0d6326b",
-          "subject": "feat: enhance layout and styling across components for improved responsiveness and visual consistency",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52fc42b69600bd2ec58279812a3208e8f0d6326b",
+          "sha": "6e1becb2648aea6131c551ce36e2b6ae80b86514",
+          "subject": "feat: add new technologies and enhance project details for improved clarity and organization",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6e1becb2648aea6131c551ce36e2b6ae80b86514",
           "author": "Tommaso Berti",
-          "date": "2026-03-14T14:45:04Z"
+          "date": "2026-03-15T22:39:43+01:00"
         },
         {
-          "sha": "5bde5987088229545de27db2468c1b5dc281724f",
-          "subject": "feat: restructure app architecture by moving components and updating routing definitions",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5bde5987088229545de27db2468c1b5dc281724f",
+          "sha": "5044067ce875023d6ff6b19e54ea5824f703e2c4",
+          "subject": "feat: add search mechanics section and enhance technology details for improved clarity and organization",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5044067ce875023d6ff6b19e54ea5824f703e2c4",
           "author": "Tommaso Berti",
-          "date": "2026-03-14T14:57:08Z"
-        },
-        {
-          "sha": "457f283c843380937c9b243aedc37ef7de6e2d9d",
-          "subject": "feat: improve layout responsiveness by adjusting width and max-width properties",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/457f283c843380937c9b243aedc37ef7de6e2d9d",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T16:57:12Z"
-        },
-        {
-          "sha": "450ce5759e5486f55117c4f51a6c87f740c50783",
-          "subject": "feat: enhance deploy workflow to handle bump token checks and skip deploy logic",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/450ce5759e5486f55117c4f51a6c87f740c50783",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T17:07:39Z"
-        },
-        {
-          "sha": "5ee920edfb383f55a2d363b0f000702fe4be45f1",
-          "subject": "feat: add FriendlyNav component for improved navigation and update Header layout",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5ee920edfb383f55a2d363b0f000702fe4be45f1",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T17:11:14Z"
-        },
-        {
-          "sha": "1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
-          "subject": "feat: update project descriptions and enhance technology configuration for clarity and consistency",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T20:28:55Z"
-        },
-        {
-          "sha": "fcf4db62b1d6168e9939d12f2324254995f18502",
-          "subject": "feat: update brand icons and enhance experience and hobbies sections for clarity and detail",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/fcf4db62b1d6168e9939d12f2324254995f18502",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T20:47:08Z"
-        },
-        {
-          "sha": "52df89af2f5764354cda45e85f8639a2ca93dbd2",
-          "subject": "feat: update hero section text and add primary call-to-action button for improved user engagement",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52df89af2f5764354cda45e85f8639a2ca93dbd2",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T20:57:07Z"
-        },
-        {
-          "sha": "37a95085dd21cd168d9f47d548f8d24605bec1ee",
-          "subject": "feat: add lessons learned section and enhance technology details for improved clarity and organization",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/37a95085dd21cd168d9f47d548f8d24605bec1ee",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T21:08:16Z"
+          "date": "2026-03-15T22:19:30+01:00"
         },
         {
           "sha": "30489f07e60e3d91617b838b00ecd0d8968a1750",
           "subject": "feat: add Cloudflare icon and update technology categories for improved organization and clarity",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/30489f07e60e3d91617b838b00ecd0d8968a1750",
           "author": "Tommaso Berti",
-          "date": "2026-03-15T21:12:52Z"
+          "date": "2026-03-15T22:12:52+01:00"
+        },
+        {
+          "sha": "37a95085dd21cd168d9f47d548f8d24605bec1ee",
+          "subject": "feat: add lessons learned section and enhance technology details for improved clarity and organization",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/37a95085dd21cd168d9f47d548f8d24605bec1ee",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T22:08:16+01:00"
+        },
+        {
+          "sha": "52df89af2f5764354cda45e85f8639a2ca93dbd2",
+          "subject": "feat: update hero section text and add primary call-to-action button for improved user engagement",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/52df89af2f5764354cda45e85f8639a2ca93dbd2",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T21:57:07+01:00"
+        },
+        {
+          "sha": "fcf4db62b1d6168e9939d12f2324254995f18502",
+          "subject": "feat: update brand icons and enhance experience and hobbies sections for clarity and detail",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/fcf4db62b1d6168e9939d12f2324254995f18502",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T21:47:08+01:00"
+        },
+        {
+          "sha": "1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
+          "subject": "feat: update project descriptions and enhance technology configuration for clarity and consistency",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/1fbc31e230137a578e0f2fc64e3f025ebf899bfc",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T21:28:55+01:00"
+        },
+        {
+          "sha": "5ee920edfb383f55a2d363b0f000702fe4be45f1",
+          "subject": "feat: add FriendlyNav component for improved navigation and update Header layout",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5ee920edfb383f55a2d363b0f000702fe4be45f1",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T18:11:14+01:00"
+        },
+        {
+          "sha": "450ce5759e5486f55117c4f51a6c87f740c50783",
+          "subject": "feat: enhance deploy workflow to handle bump token checks and skip deploy logic",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/450ce5759e5486f55117c4f51a6c87f740c50783",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T18:07:39+01:00"
+        },
+        {
+          "sha": "457f283c843380937c9b243aedc37ef7de6e2d9d",
+          "subject": "feat: improve layout responsiveness by adjusting width and max-width properties",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/457f283c843380937c9b243aedc37ef7de6e2d9d",
+          "author": "Tommaso Berti",
+          "date": "2026-03-15T17:57:12+01:00"
         }
       ],
-      "source": "compare",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""
@@ -303,107 +329,81 @@
     {
       "tag": "v2.1.1",
       "version": "2.1.1",
-      "previousTag": "v2.1.0",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
-        {
-          "sha": "e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
-          "subject": "feat: add skip deploy option to manual deploy workflow and update documentation #skip-deploy",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
-          "author": "Tommaso Berti",
-          "date": "2026-03-13T15:55:10Z"
-        },
         {
           "sha": "56c4f9b70cdb1823e85e53942c30b467f261d751",
           "subject": "feat: refine skip deploy logic in manual workflow and update documentation",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/56c4f9b70cdb1823e85e53942c30b467f261d751",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T15:59:06Z"
-        }
-      ],
-      "source": "compare",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.1.0",
-      "version": "2.1.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+          "date": "2026-03-13T16:59:06+01:00"
+        },
+        {
+          "sha": "e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
+          "subject": "feat: add skip deploy option to manual deploy workflow and update documentation #skip-deploy",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e5eb6e1f527fc86702d0c56cf4ea8b9db970037f",
+          "author": "Tommaso Berti",
+          "date": "2026-03-13T16:55:10+01:00"
+        },
         {
           "sha": "3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
           "subject": "#minor feat: add manual deploy support with workflow_dispatch and version bump options",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3375f4adc8a258ac4676b0389a4dac8a8810e0ad",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T15:47:57Z"
+          "date": "2026-03-13T16:47:57+01:00"
         },
         {
           "sha": "b06db405e9ae791a570dbe599e0691d609475c4d",
           "subject": "feat: infer release type from commits in latest release notes #patch",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b06db405e9ae791a570dbe599e0691d609475c4d",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T15:39:58Z"
+          "date": "2026-03-13T16:39:58+01:00"
         },
         {
           "sha": "0fe37d22f638ef00dc5970d31d7fdfdd65ec3368",
           "subject": "trigger deploy build #major",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0fe37d22f638ef00dc5970d31d7fdfdd65ec3368",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T15:33:13Z"
+          "date": "2026-03-13T16:33:13+01:00"
         },
         {
           "sha": "2e755d8f595c32b6d1e5592d8bc971deaf562da5",
           "subject": "release: 2.0.0 #major (#3)",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2e755d8f595c32b6d1e5592d8bc971deaf562da5",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T15:06:10Z"
+          "date": "2026-03-13T16:06:10+01:00"
         },
         {
           "sha": "2c649fdb9f09b7a3d440d41967ec0cc591841236",
           "subject": "feat: add release notes modal and localization support for release notes",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2c649fdb9f09b7a3d440d41967ec0cc591841236",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T14:57:51Z"
+          "date": "2026-03-13T15:57:51+01:00"
         },
         {
           "sha": "95861c53a38e6774c071b8bb6faa38ca2e9f0430",
           "subject": "feat: implement centralized brand icon management with react-icons integration",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/95861c53a38e6774c071b8bb6faa38ca2e9f0430",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T14:33:18Z"
+          "date": "2026-03-13T15:33:18+01:00"
         },
         {
           "sha": "2b9728b5b23d14c2086df480dd06b1dde6a46837",
           "subject": "feat: refactor app structure with centralized routing and context providers",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b9728b5b23d14c2086df480dd06b1dde6a46837",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T14:12:04Z"
+          "date": "2026-03-13T15:12:04+01:00"
         },
         {
           "sha": "25f04e2e7d342c9494f61bce6781135780301947",
           "subject": "feat: enhance breadcrumbs component with command navigation handling and input reset logic",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/25f04e2e7d342c9494f61bce6781135780301947",
           "author": "Tommaso Berti",
-          "date": "2026-03-13T13:57:08Z"
-        },
-        {
-          "sha": "a3536d94f1c07af6daf559f4d50bc946ad31cdc0",
-          "subject": "feat: enhance breadcrumbs component with dynamic suggestion values based on active context",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3536d94f1c07af6daf559f4d50bc946ad31cdc0",
-          "author": "Tommaso Berti",
-          "date": "2026-03-13T13:36:45Z"
-        },
-        {
-          "sha": "babe5884914d4fc58b3f48846db8ef815d0c818c",
-          "subject": "feat: add tab completion for bash-like input handling in breadcrumbs component",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/babe5884914d4fc58b3f48846db8ef815d0c818c",
-          "author": "Tommaso Berti",
-          "date": "2026-03-13T13:30:26Z"
+          "date": "2026-03-13T14:57:08+01:00"
         }
       ],
-      "source": "commits",
+      "source": "local",
       "bodyMarkdown": "",
       "releaseUrl": "",
       "publishedAt": ""

@@ -39,9 +39,12 @@ async function fetchJson(url, signal) {
     return response.json();
 }
 
-async function fetchLatestReleaseNotes(signal) {
+async function fetchLatestReleaseNotes(signal, nonce) {
     const cacheBuster = encodeURIComponent(`${APP_VERSION}`);
-    const payload = await fetchJson(`${STATIC_RELEASE_NOTES_URL}?v=${cacheBuster}`, signal);
+    const payload = await fetchJson(
+        `${STATIC_RELEASE_NOTES_URL}?v=${cacheBuster}&t=${encodeURIComponent(`${nonce}`)}`,
+        signal
+    );
     const entries = Array.isArray(payload?.entries) ? payload.entries : [];
     const tag = `${payload?.latestTag ?? ""}`;
 
@@ -89,7 +92,7 @@ export function useLatestReleaseNotes(enabled = true) {
         setIsLoading(true);
         setError(null);
 
-        fetchLatestReleaseNotes(controller.signal)
+        fetchLatestReleaseNotes(controller.signal, Date.now())
             .then((payload) => {
                 if (!active) return;
                 setData(payload);

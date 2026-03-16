@@ -61,6 +61,10 @@ function sectionFromCommits(commits, emptyLine) {
 
 function buildFallbackMarkdown(payload, version) {
   const c = categorizeCommits(payload.commits || []);
+  const releaseType = `${payload?.releaseType || "patch"}`.toLowerCase();
+  const isPatchRelease = releaseType === "patch";
+  const fixesForPatch = isPatchRelease ? [...c.fixes, ...c.features] : c.fixes;
+  const featuresForPatch = isPatchRelease ? [] : c.features;
   const changedFilesPreview = (payload.changedFiles || []).slice(0, 20).map((f) => `- ${f}`);
 
   const it = [
@@ -72,10 +76,10 @@ function buildFallbackMarkdown(payload, version) {
     `- Commit inclusi: ${(payload.commits || []).length}. File modificati: ${(payload.changedFiles || []).length}.`,
     "",
     "### Nuove funzionalita",
-    ...sectionFromCommits(c.features, "- Nessuna nuova funzionalita rilevata."),
+    ...sectionFromCommits(featuresForPatch, "- Nessuna nuova funzionalita rilevata."),
     "",
     "### Bug Fixes",
-    ...sectionFromCommits(c.fixes, "- Nessun bug fix rilevato."),
+    ...sectionFromCommits(fixesForPatch, "- Nessun bug fix rilevato."),
     "",
     "### Refactor & Engineering",
     ...sectionFromCommits([...c.refactor, ...c.misc], "- Nessuna attivita di refactor/engineering rilevata."),
@@ -100,10 +104,10 @@ function buildFallbackMarkdown(payload, version) {
     `- Included commits: ${(payload.commits || []).length}. Changed files: ${(payload.changedFiles || []).length}.`,
     "",
     "### New Features",
-    ...sectionFromCommits(c.features, "- No new features detected."),
+    ...sectionFromCommits(featuresForPatch, "- No new features detected."),
     "",
     "### Bug Fixes",
-    ...sectionFromCommits(c.fixes, "- No bug fixes detected."),
+    ...sectionFromCommits(fixesForPatch, "- No bug fixes detected."),
     "",
     "### Refactor & Engineering",
     ...sectionFromCommits([...c.refactor, ...c.misc], "- No refactor/engineering activity detected."),

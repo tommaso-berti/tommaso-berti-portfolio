@@ -70,6 +70,26 @@ import fs from "fs";
 
 const [commitsPath, filesPath, outPath, fromRef, toRef, range, tag, compareUrl, repoPath] = process.argv.slice(2);
 
+const SEMVER_RE = /^v?(\d+)\.(\d+)\.(\d+)$/;
+function parseSemver(value) {
+  const match = `${value || ""}`.trim().match(SEMVER_RE);
+  if (!match) return null;
+  return {
+    major: Number(match[1]),
+    minor: Number(match[2]),
+    patch: Number(match[3]),
+  };
+}
+
+function resolveReleaseType(versionRef, previousRef) {
+  const current = parseSemver(versionRef);
+  const previous = parseSemver(previousRef);
+  if (!current || !previous) return "patch";
+  if (current.major !== previous.major) return "major";
+  if (current.minor !== previous.minor) return "minor";
+  return "patch";
+}
+
 const commitsRaw = fs.readFileSync(commitsPath, "utf8").trim();
 const filesRaw = fs.readFileSync(filesPath, "utf8").trim();
 
@@ -88,11 +108,14 @@ const commits = commitsRaw
   : [];
 
 const changedFiles = filesRaw ? filesRaw.split("\n").filter(Boolean) : [];
+const currentVersionRef = tag || toRef;
+const releaseType = resolveReleaseType(currentVersionRef, fromRef);
 
 const payload = {
   generatedAt: new Date().toISOString(),
   repositoryPath: repoPath,
-  version: tag || toRef,
+  version: currentVersionRef,
+  releaseType,
   fromRef,
   toRef,
   range,
@@ -105,4 +128,3 @@ fs.writeFileSync(outPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 NODE
 
 echo "Payload written: $OUT_FILE"
-

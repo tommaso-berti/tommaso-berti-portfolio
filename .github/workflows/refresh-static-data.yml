@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Fetch tags
+        run: git fetch --tags --force
+
       - name: Generate static JSON data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

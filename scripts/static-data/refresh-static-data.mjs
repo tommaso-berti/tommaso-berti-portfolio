@@ -1,5 +1,7 @@
-import fs from "fs/promises";
+import fs from "fs";
+import fsPromises from "fs/promises";
 import path from "path";
+import { execSync } from "child_process";
 
 const GITHUB_OWNER = "tommaso-berti";
 const GITHUB_REPO = "tommaso-berti-portfolio";
@@ -146,6 +148,82 @@ async function fetchReleaseByTag(tag, token) {
     }
 }
 
+function getRepoHttpUrl() {
+    try {
+        const remote = execSync("git config --get remote.origin.url", {
+            encoding: "utf8",
+        }).trim();
+        const match = remote.match(/github\.com[:/]+([^/]+)\/([^/.]+)(\.git)?$/);
+        if (!match) return "";
+        return `https://github.com/${match[1]}/${match[2]}`;
+    } catch {
+        return "";
+    }
+}
+
+function getLocalSemverTags() {
+    try {
+        const output = execSync("git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname", {
+            encoding: "utf8",
+        }).trim();
+        if (!output) return [];
+        return output.split("\n").map((line) => line.trim()).filter(Boolean);
+    } catch {
+        return [];
+    }
+}
+
+function parseLocalGitLog(range, limit = MAX_RELEASE_ENTRIES) {
+    try {
+        const output = execSync(
+            `git log ${range} --date=iso-strict --pretty=format:'%H%x1f%s%x1f%an%x1f%ad' -n ${limit * 4}`,
+            { encoding: "utf8" }
+        ).trim();
+        if (!output) return [];
+        return output.split("\n").map((line) => {
+            const [sha, subject, author, date] = line.split("\u001f");
+            return {
+                sha: sha || "",
+                subject: normalizeCommitSubject(subject || ""),
+                author: author || "unknown",
+                date: date || "",
+            };
+        });
+    } catch {
+        return [];
+    }
+}
+
+function mapLocalCommitsToEntries(localCommits, repoUrl) {
+    const seen = new Set();
+    return localCommits
+        .filter((entry) => shouldKeepSubject(entry.subject))
+        .filter((entry) => {
+            const key = `${entry.subject}`.toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        })
+        .slice(0, MAX_RELEASE_ENTRIES)
+        .map((entry) => ({
+            sha: entry.sha,
+            subject: entry.subject,
+            url: repoUrl && entry.sha ? `${repoUrl}/commit/${entry.sha}` : "",
+            author: entry.author,
+            date: entry.date,
+        }));
+}
+
+function readLocalReleaseNotesBody(tag) {
+    const filePath = path.join(process.cwd(), "release-notes", `${tag}.md`);
+    if (!fs.existsSync(filePath)) return "";
+    try {
+        return fs.readFileSync(filePath, "utf8").trim();
+    } catch {
+        return "";
+    }
+}
+
 function isExerciseRepository(repo) {
     if (!repo || repo.fork) return false;
     const topics = Array.isArray(repo.topics) ? repo.topics : [];
@@ -225,12 +303,9 @@ async function buildExercisesJson(token) {
 }
 
 async function buildReleaseNotesJson(token) {
-    const tags = await fetchJson(
-        `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/tags?per_page=100`,
-        token
-    );
-    const semverTags = (Array.isArray(tags) ? tags : [])
-        .map((tag) => parseSemverTag(tag?.name))
+    const repoUrl = getRepoHttpUrl();
+    const semverTags = getLocalSemverTags()
+        .map((tagName) => parseSemverTag(tagName))
         .filter(Boolean)
         .sort(compareSemverDesc)
         .slice(0, MAX_RELEASE_HISTORY);
@@ -241,40 +316,36 @@ async function buildReleaseNotesJson(token) {
         const current = semverTags[index];
         const previous = semverTags[index + 1] ?? null;
         const release = await fetchReleaseByTag(current.tag, token);
+        const localBody = readLocalReleaseNotesBody(current.tag);
+        const bodyMarkdown = localBody || `${release?.body ?? ""}`.trim();
 
         if (previous) {
-            const compareData = await fetchJson(
-                `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/compare/${previous.tag}...${current.tag}`,
-                token
-            );
+            const localCommits = parseLocalGitLog(`${previous.tag}..${current.tag}`);
 
             history.push({
                 tag: current.tag,
                 version: current.tag.replace(/^v/, ""),
                 previousTag: previous.tag,
                 releaseType: resolveReleaseType(current.tag, previous.tag),
-                entries: mapAndFilterCommits(compareData?.commits),
-                source: "compare",
-                bodyMarkdown: `${release?.body ?? ""}`.trim(),
+                entries: mapLocalCommitsToEntries(localCommits, repoUrl),
+                source: "local",
+                bodyMarkdown,
                 releaseUrl: release?.html_url || "",
                 publishedAt: release?.published_at || "",
             });
             continue;
         }
 
-        const commits = await fetchJson(
-            `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/commits?sha=${current.tag}&per_page=20`,
-            token
-        );
+        const localCommits = parseLocalGitLog(current.tag);
 
         history.push({
             tag: current.tag,
             version: current.tag.replace(/^v/, ""),
             previousTag: null,
             releaseType: "patch",
-            entries: mapAndFilterCommits(commits),
-            source: "commits",
-            bodyMarkdown: `${release?.body ?? ""}`.trim(),
+            entries: mapLocalCommitsToEntries(localCommits, repoUrl),
+            source: "local",
+            bodyMarkdown,
             releaseUrl: release?.html_url || "",
             publishedAt: release?.published_at || "",
         });
@@ -296,8 +367,8 @@ async function buildReleaseNotesJson(token) {
 }
 
 async function writeJsonFile(outputPath, payload) {
-    await fs.mkdir(path.dirname(outputPath), { recursive: true });
-    await fs.writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+    await fsPromises.mkdir(path.dirname(outputPath), { recursive: true });
+    await fsPromises.writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 }
 
 async function main() {

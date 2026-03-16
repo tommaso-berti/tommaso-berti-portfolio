@@ -41,6 +41,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Fetch tags
+        run: git fetch --tags --force
+
       - name: Generate release notes file
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

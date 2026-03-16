@@ -41,6 +41,9 @@ export function buildProjectPreviewModel(project, tProjects) {
             width: project.previewProps.width,
             height: project.previewProps.height,
             scale: project.previewProps.scale,
+            deferLoad: Boolean(project.previewProps.deferLoad),
+            loadPreviewLabel: tProjects("load_preview"),
+            loadPreviewTooltip: tProjects("load_preview_tooltip"),
         },
     };
 }

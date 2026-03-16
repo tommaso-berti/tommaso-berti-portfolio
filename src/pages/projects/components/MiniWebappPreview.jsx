@@ -1,4 +1,4 @@
-import { Card, Box, Modal, IconButton } from "@mui/material";
+import { Card, Box, Modal, IconButton, Button, Typography, Stack, Tooltip } from "@mui/material";
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { useState } from "react";
@@ -11,12 +11,18 @@ export default function MiniWebappPreview({
                                               title = "Preview",
                                               overlayLabel = "",
                                               disableFullscreen = false,
+                                              deferLoad = false,
+                                              loadPreviewLabel = "Load Preview",
+                                              loadPreviewTooltip = "Click to load the preview only when needed to avoid unnecessary API calls.",
                                           }) {
     const [open, setOpen] = useState(false);
+    const [inlineEnabled, setInlineEnabled] = useState(false);
     const scaleInverse = 1 / scale;
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const handleEnableInline = () => setInlineEnabled(true);
+    const showInlineIframe = !deferLoad || inlineEnabled;
 
     return (
         <>
@@ -49,17 +55,45 @@ export default function MiniWebappPreview({
                         height: `${scaleInverse * 100}%`,
                     }}
                 >
-                    <Box
-                        component="iframe"
-                        src={url}
-                        title={title}
-                        loading="lazy"
-                        sx={{
-                            width: "100%",
-                            height: "100%",
-                            border: "none",
-                        }}
-                    />
+                    {showInlineIframe ? (
+                        <Box
+                            component="iframe"
+                            src={url}
+                            title={title}
+                            loading="lazy"
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                border: "none",
+                            }}
+                        />
+                    ) : (
+                        <Stack
+                            spacing={1.25}
+                            alignItems="center"
+                            justifyContent="center"
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                px: 2,
+                                background:
+                                    "linear-gradient(160deg, rgba(25,118,210,0.12), rgba(0,0,0,0.04))",
+                            }}
+                        >
+                            <Typography variant="subtitle2" sx={{ fontWeight: 600, textAlign: "center" }}>
+                                {title}
+                            </Typography>
+                            <Tooltip title={loadPreviewTooltip} arrow>
+                                <Button
+                                    variant="contained"
+                                    size="small"
+                                    onClick={handleEnableInline}
+                                >
+                                    {loadPreviewLabel}
+                                </Button>
+                            </Tooltip>
+                        </Stack>
+                    )}
                 </Box>
 
                 {overlayLabel && (
@@ -127,16 +161,25 @@ export default function MiniWebappPreview({
                         }}
                     >
                         <Box
-                            component="iframe"
-                            src={url}
-                            title={title}
-                            loading="lazy"
                             sx={{
                                 width: "100%",
                                 height: "100%",
-                                border: "none",
                             }}
-                        />
+                        >
+                            {open ? (
+                                <Box
+                                    component="iframe"
+                                    src={url}
+                                    title={title}
+                                    loading="lazy"
+                                    sx={{
+                                        width: "100%",
+                                        height: "100%",
+                                        border: "none",
+                                    }}
+                                />
+                            ) : null}
+                        </Box>
 
                         <IconButton
                             onClick={handleClose}

@@ -75,6 +75,8 @@
       "title": "Projects",
       "description": "This project collection reflects my passion for building useful tools, exploring new technologies, and continuously improving my skills. Some projects start from curiosity, others from the need to optimize my workflow or test new ideas. In my software development work, I use AI as practical support: it helps accelerate specific phases, improve code quality, and validate new solutions quickly, always with critical review of the output.",
       "live_preview": "Interactive demo",
+      "load_preview": "Load preview",
+      "load_preview_tooltip": "The preview loads only on click to avoid unnecessary API calls.",
       "primaryAction": "Explore project",
       "secondaryAction": "Open site",
       "all_overline": "All",

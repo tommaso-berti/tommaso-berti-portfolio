@@ -90,6 +90,7 @@ export const projects = [
             width: "100%",
             height: 360,
             scale: 0.8,
+            deferLoad: true,
         },
         details: {
             technologies: [

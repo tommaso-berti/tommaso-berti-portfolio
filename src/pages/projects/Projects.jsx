@@ -74,6 +74,9 @@ export default function Projects() {
                                     width={previewModel.previewProps.width}
                                     height={previewModel.previewProps.height}
                                     scale={previewModel.previewProps.scale}
+                                    deferLoad={previewModel.previewProps.deferLoad}
+                                    loadPreviewLabel={previewModel.previewProps.loadPreviewLabel}
+                                    loadPreviewTooltip={previewModel.previewProps.loadPreviewTooltip}
                                 />
                             }
                         />

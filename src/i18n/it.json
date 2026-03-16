@@ -75,6 +75,8 @@
       "title": "Progetti",
       "description": "Questa raccolta di progetti riflette la mia passione per creare strumenti utili, sperimentare nuove tecnologie e migliorare costantemente le mie competenze. Alcuni progetti nascono dalla curiosità, altri dalla volontà di ottimizzare il workflow o esplorare nuove idee. Nel mio lavoro da sviluppatore software utilizzo l’AI come supporto concreto: accelera alcune fasi, migliora la qualità del codice e mi aiuta a validare rapidamente nuove soluzioni, sempre con verifica critica dei risultati.",
       "live_preview": "Demo interattiva",
+      "load_preview": "Carica anteprima",
+      "load_preview_tooltip": "L’anteprima viene caricata solo al click per evitare chiamate API non necessarie.",
       "primaryAction": "Scopri il progetto",
       "secondaryAction": "Apri sito",
       "all_overline": "Tutti",

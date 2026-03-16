@@ -1,9 +1,6 @@
-name: Release Notes
+name: Release Notes (Manual Tool)
 
 on:
-  push:
-    tags:
-      - "v*"
   workflow_dispatch:
     inputs:
       tag:
@@ -29,7 +26,6 @@ jobs:
       TARGET_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
       FROM_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.from || '' }}
       TO_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.to || '' }}
-      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -67,28 +63,7 @@ jobs:
           body_path: release-notes/${{ env.TARGET_TAG }}.md
           generate_release_notes: false
 
-      - name: Refresh static JSON snapshots
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Manual mode info
         run: |
-          node scripts/static-data/refresh-static-data.mjs
-          test -f public/data/exercises.json
-          test -f public/data/release-notes.json
-
-      - name: Commit notes on default branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin "$DEFAULT_BRANCH"
-          git checkout "$DEFAULT_BRANCH"
-          if [ ! -f "release-notes/${TARGET_TAG}.md" ]; then
-            echo "Missing release notes file after checkout: release-notes/${TARGET_TAG}.md" >&2
-            exit 1
-          fi
-          git add "release-notes/${TARGET_TAG}.md" public/data/exercises.json public/data/release-notes.json
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "docs(release-notes): ${TARGET_TAG} + static data [skip ci]"
-            git push origin "$DEFAULT_BRANCH"
-          fi
+          echo "Manual diagnostic workflow: no commit/push on main is performed here."
+          echo "Single writer is Deploy workflow."

@@ -35,7 +35,7 @@ Personal portfolio SPA built with React, Vite and MUI.
   - external CTA (`Open site`)
   - GitHub CTA (`GitHub`) for configured projects
 - Practice tab with frontend-only `Exercises` list powered by GitHub REST API
-- Release Notes modal powered by GitHub tags/compare APIs
+- Release Notes modal powered by static JSON snapshots generated in CI
 - Skeleton-based loading states for Exercises and Release Notes
 
 ## Projects & Exercises Behavior
@@ -69,12 +69,13 @@ Personal portfolio SPA built with React, Vite and MUI.
 
 ## Automated AI Release Notes
 
-This project includes an automated release-notes and GitHub-data pipeline based on static snapshots (no runtime GitHub API calls from the browser).
+This project uses a single-writer CI pipeline: the deploy workflow is the source of truth for release notes and static JSON snapshots (no runtime GitHub API calls from the browser).
 
 ### What is included
 
-- Repo workflow: `.github/workflows/release-notes.yml`
-- Static data workflow: `.github/workflows/refresh-static-data.yml`
+- Orchestrator workflow: `.github/workflows/deploy.yml`
+- Manual diagnostic workflow: `.github/workflows/release-notes.yml`
+- Manual utility workflow: `.github/workflows/refresh-static-data.yml`
 - Local wrapper: `scripts/release-notes/run.sh`
 - Local scripts:
   - `scripts/release-notes/collect_changes.sh`
@@ -86,14 +87,14 @@ This project includes an automated release-notes and GitHub-data pipeline based 
 
 ### How it works
 
-- Trigger: push tag `v*` (for example `v1.2.3`) or manual `workflow_dispatch`.
-- Output file: `release-notes/vX.Y.Z.md`.
-- Release body: updated from the generated markdown file.
+- Single writer: workflow `Deploy www.tommasoberti.com (versioned)`.
+- Automatic trigger on push to `main` (with bump token) and on push tag `v*` (manual tags supported).
+- For each resolved release tag, the workflow:
+  - generates `release-notes/vX.Y.Z.md`
+  - updates GitHub Release body
+  - refreshes `public/data/exercises.json` and `public/data/release-notes.json`
+  - commits artifacts on default branch with safe rebase/retry push strategy
 - Fallback mode: if `OPENAI_API_KEY` is missing/failing, notes are generated from commit metadata (no AI synthesis).
-- Static JSON refresh:
-  - on push to `main`
-  - generates `public/data/exercises.json` and `public/data/release-notes.json`
-  - commits changes only when snapshots differ
 
 ### One-time setup
 
@@ -122,12 +123,12 @@ npm run data:refresh
 
 ### CI usage
 
-- Automatic: push a new tag matching `v*`.
-- Manual: run workflow `Release Notes` and provide:
-  - `tag` (required)
-  - `from` (optional)
-  - `to` (optional)
-- Static snapshots are refreshed automatically by workflow `Refresh Static Data` on push to `main`.
+- Automatic release path:
+  - push/merge to `main` with `#patch`, `#minor` or `#major`
+  - or push a manual tag `v*`
+- Manual tools:
+  - `Release Notes (Manual Tool)`: diagnostic generation/publish only, no commit on `main`
+  - `Refresh Static Data`: snapshot generation only, no commit on `main`
 
 ### Notes quality recommendations
 
@@ -137,9 +138,10 @@ npm run data:refresh
 ### Troubleshooting
 
 - Running `npm run build` does not generate release notes or static snapshots.
-- CI generation runs only in workflow `Release Notes` (tag push `v*` or manual dispatch).
+- CI generation and artifact commit run in `Deploy www.tommasoberti.com (versioned)`.
 - If `OPENAI_API_KEY` is missing or invalid, generation still works in fallback mode using commit metadata.
-- Static GitHub data refresh runs only in workflow `Refresh Static Data` (push `main`) or via `npm run data:refresh`.
+- Manual workflows `Release Notes (Manual Tool)` and `Refresh Static Data` do not push commits.
+- Local static refresh is available via `npm run data:refresh`.
 
 ## Project Architecture
 
@@ -188,13 +190,14 @@ npm run data:refresh
 ## Release Versioning and Deploy
 
 - Versioning is SemVer tag-based: `vMAJOR.MINOR.PATCH`.
-- Automatic deploy runs on push to `main`.
+- Automatic deploy runs on push to `main` and on push tags `v*`.
 - Bump tokens (case-insensitive):
   - `#major` or `[major]`
   - `#minor` or `[minor]`
   - `#patch` or `[patch]`
 - Precedence: `major` > `minor` > `patch`.
 - If no bump token is found on automatic events, deploy is skipped (`no_bump_token`).
+- On semver tag push `v*`, deploy/release pipeline runs even without bump tokens.
 - If commit is already tagged with SemVer, the workflow reuses that version.
 
 ### Automatic Deploy (main)
@@ -203,6 +206,13 @@ npm run data:refresh
 2. Workflow `Deploy www.tommasoberti.com (versioned)` runs automatically.
 3. If a bump token exists, build/deploy/tag steps run.
 4. If not, deploy steps are skipped.
+
+### Automatic Deploy (manual tag `v*`)
+
+1. Push a semver tag like `v2.7.5`.
+2. Workflow `Deploy www.tommasoberti.com (versioned)` runs on that tag.
+3. The workflow skips bump calculation and uses that tag as `RELEASE_TAG`.
+4. It still generates release notes, refreshes static snapshots and updates GitHub Release body.
 
 ### Manual Deploy (`workflow_dispatch`)
 

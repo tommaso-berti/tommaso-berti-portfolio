@@ -3,6 +3,7 @@ name: Deploy www.tommasoberti.com (versioned)
 on:
   push:
     branches: ["main"]
+    tags: ["v*"]
   pull_request:
     types: [closed]
     branches: ["main"]
@@ -38,6 +39,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
 
     steps:
       - name: Checkout
@@ -60,6 +63,8 @@ jobs:
         shell: bash
         env:
           EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
           BEFORE_SHA: ${{ github.event.before }}
           SHA: ${{ github.sha }}
           TARGET_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.target_ref || github.ref_name }}
@@ -74,9 +79,16 @@ jobs:
           git fetch --tags --force
           RESOLVED_SHA="$(git rev-parse HEAD)"
           echo "RESOLVED_SHA=$RESOLVED_SHA" >> "$GITHUB_ENV"
+          IS_TAG_PUSH="false"
+          if [ "$EVENT_NAME" = "push" ] && [ "$REF_TYPE" = "tag" ] && printf '%s' "$REF_NAME" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            IS_TAG_PUSH="true"
+          fi
+          echo "IS_TAG_PUSH=$IS_TAG_PUSH" >> "$GITHUB_ENV"
 
           RELEASE_TEXT=""
-          if [ "$EVENT_NAME" = "push" ]; then
+          if [ "$IS_TAG_PUSH" = "true" ]; then
+            RELEASE_TEXT=""
+          elif [ "$EVENT_NAME" = "push" ]; then
             # Use only the latest pushed commit for bump tokens (#major/#minor/#patch),
             # so the current commit intent is not overridden by older commits in the push range.
             RELEASE_TEXT="$(git log --format=%B -n 1 "$SHA" || true)"
@@ -95,11 +107,17 @@ jobs:
           if printf '%s' "$RELEASE_TEXT_LOWER" | grep -Eq '#major|\[major\]|#minor|\[minor\]|#patch|\[patch\]'; then
             HAS_BUMP_TOKEN="true"
           fi
+          if [ "$IS_TAG_PUSH" = "true" ]; then
+            HAS_BUMP_TOKEN="true"
+          fi
           echo "HAS_BUMP_TOKEN=$HAS_BUMP_TOKEN" >> "$GITHUB_ENV"
 
           SKIP_DEPLOY="false"
           SKIP_REASON="none"
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+          if [ "$IS_TAG_PUSH" = "true" ]; then
+            SKIP_DEPLOY="false"
+            SKIP_REASON="tag_push_release"
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             if [ "${MANUAL_SKIP_DEPLOY:-false}" = "true" ]; then
               SKIP_DEPLOY="true"
               SKIP_REASON="manual_input"
@@ -115,6 +133,18 @@ jobs:
           fi
           echo "SKIP_DEPLOY=$SKIP_DEPLOY" >> "$GITHUB_ENV"
           echo "SKIP_DEPLOY_REASON=$SKIP_REASON" >> "$GITHUB_ENV"
+
+          if [ "$IS_TAG_PUSH" = "true" ]; then
+            RELEASE_TAG="$REF_NAME"
+            VERSION="${RELEASE_TAG#v}"
+            echo "BUMP_LEVEL=none" >> "$GITHUB_ENV"
+            echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+            echo "RELEASE_TAG=$RELEASE_TAG" >> "$GITHUB_ENV"
+            echo "RELEASE_DIR=$RELEASE_TAG" >> "$GITHUB_ENV"
+            echo "TARGET_REF=$DEFAULT_BRANCH" >> "$GITHUB_ENV"
+            echo "event=$EVENT_NAME ref=$REF_NAME bump=none has_bump_token=$HAS_BUMP_TOKEN skip_deploy=$SKIP_DEPLOY version=$VERSION skip_deploy_reason=$SKIP_REASON (tag push release)"
+            exit 0
+          fi
 
           # Rerun-safe: if HEAD is already tagged with a SemVer release, reuse it.
           EXISTING_TAG=$(git tag --points-at "$RESOLVED_SHA" | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1 || true)
@@ -312,7 +342,12 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [ "${TARGET_REF:-}" != "main" ]; then
+          if [ "${IS_TAG_PUSH:-false}" = "true" ]; then
+            echo "Tag push event detected (${RELEASE_TAG:-unknown}), skipping tag creation."
+            exit 0
+          fi
+
+          if [ "${TARGET_REF:-}" != "${DEFAULT_BRANCH}" ]; then
             echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=false (non-main ref)"
             exit 0
           fi
@@ -334,7 +369,7 @@ jobs:
           echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=true"
 
       - name: Generate release notes for deployed tag
-        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           RELEASE_NOTES_MODEL: gpt-5-mini
@@ -344,7 +379,7 @@ jobs:
           test -f "release-notes/${RELEASE_TAG}.md"
 
       - name: Publish GitHub release body for deployed tag
-        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
@@ -352,7 +387,7 @@ jobs:
           generate_release_notes: false
 
       - name: Refresh static snapshots after release publish
-        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -361,15 +396,41 @@ jobs:
           test -f public/data/release-notes.json
 
       - name: Commit release artifacts to main
-        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.RELEASE_TAG != ''
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "release-notes/${RELEASE_TAG}.md" public/data/exercises.json public/data/release-notes.json
-          if git diff --cached --quiet; then
-            echo "No release artifact changes."
-          else
-            git commit -m "docs(release): ${RELEASE_TAG} artifacts #skip-deploy [skip ci]"
-            git push origin main
+
+          if [ ! -f "release-notes/${RELEASE_TAG}.md" ]; then
+            echo "Missing release notes file: release-notes/${RELEASE_TAG}.md" >&2
+            exit 1
           fi
+
+          ATTEMPT=1
+          MAX_ATTEMPTS=3
+          while [ "$ATTEMPT" -le "$MAX_ATTEMPTS" ]; do
+            git fetch origin "${DEFAULT_BRANCH}"
+            git checkout -B "${DEFAULT_BRANCH}" "origin/${DEFAULT_BRANCH}"
+
+            git add "release-notes/${RELEASE_TAG}.md" public/data/exercises.json public/data/release-notes.json
+            if git diff --cached --quiet; then
+              echo "No release artifact changes."
+              exit 0
+            fi
+
+            git commit -m "docs(release): ${RELEASE_TAG} artifacts #skip-deploy [skip ci]"
+            if git pull --rebase origin "${DEFAULT_BRANCH}" && git push origin "${DEFAULT_BRANCH}"; then
+              echo "Release artifacts pushed on attempt ${ATTEMPT}."
+              exit 0
+            fi
+
+            echo "Push race detected on attempt ${ATTEMPT}; retrying..."
+            git rebase --abort || true
+            git reset --hard "origin/${DEFAULT_BRANCH}"
+            ATTEMPT=$((ATTEMPT + 1))
+          done
+
+          echo "Failed to push release artifacts after ${MAX_ATTEMPTS} attempts." >&2
+          exit 1

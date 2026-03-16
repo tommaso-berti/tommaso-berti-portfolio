@@ -332,3 +332,44 @@ jobs:
           git tag "$RELEASE_TAG" "${RESOLVED_SHA:-$GITHUB_SHA}"
           git push origin "refs/tags/$RELEASE_TAG"
           echo "event=${{ github.event_name }} ref=${TARGET_REF:-unknown} bump=${BUMP_LEVEL:-unknown} version=${VERSION:-unknown} tag_created=true"
+
+      - name: Generate release notes for deployed tag
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          RELEASE_NOTES_MODEL: gpt-5-mini
+        run: |
+          chmod +x scripts/release-notes/run.sh
+          scripts/release-notes/run.sh --tag "${RELEASE_TAG}"
+          test -f "release-notes/${RELEASE_TAG}.md"
+
+      - name: Publish GitHub release body for deployed tag
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          body_path: release-notes/${{ env.RELEASE_TAG }}.md
+          generate_release_notes: false
+
+      - name: Refresh static snapshots after release publish
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/static-data/refresh-static-data.mjs
+          test -f public/data/exercises.json
+          test -f public/data/release-notes.json
+
+      - name: Commit release artifacts to main
+        if: env.SKIP_DEPLOY != 'true' && github.event_name != 'pull_request' && env.TARGET_REF == 'main'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "release-notes/${RELEASE_TAG}.md" public/data/exercises.json public/data/release-notes.json
+          if git diff --cached --quiet; then
+            echo "No release artifact changes."
+          else
+            git commit -m "docs(release): ${RELEASE_TAG} artifacts #skip-deploy [skip ci]"
+            git push origin main
+          fi

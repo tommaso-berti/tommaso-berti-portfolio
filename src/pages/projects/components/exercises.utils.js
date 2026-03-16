@@ -1,3 +1,5 @@
+import { EXERCISE_DESCRIPTIONS } from "./exercises.descriptions.js";
+
 const EXERCISE_TOPICS = new Set([
     "exercise",
     "exercises",
@@ -47,8 +49,8 @@ export const GITHUB_HEADERS = {
     "X-GitHub-Api-Version": "2022-11-28",
 };
 
-function normalizeRepositoryName(name) {
-    return `${name ?? ""}`.toLowerCase().replace(/[^a-z0-9]/g, "");
+function normalizeRepositoryKey(name) {
+    return `${name ?? ""}`.toLowerCase().trim();
 }
 
 function toDisplayTopic(topic) {
@@ -77,30 +79,18 @@ export function isExerciseRepository(repo) {
         .some((topic) => EXERCISE_TOPICS.has(topic));
 }
 
-export function resolveCustomDescriptionId(repositoryName) {
-    const normalized = normalizeRepositoryName(repositoryName);
+export function getStaticExerciseDescription(repositoryName, language) {
+    const repoKey = normalizeRepositoryKey(repositoryName);
+    if (!repoKey) return "";
 
-    if (normalized.includes("lodash") && normalized.includes("copy")) return "lodashcopy";
-    if (normalized.includes("jammming") || normalized.includes("jamming")) return "jammming";
-    if (normalized.includes("find") && normalized.includes("hat")) return "findyourhat";
-    if (
-        normalized.includes("reddit") &&
-        normalized.includes("mini") &&
-        normalized.includes("client")
-    ) {
-        return "redditminiclient";
-    }
-    if (normalized.includes("boss") && normalized.includes("machine")) return "bossmachine";
-    if (
-        normalized.includes("todo") ||
-        (normalized.includes("fullstack") &&
-            normalized.includes("express") &&
-            normalized.includes("postgres"))
-    ) {
-        return "todolist";
-    }
+    const selectedLanguage =
+        typeof language === "string" && language.toLowerCase().startsWith("it") ? "it" : "en";
 
-    return null;
+    return (
+        EXERCISE_DESCRIPTIONS[selectedLanguage]?.[repoKey] ??
+        EXERCISE_DESCRIPTIONS.en?.[repoKey] ??
+        ""
+    );
 }
 
 export async function fetchRepositoryMetadata(repository, signal) {

@@ -12,15 +12,18 @@ import {
     Typography,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import CallSplitRoundedIcon from "@mui/icons-material/CallSplitRounded";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import { useTranslation } from "../../../hooks/useTranslation.js";
-import { getLanguageColor, resolveCustomDescriptionId } from "./exercises.utils.js";
+import { useLanguage } from "../../../contexts/LanguageContext.jsx";
+import { getLanguageColor, getStaticExerciseDescription } from "./exercises.utils.js";
 import { useExercisesData } from "./useExercisesData.js";
 
 export default function ExercisesSection({ isActive }) {
     const { t } = useTranslation("pages.projects");
+    const { language } = useLanguage();
     const { items, isLoading, hasMore, error, hasInitialized, onLoadMore } =
         useExercisesData(isActive);
 
@@ -89,31 +92,45 @@ export default function ExercisesSection({ isActive }) {
                         >
                             <CardContent>
                                 <Stack spacing={1.5}>
-                                    <Typography
-                                        variant="h6"
-                                        component="h3"
-                                        sx={{ fontWeight: 600, color: "primary.main" }}
+                                    <Stack
+                                        direction="row"
+                                        spacing={1}
+                                        alignItems="center"
+                                        justifyContent="space-between"
+                                        useFlexGap
+                                        flexWrap="wrap"
                                     >
-                                        {repository.name}
-                                    </Typography>
+                                        <Typography
+                                            variant="h6"
+                                            component="h3"
+                                            sx={{ fontWeight: 600, color: "primary.main" }}
+                                        >
+                                            {repository.name}
+                                        </Typography>
+
+                                        <Button
+                                            variant="text"
+                                            component={Link}
+                                            href={repository.html_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            size="small"
+                                            startIcon={<GitHubIcon fontSize="small" />}
+                                            endIcon={
+                                                <OpenInNewRoundedIcon
+                                                    sx={{ fontSize: 14, transform: "translateY(-2px)" }}
+                                                />
+                                            }
+                                            sx={actionButtonSx}
+                                        >
+                                            GitHub
+                                        </Button>
+                                    </Stack>
 
                                     <Typography variant="body2" color="text.secondary">
-                                        {(() => {
-                                            const descriptionId = resolveCustomDescriptionId(
-                                                repository.name
-                                            );
-                                            const customDescription = descriptionId
-                                                ? t(`exercises.customDescriptions.${descriptionId}`, {
-                                                    defaultValue: "",
-                                                })
-                                                : "";
-
-                                            return (
-                                                customDescription ||
-                                                repository.description ||
-                                                t("exercises.fallbackDescription")
-                                            );
-                                        })()}
+                                        {getStaticExerciseDescription(repository.name, language) ||
+                                            repository.description ||
+                                            t("exercises.fallbackDescription")}
                                     </Typography>
 
                                     {Array.isArray(repository.topicLabels) &&
@@ -221,21 +238,6 @@ export default function ExercisesSection({ isActive }) {
                                     ) : null}
                                 </Stack>
                             </CardContent>
-
-                            <CardActions>
-                                <Button
-                                    variant="text"
-                                    component={Link}
-                                    href={repository.html_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    size="small"
-                                    startIcon={<GitHubIcon fontSize="small" />}
-                                    sx={actionButtonSx}
-                                >
-                                    GitHub
-                                </Button>
-                            </CardActions>
                         </Card>
                     ))}
                 </Box>

@@ -75,12 +75,11 @@ This project includes an automated release-notes pipeline that can generate comp
 
 - Repo workflow: `.github/workflows/release-notes.yml`
 - Local wrapper: `scripts/release-notes/run.sh`
+- Local scripts:
+  - `scripts/release-notes/collect_changes.sh`
+  - `scripts/release-notes/generate_notes.mjs`
+  - `scripts/release-notes/release_notes_prompt.md`
 - Optional per-project config: `.release-notes.config.json`
-- Reusable global skill:
-  - `~/.codex/skills/release-notes-pro/SKILL.md`
-  - `~/.codex/skills/release-notes-pro/scripts/collect_changes.sh`
-  - `~/.codex/skills/release-notes-pro/scripts/generate_notes.mjs`
-  - `~/.codex/skills/release-notes-pro/templates/release_notes_prompt.md`
 
 ### How it works
 
@@ -91,9 +90,8 @@ This project includes an automated release-notes pipeline that can generate comp
 
 ### One-time setup
 
-1. Ensure the global skill exists in `~/.codex/skills/release-notes-pro`.
-2. Add repository secret `OPENAI_API_KEY` in GitHub Actions settings.
-3. Use SemVer tags: `vMAJOR.MINOR.PATCH`.
+1. Add repository secret `OPENAI_API_KEY` in GitHub Actions settings.
+2. Use SemVer tags: `vMAJOR.MINOR.PATCH`.
 
 ### Local usage
 
@@ -121,6 +119,13 @@ scripts/release-notes/run.sh --tag v1.2.3 --from v1.2.2 --to HEAD
 
 - Prefer conventional commit prefixes (`feat`, `fix`, `refactor`, `docs`, `chore`) for better categorization.
 - Keep commit messages explicit and user-impact oriented where possible.
+
+### Troubleshooting
+
+- Running `npm run build` does not generate release notes. The trigger is tag/workflow based, not build based.
+- CI generation runs only in workflow `Release Notes` (tag push `v*` or manual dispatch).
+- If `OPENAI_API_KEY` is missing or invalid, generation still works in fallback mode using commit metadata.
+- Optional local skill usage is fine, but CI runtime uses only the versioned repo scripts.
 
 ## Project Architecture
 

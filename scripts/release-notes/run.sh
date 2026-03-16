@@ -9,7 +9,6 @@ Usage:
 Environment:
   OPENAI_API_KEY      Required for AI-generated notes. If missing, fallback notes are produced.
   RELEASE_NOTES_MODEL Optional, defaults to gpt-5-mini
-  CODEX_HOME          Optional, defaults to $HOME/.codex
 EOF
 }
 
@@ -54,11 +53,10 @@ if [[ -z "$TAG" ]]; then
   exit 1
 fi
 
-CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
-SKILL_DIR="${CODEX_HOME_DIR}/skills/release-notes-pro"
-COLLECT_SCRIPT="${SKILL_DIR}/scripts/collect_changes.sh"
-GENERATE_SCRIPT="${SKILL_DIR}/scripts/generate_notes.mjs"
-PROMPT_TEMPLATE="${SKILL_DIR}/templates/release_notes_prompt.md"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+COLLECT_SCRIPT="${SCRIPT_DIR}/collect_changes.sh"
+GENERATE_SCRIPT="${SCRIPT_DIR}/generate_notes.mjs"
+PROMPT_TEMPLATE="${SCRIPT_DIR}/release_notes_prompt.md"
 
 if [[ ! -x "$COLLECT_SCRIPT" ]]; then
   echo "Missing executable: $COLLECT_SCRIPT" >&2

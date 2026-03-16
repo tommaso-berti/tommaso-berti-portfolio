@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-03-16T08:16:51.493Z",
+  "repositoryPath": "/Users/tberti/WebstormProjects/tommaso-berti-portfolio",
+  "version": "v0.0.0-ci-safe-test",
+  "fromRef": "HEAD~2",
+  "toRef": "HEAD",
+  "range": "HEAD~2..HEAD",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/HEAD~2...HEAD",
+  "commits": [
+    {
+      "sha": "246bf20f0089278c69d30258e21322b89481f359",
+      "shortSha": "246bf20",
+      "subject": "feat: add automated release notes generation pipeline with bilingual support and local usage instructions #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T09:07:20+01:00"
+    },
+    {
+      "sha": "643c5cf87ee1d997ca611e5d4e8ab15e90d8b4eb",
+      "shortSha": "643c5cf",
+      "subject": "feat: enhance exercise descriptions and refactor repository name normalization for improved clarity and functionality #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-16T08:44:47+01:00"
+    }
+  ],
+  "changedFiles": [
+    ".github/workflows/release-notes.yml",
+    ".release-notes.config.json",
+    "README.md",
+    "scripts/release-notes/run.sh",
+    "src/pages/projects/components/ExercisesSection.jsx",
+    "src/pages/projects/components/exercises.descriptions.js",
+    "src/pages/projects/components/exercises.utils.js"
+  ]
+}

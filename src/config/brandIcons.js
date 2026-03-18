@@ -22,11 +22,11 @@ import {
     SiSimpleicons,
     SiTailwindcss,
     SiSwagger,
-    SiVscodium,
     SiVite,
     SiWebstorm,
     SiYaml,
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 /**
  * @typedef {Object} BrandIconDefinition
@@ -149,7 +149,7 @@ const BRAND_ICON_REGISTRY = {
     },
     vscode: {
         id: "vscode",
-        component: SiVscodium,
+        component: VscVscode,
         color: "#2F80ED",
         title: "VS Code",
         colorPolicy: "fallback",

@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-03-18T11:50:40.512Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v2.10.0",
+  "releaseType": "minor",
+  "fromRef": "v2.9.0",
+  "toRef": "v2.10.0",
+  "range": "v2.9.0..v2.10.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0",
+  "commits": [
+    {
+      "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
+      "shortSha": "b7459ab",
+      "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-18T12:49:51+01:00"
+    },
+    {
+      "sha": "0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
+      "shortSha": "0f3b556",
+      "subject": "docs(release): v2.9.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-16T10:28:10Z"
+    }
+  ],
+  "changedFiles": [
+    ".github/workflows/deploy.yml",
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/v2.9.0.md",
+    "scripts/static-data/refresh-static-data.mjs",
+    "src/app/layout/ReleaseNotesModal.jsx",
+    "src/hooks/useLatestReleaseNotes.js"
+  ]
+}

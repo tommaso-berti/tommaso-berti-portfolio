@@ -1,36 +1,55 @@
 {
-  "generatedAt": "2026-03-16T10:28:04.577Z",
-  "latestTag": "v2.9.0",
-  "latestVersion": "2.9.0",
-  "previousTag": "v2.8.0",
+  "generatedAt": "2026-03-18T11:51:18.108Z",
+  "latestTag": "v2.10.0",
+  "latestVersion": "2.10.0",
+  "previousTag": "v2.9.0",
   "releaseType": "minor",
   "entries": [
     {
-      "sha": "50b5e1a551694219c251c6120c9196f4ad613dba",
-      "subject": "feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/50b5e1a551694219c251c6120c9196f4ad613dba",
+      "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
+      "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
       "author": "Tommaso Berti",
-      "date": "2026-03-16T11:26:38+01:00"
+      "date": "2026-03-18T12:49:51+01:00"
     },
     {
-      "sha": "2a04e753c615f188459bbabd94aac431197df39c",
-      "subject": "feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2a04e753c615f188459bbabd94aac431197df39c",
-      "author": "Tommaso Berti",
-      "date": "2026-03-16T11:00:40+01:00"
-    },
-    {
-      "sha": "550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
-      "subject": "docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
+      "sha": "0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
+      "subject": "docs(release): v2.9.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T09:53:24Z"
+      "date": "2026-03-16T10:28:10Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.9.0\n\n## Italiano\n### Panoramica\n- Versione: v2.9.0\n- Tipo di rilascio: minor\n- Intervallo commit: v2.8.0..v2.9.0 (4 commit)\n\n### Novita\n- Refactor della sezione Experience: introdotto il componente CareerTimeline per presentare la carriera. (commit 50b5e1a)\n- Anteprime progetti con caricamento differito e supporto tooltip nel componente MiniWebappPreview. (commit 2a04e75)\n  \n### Correzioni\n- Nessuna correzione segnalata nei commit di questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: modificati src/i18n/en.json e src/i18n/it.json.\n- Modifiche ai file di progetto e selettori: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Articoli di rilascio e metadati aggiornati: public/data/release-notes.json, release-notes/v2.8.0.md e commit di artefatti di rilascio. (commit 550a062)\n- Merge dalla main integrato. (commit c23ad27)\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata in questo intervallo.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto registrato nei metadati dei commit.\n\n### Confronto e Intervallo Commit\n- Confronto completo: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Intervallo: v2.8.0..v2.9.0\n- Commit inclusi:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]\n\n---\n\n## English\n### Overview\n- Version: v2.9.0\n- Release type: minor\n- Commit range: v2.8.0..v2.9.0 (4 commits)\n\n### New Features\n- Refactor of the Experience section: introduced a new CareerTimeline component. (commit 50b5e1a)\n- Deferred loading for project previews with tooltip support in the MiniWebappPreview component. (commit 2a04e75)\n\n### Bug Fixes\n- No bug-fix commits in this range.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json and src/i18n/it.json modified.\n- Project pages and selectors updated: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Release artifacts and metadata updated: public/data/release-notes.json, release-notes/v2.8.0.md and related docs commit. (commit 550a062)\n- Merge from main integrated. (commit c23ad27)\n\n### Breaking Changes\n- No breaking changes detected in this range.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations recorded in the commit metadata.\n\n### Diff & Commit Range\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Range: v2.8.0..v2.9.0\n- Commits:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.9.0",
-  "publishedAt": "2026-03-16T10:28:00Z",
+  "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
+  "publishedAt": "2026-03-18T11:51:14Z",
   "history": [
+    {
+      "tag": "v2.10.0",
+      "version": "2.10.0",
+      "previousTag": "v2.9.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
+          "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
+          "author": "Tommaso Berti",
+          "date": "2026-03-18T12:49:51+01:00"
+        },
+        {
+          "sha": "0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
+          "subject": "docs(release): v2.9.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
+          "author": "github-actions[bot]",
+          "date": "2026-03-16T10:28:10Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
+      "publishedAt": "2026-03-18T11:51:14Z"
+    },
     {
       "tag": "v2.9.0",
       "version": "2.9.0",
@@ -256,7 +275,7 @@
     {
       "tag": "v2.7.2",
       "version": "2.7.2",
-      "previousTag": "v2.7.1",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
         {
@@ -272,19 +291,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
           "author": "github-actions[bot]",
           "date": "2026-03-16T08:36:00Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.7.1",
-      "version": "2.7.1",
-      "previousTag": "v2.7.0",
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
           "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
@@ -292,25 +299,6 @@
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:35:03+01:00"
         },
-        {
-          "sha": "ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
-          "subject": "chore(data): refresh static github snapshots [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef33ddfb5ef9d0acf86748faf3d3a1a7f6abfa45",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T08:29:46Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.7.0",
-      "version": "2.7.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
         {
           "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
           "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
@@ -359,27 +347,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5d48df0946f2392716d4a2bcdcb39416ee7fd784",
           "author": "Tommaso Berti",
           "date": "2026-03-15T23:53:49+01:00"
-        },
-        {
-          "sha": "ea8410709490d248210762d96b2754f0cb51188f",
-          "subject": "feat: add exercises section with dynamic loading of GitHub starred repositories for enhanced learning resources",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ea8410709490d248210762d96b2754f0cb51188f",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T23:35:13+01:00"
-        },
-        {
-          "sha": "6e1becb2648aea6131c551ce36e2b6ae80b86514",
-          "subject": "feat: add new technologies and enhance project details for improved clarity and organization",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6e1becb2648aea6131c551ce36e2b6ae80b86514",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T22:39:43+01:00"
-        },
-        {
-          "sha": "5044067ce875023d6ff6b19e54ea5824f703e2c4",
-          "subject": "feat: add search mechanics section and enhance technology details for improved clarity and organization",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5044067ce875023d6ff6b19e54ea5824f703e2c4",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T22:19:30+01:00"
         }
       ],
       "source": "local",

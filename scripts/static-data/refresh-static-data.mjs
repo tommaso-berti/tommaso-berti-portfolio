@@ -27,7 +27,7 @@ const LOW_SIGNAL_TOPICS = new Set([
     "exercises",
 ]);
 const SEMVER_TAG_REGEX = /^v(\d+)\.(\d+)\.(\d+)$/;
-const MAX_RELEASE_HISTORY = 11;
+const MAX_RELEASE_HISTORY = 10;
 const MAX_RELEASE_ENTRIES = 10;
 
 function parseSemverTag(tagName) {

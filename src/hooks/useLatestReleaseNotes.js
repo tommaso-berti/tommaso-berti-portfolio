@@ -46,6 +46,7 @@ async function fetchLatestReleaseNotes(signal, nonce) {
         signal
     );
     const entries = Array.isArray(payload?.entries) ? payload.entries : [];
+    const history = Array.isArray(payload?.history) ? payload.history : [];
     const tag = `${payload?.latestTag ?? ""}`;
 
     if (!tag) {
@@ -58,6 +59,7 @@ async function fetchLatestReleaseNotes(signal, nonce) {
             bodyMarkdown: "",
             releaseUrl: "",
             publishedAt: "",
+            history: [],
             source: "none",
             error: "NO_TAGS",
         };
@@ -72,6 +74,7 @@ async function fetchLatestReleaseNotes(signal, nonce) {
         bodyMarkdown: `${payload?.bodyMarkdown ?? ""}`,
         releaseUrl: `${payload?.releaseUrl ?? ""}`,
         publishedAt: `${payload?.publishedAt ?? ""}`,
+        history,
         source: "static",
         error: null,
     };

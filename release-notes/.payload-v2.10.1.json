@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-03-18T23:18:14.298Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v2.10.1",
+  "releaseType": "patch",
+  "fromRef": "v2.10.0",
+  "toRef": "v2.10.1",
+  "range": "v2.10.0..v2.10.1",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1",
+  "commits": [
+    {
+      "sha": "0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
+      "shortSha": "0e2b4a9",
+      "subject": "feat: replace SiVscodium with VscVscode in brandIcons.js #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T00:17:26+01:00"
+    },
+    {
+      "sha": "8bb676c29a0a80b29bda1b064d8106d112292680",
+      "shortSha": "8bb676c",
+      "subject": "docs(release): v2.10.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-18T11:51:24Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v2.10.0.json",
+    "release-notes/v2.10.0.md",
+    "src/config/brandIcons.js"
+  ]
+}

@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-18T11:51:18.108Z",
-  "latestTag": "v2.10.0",
-  "latestVersion": "2.10.0",
-  "previousTag": "v2.9.0",
-  "releaseType": "minor",
+  "generatedAt": "2026-03-18T23:18:57.291Z",
+  "latestTag": "v2.10.1",
+  "latestVersion": "2.10.1",
+  "previousTag": "v2.10.0",
+  "releaseType": "patch",
   "entries": [
     {
-      "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
-      "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
+      "sha": "0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
+      "subject": "feat: replace SiVscodium with VscVscode in brandIcons.js #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
       "author": "Tommaso Berti",
-      "date": "2026-03-18T12:49:51+01:00"
+      "date": "2026-03-19T00:17:26+01:00"
     },
     {
-      "sha": "0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
-      "subject": "docs(release): v2.9.0 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
+      "sha": "8bb676c29a0a80b29bda1b064d8106d112292680",
+      "subject": "docs(release): v2.10.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bb676c29a0a80b29bda1b064d8106d112292680",
       "author": "github-actions[bot]",
-      "date": "2026-03-16T10:28:10Z"
+      "date": "2026-03-18T11:51:24Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
-  "publishedAt": "2026-03-18T11:51:14Z",
+  "bodyMarkdown": "# Release Notes v2.10.1\n\n## Italiano\n### Panoramica\n- Versione: v2.10.1\n- Tipo di rilascio: patch (fonte: payload.releaseType)\n- Intervallo commit: v2.10.0..v2.10.1\n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (tipo: patch).\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit.\n\n### Migliorie Tecniche\n- src/config/brandIcons.js: sostituito SiVscodium con VscVscode (commit 0e2b4a9).\n- Aggiornamento degli artefatti / note di rilascio (file aggiornati sotto release-notes e public/data) (commit 8bb676c).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit.\n\n### Confronto e Intervallo Commit\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commit inclusi:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati (elenco fornito):\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js\n\n---\n\n## English\n### Overview\n- Version: v2.10.1\n- Release type: patch (source: payload.releaseType)\n- Commit range: v2.10.0..v2.10.1\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### New Features\n- No new features in this release (type: patch).\n\n### Bug Fixes\n- No explicit bug fixes listed in the commits.\n\n### Refactor & Engineering\n- src/config/brandIcons.js: replaced SiVscodium with VscVscode (commit 0e2b4a9).\n- Documentation / release artifacts updated (files under release-notes and public/data) (commit 8bb676c).\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required for this release.\n\n### Known Limitations\n- No known limitations reported in the commit metadata.\n\n### Diff & Commit Range\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commits included:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.1",
+  "publishedAt": "2026-03-18T23:18:54Z",
   "history": [
+    {
+      "tag": "v2.10.1",
+      "version": "2.10.1",
+      "previousTag": "v2.10.0",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
+          "subject": "feat: replace SiVscodium with VscVscode in brandIcons.js #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
+          "author": "Tommaso Berti",
+          "date": "2026-03-19T00:17:26+01:00"
+        },
+        {
+          "sha": "8bb676c29a0a80b29bda1b064d8106d112292680",
+          "subject": "docs(release): v2.10.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bb676c29a0a80b29bda1b064d8106d112292680",
+          "author": "github-actions[bot]",
+          "date": "2026-03-18T11:51:24Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v2.10.1\n\n## Italiano\n### Panoramica\n- Versione: v2.10.1\n- Tipo di rilascio: patch (fonte: payload.releaseType)\n- Intervallo commit: v2.10.0..v2.10.1\n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (tipo: patch).\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit.\n\n### Migliorie Tecniche\n- src/config/brandIcons.js: sostituito SiVscodium con VscVscode (commit 0e2b4a9).\n- Aggiornamento degli artefatti / note di rilascio (file aggiornati sotto release-notes e public/data) (commit 8bb676c).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit.\n\n### Confronto e Intervallo Commit\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commit inclusi:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati (elenco fornito):\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js\n\n---\n\n## English\n### Overview\n- Version: v2.10.1\n- Release type: patch (source: payload.releaseType)\n- Commit range: v2.10.0..v2.10.1\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### New Features\n- No new features in this release (type: patch).\n\n### Bug Fixes\n- No explicit bug fixes listed in the commits.\n\n### Refactor & Engineering\n- src/config/brandIcons.js: replaced SiVscodium with VscVscode (commit 0e2b4a9).\n- Documentation / release artifacts updated (files under release-notes and public/data) (commit 8bb676c).\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required for this release.\n\n### Known Limitations\n- No known limitations reported in the commit metadata.\n\n### Diff & Commit Range\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commits included:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.1",
+      "publishedAt": "2026-03-18T23:18:54Z"
+    },
     {
       "tag": "v2.10.0",
       "version": "2.10.0",
@@ -249,7 +275,7 @@
     {
       "tag": "v2.7.3",
       "version": "2.7.3",
-      "previousTag": "v2.7.2",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
         {
@@ -265,32 +291,13 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/6dc9f391cd0a088df0dca9e94cf233c28eed6a6c",
           "author": "github-actions[bot]",
           "date": "2026-03-16T08:40:16Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "",
-      "releaseUrl": "",
-      "publishedAt": ""
-    },
-    {
-      "tag": "v2.7.2",
-      "version": "2.7.2",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
           "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:39:55+01:00"
-        },
-        {
-          "sha": "e0229b773e5b554291a01128cda304f9ee69e65a",
-          "subject": "chore(data): refresh static github snapshots [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e0229b773e5b554291a01128cda304f9ee69e65a",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T08:36:00Z"
         },
         {
           "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
@@ -340,13 +347,6 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/36af5009c25ee8764bd6fe4a5de1fe35da06e679",
           "author": "Tommaso Berti",
           "date": "2026-03-15T23:58:03+01:00"
-        },
-        {
-          "sha": "5d48df0946f2392716d4a2bcdcb39416ee7fd784",
-          "subject": "feat: enhance ExercisesSection with loading states and GitHub links for improved user experience",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5d48df0946f2392716d4a2bcdcb39416ee7fd784",
-          "author": "Tommaso Berti",
-          "date": "2026-03-15T23:53:49+01:00"
         }
       ],
       "source": "local",

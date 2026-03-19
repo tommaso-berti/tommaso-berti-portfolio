@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-03-19T15:30:31.422Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.0.1",
+  "releaseType": "patch",
+  "fromRef": "v3.0.0",
+  "toRef": "v3.0.1",
+  "range": "v3.0.0..v3.0.1",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.0...v3.0.1",
+  "commits": [
+    {
+      "sha": "5e9ee8274ee02d3dc5e4859d2fa9b5504270b398",
+      "shortSha": "5e9ee82",
+      "subject": "Merge remote-tracking branch 'origin/main'",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T16:26:58+01:00"
+    },
+    {
+      "sha": "0f0bd9e38679c7568dd3906be447ff3d75715ebb",
+      "shortSha": "0f0bd9e",
+      "subject": "feat: enhance release notes functionality with localization and GitHub link #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T16:26:49+01:00"
+    },
+    {
+      "sha": "c854abb4e6d87493e05c123d551dfb8f4a7527a3",
+      "shortSha": "c854abb",
+      "subject": "docs(release): v3.0.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-19T14:22:12Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.0.0.json",
+    "release-notes/v3.0.0.md",
+    "src/app/layout/ReleaseNotesModal.jsx",
+    "src/i18n/en.json",
+    "src/i18n/it.json"
+  ]
+}

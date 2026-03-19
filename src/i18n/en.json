@@ -561,7 +561,11 @@
     "empty": "No release notes available for this version.",
     "error": "Unable to load release notes right now. Please try again.",
     "retry": "Retry",
-    "close": "Close"
+    "close": "Close",
+    "github_release": "Open GitHub release",
+    "release_type_major": "major",
+    "release_type_minor": "minor",
+    "release_type_patch": "patch"
   },
   "seo": {
     "pages": {

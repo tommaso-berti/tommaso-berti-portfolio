@@ -555,13 +555,17 @@
     "title_major": "Note di rilascio Major",
     "title_minor": "Note di rilascio Minor",
     "title_patch": "Note di rilascio Patch",
-    "version_label": "Ultima versione deployata: v{{version}}",
+    "version_label": "Ultima versione pubblicata: v{{version}}",
     "compare_label": "Confronto da {{previous}} a {{latest}}",
     "loading": "Caricamento release notes...",
     "empty": "Nessuna release note disponibile per questa versione.",
     "error": "Impossibile caricare le release notes in questo momento. Riprova.",
     "retry": "Riprova",
-    "close": "Chiudi"
+    "close": "Chiudi",
+    "github_release": "Apri release su GitHub",
+    "release_type_major": "maggiore",
+    "release_type_minor": "minore",
+    "release_type_patch": "patch"
   },
   "seo": {
     "pages": {

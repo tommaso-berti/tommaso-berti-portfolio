@@ -19,6 +19,7 @@ import {
     Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import { useEffect, useMemo, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -69,6 +70,12 @@ function releaseLabel(releaseType) {
     if (releaseType === "major") return "major";
     if (releaseType === "minor") return "minor";
     return "patch";
+}
+
+function normalizeItalianAccents(markdown, language) {
+    if (language !== "it") return markdown;
+    return `${markdown ?? ""}`
+        .replace(/^#\s*Release Notes\b/mi, "# Note di rilascio");
 }
 
 function MarkdownPanel({ markdown }) {
@@ -137,7 +144,10 @@ export default function ReleaseNotesModal({ open, onClose }) {
     const historyWithContent = useMemo(
         () => history.map((item) => ({
             ...item,
-            filteredMarkdown: extractLanguageSection(item?.bodyMarkdown || "", language),
+            filteredMarkdown: normalizeItalianAccents(
+                extractLanguageSection(item?.bodyMarkdown || "", language),
+                language
+            ),
         })),
         [history, language]
     );
@@ -242,15 +252,18 @@ export default function ReleaseNotesModal({ open, onClose }) {
                                         <AccordionDetails>
                                             <Stack spacing={1}>
                                                 {item.releaseUrl ? (
-                                                    <Link
+                                                    <Button
+                                                        component="a"
                                                         href={item.releaseUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        underline="hover"
-                                                        sx={{ width: "fit-content" }}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        endIcon={<OpenInNewRoundedIcon sx={{ fontSize: 16 }} />}
+                                                        sx={{ width: "fit-content", textTransform: "none" }}
                                                     >
-                                                        GitHub Release
-                                                    </Link>
+                                                        {t("github_release")}
+                                                    </Button>
                                                 ) : null}
 
                                                 {hasMarkdown ? <MarkdownPanel markdown={item.filteredMarkdown} /> : null}

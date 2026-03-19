@@ -67,7 +67,7 @@ export default function Home() {
                     <Typography color="text.secondary" variant="h6" sx={{ mt: 0.25 }}>
                         {`Software Developer ${t("and")} Delivery Expert`}
                     </Typography>
-                    <Stack direction="row" sx={{ pt: 1 }}>
+                    <Stack direction="row" sx={{ pt: 1 }} spacing={1.1} flexWrap="wrap">
                         <Button
                             component={RouterLink}
                             to="/projects"
@@ -81,6 +81,23 @@ export default function Home() {
                             }}
                         >
                             {t("primaryCta")}
+                        </Button>
+                        <Button
+                            component={RouterLink}
+                            to="/contact"
+                            variant="outlined"
+                            sx={{
+                                ...outlinedActionButtonSx,
+                                "&:hover": {
+                                    transform: "translateY(-4px)",
+                                    boxShadow: 6,
+                                    borderColor: "text.secondary",
+                                    backgroundColor: "action.hover",
+                                    cursor: "pointer",
+                                },
+                            }}
+                        >
+                            {t("contactCta")}
                         </Button>
                     </Stack>
                     {heroParagraphs.map((paragraph, index) => (

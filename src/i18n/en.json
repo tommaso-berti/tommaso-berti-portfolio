@@ -3,7 +3,8 @@
     "home": "Home",
     "projects": "Projects",
     "about": "About",
-    "blog": "Blog"
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "pages": {
     "home": {
@@ -11,6 +12,7 @@
       "welcome": "Hello, I'm",
       "and": "and",
       "primaryCta": "Explore projects",
+      "contactCta": "Contact me",
       "certifications": {
         "title": "Core certifications",
         "subtitle": "I continuously improve my skills through focused learning paths and technical certifications.",
@@ -35,6 +37,19 @@
         "I implement new features, optimize existing ones, and fix application behaviors, with constant attention to customer needs and product quality.",
         "The product I work on, Kubix Link, spans front-end, back-end, databases, APIs, external service integrations, and custom code for specific client needs. This experience gave me a broad, practical view of what it takes to build and maintain a complex web application."
       ]
+    },
+    "contact": {
+      "title": "Contact me",
+      "eyebrow": "Collaborations and opportunities",
+      "subtitle": "If you want to discuss a collaboration, a project, or a new professional opportunity, feel free to reach out. I review every message carefully.",
+      "emailCta": "Email me",
+      "emailHelper": "Primary channel for projects and collaborations. If possible, include your goal and context in the message.",
+      "linkedinCta": "Open LinkedIn",
+      "linkedinDescription": "For professional networking, quick updates, and direct outreach.",
+      "resumeCta": "Download Resume",
+      "resumeDescription": "Latest version of my profile with experience, stack, and skills.",
+      "socialTitle": "Useful links",
+      "responseTime": "I usually reply within 24-48 hours."
     },
     "about": {
       "bio": {

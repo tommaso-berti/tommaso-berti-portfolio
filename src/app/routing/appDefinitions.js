@@ -5,6 +5,7 @@ import Projects from "../../pages/projects/Projects.jsx";
 import ProjectPage from "../../pages/projects/projectsPages/ProjectPage.jsx";
 import About from "../../pages/about/About.jsx";
 import Blog from "../../pages/blog/Blog.jsx";
+import Contact from "../../pages/contact/Contact.jsx";
 import { projects } from "../../pages/projects/projectsPages/projects.js";
 
 /**
@@ -78,6 +79,15 @@ export const PAGE_DEFINITIONS = [
         component: Blog,
         breadcrumbContext: "home",
         navKey: "blog",
+        showInHomeMenu: true,
+        experimental: false,
+    },
+    {
+        id: "contact",
+        path: "/contact",
+        component: Contact,
+        breadcrumbContext: "home",
+        navKey: "contact",
         showInHomeMenu: true,
         experimental: false,
     },

@@ -4,7 +4,8 @@
     "projects": "Progetti",
     "about": "Chi sono",
     "blog": "Blog",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "cv": "CV"
   },
   "pages": {
     "home": {
@@ -555,6 +556,27 @@
       "work_in_progress_one": "Lavori in corso",
       "work_in_progress_other": "Lavori in corso",
       "work_in_progress_label": "{{status}}"
+    },
+    "cv": {
+      "densityLabel": "Densita CV",
+      "full": "Completo",
+      "compact": "Compatto",
+      "showProjects": "Mostra progetti",
+      "showCertifications": "Mostra certificazioni",
+      "downloadPdfCurrentView": "Scarica PDF Dinamico",
+      "downloadStaticPdf": "Scarica PDF One-Page",
+      "dynamicPdfInfoTooltip": "Il download dinamico usa le opzioni correnti: completo/compatto, progetti e certificazioni.",
+      "downloadPdf": "Scarica PDF",
+      "summary": "Profilo professionale",
+      "experience": "Esperienza lavorativa",
+      "skills": "Competenze / Tech Stack",
+      "selectedProjects": "Progetti selezionati",
+      "certifications": "Certificazioni",
+      "educationAndLanguages": "Formazione e lingue",
+      "verify": "Verifica",
+      "projectLive": "Live",
+      "projectRepo": "Repository",
+      "placeholderTitle": "Note di completamento profilo"
     }
   },
   "releaseNotes": {
@@ -602,6 +624,10 @@
       "fallback": {
         "title": "Tommaso Berti | Portfolio",
         "description": "Portfolio professionale di Tommaso Berti, Software Developer."
+      },
+      "cv": {
+        "title": "CV | Tommaso Berti",
+        "description": "CV interattivo di Tommaso Berti con esportazione PDF e impaginazione orientata ai recruiter."
       }
     }
   }

@@ -11,11 +11,16 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
+import { Link as RouterLink } from "react-router-dom";
+import { useLanguage } from "../../contexts/LanguageContext.jsx";
+import { getStaticCvPdfPath } from "../cv/cvPdf.utils.js";
 
 import { useTranslation } from "../../hooks/useTranslation.js";
 
 export default function Contact() {
     const { t } = useTranslation("pages.contact");
+    const { language } = useLanguage();
+    const staticCvPdfPath = getStaticCvPdfPath(language);
     const secondaryActions = [
         {
             id: "linkedin",
@@ -27,7 +32,7 @@ export default function Contact() {
         },
         {
             id: "resume",
-            href: "/Curriculum_Tommaso_Berti.pdf",
+            href: staticCvPdfPath,
             title: t("resumeCta"),
             description: t("resumeDescription"),
             icon: DescriptionIcon,
@@ -56,7 +61,7 @@ export default function Contact() {
         },
         {
             id: "resume",
-            href: "/Curriculum_Tommaso_Berti.pdf",
+            href: staticCvPdfPath,
             icon: DescriptionIcon,
             label: "PDF",
         },
@@ -131,8 +136,9 @@ export default function Contact() {
                     return (
                         <Paper
                             key={action.id}
-                            component="a"
-                            href={action.href}
+                            component={action.external ? "a" : RouterLink}
+                            href={action.external ? action.href : undefined}
+                            to={!action.external ? action.to : undefined}
                             target={action.external ? "_blank" : undefined}
                             rel={action.external ? "noreferrer" : undefined}
                             aria-label={action.title}
@@ -217,8 +223,16 @@ export default function Contact() {
                                     aria-label={social.label}
                                     component="a"
                                     href={social.href}
-                                    target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-                                    rel={social.href.startsWith("mailto:") ? undefined : "noreferrer"}
+                                    target={
+                                        social.href.startsWith("mailto:")
+                                            ? undefined
+                                            : "_blank"
+                                    }
+                                    rel={
+                                        social.href.startsWith("mailto:")
+                                            ? undefined
+                                            : "noreferrer"
+                                    }
                                 >
                                     <SocialIcon fontSize="small" />
                                 </IconButton>

@@ -15,6 +15,7 @@ const ROUTE_META_KEYS = [
     { match: (pathname) => pathname === "/about", key: "about" },
     { match: (pathname) => pathname === "/contact", key: "contact" },
     { match: (pathname) => pathname === "/blog", key: "blog" },
+    { match: (pathname) => pathname === "/cv", key: "cv" },
 ];
 
 function ensureMetaTag(attribute, name) {

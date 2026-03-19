@@ -9,6 +9,7 @@ const ProjectPage = lazy(() => import("../../pages/projects/projectsPages/Projec
 const About = lazy(() => import("../../pages/about/About.jsx"));
 const Blog = lazy(() => import("../../pages/blog/Blog.jsx"));
 const Contact = lazy(() => import("../../pages/contact/Contact.jsx"));
+const Cv = lazy(() => import("../../pages/cv/Cv.jsx"));
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition
@@ -94,6 +95,15 @@ export const PAGE_DEFINITIONS = [
         experimental: false,
     },
     {
+        id: "cv",
+        path: "/cv",
+        component: Cv,
+        breadcrumbContext: "cv",
+        navKey: "cv",
+        showInHomeMenu: true,
+        experimental: false,
+    },
+    {
         id: "not-found",
         path: "*",
         redirectTo: "/",
@@ -142,6 +152,11 @@ export const BREADCRUMB_CONTEXT_DEFINITIONS = {
         type: "path",
         basePath: "/projects",
         items: PROJECT_ITEMS,
+    },
+    cv: {
+        type: "path",
+        basePath: "/",
+        items: [{ id: "cv", titleKey: "nav.cv", fallback: "cv" }],
     },
 };
 

@@ -4,7 +4,8 @@
     "projects": "Projects",
     "about": "About",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "CV"
   },
   "pages": {
     "home": {
@@ -555,6 +556,27 @@
       "work_in_progress_one": "Work in progress",
       "work_in_progress_other": "Work in progress",
       "work_in_progress_label": "{{status}}"
+    },
+    "cv": {
+      "densityLabel": "CV density",
+      "full": "Full",
+      "compact": "Compact",
+      "showProjects": "Show projects",
+      "showCertifications": "Show certifications",
+      "downloadPdfCurrentView": "Download Dynamic PDF",
+      "downloadStaticPdf": "Download One-Page PDF",
+      "dynamicPdfInfoTooltip": "Dynamic download uses current options: full/compact, projects, and certifications.",
+      "downloadPdf": "Download PDF",
+      "summary": "Professional Summary",
+      "experience": "Work Experience",
+      "skills": "Skills / Tech Stack",
+      "selectedProjects": "Selected Projects",
+      "certifications": "Certifications",
+      "educationAndLanguages": "Education and Languages",
+      "verify": "Verify",
+      "projectLive": "Live",
+      "projectRepo": "Repository",
+      "placeholderTitle": "Profile completion notes"
     }
   },
   "releaseNotes": {
@@ -602,6 +624,10 @@
       "fallback": {
         "title": "Tommaso Berti | Portfolio",
         "description": "Professional portfolio of Tommaso Berti, Software Developer."
+      },
+      "cv": {
+        "title": "CV | Tommaso Berti",
+        "description": "Interactive CV of Tommaso Berti with exportable PDF and recruiter-friendly formatting."
       }
     }
   }

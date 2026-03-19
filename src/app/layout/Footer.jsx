@@ -6,10 +6,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import DescriptionIcon from '@mui/icons-material/Description';
+import { useLanguage } from "../../contexts/LanguageContext.jsx";
 import { useTranslation } from "../../hooks/useTranslation.js";
+import { getStaticCvPdfPath } from "../../pages/cv/cvPdf.utils.js";
 
 export default function Footer() {
     const { t } = useTranslation();
+    const { language } = useLanguage();
+    const staticCvPdfPath = getStaticCvPdfPath(language);
     return (
         <Container
             component="footer"
@@ -91,7 +95,7 @@ export default function Footer() {
                     <IconButton
                         aria-label="PDF"
                         component="a"
-                        href="/Curriculum_Tommaso_Berti.pdf"
+                        href={staticCvPdfPath}
                         target="_blank"
                         rel="noopener noreferrer"
                         size='large'

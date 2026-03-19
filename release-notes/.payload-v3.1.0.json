@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-03-19T16:22:36.845Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.1.0",
+  "releaseType": "minor",
+  "fromRef": "v3.0.1",
+  "toRef": "v3.1.0",
+  "range": "v3.0.1..v3.1.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.1...v3.1.0",
+  "commits": [
+    {
+      "sha": "fd38e10eee297335f3defd7243c8a83687ad82cc",
+      "shortSha": "fd38e10",
+      "subject": "feat: add full-stack engineer certification and enhance technology tooltip display #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T17:21:46+01:00"
+    },
+    {
+      "sha": "be98d3d60fb6469c2c46c91415f06b94e4bbed38",
+      "shortSha": "be98d3d",
+      "subject": "docs(release): v3.0.1 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-19T15:31:14Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.0.1.json",
+    "release-notes/v3.0.1.md",
+    "src/features/certifications/CertificationsSection.jsx",
+    "src/features/certifications/certificationIcons.js",
+    "src/features/certifications/certifications.data.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/home/Home.jsx"
+  ]
+}

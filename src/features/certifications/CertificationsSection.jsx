@@ -9,6 +9,43 @@ import { useTranslation } from "../../hooks/useTranslation.js";
 import { CERTIFICATIONS } from "./certifications.data.js";
 import { formatIssuedAt, groupCertificationsByArea } from "./certifications.utils.js";
 import { getCertificationIconDefinitions } from "./certificationIcons.js";
+import Tooltip from "@mui/material/Tooltip";
+import ButtonBase from "@mui/material/ButtonBase";
+
+const MAX_VISIBLE_CERT_ICONS = 6;
+const CERT_TECH_TOOLTIP_SLOT_PROPS = {
+    tooltip: {
+        sx: {
+            maxWidth: 260,
+            p: 1.2,
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: "divider",
+            backgroundColor: "background.paper",
+            color: "text.primary",
+            boxShadow: 3,
+            backgroundImage: (theme) =>
+                theme.palette.mode === "dark"
+                    ? "linear-gradient(160deg, rgba(125,196,172,0.12), rgba(20,32,28,0.94) 62%)"
+                    : "linear-gradient(160deg, rgba(47,122,98,0.11), rgba(248,251,249,0.96) 62%)",
+            backdropFilter: "blur(6px)",
+            "& .MuiTypography-caption": {
+                color: "text.secondary",
+                lineHeight: 1.35,
+            },
+        },
+    },
+    arrow: {
+        sx: {
+            color: "background.paper",
+            "&::before": {
+                border: "1px solid",
+                borderColor: "divider",
+                boxSizing: "border-box",
+            },
+        },
+    },
+};
 
 export default function CertificationsSection() {
     const { t } = useTranslation("pages.about.certifications");
@@ -106,6 +143,9 @@ export default function CertificationsSection() {
                             >
                                 {certifications.map((cert) => {
                                     const iconDefinitions = getCertificationIconDefinitions(cert);
+                                    const visibleIconDefinitions = iconDefinitions.slice(0, MAX_VISIBLE_CERT_ICONS);
+                                    const hiddenIconsCount = Math.max(iconDefinitions.length - MAX_VISIBLE_CERT_ICONS, 0);
+                                    const useTwoIconColumns = iconDefinitions.length > 4;
 
                                     return (
                                         <Paper
@@ -122,17 +162,16 @@ export default function CertificationsSection() {
                                             }}
                                         >
                                             <Box
-                                                aria-hidden="true"
                                                 sx={{
                                                     position: "absolute",
                                                     top: 10,
                                                     right: 10,
-                                                    display: "flex",
-                                                    flexDirection: "column",
+                                                    display: "grid",
+                                                    gridTemplateColumns: useTwoIconColumns ? "repeat(2, 22px)" : "22px",
                                                     gap: 0.6,
                                                 }}
                                             >
-                                                {iconDefinitions.map((iconDefinition, index) => {
+                                                {visibleIconDefinitions.map((iconDefinition, index) => {
                                                     const TopicIcon = iconDefinition.component;
                                                     return (
                                                         <Box
@@ -145,14 +184,64 @@ export default function CertificationsSection() {
                                                                 backgroundColor: "#fff",
                                                                 boxShadow: "0 1px 2px rgba(15, 23, 42, 0.08)",
                                                                 display: "flex",
-                                                                alignItems: "center",
-                                                                justifyContent: "center",
+                                                            alignItems: "center",
+                                                            justifyContent: "center",
+                                                        }}
+                                                        aria-hidden="true"
+                                                    >
+                                                        <TopicIcon size={15} color={iconDefinition.color} />
+                                                    </Box>
+                                                );
+                                            })}
+                                                {hiddenIconsCount > 0 ? (
+                                                    <Tooltip
+                                                        arrow
+                                                        placement="left"
+                                                        slotProps={CERT_TECH_TOOLTIP_SLOT_PROPS}
+                                                        title={
+                                                            <Stack spacing={0.6} sx={{ py: 0.25 }}>
+                                                                <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                                                                    {t("moreTechTooltip")}
+                                                                </Typography>
+                                                                {iconDefinitions.map((iconDefinition, index) => {
+                                                                    const TopicIcon = iconDefinition.component;
+                                                                    return (
+                                                                        <Stack
+                                                                            key={`${cert.id}-tooltip-${iconDefinition.id}-${index}`}
+                                                                            direction="row"
+                                                                            spacing={0.7}
+                                                                            alignItems="center"
+                                                                        >
+                                                                            <TopicIcon size={14} color={iconDefinition.color} />
+                                                                            <Typography variant="caption">
+                                                                                {iconDefinition.title || iconDefinition.id}
+                                                                            </Typography>
+                                                                        </Stack>
+                                                                    );
+                                                                })}
+                                                            </Stack>
+                                                        }
+                                                    >
+                                                        <ButtonBase
+                                                            aria-label={t("moreTechAria", {
+                                                                values: { count: hiddenIconsCount, title: cert.title },
+                                                            })}
+                                                            sx={{
+                                                                width: 22,
+                                                                height: 22,
+                                                                borderRadius: 1.5,
+                                                                border: "1px solid",
+                                                                borderColor: "divider",
+                                                                backgroundColor: "background.paper",
+                                                                fontSize: "0.67rem",
+                                                                fontWeight: 700,
+                                                                color: "text.secondary",
                                                             }}
                                                         >
-                                                            <TopicIcon size={15} color={iconDefinition.color} />
-                                                        </Box>
-                                                    );
-                                                })}
+                                                            {`+${hiddenIconsCount}`}
+                                                        </ButtonBase>
+                                                    </Tooltip>
+                                                ) : null}
                                             </Box>
                                             <Typography
                                                 variant="subtitle1"
@@ -161,7 +250,7 @@ export default function CertificationsSection() {
                                                     lineHeight: 1.34,
                                                     whiteSpace: "normal",
                                                     overflowWrap: "anywhere",
-                                                    pr: 3.8,
+                                                    pr: useTwoIconColumns ? 6.5 : 3.8,
                                                 }}
                                             >
                                                 {cert.title}

@@ -16,6 +16,16 @@ const PROFILE_PLACEHOLDER_URL = "https://www.codecademy.com/profiles/Tommi97";
 /** @type {Certification[]} */
 export const CERTIFICATIONS = [
     {
+        id: "codecademy-full-stack-engineer-career-path",
+        title: "Full-Stack Engineer Career Path",
+        platform: "Codecademy",
+        areaKey: "fullstack",
+        issuedAt: "2026-03",
+        status: "completed",
+        url: "https://www.codecademy.com/profiles/Tommi97/certificates/ffd0f42cce1a44e9a0108b365047a0a6",
+        featured: true,
+    },
+    {
         id: "codecademy-html-css-github-pages",
         title: "Build a Website with HTML, CSS, and GitHub Pages Skill Path",
         platform: "Codecademy",

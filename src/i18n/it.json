@@ -19,6 +19,8 @@
         "issuedAt": "Rilasciato",
         "verifyCta": "Visualizza",
         "viewAllCta": "Vedi tutti i certificati",
+        "moreTechTooltip": "Tecnologie incluse",
+        "moreTechAria": "Mostra tutte le tecnologie del certificato {{title}} ({{count}} in più)",
         "status": {
           "completed": "Completato",
           "in-progress": "In corso"
@@ -29,7 +31,8 @@
           "tooling-workflow": "Tooling / Workflow",
           "database": "Database",
           "devops": "DevOps",
-          "computer-science": "Computer Science"
+          "computer-science": "Computer Science",
+          "fullstack": "Full Stack"
         }
       },
       "hero": [
@@ -119,8 +122,11 @@
           "tooling-workflow": "Tooling / Workflow",
           "database": "Database",
           "devops": "DevOps",
-          "computer-science": "Computer Science"
-        }
+          "computer-science": "Computer Science",
+          "fullstack": "Full Stack"
+        },
+        "moreTechTooltip": "Tecnologie incluse",
+        "moreTechAria": "Mostra tutte le tecnologie del certificato {{title}} ({{count}} in più)"
       }
     },
     "projects": {

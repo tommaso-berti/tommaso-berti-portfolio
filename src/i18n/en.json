@@ -562,5 +562,37 @@
     "error": "Unable to load release notes right now. Please try again.",
     "retry": "Retry",
     "close": "Close"
+  },
+  "seo": {
+    "pages": {
+      "home": {
+        "title": "Tommaso Berti | Software Developer Portfolio",
+        "description": "Portfolio of Tommaso Berti, Software Developer: frontend projects, technical skills, and professional contact points."
+      },
+      "projects": {
+        "title": "Projects | Tommaso Berti",
+        "description": "Selection of web and frontend projects with technical overview, stack, and implementation goals."
+      },
+      "projectDetail": {
+        "title": "Project Detail | Tommaso Berti",
+        "description": "Technical deep dive into the project: context, implementation choices, results, and roadmap."
+      },
+      "about": {
+        "title": "About | Tommaso Berti",
+        "description": "Professional profile, experience, technical skills, and background of Tommaso Berti."
+      },
+      "contact": {
+        "title": "Contact | Tommaso Berti",
+        "description": "Get in touch with Tommaso Berti for collaborations, projects, and professional opportunities."
+      },
+      "blog": {
+        "title": "Blog | Tommaso Berti",
+        "description": "Space for technical content, professional updates, and development notes."
+      },
+      "fallback": {
+        "title": "Tommaso Berti | Portfolio",
+        "description": "Professional portfolio of Tommaso Berti, Software Developer."
+      }
+    }
   }
 }

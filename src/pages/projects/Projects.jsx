@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation.js";
 import Typography from "@mui/material/Typography";
 import ProjectsPreview from "./components/ProjectsPreview.jsx";
@@ -11,14 +11,22 @@ import {
     buildProjectPreviewModel,
     getProjectsByCategory,
 } from "./projectsPages/projectSelectors.js";
-import ExercisesSection from "./components/ExercisesSection.jsx";
+
+const ExercisesSection = lazy(() => import("./components/ExercisesSection.jsx"));
 
 export default function Projects() {
     const { t } = useTranslation("pages.projects");
     const [tab, setTab] = useState("all");
+    const [hasPracticeMounted, setHasPracticeMounted] = useState(false);
 
     const filteredProjects = getProjectsByCategory(tab);
     const isPracticeTab = tab === "practice";
+
+    useEffect(() => {
+        if (isPracticeTab) {
+            setHasPracticeMounted(true);
+        }
+    }, [isPracticeTab]);
 
     return (
         <Stack id="projects" component="article">
@@ -48,7 +56,11 @@ export default function Projects() {
                 ))}
             </Tabs>
 
-            <ExercisesSection isActive={isPracticeTab} />
+            {hasPracticeMounted ? (
+                <Suspense fallback={<Typography variant="body1" marginY={3}>{t("exercises.loading")}</Typography>}>
+                    <ExercisesSection isActive={isPracticeTab} />
+                </Suspense>
+            ) : null}
 
             {!isPracticeTab && (filteredProjects.length > 0 ? (
                 filteredProjects.map((project) => {

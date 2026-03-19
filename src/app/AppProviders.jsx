@@ -4,6 +4,7 @@ import { ThemeModeProvider } from "../contexts/ThemeContext.jsx";
 import { LanguageContextProvider } from "../contexts/LanguageContext.jsx";
 import { BreadCrumbProvider } from "../contexts/BreadCrumbContext.jsx";
 import ScrollToTop from "./layout/ScrollToTop.jsx";
+import SeoMetaManager from "./layout/SeoMetaManager.jsx";
 
 export default function AppProviders({ children }) {
     return (
@@ -11,6 +12,7 @@ export default function AppProviders({ children }) {
             <BreadCrumbProvider>
                 <ThemeModeProvider>
                     <BrowserRouter>
+                        <SeoMetaManager />
                         <ScrollToTop />
                         {children}
                     </BrowserRouter>

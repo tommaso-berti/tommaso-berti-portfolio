@@ -6,9 +6,9 @@ import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
 import { Box, ButtonBase, Typography } from "@mui/material";
 import { APP_VERSION } from '../../lib/version.js';
-import { useState } from "react";
-import ReleaseNotesModal from "./ReleaseNotesModal.jsx";
+import { lazy, Suspense, useState } from "react";
 
+const ReleaseNotesModal = lazy(() => import("./ReleaseNotesModal.jsx"));
 
 export default function Header() {
     const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
@@ -131,10 +131,14 @@ export default function Header() {
                         <FriendlyNav />
                     </Box>
                 </Stack>
-                <ReleaseNotesModal
-                    open={isReleaseModalOpen}
-                    onClose={() => setIsReleaseModalOpen(false)}
-                />
+                {isReleaseModalOpen ? (
+                    <Suspense fallback={null}>
+                        <ReleaseNotesModal
+                            open={isReleaseModalOpen}
+                            onClose={() => setIsReleaseModalOpen(false)}
+                        />
+                    </Suspense>
+                ) : null}
             </Box>
         </Container>
     )

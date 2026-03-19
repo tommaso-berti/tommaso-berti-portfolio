@@ -1,12 +1,14 @@
+import { lazy } from "react";
 import { matchPath } from "react-router-dom";
 
-import Home from "../../pages/home/Home.jsx";
-import Projects from "../../pages/projects/Projects.jsx";
-import ProjectPage from "../../pages/projects/projectsPages/ProjectPage.jsx";
-import About from "../../pages/about/About.jsx";
-import Blog from "../../pages/blog/Blog.jsx";
-import Contact from "../../pages/contact/Contact.jsx";
 import { projects } from "../../pages/projects/projectsPages/projects.js";
+
+const Home = lazy(() => import("../../pages/home/Home.jsx"));
+const Projects = lazy(() => import("../../pages/projects/Projects.jsx"));
+const ProjectPage = lazy(() => import("../../pages/projects/projectsPages/ProjectPage.jsx"));
+const About = lazy(() => import("../../pages/about/About.jsx"));
+const Blog = lazy(() => import("../../pages/blog/Blog.jsx"));
+const Contact = lazy(() => import("../../pages/contact/Contact.jsx"));
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition

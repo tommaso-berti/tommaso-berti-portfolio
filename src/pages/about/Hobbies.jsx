@@ -6,7 +6,7 @@ export default function Hobbies() {
     const { t } = useTranslation('pages.about.hobbies');
 
     return (
-        <Stack id="hobbies" spacing={4} component="section" sx={{marginTop: "3rem"}}>
+        <Stack id="hobbies" spacing={4} component="section" sx={{ marginTop: "3rem", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}>
             <Typography variant="h3">
                 {t('title')}
             </Typography>

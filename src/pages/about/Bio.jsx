@@ -14,6 +14,7 @@ export default function Bio() {
             spacing={4}
             alignItems="flex-start"
             component="section"
+            sx={{ scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}
         >
             <Stack sx={{flex: 1}} spacing={4}>
                 <Typography variant="h3">

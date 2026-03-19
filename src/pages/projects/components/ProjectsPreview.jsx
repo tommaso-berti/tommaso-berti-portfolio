@@ -42,6 +42,18 @@ export default function ProjectsPreview({
             boxShadow: 6,
         },
     };
+    const outlinedActionButtonSx = {
+        ...actionButtonSx,
+        borderWidth: 1,
+        borderColor: "divider",
+        color: "text.primary",
+        backgroundColor: "background.paper",
+        "&:hover": {
+            ...actionButtonSx["&:hover"],
+            borderColor: "text.secondary",
+            backgroundColor: "action.hover",
+        },
+    };
 
     return (
         <Box
@@ -93,12 +105,12 @@ export default function ProjectsPreview({
 
                             {secondaryAction && (
                                 <Button
-                                    variant={secondaryAction.variant || "text"}
+                                    variant={secondaryAction.variant || "outlined"}
                                     component={Link}
                                     href={secondaryAction.href}
                                     target={secondaryAction.target ?? "_blank"}
                                     rel={secondaryAction.rel ?? "noreferrer"}
-                                    sx={actionButtonSx}
+                                    sx={outlinedActionButtonSx}
                                 >
                                     {secondaryAction.label}
                                 </Button>
@@ -106,13 +118,13 @@ export default function ProjectsPreview({
 
                             {githubAction && (
                                 <Button
-                                    variant={githubAction.variant || "text"}
+                                    variant={githubAction.variant || "outlined"}
                                     component={Link}
                                     href={githubAction.href}
                                     target={githubAction.target ?? "_blank"}
                                     rel={githubAction.rel ?? "noopener noreferrer"}
                                     startIcon={<GitHubIcon fontSize="small" />}
-                                    sx={actionButtonSx}
+                                    sx={outlinedActionButtonSx}
                                 >
                                     GitHub
                                 </Button>

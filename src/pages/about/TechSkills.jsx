@@ -118,7 +118,7 @@ export default function TechSkills() {
             id="tech-skills"
             spacing={2.5}
             component="section"
-            sx={{ marginTop: "3rem", width: "100%" }}
+            sx={{ marginTop: "3rem", width: "100%", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}
         >
             <Typography variant="h3">{t("title")}</Typography>
 

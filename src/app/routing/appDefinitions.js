@@ -105,6 +105,7 @@ const ABOUT_ITEMS = [
         fallback: "study and experience",
     },
     { id: "tech-skills", titleKey: "pages.about.tech-skills.title", fallback: "tech skills" },
+    { id: "certifications", titleKey: "pages.about.certifications.title", fallback: "certifications" },
 ];
 
 const PROJECT_ITEMS = projects.map((project) => ({

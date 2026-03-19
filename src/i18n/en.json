@@ -11,6 +11,25 @@
       "welcome": "Hello, I'm",
       "and": "and",
       "primaryCta": "Explore projects",
+      "certifications": {
+        "title": "Core certifications",
+        "subtitle": "I continuously improve my skills through focused learning paths and technical certifications.",
+        "issuedAt": "Issued",
+        "verifyCta": "View",
+        "viewAllCta": "See all certifications",
+        "status": {
+          "completed": "Completed",
+          "in-progress": "In progress"
+        },
+        "areas": {
+          "frontend": "Frontend",
+          "javascript": "JavaScript",
+          "tooling-workflow": "Tooling / Workflow",
+          "database": "Database",
+          "devops": "DevOps",
+          "computer-science": "Computer Science"
+        }
+      },
       "hero": [
         "I work as a Software Developer and Delivery Expert at Lectra, where I focus on developing, optimizing, and tailoring software solutions for complex fashion-tech contexts.",
         "I implement new features, optimize existing ones, and fix application behaviors, with constant attention to customer needs and product quality.",
@@ -69,6 +88,24 @@
         "database": "Database",
         "languages-markup": "Languages / Markup",
         "tools": "Tools"
+      },
+      "certifications": {
+        "title": "Certifications",
+        "subtitle": "Continuous learning path with certifications grouped by study area.",
+        "issuedAt": "Issued",
+        "verifyCta": "View",
+        "status": {
+          "completed": "Completed",
+          "in-progress": "In progress"
+        },
+        "areas": {
+          "frontend": "Frontend",
+          "javascript": "JavaScript",
+          "tooling-workflow": "Tooling / Workflow",
+          "database": "Database",
+          "devops": "DevOps",
+          "computer-science": "Computer Science"
+        }
       }
     },
     "projects": {

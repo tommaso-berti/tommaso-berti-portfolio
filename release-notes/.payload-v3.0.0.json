@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-03-19T14:19:23.218Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.0.0",
+  "releaseType": "major",
+  "fromRef": "v2.10.1",
+  "toRef": "v3.0.0",
+  "range": "v2.10.1..v3.0.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.1...v3.0.0",
+  "commits": [
+    {
+      "sha": "33934d4fc8ab1326a039a4d3d28c3d9d2b191e7a",
+      "shortSha": "33934d4",
+      "subject": "Merge remote-tracking branch 'origin/main'",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T15:16:17+01:00"
+    },
+    {
+      "sha": "705ba157ec29d0217d9860fbc79b16f4eabd1c48",
+      "shortSha": "705ba15",
+      "subject": "feat: implement SEO meta management and lazy load components for improved performance #major",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T15:16:02+01:00"
+    },
+    {
+      "sha": "09f45340cc013d8f144cf069a68c16e23f2ec6de",
+      "shortSha": "09f4534",
+      "subject": "feat: add Contact page and update navigation and translations #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T12:26:25+01:00"
+    },
+    {
+      "sha": "a86b6344f6762e0870680cb2ab1598ed1727145c",
+      "shortSha": "a86b634",
+      "subject": "feat: add certifications section to About page and enhance related components #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-19T11:41:48+01:00"
+    },
+    {
+      "sha": "8bdc4a64623be75687c18eb082f379b4c0a96b3b",
+      "shortSha": "8bdc4a6",
+      "subject": "docs(release): v2.10.1 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-18T23:19:01Z"
+    }
+  ],
+  "changedFiles": [
+    "index.html",
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "public/og-profile.jpeg",
+    "release-notes/.payload-v2.10.1.json",
+    "release-notes/v2.10.1.md",
+    "src/app/AppProviders.jsx",
+    "src/app/AppRoutes.jsx",
+    "src/app/layout/Header.jsx",
+    "src/app/layout/SeoMetaManager.jsx",
+    "src/app/routing/appDefinitions.js",
+    "src/features/certifications/CertificationsSection.jsx",
+    "src/features/certifications/certificationIcons.js",
+    "src/features/certifications/certifications.data.js",
+    "src/features/certifications/certifications.utils.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/about/About.jsx",
+    "src/pages/about/Bio.jsx",
+    "src/pages/about/Experience.jsx",
+    "src/pages/about/Hobbies.jsx",
+    "src/pages/about/TechSkills.jsx",
+    "src/pages/contact/Contact.jsx",
+    "src/pages/home/Home.jsx",
+    "src/pages/projects/Projects.jsx",
+    "src/pages/projects/components/ProjectsPreview.jsx",
+    "vite.config.js"
+  ]
+}

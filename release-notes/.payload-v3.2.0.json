@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-03-19T23:39:52.418Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.2.0",
+  "releaseType": "minor",
+  "fromRef": "v3.1.0",
+  "toRef": "v3.2.0",
+  "range": "v3.1.0..v3.2.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.1.0...v3.2.0",
+  "commits": [
+    {
+      "sha": "4ef76bb3506b63076ae8c7a301990c8e07a9a8e8",
+      "shortSha": "4ef76bb",
+      "subject": "feat: add CV page with dynamic and static PDF download options #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-20T00:39:04+01:00"
+    },
+    {
+      "sha": "2d66eec655075bb630ddddfe01aff2762033d2c8",
+      "shortSha": "2d66eec",
+      "subject": "docs(release): v3.1.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-19T16:23:15Z"
+    }
+  ],
+  "changedFiles": [
+    "public/Curriculum_Tommaso_Berti_static_en.pdf",
+    "public/Curriculum_Tommaso_Berti_static_it.pdf",
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.1.0.json",
+    "release-notes/v0.0.0-ci-safe-test.md",
+    "release-notes/v3.1.0.md",
+    "src/app/layout/Footer.jsx",
+    "src/app/layout/SeoMetaManager.jsx",
+    "src/app/routing/appDefinitions.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/contact/Contact.jsx",
+    "src/pages/cv/Cv.jsx",
+    "src/pages/cv/cv.data.js",
+    "src/pages/cv/cvPdf.utils.js"
+  ]
+}

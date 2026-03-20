@@ -136,6 +136,14 @@ export default function Home() {
                         >
                             {t("contactCta")}
                         </Button>
+                        <Button
+                            component={RouterLink}
+                            to="/cv"
+                            variant="outlined"
+                            sx={outlinedActionButtonSx}
+                        >
+                            {t("cvCta")}
+                        </Button>
                     </Stack>
                     {heroParagraphs.map((paragraph, index) => (
                         <Typography key={index} variant="body1" sx={{ lineHeight: 1.75 }}>

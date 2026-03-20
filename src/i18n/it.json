@@ -14,6 +14,7 @@
       "and": "e",
       "primaryCta": "Esplora i progetti",
       "contactCta": "Contattami",
+      "cvCta": "Apri CV",
       "certifications": {
         "title": "Certificati principali",
         "subtitle": "Aggiorno costantemente le mie competenze con percorsi mirati e certificazioni tecniche.",
@@ -561,6 +562,7 @@
       "densityLabel": "Densita CV",
       "full": "Completo",
       "compact": "Compatto",
+      "showExperience": "Mostra esperienza lavorativa",
       "showProjects": "Mostra progetti",
       "showCertifications": "Mostra certificazioni",
       "downloadPdfCurrentView": "Scarica PDF Dinamico",

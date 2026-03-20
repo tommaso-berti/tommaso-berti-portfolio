@@ -1,4 +1,5 @@
 import { CERTIFICATIONS } from "../../features/certifications/certifications.data.js";
+import { SKILL_GROUPS } from "../../features/skills/skillGroups.js";
 import { projects } from "../projects/projectsPages/projects.js";
 
 /**
@@ -42,6 +43,7 @@ import { projects } from "../projects/projectsPages/projects.js";
 /**
  * @typedef {Object} CvControlsState
  * @property {"full" | "compact"} density
+ * @property {boolean} showExperience
  * @property {boolean} showProjects
  * @property {boolean} showCertifications
  */
@@ -83,37 +85,6 @@ const PROFILE_BY_LANGUAGE = {
     },
 };
 
-const SKILLS_BY_LANGUAGE = {
-    en: [
-        {
-            title: "Frontend",
-            items: ["React", "JavaScript", "MUI", "Tailwind CSS", "HTML", "CSS"],
-        },
-        {
-            title: "Backend / Runtime",
-            items: ["Node.js", "Express", "REST APIs", "Auth / Sessions"],
-        },
-        {
-            title: "Data / Infra / Tooling",
-            items: ["PostgreSQL", "MongoDB", "Git", "GitHub Actions", "Caddy", "WebStorm"],
-        },
-    ],
-    it: [
-        {
-            title: "Frontend",
-            items: ["React", "JavaScript", "MUI", "Tailwind CSS", "HTML", "CSS"],
-        },
-        {
-            title: "Backend / Runtime",
-            items: ["Node.js", "Express", "REST API", "Auth / Sessioni"],
-        },
-        {
-            title: "Dati / Infra / Tooling",
-            items: ["PostgreSQL", "MongoDB", "Git", "GitHub Actions", "Caddy", "WebStorm"],
-        },
-    ],
-};
-
 const EDUCATION_BY_LANGUAGE = {
     en: [
         {
@@ -152,18 +123,7 @@ const LANGUAGES_BY_LANGUAGE = {
     ],
     it: [
         { name: "Italiano", level: "Madrelingua" },
-        { name: "Inglese", level: "Professional working proficiency" },
-    ],
-};
-
-const PLACEHOLDERS_BY_LANGUAGE = {
-    en: [
-        "[Optional] Add measurable achievements (impact, KPIs, team size) per role.",
-        "[Optional] Add additional certifications or training when available.",
-    ],
-    it: [
-        "[Opzionale] Aggiungi risultati misurabili (impatto, KPI, dimensione team) per ruolo.",
-        "[Opzionale] Aggiungi ulteriori certificazioni o percorsi di formazione quando disponibili.",
+        { name: "Inglese", level: "Livello professionale" },
     ],
 };
 
@@ -176,10 +136,13 @@ export function getCvProfile(language) {
 }
 
 /**
- * @param {string} language
+ * @returns {Array<{ titleKey: string, items: string[] }>}
  */
-export function getCvSkillGroups(language) {
-    return SKILLS_BY_LANGUAGE[language] || SKILLS_BY_LANGUAGE.en;
+export function getCvSkillGroups() {
+    return SKILL_GROUPS.map((group) => ({
+        titleKey: group.titleKey,
+        items: group.skills.map((item) => item.label),
+    }));
 }
 
 /**
@@ -196,14 +159,6 @@ export function getCvEducation(language) {
  */
 export function getCvLanguages(language) {
     return LANGUAGES_BY_LANGUAGE[language] || LANGUAGES_BY_LANGUAGE.en;
-}
-
-/**
- * @param {string} language
- * @returns {string[]}
- */
-export function getCvPlaceholders(language) {
-    return PLACEHOLDERS_BY_LANGUAGE[language] || PLACEHOLDERS_BY_LANGUAGE.en;
 }
 
 /**

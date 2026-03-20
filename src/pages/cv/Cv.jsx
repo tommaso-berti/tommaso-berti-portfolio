@@ -32,7 +32,6 @@ import {
     getCvEducation,
     getCvExperiences,
     getCvLanguages,
-    getCvPlaceholders,
     getCvProfile,
     getCvProjects,
     getCvSkillGroups,
@@ -50,15 +49,15 @@ export default function Cv() {
     /** @type {[CvControlsState, import("react").Dispatch<import("react").SetStateAction<CvControlsState>>]} */
     const [controls, setControls] = useState({
         density: "full",
+        showExperience: true,
         showProjects: true,
         showCertifications: true,
     });
 
     const profile = getCvProfile(language);
-    const skillGroups = getCvSkillGroups(language);
+    const skillGroups = getCvSkillGroups();
     const education = getCvEducation(language);
     const spokenLanguages = getCvLanguages(language);
-    const placeholders = getCvPlaceholders(language);
 
     const experiences = useMemo(() => {
         const fromAbout = t("pages.about.experience.experiences", {
@@ -110,11 +109,12 @@ export default function Cv() {
                         },
                         "html, body, #root": {
                             backgroundColor: "#fff !important",
-                            overflowX: "hidden !important",
+                            overflowX: "visible !important",
                         },
                         ".MuiContainer-root": {
                             paddingLeft: "0 !important",
                             paddingRight: "0 !important",
+                            maxWidth: "100% !important",
                         },
                         header: {
                             display: "none !important",
@@ -128,11 +128,15 @@ export default function Cv() {
                             paddingBottom: "0 !important",
                         },
                         "[data-cv-page]": {
-                            width: "186mm !important",
-                            maxWidth: "186mm !important",
-                            margin: "0 auto !important",
+                            width: "100% !important",
+                            maxWidth: "100% !important",
+                            margin: "0 !important",
                             gap: "0 !important",
-                            padding: "0 !important",
+                            paddingTop: "0 !important",
+                            paddingBottom: "0 !important",
+                            paddingLeft: "0 !important",
+                            paddingRight: "4mm !important",
+                            overflowX: "visible !important",
                         },
                         "[data-cv-controls]": {
                             display: "none !important",
@@ -145,10 +149,17 @@ export default function Cv() {
                             padding: "0 !important",
                             width: "100% !important",
                             maxWidth: "100% !important",
+                            overflowX: "visible !important",
+                            paddingRight: "1mm !important",
                         },
                         "[data-cv-section]": {
                             breakInside: "avoid-page",
                             pageBreakInside: "avoid",
+                            maxWidth: "100% !important",
+                        },
+                        "[data-cv-section-splittable]": {
+                            breakInside: "auto !important",
+                            pageBreakInside: "auto !important",
                         },
                         "[data-cv-link]": {
                             color: "#111 !important",
@@ -161,16 +172,72 @@ export default function Cv() {
                             display: "grid !important",
                             gridTemplateColumns: "minmax(0, 1fr) auto !important",
                             alignItems: "start !important",
-                            columnGap: "6mm !important",
+                            columnGap: "4mm !important",
+                            maxWidth: "100% !important",
+                        },
+                        "[data-cv-cert-main]": {
+                            minWidth: "0 !important",
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                            maxWidth: "100% !important",
                         },
                         "[data-cv-cert-meta]": {
                             display: "block !important",
+                            justifySelf: "end !important",
+                            paddingRight: "0.8mm !important",
                         },
                         "[data-cv-cert-date]": {
                             display: "inline-block !important",
                             whiteSpace: "nowrap !important",
                             textAlign: "right !important",
-                            minWidth: "14mm !important",
+                            minWidth: "12mm !important",
+                        },
+                        "[data-cv-document] h5, [data-cv-document] h6, [data-cv-document] p, [data-cv-document] span": {
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                        },
+                        "[data-cv-document] h1, [data-cv-document] h2, [data-cv-document] h3, [data-cv-document] h4": {
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                            maxWidth: "100% !important",
+                        },
+                        "[data-cv-meta-row]": {
+                            display: "grid !important",
+                            gridTemplateColumns: "minmax(0, 1fr) auto !important",
+                            alignItems: "start !important",
+                            columnGap: "4mm !important",
+                            maxWidth: "100% !important",
+                        },
+                        "[data-cv-meta-main]": {
+                            minWidth: "0 !important",
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                        },
+                        "[data-cv-meta-side]": {
+                            justifySelf: "end !important",
+                            textAlign: "right !important",
+                            whiteSpace: "nowrap !important",
+                            minWidth: "0 !important",
+                            maxWidth: "48mm !important",
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                            paddingRight: "0.8mm !important",
+                        },
+                        "[data-cv-lang-level]": {
+                            whiteSpace: "normal !important",
+                            minWidth: "0 !important",
+                            maxWidth: "46mm !important",
+                            overflowWrap: "anywhere !important",
+                            wordBreak: "break-word !important",
+                        },
+                        "[data-cv-lang-row]": {
+                            breakInside: "avoid !important",
+                            pageBreakInside: "avoid !important",
+                        },
+                        "[data-cv-document]::after": {
+                            content: "\"\"",
+                            display: "block",
+                            height: "8mm",
                         },
                     },
                 }}
@@ -186,15 +253,22 @@ export default function Cv() {
                     position: { xs: "static", md: "sticky" },
                     top: { md: "7.9rem" },
                     zIndex: 5,
+                    overflowX: "visible",
                 }}
             >
                 <Stack
                     direction={{ xs: "column", lg: "row" }}
-                    spacing={1.1}
+                    spacing={{ xs: 1.1, lg: 0.8 }}
                     alignItems={{ xs: "stretch", lg: "center" }}
                     justifyContent="space-between"
+                    sx={{ flexWrap: { lg: "wrap" }, rowGap: { lg: 1 } }}
                 >
-                    <Stack direction={{ xs: "column", sm: "row" }} spacing={1} alignItems={{ sm: "center" }}>
+                    <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={{ xs: 0.75, sm: 0.9, lg: 0.65 }}
+                        alignItems={{ sm: "center", lg: "center" }}
+                        sx={{ flexWrap: { lg: "nowrap" }, minWidth: 0, flex: { lg: "1 1 760px" } }}
+                    >
                         <ToggleButtonGroup
                             size="small"
                             exclusive
@@ -204,10 +278,64 @@ export default function Cv() {
                                 setControls((previous) => ({ ...previous, density: value }));
                             }}
                             aria-label={t("pages.cv.densityLabel")}
+                            sx={{
+                                borderRadius: "999px",
+                                overflow: "hidden",
+                                border: "1px solid",
+                                borderColor: "divider",
+                                backgroundColor: "background.paper",
+                                "& .MuiToggleButtonGroup-grouped": {
+                                    border: "0 !important",
+                                    px: 1.8,
+                                    py: 0.65,
+                                    minWidth: 104,
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.02em",
+                                    fontWeight: 600,
+                                    color: "text.secondary",
+                                    transition: "0.2s",
+                                    "&:not(:first-of-type)": {
+                                        borderLeft: "1px solid",
+                                        borderLeftColor: "divider",
+                                    },
+                                    "&:hover": {
+                                        backgroundColor: "action.hover",
+                                        color: "text.primary",
+                                    },
+                                    "&.Mui-selected": {
+                                        backgroundColor: "primary.main",
+                                        color: "primary.contrastText",
+                                    },
+                                    "&.Mui-selected:hover": {
+                                        backgroundColor: "primary.dark",
+                                    },
+                                    "&.Mui-focusVisible": {
+                                        outline: "2px solid",
+                                        outlineColor: "primary.main",
+                                        outlineOffset: -2,
+                                    },
+                                },
+                            }}
                         >
                             <ToggleButton value="full">{t("pages.cv.full")}</ToggleButton>
                             <ToggleButton value="compact">{t("pages.cv.compact")}</ToggleButton>
                         </ToggleButtonGroup>
+
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={controls.showExperience}
+                                    onChange={(event) => {
+                                        setControls((previous) => ({
+                                            ...previous,
+                                            showExperience: event.target.checked,
+                                        }));
+                                    }}
+                                />
+                            }
+                            label={<Typography noWrap variant="body1">{t("pages.cv.showExperience")}</Typography>}
+                            sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
+                        />
 
                         <FormControlLabel
                             control={
@@ -221,8 +349,8 @@ export default function Cv() {
                                     }}
                                 />
                             }
-                            label={t("pages.cv.showProjects")}
-                            sx={{ ml: 0.2 }}
+                            label={<Typography noWrap variant="body1">{t("pages.cv.showProjects")}</Typography>}
+                            sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
                         />
 
                         <FormControlLabel
@@ -237,13 +365,18 @@ export default function Cv() {
                                     }}
                                 />
                             }
-                            label={t("pages.cv.showCertifications")}
-                            sx={{ ml: 0.2 }}
+                            label={<Typography noWrap variant="body1">{t("pages.cv.showCertifications")}</Typography>}
+                            sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
                         />
                     </Stack>
 
-                    <Stack direction={{ xs: "column", sm: "row" }} spacing={1} alignItems={{ sm: "center" }}>
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ flexWrap: "nowrap" }}>
+                    <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={1}
+                        alignItems={{ sm: "center", lg: "center" }}
+                        sx={{ flexWrap: { lg: "nowrap" }, minWidth: 0, ml: { lg: "auto" }, flex: { lg: "0 0 auto" } }}
+                    >
+                        <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ flexWrap: "nowrap", minWidth: 0 }}>
                             <Button
                                 variant="contained"
                                 startIcon={<DownloadRoundedIcon />}
@@ -290,7 +423,7 @@ export default function Cv() {
                                         </Box>
                                     </Tooltip>
                                 }
-                                sx={cvActionButtonSx}
+                                sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                             >
                                 {t("pages.cv.downloadPdfCurrentView")}
                             </Button>
@@ -302,7 +435,7 @@ export default function Cv() {
                                 download
                                 variant="outlined"
                                 startIcon={<DescriptionRoundedIcon />}
-                                sx={cvActionButtonSx}
+                                sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                             >
                                 {t("pages.cv.downloadStaticPdf")}
                             </Button>
@@ -357,9 +490,15 @@ export default function Cv() {
                                     {profile.phone}
                                 </Link>
                             </Stack>
-                            <Typography sx={contactMetaSx}>
+                            <Link
+                                data-cv-link
+                                component="span"
+                                underline="none"
+                                color="inherit"
+                                sx={contactMetaSx}
+                            >
                                 {profile.location}
-                            </Typography>
+                            </Link>
                         </Stack>
 
                         <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 0.6, sm: 1.5 }} useFlexGap>
@@ -393,44 +532,48 @@ export default function Cv() {
                         </Typography>
                     </Stack>
 
-                    <Stack data-cv-section spacing={1}>
-                        <Typography variant="h5">{t("pages.cv.experience")}</Typography>
-                        <Stack spacing={0.95}>
-                            {experiences.map((item) => (
-                                <Box key={`${item.year}-${item.title}`} sx={{ breakInside: "avoid" }}>
-                                    <Stack direction="row" justifyContent="space-between" alignItems="baseline" gap={1}>
-                                        <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                                            {item.title}
-                                        </Typography>
+                    {controls.showExperience ? (
+                        <Stack data-cv-section spacing={1}>
+                            <Typography variant="h5">{t("pages.cv.experience")}</Typography>
+                            <Stack spacing={0.95}>
+                                {experiences.map((item) => (
+                                    <Box key={`${item.year}-${item.title}`} sx={{ breakInside: "avoid" }}>
+                                        <Stack direction="row" justifyContent="space-between" alignItems="baseline" gap={1}>
+                                            <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                                                {item.title}
+                                            </Typography>
+                                            <Typography
+                                                variant="caption"
+                                                color="text.secondary"
+                                                sx={{ fontFamily: "monospace", whiteSpace: "nowrap" }}
+                                            >
+                                                {item.year}
+                                            </Typography>
+                                        </Stack>
                                         <Typography
-                                            variant="caption"
+                                            variant="body2"
                                             color="text.secondary"
-                                            sx={{ fontFamily: "monospace", whiteSpace: "nowrap" }}
+                                            sx={{ mt: 0.2, lineHeight: isCompact ? 1.5 : 1.62 }}
                                         >
-                                            {item.year}
+                                            {isCompact
+                                                ? item.description.split(".")[0]
+                                                : item.description}
                                         </Typography>
-                                    </Stack>
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{ mt: 0.2, lineHeight: isCompact ? 1.5 : 1.62 }}
-                                    >
-                                        {isCompact
-                                            ? item.description.split(".")[0]
-                                            : item.description}
-                                    </Typography>
-                                </Box>
-                            ))}
+                                    </Box>
+                                ))}
+                            </Stack>
                         </Stack>
-                    </Stack>
+                    ) : null}
 
                     <Stack data-cv-section spacing={1}>
                         <Typography variant="h5">{t("pages.cv.skills")}</Typography>
                         <Stack spacing={0.8}>
                             {skillGroups.map((group) => (
-                                <Box key={group.title}>
+                                <Box key={group.titleKey}>
                                     <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-                                        {group.title}
+                                        {t(`pages.about.tech-skills.${group.titleKey}`, {
+                                            defaultValue: group.titleKey,
+                                        })}
                                     </Typography>
                                     <Stack direction="row" spacing={0.7} useFlexGap flexWrap="wrap">
                                         {group.items.map((skill) => (
@@ -513,7 +656,7 @@ export default function Cv() {
                                         alignItems="baseline"
                                         gap={1}
                                     >
-                                        <Stack spacing={0.15}>
+                                        <Stack data-cv-cert-main spacing={0.15}>
                                             <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
                                                 {certification.title}
                                             </Typography>
@@ -568,7 +711,7 @@ export default function Cv() {
                         </Stack>
                     ) : null}
 
-                    <Stack data-cv-section spacing={0.9}>
+                    <Stack data-cv-section data-cv-section-splittable spacing={0.9}>
                         <Typography variant="h5">{t("pages.cv.educationAndLanguages")}</Typography>
                         <Box
                             sx={{
@@ -580,11 +723,16 @@ export default function Cv() {
                             <Stack spacing={0.8}>
                                 {education.map((item) => (
                                     <Box key={`${item.period}-${item.title}`}>
-                                        <Stack direction="row" justifyContent="space-between" alignItems="baseline" gap={1}>
-                                            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                                        <Stack data-cv-meta-row direction="row" justifyContent="space-between" alignItems="baseline" gap={1}>
+                                            <Typography data-cv-meta-main variant="subtitle2" sx={{ fontWeight: 700 }}>
                                                 {item.title}
                                             </Typography>
-                                            <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: "nowrap" }}>
+                                            <Typography
+                                                data-cv-meta-side
+                                                variant="caption"
+                                                color="text.secondary"
+                                                sx={{ whiteSpace: "nowrap" }}
+                                            >
                                                 {item.period}
                                             </Typography>
                                         </Stack>
@@ -600,9 +748,25 @@ export default function Cv() {
 
                             <Stack spacing={0.6}>
                                 {spokenLanguages.map((item) => (
-                                    <Stack key={item.name} direction="row" justifyContent="space-between" spacing={1}>
-                                        <Typography variant="body2">{item.name}</Typography>
-                                        <Typography variant="caption" color="text.secondary" sx={{ textAlign: "right" }}>
+                                    <Stack
+                                        key={item.name}
+                                        data-cv-meta-row
+                                        data-cv-lang-row
+                                        direction="row"
+                                        justifyContent="space-between"
+                                        spacing={1}
+                                        sx={{ minWidth: 0 }}
+                                    >
+                                        <Typography data-cv-meta-main variant="body2" sx={{ minWidth: 0 }}>
+                                            {item.name}
+                                        </Typography>
+                                        <Typography
+                                            data-cv-meta-side
+                                            data-cv-lang-level
+                                            variant="caption"
+                                            color="text.secondary"
+                                            sx={{ textAlign: "right", whiteSpace: "nowrap", minWidth: "fit-content" }}
+                                        >
                                             {item.level}
                                         </Typography>
                                     </Stack>
@@ -611,16 +775,6 @@ export default function Cv() {
                         </Box>
                     </Stack>
 
-                    <Stack data-cv-section spacing={0.35}>
-                        <Typography variant="subtitle2" color="text.secondary">
-                            {t("pages.cv.placeholderTitle")}
-                        </Typography>
-                        {placeholders.map((item, index) => (
-                            <Typography key={index} variant="caption" color="text.secondary">
-                                {item}
-                            </Typography>
-                        ))}
-                    </Stack>
                 </Stack>
             </Paper>
         </Stack>

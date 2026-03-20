@@ -23,6 +23,7 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import profilePicture from "../../assets/images/profilepicture.jpeg";
 
 import { useTranslation } from "../../hooks/useTranslation.js";
 import { useLanguage } from "../../contexts/LanguageContext.jsx";
@@ -153,8 +154,8 @@ export default function Cv() {
                             paddingRight: "1mm !important",
                         },
                         "[data-cv-section]": {
-                            breakInside: "avoid-page",
-                            pageBreakInside: "avoid",
+                            breakInside: "auto",
+                            pageBreakInside: "auto",
                             maxWidth: "100% !important",
                         },
                         "[data-cv-section-splittable]": {
@@ -164,6 +165,11 @@ export default function Cv() {
                         "[data-cv-link]": {
                             color: "#111 !important",
                             textDecoration: "none !important",
+                        },
+                        "[data-cv-social-link]": {
+                            whiteSpace: "nowrap !important",
+                            overflowWrap: "normal !important",
+                            wordBreak: "normal !important",
                         },
                         "[data-cv-action-link]": {
                             display: "none !important",
@@ -201,6 +207,14 @@ export default function Cv() {
                             wordBreak: "break-word !important",
                             maxWidth: "100% !important",
                         },
+                        "[data-cv-section] > h5, [data-cv-section] > h6": {
+                            breakAfter: "avoid-page !important",
+                            pageBreakAfter: "avoid !important",
+                        },
+                        "[data-cv-section] > h5 + *, [data-cv-section] > h6 + *": {
+                            breakBefore: "avoid-page !important",
+                            pageBreakBefore: "avoid !important",
+                        },
                         "[data-cv-meta-row]": {
                             display: "grid !important",
                             gridTemplateColumns: "minmax(0, 1fr) auto !important",
@@ -224,15 +238,27 @@ export default function Cv() {
                             paddingRight: "0.8mm !important",
                         },
                         "[data-cv-lang-level]": {
-                            whiteSpace: "normal !important",
+                            whiteSpace: "nowrap !important",
                             minWidth: "0 !important",
-                            maxWidth: "46mm !important",
+                            maxWidth: "none !important",
                             overflowWrap: "anywhere !important",
                             wordBreak: "break-word !important",
                         },
                         "[data-cv-lang-row]": {
                             breakInside: "avoid !important",
                             pageBreakInside: "avoid !important",
+                        },
+                        "[data-cv-hero-grid]": {
+                            display: "grid !important",
+                            gridTemplateColumns: "minmax(0, 1fr) auto !important",
+                            alignItems: "start !important",
+                            columnGap: "4mm !important",
+                        },
+                        "[data-cv-photo]": {
+                            width: "24mm !important",
+                            height: "24mm !important",
+                            borderRadius: "50% !important",
+                            objectFit: "cover !important",
                         },
                         "[data-cv-document]::after": {
                             content: "\"\"",
@@ -451,76 +477,111 @@ export default function Cv() {
                     px: { xs: 1.8, sm: 2.4, md: isCompact ? 3 : 4 },
                     py: { xs: 1.9, md: isCompact ? 2.2 : 3 },
                     borderRadius: 3,
-                    maxWidth: "900px",
                     width: "100%",
+                    maxWidth: "100%",
                     mx: "auto",
                 }}
             >
                 <Stack spacing={isCompact ? 2 : 2.8}>
                     <Stack data-cv-section spacing={1.1}>
-                        <Typography variant="h3" sx={{ lineHeight: 1.1 }}>
-                            {profile.name}
-                        </Typography>
-                        <Typography variant="h6" color="text.secondary">
-                            {profile.role}
-                        </Typography>
+                        <Box
+                            data-cv-hero-grid
+                            sx={{
+                                display: "grid",
+                                gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1fr) auto" },
+                                gap: { xs: 1.2, md: 2.2 },
+                                alignItems: "start",
+                            }}
+                        >
+                            <Stack spacing={1.1}>
+                                <Typography variant="h3" sx={{ lineHeight: 1.1 }}>
+                                    {profile.name}
+                                </Typography>
+                                <Typography variant="h6" color="text.secondary">
+                                    {profile.role}
+                                </Typography>
 
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={1.4} useFlexGap flexWrap="wrap">
-                            <Stack direction="row" spacing={0.8} alignItems="center">
-                                <EmailOutlinedIcon fontSize="small" />
-                                <Link
-                                    data-cv-link
-                                    href={`mailto:${profile.email}`}
-                                    underline="hover"
-                                    color="inherit"
-                                    sx={contactMetaSx}
-                                >
-                                    {profile.email}
-                                </Link>
+                                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.4} useFlexGap flexWrap="wrap">
+                                    <Stack direction="row" spacing={0.8} alignItems="center">
+                                        <EmailOutlinedIcon fontSize="small" />
+                                        <Link
+                                            data-cv-link
+                                            href={`mailto:${profile.email}`}
+                                            underline="hover"
+                                            color="inherit"
+                                            sx={contactMetaSx}
+                                        >
+                                            {profile.email}
+                                        </Link>
+                                    </Stack>
+                                    <Stack direction="row" spacing={0.8} alignItems="center">
+                                        <PhoneOutlinedIcon fontSize="small" />
+                                        <Link
+                                            data-cv-link
+                                            href={`tel:${profile.phone.replace(/\s+/g, "")}`}
+                                            underline="hover"
+                                            color="inherit"
+                                            sx={contactMetaSx}
+                                        >
+                                            {profile.phone}
+                                        </Link>
+                                    </Stack>
+                                    <Link
+                                        data-cv-link
+                                        component="span"
+                                        underline="none"
+                                        color="inherit"
+                                        sx={contactMetaSx}
+                                    >
+                                        {profile.location}
+                                    </Link>
+                                </Stack>
+
+                                <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 0.6, sm: 1.5 }} useFlexGap>
+                                    <Stack direction="row" spacing={0.8} alignItems="center">
+                                        <LanguageRoundedIcon fontSize="small" />
+                                        <Link data-cv-link data-cv-social-link href={profile.websiteUrl} target="_blank" rel="noreferrer" color="inherit">
+                                            {profile.websiteLabel}
+                                        </Link>
+                                    </Stack>
+                                    <Stack direction="row" spacing={0.8} alignItems="center">
+                                        <LinkedInIcon fontSize="small" />
+                                        <Link data-cv-link data-cv-social-link href={profile.linkedinUrl} target="_blank" rel="noreferrer" color="inherit">
+                                            {profile.linkedinLabel}
+                                        </Link>
+                                    </Stack>
+                                    <Stack direction="row" spacing={0.8} alignItems="center">
+                                        <GitHubIcon fontSize="small" />
+                                        <Link data-cv-link data-cv-social-link href={profile.githubUrl} target="_blank" rel="noreferrer" color="inherit">
+                                            {profile.githubLabel}
+                                        </Link>
+                                    </Stack>
+                                </Stack>
                             </Stack>
-                            <Stack direction="row" spacing={0.8} alignItems="center">
-                                <PhoneOutlinedIcon fontSize="small" />
-                                <Link
-                                    data-cv-link
-                                    href={`tel:${profile.phone.replace(/\s+/g, "")}`}
-                                    underline="hover"
-                                    color="inherit"
-                                    sx={contactMetaSx}
-                                >
-                                    {profile.phone}
-                                </Link>
-                            </Stack>
-                            <Link
-                                data-cv-link
-                                component="span"
-                                underline="none"
-                                color="inherit"
-                                sx={contactMetaSx}
+
+                            <Box
+                                sx={{
+                                    justifySelf: { xs: "flex-start", md: "end" },
+                                    alignSelf: "start",
+                                }}
                             >
-                                {profile.location}
-                            </Link>
-                        </Stack>
-
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 0.6, sm: 1.5 }} useFlexGap>
-                            <Stack direction="row" spacing={0.8} alignItems="center">
-                                <LanguageRoundedIcon fontSize="small" />
-                                <Link data-cv-link href={profile.websiteUrl} target="_blank" rel="noreferrer" color="inherit">
-                                    {profile.websiteLabel}
-                                </Link>
-                            </Stack>
-                            <Stack direction="row" spacing={0.8} alignItems="center">
-                                <LinkedInIcon fontSize="small" />
-                                <Link data-cv-link href={profile.linkedinUrl} target="_blank" rel="noreferrer" color="inherit">
-                                    {profile.linkedinLabel}
-                                </Link>
-                            </Stack>
-                            <Stack direction="row" spacing={0.8} alignItems="center">
-                                <GitHubIcon fontSize="small" />
-                                <Link data-cv-link href={profile.githubUrl} target="_blank" rel="noreferrer" color="inherit">
-                                    {profile.githubLabel}
-                                </Link>
-                            </Stack>
-                        </Stack>
+                                <Box
+                                    data-cv-photo
+                                    component="img"
+                                    src={profilePicture}
+                                    alt="Tommaso Berti profile"
+                                    sx={{
+                                        width: { xs: 80, sm: 88, md: 112 },
+                                        height: { xs: 80, sm: 88, md: 112 },
+                                        borderRadius: "50%",
+                                        objectFit: "cover",
+                                        border: "1px solid",
+                                        borderColor: "divider",
+                                        boxShadow: 1,
+                                    }}
+                                />
+                            </Box>
+                        </Box>
                     </Stack>
 
                     <Divider />

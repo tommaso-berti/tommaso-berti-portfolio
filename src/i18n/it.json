@@ -566,7 +566,7 @@
       "showProjects": "Mostra progetti",
       "showCertifications": "Mostra certificazioni",
       "downloadPdfCurrentView": "Scarica PDF Dinamico",
-      "downloadStaticPdf": "Scarica PDF One-Page",
+      "downloadStaticPdf": "Scarica PDF in una pagina",
       "dynamicPdfInfoTooltip": "Il download dinamico usa le opzioni correnti: completo/compatto, progetti e certificazioni.",
       "downloadPdf": "Scarica PDF",
       "summary": "Profilo professionale",

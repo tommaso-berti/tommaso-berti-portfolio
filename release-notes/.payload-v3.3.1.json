@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-03-20T11:07:50.481Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.3.1",
+  "releaseType": "patch",
+  "fromRef": "v3.3.0",
+  "toRef": "v3.3.1",
+  "range": "v3.3.0..v3.3.1",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.0...v3.3.1",
+  "commits": [
+    {
+      "sha": "71eae3a63c01b97300af46833c05fec7008369b7",
+      "shortSha": "71eae3a",
+      "subject": "feat: enhance CV layout with profile picture and improve Italian localization for PDF download options #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-20T12:07:02+01:00"
+    },
+    {
+      "sha": "2380db0e68f69b39b6c16ad27a46e0210a9433bb",
+      "shortSha": "2380db0",
+      "subject": "docs(release): v3.3.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-20T10:33:40Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.3.0.json",
+    "release-notes/v2.7.7.md",
+    "release-notes/v3.3.0.md",
+    "src/i18n/it.json",
+    "src/pages/cv/Cv.jsx"
+  ]
+}

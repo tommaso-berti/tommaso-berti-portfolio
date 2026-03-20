@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-19T23:40:17.709Z",
-  "latestTag": "v3.2.0",
-  "latestVersion": "3.2.0",
-  "previousTag": "v3.1.0",
+  "generatedAt": "2026-03-20T10:33:34.791Z",
+  "latestTag": "v3.3.0",
+  "latestVersion": "3.3.0",
+  "previousTag": "v3.2.0",
   "releaseType": "minor",
   "entries": [
     {
-      "sha": "4ef76bb3506b63076ae8c7a301990c8e07a9a8e8",
-      "subject": "feat: add CV page with dynamic and static PDF download options #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/4ef76bb3506b63076ae8c7a301990c8e07a9a8e8",
+      "sha": "dca5dee017d5cae2bb890071cb17912d16a3c365",
+      "subject": "feat: refactor CV component to use shared skill groups and add experience toggle #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/dca5dee017d5cae2bb890071cb17912d16a3c365",
       "author": "Tommaso Berti",
-      "date": "2026-03-20T00:39:04+01:00"
+      "date": "2026-03-20T11:32:21+01:00"
     },
     {
-      "sha": "2d66eec655075bb630ddddfe01aff2762033d2c8",
-      "subject": "docs(release): v3.1.0 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2d66eec655075bb630ddddfe01aff2762033d2c8",
+      "sha": "b772965a799054823155072f129aeacb013ad6a5",
+      "subject": "docs(release): v3.2.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b772965a799054823155072f129aeacb013ad6a5",
       "author": "github-actions[bot]",
-      "date": "2026-03-19T16:23:15Z"
+      "date": "2026-03-19T23:40:21Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.2.0\n\n## Italiano\n\n### Panoramica\nRilascio minore che introduce una pagina CV con opzioni di download PDF (statico e dinamico) e aggiornamenti tecnici e di documentazione.\n\n### Novita\n- feat: Aggiunta pagina CV con opzioni di download PDF dinamico e PDF statico.\n  - File principali: src/pages/cv/Cv.jsx, src/pages/cv/cv.data.js, src/pages/cv/cvPdf.utils.js, public/Curriculum_Tommaso_Berti_static_it.pdf, public/Curriculum_Tommaso_Berti_static_en.pdf\n\n### Correzioni\n- Nessuna correzione funzionale inclusa in questo rilascio.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: src/i18n/it.json, src/i18n/en.json\n- Aggiornamenti UI/layout e SEO: src/app/layout/Footer.jsx, src/app/layout/SeoMetaManager.jsx\n- Routing / definizioni app aggiornate: src/app/routing/appDefinitions.js\n- Modifiche a pagina contatti: src/pages/contact/Contact.jsx\n- Dati pubblici e artefatti di release aggiornati: public/data/exercises.json, public/data/release-notes.json, release-notes/*.md, release-notes/.payload-v3.1.0.json\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto documentato nel metadata dei commit.\n\n### Confronto e Intervallo Commit\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.1.0...v3.2.0\n- Intervallo commit: v3.1.0..v3.2.0\n- Commit inclusi:\n  - 4ef76bb — feat: add CV page with dynamic and static PDF download options #minor — Tommaso Berti (2026-03-20T00:39:04+01:00)\n  - 2d66eec — docs(release): v3.1.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T16:23:15Z)\n\n---\n\n## English\n\n### Overview\nMinor release that adds a CV page with static and dynamic PDF download options, plus documentation and technical updates.\n\n### New Features\n- feat: Add CV page with dynamic and static PDF download options.\n  - Key files: src/pages/cv/Cv.jsx, src/pages/cv/cv.data.js, src/pages/cv/cvPdf.utils.js, public/Curriculum_Tommaso_Berti_static_en.pdf, public/Curriculum_Tommaso_Berti_static_it.pdf\n\n### Bug Fixes\n- No functional bug fixes included in this release.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json, src/i18n/it.json\n- Layout and SEO updates: src/app/layout/Footer.jsx, src/app/layout/SeoMetaManager.jsx\n- Routing/app definitions updated: src/app/routing/appDefinitions.js\n- Contact page changes: src/pages/contact/Contact.jsx\n- Public data and release artifacts updated: public/data/exercises.json, public/data/release-notes.json, release-notes/*.md, release-notes/.payload-v3.1.0.json\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations documented in the provided commit metadata.\n\n### Diff & Commit Range\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.1.0...v3.2.0\n- Commit range: v3.1.0..v3.2.0\n- Commits:\n  - 4ef76bb — feat: add CV page with dynamic and static PDF download options #minor — Tommaso Berti (2026-03-20T00:39:04+01:00)\n  - 2d66eec — docs(release): v3.1.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T16:23:15Z)",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.2.0",
-  "publishedAt": "2026-03-19T23:40:15Z",
+  "bodyMarkdown": "# Release Notes v3.3.0\n\n## Italiano\n### Panoramica\n- Tipo di release: minor (secondo payload.releaseType).\n- Principale aggiornamento: rifattorizzazione del componente CV per usare gruppi di competenze condivisi e aggiunta di un toggle per visualizzare l'esperienza.\n\n### Novita\n- Rifattorizzazione del componente CV per utilizzare gruppi di skill condivisi (commit dca5dee).\n- Aggiunto toggle per mostrare/nascondere l'esperienza nella sezione CV/Competenze (commit dca5dee).\n\n### Correzioni\n- Nessuna correzione segnalata nei commit inclusi.\n\n### Migliorie Tecniche\n- Introduzione/aggiornamento di src/features/skills/skillGroups.js (condivisione dei gruppi di competenze).\n- Aggiornamenti a componenti e dati: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- Aggiornamenti alle traduzioni: src/i18n/it.json, src/i18n/en.json.\n- Aggiornamento/aggiunta di artifact di rilascio e file di note di rilascio (release-notes/*.md, .payload) tramite commit docs (b772965).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile indicata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta nota basata sul metadata dei commit.\n\n### Limiti Noti\n- Nessuna limitazione nota nel metadata fornito.\n\n### Confronto e Intervallo Commit\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commit inclusi:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n\n## English\n### Overview\n- Release type: minor (per payload.releaseType).\n- Main update: refactor of the CV component to use shared skill groups and addition of an experience toggle.\n\n### New Features\n- Refactor CV component to use shared skill groups (commit dca5dee).\n- Added an experience toggle for the CV/skills section (commit dca5dee).\n\n### Bug Fixes\n- No bug fixes reported in the included commits.\n\n### Refactor & Engineering\n- Added/updated src/features/skills/skillGroups.js to centralize skill groups.\n- Changes to components and data: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- i18n updates: src/i18n/en.json, src/i18n/it.json.\n- Release artifacts and release-notes files updated (release-notes/*.md, .payload) via docs commit (b772965).\n\n### Breaking Changes\n- No breaking changes indicated in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided metadata.\n\n### Known Limitations\n- No known limitations present in the provided metadata.\n\n### Diff & Commit Range\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commits:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.3.0",
+  "publishedAt": "2026-03-20T10:33:31Z",
   "history": [
+    {
+      "tag": "v3.3.0",
+      "version": "3.3.0",
+      "previousTag": "v3.2.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "dca5dee017d5cae2bb890071cb17912d16a3c365",
+          "subject": "feat: refactor CV component to use shared skill groups and add experience toggle #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/dca5dee017d5cae2bb890071cb17912d16a3c365",
+          "author": "Tommaso Berti",
+          "date": "2026-03-20T11:32:21+01:00"
+        },
+        {
+          "sha": "b772965a799054823155072f129aeacb013ad6a5",
+          "subject": "docs(release): v3.2.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b772965a799054823155072f129aeacb013ad6a5",
+          "author": "github-actions[bot]",
+          "date": "2026-03-19T23:40:21Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v3.3.0\n\n## Italiano\n### Panoramica\n- Tipo di release: minor (secondo payload.releaseType).\n- Principale aggiornamento: rifattorizzazione del componente CV per usare gruppi di competenze condivisi e aggiunta di un toggle per visualizzare l'esperienza.\n\n### Novita\n- Rifattorizzazione del componente CV per utilizzare gruppi di skill condivisi (commit dca5dee).\n- Aggiunto toggle per mostrare/nascondere l'esperienza nella sezione CV/Competenze (commit dca5dee).\n\n### Correzioni\n- Nessuna correzione segnalata nei commit inclusi.\n\n### Migliorie Tecniche\n- Introduzione/aggiornamento di src/features/skills/skillGroups.js (condivisione dei gruppi di competenze).\n- Aggiornamenti a componenti e dati: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- Aggiornamenti alle traduzioni: src/i18n/it.json, src/i18n/en.json.\n- Aggiornamento/aggiunta di artifact di rilascio e file di note di rilascio (release-notes/*.md, .payload) tramite commit docs (b772965).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile indicata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta nota basata sul metadata dei commit.\n\n### Limiti Noti\n- Nessuna limitazione nota nel metadata fornito.\n\n### Confronto e Intervallo Commit\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commit inclusi:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n\n## English\n### Overview\n- Release type: minor (per payload.releaseType).\n- Main update: refactor of the CV component to use shared skill groups and addition of an experience toggle.\n\n### New Features\n- Refactor CV component to use shared skill groups (commit dca5dee).\n- Added an experience toggle for the CV/skills section (commit dca5dee).\n\n### Bug Fixes\n- No bug fixes reported in the included commits.\n\n### Refactor & Engineering\n- Added/updated src/features/skills/skillGroups.js to centralize skill groups.\n- Changes to components and data: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- i18n updates: src/i18n/en.json, src/i18n/it.json.\n- Release artifacts and release-notes files updated (release-notes/*.md, .payload) via docs commit (b772965).\n\n### Breaking Changes\n- No breaking changes indicated in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided metadata.\n\n### Known Limitations\n- No known limitations present in the provided metadata.\n\n### Diff & Commit Range\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commits:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.3.0",
+      "publishedAt": "2026-03-20T10:33:31Z"
+    },
     {
       "tag": "v3.2.0",
       "version": "3.2.0",
@@ -256,7 +282,7 @@
     {
       "tag": "v2.7.8",
       "version": "2.7.8",
-      "previousTag": "v2.7.7",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
         {
@@ -279,19 +305,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
           "author": "github-actions[bot]",
           "date": "2026-03-16T09:34:19Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v2.7.6..HEAD`.\n- Commit inclusi: 7. File modificati: 14.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Migliorie Tecniche\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD\n- File principali:\n- .github/workflows/deploy.yml\n- .gitignore\n- package-lock.json\n- package.json\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.6.md\n- release-notes/v2.7.7.md\n- release-notes/v2.7.8.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/app/layout/ReleaseNotesModal.jsx\n- src/hooks/useLatestReleaseNotes.js\n\n## English\n### Overview\n- Release generated from commits in range `v2.7.6..HEAD`.\n- Included commits: 7. Changed files: 14.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Refactor & Engineering\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
-      "publishedAt": "2026-03-16T09:46:11Z"
-    },
-    {
-      "tag": "v2.7.7",
-      "version": "2.7.7",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
           "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
@@ -340,33 +354,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3c48d7819dc34cc050956fff659c681d7ff1176e",
           "author": "Tommaso Berti",
           "date": "2026-03-16T09:50:36+01:00"
-        },
-        {
-          "sha": "2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
-          "subject": "feat: enhance release notes modal with GitHub release details and markdown support #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2b8be91c9eb5687d7ba6f70c5b879d9bc68aa44c",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T09:39:55+01:00"
-        },
-        {
-          "sha": "a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
-          "subject": "feat: add workflow for refreshing static JSON snapshots and update release notes commit process #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a3e6854b60ca1d54c6b7ce79a88c1cce110e7112",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T09:35:03+01:00"
-        },
-        {
-          "sha": "16bc81a2803ad3f826883d7e94579860b65ac273",
-          "subject": "feat: implement static data generation for exercises and release notes, replacing GitHub API calls with local snapshots #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/16bc81a2803ad3f826883d7e94579860b65ac273",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T09:29:32+01:00"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.7.7\n\n## Italiano\n### Overview\n- Rilascio generato da commit nel range `v2.7.6..HEAD`.\n- Commit inclusi: 4. File modificati: 10.\n\n### Nuove funzionalita\n- Nessuna nuova funzionalita rilevata.\n\n### Bug Fixes\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n\n### Refactor & Engineering\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- Nessuna breaking change rilevata.\n\n### Migration Notes\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Known Limitations\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD\n- File principali:\n- .github/workflows/deploy.yml\n- package-lock.json\n- package.json\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.6.md\n- release-notes/v2.7.7.md\n- scripts/release-notes/generate_notes.mjs\n- src/app/layout/ReleaseNotesModal.jsx\n- src/hooks/useLatestReleaseNotes.js\n\n## English\n### Overview\n- Release generated from commits in range `v2.7.6..HEAD`.\n- Included commits: 4. Changed files: 10.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n\n### Refactor & Engineering\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.7",
-      "publishedAt": "2026-03-16T09:34:17Z"
+      "bodyMarkdown": "# Release Notes v2.7.8\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v2.7.6..HEAD`.\n- Commit inclusi: 7. File modificati: 14.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Migliorie Tecniche\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD\n- File principali:\n- .github/workflows/deploy.yml\n- .gitignore\n- package-lock.json\n- package.json\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/v2.7.6.md\n- release-notes/v2.7.7.md\n- release-notes/v2.7.8.md\n- scripts/release-notes/collect_changes.sh\n- scripts/release-notes/generate_notes.mjs\n- scripts/release-notes/release_notes_prompt.md\n- src/app/layout/ReleaseNotesModal.jsx\n- src/hooks/useLatestReleaseNotes.js\n\n## English\n### Overview\n- Release generated from commits in range `v2.7.6..HEAD`.\n- Included commits: 7. Changed files: 14.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch (b01388b)\n- fix: update release notes handling with markdown support and improve static data validation #patch (d455d03)\n- feat: enhance release notes generation with version type resolution and improved markdown handling #minor (a04c806)\n\n### Refactor & Engineering\n- docs(release): v2.7.8 artifacts #skip-deploy [skip ci] (da01a20)\n- docs(release): v2.7.7 artifacts #skip-deploy [skip ci] (d9d390c)\n- Merge remote-tracking branch 'origin/main' (8d0939a)\n- docs(release): v2.7.6 artifacts #skip-deploy [skip ci] (c6fe136)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v2.7.6..HEAD`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.7.6...HEAD",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.7.8",
+      "publishedAt": "2026-03-16T09:46:11Z"
     }
   ]
 }

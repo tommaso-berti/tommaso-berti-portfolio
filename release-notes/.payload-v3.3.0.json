@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-03-20T10:33:11.174Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.3.0",
+  "releaseType": "minor",
+  "fromRef": "v3.2.0",
+  "toRef": "v3.3.0",
+  "range": "v3.2.0..v3.3.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0",
+  "commits": [
+    {
+      "sha": "dca5dee017d5cae2bb890071cb17912d16a3c365",
+      "shortSha": "dca5dee",
+      "subject": "feat: refactor CV component to use shared skill groups and add experience toggle #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-20T11:32:21+01:00"
+    },
+    {
+      "sha": "b772965a799054823155072f129aeacb013ad6a5",
+      "shortSha": "b772965",
+      "subject": "docs(release): v3.2.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-19T23:40:21Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.2.0.json",
+    "release-notes/v2.7.6.md",
+    "release-notes/v3.2.0.md",
+    "src/features/skills/skillGroups.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/about/TechSkills.jsx",
+    "src/pages/cv/Cv.jsx",
+    "src/pages/cv/cv.data.js",
+    "src/pages/home/Home.jsx"
+  ]
+}

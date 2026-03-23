@@ -224,6 +224,25 @@ function readLocalReleaseNotesBody(tag) {
     }
 }
 
+function resolveTagCommitDate(tag) {
+    try {
+        return execSync(`git log -1 --format=%cI ${tag}`, { encoding: "utf8" }).trim();
+    } catch {
+        return "";
+    }
+}
+
+function resolvePublishedAt({ tag, entries, releasePublishedAt, fallback }) {
+    const tagDate = resolveTagCommitDate(tag);
+    if (tagDate) return tagDate;
+
+    const firstEntryDate = (entries || []).find((item) => item?.date)?.date;
+    if (firstEntryDate) return firstEntryDate;
+
+    if (releasePublishedAt) return releasePublishedAt;
+    return fallback;
+}
+
 function isExerciseRepository(repo) {
     if (!repo || repo.fork) return false;
     const topics = Array.isArray(repo.topics) ? repo.topics : [];
@@ -303,6 +322,7 @@ async function buildExercisesJson(token) {
 }
 
 async function buildReleaseNotesJson(token) {
+    const generatedAt = new Date().toISOString();
     const repoUrl = getRepoHttpUrl();
     const semverTags = getLocalSemverTags()
         .map((tagName) => parseSemverTag(tagName))
@@ -318,42 +338,47 @@ async function buildReleaseNotesJson(token) {
         const release = await fetchReleaseByTag(current.tag, token);
         const localBody = readLocalReleaseNotesBody(current.tag);
         const bodyMarkdown = localBody || `${release?.body ?? ""}`.trim();
+        const entries = previous
+            ? mapLocalCommitsToEntries(parseLocalGitLog(`${previous.tag}..${current.tag}`), repoUrl)
+            : mapLocalCommitsToEntries(parseLocalGitLog(current.tag), repoUrl);
+        const publishedAt = resolvePublishedAt({
+            tag: current.tag,
+            entries,
+            releasePublishedAt: release?.published_at || "",
+            fallback: generatedAt,
+        });
 
         if (previous) {
-            const localCommits = parseLocalGitLog(`${previous.tag}..${current.tag}`);
-
             history.push({
                 tag: current.tag,
                 version: current.tag.replace(/^v/, ""),
                 previousTag: previous.tag,
                 releaseType: resolveReleaseType(current.tag, previous.tag),
-                entries: mapLocalCommitsToEntries(localCommits, repoUrl),
+                entries,
                 source: "local",
                 bodyMarkdown,
                 releaseUrl: release?.html_url || "",
-                publishedAt: release?.published_at || "",
+                publishedAt,
             });
             continue;
         }
-
-        const localCommits = parseLocalGitLog(current.tag);
 
         history.push({
             tag: current.tag,
             version: current.tag.replace(/^v/, ""),
             previousTag: null,
             releaseType: "patch",
-            entries: mapLocalCommitsToEntries(localCommits, repoUrl),
+            entries,
             source: "local",
             bodyMarkdown,
             releaseUrl: release?.html_url || "",
-            publishedAt: release?.published_at || "",
+            publishedAt,
         });
     }
 
     const latest = history[0] ?? null;
     return {
-        generatedAt: new Date().toISOString(),
+        generatedAt,
         latestTag: latest?.tag ?? "",
         latestVersion: latest?.version ?? "",
         previousTag: latest?.previousTag ?? null,

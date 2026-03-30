@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-23T11:54:10.909Z",
-  "latestTag": "v3.3.2",
-  "latestVersion": "3.3.2",
-  "previousTag": "v3.3.1",
-  "releaseType": "patch",
+  "generatedAt": "2026-03-30T00:15:33.917Z",
+  "latestTag": "v3.4.0",
+  "latestVersion": "3.4.0",
+  "previousTag": "v3.3.2",
+  "releaseType": "minor",
   "entries": [
     {
-      "sha": "73a4e9e43f340cb9d62a9c78b4ab6bcbe7710671",
-      "subject": "fix: enhance release notes generation with improved date resolution logic #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/73a4e9e43f340cb9d62a9c78b4ab6bcbe7710671",
+      "sha": "ef3e9cd5a53000cefa342667bed09344f1bcafa5",
+      "subject": "feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef3e9cd5a53000cefa342667bed09344f1bcafa5",
       "author": "Tommaso Berti",
-      "date": "2026-03-23T12:53:01+01:00"
+      "date": "2026-03-30T02:14:20+02:00"
     },
     {
-      "sha": "762acf868c5d33e746b9352d4bb506bd5cb7d073",
-      "subject": "docs(release): v3.3.1 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/762acf868c5d33e746b9352d4bb506bd5cb7d073",
+      "sha": "a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
+      "subject": "docs(release): v3.3.2 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
       "author": "github-actions[bot]",
-      "date": "2026-03-20T11:08:43Z"
+      "date": "2026-03-23T11:54:15Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.3.2\n\n## Italiano\n### Panoramica\nRilascio di tipo: patch (payload.releaseType = patch). Contiene correzioni e aggiornamenti tecnici relativi alla generazione delle release notes e ai file di dati/release.\n\n### Novita\nNessuna nuova funzionalità in questo rilascio (patch).\n\n### Correzioni\n- 73a4e9e — fix: enhance release notes generation with improved date resolution logic\n  - Migliora la logica di risoluzione delle date nella generazione delle release notes.\n\n### Migliorie Tecniche\n- Aggiornamenti e file di documentazione dei release notes e dati statici:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v3.3.1.json\n  - release-notes/v2.7.8.md\n  - release-notes/v3.3.1.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n- 762acf8 — docs(release): v3.3.1 artifacts (commit di documentazione / artefatti di rilascio)\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile segnalata in questo intervallo.\n\n### Note di Migrazione\n- Non sono necessarie azioni di migrazione specifiche per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto documentato nei metadati forniti.\n\n### Confronto e Intervallo Commit\n- Range: v3.3.1..v3.3.2\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.1...v3.3.2\n- Commit inclusi:\n  - 73a4e9e — fix: enhance release notes generation with improved date resolution logic — Tommaso Berti — 2026-03-23T12:53:01+01:00\n  - 762acf8 — docs(release): v3.3.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-20T11:08:43Z\n\n---\n\n## English\n### Overview\nRelease type: patch (payload.releaseType = patch). Contains bug fixes and technical updates related to release-notes generation and static/data files.\n\n### New Features\nNo new features in this release (patch).\n\n### Bug Fixes\n- 73a4e9e — fix: enhance release notes generation with improved date resolution logic\n  - Improves date resolution logic used when generating release notes.\n\n### Refactor & Engineering\n- Documentation and static-data updates affecting release notes and related assets:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v3.3.1.json\n  - release-notes/v2.7.8.md\n  - release-notes/v3.3.1.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n- 762acf8 — docs(release): v3.3.1 artifacts (documentation / release artifacts commit)\n\n### Breaking Changes\n- No breaking changes reported in this range.\n\n### Migration Notes\n- No migration steps required for this patch release.\n\n### Known Limitations\n- No known limitations documented in the provided metadata.\n\n### Diff & Commit Range\n- Range: v3.3.1..v3.3.2\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.1...v3.3.2\n- Commits:\n  - 73a4e9e — fix: enhance release notes generation with improved date resolution logic — Tommaso Berti — 2026-03-23T12:53:01+01:00\n  - 762acf8 — docs(release): v3.3.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-20T11:08:43Z",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.3.2",
-  "publishedAt": "2026-03-23T12:53:01+01:00",
+  "bodyMarkdown": "# Release Notes v3.4.0\n\n## Italiano\n### Panoramica\nVersione: v3.4.0  \nTipo di rilascio: minor  \nRange commit: v3.3.2..v3.4.0\n\n### Novita\n- Aggiunte tecnologie e dettagli del progetto \"Logra\": TypeScript, Fastify, TanStack Query.\n- Aggiornati contenuti delle pagine progetto relativi a Logra.\n- Aggiornate le traduzioni (it/en) per il nuovo contenuto.\n\n### Correzioni\n- Nessuna correzione funzionale specifica in questo rilascio.\n\n### Migliorie Tecniche\n- Aggiornati file di configurazione e asset:\n  - src/config/brandIcons.js modificato (icone/mappatura aggiornate).\n  - Aggiornati i file di dati e release notes in public/ e release-notes/.\n  - Commit di documentazione degli artefatti di rilascio per v3.3.2.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile segnalata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo minor release.\n\n### Limiti Noti\n- Nessun limite noto registrato in questo intervallo di commit.\n\n### Confronto e Intervallo Commit\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nCommit inclusi:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]\n\n---\n\n## English\n### Overview\nVersion: v3.4.0  \nRelease type: minor  \nCommit range: v3.3.2..v3.4.0\n\n### New Features\n- Added technologies and project details for \"Logra\": TypeScript, Fastify, TanStack Query.\n- Updated project pages for Logra.\n- Updated translations (en/it) to include the new content.\n\n### Bug Fixes\n- No bug fixes included in this release.\n\n### Refactor & Engineering\n- Configuration and asset updates:\n  - src/config/brandIcons.js updated (icons/mapping changes).\n  - Updated public data and release-notes files.\n  - Documentation commit for v3.3.2 release artifacts.\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration steps required for this minor release.\n\n### Known Limitations\n- No known limitations recorded for this commit range.\n\n### Diff & Commit Range\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nIncluded commits:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.4.0",
+  "publishedAt": "2026-03-30T02:14:20+02:00",
   "history": [
+    {
+      "tag": "v3.4.0",
+      "version": "3.4.0",
+      "previousTag": "v3.3.2",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "ef3e9cd5a53000cefa342667bed09344f1bcafa5",
+          "subject": "feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef3e9cd5a53000cefa342667bed09344f1bcafa5",
+          "author": "Tommaso Berti",
+          "date": "2026-03-30T02:14:20+02:00"
+        },
+        {
+          "sha": "a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
+          "subject": "docs(release): v3.3.2 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
+          "author": "github-actions[bot]",
+          "date": "2026-03-23T11:54:15Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v3.4.0\n\n## Italiano\n### Panoramica\nVersione: v3.4.0  \nTipo di rilascio: minor  \nRange commit: v3.3.2..v3.4.0\n\n### Novita\n- Aggiunte tecnologie e dettagli del progetto \"Logra\": TypeScript, Fastify, TanStack Query.\n- Aggiornati contenuti delle pagine progetto relativi a Logra.\n- Aggiornate le traduzioni (it/en) per il nuovo contenuto.\n\n### Correzioni\n- Nessuna correzione funzionale specifica in questo rilascio.\n\n### Migliorie Tecniche\n- Aggiornati file di configurazione e asset:\n  - src/config/brandIcons.js modificato (icone/mappatura aggiornate).\n  - Aggiornati i file di dati e release notes in public/ e release-notes/.\n  - Commit di documentazione degli artefatti di rilascio per v3.3.2.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile segnalata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo minor release.\n\n### Limiti Noti\n- Nessun limite noto registrato in questo intervallo di commit.\n\n### Confronto e Intervallo Commit\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nCommit inclusi:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]\n\n---\n\n## English\n### Overview\nVersion: v3.4.0  \nRelease type: minor  \nCommit range: v3.3.2..v3.4.0\n\n### New Features\n- Added technologies and project details for \"Logra\": TypeScript, Fastify, TanStack Query.\n- Updated project pages for Logra.\n- Updated translations (en/it) to include the new content.\n\n### Bug Fixes\n- No bug fixes included in this release.\n\n### Refactor & Engineering\n- Configuration and asset updates:\n  - src/config/brandIcons.js updated (icons/mapping changes).\n  - Updated public data and release-notes files.\n  - Documentation commit for v3.3.2 release artifacts.\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration steps required for this minor release.\n\n### Known Limitations\n- No known limitations recorded for this commit range.\n\n### Diff & Commit Range\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nIncluded commits:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.4.0",
+      "publishedAt": "2026-03-30T02:14:20+02:00"
+    },
     {
       "tag": "v3.3.2",
       "version": "3.3.2",
@@ -249,8 +275,8 @@
     {
       "tag": "v2.10.0",
       "version": "2.10.0",
-      "previousTag": "v2.9.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
@@ -265,19 +291,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
           "author": "github-actions[bot]",
           "date": "2026-03-16T10:28:10Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
-      "publishedAt": "2026-03-18T12:49:51+01:00"
-    },
-    {
-      "tag": "v2.9.0",
-      "version": "2.9.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "50b5e1a551694219c251c6120c9196f4ad613dba",
           "subject": "feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor",
@@ -333,26 +347,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
           "author": "github-actions[bot]",
           "date": "2026-03-16T09:34:19Z"
-        },
-        {
-          "sha": "d455d03a9fe31941605ab7605f199e90e23d678b",
-          "subject": "fix: update release notes handling with markdown support and improve static data validation #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d455d03a9fe31941605ab7605f199e90e23d678b",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T10:31:40+01:00"
-        },
-        {
-          "sha": "c6fe13642a95496877015cf74edb1418ed54d801",
-          "subject": "docs(release): v2.7.6 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6fe13642a95496877015cf74edb1418ed54d801",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T09:14:19Z"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.9.0\n\n## Italiano\n### Panoramica\n- Versione: v2.9.0\n- Tipo di rilascio: minor\n- Intervallo commit: v2.8.0..v2.9.0 (4 commit)\n\n### Novita\n- Refactor della sezione Experience: introdotto il componente CareerTimeline per presentare la carriera. (commit 50b5e1a)\n- Anteprime progetti con caricamento differito e supporto tooltip nel componente MiniWebappPreview. (commit 2a04e75)\n  \n### Correzioni\n- Nessuna correzione segnalata nei commit di questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: modificati src/i18n/en.json e src/i18n/it.json.\n- Modifiche ai file di progetto e selettori: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Articoli di rilascio e metadati aggiornati: public/data/release-notes.json, release-notes/v2.8.0.md e commit di artefatti di rilascio. (commit 550a062)\n- Merge dalla main integrato. (commit c23ad27)\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata in questo intervallo.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto registrato nei metadati dei commit.\n\n### Confronto e Intervallo Commit\n- Confronto completo: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Intervallo: v2.8.0..v2.9.0\n- Commit inclusi:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]\n\n---\n\n## English\n### Overview\n- Version: v2.9.0\n- Release type: minor\n- Commit range: v2.8.0..v2.9.0 (4 commits)\n\n### New Features\n- Refactor of the Experience section: introduced a new CareerTimeline component. (commit 50b5e1a)\n- Deferred loading for project previews with tooltip support in the MiniWebappPreview component. (commit 2a04e75)\n\n### Bug Fixes\n- No bug-fix commits in this range.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json and src/i18n/it.json modified.\n- Project pages and selectors updated: src/pages/projects/projectsPages/projectSelectors.js, src/pages/projects/projectsPages/projects.js.\n- Release artifacts and metadata updated: public/data/release-notes.json, release-notes/v2.8.0.md and related docs commit. (commit 550a062)\n- Merge from main integrated. (commit c23ad27)\n\n### Breaking Changes\n- No breaking changes detected in this range.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations recorded in the commit metadata.\n\n### Diff & Commit Range\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.8.0...v2.9.0\n- Range: v2.8.0..v2.9.0\n- Commits:\n  - 50b5e1a — feat: refactor experience section with new CareerTimeline component and enhance TechSkills hover effect #minor\n  - c23ad27 — Merge remote-tracking branch 'origin/main'\n  - 2a04e75 — feat: add deferred loading for project previews with tooltip support in MiniWebappPreview component #minor\n  - 550a062 — docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.9.0",
-      "publishedAt": "2026-03-16T11:26:38+01:00"
+      "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
+      "publishedAt": "2026-03-18T12:49:51+01:00"
     }
   ]
 }

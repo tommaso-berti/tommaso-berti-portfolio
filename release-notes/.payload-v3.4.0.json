@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-03-30T00:15:04.093Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.4.0",
+  "releaseType": "minor",
+  "fromRef": "v3.3.2",
+  "toRef": "v3.4.0",
+  "range": "v3.3.2..v3.4.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0",
+  "commits": [
+    {
+      "sha": "ef3e9cd5a53000cefa342667bed09344f1bcafa5",
+      "shortSha": "ef3e9cd",
+      "subject": "feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-03-30T02:14:20+02:00"
+    },
+    {
+      "sha": "a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
+      "shortSha": "a45b0d6",
+      "subject": "docs(release): v3.3.2 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-23T11:54:15Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.3.2.json",
+    "release-notes/v2.8.0.md",
+    "release-notes/v3.3.2.md",
+    "src/config/brandIcons.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/projects/projectsPages/projects.js",
+    "src/pages/projects/projectsPages/technologies.config.js"
+  ]
+}

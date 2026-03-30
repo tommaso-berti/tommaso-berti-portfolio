@@ -244,6 +244,34 @@
         "codex": {
           "label": "Codex",
           "description": "AI development tool used in my workflow to speed up repetitive tasks, explore solutions, and improve productivity."
+        },
+        "typescript": {
+          "label": "TypeScript",
+          "description": "Typed JavaScript superset used to improve robustness, refactoring safety, and long-term maintainability across frontend and backend."
+        },
+        "fastify": {
+          "label": "Fastify",
+          "description": "High-performance API framework used to structure routes, validation, and middleware with low overhead."
+        },
+        "i18next": {
+          "label": "react-i18next",
+          "description": "i18n library used for multilingual localization, fallback handling, and centralized UI translation management."
+        },
+        "mongodb": {
+          "label": "MongoDB",
+          "description": "Document database used for catalog, user library, sessions, and operational metadata, with scope-specific collections."
+        },
+        "zod": {
+          "label": "Zod",
+          "description": "Schema validation library used to define and validate runtime/type-safe contracts between frontend and API."
+        },
+        "tanstack-query": {
+          "label": "TanStack Query",
+          "description": "Data-fetching and caching layer used to keep server/client state, mutations, and invalidations reliable."
+        },
+        "framer-motion": {
+          "label": "Framer Motion",
+          "description": "Animation library used for smooth transitions, micro-interactions, and motion design across cards and UI components."
         }
       },
       "tech_categories": {
@@ -546,6 +574,122 @@
                 "Develop a custom Blog feature for publishing articles, including categories, tags, external links, and rich media support.",
                 "Integrate Redux to handle advanced state management and improve the efficiency of all database CRUD operations.",
                 "Adopt a MongoDB database to securely store, query, and manage all blog posts."
+              ]
+            }
+          }
+        }
+      },
+      "logra": {
+        "title": "Logra",
+        "description": "Personal web app to track game library, progress, and release dates, designed around my exact daily workflow for backlog and completion management.",
+        "details": {
+          "introduction": {
+            "title": "Logra",
+            "description": [
+              "Logra started from a practical need: I wanted a web app built exactly around how I organize and track games, without compromising on flow, UX, or operational details.",
+              "The core goal is to keep completion, status, and release dates under control, with a fast daily interface and a backend architecture designed for structured long-term evolution."
+            ]
+          },
+          "lessons_learned": [
+            "A workflow-driven UI improves daily usability far more than visual polish alone.",
+            "Keeping shared contracts, API logic, and frontend components clearly separated makes fast iteration safer.",
+            "Automating deploy, seed, and environment reset flows significantly reduces manual mistakes and keeps public demos reliable.",
+            "AI is most effective when applied to focused phases (GUI design, operational scripting, bootstrap workflows) with final human technical review."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React is the interface core: modular components and UI state make cards, progress flows, and detail panels fluid and reusable."
+            },
+            "vite": {
+              "description": "Vite keeps frontend iteration fast with efficient builds during frequent UX/UI refinements."
+            },
+            "react-router": {
+              "description": "React Router handles scoped navigation and page routing, keeping movement predictable across dashboard, library, discover, and settings."
+            },
+            "javascript": {
+              "description": "JavaScript powers frontend application logic and operational utilities while keeping implementation pragmatic and extendable."
+            },
+            "mui": {
+              "description": "MUI provides the design-system baseline, enabling visual consistency, environment-aware theming, and fast accessible component delivery."
+            },
+            "nodejs": {
+              "description": "Node.js runs the API backend and operational scripts (seed/reset/index), enabling a consistent engineering pipeline across development and deployment."
+            },
+            "caddy": {
+              "description": "Caddy handles production publishing and reverse proxy with automatic HTTPS, simplifying VPS deployment operations."
+            },
+            "github": {
+              "description": "GitHub is used for versioning and collaboration, keeping technical changes traceable and structured."
+            },
+            "github-actions": {
+              "description": "GitHub Actions automates deployment and recurring operations, including controlled manual workflows for demo dataset reset and environment bootstrap."
+            },
+            "webstorm": {
+              "description": "WebStorm is the primary IDE for refactoring, debugging, and maintaining code quality across frontend and backend."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT was used mainly for GUI design iteration, automatic deployment procedure design, and seed/bootstrap database workflows, always with manual technical validation."
+            },
+            "typescript": {
+              "description": "TypeScript was introduced to increase shared-contract reliability, reduce runtime issues, and simplify refactoring in critical components."
+            },
+            "fastify": {
+              "description": "Fastify is the main API framework: it handles auth, scoped endpoints, and middleware with strong performance and modular structure."
+            },
+            "i18next": {
+              "description": "react-i18next enables consistent IT/EN localization across pages and components, including dynamic labels and UI states."
+            },
+            "mongodb": {
+              "description": "MongoDB is the primary datastore for users, sessions, catalog, and library data, with logical partitioning by scope."
+            },
+            "zod": {
+              "description": "Zod validates shared inputs and payloads, reducing frontend/backend contract mismatches as features evolve."
+            },
+            "tanstack-query": {
+              "description": "TanStack Query manages client-side cache and data synchronization, improving responsiveness and consistency in library mutations."
+            },
+            "framer-motion": {
+              "description": "Framer Motion was used for card animations and transitions, improving perceived fluidity while keeping UX control."
+            }
+          },
+          "difficulties_faced": [
+            "Balancing dense card information with readability and fast interactions without introducing overlap or UX regressions.",
+            "Maintaining environment-based color coherence while avoiding hardcoded values in sensitive UI areas.",
+            "Designing a robust edit flow (dirty state, quick actions, close guard) without breaking overlay behavior and animations.",
+            "Keeping web and API aligned through shared contracts while evolving user preferences and appearance settings.",
+            "Building reliable deploy/versioning/demo-reset procedures to keep a public demo consistently reproducible."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Complete base application for game-library tracking with status, progress, ratings, and key dates.",
+                "Statistics dashboard and backlog/completion workflow designed for daily usage.",
+                "VPS deployment with automated pipeline and shared demo dataset with dedicated seed/bootstrap flows."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Introduce custom folders/collections to better organize personal game libraries.",
+                "Improve quick actions and filters for faster navigation in large personal catalogs.",
+                "Refine mobile UX and advanced card layouts in detail/edit modes."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Add saved smart filters and custom views to segment library and backlog by goals.",
+                "Provide user data export/import for profile backup and migration.",
+                "Expand personal analytics with historical progression and completion insights."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "New major focused on extending categories beyond gaming.",
+                "Introduce TV Series/Film scope with dedicated tracking workflows.",
+                "Introduce Anime/Manga scope with dedicated taxonomy and progression tracking."
               ]
             }
           }

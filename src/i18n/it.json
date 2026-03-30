@@ -244,6 +244,34 @@
         "codex": {
           "label": "Codex",
           "description": "Strumento AI utilizzato nel workflow di sviluppo per velocizzare attività ripetitive, esplorare soluzioni e migliorare la produttività."
+        },
+        "typescript": {
+          "label": "TypeScript",
+          "description": "Superset tipizzato di JavaScript usato per migliorare robustezza, refactoring e mantenibilità del codice su frontend e backend."
+        },
+        "fastify": {
+          "label": "Fastify",
+          "description": "Framework API ad alte prestazioni usato per strutturare route, validazione e middleware con overhead ridotto."
+        },
+        "i18next": {
+          "label": "react-i18next",
+          "description": "Libreria i18n utilizzata per localizzazione multi-lingua, fallback e gestione centralizzata delle traduzioni UI."
+        },
+        "mongodb": {
+          "label": "MongoDB",
+          "description": "Database documentale usato per catalogo, libreria utente, sessioni e metadata operativi, con collezioni separate per scope."
+        },
+        "zod": {
+          "label": "Zod",
+          "description": "Schema validator usato per definire e validare contratti runtime/type-safe tra frontend e API."
+        },
+        "tanstack-query": {
+          "label": "TanStack Query",
+          "description": "Layer di data-fetching e caching usato per sincronizzare stato server/client, mutation e invalidazioni in modo affidabile."
+        },
+        "framer-motion": {
+          "label": "Framer Motion",
+          "description": "Libreria di animazione usata per transizioni fluide, micro-interazioni e motion design delle card/componente UI."
         }
       },
       "tech_categories": {
@@ -546,6 +574,122 @@
                 "Sviluppare una funzionalità Blog personalizzata per la pubblicazione di articoli, con categorie, tag, link esterni e supporto per contenuti multimediali.",
                 "Integrare Redux per gestire lo stato avanzato e migliorare l’efficienza delle operazioni CRUD sul database.",
                 "Adottare un database MongoDB per memorizzare, interrogare e gestire in modo sicuro tutti i post del blog."
+              ]
+            }
+          }
+        }
+      },
+      "logra": {
+        "title": "Logra",
+        "description": "Web app personale per tracciare libreria giochi, avanzamento e date di uscita, progettata per rispecchiare esattamente il mio workflow reale di backlog e completamento.",
+        "details": {
+          "introduction": {
+            "title": "Logra",
+            "description": [
+              "Logra nasce da un’esigenza concreta: volevo una web app fatta su misura per il mio modo di organizzare e monitorare i videogiochi, senza compromessi su flusso, UX e dettagli operativi.",
+              "L’obiettivo principale è tenere sotto controllo completamento, stato e date di uscita dei titoli in libreria, con un’interfaccia rapida da usare ogni giorno e un backend pensato per evolvere in modo strutturato."
+            ]
+          },
+          "lessons_learned": [
+            "Una UI orientata al workflow reale dell’utente migliora molto più della semplice estetica: riduce attrito e aumenta uso quotidiano.",
+            "Separare chiaramente contratti condivisi, logica API e componente frontend rende il progetto più stabile durante iterazioni frequenti.",
+            "Automatizzare deploy, seed e reset ambiente riduce errori manuali e rende le demo pubbliche più affidabili.",
+            "L’AI è più utile quando accelera fasi mirate (design GUI, script operativi, bootstrap), mantenendo revisione tecnica umana sulle decisioni finali."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React è il core dell’interfaccia: componenti modulari e stato UI permettono di gestire card, progressi e pannelli in modo fluido e riusabile."
+            },
+            "vite": {
+              "description": "Vite è usato per mantenere ciclo di sviluppo rapido e build frontend efficienti durante iterazioni frequenti di UI/UX."
+            },
+            "react-router": {
+              "description": "React Router gestisce routing per scope e pagine applicative, mantenendo navigazione prevedibile tra dashboard, libreria, discover e impostazioni."
+            },
+            "javascript": {
+              "description": "JavaScript supporta la logica applicativa del frontend e le utility operative, mantenendo il codice pragmatico e facilmente estendibile."
+            },
+            "mui": {
+              "description": "MUI è la base del design system: consente coerenza visiva, theming per ambiente e sviluppo rapido di componenti accessibili."
+            },
+            "nodejs": {
+              "description": "Node.js esegue il backend API e gli script operativi (seed/reset/index), permettendo una pipeline tecnica uniforme tra sviluppo e deploy."
+            },
+            "caddy": {
+              "description": "Caddy gestisce pubblicazione e reverse proxy con HTTPS automatico, semplificando il deploy su VPS in modalità production-ready."
+            },
+            "github": {
+              "description": "GitHub è il centro di versionamento e collaborazione, con tracciabilità completa delle modifiche e supporto alla release strategy."
+            },
+            "github-actions": {
+              "description": "GitHub Actions automatizza deploy e operazioni ricorrenti, incluse procedure manuali controllate per reset dataset demo e bootstrap ambiente."
+            },
+            "webstorm": {
+              "description": "WebStorm è l’IDE principale per refactoring, debugging e mantenimento qualità del codice su frontend e backend."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT è stato usato soprattutto per progettazione e iterazione della GUI, definizione di procedure di deploy automatico e supporto agli script di seed/bootstrap database, sempre con validazione manuale."
+            },
+            "typescript": {
+              "description": "TypeScript è stato introdotto per aumentare affidabilità dei contratti condivisi, ridurre errori runtime e semplificare refactor su componenti critici."
+            },
+            "fastify": {
+              "description": "Fastify è il framework API principale: gestisce autenticazione, endpoint scoped e middleware con buona performance e struttura modulare."
+            },
+            "i18next": {
+              "description": "react-i18next abilita localizzazione IT/EN coerente su pagine e componenti, inclusi testi dinamici e stati UI."
+            },
+            "mongodb": {
+              "description": "MongoDB è usato come datastore principale per utenti, sessioni, catalogo e libreria, con partizionamento logico per ambito."
+            },
+            "zod": {
+              "description": "Zod valida input e payload condivisi, riducendo mismatch tra frontend e backend durante l’evoluzione delle feature."
+            },
+            "tanstack-query": {
+              "description": "TanStack Query gestisce cache e sincronizzazione dati lato client, migliorando reattività e consistenza nelle mutation della libreria."
+            },
+            "framer-motion": {
+              "description": "Framer Motion è stato usato per animazioni e transizioni delle card, migliorando percezione di fluidità senza sacrificare controllo UX."
+            }
+          },
+          "difficulties_faced": [
+            "Bilanciare densità informativa della card con leggibilità e interazioni rapide senza introdurre overlap o regressioni UX.",
+            "Mantenere coerenza cromatica tra ambienti e tema dinamico evitando colori hardcoded nelle parti più sensibili della UI.",
+            "Definire un flusso di edit robusto (dirty state, quick actions, close guard) senza rompere animazioni e comportamento overlay.",
+            "Allineare web e API con contratti condivisi mantenendo compatibilità durante evoluzione di preferenze utente e impostazioni aspetto.",
+            "Strutturare deploy/versioning/reset demo in modo affidabile, così da avere una demo pubblica sempre ripristinabile."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Base applicativa completa per tracking libreria giochi con stati, progressi, rating e date principali.",
+                "Dashboard statistiche e workflow di gestione backlog/completamento orientato all’uso quotidiano.",
+                "Deploy VPS con pipeline automatizzata e dataset demo condiviso con seed/bootstrap dedicato."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Introduzione di cartelle/collezioni personalizzate per organizzare meglio la libreria giochi.",
+                "Miglioramento quick actions e filtri per navigare rapidamente grandi cataloghi personali.",
+                "Ottimizzazione UX su mobile e layout avanzati per le card in modalità dettaglio/edit."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Smart filters salvabili e viste personalizzate per segmentare libreria e backlog per obiettivo.",
+                "Export/Import dati utente per backup e migrazione profilo tra ambienti.",
+                "Analytics e insight personali più evoluti, con metriche storiche su progressione e completamento."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "Nuova major con estensione categorie media oltre il gaming.",
+                "Introduzione scope TV Series/Film con workflow dedicati di tracking.",
+                "Introduzione scope Anime/Manga con tassonomie e progress tracking specifici."
               ]
             }
           }

@@ -18,7 +18,7 @@ import {
 function renderParagraphWithLinks(text) {
     if (typeof text !== "string" || !text.length) return text;
 
-    const markdownLinkRegex = /\[([^]]+)]\((https?:\/\/[^\s)]+)\)/g;
+    const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     const isUrl = (value) => /^https?:\/\/\S+$/.test(value);
     const parts = [];

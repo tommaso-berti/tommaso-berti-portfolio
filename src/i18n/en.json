@@ -261,6 +261,10 @@
           "label": "MongoDB",
           "description": "Document database used for catalog, user library, sessions, and operational metadata, with scope-specific collections."
         },
+        "igdb": {
+          "label": "IGDB",
+          "description": "Game data provider used for catalog metadata and search fallback, integrated through controlled ingest flows and in-app credits."
+        },
         "zod": {
           "label": "Zod",
           "description": "Schema validation library used to define and validate runtime/type-safe contracts between frontend and API."
@@ -550,30 +554,33 @@
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Initial release featuring pages, navigation, and a dark/light theme system, with a basic GUI and UX.",
-                "Hosting on VPS",
-                "Automate the webapp release with GitHub workflow, with automatic versioning system",
-                "Localization management with English and Italian translations.",
-                "Advanced terminal-style breadcrumb navigation, including the ability to use `..` to move to the parent category.",
-                "MiniWebApp preview to enable quick interaction with the project.",
-                "A dedicated page for each main project, showcasing its goals, challenges faced, technologies used, and roadmap."
+                "Portfolio foundation with modular React structure, primary routing, and core section architecture.",
+                "Light/dark theme and IT/EN localization introduced with shared UI components for consistency.",
+                "Initial VPS deployment setup and base versioning workflow for regular public releases."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Improve user experience through smoother animations and a more consistent visual design.",
-                "Implement dynamic URL updates on the About page to let users navigate directly to specific sections while scrolling.",
-                "Add a status bar to each project page showing the latest commit (via GitHub APIs) along with key project metrics such as code composition and number of commits.",
-                "Show a preview of my GitHub profile on the portfolio homepage, including pinned repositories, recent activity, and relevant highlights."
+                "Release/versioning cycle consolidated with more stable pipelines and aligned release artifacts.",
+                "Project pages evolved with richer technical metadata and improved readability.",
+                "Progressive UX, navigation, and visual-consistency improvements across the portfolio."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Develop a custom Blog feature for publishing articles, including categories, tags, external links, and rich media support.",
-                "Integrate Redux to handle advanced state management and improve the efficiency of all database CRUD operations.",
-                "Adopt a MongoDB database to securely store, query, and manage all blog posts."
+                "SEO meta manager and component lazy-loading introduced to improve discoverability and perceived performance.",
+                "Contact page added, with navigation and translation updates for full public-section coverage.",
+                "Certifications section added to About with dedicated components and structured data."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "Add a dedicated Lighthouse score to every project page.",
+                "Show a full breakdown for Performance, Accessibility, Best Practices, and SEO.",
+                "Make scores comparable over time to track quality evolution across projects."
               ]
             }
           }
@@ -586,8 +593,8 @@
           "introduction": {
             "title": "Logra",
             "description": [
-              "Logra started from a practical need: I wanted a web app built exactly around how I organize and track games, without compromising on flow, UX, or operational details.",
-              "The core goal is to keep completion, status, and release dates under control, with a fast daily interface and a backend architecture designed for structured long-term evolution."
+              "Logra started from a practical need: I wanted a web app tailored to how I organize and track games, with a fast and reliable daily workflow.",
+              "The platform integrates [IGDB](https://www.igdb.com) as the main game-data source, with structured sync/ingest pipelines, discover fallback search, and explicit in-app data credits."
             ]
           },
           "lessons_learned": [
@@ -598,98 +605,90 @@
           ],
           "technologies": {
             "react": {
-              "description": "React is the interface core: modular components and UI state make cards, progress flows, and detail panels fluid and reusable."
+              "description": "React is the UI core: modular components and local state keep cards, filters, and detail panels fast and reusable."
             },
             "vite": {
-              "description": "Vite keeps frontend iteration fast with efficient builds during frequent UX/UI refinements."
+              "description": "Vite keeps frontend iteration fast and supports efficient builds during frequent UX and design-system updates."
             },
             "react-router": {
-              "description": "React Router handles scoped navigation and page routing, keeping movement predictable across dashboard, library, discover, and settings."
-            },
-            "javascript": {
-              "description": "JavaScript powers frontend application logic and operational utilities while keeping implementation pragmatic and extendable."
+              "description": "React Router handles scoped routes (`/:scope/...`) and predictable navigation across dashboard, discover, library, wishlist, stats, and settings."
             },
             "mui": {
-              "description": "MUI provides the design-system baseline, enabling visual consistency, environment-aware theming, and fast accessible component delivery."
+              "description": "MUI is the design-system base: tokens, theming, and accessible components keep the UI consistent across pages and modes."
             },
             "nodejs": {
-              "description": "Node.js runs the API backend and operational scripts (seed/reset/index), enabling a consistent engineering pipeline across development and deployment."
+              "description": "Node.js runs both the API and operational scripts (seed, reset, migrate, sync), keeping local and production workflows aligned."
             },
             "caddy": {
-              "description": "Caddy handles production publishing and reverse proxy with automatic HTTPS, simplifying VPS deployment operations."
+              "description": "Caddy handles HTTPS reverse proxy and VPS publication, simplifying production-ready frontend/backend routing."
             },
             "github": {
-              "description": "GitHub is used for versioning and collaboration, keeping technical changes traceable and structured."
+              "description": "GitHub is the collaboration and versioning hub, keeping release evolution and technical changes fully traceable."
             },
             "github-actions": {
-              "description": "GitHub Actions automates deployment and recurring operations, including controlled manual workflows for demo dataset reset and environment bootstrap."
+              "description": "GitHub Actions automates build/deploy and controlled operations (demo reset, release notes, sync), reducing risky manual work."
             },
             "webstorm": {
-              "description": "WebStorm is the primary IDE for refactoring, debugging, and maintaining code quality across frontend and backend."
+              "description": "WebStorm is the primary IDE for debugging and refactoring a shared full-stack codebase."
             },
             "codex": {
-              "description": "Codex/ChatGPT was used mainly for GUI design iteration, automatic deployment procedure design, and seed/bootstrap database workflows, always with manual technical validation."
+              "description": "Codex/ChatGPT is used as an operational accelerator for GUI iteration, procedures, and scripts, always with final human review."
             },
             "typescript": {
-              "description": "TypeScript was introduced to increase shared-contract reliability, reduce runtime issues, and simplify refactoring in critical components."
+              "description": "TypeScript improves reliability and refactor speed across web, API, and shared package layers, reducing runtime contract drift."
             },
             "fastify": {
-              "description": "Fastify is the main API framework: it handles auth, scoped endpoints, and middleware with strong performance and modular structure."
+              "description": "Fastify is the main API framework, providing modular routes, session auth, and low-overhead request handling."
             },
             "i18next": {
-              "description": "react-i18next enables consistent IT/EN localization across pages and components, including dynamic labels and UI states."
+              "description": "react-i18next centralizes IT/EN localization across pages, onboarding, and dynamic UI states."
             },
             "mongodb": {
-              "description": "MongoDB is the primary datastore for users, sessions, catalog, and library data, with logical partitioning by scope."
+              "description": "MongoDB is the primary datastore for users, sessions, and gaming collections, including index/migration and legacy cleanup flows."
+            },
+            "igdb": {
+              "description": "IGDB is integrated as the catalog data provider, with ingest sync, discover remote fallback, and user-triggered materialization."
             },
             "zod": {
-              "description": "Zod validates shared inputs and payloads, reducing frontend/backend contract mismatches as features evolve."
+              "description": "Zod defines and validates shared runtime contracts between frontend and backend, reducing payload mismatches over time."
             },
             "tanstack-query": {
-              "description": "TanStack Query manages client-side cache and data synchronization, improving responsiveness and consistency in library mutations."
+              "description": "TanStack Query manages fetch/cache/invalidation on the client, improving responsiveness and consistency in library and wishlist flows."
             },
             "framer-motion": {
-              "description": "Framer Motion was used for card animations and transitions, improving perceived fluidity while keeping UX control."
+              "description": "Framer Motion powers card and overlay transitions while preserving control in complex detail/edit interactions."
             }
           },
           "difficulties_faced": [
-            "Balancing dense card information with readability and fast interactions without introducing overlap or UX regressions.",
-            "Maintaining environment-based color coherence while avoiding hardcoded values in sensitive UI areas.",
-            "Designing a robust edit flow (dirty state, quick actions, close guard) without breaking overlay behavior and animations.",
-            "Keeping web and API aligned through shared contracts while evolving user preferences and appearance settings.",
-            "Building reliable deploy/versioning/demo-reset procedures to keep a public demo consistently reproducible."
+            "Stabilizing multi-step guided tours (overlay, spotlight, target fallback) without blocking critical guided interactions.",
+            "Keeping frontend and API aligned on shared contracts (settings, onboarding, preferences) during fast iteration cycles.",
+            "Managing demo seed/reset flows, migrations, and legacy collection cleanup without impacting public demo reliability.",
+            "Balancing dense card information with a fast UX, especially in edit mode, filters, and quick-action flows.",
+            "Maintaining UX quality and operational stability across local environments, CI/CD, and versioned VPS deployments."
           ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Complete base application for game-library tracking with status, progress, ratings, and key dates.",
-                "Statistics dashboard and backlog/completion workflow designed for daily usage.",
-                "VPS deployment with automated pipeline and shared demo dataset with dedicated seed/bootstrap flows."
+                "Base product release with demo login, game-library management, status/progress tracking, favorites, and multi-section navigation.",
+                "Scope release gating and profile/appearance settings introduced to support modular long-term evolution.",
+                "Operational foundations for seed/bootstrap and shared demo lifecycle management."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Introduce custom folders/collections to better organize personal game libraries.",
-                "Improve quick actions and filters for faster navigation in large personal catalogs.",
-                "Refine mobile UX and advanced card layouts in detail/edit modes."
+                "Onboarding expanded with multi-page guided tours and contextual card/edit-mode tours to reduce adoption time.",
+                "Advanced IGDB integration with ingest sync, data segmentation, and discover remote fallback for stronger catalog quality.",
+                "Production hardening with stricter bootstrap credential security, updated docs, and more robust release operations."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Add saved smart filters and custom views to segment library and backlog by goals.",
-                "Provide user data export/import for profile backup and migration.",
-                "Expand personal analytics with historical progression and completion insights."
-              ]
-            },
-            "v4": {
-              "title": "v4.0.0",
-              "content": [
-                "New major focused on extending categories beyond gaming.",
-                "Introduce TV Series/Film scope with dedicated tracking workflows.",
-                "Introduce Anime/Manga scope with dedicated taxonomy and progression tracking."
+                "Add contextual feedback/bug reporting to capture actionable page-level issues with better traceability.",
+                "Introduce new widgets in the stats page to expand personal insight coverage.",
+                "Add advanced per-widget options (shown data, detail level, and dedicated configuration controls)."
               ]
             }
           }

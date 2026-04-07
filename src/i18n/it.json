@@ -261,6 +261,10 @@
           "label": "MongoDB",
           "description": "Database documentale usato per catalogo, libreria utente, sessioni e metadata operativi, con collezioni separate per scope."
         },
+        "igdb": {
+          "label": "IGDB",
+          "description": "Provider dati giochi usato per catalogo, metadati e supporto search fallback, con integrazione tecnica lato ingest e crediti in-app."
+        },
         "zod": {
           "label": "Zod",
           "description": "Schema validator usato per definire e validare contratti runtime/type-safe tra frontend e API."
@@ -550,30 +554,33 @@
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Release iniziale con pagine, navigazione e sistema di tema chiaro/scuro, con interfaccia e UX di base.",
-                "Hosting su VPS",
-                "Automatizzare il rilascio della web app con workflow GitHub, con sistema di versioning automatico.",
-                "Gestione della localizzazione con traduzioni in inglese e italiano.",
-                "Breadcrumb avanzato in stile terminale, con possibilità di usare `..` per tornare alla categoria superiore.",
-                "Anteprima MiniWebApp per permettere una rapida interazione con il progetto.",
-                "Pagina dedicata per ogni progetto principale, che mostra obiettivi, sfide affrontate, tecnologie usate e roadmap."
+                "Fondazione del portfolio con struttura React modulare, routing principale e organizzazione delle sezioni core.",
+                "Introduzione di tema chiaro/scuro, localizzazione IT/EN e componenti condivisi per mantenere coerenza UI.",
+                "Setup iniziale di deploy su VPS e workflow base di versionamento per pubblicazioni regolari."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Migliorare l’esperienza utente con animazioni più fluide e un design visivo più consistente.",
-                "Implementare aggiornamenti dinamici dell’URL nella pagina About, così che gli utenti possano navigare direttamente alle sezioni mentre scorrono.",
-                "Aggiungere una status bar per ogni pagina progetto che mostri l’ultimo commit (via GitHub API) insieme a metriche chiave come composizione del codice e numero di commit.",
-                "Mostrare un’anteprima del mio profilo GitHub nella homepage del portfolio, includendo repository in evidenza, attività recente e highlight rilevanti."
+                "Consolidamento del ciclo release/versioning con pipeline più stabile e artifact allineati alle note di rilascio.",
+                "Evoluzione delle pagine progetto con metadata tecnici più ricchi e migliore leggibilità dei contenuti.",
+                "Miglioramenti progressivi su UX, navigazione e consistenza visiva del portfolio."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Sviluppare una funzionalità Blog personalizzata per la pubblicazione di articoli, con categorie, tag, link esterni e supporto per contenuti multimediali.",
-                "Integrare Redux per gestire lo stato avanzato e migliorare l’efficienza delle operazioni CRUD sul database.",
-                "Adottare un database MongoDB per memorizzare, interrogare e gestire in modo sicuro tutti i post del blog."
+                "Introduzione SEO manager e lazy loading dei componenti per migliorare discoverability e performance percepite.",
+                "Aggiunta pagina Contact e aggiornamento navigazione/traduzioni per copertura completa delle sezioni pubbliche.",
+                "Aggiunta sezione Certifications nella pagina About con componenti e dataset dedicati."
+              ]
+            },
+            "v4": {
+              "title": "v4.0.0",
+              "content": [
+                "Aggiungere in ogni pagina progetto uno score Lighthouse dedicato.",
+                "Mostrare breakdown per Performance, Accessibility, Best Practices e SEO.",
+                "Rendere lo score confrontabile nel tempo per monitorare l’evoluzione qualitativa dei progetti."
               ]
             }
           }
@@ -586,8 +593,8 @@
           "introduction": {
             "title": "Logra",
             "description": [
-              "Logra nasce da un’esigenza concreta: volevo una web app fatta su misura per il mio modo di organizzare e monitorare i videogiochi, senza compromessi su flusso, UX e dettagli operativi.",
-              "L’obiettivo principale è tenere sotto controllo completamento, stato e date di uscita dei titoli in libreria, con un’interfaccia rapida da usare ogni giorno e un backend pensato per evolvere in modo strutturato."
+              "Logra nasce da un’esigenza concreta: volevo una web app su misura per organizzare e monitorare i videogiochi con un flusso veloce, chiaro e realmente usabile ogni giorno.",
+              "La piattaforma integra [IGDB](https://www.igdb.com) come fonte dati per catalogo e metadata, con pipeline di sync/ingest controllata, fallback di ricerca e crediti espliciti in interfaccia."
             ]
           },
           "lessons_learned": [
@@ -598,98 +605,90 @@
           ],
           "technologies": {
             "react": {
-              "description": "React è il core dell’interfaccia: componenti modulari e stato UI permettono di gestire card, progressi e pannelli in modo fluido e riusabile."
+              "description": "React è il cuore dell’interfaccia: componenti modulari e stato locale permettono card, filtri e pannelli dettaglio fluidi e riusabili."
             },
             "vite": {
-              "description": "Vite è usato per mantenere ciclo di sviluppo rapido e build frontend efficienti durante iterazioni frequenti di UI/UX."
+              "description": "Vite mantiene rapido il ciclo di sviluppo frontend e supporta build efficienti durante iterazioni frequenti su UX e design system."
             },
             "react-router": {
-              "description": "React Router gestisce routing per scope e pagine applicative, mantenendo navigazione prevedibile tra dashboard, libreria, discover e impostazioni."
-            },
-            "javascript": {
-              "description": "JavaScript supporta la logica applicativa del frontend e le utility operative, mantenendo il codice pragmatico e facilmente estendibile."
+              "description": "React Router gestisce routing scoped (`/:scope/...`) e navigazione coerente tra dashboard, discover, libreria, wishlist, stats e impostazioni."
             },
             "mui": {
-              "description": "MUI è la base del design system: consente coerenza visiva, theming per ambiente e sviluppo rapido di componenti accessibili."
+              "description": "MUI è la base del design system: token, theming e componenti accessibili rendono l’interfaccia consistente tra pagine e modalità tema."
             },
             "nodejs": {
-              "description": "Node.js esegue il backend API e gli script operativi (seed/reset/index), permettendo una pipeline tecnica uniforme tra sviluppo e deploy."
+              "description": "Node.js esegue backend API e script operativi (seed, reset, migrate, sync), con pipeline tecnica uniforme tra locale e produzione."
             },
             "caddy": {
-              "description": "Caddy gestisce pubblicazione e reverse proxy con HTTPS automatico, semplificando il deploy su VPS in modalità production-ready."
+              "description": "Caddy gestisce reverse proxy HTTPS e pubblicazione su VPS, semplificando setup production-ready e routing tra frontend/backend."
             },
             "github": {
-              "description": "GitHub è il centro di versionamento e collaborazione, con tracciabilità completa delle modifiche e supporto alla release strategy."
+              "description": "GitHub è il centro di versionamento e collaborazione, con tracciabilità dei commit e supporto al flusso di release progressive."
             },
             "github-actions": {
-              "description": "GitHub Actions automatizza deploy e operazioni ricorrenti, incluse procedure manuali controllate per reset dataset demo e bootstrap ambiente."
+              "description": "GitHub Actions automatizza build/deploy e operazioni controllate (reset demo, release notes, sync), riducendo attività manuali rischiose."
             },
             "webstorm": {
-              "description": "WebStorm è l’IDE principale per refactoring, debugging e mantenimento qualità del codice su frontend e backend."
+              "description": "WebStorm è l’IDE principale per debugging e refactor su un codebase full-stack con moduli condivisi."
             },
             "codex": {
-              "description": "Codex/ChatGPT è stato usato soprattutto per progettazione e iterazione della GUI, definizione di procedure di deploy automatico e supporto agli script di seed/bootstrap database, sempre con validazione manuale."
+              "description": "Codex/ChatGPT è usato come acceleratore operativo per GUI, procedure e script, con validazione tecnica finale sempre manuale."
             },
             "typescript": {
-              "description": "TypeScript è stato introdotto per aumentare affidabilità dei contratti condivisi, ridurre errori runtime e semplificare refactor su componenti critici."
+              "description": "TypeScript aumenta affidabilità e velocità di refactor su web, API e package condiviso, riducendo mismatch e regressioni runtime."
             },
             "fastify": {
-              "description": "Fastify è il framework API principale: gestisce autenticazione, endpoint scoped e middleware con buona performance e struttura modulare."
+              "description": "Fastify è il framework API principale: route modulari, validazioni e session auth con ottime prestazioni e struttura manutenibile."
             },
             "i18next": {
-              "description": "react-i18next abilita localizzazione IT/EN coerente su pagine e componenti, inclusi testi dinamici e stati UI."
+              "description": "react-i18next centralizza localizzazione IT/EN per pagine, onboarding e feedback UI, mantenendo coerenza su copy e stati dinamici."
             },
             "mongodb": {
-              "description": "MongoDB è usato come datastore principale per utenti, sessioni, catalogo e libreria, con partizionamento logico per ambito."
+              "description": "MongoDB è il datastore principale per utenti, sessioni e collezioni gaming, con gestione di migrazioni/index e cleanup legacy."
+            },
+            "igdb": {
+              "description": "IGDB è integrato come provider dati del catalogo: sync ingest strutturato, fallback remoto in discover e materializzazione su azione utente."
             },
             "zod": {
-              "description": "Zod valida input e payload condivisi, riducendo mismatch tra frontend e backend durante l’evoluzione delle feature."
+              "description": "Zod definisce e valida contratti runtime condivisi tra frontend e backend, riducendo errori di payload durante evoluzione feature."
             },
             "tanstack-query": {
-              "description": "TanStack Query gestisce cache e sincronizzazione dati lato client, migliorando reattività e consistenza nelle mutation della libreria."
+              "description": "TanStack Query gestisce fetch/cache/invalidation lato client, migliorando reattività e consistenza nelle mutazioni di libreria e wishlist."
             },
             "framer-motion": {
-              "description": "Framer Motion è stato usato per animazioni e transizioni delle card, migliorando percezione di fluidità senza sacrificare controllo UX."
+              "description": "Framer Motion gestisce animazioni card/overlay mantenendo transizioni fluide anche in flussi complessi come dettaglio/edit."
             }
           },
           "difficulties_faced": [
-            "Bilanciare densità informativa della card con leggibilità e interazioni rapide senza introdurre overlap o regressioni UX.",
-            "Mantenere coerenza cromatica tra ambienti e tema dinamico evitando colori hardcoded nelle parti più sensibili della UI.",
-            "Definire un flusso di edit robusto (dirty state, quick actions, close guard) senza rompere animazioni e comportamento overlay.",
-            "Allineare web e API con contratti condivisi mantenendo compatibilità durante evoluzione di preferenze utente e impostazioni aspetto.",
-            "Strutturare deploy/versioning/reset demo in modo affidabile, così da avere una demo pubblica sempre ripristinabile."
+            "Stabilizzare guided tour multi-step (overlay, spotlight, fallback target) senza bloccare interazioni critiche nei passaggi guidati.",
+            "Mantenere allineati frontend e API su contratti condivisi (settings, onboarding, preferenze) durante iterazioni rapide.",
+            "Gestire in modo affidabile seed/reset demo, migrazioni e cleanup collezioni legacy senza compromettere la demo pubblica.",
+            "Bilanciare densità informativa delle card con UX veloce, evitando attrito su edit mode, filtri e quick actions.",
+            "Conciliare qualità UX e stabilità operativa tra ambiente locale, CI/CD e deploy versionati su VPS."
           ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Base applicativa completa per tracking libreria giochi con stati, progressi, rating e date principali.",
-                "Dashboard statistiche e workflow di gestione backlog/completamento orientato all’uso quotidiano.",
-                "Deploy VPS con pipeline automatizzata e dataset demo condiviso con seed/bootstrap dedicato."
+                "Rilascio base del prodotto con login demo, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
+                "Introduzione di scope release gating e impostazioni aspetto/profilo per rendere l’app pronta a evoluzioni modulari.",
+                "Fondamenta operative per seed/bootstrap e flusso demo condiviso con autenticazione dedicata."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Introduzione di cartelle/collezioni personalizzate per organizzare meglio la libreria giochi.",
-                "Miglioramento quick actions e filtri per navigare rapidamente grandi cataloghi personali.",
-                "Ottimizzazione UX su mobile e layout avanzati per le card in modalità dettaglio/edit."
+                "Estensione onboarding con guided tour multi-pagina e tour contestuali su card/edit mode per ridurre il tempo di adozione.",
+                "Integrazione IGDB avanzata con sync ingest, segmentazione dati e fallback remoto in discover, con migliore qualità catalogo.",
+                "Rafforzamento operatività produzione: sicurezza credenziali bootstrap, documentazione aggiornata e pipeline release più robuste."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Smart filters salvabili e viste personalizzate per segmentare libreria e backlog per obiettivo.",
-                "Export/Import dati utente per backup e migrazione profilo tra ambienti.",
-                "Analytics e insight personali più evoluti, con metriche storiche su progressione e completamento."
-              ]
-            },
-            "v4": {
-              "title": "v4.0.0",
-              "content": [
-                "Nuova major con estensione categorie media oltre il gaming.",
-                "Introduzione scope TV Series/Film con workflow dedicati di tracking.",
-                "Introduzione scope Anime/Manga con tassonomie e progress tracking specifici."
+                "Aggiungere sistema di feedback/bug report contestuale alla pagina per raccogliere segnalazioni più utili e tracciabili.",
+                "Introdurre nuovi widget nella sezione statistiche per aumentare copertura di insight e casi d’uso personali.",
+                "Aggiungere opzioni avanzate per singolo widget (dati mostrati, livello di dettaglio, configurazioni dedicate)."
               ]
             }
           }

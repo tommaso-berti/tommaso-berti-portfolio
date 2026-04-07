@@ -20,6 +20,7 @@ import {
     SiReact,
     SiRedux,
     SiSimpleicons,
+    SiIgdb,
     SiTailwindcss,
     SiSwagger,
     SiVite,
@@ -61,6 +62,12 @@ const BRAND_ICON_REGISTRY = {
         component: SiMongodb,
         color: "#47A248",
         title: "MongoDB",
+    },
+    igdb: {
+        id: "igdb",
+        component: SiIgdb,
+        color: "#9147FF",
+        title: "IGDB",
     },
     postgresql: {
         id: "postgresql",

@@ -15,6 +15,7 @@ export const TECHNOLOGIES = {
     passport:  { icon: "passport",  category: "backend-runtime" },
     "express-session": { icon: "express-session", category: "backend-runtime" },
     mongodb:   { icon: "mongodb",   category: "database" },
+    igdb:      { icon: "igdb",      category: "database" },
     postgresql:{ icon: "postgresql",category: "database" },
     github:    { icon: "github",    category: "tools"  },
     "github-actions": { icon: "github-actions", category: "tools" },

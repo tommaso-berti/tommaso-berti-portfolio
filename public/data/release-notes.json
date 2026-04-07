@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-03-30T00:15:33.917Z",
-  "latestTag": "v3.4.0",
-  "latestVersion": "3.4.0",
-  "previousTag": "v3.3.2",
+  "generatedAt": "2026-04-07T23:19:04.755Z",
+  "latestTag": "v3.5.0",
+  "latestVersion": "3.5.0",
+  "previousTag": "v3.4.0",
   "releaseType": "minor",
   "entries": [
     {
-      "sha": "ef3e9cd5a53000cefa342667bed09344f1bcafa5",
-      "subject": "feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/ef3e9cd5a53000cefa342667bed09344f1bcafa5",
+      "sha": "7e23a4200ea57be6650327e948a88f1cc0fb1faf",
+      "subject": "feat: add details about logra project #minor",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/7e23a4200ea57be6650327e948a88f1cc0fb1faf",
       "author": "Tommaso Berti",
-      "date": "2026-03-30T02:14:20+02:00"
+      "date": "2026-04-08T01:18:10+02:00"
     },
     {
-      "sha": "a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
-      "subject": "docs(release): v3.3.2 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a45b0d68a97b31f2cc52b3f4a0663606c489b6ce",
+      "sha": "70ab2011e834204e32c52852e73e6800089b9ef1",
+      "subject": "docs(release): v3.4.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/70ab2011e834204e32c52852e73e6800089b9ef1",
       "author": "github-actions[bot]",
-      "date": "2026-03-23T11:54:15Z"
+      "date": "2026-03-30T00:15:38Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.4.0\n\n## Italiano\n### Panoramica\nVersione: v3.4.0  \nTipo di rilascio: minor  \nRange commit: v3.3.2..v3.4.0\n\n### Novita\n- Aggiunte tecnologie e dettagli del progetto \"Logra\": TypeScript, Fastify, TanStack Query.\n- Aggiornati contenuti delle pagine progetto relativi a Logra.\n- Aggiornate le traduzioni (it/en) per il nuovo contenuto.\n\n### Correzioni\n- Nessuna correzione funzionale specifica in questo rilascio.\n\n### Migliorie Tecniche\n- Aggiornati file di configurazione e asset:\n  - src/config/brandIcons.js modificato (icone/mappatura aggiornate).\n  - Aggiornati i file di dati e release notes in public/ e release-notes/.\n  - Commit di documentazione degli artefatti di rilascio per v3.3.2.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile segnalata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo minor release.\n\n### Limiti Noti\n- Nessun limite noto registrato in questo intervallo di commit.\n\n### Confronto e Intervallo Commit\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nCommit inclusi:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]\n\n---\n\n## English\n### Overview\nVersion: v3.4.0  \nRelease type: minor  \nCommit range: v3.3.2..v3.4.0\n\n### New Features\n- Added technologies and project details for \"Logra\": TypeScript, Fastify, TanStack Query.\n- Updated project pages for Logra.\n- Updated translations (en/it) to include the new content.\n\n### Bug Fixes\n- No bug fixes included in this release.\n\n### Refactor & Engineering\n- Configuration and asset updates:\n  - src/config/brandIcons.js updated (icons/mapping changes).\n  - Updated public data and release-notes files.\n  - Documentation commit for v3.3.2 release artifacts.\n\n### Breaking Changes\n- No breaking changes reported.\n\n### Migration Notes\n- No migration steps required for this minor release.\n\n### Known Limitations\n- No known limitations recorded for this commit range.\n\n### Diff & Commit Range\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.3.2...v3.4.0  \n- Range: v3.3.2..v3.4.0\n\nIncluded commits:\n- ef3e9cd — feat: add new technologies and project details for Logra, including TypeScript, Fastify, and TanStack Query #minor — Tommaso Berti\n- a45b0d6 — docs(release): v3.3.2 artifacts #skip-deploy [skip ci] — github-actions[bot]",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.4.0",
-  "publishedAt": "2026-03-30T02:14:20+02:00",
+  "bodyMarkdown": "# Release Notes v3.5.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.4.0..v3.5.0`.\n- Commit inclusi: 2. File modificati: 11.\n\n### Novita\n- feat: add details about logra project #minor (7e23a42)\n\n### Correzioni\n- Nessun bug fix rilevato.\n\n### Migliorie Tecniche\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.4.0.json\n- release-notes/v2.9.0.md\n- release-notes/v3.4.0.md\n- src/config/brandIcons.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/projects/projectsPages/ProjectPage.jsx\n- src/pages/projects/projectsPages/projects.js\n- src/pages/projects/projectsPages/technologies.config.js\n\n## English\n### Overview\n- Release generated from commits in range `v3.4.0..v3.5.0`.\n- Included commits: 2. Changed files: 11.\n\n### New Features\n- feat: add details about logra project #minor (7e23a42)\n\n### Bug Fixes\n- No bug fixes detected.\n\n### Refactor & Engineering\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.0",
+  "publishedAt": "2026-04-08T01:18:10+02:00",
   "history": [
+    {
+      "tag": "v3.5.0",
+      "version": "3.5.0",
+      "previousTag": "v3.4.0",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "7e23a4200ea57be6650327e948a88f1cc0fb1faf",
+          "subject": "feat: add details about logra project #minor",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/7e23a4200ea57be6650327e948a88f1cc0fb1faf",
+          "author": "Tommaso Berti",
+          "date": "2026-04-08T01:18:10+02:00"
+        },
+        {
+          "sha": "70ab2011e834204e32c52852e73e6800089b9ef1",
+          "subject": "docs(release): v3.4.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/70ab2011e834204e32c52852e73e6800089b9ef1",
+          "author": "github-actions[bot]",
+          "date": "2026-03-30T00:15:38Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v3.5.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.4.0..v3.5.0`.\n- Commit inclusi: 2. File modificati: 11.\n\n### Novita\n- feat: add details about logra project #minor (7e23a42)\n\n### Correzioni\n- Nessun bug fix rilevato.\n\n### Migliorie Tecniche\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.4.0.json\n- release-notes/v2.9.0.md\n- release-notes/v3.4.0.md\n- src/config/brandIcons.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/projects/projectsPages/ProjectPage.jsx\n- src/pages/projects/projectsPages/projects.js\n- src/pages/projects/projectsPages/technologies.config.js\n\n## English\n### Overview\n- Release generated from commits in range `v3.4.0..v3.5.0`.\n- Included commits: 2. Changed files: 11.\n\n### New Features\n- feat: add details about logra project #minor (7e23a42)\n\n### Bug Fixes\n- No bug fixes detected.\n\n### Refactor & Engineering\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.0",
+      "publishedAt": "2026-04-08T01:18:10+02:00"
+    },
     {
       "tag": "v3.4.0",
       "version": "3.4.0",
@@ -249,7 +275,7 @@
     {
       "tag": "v2.10.1",
       "version": "2.10.1",
-      "previousTag": "v2.10.0",
+      "previousTag": null,
       "releaseType": "patch",
       "entries": [
         {
@@ -265,19 +291,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bb676c29a0a80b29bda1b064d8106d112292680",
           "author": "github-actions[bot]",
           "date": "2026-03-18T11:51:24Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v2.10.1\n\n## Italiano\n### Panoramica\n- Versione: v2.10.1\n- Tipo di rilascio: patch (fonte: payload.releaseType)\n- Intervallo commit: v2.10.0..v2.10.1\n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (tipo: patch).\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit.\n\n### Migliorie Tecniche\n- src/config/brandIcons.js: sostituito SiVscodium con VscVscode (commit 0e2b4a9).\n- Aggiornamento degli artefatti / note di rilascio (file aggiornati sotto release-notes e public/data) (commit 8bb676c).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit.\n\n### Confronto e Intervallo Commit\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commit inclusi:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati (elenco fornito):\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js\n\n---\n\n## English\n### Overview\n- Version: v2.10.1\n- Release type: patch (source: payload.releaseType)\n- Commit range: v2.10.0..v2.10.1\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### New Features\n- No new features in this release (type: patch).\n\n### Bug Fixes\n- No explicit bug fixes listed in the commits.\n\n### Refactor & Engineering\n- src/config/brandIcons.js: replaced SiVscodium with VscVscode (commit 0e2b4a9).\n- Documentation / release artifacts updated (files under release-notes and public/data) (commit 8bb676c).\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required for this release.\n\n### Known Limitations\n- No known limitations reported in the commit metadata.\n\n### Diff & Commit Range\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commits included:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.1",
-      "publishedAt": "2026-03-19T00:17:26+01:00"
-    },
-    {
-      "tag": "v2.10.0",
-      "version": "2.10.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
           "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
@@ -333,26 +347,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b01388bb778f6db67cb1d2bafd458f0696397ec2",
           "author": "Tommaso Berti",
           "date": "2026-03-16T10:44:53+01:00"
-        },
-        {
-          "sha": "a04c806fb087d0a456bc612f902e6a3bd9c705d6",
-          "subject": "feat: enhance release notes generation with version type resolution and improved markdown handling #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a04c806fb087d0a456bc612f902e6a3bd9c705d6",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T10:42:04+01:00"
-        },
-        {
-          "sha": "d9d390c30abe9742990ead20d6bc25cd8a17d729",
-          "subject": "docs(release): v2.7.7 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/d9d390c30abe9742990ead20d6bc25cd8a17d729",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T09:34:19Z"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.10.0\n\n## Italiano\n### Panoramica\nRilascio v2.10.0 (tipo: minor). Modifiche concentrate sull'interfaccia delle note di rilascio e sull'aggiornamento dei dati statici/documentazione di rilascio.\n\n### Novita\n- Limitate le note di rilascio alle 10 voci più recenti e aggiunto supporto ad accordion nella ReleaseNotesModal (commit b7459ab).\n\n### Correzioni\n- Nessuna correzione specifica inclusa in questo intervallo.\n\n### Migliorie Tecniche\n- Aggiornati dati statici e script di refresh:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Aggiornato file delle note/documentazione di rilascio (docs): commit di github-actions[bot] per v2.9.0.\n- Aggiornati componenti/frontend relativi alle note:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Altre modifiche di supporto:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Modifiche Incompatibili\n- Nessuna incompatibilità nota introdotta da questo rilascio.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Le note di rilascio ora mostrano solo le 10 voci più recenti; le voci più vecchie non sono visibili nell'interfaccia predefinita.\n\n### Confronto e Intervallo Commit\n- Intervallo: v2.9.0..v2.10.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commit inclusi:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n\n---\n\n## English\n### Overview\nRelease v2.10.0 (type: minor). Changes focus on release-notes UI behavior and static/data/documentation updates.\n\n### New Features\n- Limit release notes to the 10 most recent entries and add accordion support in ReleaseNotesModal (commit b7459ab).\n\n### Bug Fixes\n- No specific bug fixes included in this range.\n\n### Refactor & Engineering\n- Updated static data and refresh script:\n  - public/data/release-notes.json, release-notes/v2.9.0.md, scripts/static-data/refresh-static-data.mjs\n- Release documentation update by CI bot for v2.9.0 (docs): commit by github-actions[bot].\n- Frontend component updates related to release notes:\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js\n- Supporting changes:\n  - public/data/exercises.json\n  - .github/workflows/deploy.yml\n\n### Breaking Changes\n- No breaking changes introduced in this release.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- The release notes view now displays only the 10 most recent entries; older entries are not visible by default.\n\n### Diff & Commit Range\n- Range: v2.9.0..v2.10.0  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.9.0...v2.10.0\n- Commits:\n  - b7459ab — feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor (Tommaso Berti)\n  - 0f3b556 — docs(release): v2.9.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - .github/workflows/deploy.yml\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/v2.9.0.md\n  - scripts/static-data/refresh-static-data.mjs\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/hooks/useLatestReleaseNotes.js",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.0",
-      "publishedAt": "2026-03-18T12:49:51+01:00"
+      "bodyMarkdown": "# Release Notes v2.10.1\n\n## Italiano\n### Panoramica\n- Versione: v2.10.1\n- Tipo di rilascio: patch (fonte: payload.releaseType)\n- Intervallo commit: v2.10.0..v2.10.1\n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (tipo: patch).\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit.\n\n### Migliorie Tecniche\n- src/config/brandIcons.js: sostituito SiVscodium con VscVscode (commit 0e2b4a9).\n- Aggiornamento degli artefatti / note di rilascio (file aggiornati sotto release-notes e public/data) (commit 8bb676c).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit.\n\n### Confronto e Intervallo Commit\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commit inclusi:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati (elenco fornito):\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js\n\n---\n\n## English\n### Overview\n- Version: v2.10.1\n- Release type: patch (source: payload.releaseType)\n- Commit range: v2.10.0..v2.10.1\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### New Features\n- No new features in this release (type: patch).\n\n### Bug Fixes\n- No explicit bug fixes listed in the commits.\n\n### Refactor & Engineering\n- src/config/brandIcons.js: replaced SiVscodium with VscVscode (commit 0e2b4a9).\n- Documentation / release artifacts updated (files under release-notes and public/data) (commit 8bb676c).\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required for this release.\n\n### Known Limitations\n- No known limitations reported in the commit metadata.\n\n### Diff & Commit Range\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commits included:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.1",
+      "publishedAt": "2026-03-19T00:17:26+01:00"
     }
   ]
 }

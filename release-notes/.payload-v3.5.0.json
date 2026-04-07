@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-04-07T23:19:00.582Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.5.0",
+  "releaseType": "minor",
+  "fromRef": "v3.4.0",
+  "toRef": "v3.5.0",
+  "range": "v3.4.0..v3.5.0",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0",
+  "commits": [
+    {
+      "sha": "7e23a4200ea57be6650327e948a88f1cc0fb1faf",
+      "shortSha": "7e23a42",
+      "subject": "feat: add details about logra project #minor",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-04-08T01:18:10+02:00"
+    },
+    {
+      "sha": "70ab2011e834204e32c52852e73e6800089b9ef1",
+      "shortSha": "70ab201",
+      "subject": "docs(release): v3.4.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-03-30T00:15:38Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.4.0.json",
+    "release-notes/v2.9.0.md",
+    "release-notes/v3.4.0.md",
+    "src/config/brandIcons.js",
+    "src/i18n/en.json",
+    "src/i18n/it.json",
+    "src/pages/projects/projectsPages/ProjectPage.jsx",
+    "src/pages/projects/projectsPages/projects.js",
+    "src/pages/projects/projectsPages/technologies.config.js"
+  ]
+}

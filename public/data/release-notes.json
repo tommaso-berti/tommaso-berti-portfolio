@@ -1,29 +1,55 @@
 {
-  "generatedAt": "2026-04-07T23:19:04.755Z",
-  "latestTag": "v3.5.0",
-  "latestVersion": "3.5.0",
-  "previousTag": "v3.4.0",
-  "releaseType": "minor",
+  "generatedAt": "2026-04-07T23:23:10.631Z",
+  "latestTag": "v3.5.1",
+  "latestVersion": "3.5.1",
+  "previousTag": "v3.5.0",
+  "releaseType": "patch",
   "entries": [
     {
-      "sha": "7e23a4200ea57be6650327e948a88f1cc0fb1faf",
-      "subject": "feat: add details about logra project #minor",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/7e23a4200ea57be6650327e948a88f1cc0fb1faf",
+      "sha": "0ea0965941a80dd807e3e9a33e759416e4c3c664",
+      "subject": "fix: fix a minor issue on IGDB link #patch",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0ea0965941a80dd807e3e9a33e759416e4c3c664",
       "author": "Tommaso Berti",
-      "date": "2026-04-08T01:18:10+02:00"
+      "date": "2026-04-08T01:22:21+02:00"
     },
     {
-      "sha": "70ab2011e834204e32c52852e73e6800089b9ef1",
-      "subject": "docs(release): v3.4.0 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/70ab2011e834204e32c52852e73e6800089b9ef1",
+      "sha": "55667aca69279b8c21c5ddc716706082654ed9ab",
+      "subject": "docs(release): v3.5.0 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/55667aca69279b8c21c5ddc716706082654ed9ab",
       "author": "github-actions[bot]",
-      "date": "2026-03-30T00:15:38Z"
+      "date": "2026-04-07T23:19:11Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.5.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.4.0..v3.5.0`.\n- Commit inclusi: 2. File modificati: 11.\n\n### Novita\n- feat: add details about logra project #minor (7e23a42)\n\n### Correzioni\n- Nessun bug fix rilevato.\n\n### Migliorie Tecniche\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.4.0.json\n- release-notes/v2.9.0.md\n- release-notes/v3.4.0.md\n- src/config/brandIcons.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/projects/projectsPages/ProjectPage.jsx\n- src/pages/projects/projectsPages/projects.js\n- src/pages/projects/projectsPages/technologies.config.js\n\n## English\n### Overview\n- Release generated from commits in range `v3.4.0..v3.5.0`.\n- Included commits: 2. Changed files: 11.\n\n### New Features\n- feat: add details about logra project #minor (7e23a42)\n\n### Bug Fixes\n- No bug fixes detected.\n\n### Refactor & Engineering\n- docs(release): v3.4.0 artifacts #skip-deploy [skip ci] (70ab201)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.4.0..v3.5.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.4.0...v3.5.0",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.0",
-  "publishedAt": "2026-04-08T01:18:10+02:00",
+  "bodyMarkdown": "# Release Notes v3.5.1\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.5.0..v3.5.1`.\n- Commit inclusi: 2. File modificati: 6.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: fix a minor issue on IGDB link #patch (0ea0965)\n\n### Migliorie Tecniche\n- docs(release): v3.5.0 artifacts #skip-deploy [skip ci] (55667ac)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.5.0..v3.5.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.0...v3.5.1\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.5.0.json\n- release-notes/v2.10.0.md\n- release-notes/v3.5.0.md\n- src/pages/projects/projectsPages/ProjectPage.jsx\n\n## English\n### Overview\n- Release generated from commits in range `v3.5.0..v3.5.1`.\n- Included commits: 2. Changed files: 6.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: fix a minor issue on IGDB link #patch (0ea0965)\n\n### Refactor & Engineering\n- docs(release): v3.5.0 artifacts #skip-deploy [skip ci] (55667ac)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.5.0..v3.5.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.0...v3.5.1",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.1",
+  "publishedAt": "2026-04-08T01:22:21+02:00",
   "history": [
+    {
+      "tag": "v3.5.1",
+      "version": "3.5.1",
+      "previousTag": "v3.5.0",
+      "releaseType": "patch",
+      "entries": [
+        {
+          "sha": "0ea0965941a80dd807e3e9a33e759416e4c3c664",
+          "subject": "fix: fix a minor issue on IGDB link #patch",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0ea0965941a80dd807e3e9a33e759416e4c3c664",
+          "author": "Tommaso Berti",
+          "date": "2026-04-08T01:22:21+02:00"
+        },
+        {
+          "sha": "55667aca69279b8c21c5ddc716706082654ed9ab",
+          "subject": "docs(release): v3.5.0 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/55667aca69279b8c21c5ddc716706082654ed9ab",
+          "author": "github-actions[bot]",
+          "date": "2026-04-07T23:19:11Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v3.5.1\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.5.0..v3.5.1`.\n- Commit inclusi: 2. File modificati: 6.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: fix a minor issue on IGDB link #patch (0ea0965)\n\n### Migliorie Tecniche\n- docs(release): v3.5.0 artifacts #skip-deploy [skip ci] (55667ac)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.5.0..v3.5.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.0...v3.5.1\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.5.0.json\n- release-notes/v2.10.0.md\n- release-notes/v3.5.0.md\n- src/pages/projects/projectsPages/ProjectPage.jsx\n\n## English\n### Overview\n- Release generated from commits in range `v3.5.0..v3.5.1`.\n- Included commits: 2. Changed files: 6.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: fix a minor issue on IGDB link #patch (0ea0965)\n\n### Refactor & Engineering\n- docs(release): v3.5.0 artifacts #skip-deploy [skip ci] (55667ac)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.5.0..v3.5.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.0...v3.5.1",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.1",
+      "publishedAt": "2026-04-08T01:22:21+02:00"
+    },
     {
       "tag": "v3.5.0",
       "version": "3.5.0",
@@ -235,8 +261,8 @@
     {
       "tag": "v3.0.0",
       "version": "3.0.0",
-      "previousTag": "v2.10.1",
-      "releaseType": "major",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "705ba157ec29d0217d9860fbc79b16f4eabd1c48",
@@ -265,19 +291,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bdc4a64623be75687c18eb082f379b4c0a96b3b",
           "author": "github-actions[bot]",
           "date": "2026-03-18T23:19:01Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v3.0.0\n\n## Italiano\n### Panoramica\nRilascio v3.0.0 (major). Include gestione SEO, lazy loading dei componenti, nuova pagina Contatti, e una sezione Certificazioni nella pagina About. Aggiornati anche file di configurazione e artifact di rilascio.\n\n### Novita\n- Implementata gestione dei meta SEO via src/app/layout/SeoMetaManager.jsx e integrazione in App (lazy load dei componenti per migliorare le prestazioni). (commit 705ba15)\n- Aggiunta pagina Contact e aggiornamento della navigazione e delle traduzioni (src/pages/contact/Contact.jsx, src/i18n/en.json, src/i18n/it.json, routing/definizioni). (commit 09f4534)\n- Aggiunta sezione Certifications nella pagina About e componenti/dati correlati (src/features/certifications/*, src/pages/about/About.jsx). (commit a86b634)\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit inclusi.\n\n### Migliorie Tecniche\n- Aggiornati artifact e file di release-notes e dati pubblici (public/data/release-notes.json, release-notes/...). (commit docs by github-actions[bot])\n- Modifiche di configurazione/build: vite.config.js aggiornato.\n- Aggiornati file statici: index.html, public/og-profile.jpeg.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta basata sui cambi presenti.\n\n### Limiti Noti\n- Nessun limite noto documentato nei commit o nei file forniti.\n\n### Confronto e Intervallo Commit\nRange: v2.10.1..v3.0.0  \nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.1...v3.0.0\n\nCommit inclusi:\n- 33934d4 — Merge remote-tracking branch 'origin/main' — Tommaso Berti — 2026-03-19T15:16:17+01:00  \n- 705ba15 — feat: implement SEO meta management and lazy load components for improved performance #major — Tommaso Berti — 2026-03-19T15:16:02+01:00  \n- 09f4534 — feat: add Contact page and update navigation and translations #minor — Tommaso Berti — 2026-03-19T12:26:25+01:00  \n- a86b634 — feat: add certifications section to About page and enhance related components #minor — Tommaso Berti — 2026-03-19T11:41:48+01:00  \n- 8bdc4a6 — docs(release): v2.10.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-18T23:19:01Z\n\nFile modificati (lista completa):\n- index.html\n- public/data/exercises.json\n- public/data/release-notes.json\n- public/og-profile.jpeg\n- release-notes/.payload-v2.10.1.json\n- release-notes/v2.10.1.md\n- src/app/AppProviders.jsx\n- src/app/AppRoutes.jsx\n- src/app/layout/Header.jsx\n- src/app/layout/SeoMetaManager.jsx\n- src/app/routing/appDefinitions.js\n- src/features/certifications/CertificationsSection.jsx\n- src/features/certifications/certificationIcons.js\n- src/features/certifications/certifications.data.js\n- src/features/certifications/certifications.utils.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/about/About.jsx\n- src/pages/about/Bio.jsx\n- src/pages/about/Experience.jsx\n- src/pages/about/Hobbies.jsx\n- src/pages/about/TechSkills.jsx\n- src/pages/contact/Contact.jsx\n- src/pages/home/Home.jsx\n- src/pages/projects/Projects.jsx\n- src/pages/projects/components/ProjectsPreview.jsx\n- vite.config.js\n\n---\n\n## English\n### Overview\nRelease v3.0.0 (major). Adds SEO meta management, component lazy-loading, a Contact page, and a Certifications section on the About page. Build/config and release artifacts updated.\n\n### New Features\n- Implemented SEO meta management (src/app/layout/SeoMetaManager.jsx) and added lazy loading of components to improve performance. (commit 705ba15)\n- Added Contact page and updated navigation and translations (src/pages/contact/Contact.jsx, src/i18n/en.json, src/i18n/it.json, routing definitions). (commit 09f4534)\n- Added Certifications section to the About page and related components and data (src/features/certifications/*, src/pages/about/About.jsx). (commit a86b634)\n\n### Bug Fixes\n- No bug fixes listed in the provided commits.\n\n### Refactor & Engineering\n- Updated release artifacts and release-notes data (public/data/release-notes.json, release-notes/...). (docs commit by github-actions[bot])\n- Build/config updates: vite.config.js modified.\n- Static assets updated: index.html, public/og-profile.jpeg.\n\n### Breaking Changes\n- No breaking changes identified in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the included changes.\n\n### Known Limitations\n- No known limitations documented in the provided commits or files.\n\n### Diff & Commit Range\nRange: v2.10.1..v3.0.0  \nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.1...v3.0.0\n\nIncluded commits:\n- 33934d4 — Merge remote-tracking branch 'origin/main' — Tommaso Berti — 2026-03-19T15:16:17+01:00  \n- 705ba15 — feat: implement SEO meta management and lazy load components for improved performance #major — Tommaso Berti — 2026-03-19T15:16:02+01:00  \n- 09f4534 — feat: add Contact page and update navigation and translations #minor — Tommaso Berti — 2026-03-19T12:26:25+01:00  \n- a86b634 — feat: add certifications section to About page and enhance related components #minor — Tommaso Berti — 2026-03-19T11:41:48+01:00  \n- 8bdc4a6 — docs(release): v2.10.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-18T23:19:01Z\n\nChanged files:\n- index.html\n- public/data/exercises.json\n- public/data/release-notes.json\n- public/og-profile.jpeg\n- release-notes/.payload-v2.10.1.json\n- release-notes/v2.10.1.md\n- src/app/AppProviders.jsx\n- src/app/AppRoutes.jsx\n- src/app/layout/Header.jsx\n- src/app/layout/SeoMetaManager.jsx\n- src/app/routing/appDefinitions.js\n- src/features/certifications/CertificationsSection.jsx\n- src/features/certifications/certificationIcons.js\n- src/features/certifications/certifications.data.js\n- src/features/certifications/certifications.utils.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/about/About.jsx\n- src/pages/about/Bio.jsx\n- src/pages/about/Experience.jsx\n- src/pages/about/Hobbies.jsx\n- src/pages/about/TechSkills.jsx\n- src/pages/contact/Contact.jsx\n- src/pages/home/Home.jsx\n- src/pages/projects/Projects.jsx\n- src/pages/projects/components/ProjectsPreview.jsx\n- vite.config.js",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.0.0",
-      "publishedAt": "2026-03-19T15:16:17+01:00"
-    },
-    {
-      "tag": "v2.10.1",
-      "version": "2.10.1",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "0e2b4a95c787b463fda3dc7f59273112bbca1fd3",
           "subject": "feat: replace SiVscodium with VscVscode in brandIcons.js #patch",
@@ -319,40 +333,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2a04e753c615f188459bbabd94aac431197df39c",
           "author": "Tommaso Berti",
           "date": "2026-03-16T11:00:40+01:00"
-        },
-        {
-          "sha": "550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
-          "subject": "docs(release): v2.8.0 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/550a06266b7e2fc2bb4c5d41537d4f291e3cd446",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T09:53:24Z"
-        },
-        {
-          "sha": "27ebc53a389bf7437f39658ba1c786b3780d5e5c",
-          "subject": "feat: add retry logic for SSH and rsync in deploy workflow; normalize Italian section headings in release notes #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/27ebc53a389bf7437f39658ba1c786b3780d5e5c",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T10:52:00+01:00"
-        },
-        {
-          "sha": "da01a208ea235e951a10740626f013b3a14d4d05",
-          "subject": "docs(release): v2.7.8 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/da01a208ea235e951a10740626f013b3a14d4d05",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T09:46:14Z"
-        },
-        {
-          "sha": "b01388bb778f6db67cb1d2bafd458f0696397ec2",
-          "subject": "fix: improve SSH and rsync reliability with retry logic in deploy workflow #patch",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b01388bb778f6db67cb1d2bafd458f0696397ec2",
-          "author": "Tommaso Berti",
-          "date": "2026-03-16T10:44:53+01:00"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v2.10.1\n\n## Italiano\n### Panoramica\n- Versione: v2.10.1\n- Tipo di rilascio: patch (fonte: payload.releaseType)\n- Intervallo commit: v2.10.0..v2.10.1\n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (tipo: patch).\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit.\n\n### Migliorie Tecniche\n- src/config/brandIcons.js: sostituito SiVscodium con VscVscode (commit 0e2b4a9).\n- Aggiornamento degli artefatti / note di rilascio (file aggiornati sotto release-notes e public/data) (commit 8bb676c).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per questo rilascio.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit.\n\n### Confronto e Intervallo Commit\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commit inclusi:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- File modificati (elenco fornito):\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js\n\n---\n\n## English\n### Overview\n- Version: v2.10.1\n- Release type: patch (source: payload.releaseType)\n- Commit range: v2.10.0..v2.10.1\n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n\n### New Features\n- No new features in this release (type: patch).\n\n### Bug Fixes\n- No explicit bug fixes listed in the commits.\n\n### Refactor & Engineering\n- src/config/brandIcons.js: replaced SiVscodium with VscVscode (commit 0e2b4a9).\n- Documentation / release artifacts updated (files under release-notes and public/data) (commit 8bb676c).\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required for this release.\n\n### Known Limitations\n- No known limitations reported in the commit metadata.\n\n### Diff & Commit Range\n- Range: v2.10.0..v2.10.1  \n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.0...v2.10.1\n- Commits included:\n  - 0e2b4a9 — feat: replace SiVscodium with VscVscode in brandIcons.js #patch (Tommaso Berti)\n  - 8bb676c — docs(release): v2.10.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v2.10.0.json\n  - release-notes/v2.10.0.md\n  - src/config/brandIcons.js",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v2.10.1",
-      "publishedAt": "2026-03-19T00:17:26+01:00"
+      "bodyMarkdown": "# Release Notes v3.0.0\n\n## Italiano\n### Panoramica\nRilascio v3.0.0 (major). Include gestione SEO, lazy loading dei componenti, nuova pagina Contatti, e una sezione Certificazioni nella pagina About. Aggiornati anche file di configurazione e artifact di rilascio.\n\n### Novita\n- Implementata gestione dei meta SEO via src/app/layout/SeoMetaManager.jsx e integrazione in App (lazy load dei componenti per migliorare le prestazioni). (commit 705ba15)\n- Aggiunta pagina Contact e aggiornamento della navigazione e delle traduzioni (src/pages/contact/Contact.jsx, src/i18n/en.json, src/i18n/it.json, routing/definizioni). (commit 09f4534)\n- Aggiunta sezione Certifications nella pagina About e componenti/dati correlati (src/features/certifications/*, src/pages/about/About.jsx). (commit a86b634)\n\n### Correzioni\n- Nessuna correzione specifica elencata nei commit inclusi.\n\n### Migliorie Tecniche\n- Aggiornati artifact e file di release-notes e dati pubblici (public/data/release-notes.json, release-notes/...). (commit docs by github-actions[bot])\n- Modifiche di configurazione/build: vite.config.js aggiornato.\n- Aggiornati file statici: index.html, public/og-profile.jpeg.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta basata sui cambi presenti.\n\n### Limiti Noti\n- Nessun limite noto documentato nei commit o nei file forniti.\n\n### Confronto e Intervallo Commit\nRange: v2.10.1..v3.0.0  \nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.1...v3.0.0\n\nCommit inclusi:\n- 33934d4 — Merge remote-tracking branch 'origin/main' — Tommaso Berti — 2026-03-19T15:16:17+01:00  \n- 705ba15 — feat: implement SEO meta management and lazy load components for improved performance #major — Tommaso Berti — 2026-03-19T15:16:02+01:00  \n- 09f4534 — feat: add Contact page and update navigation and translations #minor — Tommaso Berti — 2026-03-19T12:26:25+01:00  \n- a86b634 — feat: add certifications section to About page and enhance related components #minor — Tommaso Berti — 2026-03-19T11:41:48+01:00  \n- 8bdc4a6 — docs(release): v2.10.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-18T23:19:01Z\n\nFile modificati (lista completa):\n- index.html\n- public/data/exercises.json\n- public/data/release-notes.json\n- public/og-profile.jpeg\n- release-notes/.payload-v2.10.1.json\n- release-notes/v2.10.1.md\n- src/app/AppProviders.jsx\n- src/app/AppRoutes.jsx\n- src/app/layout/Header.jsx\n- src/app/layout/SeoMetaManager.jsx\n- src/app/routing/appDefinitions.js\n- src/features/certifications/CertificationsSection.jsx\n- src/features/certifications/certificationIcons.js\n- src/features/certifications/certifications.data.js\n- src/features/certifications/certifications.utils.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/about/About.jsx\n- src/pages/about/Bio.jsx\n- src/pages/about/Experience.jsx\n- src/pages/about/Hobbies.jsx\n- src/pages/about/TechSkills.jsx\n- src/pages/contact/Contact.jsx\n- src/pages/home/Home.jsx\n- src/pages/projects/Projects.jsx\n- src/pages/projects/components/ProjectsPreview.jsx\n- vite.config.js\n\n---\n\n## English\n### Overview\nRelease v3.0.0 (major). Adds SEO meta management, component lazy-loading, a Contact page, and a Certifications section on the About page. Build/config and release artifacts updated.\n\n### New Features\n- Implemented SEO meta management (src/app/layout/SeoMetaManager.jsx) and added lazy loading of components to improve performance. (commit 705ba15)\n- Added Contact page and updated navigation and translations (src/pages/contact/Contact.jsx, src/i18n/en.json, src/i18n/it.json, routing definitions). (commit 09f4534)\n- Added Certifications section to the About page and related components and data (src/features/certifications/*, src/pages/about/About.jsx). (commit a86b634)\n\n### Bug Fixes\n- No bug fixes listed in the provided commits.\n\n### Refactor & Engineering\n- Updated release artifacts and release-notes data (public/data/release-notes.json, release-notes/...). (docs commit by github-actions[bot])\n- Build/config updates: vite.config.js modified.\n- Static assets updated: index.html, public/og-profile.jpeg.\n\n### Breaking Changes\n- No breaking changes identified in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the included changes.\n\n### Known Limitations\n- No known limitations documented in the provided commits or files.\n\n### Diff & Commit Range\nRange: v2.10.1..v3.0.0  \nCompare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v2.10.1...v3.0.0\n\nIncluded commits:\n- 33934d4 — Merge remote-tracking branch 'origin/main' — Tommaso Berti — 2026-03-19T15:16:17+01:00  \n- 705ba15 — feat: implement SEO meta management and lazy load components for improved performance #major — Tommaso Berti — 2026-03-19T15:16:02+01:00  \n- 09f4534 — feat: add Contact page and update navigation and translations #minor — Tommaso Berti — 2026-03-19T12:26:25+01:00  \n- a86b634 — feat: add certifications section to About page and enhance related components #minor — Tommaso Berti — 2026-03-19T11:41:48+01:00  \n- 8bdc4a6 — docs(release): v2.10.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-18T23:19:01Z\n\nChanged files:\n- index.html\n- public/data/exercises.json\n- public/data/release-notes.json\n- public/og-profile.jpeg\n- release-notes/.payload-v2.10.1.json\n- release-notes/v2.10.1.md\n- src/app/AppProviders.jsx\n- src/app/AppRoutes.jsx\n- src/app/layout/Header.jsx\n- src/app/layout/SeoMetaManager.jsx\n- src/app/routing/appDefinitions.js\n- src/features/certifications/CertificationsSection.jsx\n- src/features/certifications/certificationIcons.js\n- src/features/certifications/certifications.data.js\n- src/features/certifications/certifications.utils.js\n- src/i18n/en.json\n- src/i18n/it.json\n- src/pages/about/About.jsx\n- src/pages/about/Bio.jsx\n- src/pages/about/Experience.jsx\n- src/pages/about/Hobbies.jsx\n- src/pages/about/TechSkills.jsx\n- src/pages/contact/Contact.jsx\n- src/pages/home/Home.jsx\n- src/pages/projects/Projects.jsx\n- src/pages/projects/components/ProjectsPreview.jsx\n- vite.config.js",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.0.0",
+      "publishedAt": "2026-03-19T15:16:17+01:00"
     }
   ]
 }

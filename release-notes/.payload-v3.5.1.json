@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-04-07T23:23:05.719Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.5.1",
+  "releaseType": "patch",
+  "fromRef": "v3.5.0",
+  "toRef": "v3.5.1",
+  "range": "v3.5.0..v3.5.1",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.0...v3.5.1",
+  "commits": [
+    {
+      "sha": "0ea0965941a80dd807e3e9a33e759416e4c3c664",
+      "shortSha": "0ea0965",
+      "subject": "fix: fix a minor issue on IGDB link #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-04-08T01:22:21+02:00"
+    },
+    {
+      "sha": "55667aca69279b8c21c5ddc716706082654ed9ab",
+      "shortSha": "55667ac",
+      "subject": "docs(release): v3.5.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-04-07T23:19:11Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.5.0.json",
+    "release-notes/v2.10.0.md",
+    "release-notes/v3.5.0.md",
+    "src/pages/projects/projectsPages/ProjectPage.jsx"
+  ]
+}

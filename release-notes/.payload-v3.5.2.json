@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-04-13T05:13:05.648Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.5.2",
+  "releaseType": "patch",
+  "fromRef": "v3.5.1",
+  "toRef": "v3.5.2",
+  "range": "v3.5.1..v3.5.2",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.1...v3.5.2",
+  "commits": [
+    {
+      "sha": "4b5639df0a7803d72907b6188eb5a77adaf6d3ea",
+      "shortSha": "4b5639d",
+      "subject": "fix: changed logra project url #patch",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-04-13T07:12:16+02:00"
+    },
+    {
+      "sha": "5b445f1dc8a6c8e2fd85054ec73525b6e758884e",
+      "shortSha": "5b445f1",
+      "subject": "docs(release): v3.5.1 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-04-07T23:23:15Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.5.1.json",
+    "release-notes/v2.10.1.md",
+    "release-notes/v3.5.1.md",
+    "src/pages/projects/projectsPages/projects.js"
+  ]
+}

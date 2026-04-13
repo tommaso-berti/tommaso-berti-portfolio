@@ -80,11 +80,11 @@ export const projects = [
         primaryAction: { labelKey: "primaryAction", path: "logra" },
         secondaryAction: {
             labelKey: "secondaryAction",
-            href: "https://logra.tommasoberti.com",
+            href: "https://getlogra.com",
         },
         githubHref: "https://github.com/tommaso-berti/logra",
         previewProps: {
-            url: "https://logra.tommasoberti.com",
+            url: "https://getlogra.com",
             titleKey: "logra.title",
             overlayLabelKey: "live_preview",
             width: "100%",

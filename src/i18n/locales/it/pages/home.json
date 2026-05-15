@@ -1,0 +1,35 @@
+{
+  "tooltipResume": "Scarica il curriculum",
+  "welcome": "Ciao, sono",
+  "and": "e",
+  "primaryCta": "Esplora i progetti",
+  "contactCta": "Contattami",
+  "cvCta": "Apri CV",
+  "certifications": {
+    "title": "Certificati principali",
+    "subtitle": "Aggiorno costantemente le mie competenze con percorsi mirati e certificazioni tecniche.",
+    "issuedAt": "Rilasciato",
+    "verifyCta": "Visualizza",
+    "viewAllCta": "Vedi tutti i certificati",
+    "moreTechTooltip": "Tecnologie incluse",
+    "moreTechAria": "Mostra tutte le tecnologie del certificato {{title}} ({{count}} in più)",
+    "status": {
+      "completed": "Completato",
+      "in-progress": "In corso"
+    },
+    "areas": {
+      "frontend": "Frontend",
+      "javascript": "JavaScript",
+      "tooling-workflow": "Tooling / Workflow",
+      "database": "Database",
+      "devops": "DevOps",
+      "computer-science": "Computer Science",
+      "fullstack": "Full Stack"
+    }
+  },
+  "hero": [
+    "Lavoro come Software Developer e Delivery Expert in Lectra, dove mi occupo di sviluppo, ottimizzazione e personalizzazione di soluzioni software per contesti fashion-tech complessi.",
+    "Mi occupo di implementare nuove funzionalità, ottimizzare quelle esistenti e correggere comportamenti applicativi, con attenzione costante alle esigenze del cliente e alla qualità del prodotto.",
+    "Il prodotto su cui lavoro, Kubix Link, copre front-end, back-end, database, API, integrazioni con servizi esterni e codice personalizzato per esigenze specifiche dei clienti. Questa esperienza mi ha permesso di sviluppare una visione ampia e pratica di ciò che serve per costruire e mantenere una web app complessa."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "densityLabel": "CV density",
+  "full": "Full",
+  "compact": "Compact",
+  "showExperience": "Show work experience",
+  "showProjects": "Show projects",
+  "showCertifications": "Show certifications",
+  "downloadPdfCurrentView": "Download Dynamic PDF",
+  "downloadStaticPdf": "Download One-Page PDF",
+  "dynamicPdfInfoTooltip": "Dynamic download uses current options: full/compact, projects, and certifications.",
+  "downloadPdf": "Download PDF",
+  "summary": "Professional Summary",
+  "experience": "Work Experience",
+  "skills": "Skills / Tech Stack",
+  "selectedProjects": "Selected Projects",
+  "certifications": "Certifications",
+  "educationAndLanguages": "Education and Languages",
+  "verify": "Verify",
+  "projectLive": "Live",
+  "projectRepo": "Repository",
+  "placeholderTitle": "Profile completion notes"
+}

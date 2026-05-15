@@ -84,6 +84,7 @@ Instructions for Codex and other agents working in this repository.
 
 ## i18n and Content Rules
 - This portfolio is bilingual; every user-facing copy change must be represented in both `src/i18n/locales/en/` and `src/i18n/locales/it/`.
+- Page copy lives in `src/i18n/locales/{en,it}/pages/*.json` (assembled into the `pages` namespace via `src/i18n/buildPagesNamespace.js`).
 - Keep translation keys aligned; validate with `npm run i18n:check`.
 - Avoid hard-coded user-facing strings in components unless they are already local, technical fallback text.
 - Project descriptions should follow `project-docs/PROJECT_WRITING_GUIDE.md`.

@@ -311,13 +311,13 @@
       },
       "codexpane": {
         "title": "CodexPane",
-        "description": "Piattaforma web pensata per velocizzare lo studio e la consultazione tecnica, combinando documentazione selezionata, esempi pratici, cheatsheet e playground di codice interattivi in un’interfaccia rapida e focalizzata.",
+        "description": "Workspace tecnico focalizzato che riunisce documentazione, esempi, cheatsheet e playground in un unico flusso di studio rapido.",
         "details": {
           "introduction": {
             "title": "CodexPane",
             "description": [
-              "CodexPane nasce da un problema operativo reale: durante lo studio e lo sviluppo perdevo tempo passando continuamente tra tab di documentazione, esempi e snippet. Ho progettato quindi una web app focalizzata su velocità di consultazione e qualità dei contenuti tecnici.",
-              "L’app combina documentazione curata, esempi pratici, cheatsheet e playground interattivi in un flusso unico. L’obiettivo è ridurre il contesto dispersivo e rendere più rapido il passaggio da ricerca a implementazione."
+              "CodexPane nasce da un problema operativo reale: durante studio e sviluppo perdevo tempo passando tra tab di documentazione, snippet, esempi e piccoli esperimenti. L’ho costruito come workspace focalizzato per arrivare più rapidamente da una domanda tecnica a un’implementazione utilizzabile.",
+              "Il progetto combina documentazione curata, esempi pratici, cheatsheet, ricerca lato client e playground interattivi in un flusso unico. Il valore non è nel numero di feature, ma nel modo in cui queste riducono attrito durante studio e sviluppo."
             ]
           },
           "search_mechanics": [
@@ -328,77 +328,79 @@
           ],
           "technologies": {
             "react": {
-              "description": "React è il layer principale dell’interfaccia: scelto per componentizzazione e riuso, consente di strutturare documentazione, esempi e playground in moduli coerenti."
+              "description": "React organizza il workspace in aree riutilizzabili per documentazione, esempi, playground e navigazione, mantenendo modulare l’esperienza mentre i contenuti crescono."
             },
             "javascript": {
-              "description": "JavaScript gestisce la logica di navigazione, ricerca e composizione dei contenuti, mantenendo il codice estendibile e leggibile nel tempo."
+              "description": "JavaScript coordina ricerca, stato di routing, composizione dei contenuti ed esempi interattivi senza introdurre dipendenze backend non necessarie."
             },
             "mui": {
-              "description": "MUI fornisce una base UI accessibile e consistente, utile per mantenere uniformità visiva e velocizzare lo sviluppo dei componenti."
+              "description": "MUI fornisce la base accessibile per tab, pannelli, controlli e superfici di lettura, riducendo lavoro UI custom e mantenendo coerenza."
             },
             "tailwindcss": {
-              "description": "Tailwind CSS è usato in modo mirato per utility di layout e rifiniture rapide, soprattutto nelle aree dove serviva maggiore controllo stilistico."
+              "description": "Tailwind CSS è usato in modo mirato per rifiniture di layout e spaziatura dove le superfici documentali richiedevano controllo più preciso."
             },
             "minisearch": {
-              "description": "MiniSearch è il motore di ricerca client-side: indicizza i contenuti tecnici e restituisce risultati rapidi senza dipendenze server-side, migliorando tempi di consultazione e UX."
+              "description": "MiniSearch gestisce la ricerca full-text locale, permettendo di consultare rapidamente contenuti curati senza un servizio search server-side."
             },
             "caddy": {
-              "description": "Caddy copre lo strato di deploy come web server e reverse proxy, con HTTPS automatico e configurazione essenziale per rilasci affidabili."
+              "description": "Caddy gestisce HTTPS e reverse proxy, rendendo pubblicabile lo strumento con una configurazione operativa essenziale."
             },
             "github": {
-              "description": "GitHub è usato per versionamento, collaborazione e automazione dei rilasci, rendendo tracciabili le modifiche e più ordinato il ciclo di sviluppo."
+              "description": "GitHub mantiene tracciabili modifiche ai contenuti, storico release e automazioni mentre il modello documentale evolve."
             },
             "webstorm": {
-              "description": "WebStorm è l’ambiente di sviluppo principale: analisi statica e strumenti di refactoring aiutano a mantenere qualità e coerenza del codice."
+              "description": "WebStorm supporta refactor su configurazioni contenuto, route e componenti UI, aiutando a mantenere navigabile il progetto."
             },
             "css": {
-              "description": "CSS è utilizzato per personalizzazioni puntuali e gestione fine di dettagli visivi non coperti dalle utility, mantenendo controllo sul risultato finale."
+              "description": "CSS copre dettagli visivi mirati per esempi e playground dove utility class o token MUI non sono sufficienti."
             },
             "codex": {
-              "description": "Codex/ChatGPT è stato usato come supporto tecnico per accelerare iterazioni, confrontare soluzioni e validare approcci, sempre con verifica critica."
+              "description": "Codex/ChatGPT ha supportato scelte di struttura contenuti, iterazione implementativa e review, con validazione manuale prima di adottare gli output."
             }
           },
           "difficulties_faced": [
-            "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un'interfaccia utente coerente e accessibile",
-            "Implementare una funzionalità di ricerca lato client efficiente, in grado di gestire grandi quantità di documentazione senza compromettere le prestazioni",
-            "Progettare un'interfaccia intuitiva e facile da usare che permetta agli utenti di trovare e navigare rapidamente tra le varie sezioni della documentazione e gli esempi",
-            "Garantire l'accuratezza e la rilevanza dei contenuti della documentazione, attività che ha richiesto la raccolta e l'organizzazione di informazioni da più fonti",
-            "Trovare il giusto equilibrio tra funzionalità e semplicità, evitando un eccesso di feature pur offrendo strumenti utili come playground di codice e cheatsheet",
-            "Definire una struttura chiara delle cartelle del progetto e una convenzione di naming che permettano di gestire e scalare facilmente i contenuti man mano che si aggiungono nuovi linguaggi e framework",
-            "Implementare il routing dinamico per le pagine di dettaglio dei progetti, consentendo una navigazione fluida tra argomenti, sezioni e sottosezioni",
-            "Introdurre una funzione di ricerca che migliori la possibilità di individuare rapidamente le informazioni più rilevanti"
+            "Progettare uno spazio di consultazione più rapido del continuo passaggio tra tab di documentazione, snippet e strumenti separati.",
+            "Costruire una ricerca lato client capace di indicizzare contenuti tecnici mantenendo risultati rapidi, rilevanti e facili da leggere.",
+            "Bilanciare profondità e focus, facendo in modo che playground e cheatsheet aggiungessero valore senza trasformare l’app in un toolbox dispersivo.",
+            "Mantenere i contenuti abbastanza strutturati da scalare tra linguaggi, framework, sezioni e sottosezioni.",
+            "Definire convenzioni di routing e naming prevedibili mentre il modello contenuti cresceva.",
+            "Mantenere coerenza visiva tra documentazione, esempi e aree interattive lasciando spazio alle esigenze di ogni tipo di contenuto."
+          ],
+          "lessons_learned": [
+            "Uno strumento di consultazione tecnica è utile solo se riduce davvero l’attrito della ricerca: struttura dei contenuti e velocità contano più del numero di feature.",
+            "La ricerca lato client funziona bene quando il modello dati viene pensato per l’indicizzazione fin dall’inizio.",
+            "Un prodotto di documentazione richiede disciplina editoriale: naming, gerarchia ed esempi devono evolvere insieme.",
+            "Gli esempi interattivi sono più efficaci quando supportano il flusso di lettura invece di diventare una destinazione separata."
           ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Prima versione con ricerca di documentazione principale, esempi base e interfaccia iniziale.",
-                "Hosting su VPS",
-                "Automatizzare il rilascio della web app con workflow GitHub, includendo un sistema di versioning automatico."
+                "Rilasciare il primo workspace utilizzabile con ricerca documentale core, esempi base e modello di navigazione iniziale.",
+                "Pubblicare l’app su infrastruttura VPS con HTTPS per renderla accessibile fuori dallo sviluppo locale.",
+                "Introdurre un flusso release automatizzato via GitHub con deploy versionati per ridurre passaggi manuali."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Introdurre nuove categorie di documentazione per migliorare l’organizzazione dei contenuti.",
-                "Raffinare la struttura delle sottosezioni, rafforzando la relazione tra ID e titoli.",
-                "Migliorare la consistenza visiva dei playground di codice interattivi per incrementare usabilità e performance.",
-                "Aggiungere ulteriori playground di codice per ampliare il numero di esempi interattivi.",
-                "Migliorare la ricerca indicizzando il contenuto di sezioni e sottosezioni ed evidenziando dinamicamente il testo corrispondente (stile MUI)."
+                "Espandere le categorie documentali mantenendo prevedibili relazioni tra sezioni e sottosezioni.",
+                "Migliorare la coerenza dei playground così gli esempi restano parte del flusso di lettura e non widget separati.",
+                "Rafforzare la ricerca indicizzando contenuti più profondi ed evidenziando il testo trovato nei risultati."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Creare una guida per i contributor per aiutare i nuovi collaboratori a capire come partecipare al progetto.",
-                "Mostrare gli avatar dei contributor sui documenti, sezioni e sottosezioni correlate per dare visibilità agli autori."
+                "Aggiungere linee guida contributor per mantenere naming, struttura e qualità dei nuovi contenuti.",
+                "Mostrare i contributor sui documenti e sulle sezioni correlate per rendere visibile l’autorialità."
               ]
             },
             "v4": {
               "title": "v4.0.0",
               "content": [
-                "Aggiungere documentazione in stile cheatsheet con opzioni per scaricare o copiare il contenuto facilmente.",
-                "Integrare un semplice chatbot AI, alimentato dalla documentazione esistente, per aiutare gli utenti a trovare le informazioni giuste e fornire risposte ben formattate."
+                "Aggiungere pagine in stile cheatsheet con azioni di copia/download per consultazione rapida.",
+                "Sperimentare un assistente basato sulla documentazione che aiuti a trovare sezioni rilevanti senza sostituire i contenuti curati."
               ]
             }
           }
@@ -406,66 +408,66 @@
       },
       "ecommerce-rest-api": {
         "title": "E-commerce REST API",
-        "description": "Demo full-stack e-commerce con frontend React, API Express e PostgreSQL, progettata per un workflow di sviluppo rapido e un deploy VPS strutturato.",
+        "description": "Demo e-commerce full-stack pensata per esercitare flussi prodotto, autenticazione a sessione, API documentate e deploy VPS versionato con vincoli realistici.",
         "details": {
           "introduction": {
             "title": "E-commerce REST API",
             "description": [
-              "Questo progetto nasce per simulare un caso reale full-stack, unendo frontend React e API Express sotto lo stesso dominio, con backend esposto in sicurezza tramite proxy su `/api`.",
-              "L’obiettivo è costruire un flusso tecnico completo e credibile: autenticazione a sessione, gestione carrello/ordini, documentazione API con Swagger e pipeline di deploy versionate su VPS."
+              "Ho costruito questo progetto per rendere una demo e-commerce più vicina a un sistema reale che a una vetrina statica: catalogo, autenticazione a sessione, carrello, checkout, documentazione API e deploy devono lavorare insieme.",
+              "Il vincolo principale era pubblicare frontend e backend sotto un unico dominio, mantenendo il traffico backend dietro proxy `/api` per offrire un’esperienza pulita e un confine operativo più sicuro."
             ]
           },
           "technologies": {
             "react": {
-              "description": "React gestisce l’interfaccia del catalogo e i flussi principali utente, con componenti modulari pensati per estendere rapidamente nuove pagine e stati."
+              "description": "React gestisce catalogo, carrello, autenticazione e checkout con pattern UI riutilizzabili che rendono i flussi utente estendibili."
             },
             "vite": {
-              "description": "Vite è stato scelto per velocizzare sviluppo e build frontend, riducendo il tempo di iterazione durante il lavoro su UI e flussi utente."
+              "description": "Vite mantiene rapido il ciclo frontend durante le modifiche ai flussi catalogo, carrello e autenticazione."
             },
             "react-router": {
-              "description": "React Router gestisce il passaggio tra viste e stati applicativi nel client, mantenendo una navigazione chiara e prevedibile."
+              "description": "React Router separa viste pubbliche, auth, carrello, checkout e documentazione mantenendo prevedibile la navigazione SPA."
             },
             "javascript": {
-              "description": "JavaScript è usato sia lato client che server per mantenere coerenza tecnica tra API, UI e logica applicativa condivisa."
+              "description": "JavaScript mantiene coerente lo stack tra frontend e backend Express, riducendo cambio di contesto durante lo sviluppo full-stack."
             },
             "mui": {
-              "description": "MUI fornisce componenti accessibili e consistenti per le parti UI principali, riducendo tempi di sviluppo e mantenendo uniformità visiva."
+              "description": "MUI fornisce componenti accessibili per form, tabelle, dialog e superfici prodotto, rendendo la demo verificabile e non usa-e-getta."
             },
             "tailwindcss": {
-              "description": "Tailwind CSS è stato usato per utility di layout e rifiniture rapide, soprattutto dove serviva controllo stilistico fine senza introdurre complessità."
+              "description": "Tailwind CSS è usato con parsimonia per rifiniture di layout dove utility rapide erano più efficienti di varianti custom."
             },
             "nodejs": {
-              "description": "Node.js è il runtime del backend Express: gestisce routing API, autenticazione, sessioni e orchestrazione della logica business."
+              "description": "Node.js esegue API e script operativi, collegando comportamento backend, controlli deploy e reset demo nello stesso runtime."
             },
             "express": {
-              "description": "Express è il framework che struttura i servizi REST dell’app, con middleware dedicati per validazione, auth e gestione errori."
+              "description": "Express struttura endpoint REST per prodotti, carrello, auth, checkout e health check con confini middleware chiari."
             },
             "passport": {
-              "description": "Passport è stato adottato per rendere modulare l’autenticazione (locale + OAuth Google opzionale) senza accoppiare la logica ai singoli endpoint."
+              "description": "Passport mantiene modulari strategia locale e OAuth Google opzionale, così l’autenticazione può evolvere senza riscrivere route protette."
             },
             "express-session": {
-              "description": "express-session gestisce la persistenza della sessione autenticata tra richieste, requisito chiave per endpoint protetti come ordini e checkout."
+              "description": "express-session persiste lo stato autenticato per carrello e ordini protetti, coerentemente con l’obiettivo di simulare sessioni realistiche."
             },
             "postgresql": {
-              "description": "PostgreSQL è il layer dati del progetto, utilizzato per persistere utenti, prodotti, carrelli e ordini con schema relazionale chiaro."
+              "description": "PostgreSQL modella utenti, prodotti, carrelli e ordini in modo relazionale, rendendo vincoli e dati più ispezionabili."
             },
             "caddy": {
-              "description": "Caddy gestisce reverse proxy e HTTPS automatico, pubblicando frontend e backend sullo stesso dominio con configurazione pulita."
+              "description": "Caddy pubblica frontend e API sotto un unico dominio HTTPS, mantenendo il backend accessibile solo dal percorso proxy previsto."
             },
             "github": {
-              "description": "GitHub centralizza versionamento e CI/CD tramite workflow separati frontend/backend con rilascio versionato e attivazione via symlink."
+              "description": "GitHub traccia codice, workflow deploy e storico release delle parti frontend e backend della demo."
             },
             "github-actions": {
-              "description": "GitHub Actions automatizza build e deploy dei due layer applicativi, riducendo errori manuali e migliorando ripetibilità dei rilasci."
+              "description": "GitHub Actions automatizza build, deploy e attivazione controllata, rendendo ripetibili le release VPS."
             },
             "swagger-openapi": {
-              "description": "Swagger/OpenAPI è usato per documentare e testare API in modo trasparente, migliorando verificabilità tecnica e onboarding."
+              "description": "Swagger/OpenAPI rende visibili endpoint, payload e comportamento auth senza obbligare prima alla lettura del codice."
             },
             "webstorm": {
-              "description": "WebStorm è stato usato come IDE principale per refactoring, debug e mantenimento della qualità del codice in ambiente monorepo."
+              "description": "WebStorm supporta refactor e navigazione su demo full-stack, soprattutto tra route, handler API e documentazione."
             },
             "codex": {
-              "description": "Codex/ChatGPT ha supportato automazione deploy e documentazione tecnica, con validazione manuale delle scelte architetturali."
+              "description": "Codex/ChatGPT ha supportato scripting di deploy e passaggi documentali, con validazione manuale delle scelte operative e architetturali."
             }
           },
           "difficulties_faced": [
@@ -475,29 +477,141 @@
             "Mantenere il reset del database demo ad ogni deploy backend senza compromettere stabilità e test funzionali.",
             "Documentare API e payload in modo chiaro per rendere il progetto immediatamente verificabile da recruiter e sviluppatori."
           ],
+          "lessons_learned": [
+            "Una demo diventa più credibile quando include aspetti operativi come deploy, reset ambiente e documentazione API.",
+            "L’autenticazione a sessione coinvolge backend e UX frontend, quindi va progettata come flusso completo e non come singolo endpoint.",
+            "Pubblicare frontend e backend sotto lo stesso dominio semplifica l’esperienza pubblica, ma richiede confini chiari su proxy e routing.",
+            "Una documentazione Swagger/OpenAPI chiara rende il comportamento backend ispezionabile invece che nascosto nell’implementazione."
+          ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Setup monorepo con frontend React/Vite, backend Express e schema PostgreSQL iniziale.",
-                "Implementazione API core (prodotti, carrello, checkout, autenticazione locale).",
-                "Deploy VPS con Caddy e servizi systemd, con backend raggiungibile solo tramite `/api`."
+                "Rilasciare la base monorepo con frontend React/Vite, backend Express e schema PostgreSQL iniziale.",
+                "Implementare i flussi prodotto core: catalogo, carrello, checkout, autenticazione locale e comportamento ordini protetti.",
+                "Pubblicare via VPS/Caddy con accesso backend limitato al percorso proxy `/api`."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Raffinare i flussi di autenticazione e sessione, inclusa integrazione OAuth Google opzionale.",
-                "Aggiungere maggiore copertura di validazione input e gestione errori lato API.",
-                "Migliorare osservabilità operativa (health checks, logging e troubleshooting deploy)."
+                "Rafforzare autenticazione e sessioni, inclusa OAuth Google opzionale e comportamento più chiaro delle route protette.",
+                "Migliorare validazione API, risposte di errore e copertura Swagger per rendere i payload più verificabili.",
+                "Aggiungere visibilità operativa tramite health check, log e note di troubleshooting deploy."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Estendere test automatici end-to-end su flussi critici (auth, cart, checkout).",
-                "Rafforzare documentazione tecnica per onboarding rapido di contributor.",
-                "Introdurre metriche base di performance API e tempi di risposta."
+                "Aggiungere test end-to-end per flussi critici come auth, carrello, checkout e reset demo.",
+                "Rafforzare documentazione contributor su setup locale, contratti API e operazioni di deploy.",
+                "Introdurre metriche base di performance API per rendere visibili regressioni sui tempi di risposta."
+              ]
+            }
+          }
+        }
+      },
+      "artap": {
+        "title": "Artap",
+        "description": "Sito full-stack per l’associazione culturale ART.AP, costruito attorno a contenuti bilingue, eventi, news, blog, gallery e workflow admin manutenibili.",
+        "details": {
+          "introduction": {
+            "title": "Artap",
+            "description": [
+              "Artap è il sito pubblico reale dell’associazione culturale ART.AP di Villa del Conte, creato per presentare attività culturali, mostre, eventi, news, articoli blog, album gallery e contatti in un’esperienza bilingue.",
+              "Il focus tecnico più importante è l’area admin: gli editor autenticati possono gestire contenuti, pubblicare bozze, caricare media e costruire pagine evento tramite un canvas visuale con widget modulari, impostazioni pagina, locandina e contenuti IT/EN."
+            ]
+          },
+          "lessons_learned": [
+            "Un sito reale per un’associazione richiede workflow editoriali tanto quanto pagine pubbliche: bozze, pubblicazione, riuso media e contenuti bilingue devono restare pratici anche per uso non tecnico.",
+            "Un builder visuale per eventi diventa gestibile solo quando layout, dati widget, copy localizzato e metadata condivisi restano separati con chiarezza.",
+            "API admin protette, schemi condivisi e percorsi upload prevedibili riducono il rischio di disallineamento tra frontend, backend e storage di produzione.",
+            "L’AI è più utile come acceleratore di sviluppo per iterazione frontend, passaggi implementativi ripetitivi, bozze di traduzione e review, mentre scelte di prodotto e architettura richiedono validazione manuale."
+          ],
+          "technologies": {
+            "react": {
+              "description": "React struttura sito pubblico e superfici admin in pagine, widget, card, dialog e flussi editoriali riutilizzabili per una piattaforma culturale bilingue."
+            },
+            "vite": {
+              "description": "Vite mantiene rapido lo sviluppo frontend durante le iterazioni su pagine pubbliche, editor admin e canvas del builder eventi."
+            },
+            "react-router": {
+              "description": "React Router gestisce route pubbliche localizzate, pagine dettaglio, accessi admin e route dedicate per editor eventi e blog."
+            },
+            "typescript": {
+              "description": "TypeScript protegge contratti condivisi tra web, API e package shared, riducendo drift mentre evolvono i modelli contenuto."
+            },
+            "mui": {
+              "description": "MUI fornisce primitive accessibili per form admin, dialog, bottoni, card e pannelli di editing densi dove la coerenza è importante."
+            },
+            "tailwindcss": {
+              "description": "Tailwind CSS supporta rifiniture mirate di layout e stile accanto al layer componenti MUI."
+            },
+            "tanstack-query": {
+              "description": "TanStack Query coordina caricamenti pubblici e admin, mutation, invalidation e aggiornamento delle bozze."
+            },
+            "i18next": {
+              "description": "react-i18next centralizza copy IT/EN per pagine pubbliche, controlli admin, label dei widget e feedback di gestione contenuti."
+            },
+            "nodejs": {
+              "description": "Node.js esegue API e tooling operativo dietro pubblicazione contenuti, upload, helper di traduzione e controlli deploy."
+            },
+            "fastify": {
+              "description": "Fastify struttura letture pubbliche ed endpoint admin protetti per post, eventi, album gallery, asset media, upload, impostazioni e contatti."
+            },
+            "mongodb": {
+              "description": "MongoDB, tramite modelli Mongoose, conserva record localizzati, documenti evento, album gallery, metadata media e stato editoriale."
+            },
+            "zod": {
+              "description": "Zod valida documenti condivisi del builder eventi e payload API, così il contenuto dei widget fallisce in modo prevedibile prima di arrivare ai dati di produzione."
+            },
+            "caddy": {
+              "description": "Caddy pubblica il sito full-stack su VPS con HTTPS e reverse proxy tra frontend, API e asset caricati."
+            },
+            "github": {
+              "description": "GitHub mantiene tracciabili storico monorepo, template deploy, aggiornamenti workflow ed evoluzione delle release."
+            },
+            "github-actions": {
+              "description": "GitHub Actions supporta CI e deploy manuale in produzione con build, typecheck, test e passaggi release su VPS."
+            },
+            "webstorm": {
+              "description": "WebStorm supporta navigazione e refactor in un monorepo ampio con web, API, schemi condivisi e file di deploy."
+            },
+            "codex": {
+              "description": "Codex/ChatGPT ha aiutato ad accelerare iterazione frontend, passaggi implementativi più lenti, rifinitura copy e review tecnica senza sostituire la validazione manuale."
+            }
+          },
+          "difficulties_faced": [
+            "Trasformare il sito di un’associazione culturale in un sistema editoriale manutenibile invece che in una brochure statica.",
+            "Progettare un pannello admin in cui news, blog, eventi, album gallery, upload, bozze e pubblicazione restino coerenti.",
+            "Costruire l’editor eventi su canvas con libreria widget, drag/resize, impostazioni pagina, selezione media e contenuti bilingue senza rendere fragile la UI.",
+            "Mantenere allineati frontend, API Fastify, modelli MongoDB/Mongoose e contratti Zod condivisi sui record localizzati.",
+            "Gestire percorsi upload, riuso dalla media library e regole di storage produzione per mantenere stabili le immagini pubbliche dopo il deploy.",
+            "Usare l’AI per velocizzare fasi ripetitive e lente dello sviluppo continuando a verificare manualmente architettura, accessibilità e qualità dei contenuti."
+          ],
+          "roadmap": {
+            "v1": {
+              "title": "v1.0.0",
+              "content": [
+                "Rilasciare il sito pubblico bilingue dell’associazione con route per home, chi siamo, eventi, news, blog, gallery, contatti e pagine legali.",
+                "Introdurre accesso admin protetto da Auth0 e i primi flussi CMS per creare, modificare, salvare bozze e pubblicare contenuti.",
+                "Pubblicare la base full-stack tramite VPS/Caddy con frontend e API configurati per la produzione."
+              ]
+            },
+            "v2": {
+              "title": "v2.0.0",
+              "content": [
+                "Espandere l’authoring eventi in un builder visuale dedicato con libreria widget, canvas a griglia, gestione locandina e impostazioni pagina.",
+                "Aggiungere workflow di media library riutilizzabile per locandine evento, widget evento, cover blog/news e immagini gallery.",
+                "Allineare flussi editoriali di gallery, news, blog ed eventi attorno a bozze bilingue, contenuti collegati e azioni di pubblicazione più chiare."
+              ]
+            },
+            "v3": {
+              "title": "v3.0.0",
+              "content": [
+                "Rafforzare sessioni admin, contratti di storage upload, validazione API protette e controlli di deploy.",
+                "Ampliare copertura test su builder eventi, pubblicazione contenuti, contratti API e gestione media.",
+                "Rifinire la manutenzione editoriale con documentazione migliore, selector stabili e moduli builder più piccoli."
               ]
             }
           }
@@ -505,82 +619,82 @@
       },
       "portfolio": {
         "title": "Portfolio",
-        "description": "Portfolio personale sviluppato per presentare in modo chiaro, moderno e accessibile il mio lavoro, le mie esperienze e i miei progetti.",
+        "description": "Portfolio personale pensato per collegare esperienze, progetti, CV, storico release e scrittura tecnica in una vetrina bilingue manutenibile.",
         "details": {
           "introduction": {
             "title": "Portfolio",
             "description": [
-              "Questo portfolio è stato progettato come applicazione React modulare, con una struttura a componenti riutilizzabili e routing dinamico per mantenere il codice ordinato, scalabile e facile da evolvere.",
-              "L’interfaccia è costruita con attenzione ad accessibilità, leggibilità e coerenza visiva; include supporto i18n, tema chiaro/scuro e una base tecnica pensata per estendere nuove sezioni senza introdurre complessità superflua."
+              "Ho costruito questo portfolio per rendere il mio lavoro leggibile a più livelli: card progetto per una consultazione rapida, pagine tecniche per approfondire, flussi CV/contatti per il seguito professionale e release notes che mostrano come il sito evolve nel tempo.",
+              "La sfida principale era mantenere coerenti contenuti personali, copy bilingue, routing, breadcrumb, metadata dei progetti, snapshot statici e artifact di release senza trasformare un sito personale in un CMS fragile."
             ]
           },
           "lessons_learned": [
-            "Progettare componenti riutilizzabili con responsabilità chiare migliora manutenibilità e velocità di evoluzione.",
-            "Integrare i18n fin dall’inizio riduce il costo delle estensioni e mantiene consistenza tra contenuti e UI.",
-            "Bilanciare flessibilità e semplicità è fondamentale: ogni nuova feature deve avere un valore concreto.",
-            "Automatizzare build e deploy aumenta affidabilità e aiuta a mantenere una qualità costante nel tempo."
+            "Un portfolio è più forte quando si comporta come un prodotto mantenuto, non solo come una pagina statica di presentazione.",
+            "Centralizzare route, breadcrumb e metadata dei progetti riduce il disallineamento tra navigazione e contenuti.",
+            "Scrivere il copy dei progetti in due lingue costringe a chiarire meglio cosa dimostra davvero ogni progetto.",
+            "Release notes automatiche e snapshot statici rendono anche un sito personale più affidabile e manutenibile."
           ],
           "technologies": {
             "react": {
-              "description": "React è la base dell’interfaccia: scelto per componentizzazione e riuso, ha permesso una struttura chiara delle pagine e una gestione scalabile dei blocchi UI."
+              "description": "React struttura il portfolio in pagine di route e sezioni riutilizzabili, rendendo più semplice evolvere progetti, CV e layout separatamente."
             },
             "javascript": {
-              "description": "JavaScript gestisce la logica applicativa del portfolio, dal rendering dinamico alla composizione delle sezioni, mantenendo il codice leggibile e manutenibile."
+              "description": "JavaScript coordina modelli di routing, view model dei progetti, rendering delle release notes e stato UI mantenendo l’app leggera."
             },
             "mui": {
-              "description": "MUI è stato utilizzato per costruire rapidamente componenti accessibili e coerenti, con una base visiva uniforme e facilmente estendibile."
+              "description": "MUI fornisce la base accessibile per layout, navigazione, card, modali, liste e superfici sensibili al tema."
             },
             "caddy": {
-              "description": "Caddy supporta il deploy come web server e reverse proxy, con configurazione essenziale e HTTPS automatico per una pubblicazione affidabile."
+              "description": "Caddy pubblica il portfolio con HTTPS e reverse proxy semplice, mantenendo snella la configurazione deploy su VPS personale."
             },
             "github": {
-              "description": "GitHub è il riferimento per versionamento e collaborazione, con workflow chiari per tracciare modifiche e rilasci in modo ordinato."
+              "description": "GitHub conserva storico sorgente, artifact release e modifiche alle automazioni, rendendo tracciabile l’evoluzione pubblica del sito."
             },
             "webstorm": {
-              "description": "WebStorm è l’IDE principale: strumenti di refactoring e analisi hanno migliorato qualità del codice e produttività durante lo sviluppo."
+              "description": "WebStorm supporta navigazione e refactor tra route, traduzioni, dati progetto e componenti layout."
             },
             "codex": {
-              "description": "Codex/ChatGPT è stato usato come supporto tecnico per accelerare iterazioni, validare approcci e rifinire implementazioni, sempre con revisione critica."
+              "description": "Codex/ChatGPT è usato come collaboratore tecnico per documentazione, refactor e workflow release notes, con review umana prima dell’integrazione."
             }
           },
           "difficulties_faced": [
-            "Imparare a utilizzare i componenti MUI e il sistema di theming per creare un’interfaccia utente coerente e accessibile",
-            "Configurare l’internazionalizzazione (i18n) per supportare più lingue e garantire una traduzione dei contenuti fluida in tutto il sito",
-            "Implementare il routing dinamico per le pagine dei dettagli dei progetti, consentendo una navigazione semplice e intuitiva",
-            "Creare componenti Icon personalizzati per mantenere uno stile visivo coerente e migliorare le prestazioni",
-            "Creazione di un componente Breadcrumb personalizzato con navigazione in stile terminale, includendo la possibilità di utilizzare `..` per tornare alla categoria superiore."
+            "Mantenere allineati navigazione, route, breadcrumb e pagine dettaglio progetto partendo da una fonte unica di configurazione.",
+            "Garantire parità tra contenuti IT/EN scrivendo copy che risultasse naturale in entrambe le lingue.",
+            "Bilanciare coerenza visiva e flessibilità tra pagine diverse come CV, About, Projects e Release Notes.",
+            "Creare un’esperienza breadcrumb in stile terminale mantenendo una navigazione browser prevedibile.",
+            "Automatizzare release notes e snapshot statici senza aggiungere dipendenze runtime nel browser."
           ],
           "roadmap": {
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Fondazione del portfolio con struttura React modulare, routing principale e organizzazione delle sezioni core.",
-                "Introduzione di tema chiaro/scuro, localizzazione IT/EN e componenti condivisi per mantenere coerenza UI.",
-                "Setup iniziale di deploy su VPS e workflow base di versionamento per pubblicazioni regolari."
+                "Stabilire la base del portfolio con pagine React modulari, layout condiviso e struttura route principale.",
+                "Aggiungere localizzazione IT/EN e tema chiaro/scuro fin dall’inizio per far scalare insieme contenuti e convenzioni UI.",
+                "Pubblicare la prima versione su VPS con un percorso release ripetibile invece di aggiornamenti manuali."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Consolidamento del ciclo release/versioning con pipeline più stabile e artifact allineati alle note di rilascio.",
-                "Evoluzione delle pagine progetto con metadata tecnici più ricchi e migliore leggibilità dei contenuti.",
-                "Miglioramenti progressivi su UX, navigazione e consistenza visiva del portfolio."
+                "Consolidare versioning e artifact release per rendere gli aggiornamenti del sito più spiegabili e verificabili.",
+                "Espandere le pagine progetto con metadata più ricchi, contesto tecnico e azioni preview/live/GitHub più chiare.",
+                "Rifinire navigazione e coerenza visiva mentre il sito cresce oltre il primo set di pagine."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Introduzione SEO manager e lazy loading dei componenti per migliorare discoverability e performance percepite.",
-                "Aggiunta pagina Contact e aggiornamento navigazione/traduzioni per copertura completa delle sezioni pubbliche.",
-                "Aggiunta sezione Certifications nella pagina About con componenti e dataset dedicati."
+                "Introdurre gestione SEO meta e sezioni lazy-loaded per migliorare discoverability e performance percepite.",
+                "Aggiungere Contact e Certifications mantenendo allineate route, navigazione e traduzioni.",
+                "Spostare release notes e dati statici verso snapshot generati invece di fetch runtime dal browser."
               ]
             },
             "v4": {
               "title": "v4.0.0",
               "content": [
-                "Aggiungere in ogni pagina progetto uno score Lighthouse dedicato.",
-                "Mostrare breakdown per Performance, Accessibility, Best Practices e SEO.",
-                "Rendere lo score confrontabile nel tempo per monitorare l’evoluzione qualitativa dei progetti."
+                "Aggiungere snapshot Lighthouse alle pagine progetto per confrontare la qualità tra release.",
+                "Mostrare breakdown Performance, Accessibility, Best Practices e SEO in formato leggibile per reviewer.",
+                "Usare lo storico degli score per rendere misurabili i miglioramenti futuri del portfolio."
               ]
             }
           }
@@ -588,13 +702,13 @@
       },
       "logra": {
         "title": "Logra",
-        "description": "Web app personale per tracciare libreria giochi, avanzamento e date di uscita, progettata per rispecchiare esattamente il mio workflow reale di backlog e completamento.",
+        "description": "Web app personale per gestire backlog, progressi, date di uscita e operazioni demo affidabili attorno al mio workflow gaming reale.",
         "details": {
           "introduction": {
             "title": "Logra",
             "description": [
-              "Logra nasce da un’esigenza concreta: volevo una web app su misura per organizzare e monitorare i videogiochi con un flusso veloce, chiaro e realmente usabile ogni giorno.",
-              "La piattaforma integra [IGDB](https://www.igdb.com) come fonte dati per catalogo e metadata, con pipeline di sync/ingest controllata, fallback di ricerca e crediti espliciti in interfaccia."
+              "Logra nasce da un’esigenza concreta: volevo una libreria gaming che rispecchiasse davvero come scelgo cosa giocare, seguo i progressi, gestisco backlog e tengo d’occhio le uscite future.",
+              "La piattaforma combina UI orientata al workflow, dati catalogo da IGDB, flussi controllati di ingest/sync, operazioni demo sicure e crediti dati espliciti, così il prodotto resta usabile e affidabile anche dal punto di vista operativo."
             ]
           },
           "lessons_learned": [
@@ -605,58 +719,58 @@
           ],
           "technologies": {
             "react": {
-              "description": "React è il cuore dell’interfaccia: componenti modulari e stato locale permettono card, filtri e pannelli dettaglio fluidi e riusabili."
+              "description": "React alimenta card, filtri, pannelli dettaglio, guided tour e superfici impostazioni riutilizzabili per interazioni frequenti sulla libreria."
             },
             "vite": {
-              "description": "Vite mantiene rapido il ciclo di sviluppo frontend e supporta build efficienti durante iterazioni frequenti su UX e design system."
+              "description": "Vite mantiene rapido il ciclo frontend mentre vengono rifiniti stati UI densi come filtri, edit mode, overlay e widget dashboard."
             },
             "react-router": {
-              "description": "React Router gestisce routing scoped (`/:scope/...`) e navigazione coerente tra dashboard, discover, libreria, wishlist, stats e impostazioni."
+              "description": "React Router organizza la navigazione scoped tra dashboard, discover, libreria, wishlist, stats, settings e onboarding."
             },
             "mui": {
-              "description": "MUI è la base del design system: token, theming e componenti accessibili rendono l’interfaccia consistente tra pagine e modalità tema."
+              "description": "MUI fornisce token tema e primitive accessibili per una UI operativa densa che deve restare leggibile."
             },
             "nodejs": {
-              "description": "Node.js esegue backend API e script operativi (seed, reset, migrate, sync), con pipeline tecnica uniforme tra locale e produzione."
+              "description": "Node.js esegue API e script operativi per seed, reset, migrazione e sync, mantenendo allineati flussi locali e produzione."
             },
             "caddy": {
-              "description": "Caddy gestisce reverse proxy HTTPS e pubblicazione su VPS, semplificando setup production-ready e routing tra frontend/backend."
+              "description": "Caddy gestisce reverse proxy HTTPS e pubblicazione VPS, semplificando routing di produzione tra frontend e API."
             },
             "github": {
-              "description": "GitHub è il centro di versionamento e collaborazione, con tracciabilità dei commit e supporto al flusso di release progressive."
+              "description": "GitHub mantiene tracciabili evoluzione feature, storico release e cambi operativi in un codebase full-stack."
             },
             "github-actions": {
-              "description": "GitHub Actions automatizza build/deploy e operazioni controllate (reset demo, release notes, sync), riducendo attività manuali rischiose."
+              "description": "GitHub Actions automatizza deploy e manutenzioni controllate come reset demo, release notes e sync dati."
             },
             "webstorm": {
-              "description": "WebStorm è l’IDE principale per debugging e refactor su un codebase full-stack con moduli condivisi."
+              "description": "WebStorm supporta debugging e refactor tra web, API, contratti condivisi e script operativi."
             },
             "codex": {
-              "description": "Codex/ChatGPT è usato come acceleratore operativo per GUI, procedure e script, con validazione tecnica finale sempre manuale."
+              "description": "Codex/ChatGPT accelera iterazione GUI, script e procedure operative, lasciando a review manuale le decisioni architetturali finali."
             },
             "typescript": {
-              "description": "TypeScript aumenta affidabilità e velocità di refactor su web, API e package condiviso, riducendo mismatch e regressioni runtime."
+              "description": "TypeScript protegge contratti condivisi tra web, API e package, riducendo drift dei payload durante iterazioni rapide."
             },
             "fastify": {
-              "description": "Fastify è il framework API principale: route modulari, validazioni e session auth con ottime prestazioni e struttura manutenibile."
+              "description": "Fastify struttura route API modulari, session auth, validazione e gestione request a basso overhead per operazioni sulla libreria."
             },
             "i18next": {
-              "description": "react-i18next centralizza localizzazione IT/EN per pagine, onboarding e feedback UI, mantenendo coerenza su copy e stati dinamici."
+              "description": "react-i18next centralizza copy IT/EN per onboarding, feedback, settings e stati dinamici della libreria gaming."
             },
             "mongodb": {
-              "description": "MongoDB è il datastore principale per utenti, sessioni e collezioni gaming, con gestione di migrazioni/index e cleanup legacy."
+              "description": "MongoDB conserva utenti, sessioni, collezioni gaming e metadata operativi con flussi di migrazione/index per manutenzione lunga."
             },
             "igdb": {
-              "description": "IGDB è integrato come provider dati del catalogo: sync ingest strutturato, fallback remoto in discover e materializzazione su azione utente."
+              "description": "IGDB fornisce metadata catalogo tramite ingest controllato, fallback discover e materializzazione avviata dall’utente."
             },
             "zod": {
-              "description": "Zod definisce e valida contratti runtime condivisi tra frontend e backend, riducendo errori di payload durante evoluzione feature."
+              "description": "Zod valida contratti runtime tra frontend e API, rendendo prevedibili errori su settings, onboarding e payload libreria."
             },
             "tanstack-query": {
-              "description": "TanStack Query gestisce fetch/cache/invalidation lato client, migliorando reattività e consistenza nelle mutazioni di libreria e wishlist."
+              "description": "TanStack Query coordina cache, mutation e invalidation lato client per rendere reattivi aggiornamenti di libreria e wishlist."
             },
             "framer-motion": {
-              "description": "Framer Motion gestisce animazioni card/overlay mantenendo transizioni fluide anche in flussi complessi come dettaglio/edit."
+              "description": "Framer Motion gestisce transizioni di card, overlay e dettaglio mantenendo controllo nei flussi densi di edit e guided tour."
             }
           },
           "difficulties_faced": [
@@ -670,25 +784,25 @@
             "v1": {
               "title": "v1.0.0",
               "content": [
-                "Rilascio base del prodotto con login demo, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
-                "Introduzione di scope release gating e impostazioni aspetto/profilo per rendere l’app pronta a evoluzioni modulari.",
-                "Fondamenta operative per seed/bootstrap e flusso demo condiviso con autenticazione dedicata."
+                "Rilasciare il prodotto core con login demo, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
+                "Introdurre impostazioni profilo/aspetto e scope release gating per far evolvere le aree feature in modo modulare.",
+                "Creare fondamenta operative per seed, bootstrap e gestione condivisa del ciclo demo."
               ]
             },
             "v2": {
               "title": "v2.0.0",
               "content": [
-                "Estensione onboarding con guided tour multi-pagina e tour contestuali su card/edit mode per ridurre il tempo di adozione.",
-                "Integrazione IGDB avanzata con sync ingest, segmentazione dati e fallback remoto in discover, con migliore qualità catalogo.",
-                "Rafforzamento operatività produzione: sicurezza credenziali bootstrap, documentazione aggiornata e pipeline release più robuste."
+                "Espandere onboarding con guided tour multi-pagina e tour contestuali su card/edit mode per ridurre l’attrito iniziale.",
+                "Approfondire integrazione IGDB con ingest sync, segmentazione dati, fallback discover e controlli più chiari sulla qualità catalogo.",
+                "Rafforzare le operazioni produzione con credenziali bootstrap più sicure, documentazione aggiornata e procedure release più affidabili."
               ]
             },
             "v3": {
               "title": "v3.0.0",
               "content": [
-                "Aggiungere sistema di feedback/bug report contestuale alla pagina per raccogliere segnalazioni più utili e tracciabili.",
-                "Introdurre nuovi widget nella sezione statistiche per aumentare copertura di insight e casi d’uso personali.",
-                "Aggiungere opzioni avanzate per singolo widget (dati mostrati, livello di dettaglio, configurazioni dedicate)."
+                "Aggiungere feedback e bug report contestuali per ricevere segnalazioni di pagina più tracciabili.",
+                "Introdurre nuovi widget statistiche che trasformino i dati libreria in insight personali più utili.",
+                "Aggiungere configurazione per singolo widget su dati mostrati, livello dettaglio e controlli di visualizzazione."
               ]
             }
           }

@@ -1,200 +1,35 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { useLocation, Link as RouterLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
     Box,
-    Link,
     Stack,
     Breadcrumbs,
     Typography,
     InputBase
 } from "@mui/material";
-import IconMenu from "./components/IconMenu.jsx";
 import { useTranslation } from "react-i18next";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
-import {
-    getBreadcrumbContextBasePath,
-    resolveBreadcrumbContextId,
-} from "../app/routing/appDefinitions.js";
+import CrumbWithMenu from "./breadcrumbs/CrumbWithMenu.jsx";
+import { normalizeSegment } from "./breadcrumbs/breadcrumb.utils.js";
+import { useBreadcrumbCommand } from "./breadcrumbs/useBreadcrumbCommand.js";
 
 const ROOT_ID = "tommasoberti@com:~ cd";
-const MISSING = "__missing__";
-const SUGGESTION_INTERVAL_MS = 1800;
-
-function normalizeToken(value) {
-    return `${value ?? ""}`.trim().toLowerCase();
-}
-
-function normalizeSegment(value) {
-    return decodeURIComponent(`${value ?? ""}`).replace(/^\/+|\/+$/g, "");
-}
-
-function prettifyId(value) {
-    return normalizeSegment(value).replace(/[-_]+/g, " ");
-}
-
-function getTranslatedLabel(id, t) {
-    const normalizedId = normalizeSegment(id);
-    if (!normalizedId) return "";
-
-    const navLabel = t(`common:nav.${normalizedId}`, { defaultValue: MISSING });
-    if (navLabel !== MISSING) return navLabel.toLowerCase();
-
-    const projectLabel = t(`pages:projects.${normalizedId}.title`, { defaultValue: MISSING });
-    if (projectLabel !== MISSING) return projectLabel.toLowerCase();
-
-    return prettifyId(normalizedId).toLowerCase();
-}
-
-function CrumbWithMenu({ item, isLast, isOnly, itemsForMenu, t, onMenuClick }) {
-    const isHome = item.id === "home";
-    const isHomeAndOnly = isHome && isOnly;
-
-    const isNonClickable =
-        (isLast && !isHome) ||
-        isHomeAndOnly;
-    const label = getTranslatedLabel(item.id, t);
-
-    const content = (
-        <Link
-            component={isNonClickable ? "span" : RouterLink}
-            to={isNonClickable ? undefined : item.to}
-            underline={isNonClickable ? "none" : "hover"}
-            color="inherit"
-            sx={isNonClickable ? { pointerEvents: "none", cursor: "default" } : undefined}
-        >
-            <Typography variant="h5" color={isNonClickable ? "text.secondary" : "text.primary"}>
-                {label}
-            </Typography>
-        </Link>
-    );
-
-    const buttonId = isHome
-        ? "home-button"
-        : `breadcrumb-${item.id}-button`;
-    const menuId = isHome
-        ? "home-menu"
-        : `breadcrumb-${item.id}-menu`;
-
-    return (
-        <Stack direction="row" alignItems="center">
-            {content}
-
-            {itemsForMenu.length > 0 && (
-                <IconMenu
-                    items={itemsForMenu}
-                    onItemClick={(menuItem) => onMenuClick(menuItem, item)}
-                    buttonId={buttonId}
-                    menuId={menuId}
-                    iconButtonProps={{ sx: { p: 0 } }}
-                />
-            )}
-        </Stack>
-    );
-}
 
 export default function BreadCrumbs() {
-    const { pathname, hash } = useLocation();
     const navigate = useNavigate();
     const { breadcrumb } = useBreadcrumb();
     const { t } = useTranslation();
-    const [inputValue, setInputValue] = useState("");
-    const [suggestionIndex, setSuggestionIndex] = useState(0);
-    const [isInputFocused, setIsInputFocused] = useState(false);
-    const [isNavigatingCommand, setIsNavigatingCommand] = useState(false);
-    const inputRef = useRef(null);
-
-    const crumbs = useMemo(() => {
-        const path = pathname.split("/").filter(Boolean).map(normalizeSegment);
-
-        return path.length === 0
-            ? [{ id: "home", to: "/" }]
-            : [
-                { id: "home", to: "/" },
-                ...path.map((seg, i) => ({
-                    id: seg,
-                    to: "/" + path.slice(0, i + 1).join("/")
-                }))
-            ];
-    }, [pathname]);
-
-    const activeCrumb = crumbs.at(-1);
-    const activeContextId = resolveBreadcrumbContextId(pathname, activeCrumb?.id, breadcrumb);
-    const activeContext = breadcrumb[activeContextId] ?? { type: "path", items: [] };
-    const contextBasePath = getBreadcrumbContextBasePath(activeContextId, activeCrumb);
-
-    const allowedCommands = useMemo(() => {
-        const map = new Map();
-        const parentCrumb = crumbs.at(-2);
-        if (parentCrumb?.to) {
-            map.set("..", parentCrumb.to);
-        }
-
-        const items = Array.isArray(activeContext.items) ? activeContext.items : [];
-        for (const item of items) {
-            const safeId = normalizeSegment(item.id);
-            if (!safeId) continue;
-
-            const pathTarget = activeContext.type === "hash"
-                ? `${contextBasePath}#${safeId}`
-                : contextBasePath === "/"
-                    ? `/${safeId}`
-                    : `${contextBasePath}/${safeId}`;
-
-            map.set(normalizeToken(safeId), pathTarget);
-            map.set(normalizeToken(item.title), pathTarget);
-        }
-
-        if (map.size === 0) {
-            map.set("..", crumbs.at(-2)?.to || "/");
-        }
-
-        return map;
-    }, [activeContext.items, activeContext.type, contextBasePath, crumbs]);
-
-    const suggestionValues = useMemo(() => {
-        const values = [];
-        const items = Array.isArray(activeContext.items) ? activeContext.items : [];
-        for (const item of items) {
-            const localizedTitle = normalizeToken(item.title);
-            if (!localizedTitle) continue;
-            if (!values.includes(localizedTitle)) {
-                values.push(localizedTitle);
-            }
-        }
-
-        const parentCrumb = crumbs.at(-2);
-        if (parentCrumb?.to) {
-            values.push("..");
-        }
-
-        return values;
-    }, [activeContext.items, crumbs]);
-
-    useEffect(() => {
-        if (isNavigatingCommand) return;
-        if (!suggestionValues.length || inputValue.trim() !== "") return;
-
-        const intervalId = setInterval(() => {
-            setSuggestionIndex((previous) => (previous + 1) % suggestionValues.length);
-        }, SUGGESTION_INTERVAL_MS);
-
-        return () => clearInterval(intervalId);
-    }, [suggestionValues, inputValue, isNavigatingCommand]);
-
-    useEffect(() => {
-        setSuggestionIndex(0);
-    }, [activeContextId, pathname, hash, suggestionValues]);
-
-    useLayoutEffect(() => {
-        if (!isNavigatingCommand) return;
-        setInputValue("");
-        setIsNavigatingCommand(false);
-        setSuggestionIndex(0);
-    }, [pathname, hash, isNavigatingCommand]);
-
-    useEffect(() => {
-        setIsInputFocused(document.activeElement === inputRef.current);
-    }, []);
+    const {
+        crumbs,
+        inputValue,
+        setInputValue,
+        inputRef,
+        isInputFocused,
+        setIsInputFocused,
+        isNavigatingCommand,
+        handleBashInput,
+        suggestionSuffix,
+        inputLower,
+    } = useBreadcrumbCommand();
 
     const getItemsForMenu = (id) => breadcrumb[id]?.items ?? [];
     const handleMenuClick = (menuItem, parentItem) => {
@@ -217,57 +52,6 @@ export default function BreadCrumbs() {
             navigate(`${base}${separator}${safeId}`);
         }
     };
-
-    const handleBashInput = (e) => {
-        if (e.key === "Tab") {
-            e.preventDefault();
-
-            const value = inputValue.trim();
-            const normalizedValue = normalizeToken(value);
-            const candidateCommands = Array.from(allowedCommands.keys()).filter((command) => command !== "..");
-            const matchingCommands = candidateCommands.filter((command) =>
-                command.startsWith(normalizedValue)
-            );
-
-            // Bash-like behavior: autocomplete only when there is a single unambiguous match.
-            if (matchingCommands.length !== 1) return;
-            setInputValue(matchingCommands[0]);
-            return;
-        }
-
-        if (e.key !== "Enter") return;
-        e.preventDefault();
-
-        const value = inputValue.trim();
-        if (!value) return;
-
-        const normalizedValue = normalizeToken(value);
-        const target = allowedCommands.get(normalizedValue);
-        if (!target) return;
-
-        const currentTarget = `${pathname}${hash || ""}`;
-        if (target === currentTarget) {
-            setInputValue("");
-            setSuggestionIndex(0);
-            return;
-        }
-
-        setIsNavigatingCommand(true);
-        navigate(target);
-    };
-
-    const activeSuggestion = suggestionValues.length
-        ? suggestionValues[suggestionIndex % suggestionValues.length]
-        : "";
-    const inputLower = normalizeToken(inputValue);
-    const suggestionSuffix = useMemo(() => {
-        if (!activeSuggestion) return "";
-        if (!inputLower) return activeSuggestion;
-        if (activeSuggestion.startsWith(inputLower)) {
-            return activeSuggestion.slice(inputLower.length);
-        }
-        return "";
-    }, [activeSuggestion, inputLower]);
 
     const hasSingleCrumb = crumbs.length === 1;
     const isEmptyInput = inputValue.length === 0;

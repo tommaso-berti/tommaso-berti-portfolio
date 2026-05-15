@@ -9,10 +9,14 @@ System-level notes for the portfolio application.
 
 ## Main Components
 - Providers (`src/app/AppProviders.jsx`):
-  - `LanguageContextProvider`
   - `BreadCrumbProvider`
   - `ThemeModeProvider`
   - `BrowserRouter`
+- i18n (`src/i18n/index.js`, imported from `src/main.jsx` before render):
+  - `i18next` + `react-i18next`; no React language context provider
+  - Locale bundles under `src/i18n/locales/{en,it}/`: `common`, `pages`, `releaseNotes`, `seo`
+  - Initial language from `localStorage` (`app-language`) or `navigator.language`; persisted on `languageChanged`
+  - UI uses `useTranslation(namespace, { keyPrefix })`; toggle calls `i18n.changeLanguage` (`LanguageToggle.jsx`)
 - Route layer (`src/app/AppRoutes.jsx`):
   - Loads route map from `PAGE_DEFINITIONS`
   - Renders under shared `Layout`
@@ -35,12 +39,14 @@ System-level notes for the portfolio application.
 - `src/pages`: route-specific composition and page behavior
 - `src/features`: shared UI features reused across pages
 - `src/hooks`: reusable logic wrappers around UI/data behavior
-- `scripts`: operational tooling (i18n, release notes, data generation)
+- `src/i18n`: dictionary setup, namespaces, and language detection/persistence
+- `scripts`: operational tooling (i18n key checks, release notes, data generation)
 
 ## External Dependencies
 - React + React DOM
 - React Router
 - MUI (`@mui/material`, icons, lab)
+- i18n (`i18next`, `react-i18next`)
 - Markdown tooling (`react-markdown`, `remark-gfm`)
 
 ## Constraints and Trade-Offs

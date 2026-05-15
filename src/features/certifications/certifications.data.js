@@ -11,8 +11,6 @@
  * @property {string} [credentialId]
  */
 
-const PROFILE_PLACEHOLDER_URL = "https://www.codecademy.com/profiles/Tommi97";
-
 /** @type {Certification[]} */
 export const CERTIFICATIONS = [
     {

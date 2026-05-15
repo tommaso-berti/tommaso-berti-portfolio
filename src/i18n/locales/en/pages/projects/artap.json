@@ -1,0 +1,106 @@
+{
+  "title": "Artap",
+  "description": "Full-stack website for the ART.AP cultural association, built around bilingual public content, events, news, blog, gallery, and maintainable admin workflows.",
+  "details": {
+    "introduction": {
+      "title": "Artap",
+      "description": [
+        "Artap is the real public website for the ART.AP cultural association in Villa del Conte, created to present cultural activities, exhibitions, events, news, blog articles, gallery albums, and contact flows in a bilingual experience.",
+        "The strongest technical focus is the admin area: authenticated editors can manage content, publish drafts, upload media, and build event pages through a visual canvas with modular widgets, page settings, poster handling, and IT/EN content support."
+      ]
+    },
+    "lessons_learned": [
+      "A real association website needs editorial workflows as much as public pages: drafts, publishing, media reuse, and bilingual content have to stay practical for non-technical usage.",
+      "A visual event builder becomes manageable only when layout, widget data, localized copy, and shared metadata are separated clearly.",
+      "Protected admin APIs, shared schemas, and predictable upload paths reduce the risk of content drifting between frontend, backend, and production storage.",
+      "AI is most useful as a development accelerator for frontend iteration, repetitive implementation passes, translation-assisted drafts, and review, while product and architecture choices still need manual validation."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React structures the public site and admin surfaces into reusable pages, widgets, cards, dialogs, and editor flows for a bilingual cultural platform."
+      },
+      "vite": {
+        "description": "Vite keeps frontend development fast while iterating on public pages, admin editors, and the event-builder canvas."
+      },
+      "react-router": {
+        "description": "React Router manages localized public routes, detail pages, admin entry points, and dedicated event/blog editor routes."
+      },
+      "typescript": {
+        "description": "TypeScript protects shared contracts across web, API, and the shared package, reducing drift while content models evolve."
+      },
+      "mui": {
+        "description": "MUI provides accessible primitives for admin forms, dialogs, buttons, cards, and dense editing panels where consistency matters."
+      },
+      "tailwindcss": {
+        "description": "Tailwind CSS supports targeted layout and styling refinements alongside the MUI component layer."
+      },
+      "tanstack-query": {
+        "description": "TanStack Query coordinates public and admin data loading, mutations, invalidation, and draft refresh behavior."
+      },
+      "i18next": {
+        "description": "react-i18next centralizes bilingual IT/EN copy for public pages, admin controls, widget labels, and content-management feedback."
+      },
+      "nodejs": {
+        "description": "Node.js runs the API and operational tooling behind content publishing, uploads, translation helpers, and deployment checks."
+      },
+      "fastify": {
+        "description": "Fastify structures public reads and protected admin endpoints for posts, events, gallery albums, media assets, uploads, settings, and contact."
+      },
+      "mongodb": {
+        "description": "MongoDB, via Mongoose models, stores localized content records, event documents, gallery albums, media metadata, and editorial status."
+      },
+      "zod": {
+        "description": "Zod validates shared event-builder documents and API payloads so widget content fails predictably before reaching production data."
+      },
+      "caddy": {
+        "description": "Caddy publishes the full-stack site on VPS with HTTPS and reverse-proxy routing between frontend, API, and uploaded assets."
+      },
+      "github": {
+        "description": "GitHub keeps the monorepo history, deployment templates, workflow updates, and release evolution traceable."
+      },
+      "github-actions": {
+        "description": "GitHub Actions supports CI and manual production deploy flows with build, typecheck, test, and VPS release steps."
+      },
+      "webstorm": {
+        "description": "WebStorm supports navigation and refactoring across a large monorepo with web, API, shared schemas, and deployment files."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT helped accelerate frontend iteration, slower implementation passes, copy refinement, and technical review without replacing manual validation."
+      }
+    },
+    "difficulties_faced": [
+      "Turning a cultural association website into a maintainable editorial system instead of a static brochure.",
+      "Designing an admin panel where news, blog posts, events, gallery albums, uploads, drafts, and publish actions stay coherent.",
+      "Building the event canvas editor with widget library, drag/resize behavior, page settings, media selection, and bilingual content without making the UI fragile.",
+      "Keeping frontend, Fastify APIs, MongoDB/Mongoose models, and shared Zod contracts aligned across localized content records.",
+      "Managing upload paths, media-library reuse, and production storage rules so public images remain stable after deployment.",
+      "Using AI to speed up repetitive and slow development phases while still reviewing architecture, accessibility, and content quality manually."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Ship the public bilingual association site with routes for home, about, events, news, blog, gallery, contact, and legal pages.",
+          "Introduce Auth0-protected admin access and the first CMS flows for creating, editing, saving drafts, and publishing content.",
+          "Publish the full-stack foundation through VPS/Caddy with frontend and API configured for production."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Expand event authoring into a dedicated visual builder with widget library, grid canvas, poster handling, and page settings.",
+          "Add reusable media-library workflows for event posters, event widgets, blog/news covers, and gallery album images.",
+          "Align gallery, news, blog, and event editorial flows around bilingual drafts, linked content, and clearer publish actions."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Harden admin-session behavior, upload storage contracts, protected API validation, and deployment checks.",
+          "Broaden test coverage around event builder, content publishing, API contracts, and media handling.",
+          "Refine editorial maintenance with better documentation, stable selectors, and smaller builder modules."
+        ]
+      }
+    }
+  }
+}

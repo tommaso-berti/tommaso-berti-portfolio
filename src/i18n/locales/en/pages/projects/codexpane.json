@@ -1,0 +1,97 @@
+{
+  "title": "CodexPane",
+  "description": "Focused technical reference workspace that turns scattered docs, examples, cheatsheets, and playgrounds into one fast study flow.",
+  "details": {
+    "introduction": {
+      "title": "CodexPane",
+      "description": [
+        "CodexPane started from a practical workflow issue: while studying and developing, I was losing time switching between documentation tabs, snippets, examples, and small experiments. I built it as a focused workspace for moving from technical question to usable implementation faster.",
+        "The project combines curated documentation, practical examples, cheatsheets, client-side search, and interactive playgrounds in one flow. Its value is not the number of features, but the way those pieces reduce friction during study and development."
+      ]
+    },
+    "search_mechanics": [
+      "Content is indexed client-side with MiniSearch, so lookups stay fast without relying on external search services.",
+      "Queries run across section titles and text blocks, returning relevance-ordered results that are easy to scan.",
+      "Data is structured to balance search speed, result quality, and long-term maintainability.",
+      "The search UX is designed to minimize time between a technical question and concrete implementation."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React structures the workspace into reusable areas for documentation, examples, playgrounds, and navigation, keeping the experience modular as content grows."
+      },
+      "javascript": {
+        "description": "JavaScript coordinates search behavior, route state, content composition, and interactive examples without adding unnecessary backend dependency."
+      },
+      "mui": {
+        "description": "MUI provides the accessible component baseline for tabs, panels, controls, and readable content surfaces, reducing custom UI work while keeping consistency."
+      },
+      "tailwindcss": {
+        "description": "Tailwind CSS is used selectively for layout and spacing refinements where the documentation surfaces needed more precise control than component defaults."
+      },
+      "minisearch": {
+        "description": "MiniSearch powers local full-text lookup, letting users search curated content quickly without a server-side search service."
+      },
+      "caddy": {
+        "description": "Caddy handles HTTPS and reverse-proxy deployment so the tool can be published reliably with lean operational configuration."
+      },
+      "github": {
+        "description": "GitHub keeps documentation changes, release history, and automation traceable as the content model evolves."
+      },
+      "webstorm": {
+        "description": "WebStorm supports refactoring across content config, route definitions, and UI components, helping keep the project navigable."
+      },
+      "css": {
+        "description": "CSS covers targeted visual details for examples and playground areas where utility classes or MUI tokens are not enough."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT supported content-structure decisions, implementation iteration, and review, with manual validation before adopting outputs."
+      }
+    },
+    "difficulties_faced": [
+      "Designing a documentation workspace that stayed faster than switching between browser tabs, snippets, and separate reference tools.",
+      "Building client-side search that could index technical content while keeping results quick, relevant, and easy to scan.",
+      "Balancing feature depth with focus, so playgrounds and cheatsheets added value without turning the app into a cluttered toolbox.",
+      "Keeping documentation content structured enough to scale across languages, frameworks, sections, and subsections.",
+      "Defining routing and naming conventions that made topic navigation predictable as the content model grew.",
+      "Maintaining visual consistency across documentation, examples, and interactive areas while still allowing each content type to breathe."
+    ],
+    "lessons_learned": [
+      "A technical reference tool is useful only when it reduces lookup friction; fast search and clean content structure matter more than feature count.",
+      "Client-side search works well when the content model is designed for indexing from the beginning.",
+      "Documentation products need editorial discipline: naming, hierarchy, and examples must evolve together.",
+      "Interactive examples are strongest when they support the reading flow instead of becoming a separate destination."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Release the first usable workspace with core documentation search, basic examples, and the initial navigation model.",
+          "Publish the app on VPS infrastructure behind HTTPS to make the tool accessible outside local development.",
+          "Introduce automated GitHub-based release flow with versioned deploys to reduce manual publishing steps."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Expand documentation categories while preserving predictable section/subsection relationships.",
+          "Improve playground consistency so examples feel like part of the reading flow rather than separate widgets.",
+          "Strengthen search by indexing deeper content and highlighting matched text inside results."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Add contributor guidance so new content can follow the same naming, structure, and quality expectations.",
+          "Credit contributors directly on related documents and sections to make authorship visible."
+        ]
+      },
+      "v4": {
+        "title": "v4.0.0",
+        "content": [
+          "Add cheatsheet-style pages with copy/download actions for quick technical recall.",
+          "Explore a documentation-grounded assistant that helps users find relevant sections without replacing curated content."
+        ]
+      }
+    }
+  }
+}

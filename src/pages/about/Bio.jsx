@@ -17,7 +17,7 @@ export default function Bio() {
             sx={{ scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}
         >
             <Stack sx={{flex: 1}} spacing={4}>
-                <Typography variant="h3">
+                <Typography component="h1" variant="h3">
                     {t('title')}
                 </Typography>
                 <Typography variant="body1">

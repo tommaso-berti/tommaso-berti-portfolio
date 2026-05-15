@@ -1,0 +1,97 @@
+{
+  "title": "CodexPane",
+  "description": "Workspace tecnico focalizzato che riunisce documentazione, esempi, cheatsheet e playground in un unico flusso di studio rapido.",
+  "details": {
+    "introduction": {
+      "title": "CodexPane",
+      "description": [
+        "CodexPane nasce da un problema operativo reale: durante studio e sviluppo perdevo tempo passando tra tab di documentazione, snippet, esempi e piccoli esperimenti. L’ho costruito come workspace focalizzato per arrivare più rapidamente da una domanda tecnica a un’implementazione utilizzabile.",
+        "Il progetto combina documentazione curata, esempi pratici, cheatsheet, ricerca lato client e playground interattivi in un flusso unico. Il valore non è nel numero di feature, ma nel modo in cui queste riducono attrito durante studio e sviluppo."
+      ]
+    },
+    "search_mechanics": [
+      "I contenuti vengono indicizzati lato client con MiniSearch, così la ricerca è immediata senza dipendere da un servizio esterno.",
+      "Le query interrogano titoli e testo delle sezioni, restituendo risultati ordinati per rilevanza e facili da scansionare.",
+      "La struttura dei dati è organizzata per mantenere un buon equilibrio tra velocità, precisione e manutenibilità.",
+      "L’obiettivo della ricerca è ridurre il tempo tra domanda tecnica e applicazione pratica del codice."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React organizza il workspace in aree riutilizzabili per documentazione, esempi, playground e navigazione, mantenendo modulare l’esperienza mentre i contenuti crescono."
+      },
+      "javascript": {
+        "description": "JavaScript coordina ricerca, stato di routing, composizione dei contenuti ed esempi interattivi senza introdurre dipendenze backend non necessarie."
+      },
+      "mui": {
+        "description": "MUI fornisce la base accessibile per tab, pannelli, controlli e superfici di lettura, riducendo lavoro UI custom e mantenendo coerenza."
+      },
+      "tailwindcss": {
+        "description": "Tailwind CSS è usato in modo mirato per rifiniture di layout e spaziatura dove le superfici documentali richiedevano controllo più preciso."
+      },
+      "minisearch": {
+        "description": "MiniSearch gestisce la ricerca full-text locale, permettendo di consultare rapidamente contenuti curati senza un servizio search server-side."
+      },
+      "caddy": {
+        "description": "Caddy gestisce HTTPS e reverse proxy, rendendo pubblicabile lo strumento con una configurazione operativa essenziale."
+      },
+      "github": {
+        "description": "GitHub mantiene tracciabili modifiche ai contenuti, storico release e automazioni mentre il modello documentale evolve."
+      },
+      "webstorm": {
+        "description": "WebStorm supporta refactor su configurazioni contenuto, route e componenti UI, aiutando a mantenere navigabile il progetto."
+      },
+      "css": {
+        "description": "CSS copre dettagli visivi mirati per esempi e playground dove utility class o token MUI non sono sufficienti."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT ha supportato scelte di struttura contenuti, iterazione implementativa e review, con validazione manuale prima di adottare gli output."
+      }
+    },
+    "difficulties_faced": [
+      "Progettare uno spazio di consultazione più rapido del continuo passaggio tra tab di documentazione, snippet e strumenti separati.",
+      "Costruire una ricerca lato client capace di indicizzare contenuti tecnici mantenendo risultati rapidi, rilevanti e facili da leggere.",
+      "Bilanciare profondità e focus, facendo in modo che playground e cheatsheet aggiungessero valore senza trasformare l’app in un toolbox dispersivo.",
+      "Mantenere i contenuti abbastanza strutturati da scalare tra linguaggi, framework, sezioni e sottosezioni.",
+      "Definire convenzioni di routing e naming prevedibili mentre il modello contenuti cresceva.",
+      "Mantenere coerenza visiva tra documentazione, esempi e aree interattive lasciando spazio alle esigenze di ogni tipo di contenuto."
+    ],
+    "lessons_learned": [
+      "Uno strumento di consultazione tecnica è utile solo se riduce davvero l’attrito della ricerca: struttura dei contenuti e velocità contano più del numero di feature.",
+      "La ricerca lato client funziona bene quando il modello dati viene pensato per l’indicizzazione fin dall’inizio.",
+      "Un prodotto di documentazione richiede disciplina editoriale: naming, gerarchia ed esempi devono evolvere insieme.",
+      "Gli esempi interattivi sono più efficaci quando supportano il flusso di lettura invece di diventare una destinazione separata."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Rilasciare il primo workspace utilizzabile con ricerca documentale core, esempi base e modello di navigazione iniziale.",
+          "Pubblicare l’app su infrastruttura VPS con HTTPS per renderla accessibile fuori dallo sviluppo locale.",
+          "Introdurre un flusso release automatizzato via GitHub con deploy versionati per ridurre passaggi manuali."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Espandere le categorie documentali mantenendo prevedibili relazioni tra sezioni e sottosezioni.",
+          "Migliorare la coerenza dei playground così gli esempi restano parte del flusso di lettura e non widget separati.",
+          "Rafforzare la ricerca indicizzando contenuti più profondi ed evidenziando il testo trovato nei risultati."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Aggiungere linee guida contributor per mantenere naming, struttura e qualità dei nuovi contenuti.",
+          "Mostrare i contributor sui documenti e sulle sezioni correlate per rendere visibile l’autorialità."
+        ]
+      },
+      "v4": {
+        "title": "v4.0.0",
+        "content": [
+          "Aggiungere pagine in stile cheatsheet con azioni di copia/download per consultazione rapida.",
+          "Sperimentare un assistente basato sulla documentazione che aiuti a trovare sezioni rilevanti senza sostituire i contenuti curati."
+        ]
+      }
+    }
+  }
+}

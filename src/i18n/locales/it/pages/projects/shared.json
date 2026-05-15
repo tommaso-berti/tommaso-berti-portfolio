@@ -1,0 +1,180 @@
+{
+  "title": "Progetti",
+  "description": "Questa raccolta di progetti riflette la mia passione per creare strumenti utili, sperimentare nuove tecnologie e migliorare costantemente le mie competenze. Alcuni progetti nascono dalla curiosità, altri dalla volontà di ottimizzare il workflow o esplorare nuove idee. Nel mio lavoro da sviluppatore software utilizzo l’AI come supporto concreto: accelera alcune fasi, migliora la qualità del codice e mi aiuta a validare rapidamente nuove soluzioni, sempre con verifica critica dei risultati.",
+  "live_preview": "Demo interattiva",
+  "load_preview": "Carica anteprima",
+  "load_preview_tooltip": "L’anteprima viene caricata solo al click per evitare chiamate API non necessarie.",
+  "primaryAction": "Scopri il progetto",
+  "secondaryAction": "Apri sito",
+  "all_overline": "Tutti",
+  "main_overline": "Progetti principali",
+  "main_project_overline": "Progetto principale",
+  "side_overline": "Progetti secondari",
+  "side_project_overline": "Progetto secondario",
+  "practice_overline": "Esercizi",
+  "exercises": {
+    "title": "Esercizi",
+    "subtitle": "Repository GitHub stellati che uso come esercizi pratici e riferimenti di studio.",
+    "loadMore": "Carica altri",
+    "loading": "Caricamento...",
+    "empty": "Nessun esercizio disponibile al momento.",
+    "fallbackDescription": "Nessuna descrizione disponibile.",
+    "fallbackLanguage": "Linguaggio non specificato",
+    "openOnGithub": "Apri su GitHub",
+    "error": "Impossibile caricare gli esercizi in questo momento. Riprova.",
+    "retry": "Riprova"
+  },
+  "back": "Indietro",
+  "next": "Avanti",
+  "project_not_found": "Progetto non trovato",
+  "no_projects": "Nessun progetto trovato",
+  "impact_on_the_project": "Impatto sul progetto",
+  "role_in_project": "Ruolo nel progetto",
+  "usage_level": "Livello di utilizzo",
+  "search_mechanics_title": "Come funziona la ricerca",
+  "lessons_learned_title": "Cosa ho imparato",
+  "technologiesTitle": "Tecnologie",
+  "roadmap": "Roadmap",
+  "difficulties_faced": "Sfide affrontate",
+  "technologies": {
+    "react": {
+      "label": "React",
+      "description": "Applicazione sviluppata utilizzando l’architettura a componenti di React, che permette una struttura pulita, riuso del codice e aggiornamenti efficienti dell’interfaccia."
+    },
+    "vite": {
+      "label": "Vite",
+      "description": "Tool di build e sviluppo scelto per avvio rapido, hot reload efficiente e pipeline frontend snella."
+    },
+    "react-router": {
+      "label": "React Router",
+      "description": "Libreria di routing frontend utilizzata per gestire navigazione client-side e flussi pagina in modo prevedibile."
+    },
+    "mui": {
+      "label": "MUI",
+      "description": "Utilizzo dei componenti React e del sistema di theming di MUI per sviluppare rapidamente un’interfaccia pulita e accessibile."
+    },
+    "javascript": {
+      "label": "JavaScript",
+      "description": "Logica dell’applicazione sviluppata con le funzionalità moderne di JavaScript, garantendo codice pulito, manutenibile ed efficiente."
+    },
+    "nodejs": {
+      "label": "Node.js",
+      "description": "Runtime backend utilizzato per costruire API modulari e gestire autenticazione, sessioni e logica server-side in modo scalabile."
+    },
+    "express": {
+      "label": "Express",
+      "description": "Framework backend usato per costruire endpoint REST e organizzare middleware in modo chiaro e modulare."
+    },
+    "passport": {
+      "label": "Passport",
+      "description": "Libreria di autenticazione integrata per gestire login locale e OAuth in modo estendibile."
+    },
+    "express-session": {
+      "label": "express-session",
+      "description": "Middleware sessionale usato per mantenere autenticazione utente lato server in modo sicuro e consistente."
+    },
+    "postgresql": {
+      "label": "PostgreSQL",
+      "description": "Database relazionale scelto per affidabilità, integrità dei dati e query strutturate su catalogo prodotti, carrelli e ordini."
+    },
+    "github": {
+      "label": "GitHub",
+      "description": "Integrazione di GitHub per il controllo di versione e per workflow automatizzati tramite GitHub Actions."
+    },
+    "github-actions": {
+      "label": "GitHub Actions",
+      "description": "Pipeline CI/CD utilizzata per build e deploy versionati di frontend e backend."
+    },
+    "swagger-openapi": {
+      "label": "Swagger / OpenAPI",
+      "description": "Documentazione API e interfaccia di test usate per rendere endpoint e payload immediatamente verificabili."
+    },
+    "webstorm": {
+      "label": "WebStorm",
+      "description": "Utilizzo di WebStorm come IDE principale, sfruttando analisi avanzata del codice, strumenti di refactoring e workflow di sviluppo integrati."
+    },
+    "caddy": {
+      "label": "Caddy",
+      "description": "Uso di Caddy come web server moderno e reverse proxy, con HTTPS automatico e configurazione semplice per un deploy veloce e affidabile."
+    },
+    "minisearch": {
+      "label": "Minisearch",
+      "description": "Integrazione di un motore di ricerca full-text leggero che permette indicizzazione lato client e risultati in tempo reale."
+    },
+    "tailwindcss": {
+      "label": "TailwindCSS",
+      "description": "Framework CSS utility-first utilizzato per costruire interfacce responsive e consistenti con uno stile personalizzato minimo. L’ho usato per sperimentare con la libreria."
+    },
+    "css": {
+      "label": "CSS",
+      "description": "Linguaggio di stile utilizzato per definire layout, controllo dell’aspetto visivo e presentazione responsive su diversi dispositivi."
+    },
+    "codex": {
+      "label": "Codex",
+      "description": "Strumento AI utilizzato nel workflow di sviluppo per velocizzare attività ripetitive, esplorare soluzioni e migliorare la produttività."
+    },
+    "typescript": {
+      "label": "TypeScript",
+      "description": "Superset tipizzato di JavaScript usato per migliorare robustezza, refactoring e mantenibilità del codice su frontend e backend."
+    },
+    "fastify": {
+      "label": "Fastify",
+      "description": "Framework API ad alte prestazioni usato per strutturare route, validazione e middleware con overhead ridotto."
+    },
+    "i18next": {
+      "label": "react-i18next",
+      "description": "Libreria i18n utilizzata per localizzazione multi-lingua, fallback e gestione centralizzata delle traduzioni UI."
+    },
+    "mongodb": {
+      "label": "MongoDB",
+      "description": "Database documentale usato per catalogo, libreria utente, sessioni e metadata operativi, con collezioni separate per scope."
+    },
+    "igdb": {
+      "label": "IGDB",
+      "description": "Provider dati giochi usato per catalogo, metadati e supporto search fallback, con integrazione tecnica lato ingest e crediti in-app."
+    },
+    "zod": {
+      "label": "Zod",
+      "description": "Schema validator usato per definire e validare contratti runtime/type-safe tra frontend e API."
+    },
+    "tanstack-query": {
+      "label": "TanStack Query",
+      "description": "Layer di data-fetching e caching usato per sincronizzare stato server/client, mutation e invalidazioni in modo affidabile."
+    },
+    "framer-motion": {
+      "label": "Framer Motion",
+      "description": "Libreria di animazione usata per transizioni fluide, micro-interazioni e motion design delle card/componente UI."
+    }
+  },
+  "tech_categories": {
+    "all": "Tutte",
+    "frontend": "Frontend",
+    "backend-runtime": "Back-end / Runtime",
+    "database": "Database",
+    "languages-markup": "Linguaggi / Markup",
+    "tools": "Strumenti"
+  },
+  "tech_roles": {
+    "core_ui": "Interfaccia principale",
+    "application_logic": "Logica applicativa",
+    "design_system": "Sistema di design",
+    "deployment": "Deploy e infrastruttura",
+    "versioning_ci": "Versionamento e CI",
+    "ci_cd": "CI/CD",
+    "api_docs": "Documentazione API",
+    "development_tooling": "Strumenti di sviluppo",
+    "routing": "Routing",
+    "build_tooling": "Build Tooling",
+    "api_layer": "Layer API",
+    "auth_layer": "Autenticazione e sessioni",
+    "search_engine": "Motore di ricerca",
+    "style_layer": "Strato di stile",
+    "data_layer": "Data Layer",
+    "ai_support": "Supporto AI"
+  },
+  "usage_levels": {
+    "primary": "Principale",
+    "relevant": "Rilevante",
+    "support": "Di supporto"
+  }
+}

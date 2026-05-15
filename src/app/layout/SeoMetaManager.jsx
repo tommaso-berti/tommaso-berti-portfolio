@@ -1,7 +1,9 @@
 import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-
 import { useTranslation } from "react-i18next";
+
+import i18n from "../../i18n/index.js";
+import { ensureProjectsNamespace } from "../../i18n/loadLocale.js";
 
 const SITE_URL = "https://www.tommasoberti.com";
 const SITE_NAME = "Tommaso Berti";
@@ -33,11 +35,28 @@ function setMetaTag(attribute, name, content) {
     tag.setAttribute("content", content);
 }
 
-function ensureCanonicalTag() {
-    let tag = document.head.querySelector('link[rel="canonical"]');
+function ensureLinkTag(rel) {
+    const selector = `link[rel="${rel}"]`;
+    let tag = document.head.querySelector(selector);
     if (!tag) {
         tag = document.createElement("link");
-        tag.setAttribute("rel", "canonical");
+        tag.setAttribute("rel", rel);
+        document.head.appendChild(tag);
+    }
+    return tag;
+}
+
+function ensureCanonicalTag() {
+    return ensureLinkTag("canonical");
+}
+
+function ensureAlternateLink(hreflang) {
+    const selector = `link[rel="alternate"][hreflang="${hreflang}"]`;
+    let tag = document.head.querySelector(selector);
+    if (!tag) {
+        tag = document.createElement("link");
+        tag.setAttribute("rel", "alternate");
+        tag.setAttribute("hreflang", hreflang);
         document.head.appendChild(tag);
     }
     return tag;
@@ -48,17 +67,42 @@ function resolveRouteKey(pathname) {
     return matched?.key || "fallback";
 }
 
+function resolveProjectId(pathname) {
+    const match = pathname.match(/^\/projects\/([^/]+)/);
+    return match?.[1] ?? null;
+}
+
 export default function SeoMetaManager() {
     const { pathname } = useLocation();
-    const { t, i18n } = useTranslation("seo");
-    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
-
+    const { t, i18n: i18nInstance } = useTranslation("seo");
+    const { t: tPages } = useTranslation("pages");
+    const language = i18nInstance.language?.toLowerCase().startsWith("it") ? "it" : "en";
+    const projectId = useMemo(() => resolveProjectId(pathname), [pathname]);
     const routeKey = useMemo(() => resolveRouteKey(pathname), [pathname]);
 
     useEffect(() => {
-        const title = t(`pages.${routeKey}.title`, { defaultValue: t("pages.fallback.title") });
-        const description = t(`pages.${routeKey}.description`, { defaultValue: t("pages.fallback.description") });
+        if (pathname.startsWith("/projects")) {
+            void ensureProjectsNamespace(i18n, language);
+        }
+    }, [language, pathname]);
+
+    useEffect(() => {
+        const projectTitle = projectId
+            ? tPages(`projects.${projectId}.title`, { defaultValue: "" })
+            : "";
+        const projectDescription = projectId
+            ? tPages(`projects.${projectId}.description`, { defaultValue: "" })
+            : "";
+
+        const title = projectTitle
+            ? `${projectTitle} | ${SITE_NAME}`
+            : t(`pages.${routeKey}.title`, { defaultValue: t("pages.fallback.title") });
+        const description = projectDescription
+            ? projectDescription
+            : t(`pages.${routeKey}.description`, { defaultValue: t("pages.fallback.description") });
         const canonicalUrl = `${SITE_URL}${pathname === "/" ? "" : pathname}`;
+        const ogLocale = language === "it" ? "it_IT" : "en_US";
+        const alternateLocale = language === "it" ? "en" : "it";
 
         document.title = title;
         document.documentElement.lang = language;
@@ -70,6 +114,7 @@ export default function SeoMetaManager() {
         setMetaTag("property", "og:url", canonicalUrl);
         setMetaTag("property", "og:site_name", SITE_NAME);
         setMetaTag("property", "og:image", OG_IMAGE_URL);
+        setMetaTag("property", "og:locale", ogLocale);
         setMetaTag("name", "twitter:card", "summary_large_image");
         setMetaTag("name", "twitter:title", title);
         setMetaTag("name", "twitter:description", description);
@@ -77,7 +122,14 @@ export default function SeoMetaManager() {
 
         const canonical = ensureCanonicalTag();
         canonical.setAttribute("href", canonicalUrl);
-    }, [language, pathname, routeKey, t]);
+
+        ensureAlternateLink(language).setAttribute("href", canonicalUrl);
+        ensureAlternateLink(alternateLocale).setAttribute(
+            "href",
+            `${canonicalUrl}${canonicalUrl.includes("?") ? "&" : "?"}lang=${alternateLocale}`
+        );
+        ensureAlternateLink("x-default").setAttribute("href", `${SITE_URL}/`);
+    }, [language, pathname, projectId, routeKey, t, tPages]);
 
     return null;
 }

@@ -23,7 +23,7 @@ export default function CvHeaderSection({ profile }) {
                 }}
             >
                 <Stack spacing={1.1}>
-                    <Typography variant="h3" sx={{ lineHeight: 1.1 }}>
+                    <Typography component="h1" variant="h3" sx={{ lineHeight: 1.1 }}>
                         {profile.name}
                     </Typography>
                     <Typography variant="h6" color="text.secondary">

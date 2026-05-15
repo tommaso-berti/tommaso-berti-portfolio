@@ -6,5 +6,13 @@
     "blog": "Blog",
     "contact": "Contatti",
     "cv": "CV"
+  },
+  "a11y": {
+    "skipToContent": "Salta al contenuto principale",
+    "toggleThemeLight": "Attiva modalità chiara",
+    "toggleThemeDark": "Attiva modalità scura",
+    "toggleLanguageToIt": "Passa alla lingua italiana",
+    "toggleLanguageToEn": "Passa alla lingua inglese",
+    "openReleaseNotes": "Apri note di rilascio"
   }
 }

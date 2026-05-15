@@ -31,7 +31,7 @@ export default function Home() {
                     <Typography color="text.primary" variant="h5">
                         {t("welcome")}
                     </Typography>
-                    <Typography color="text.primary" variant="h2" fontWeight="bold">
+                    <Typography component="h1" color="text.primary" variant="h2" fontWeight="bold">
                         Tommaso Berti
                     </Typography>
                     <Typography color="text.secondary" variant="h6" sx={{ mt: 0.25 }}>

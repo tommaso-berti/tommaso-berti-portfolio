@@ -1,0 +1,83 @@
+{
+  "title": "Portfolio",
+  "description": "Portfolio personale pensato per collegare esperienze, progetti, CV, storico release e scrittura tecnica in una vetrina bilingue manutenibile.",
+  "details": {
+    "introduction": {
+      "title": "Portfolio",
+      "description": [
+        "Ho costruito questo portfolio per rendere il mio lavoro leggibile a più livelli: card progetto per una consultazione rapida, pagine tecniche per approfondire, flussi CV/contatti per il seguito professionale e release notes che mostrano come il sito evolve nel tempo.",
+        "La sfida principale era mantenere coerenti contenuti personali, copy bilingue, routing, breadcrumb, metadata dei progetti, snapshot statici e artifact di release senza trasformare un sito personale in un CMS fragile."
+      ]
+    },
+    "lessons_learned": [
+      "Un portfolio è più forte quando si comporta come un prodotto mantenuto, non solo come una pagina statica di presentazione.",
+      "Centralizzare route, breadcrumb e metadata dei progetti riduce il disallineamento tra navigazione e contenuti.",
+      "Scrivere il copy dei progetti in due lingue costringe a chiarire meglio cosa dimostra davvero ogni progetto.",
+      "Release notes automatiche e snapshot statici rendono anche un sito personale più affidabile e manutenibile."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React struttura il portfolio in pagine di route e sezioni riutilizzabili, rendendo più semplice evolvere progetti, CV e layout separatamente."
+      },
+      "javascript": {
+        "description": "JavaScript coordina modelli di routing, view model dei progetti, rendering delle release notes e stato UI mantenendo l’app leggera."
+      },
+      "mui": {
+        "description": "MUI fornisce la base accessibile per layout, navigazione, card, modali, liste e superfici sensibili al tema."
+      },
+      "caddy": {
+        "description": "Caddy pubblica il portfolio con HTTPS e reverse proxy semplice, mantenendo snella la configurazione deploy su VPS personale."
+      },
+      "github": {
+        "description": "GitHub conserva storico sorgente, artifact release e modifiche alle automazioni, rendendo tracciabile l’evoluzione pubblica del sito."
+      },
+      "webstorm": {
+        "description": "WebStorm supporta navigazione e refactor tra route, traduzioni, dati progetto e componenti layout."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT è usato come collaboratore tecnico per documentazione, refactor e workflow release notes, con review umana prima dell’integrazione."
+      }
+    },
+    "difficulties_faced": [
+      "Mantenere allineati navigazione, route, breadcrumb e pagine dettaglio progetto partendo da una fonte unica di configurazione.",
+      "Garantire parità tra contenuti IT/EN scrivendo copy che risultasse naturale in entrambe le lingue.",
+      "Bilanciare coerenza visiva e flessibilità tra pagine diverse come CV, About, Projects e Release Notes.",
+      "Creare un’esperienza breadcrumb in stile terminale mantenendo una navigazione browser prevedibile.",
+      "Automatizzare release notes e snapshot statici senza aggiungere dipendenze runtime nel browser."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Stabilire la base del portfolio con pagine React modulari, layout condiviso e struttura route principale.",
+          "Aggiungere localizzazione IT/EN e tema chiaro/scuro fin dall’inizio per far scalare insieme contenuti e convenzioni UI.",
+          "Pubblicare la prima versione su VPS con un percorso release ripetibile invece di aggiornamenti manuali."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Consolidare versioning e artifact release per rendere gli aggiornamenti del sito più spiegabili e verificabili.",
+          "Espandere le pagine progetto con metadata più ricchi, contesto tecnico e azioni preview/live/GitHub più chiare.",
+          "Rifinire navigazione e coerenza visiva mentre il sito cresce oltre il primo set di pagine."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Introdurre gestione SEO meta e sezioni lazy-loaded per migliorare discoverability e performance percepite.",
+          "Aggiungere Contact e Certifications mantenendo allineate route, navigazione e traduzioni.",
+          "Spostare release notes e dati statici verso snapshot generati invece di fetch runtime dal browser."
+        ]
+      },
+      "v4": {
+        "title": "v4.0.0",
+        "content": [
+          "Aggiungere snapshot Lighthouse alle pagine progetto per confrontare la qualità tra release.",
+          "Mostrare breakdown Performance, Accessibility, Best Practices e SEO in formato leggibile per reviewer.",
+          "Usare lo storico degli score per rendere misurabili i miglioramenti futuri del portfolio."
+        ]
+      }
+    }
+  }
+}

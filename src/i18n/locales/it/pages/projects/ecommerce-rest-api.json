@@ -1,0 +1,105 @@
+{
+  "title": "E-commerce REST API",
+  "description": "Demo e-commerce full-stack pensata per esercitare flussi prodotto, autenticazione a sessione, API documentate e deploy VPS versionato con vincoli realistici.",
+  "details": {
+    "introduction": {
+      "title": "E-commerce REST API",
+      "description": [
+        "Ho costruito questo progetto per rendere una demo e-commerce più vicina a un sistema reale che a una vetrina statica: catalogo, autenticazione a sessione, carrello, checkout, documentazione API e deploy devono lavorare insieme.",
+        "Il vincolo principale era pubblicare frontend e backend sotto un unico dominio, mantenendo il traffico backend dietro proxy `/api` per offrire un’esperienza pulita e un confine operativo più sicuro."
+      ]
+    },
+    "technologies": {
+      "react": {
+        "description": "React gestisce catalogo, carrello, autenticazione e checkout con pattern UI riutilizzabili che rendono i flussi utente estendibili."
+      },
+      "vite": {
+        "description": "Vite mantiene rapido il ciclo frontend durante le modifiche ai flussi catalogo, carrello e autenticazione."
+      },
+      "react-router": {
+        "description": "React Router separa viste pubbliche, auth, carrello, checkout e documentazione mantenendo prevedibile la navigazione SPA."
+      },
+      "javascript": {
+        "description": "JavaScript mantiene coerente lo stack tra frontend e backend Express, riducendo cambio di contesto durante lo sviluppo full-stack."
+      },
+      "mui": {
+        "description": "MUI fornisce componenti accessibili per form, tabelle, dialog e superfici prodotto, rendendo la demo verificabile e non usa-e-getta."
+      },
+      "tailwindcss": {
+        "description": "Tailwind CSS è usato con parsimonia per rifiniture di layout dove utility rapide erano più efficienti di varianti custom."
+      },
+      "nodejs": {
+        "description": "Node.js esegue API e script operativi, collegando comportamento backend, controlli deploy e reset demo nello stesso runtime."
+      },
+      "express": {
+        "description": "Express struttura endpoint REST per prodotti, carrello, auth, checkout e health check con confini middleware chiari."
+      },
+      "passport": {
+        "description": "Passport mantiene modulari strategia locale e OAuth Google opzionale, così l’autenticazione può evolvere senza riscrivere route protette."
+      },
+      "express-session": {
+        "description": "express-session persiste lo stato autenticato per carrello e ordini protetti, coerentemente con l’obiettivo di simulare sessioni realistiche."
+      },
+      "postgresql": {
+        "description": "PostgreSQL modella utenti, prodotti, carrelli e ordini in modo relazionale, rendendo vincoli e dati più ispezionabili."
+      },
+      "caddy": {
+        "description": "Caddy pubblica frontend e API sotto un unico dominio HTTPS, mantenendo il backend accessibile solo dal percorso proxy previsto."
+      },
+      "github": {
+        "description": "GitHub traccia codice, workflow deploy e storico release delle parti frontend e backend della demo."
+      },
+      "github-actions": {
+        "description": "GitHub Actions automatizza build, deploy e attivazione controllata, rendendo ripetibili le release VPS."
+      },
+      "swagger-openapi": {
+        "description": "Swagger/OpenAPI rende visibili endpoint, payload e comportamento auth senza obbligare prima alla lettura del codice."
+      },
+      "webstorm": {
+        "description": "WebStorm supporta refactor e navigazione su demo full-stack, soprattutto tra route, handler API e documentazione."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT ha supportato scripting di deploy e passaggi documentali, con validazione manuale delle scelte operative e architetturali."
+      }
+    },
+    "difficulties_faced": [
+      "Progettare un’autenticazione a sessione robusta (login locale + OAuth Google opzionale) mantenendo un flusso utente coerente.",
+      "Gestire correttamente proxy e routing tra frontend e API sotto lo stesso dominio, evitando esposizione diretta del backend.",
+      "Definire una pipeline di deploy affidabile su VPS con release versionate e attivazione controllata.",
+      "Mantenere il reset del database demo ad ogni deploy backend senza compromettere stabilità e test funzionali.",
+      "Documentare API e payload in modo chiaro per rendere il progetto immediatamente verificabile da recruiter e sviluppatori."
+    ],
+    "lessons_learned": [
+      "Una demo diventa più credibile quando include aspetti operativi come deploy, reset ambiente e documentazione API.",
+      "L’autenticazione a sessione coinvolge backend e UX frontend, quindi va progettata come flusso completo e non come singolo endpoint.",
+      "Pubblicare frontend e backend sotto lo stesso dominio semplifica l’esperienza pubblica, ma richiede confini chiari su proxy e routing.",
+      "Una documentazione Swagger/OpenAPI chiara rende il comportamento backend ispezionabile invece che nascosto nell’implementazione."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Rilasciare la base monorepo con frontend React/Vite, backend Express e schema PostgreSQL iniziale.",
+          "Implementare i flussi prodotto core: catalogo, carrello, checkout, autenticazione locale e comportamento ordini protetti.",
+          "Pubblicare via VPS/Caddy con accesso backend limitato al percorso proxy `/api`."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Rafforzare autenticazione e sessioni, inclusa OAuth Google opzionale e comportamento più chiaro delle route protette.",
+          "Migliorare validazione API, risposte di errore e copertura Swagger per rendere i payload più verificabili.",
+          "Aggiungere visibilità operativa tramite health check, log e note di troubleshooting deploy."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Aggiungere test end-to-end per flussi critici come auth, carrello, checkout e reset demo.",
+          "Rafforzare documentazione contributor su setup locale, contratti API e operazioni di deploy.",
+          "Introdurre metriche base di performance API per rendere visibili regressioni sui tempi di risposta."
+        ]
+      }
+    }
+  }
+}

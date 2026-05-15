@@ -14,6 +14,7 @@ import {
     buildProjectDetailsModel,
     getProjectById,
 } from "./projectSelectors.js";
+import { useEnsureProjectsI18n } from "../../../i18n/useEnsureProjectsI18n.js";
 
 function renderParagraphWithLinks(text) {
     if (typeof text !== "string" || !text.length) return text;
@@ -105,15 +106,27 @@ function renderParagraphWithLinks(text) {
 
 export default function ProjectPage() {
     const { project } = useParams();
+    const projectsReady = useEnsureProjectsI18n();
     const { t: tProject } = useTranslation("pages", { keyPrefix: `projects.${project}.details` });
     const { t: tProjects } = useTranslation("pages", { keyPrefix: "projects" });
 
     const projectConfig = getProjectById(project);
 
+    if (!projectsReady) {
+        return (
+            <Stack component="article" spacing={2}>
+                <Typography component="h1" variant="h3">
+                    {tProjects("title", { defaultValue: "Projects" })}
+                </Typography>
+                <Typography variant="body1">{tProjects("exercises.loading")}</Typography>
+            </Stack>
+        );
+    }
+
     if (!projectConfig) {
         return (
             <Stack component="article">
-                <Typography variant="h3">
+                <Typography component="h1" variant="h3">
                     {tProjects("project_not_found", { defaultValue: "Project not found" })}
                 </Typography>
             </Stack>
@@ -126,7 +139,7 @@ export default function ProjectPage() {
         <Stack id={project} component="article">
             <Stack sx={{ flex: 1 }} spacing={4}>
                 <Box component="section" id="introduction">
-                    <Typography variant="h3" sx={{ mb: 4 }}>
+                    <Typography component="h1" variant="h3" sx={{ mb: 4 }}>
                         {detailsModel.introductionTitle}
                     </Typography>
 

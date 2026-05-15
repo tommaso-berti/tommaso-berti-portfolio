@@ -7,10 +7,12 @@ import LanguageToggle from "./LanguageToggle.jsx";
 import { Box, ButtonBase, Typography } from "@mui/material";
 import { APP_VERSION } from '../../lib/version.js';
 import { lazy, Suspense, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ReleaseNotesModal = lazy(() => import("./ReleaseNotesModal.jsx"));
 
 export default function Header() {
+    const { t } = useTranslation("common");
     const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
 
     return (
@@ -102,7 +104,7 @@ export default function Header() {
                                                 : "0 0 0 1px rgba(47,122,98,0.24), 0 6px 18px rgba(47,122,98,0.12)",
                                     },
                                 }}
-                                aria-label="Open release notes"
+                                aria-label={t("a11y.openReleaseNotes")}
                             >
                                 <Typography
                                     sx={{

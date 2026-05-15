@@ -11,10 +11,12 @@ import {
     buildProjectPreviewModel,
     getProjectsByCategory,
 } from "./projectsPages/projectSelectors.js";
+import { useEnsureProjectsI18n } from "../../i18n/useEnsureProjectsI18n.js";
 
 const ExercisesSection = lazy(() => import("./components/ExercisesSection.jsx"));
 
 export default function Projects() {
+    const projectsReady = useEnsureProjectsI18n();
     const { t } = useTranslation("pages", { keyPrefix: "projects" });
     const [tab, setTab] = useState("all");
     const [hasPracticeMounted, setHasPracticeMounted] = useState(false);
@@ -28,9 +30,20 @@ export default function Projects() {
         }
     }, [isPracticeTab]);
 
+    if (!projectsReady) {
+        return (
+            <Stack id="projects" component="article" spacing={2}>
+                <Typography component="h1" variant="h3">
+                    {t("title", { defaultValue: "Projects" })}
+                </Typography>
+                <Typography variant="body1">{t("exercises.loading")}</Typography>
+            </Stack>
+        );
+    }
+
     return (
         <Stack id="projects" component="article">
-            <Typography variant="h3">
+            <Typography component="h1" variant="h3">
                 {t("title")}
             </Typography>
 
@@ -96,7 +109,7 @@ export default function Projects() {
                 })
             ) : (
                 <Typography variant="h4" marginY={4}>
-                    No projects found
+                    {t("no_projects")}
                 </Typography>
             ))}
         </Stack>

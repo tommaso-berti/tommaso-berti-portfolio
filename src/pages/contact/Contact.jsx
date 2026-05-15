@@ -86,7 +86,7 @@ export default function Contact() {
                     >
                         {t("eyebrow")}
                     </Typography>
-                    <Typography variant="h3">{t("title")}</Typography>
+                    <Typography component="h1" variant="h3">{t("title")}</Typography>
                     <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 760 }}>
                         {t("subtitle")}
                     </Typography>

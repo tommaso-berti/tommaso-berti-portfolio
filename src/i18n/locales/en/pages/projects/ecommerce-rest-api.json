@@ -1,0 +1,105 @@
+{
+  "title": "E-commerce REST API",
+  "description": "Full-stack e-commerce demo built to exercise product flows, session auth, documented APIs, and versioned VPS deployment under real constraints.",
+  "details": {
+    "introduction": {
+      "title": "E-commerce REST API",
+      "description": [
+        "This project was built to make a portfolio e-commerce demo feel closer to a real engineering system than a static storefront: catalog browsing, session-based authentication, cart and checkout flows, API documentation, and deployment all had to work together.",
+        "The core constraint was publishing frontend and backend under one public domain while keeping backend traffic proxied through `/api`, preserving a clean user experience and a safer operational boundary."
+      ]
+    },
+    "technologies": {
+      "react": {
+        "description": "React drives the catalog, cart, auth, and checkout screens with reusable UI patterns that keep user flows easy to extend."
+      },
+      "vite": {
+        "description": "Vite keeps frontend iteration fast while testing product-flow changes across catalog, cart, and authentication screens."
+      },
+      "react-router": {
+        "description": "React Router separates public, auth, cart, checkout, and documentation views while keeping navigation predictable in the SPA."
+      },
+      "javascript": {
+        "description": "JavaScript keeps the demo stack consistent across frontend and Express backend, reducing context switching while building full-stack flows."
+      },
+      "mui": {
+        "description": "MUI provides accessible components for forms, tables, dialogs, and product surfaces, helping the demo feel inspectable rather than throwaway."
+      },
+      "tailwindcss": {
+        "description": "Tailwind CSS is used sparingly for layout refinements where quick utility styling was more efficient than custom component variants."
+      },
+      "nodejs": {
+        "description": "Node.js runs the API layer and operational scripts, tying backend behavior, deployment checks, and demo reset flows into one runtime."
+      },
+      "express": {
+        "description": "Express structures REST endpoints for products, carts, auth, checkout, and operational health with clear middleware boundaries."
+      },
+      "passport": {
+        "description": "Passport keeps local and optional Google OAuth strategies modular, so authentication can evolve without rewriting protected routes."
+      },
+      "express-session": {
+        "description": "express-session persists authenticated user state for protected cart/order flows, matching the demo goal of realistic session behavior."
+      },
+      "postgresql": {
+        "description": "PostgreSQL models users, products, carts, and orders relationally, making data constraints explicit and easier to inspect."
+      },
+      "caddy": {
+        "description": "Caddy publishes frontend and API through one HTTPS domain while keeping backend services reachable only through the intended proxy path."
+      },
+      "github": {
+        "description": "GitHub tracks code, deploy workflow changes, and release history across frontend and backend parts of the demo."
+      },
+      "github-actions": {
+        "description": "GitHub Actions automates build, deploy, and controlled activation steps so VPS releases are repeatable instead of manual."
+      },
+      "swagger-openapi": {
+        "description": "Swagger/OpenAPI makes endpoints, payloads, and auth behavior visible to reviewers without requiring source-code reading first."
+      },
+      "webstorm": {
+        "description": "WebStorm supports refactoring and navigation across the full-stack demo, especially shared naming across routes, API handlers, and docs."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT supported deployment scripting and documentation passes, with manual validation of operational and architecture choices."
+      }
+    },
+    "difficulties_faced": [
+      "Designing robust session-based authentication (local login + optional Google OAuth) while keeping the user flow consistent.",
+      "Handling frontend/API routing through a single domain proxy without exposing backend services directly.",
+      "Building a reliable VPS deployment pipeline with versioned releases and controlled activation.",
+      "Managing demo database reset on backend deploy without compromising runtime stability and functional checks.",
+      "Documenting APIs and payloads clearly to keep the project immediately verifiable for recruiters and developers."
+    ],
+    "lessons_learned": [
+      "A demo project becomes more credible when it includes operational concerns such as deploy, reset flows, and API documentation.",
+      "Session-based authentication affects both backend design and frontend UX, so it needs to be treated as a full flow rather than a single endpoint.",
+      "Keeping frontend and backend under one domain simplifies the public experience, but requires disciplined proxy and routing boundaries.",
+      "Clear Swagger/OpenAPI documentation turns backend behavior into something inspectable instead of hidden implementation detail."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Ship the monorepo foundation with React/Vite frontend, Express backend, and initial PostgreSQL schema.",
+          "Implement core product flows: catalog, cart, checkout, local authentication, and protected order behavior.",
+          "Publish through VPS/Caddy with backend access constrained to the `/api` proxy path."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Harden authentication and session flows, including optional Google OAuth and clearer protected-route behavior.",
+          "Improve API validation, error responses, and Swagger coverage so payload behavior is easier to verify.",
+          "Add operational visibility through health checks, logs, and deploy troubleshooting notes."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Add end-to-end tests for critical flows such as auth, cart, checkout, and demo reset behavior.",
+          "Strengthen contributor documentation around local setup, API contracts, and deployment operations.",
+          "Introduce baseline API performance metrics to make response-time regressions visible."
+        ]
+      }
+    }
+  }
+}

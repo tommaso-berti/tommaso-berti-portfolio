@@ -1,0 +1,108 @@
+{
+  "title": "Logra",
+  "description": "Web app personale per gestire backlog, progressi, date di uscita e operazioni demo affidabili attorno al mio workflow gaming reale.",
+  "details": {
+    "introduction": {
+      "title": "Logra",
+      "description": [
+        "Logra nasce da un’esigenza concreta: volevo una libreria gaming che rispecchiasse davvero come scelgo cosa giocare, seguo i progressi, gestisco backlog e tengo d’occhio le uscite future.",
+        "La piattaforma combina UI orientata al workflow, dati catalogo da IGDB, flussi controllati di ingest/sync, operazioni demo sicure e crediti dati espliciti, così il prodotto resta usabile e affidabile anche dal punto di vista operativo."
+      ]
+    },
+    "lessons_learned": [
+      "Una UI orientata al workflow reale dell’utente migliora molto più della semplice estetica: riduce attrito e aumenta uso quotidiano.",
+      "Separare chiaramente contratti condivisi, logica API e componente frontend rende il progetto più stabile durante iterazioni frequenti.",
+      "Automatizzare deploy, seed e reset ambiente riduce errori manuali e rende le demo pubbliche più affidabili.",
+      "L’AI è più utile quando accelera fasi mirate (design GUI, script operativi, bootstrap), mantenendo revisione tecnica umana sulle decisioni finali."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React alimenta card, filtri, pannelli dettaglio, guided tour e superfici impostazioni riutilizzabili per interazioni frequenti sulla libreria."
+      },
+      "vite": {
+        "description": "Vite mantiene rapido il ciclo frontend mentre vengono rifiniti stati UI densi come filtri, edit mode, overlay e widget dashboard."
+      },
+      "react-router": {
+        "description": "React Router organizza la navigazione scoped tra dashboard, discover, libreria, wishlist, stats, settings e onboarding."
+      },
+      "mui": {
+        "description": "MUI fornisce token tema e primitive accessibili per una UI operativa densa che deve restare leggibile."
+      },
+      "nodejs": {
+        "description": "Node.js esegue API e script operativi per seed, reset, migrazione e sync, mantenendo allineati flussi locali e produzione."
+      },
+      "caddy": {
+        "description": "Caddy gestisce reverse proxy HTTPS e pubblicazione VPS, semplificando routing di produzione tra frontend e API."
+      },
+      "github": {
+        "description": "GitHub mantiene tracciabili evoluzione feature, storico release e cambi operativi in un codebase full-stack."
+      },
+      "github-actions": {
+        "description": "GitHub Actions automatizza deploy e manutenzioni controllate come reset demo, release notes e sync dati."
+      },
+      "webstorm": {
+        "description": "WebStorm supporta debugging e refactor tra web, API, contratti condivisi e script operativi."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT accelera iterazione GUI, script e procedure operative, lasciando a review manuale le decisioni architetturali finali."
+      },
+      "typescript": {
+        "description": "TypeScript protegge contratti condivisi tra web, API e package, riducendo drift dei payload durante iterazioni rapide."
+      },
+      "fastify": {
+        "description": "Fastify struttura route API modulari, session auth, validazione e gestione request a basso overhead per operazioni sulla libreria."
+      },
+      "i18next": {
+        "description": "react-i18next centralizza copy IT/EN per onboarding, feedback, settings e stati dinamici della libreria gaming."
+      },
+      "mongodb": {
+        "description": "MongoDB conserva utenti, sessioni, collezioni gaming e metadata operativi con flussi di migrazione/index per manutenzione lunga."
+      },
+      "igdb": {
+        "description": "IGDB fornisce metadata catalogo tramite ingest controllato, fallback discover e materializzazione avviata dall’utente."
+      },
+      "zod": {
+        "description": "Zod valida contratti runtime tra frontend e API, rendendo prevedibili errori su settings, onboarding e payload libreria."
+      },
+      "tanstack-query": {
+        "description": "TanStack Query coordina cache, mutation e invalidation lato client per rendere reattivi aggiornamenti di libreria e wishlist."
+      },
+      "framer-motion": {
+        "description": "Framer Motion gestisce transizioni di card, overlay e dettaglio mantenendo controllo nei flussi densi di edit e guided tour."
+      }
+    },
+    "difficulties_faced": [
+      "Stabilizzare guided tour multi-step (overlay, spotlight, fallback target) senza bloccare interazioni critiche nei passaggi guidati.",
+      "Mantenere allineati frontend e API su contratti condivisi (settings, onboarding, preferenze) durante iterazioni rapide.",
+      "Gestire in modo affidabile seed/reset demo, migrazioni e cleanup collezioni legacy senza compromettere la demo pubblica.",
+      "Bilanciare densità informativa delle card con UX veloce, evitando attrito su edit mode, filtri e quick actions.",
+      "Conciliare qualità UX e stabilità operativa tra ambiente locale, CI/CD e deploy versionati su VPS."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Rilasciare il prodotto core con login demo, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
+          "Introdurre impostazioni profilo/aspetto e scope release gating per far evolvere le aree feature in modo modulare.",
+          "Creare fondamenta operative per seed, bootstrap e gestione condivisa del ciclo demo."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Espandere onboarding con guided tour multi-pagina e tour contestuali su card/edit mode per ridurre l’attrito iniziale.",
+          "Approfondire integrazione IGDB con ingest sync, segmentazione dati, fallback discover e controlli più chiari sulla qualità catalogo.",
+          "Rafforzare le operazioni produzione con credenziali bootstrap più sicure, documentazione aggiornata e procedure release più affidabili."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Aggiungere feedback e bug report contestuali per ricevere segnalazioni di pagina più tracciabili.",
+          "Introdurre nuovi widget statistiche che trasformino i dati libreria in insight personali più utili.",
+          "Aggiungere configurazione per singolo widget su dati mostrati, livello dettaglio e controlli di visualizzazione."
+        ]
+      }
+    }
+  }
+}

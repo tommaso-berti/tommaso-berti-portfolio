@@ -1,0 +1,108 @@
+{
+  "title": "Logra",
+  "description": "Personal gaming library app shaped around backlog decisions, progress tracking, release dates, and reliable demo operations.",
+  "details": {
+    "introduction": {
+      "title": "Logra",
+      "description": [
+        "Logra started from a practical need: I wanted a gaming library that matched how I actually decide what to play, track progress, manage backlog state, and follow upcoming releases.",
+        "The platform combines a workflow-driven UI with IGDB-backed catalog data, controlled ingest/sync flows, demo-safe operations, and explicit data credits so the product stays usable and operationally trustworthy."
+      ]
+    },
+    "lessons_learned": [
+      "A workflow-driven UI improves daily usability far more than visual polish alone.",
+      "Keeping shared contracts, API logic, and frontend components clearly separated makes fast iteration safer.",
+      "Automating deploy, seed, and environment reset flows significantly reduces manual mistakes and keeps public demos reliable.",
+      "AI is most effective when applied to focused phases (GUI design, operational scripting, bootstrap workflows) with final human technical review."
+    ],
+    "technologies": {
+      "react": {
+        "description": "React powers reusable cards, filters, detail panels, guided tours, and settings surfaces that support frequent library interactions."
+      },
+      "vite": {
+        "description": "Vite keeps frontend iteration fast while tuning dense UI states such as filters, edit mode, overlays, and dashboard widgets."
+      },
+      "react-router": {
+        "description": "React Router organizes scoped navigation across dashboard, discover, library, wishlist, stats, settings, and onboarding flows."
+      },
+      "mui": {
+        "description": "MUI provides theme tokens and accessible primitives for a dense operational UI that still needs to stay readable."
+      },
+      "nodejs": {
+        "description": "Node.js runs API and operational scripts for seed, reset, migration, and sync tasks, keeping local and production workflows aligned."
+      },
+      "caddy": {
+        "description": "Caddy handles HTTPS reverse proxy and VPS publication, simplifying production routing between frontend and API services."
+      },
+      "github": {
+        "description": "GitHub keeps feature evolution, release history, and operational changes traceable across a full-stack codebase."
+      },
+      "github-actions": {
+        "description": "GitHub Actions automates deploys and controlled maintenance tasks such as demo resets, release notes, and data sync operations."
+      },
+      "webstorm": {
+        "description": "WebStorm supports debugging and refactoring across web, API, shared contracts, and operational scripts."
+      },
+      "codex": {
+        "description": "Codex/ChatGPT accelerates GUI iteration, scripts, and operational procedures while final architecture decisions remain manually reviewed."
+      },
+      "typescript": {
+        "description": "TypeScript protects shared contracts across web, API, and packages, reducing payload drift during fast feature work."
+      },
+      "fastify": {
+        "description": "Fastify structures modular API routes, session auth, validation, and low-overhead request handling for library operations."
+      },
+      "i18next": {
+        "description": "react-i18next centralizes IT/EN copy for onboarding, feedback, settings, and dynamic game-library states."
+      },
+      "mongodb": {
+        "description": "MongoDB stores users, sessions, gaming collections, and operational metadata with migration/index flows for long-term maintenance."
+      },
+      "igdb": {
+        "description": "IGDB supplies catalog metadata through controlled ingest, discover fallback, and user-triggered materialization flows."
+      },
+      "zod": {
+        "description": "Zod validates runtime contracts between frontend and API so settings, onboarding, and library payloads fail predictably."
+      },
+      "tanstack-query": {
+        "description": "TanStack Query coordinates client caching, mutations, and invalidation so library and wishlist updates stay responsive."
+      },
+      "framer-motion": {
+        "description": "Framer Motion handles card, overlay, and detail transitions while preserving control in dense edit and guided-tour flows."
+      }
+    },
+    "difficulties_faced": [
+      "Stabilizing multi-step guided tours (overlay, spotlight, target fallback) without blocking critical guided interactions.",
+      "Keeping frontend and API aligned on shared contracts (settings, onboarding, preferences) during fast iteration cycles.",
+      "Managing demo seed/reset flows, migrations, and legacy collection cleanup without impacting public demo reliability.",
+      "Balancing dense card information with a fast UX, especially in edit mode, filters, and quick-action flows.",
+      "Maintaining UX quality and operational stability across local environments, CI/CD, and versioned VPS deployments."
+    ],
+    "roadmap": {
+      "v1": {
+        "title": "v1.0.0",
+        "content": [
+          "Release the core product with demo login, game-library management, status/progress tracking, favorites, and multi-section navigation.",
+          "Introduce profile and appearance settings plus scope release gating so future feature areas can evolve modularly.",
+          "Create operational foundations for seed, bootstrap, and shared demo lifecycle management."
+        ]
+      },
+      "v2": {
+        "title": "v2.0.0",
+        "content": [
+          "Expand onboarding with multi-page guided tours and contextual card/edit-mode tours to reduce adoption friction.",
+          "Deepen IGDB integration with ingest sync, data segmentation, discover fallback, and clearer catalog quality controls.",
+          "Harden production operations with safer bootstrap credentials, updated docs, and more reliable release procedures."
+        ]
+      },
+      "v3": {
+        "title": "v3.0.0",
+        "content": [
+          "Add contextual feedback and bug reporting so page-level issues arrive with better traceability.",
+          "Introduce new stats widgets that turn library data into more useful personal insight.",
+          "Add per-widget configuration for shown data, detail level, and dedicated display controls."
+        ]
+      }
+    }
+  }
+}

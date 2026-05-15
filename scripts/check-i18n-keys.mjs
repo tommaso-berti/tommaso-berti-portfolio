@@ -1,7 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const PAGES_SECTIONS = ["home", "contact", "about", "projects", "blog", "cv"];
+const PAGES_SECTIONS = ["home", "contact", "about", "blog", "cv"];
+const PROJECT_IDS = ["codexpane", "ecommerce-rest-api", "artap", "portfolio", "logra"];
 
 function collectLeafPaths(node, basePath = "", output = []) {
     if (node && typeof node === "object" && !Array.isArray(node)) {
@@ -20,15 +21,38 @@ function readJson(filePath) {
     return JSON.parse(readFileSync(filePath, "utf8"));
 }
 
+function loadProjectsSection(localeDir) {
+    const projectsDir = join(localeDir, "pages", "projects");
+    if (existsSync(join(localeDir, "pages", "projects.json"))) {
+        return readJson(join(localeDir, "pages", "projects.json"));
+    }
+
+    if (!existsSync(projectsDir)) {
+        throw new Error(`Missing projects locale at ${projectsDir}`);
+    }
+
+    const shared = readJson(join(projectsDir, "shared.json"));
+    const merged = { ...shared };
+
+    for (const id of PROJECT_IDS) {
+        merged[id] = readJson(join(projectsDir, `${id}.json`));
+    }
+
+    return merged;
+}
+
 function loadPagesNamespace(localeDir) {
     const pagesDir = join(localeDir, "pages");
     if (!existsSync(pagesDir)) {
         return readJson(join(localeDir, "pages.json"));
     }
 
-    return Object.fromEntries(
+    const sections = Object.fromEntries(
         PAGES_SECTIONS.map((section) => [section, readJson(join(pagesDir, `${section}.json`))])
     );
+
+    sections.projects = loadProjectsSection(localeDir);
+    return sections;
 }
 
 function loadLocaleTree(localeDir) {

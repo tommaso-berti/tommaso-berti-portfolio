@@ -167,7 +167,7 @@ export const projects = [
         overlineKey: "side_project_overline",
         titleKey: "ecommerce-rest-api.title",
         descriptionKey: "ecommerce-rest-api.description",
-        reversed: true,
+        reversed: false,
         primaryAction: { labelKey: "primaryAction", path: "ecommerce-rest-api" },
         secondaryAction: {
             labelKey: "secondaryAction",

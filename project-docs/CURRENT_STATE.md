@@ -1,0 +1,18 @@
+# CURRENT STATE
+
+Snapshot as of 2026-05-15.
+
+## Confirmed
+- `AGENTS.md` is now present in repo root.
+- `project-docs/` memory docs are now present.
+- App stack and scripts in `package.json` are aligned with README.
+- Route/breadcrumb source is centralized in `src/app/routing/appDefinitions.js`.
+- Release-note and static-data pipelines exist in scripts and GitHub workflows.
+
+## Known Gaps
+- No explicit automated test suite (unit/integration/e2e) found in tracked layout.
+- Some `.DS_Store` files are tracked in source folders.
+
+## Operational Notes
+- `npm run lint` and `npm run i18n:check` are the main quick safety checks.
+- `npm run data:refresh` regenerates static JSON consumed at runtime.

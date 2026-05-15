@@ -1,12 +1,12 @@
 import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
-import {useTranslation} from "../../hooks/useTranslation.js";
+import {useTranslation} from "react-i18next";
 
 export default function Blog() {
-    const { t } = useTranslation('pages.blog');
+    const { t } = useTranslation("pages", { keyPrefix: "blog" });
     const baseStatus = t('work_in_progress', { count: 1, defaultValue: 'Work in progress' });
     const statusLabel = t('work_in_progress_label', {
-        values: { status: baseStatus },
+        status: baseStatus,
         defaultValue: baseStatus,
     });
 

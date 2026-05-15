@@ -46,4 +46,4 @@ System-level notes for the portfolio application.
 ## Constraints and Trade-Offs
 - No server runtime in this repo; data is expected from static artifacts.
 - Release note quality depends on workflow execution and metadata quality.
-- i18n key consistency is a strict requirement across `src/i18n/en.json` and `src/i18n/it.json`.
+- i18n key consistency is a strict requirement across `src/i18n/locales/en/*.json` and `src/i18n/locales/it/*.json`.

@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi sono",
+    "blog": "Blog",
+    "contact": "Contatti",
+    "cv": "CV"
+  }
+}

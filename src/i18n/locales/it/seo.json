@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "home": {
+      "title": "Tommaso Berti | Portfolio Software Developer",
+      "description": "Portfolio di Tommaso Berti, Software Developer: progetti frontend, competenze tecniche e contatti professionali."
+    },
+    "projects": {
+      "title": "Progetti | Tommaso Berti",
+      "description": "Selezione di progetti web e frontend con panoramica tecnica, stack utilizzato e obiettivi di sviluppo."
+    },
+    "projectDetail": {
+      "title": "Dettaglio Progetto | Tommaso Berti",
+      "description": "Approfondimento tecnico del progetto: contesto, scelte implementative, risultati e roadmap evolutiva."
+    },
+    "about": {
+      "title": "Chi Sono | Tommaso Berti",
+      "description": "Profilo professionale, esperienza, competenze tecniche e percorso formativo di Tommaso Berti."
+    },
+    "contact": {
+      "title": "Contatti | Tommaso Berti",
+      "description": "Contatta Tommaso Berti per collaborazioni, progetti e opportunita professionali."
+    },
+    "blog": {
+      "title": "Blog | Tommaso Berti",
+      "description": "Spazio dedicato a contenuti tecnici, aggiornamenti professionali e note di sviluppo."
+    },
+    "fallback": {
+      "title": "Tommaso Berti | Portfolio",
+      "description": "Portfolio professionale di Tommaso Berti, Software Developer."
+    },
+    "cv": {
+      "title": "CV | Tommaso Berti",
+      "description": "CV interattivo di Tommaso Berti con esportazione PDF e impaginazione orientata ai recruiter."
+    }
+  }
+}

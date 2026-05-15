@@ -25,8 +25,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import profilePicture from "../../assets/images/profilepicture.jpeg";
 
-import { useTranslation } from "../../hooks/useTranslation.js";
-import { useLanguage } from "../../contexts/LanguageContext.jsx";
+import { useTranslation } from "react-i18next";
 import { formatIssuedAt } from "../../features/certifications/certifications.utils.js";
 import {
     getCvCertifications,
@@ -44,8 +43,8 @@ import { getStaticCvPdfPath } from "./cvPdf.utils.js";
  */
 
 export default function Cv() {
-    const { t } = useTranslation();
-    const { language } = useLanguage();
+    const { t, i18n } = useTranslation("pages");
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
 
     /** @type {[CvControlsState, import("react").Dispatch<import("react").SetStateAction<CvControlsState>>]} */
     const [controls, setControls] = useState({
@@ -61,7 +60,7 @@ export default function Cv() {
     const spokenLanguages = getCvLanguages(language);
 
     const experiences = useMemo(() => {
-        const fromAbout = t("pages.about.experience.experiences", {
+        const fromAbout = t("about.experience.experiences", {
             returnObjects: true,
             defaultValue: [],
         });
@@ -303,7 +302,7 @@ export default function Cv() {
                                 if (!value) return;
                                 setControls((previous) => ({ ...previous, density: value }));
                             }}
-                            aria-label={t("pages.cv.densityLabel")}
+                            aria-label={t("cv.densityLabel")}
                             sx={{
                                 borderRadius: "999px",
                                 overflow: "hidden",
@@ -343,8 +342,8 @@ export default function Cv() {
                                 },
                             }}
                         >
-                            <ToggleButton value="full">{t("pages.cv.full")}</ToggleButton>
-                            <ToggleButton value="compact">{t("pages.cv.compact")}</ToggleButton>
+                            <ToggleButton value="full">{t("cv.full")}</ToggleButton>
+                            <ToggleButton value="compact">{t("cv.compact")}</ToggleButton>
                         </ToggleButtonGroup>
 
                         <FormControlLabel
@@ -359,7 +358,7 @@ export default function Cv() {
                                     }}
                                 />
                             }
-                            label={<Typography noWrap variant="body1">{t("pages.cv.showExperience")}</Typography>}
+                            label={<Typography noWrap variant="body1">{t("cv.showExperience")}</Typography>}
                             sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
                         />
 
@@ -375,7 +374,7 @@ export default function Cv() {
                                     }}
                                 />
                             }
-                            label={<Typography noWrap variant="body1">{t("pages.cv.showProjects")}</Typography>}
+                            label={<Typography noWrap variant="body1">{t("cv.showProjects")}</Typography>}
                             sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
                         />
 
@@ -391,7 +390,7 @@ export default function Cv() {
                                     }}
                                 />
                             }
-                            label={<Typography noWrap variant="body1">{t("pages.cv.showCertifications")}</Typography>}
+                            label={<Typography noWrap variant="body1">{t("cv.showCertifications")}</Typography>}
                             sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
                         />
                     </Stack>
@@ -408,12 +407,12 @@ export default function Cv() {
                                 startIcon={<DownloadRoundedIcon />}
                                 onClick={() => window.print()}
                                 endIcon={
-                                    <Tooltip title={t("pages.cv.dynamicPdfInfoTooltip")} arrow>
+                                    <Tooltip title={t("cv.dynamicPdfInfoTooltip")} arrow>
                                         <Box
                                             component="span"
                                             role="button"
                                             tabIndex={0}
-                                            aria-label={t("pages.cv.dynamicPdfInfoTooltip")}
+                                            aria-label={t("cv.dynamicPdfInfoTooltip")}
                                             onClick={(event) => {
                                                 event.preventDefault();
                                                 event.stopPropagation();
@@ -451,7 +450,7 @@ export default function Cv() {
                                 }
                                 sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                             >
-                                {t("pages.cv.downloadPdfCurrentView")}
+                                {t("cv.downloadPdfCurrentView")}
                             </Button>
                             <Button
                                 component="a"
@@ -463,7 +462,7 @@ export default function Cv() {
                                 startIcon={<DescriptionRoundedIcon />}
                                 sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                             >
-                                {t("pages.cv.downloadStaticPdf")}
+                                {t("cv.downloadStaticPdf")}
                             </Button>
                         </Stack>
                     </Stack>
@@ -587,7 +586,7 @@ export default function Cv() {
                     <Divider />
 
                     <Stack data-cv-section spacing={0.8}>
-                        <Typography variant="h5">{t("pages.cv.summary")}</Typography>
+                        <Typography variant="h5">{t("cv.summary")}</Typography>
                         <Typography variant="body1" color="text.secondary" sx={{ lineHeight: isCompact ? 1.58 : 1.72 }}>
                             {isCompact ? profile.compactSummary : profile.summary}
                         </Typography>
@@ -595,7 +594,7 @@ export default function Cv() {
 
                     {controls.showExperience ? (
                         <Stack data-cv-section spacing={1}>
-                            <Typography variant="h5">{t("pages.cv.experience")}</Typography>
+                            <Typography variant="h5">{t("cv.experience")}</Typography>
                             <Stack spacing={0.95}>
                                 {experiences.map((item) => (
                                     <Box key={`${item.year}-${item.title}`} sx={{ breakInside: "avoid" }}>
@@ -627,12 +626,12 @@ export default function Cv() {
                     ) : null}
 
                     <Stack data-cv-section spacing={1}>
-                        <Typography variant="h5">{t("pages.cv.skills")}</Typography>
+                        <Typography variant="h5">{t("cv.skills")}</Typography>
                         <Stack spacing={0.8}>
                             {skillGroups.map((group) => (
                                 <Box key={group.titleKey}>
                                     <Typography variant="subtitle2" sx={{ mb: 0.5 }}>
-                                        {t(`pages.about.tech-skills.${group.titleKey}`, {
+                                        {t(`about.tech-skills.${group.titleKey}`, {
                                             defaultValue: group.titleKey,
                                         })}
                                     </Typography>
@@ -648,7 +647,7 @@ export default function Cv() {
 
                     {controls.showProjects ? (
                         <Stack data-cv-section spacing={0.9}>
-                            <Typography variant="h5">{t("pages.cv.selectedProjects")}</Typography>
+                            <Typography variant="h5">{t("cv.selectedProjects")}</Typography>
                             <Stack spacing={0.9}>
                                 {projects.map((project) => (
                                     <Box key={project.id}>
@@ -706,7 +705,7 @@ export default function Cv() {
 
                     {controls.showCertifications ? (
                         <Stack data-cv-section spacing={0.9}>
-                            <Typography variant="h5">{t("pages.cv.certifications")}</Typography>
+                            <Typography variant="h5">{t("cv.certifications")}</Typography>
                             <Stack spacing={0.75}>
                                 {visibleCertifications.map((certification) => (
                                     <Stack
@@ -722,7 +721,7 @@ export default function Cv() {
                                                 {certification.title}
                                             </Typography>
                                             <Typography variant="caption" color="text.secondary">
-                                                {`${certification.platform} · ${t(`pages.about.certifications.status.${certification.status}`, { defaultValue: certification.status })}`}
+                                                {`${certification.platform} · ${t(`about.certifications.status.${certification.status}`, { defaultValue: certification.status })}`}
                                             </Typography>
                                         </Stack>
                                         <Stack data-cv-cert-meta direction="row" spacing={0.85} alignItems="center">
@@ -763,7 +762,7 @@ export default function Cv() {
                                                     },
                                                 }}
                                             >
-                                                {t("pages.cv.verify")}
+                                                {t("cv.verify")}
                                             </Link>
                                         </Stack>
                                     </Stack>
@@ -773,7 +772,7 @@ export default function Cv() {
                     ) : null}
 
                     <Stack data-cv-section data-cv-section-splittable spacing={0.9}>
-                        <Typography variant="h5">{t("pages.cv.educationAndLanguages")}</Typography>
+                        <Typography variant="h5">{t("cv.educationAndLanguages")}</Typography>
                         <Box
                             sx={{
                                 display: "grid",

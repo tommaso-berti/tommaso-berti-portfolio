@@ -12,10 +12,10 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineOppositeContent, {
     timelineOppositeContentClasses,
 } from "@mui/lab/TimelineOppositeContent";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 
 export default function CareerTimeline() {
-    const { t } = useTranslation("pages.about.experience");
+    const { t } = useTranslation("pages", { keyPrefix: "about.experience" });
     const experiences = t("experiences", { returnObjects: true }) || [];
     const orderedExperiences = [...experiences].reverse();
 

@@ -6,13 +6,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import DescriptionIcon from '@mui/icons-material/Description';
-import { useLanguage } from "../../contexts/LanguageContext.jsx";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { getStaticCvPdfPath } from "../../pages/cv/cvPdf.utils.js";
 
 export default function Footer() {
-    const { t } = useTranslation();
-    const { language } = useLanguage();
+    const { t, i18n } = useTranslation("pages", { keyPrefix: "home" });
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const staticCvPdfPath = getStaticCvPdfPath(language);
     return (
         <Container
@@ -91,7 +90,7 @@ export default function Footer() {
                         <EmailIcon fontSize="inherit"/>
                     </IconButton>
                 </Tooltip>
-                <Tooltip title={t('pages.home.tooltipResume')}>
+                <Tooltip title={t('tooltipResume')}>
                     <IconButton
                         aria-label="PDF"
                         component="a"

@@ -9,7 +9,7 @@ Personal portfolio SPA built with React, Vite and MUI.
 - MUI 7 (`@mui/material`, `@mui/icons-material`)
 - Vite (rolldown-vite)
 - ESLint 9
-- i18n dictionaries (`en.json`, `it.json`)
+- i18n with `i18next` + `react-i18next` (`src/i18n/locales/en/*.json`, `src/i18n/locales/it/*.json`)
 
 ## Local Setup
 
@@ -23,7 +23,7 @@ Personal portfolio SPA built with React, Vite and MUI.
 - `npm run build`: create production build in `dist/`
 - `npm run preview`: preview production build locally
 - `npm run lint`: run ESLint checks
-- `npm run i18n:check`: verify key alignment between `src/i18n/en.json` and `src/i18n/it.json`
+- `npm run i18n:check`: verify key alignment between `src/i18n/locales/en/*.json` and `src/i18n/locales/it/*.json`
 
 ## Main Features
 

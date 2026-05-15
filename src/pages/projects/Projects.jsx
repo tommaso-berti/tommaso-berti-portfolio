@@ -1,6 +1,6 @@
 import Stack from "@mui/material/Stack";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import ProjectsPreview from "./components/ProjectsPreview.jsx";
 import MiniWebappPreview from "./components/MiniWebappPreview.jsx";
@@ -15,7 +15,7 @@ import {
 const ExercisesSection = lazy(() => import("./components/ExercisesSection.jsx"));
 
 export default function Projects() {
-    const { t } = useTranslation("pages.projects");
+    const { t } = useTranslation("pages", { keyPrefix: "projects" });
     const [tab, setTab] = useState("all");
     const [hasPracticeMounted, setHasPracticeMounted] = useState(false);
 

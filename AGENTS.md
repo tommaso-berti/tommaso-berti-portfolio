@@ -27,7 +27,7 @@ Instructions for Codex and other agents working in this repository.
 - `npm run build`: create production build in `dist/`.
 - `npm run preview`: preview the production build locally.
 - `npm run lint`: run ESLint checks.
-- `npm run i18n:check`: validate key alignment between `src/i18n/en.json` and `src/i18n/it.json`.
+- `npm run i18n:check`: validate key alignment between `src/i18n/locales/en/*.json` and `src/i18n/locales/it/*.json`.
 - `npm run data:refresh`: refresh static snapshots in `public/data`.
 
 ## Validation Rules
@@ -41,7 +41,7 @@ Instructions for Codex and other agents working in this repository.
 - `src/app/`: app providers, routing, layout shell, SEO/meta helpers.
 - `src/app/layout/`: header, footer, navigation toggles, release notes modal, layout wrappers.
 - `src/app/routing/appDefinitions.js`: pages, route definitions, breadcrumb contexts.
-- `src/contexts/`: language, theme, breadcrumb providers.
+- `src/contexts/`: theme and breadcrumb providers.
 - `src/features/`: shared cross-page UI features.
 - `src/pages/`: route-level pages and page-specific modules.
 - `src/pages/projects/projectsPages/`: project catalog, detail sections, selectors, technology config.
@@ -83,7 +83,7 @@ Instructions for Codex and other agents working in this repository.
 - Avoid unrelated visual redesigns while implementing functional changes.
 
 ## i18n and Content Rules
-- This portfolio is bilingual; every user-facing copy change must be represented in both `src/i18n/en.json` and `src/i18n/it.json`.
+- This portfolio is bilingual; every user-facing copy change must be represented in both `src/i18n/locales/en/` and `src/i18n/locales/it/`.
 - Keep translation keys aligned; validate with `npm run i18n:check`.
 - Avoid hard-coded user-facing strings in components unless they are already local, technical fallback text.
 - Project descriptions should follow `project-docs/PROJECT_WRITING_GUIDE.md`.

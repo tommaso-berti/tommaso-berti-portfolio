@@ -1,4 +1,4 @@
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -48,7 +48,7 @@ const CERT_TECH_TOOLTIP_SLOT_PROPS = {
 };
 
 export default function Home() {
-    const { t } = useTranslation("pages.home");
+    const { t } = useTranslation("pages", { keyPrefix: "home" });
     const hero = t("hero", { returnObjects: true });
     const heroParagraphs = Array.isArray(hero) ? hero : [];
     const outlinedActionButtonSx = {
@@ -252,7 +252,8 @@ export default function Home() {
                                                 >
                                                     <ButtonBase
                                                         aria-label={t("certifications.moreTechAria", {
-                                                            values: { count: hiddenIconsCount, title: cert.title },
+                                                            count: hiddenIconsCount,
+                                                            title: cert.title,
                                                         })}
                                                         sx={{
                                                             width: 22,

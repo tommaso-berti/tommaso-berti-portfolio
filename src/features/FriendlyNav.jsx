@@ -3,7 +3,7 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { PAGE_DEFINITIONS } from "../app/routing/appDefinitions.js";
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 
 function isTopLevelPage(page) {
     if (!page?.component) return false;
@@ -25,7 +25,7 @@ export default function FriendlyNav() {
     const navItems = PAGE_DEFINITIONS.filter(isTopLevelPage).map((page) => ({
         id: page.id,
         path: page.path,
-        label: t(`nav.${page.navKey}`, page.id),
+        label: t(`common:nav.${page.navKey}`, { defaultValue: page.id }),
     }));
 
     return (

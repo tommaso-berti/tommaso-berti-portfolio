@@ -12,14 +12,13 @@ import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import { Link as RouterLink } from "react-router-dom";
-import { useLanguage } from "../../contexts/LanguageContext.jsx";
 import { getStaticCvPdfPath } from "../cv/cvPdf.utils.js";
 
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
-    const { t } = useTranslation("pages.contact");
-    const { language } = useLanguage();
+    const { t, i18n } = useTranslation("pages", { keyPrefix: "contact" });
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const staticCvPdfPath = getStaticCvPdfPath(language);
     const secondaryActions = [
         {

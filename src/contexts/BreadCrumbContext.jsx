@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo } from "react";
 
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { BREADCRUMB_CONTEXT_DEFINITIONS } from "../app/routing/appDefinitions.js";
 
 const BreadCrumbContext = createContext(null);
@@ -17,7 +17,12 @@ export function BreadCrumbProvider({ children }) {
                         type: definition.type,
                         items: definition.items.map((item) => ({
                             id: item.id,
-                            title: t(item.titleKey, item.fallback ?? item.id),
+                            title: t(
+                                item.titleKey.startsWith("nav.")
+                                    ? `common:${item.titleKey}`
+                                    : `pages:${item.titleKey}`,
+                                { defaultValue: item.fallback ?? item.id }
+                            ),
                         })),
                     },
                 ])

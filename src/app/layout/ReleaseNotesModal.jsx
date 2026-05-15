@@ -25,9 +25,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { APP_VERSION } from "../../lib/version.js";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes.js";
-import { useLanguage } from "../../contexts/LanguageContext.jsx";
 
 function formatDate(value) {
     if (!value) return "";
@@ -122,8 +121,8 @@ function MarkdownPanel({ markdown }) {
 }
 
 export default function ReleaseNotesModal({ open, onClose }) {
-    const { t } = useTranslation("releaseNotes");
-    const { language } = useLanguage();
+    const { t, i18n } = useTranslation("releaseNotes");
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const { data, isLoading, error, refetch } = useLatestReleaseNotes(open);
     const [expandedTag, setExpandedTag] = useState("");
 
@@ -186,7 +185,7 @@ export default function ReleaseNotesModal({ open, onClose }) {
             <DialogContent dividers sx={{ overflowY: "auto" }}>
                 <Stack spacing={2}>
                     <Typography variant="body2" color="text.secondary">
-                        {t("version_label", { values: { version: visibleVersion } })}
+                        {t("version_label", { version: visibleVersion })}
                     </Typography>
 
                     {isLoading && (

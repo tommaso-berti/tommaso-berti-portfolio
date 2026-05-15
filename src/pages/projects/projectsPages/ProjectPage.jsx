@@ -9,7 +9,7 @@ import RoadmapSection from "./RoadmapSection.jsx";
 import DifficultiesFacedSection from "./DifficultiesFacedSection.jsx";
 import SearchMechanicsSection from "./SearchMechanicsSection.jsx";
 import LessonsLearnedSection from "./LessonsLearnedSection.jsx";
-import { useTranslation } from "../../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import {
     buildProjectDetailsModel,
     getProjectById,
@@ -105,8 +105,8 @@ function renderParagraphWithLinks(text) {
 
 export default function ProjectPage() {
     const { project } = useParams();
-    const { t: tProject } = useTranslation(`pages.projects.${project}.details`);
-    const { t: tProjects } = useTranslation("pages.projects");
+    const { t: tProject } = useTranslation("pages", { keyPrefix: `projects.${project}.details` });
+    const { t: tProjects } = useTranslation("pages", { keyPrefix: "projects" });
 
     const projectConfig = getProjectById(project);
 
@@ -114,7 +114,7 @@ export default function ProjectPage() {
         return (
             <Stack component="article">
                 <Typography variant="h3">
-                    {tProjects("project_not_found", "Project not found")}
+                    {tProjects("project_not_found", { defaultValue: "Project not found" })}
                 </Typography>
             </Stack>
         );

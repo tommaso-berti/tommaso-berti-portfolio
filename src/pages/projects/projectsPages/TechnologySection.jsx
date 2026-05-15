@@ -9,12 +9,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
-import { useTranslation } from "../../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { getBrandIconDefinition } from "../../../config/brandIcons.js";
 
 export default function TechnologySection({ technologies = [] }) {
     const [tab, setTab] = useState("all");
-    const { t } = useTranslation(`pages.projects`);
+    const { t } = useTranslation("pages", { keyPrefix: "projects" });
 
 
     if (!technologies.length) return null;

@@ -2,10 +2,10 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import profilePic from "../../assets/images/profilepicture.jpeg";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 
 export default function Bio() {
-    const { t } = useTranslation('pages.about.bio');
+    const { t } = useTranslation("pages", { keyPrefix: "about.bio" });
 
     return (
         <Stack

@@ -9,7 +9,7 @@ import {
     InputBase
 } from "@mui/material";
 import IconMenu from "./components/IconMenu.jsx";
-import { useTranslation } from "../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { useBreadcrumb } from "../contexts/BreadCrumbContext.jsx";
 import {
     getBreadcrumbContextBasePath,
@@ -36,10 +36,10 @@ function getTranslatedLabel(id, t) {
     const normalizedId = normalizeSegment(id);
     if (!normalizedId) return "";
 
-    const navLabel = t(`nav.${normalizedId}`, { defaultValue: MISSING });
+    const navLabel = t(`common:nav.${normalizedId}`, { defaultValue: MISSING });
     if (navLabel !== MISSING) return navLabel.toLowerCase();
 
-    const projectLabel = t(`pages.projects.${normalizedId}.title`, { defaultValue: MISSING });
+    const projectLabel = t(`pages:projects.${normalizedId}.title`, { defaultValue: MISSING });
     if (projectLabel !== MISSING) return projectLabel.toLowerCase();
 
     return prettifyId(normalizedId).toLowerCase();

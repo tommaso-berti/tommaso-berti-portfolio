@@ -1,5 +1,5 @@
-import it from "../src/i18n/it.json" with { type: "json" };
-import en from "../src/i18n/en.json" with { type: "json" };
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 function collectLeafPaths(node, basePath = "", output = []) {
     if (node && typeof node === "object" && !Array.isArray(node)) {
@@ -13,6 +13,20 @@ function collectLeafPaths(node, basePath = "", output = []) {
     output.push(basePath);
     return output;
 }
+
+function loadLocaleTree(localeDir) {
+    const files = readdirSync(localeDir).filter((entry) => entry.endsWith(".json"));
+    return Object.fromEntries(
+        files.map((fileName) => {
+            const namespace = fileName.replace(/\.json$/u, "");
+            const parsed = JSON.parse(readFileSync(join(localeDir, fileName), "utf8"));
+            return [namespace, parsed];
+        })
+    );
+}
+
+const it = loadLocaleTree(join(process.cwd(), "src/i18n/locales/it"));
+const en = loadLocaleTree(join(process.cwd(), "src/i18n/locales/en"));
 
 const itPaths = collectLeafPaths(it);
 const enPaths = collectLeafPaths(en);

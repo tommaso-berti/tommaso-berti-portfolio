@@ -1,4 +1,4 @@
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
@@ -60,7 +60,7 @@ function SkillCard({ label, iconId }) {
 }
 
 export default function TechSkills() {
-    const { t } = useTranslation("pages.about.tech-skills");
+    const { t } = useTranslation("pages", { keyPrefix: "about.tech-skills" });
 
     return (
         <Stack

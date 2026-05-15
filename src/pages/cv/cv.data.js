@@ -179,12 +179,12 @@ export function getCvProjects(t) {
         .slice(0, 2)
         .map((item) => ({
             id: item.id,
-            title: t(`pages.projects.${item.id}.title`),
-            description: t(`pages.projects.${item.id}.description`),
+            title: t(`projects.${item.id}.title`),
+            description: t(`projects.${item.id}.description`),
             url: item.secondaryAction?.href || item.githubHref || "",
             label: item.secondaryAction?.href
-                ? t("pages.cv.projectLive")
-                : t("pages.cv.projectRepo"),
+                ? t("cv.projectLive")
+                : t("cv.projectRepo"),
         }));
 }
 

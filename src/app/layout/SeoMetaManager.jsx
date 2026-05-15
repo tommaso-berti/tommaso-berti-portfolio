@@ -1,8 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 
-import { useTranslation } from "../../hooks/useTranslation.js";
-import { useLanguage } from "../../contexts/LanguageContext.jsx";
+import { useTranslation } from "react-i18next";
 
 const SITE_URL = "https://www.tommasoberti.com";
 const SITE_NAME = "Tommaso Berti";
@@ -51,8 +50,8 @@ function resolveRouteKey(pathname) {
 
 export default function SeoMetaManager() {
     const { pathname } = useLocation();
-    const { language } = useLanguage();
-    const { t } = useTranslation("seo");
+    const { t, i18n } = useTranslation("seo");
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
 
     const routeKey = useMemo(() => resolveRouteKey(pathname), [pathname]);
 

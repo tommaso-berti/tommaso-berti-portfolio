@@ -16,14 +16,13 @@ import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import CallSplitRoundedIcon from "@mui/icons-material/CallSplitRounded";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
-import { useTranslation } from "../../../hooks/useTranslation.js";
-import { useLanguage } from "../../../contexts/LanguageContext.jsx";
+import { useTranslation } from "react-i18next";
 import { getLanguageColor, getStaticExerciseDescription } from "./exercises.utils.js";
 import { useExercisesData } from "./useExercisesData.js";
 
 export default function ExercisesSection({ isActive }) {
-    const { t } = useTranslation("pages.projects");
-    const { language } = useLanguage();
+    const { t, i18n } = useTranslation("pages", { keyPrefix: "projects" });
+    const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const { items, isLoading, hasMore, error, hasInitialized, onLoadMore } =
         useExercisesData(isActive);
 

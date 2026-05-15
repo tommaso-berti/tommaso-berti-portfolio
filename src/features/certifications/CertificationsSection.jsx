@@ -5,7 +5,7 @@ import Chip from "@mui/material/Chip";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 import { CERTIFICATIONS } from "./certifications.data.js";
 import { formatIssuedAt, groupCertificationsByArea } from "./certifications.utils.js";
 import { getCertificationIconDefinitions } from "./certificationIcons.js";
@@ -48,7 +48,7 @@ const CERT_TECH_TOOLTIP_SLOT_PROPS = {
 };
 
 export default function CertificationsSection() {
-    const { t } = useTranslation("pages.about.certifications");
+    const { t } = useTranslation("pages", { keyPrefix: "about.certifications" });
     const groups = groupCertificationsByArea(CERTIFICATIONS);
 
     const outlinedActionButtonSx = {
@@ -224,7 +224,8 @@ export default function CertificationsSection() {
                                                     >
                                                         <ButtonBase
                                                             aria-label={t("moreTechAria", {
-                                                                values: { count: hiddenIconsCount, title: cert.title },
+                                                                count: hiddenIconsCount,
+                                                                title: cert.title,
                                                             })}
                                                             sx={{
                                                                 width: 22,

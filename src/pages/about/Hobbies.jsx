@@ -1,9 +1,9 @@
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { useTranslation } from "../../hooks/useTranslation.js";
+import { useTranslation } from "react-i18next";
 
 export default function Hobbies() {
-    const { t } = useTranslation('pages.about.hobbies');
+    const { t } = useTranslation("pages", { keyPrefix: "about.hobbies" });
 
     return (
         <Stack id="hobbies" spacing={4} component="section" sx={{ marginTop: "3rem", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}>

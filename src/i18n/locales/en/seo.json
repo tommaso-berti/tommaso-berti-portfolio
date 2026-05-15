@@ -24,6 +24,10 @@
       "title": "Blog | Tommaso Berti",
       "description": "Space for technical content, professional updates, and development notes."
     },
+    "notFound": {
+      "title": "Page not found | Tommaso Berti",
+      "description": "The requested page could not be found on Tommaso Berti's portfolio."
+    },
     "fallback": {
       "title": "Tommaso Berti | Portfolio",
       "description": "Professional portfolio of Tommaso Berti, Software Developer."

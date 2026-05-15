@@ -7,6 +7,11 @@
     "contact": "Contact",
     "cv": "CV"
   },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or may have been moved.",
+    "backHome": "Back to home"
+  },
   "a11y": {
     "skipToContent": "Skip to main content",
     "toggleThemeLight": "Switch to light mode",

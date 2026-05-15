@@ -3,13 +3,15 @@ import ItFlag from "../../assets/icons/italy.png";
 import EnFlag from "../../assets/icons/united-kingdom.png";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
+import { ensureLanguageLoaded } from "../../i18n/index.js";
 
 export default function LanguageToggle() {
     const { i18n, t } = useTranslation("common");
     const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
 
     const handleLanguageSelect = () => {
-        void i18n.changeLanguage(language === "en" ? "it" : "en");
+        const nextLanguage = language === "en" ? "it" : "en";
+        void ensureLanguageLoaded(nextLanguage).then(() => i18n.changeLanguage(nextLanguage));
     };
 
     const label = language === "it"

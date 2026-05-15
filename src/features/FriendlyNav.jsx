@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 function isTopLevelPage(page) {
     if (!page?.component) return false;
     if (!page.navKey) return false;
+    if (page.showInNav === false) return false;
     if (!page.path) return false;
     if (page.path.includes(":") || page.path === "*") return false;
     return true;

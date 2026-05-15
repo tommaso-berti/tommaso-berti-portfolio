@@ -4,7 +4,7 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import profilePicture from "../../../assets/images/profilepicture.jpeg";
+import ProfileImage from "../../../features/ProfileImage.jsx";
 import { contactMetaSx } from "../cv.styles.js";
 
 /**
@@ -94,21 +94,22 @@ export default function CvHeaderSection({ profile }) {
                         alignSelf: "start",
                     }}
                 >
-                    <Box
-                        data-cv-photo
-                        component="img"
-                        src={profilePicture}
-                        alt="Tommaso Berti profile"
-                        sx={{
-                            width: { xs: 80, sm: 88, md: 112 },
-                            height: { xs: 80, sm: 88, md: 112 },
-                            borderRadius: "50%",
-                            objectFit: "cover",
-                            border: "1px solid",
-                            borderColor: "divider",
-                            boxShadow: 1,
-                        }}
-                    />
+                    <Box data-cv-photo>
+                        <ProfileImage
+                            alt="Tommaso Berti profile"
+                            width={112}
+                            height={112}
+                            sx={{
+                                width: { xs: 80, sm: 88, md: 112 },
+                                height: { xs: 80, sm: 88, md: 112 },
+                                "& img": {
+                                    border: "1px solid",
+                                    borderColor: "divider",
+                                    boxShadow: 1,
+                                },
+                            }}
+                        />
+                    </Box>
                 </Box>
             </Box>
         </Stack>

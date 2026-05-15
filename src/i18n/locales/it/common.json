@@ -7,6 +7,11 @@
     "contact": "Contatti",
     "cv": "CV"
   },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "description": "La pagina che stai cercando non esiste oppure è stata spostata.",
+    "backHome": "Torna alla home"
+  },
   "a11y": {
     "skipToContent": "Salta al contenuto principale",
     "toggleThemeLight": "Attiva modalità chiara",

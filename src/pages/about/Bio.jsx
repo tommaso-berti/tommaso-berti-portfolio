@@ -1,8 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import profilePic from "../../assets/images/profilepicture.jpeg";
 import { useTranslation } from "react-i18next";
+import ProfileImage from "../../features/ProfileImage.jsx";
 
 export default function Bio() {
     const { t } = useTranslation("pages", { keyPrefix: "about.bio" });
@@ -33,17 +32,7 @@ export default function Bio() {
                     alignItems: "center",
                 }}
             >
-                <Box
-                    component="img"
-                    src={profilePic}
-                    alt="Profile picture"
-                    sx={{
-                        width: 200,
-                        height: 200,
-                        borderRadius: "50%",
-                        objectFit: "cover"
-                    }}
-                />
+                <ProfileImage alt={t("profileAlt")} width={200} height={200} />
             </Stack>
         </Stack>
     )

@@ -24,6 +24,10 @@
       "title": "Blog | Tommaso Berti",
       "description": "Spazio dedicato a contenuti tecnici, aggiornamenti professionali e note di sviluppo."
     },
+    "notFound": {
+      "title": "Pagina non trovata | Tommaso Berti",
+      "description": "La pagina richiesta non è stata trovata nel portfolio di Tommaso Berti."
+    },
     "fallback": {
       "title": "Tommaso Berti | Portfolio",
       "description": "Portfolio professionale di Tommaso Berti, Software Developer."

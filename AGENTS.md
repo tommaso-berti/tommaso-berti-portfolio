@@ -29,6 +29,8 @@ Instructions for Codex and other agents working in this repository.
 - `npm run lint`: run ESLint checks.
 - `npm run i18n:check`: validate key alignment between `src/i18n/locales/en/*.json` and `src/i18n/locales/it/*.json`.
 - `npm run test`: run Vitest unit/smoke tests.
+- `npm run test:e2e`: run Playwright end-to-end tests (requires `npm run build` first in CI).
+- `npm run format`: format the repo with Prettier.
 - `npm run build:analyze`: production build with bundle visualization at `dist/bundle-stats.html`.
 - `npm run data:refresh`: refresh static snapshots in `public/data`.
 

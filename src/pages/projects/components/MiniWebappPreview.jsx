@@ -2,6 +2,7 @@ import { Card, Box, Modal, IconButton, Button, Typography, Stack, Tooltip } from
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { useState } from "react";
+import { useInViewport } from "../../../hooks/useInViewport.js";
 
 export default function MiniWebappPreview({
                                               url,
@@ -17,16 +18,20 @@ export default function MiniWebappPreview({
                                           }) {
     const [open, setOpen] = useState(false);
     const [inlineEnabled, setInlineEnabled] = useState(false);
+    const observeViewport = deferLoad && !inlineEnabled;
+    const { ref: viewportRef, isInViewport } = useInViewport({ enabled: observeViewport });
     const scaleInverse = 1 / scale;
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const handleEnableInline = () => setInlineEnabled(true);
-    const showInlineIframe = !deferLoad || inlineEnabled;
+    const showInlineIframe =
+        !deferLoad || (inlineEnabled && (observeViewport ? isInViewport : true));
 
     return (
         <>
             <Card
+                ref={viewportRef}
                 elevation={6}
                 sx={{
                     width,
@@ -83,15 +88,21 @@ export default function MiniWebappPreview({
                             <Typography variant="subtitle2" sx={{ fontWeight: 600, textAlign: "center" }}>
                                 {title}
                             </Typography>
-                            <Tooltip title={loadPreviewTooltip} arrow>
-                                <Button
-                                    variant="contained"
-                                    size="small"
-                                    onClick={handleEnableInline}
-                                >
-                                    {loadPreviewLabel}
-                                </Button>
-                            </Tooltip>
+                            {!isInViewport ? (
+                                <Typography variant="caption" color="text.secondary" textAlign="center">
+                                    {loadPreviewTooltip}
+                                </Typography>
+                            ) : (
+                                <Tooltip title={loadPreviewTooltip} arrow>
+                                    <Button
+                                        variant="contained"
+                                        size="small"
+                                        onClick={handleEnableInline}
+                                    >
+                                        {loadPreviewLabel}
+                                    </Button>
+                                </Tooltip>
+                            )}
                         </Stack>
                     )}
                 </Box>
@@ -120,6 +131,7 @@ export default function MiniWebappPreview({
                         className="expand-icon"
                         onClick={handleOpen}
                         size="small"
+                        aria-label={title}
                         sx={{
                             position: "absolute",
                             top: 8,
@@ -184,6 +196,7 @@ export default function MiniWebappPreview({
                         <IconButton
                             onClick={handleClose}
                             size="small"
+                            aria-label="Close preview"
                             sx={{
                                 position: "absolute",
                                 top: 8,

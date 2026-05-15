@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import i18n from "../../i18n/index.js";
 import { ensureProjectsNamespace } from "../../i18n/loadLocale.js";
+import { resolvePageDefinition } from "../routing/appDefinitions.js";
 
 const SITE_URL = "https://www.tommasoberti.com";
 const SITE_NAME = "Tommaso Berti";
@@ -62,7 +63,8 @@ function ensureAlternateLink(hreflang) {
     return tag;
 }
 
-function resolveRouteKey(pathname) {
+function resolveRouteKey(pathname, matchedPageId) {
+    if (matchedPageId === "not-found") return "notFound";
     const matched = ROUTE_META_KEYS.find((route) => route.match(pathname));
     return matched?.key || "fallback";
 }
@@ -78,7 +80,11 @@ export default function SeoMetaManager() {
     const { t: tPages } = useTranslation("pages");
     const language = i18nInstance.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const projectId = useMemo(() => resolveProjectId(pathname), [pathname]);
-    const routeKey = useMemo(() => resolveRouteKey(pathname), [pathname]);
+    const matchedPageId = useMemo(() => resolvePageDefinition(pathname)?.id, [pathname]);
+    const routeKey = useMemo(
+        () => resolveRouteKey(pathname, matchedPageId),
+        [matchedPageId, pathname]
+    );
 
     useEffect(() => {
         if (pathname.startsWith("/projects")) {

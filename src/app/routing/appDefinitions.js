@@ -10,6 +10,7 @@ const About = lazy(() => import("../../pages/about/About.jsx"));
 const Blog = lazy(() => import("../../pages/blog/Blog.jsx"));
 const Contact = lazy(() => import("../../pages/contact/Contact.jsx"));
 const Cv = lazy(() => import("../../pages/cv/Cv.jsx"));
+const NotFound = lazy(() => import("../../pages/not-found/NotFound.jsx"));
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition
@@ -36,6 +37,7 @@ const Cv = lazy(() => import("../../pages/cv/Cv.jsx"));
  * @property {string} [breadcrumbContext]
  * @property {string} [navKey]
  * @property {boolean} [showInHomeMenu]
+ * @property {boolean} [showInNav]
  * @property {boolean} [experimental]
  */
 
@@ -82,8 +84,9 @@ export const PAGE_DEFINITIONS = [
         component: Blog,
         breadcrumbContext: "home",
         navKey: "blog",
-        showInHomeMenu: true,
-        experimental: false,
+        showInHomeMenu: false,
+        showInNav: false,
+        experimental: true,
     },
     {
         id: "contact",
@@ -106,8 +109,8 @@ export const PAGE_DEFINITIONS = [
     {
         id: "not-found",
         path: "*",
-        redirectTo: "/",
-        replace: true,
+        component: NotFound,
+        breadcrumbContext: "home",
         experimental: false,
     },
 ];

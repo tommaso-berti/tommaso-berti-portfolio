@@ -48,18 +48,12 @@ void i18n.use(initReactI18next).init({
     defaultNS: "common",
 });
 
-const i18nReady = ensureLanguageLoaded(initialLanguage).then(() => {
-    if (initialLanguage !== "en") {
-        return ensureLanguageLoaded("en");
-    }
-    return undefined;
-});
+const i18nReady = ensureLanguageLoaded(initialLanguage);
 
 i18n.on("languageChanged", (nextLanguage) => {
     if (typeof window === "undefined") return;
     const normalized = normalizeLanguage(nextLanguage);
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, normalized);
-    void ensureLanguageLoaded(normalized);
 });
 
 export function waitForI18n() {

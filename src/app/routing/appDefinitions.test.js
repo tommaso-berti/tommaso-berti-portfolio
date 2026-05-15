@@ -17,4 +17,8 @@ describe("resolvePageDefinition", () => {
         expect(resolvePageDefinition("/contact")?.id).toBe("contact");
         expect(resolvePageDefinition("/cv")?.id).toBe("cv");
     });
+
+    it("resolves unknown paths to the not-found page", () => {
+        expect(resolvePageDefinition("/does-not-exist")?.id).toBe("not-found");
+    });
 });

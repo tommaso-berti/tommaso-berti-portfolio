@@ -1,29 +1,167 @@
 {
-  "generatedAt": "2026-04-13T05:13:09.411Z",
-  "latestTag": "v3.5.2",
-  "latestVersion": "3.5.2",
-  "previousTag": "v3.5.1",
-  "releaseType": "patch",
+  "generatedAt": "2026-05-18T09:57:02.591Z",
+  "latestTag": "v3.6.0",
+  "latestVersion": "3.6.0",
+  "previousTag": "v3.5.2",
+  "releaseType": "minor",
   "entries": [
     {
-      "sha": "4b5639df0a7803d72907b6188eb5a77adaf6d3ea",
-      "subject": "fix: changed logra project url #patch",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/4b5639df0a7803d72907b6188eb5a77adaf6d3ea",
+      "sha": "a635909ccc4ec2271a6f71a959b40d5221d98925",
+      "subject": "fix: correct reversed property for ecommerce REST API project display",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a635909ccc4ec2271a6f71a959b40d5221d98925",
       "author": "Tommaso Berti",
-      "date": "2026-04-13T07:12:16+02:00"
+      "date": "2026-05-15T13:57:46+02:00"
     },
     {
-      "sha": "5b445f1dc8a6c8e2fd85054ec73525b6e758884e",
-      "subject": "docs(release): v3.5.1 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5b445f1dc8a6c8e2fd85054ec73525b6e758884e",
+      "sha": "3eeb56e03dff2fcf4b44714d4fccab589c65ad83",
+      "subject": "feat: add 404 page, Playwright e2e, and portfolio polish",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3eeb56e03dff2fcf4b44714d4fccab589c65ad83",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:57:59+02:00"
+    },
+    {
+      "sha": "2d05cac56a4dda8d1f5ab5e631ac5f0e395228f3",
+      "subject": "feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2d05cac56a4dda8d1f5ab5e631ac5f0e395228f3",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:52:10+02:00"
+    },
+    {
+      "sha": "0b2e488ff5c72302e9685795182c67d1ac8ef4ff",
+      "subject": "feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0b2e488ff5c72302e9685795182c67d1ac8ef4ff",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:43:01+02:00"
+    },
+    {
+      "sha": "56c919113f638ae09eede5bcbd5add959fe2cd54",
+      "subject": "feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/56c919113f638ae09eede5bcbd5add959fe2cd54",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:41:10+02:00"
+    },
+    {
+      "sha": "342f956fd8c2801adc9e6bf86e2467dd4abad39d",
+      "subject": "feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/342f956fd8c2801adc9e6bf86e2467dd4abad39d",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:39:34+02:00"
+    },
+    {
+      "sha": "2e1367cb875a29944f5fdd950dfc5b3139f884f7",
+      "subject": "feat: implement i18n support with react-i18next and add localization files",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2e1367cb875a29944f5fdd950dfc5b3139f884f7",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:32:56+02:00"
+    },
+    {
+      "sha": "7dc76b0af2e7a74d2985d27b2e9892ad72163241",
+      "subject": "feat: add Logra project details and update package-lock.json",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/7dc76b0af2e7a74d2985d27b2e9892ad72163241",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T12:19:29+02:00"
+    },
+    {
+      "sha": "3e173e2bb281d10e47ef84501005be356fc50e0f",
+      "subject": "feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3e173e2bb281d10e47ef84501005be356fc50e0f",
+      "author": "Tommaso Berti",
+      "date": "2026-05-15T11:33:45+02:00"
+    },
+    {
+      "sha": "5bfb60e277b96e10c3721adb1c6e579d522b0d2e",
+      "subject": "docs(release): v3.5.2 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5bfb60e277b96e10c3721adb1c6e579d522b0d2e",
       "author": "github-actions[bot]",
-      "date": "2026-04-07T23:23:15Z"
+      "date": "2026-04-13T05:13:15Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.5.2\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.5.1..v3.5.2`.\n- Commit inclusi: 2. File modificati: 6.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- fix: changed logra project url #patch (4b5639d)\n\n### Migliorie Tecniche\n- docs(release): v3.5.1 artifacts #skip-deploy [skip ci] (5b445f1)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.5.1..v3.5.2`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.1...v3.5.2\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.5.1.json\n- release-notes/v2.10.1.md\n- release-notes/v3.5.1.md\n- src/pages/projects/projectsPages/projects.js\n\n## English\n### Overview\n- Release generated from commits in range `v3.5.1..v3.5.2`.\n- Included commits: 2. Changed files: 6.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- fix: changed logra project url #patch (4b5639d)\n\n### Refactor & Engineering\n- docs(release): v3.5.1 artifacts #skip-deploy [skip ci] (5b445f1)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.5.1..v3.5.2`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.1...v3.5.2",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.5.2",
-  "publishedAt": "2026-04-13T07:12:16+02:00",
+  "bodyMarkdown": "# Release Notes v3.6.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.5.2..v3.6.0`.\n- Commit inclusi: 13. File modificati: 127.\n\n### Novita\n- feat: add 404 page, Playwright e2e, and portfolio polish (3eeb56e)\n- feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup (2d05cac)\n- feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects (0b2e488)\n- feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components (56c9191)\n- feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages (342f956)\n- feat: implement i18n support with react-i18next and add localization files (2e1367c)\n- feat: add Logra project details and update package-lock.json (7dc76b0)\n- feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files (3e173e2)\n\n### Correzioni\n- fix: correct reversed property for ecommerce REST API project display (a635909)\n\n### Migliorie Tecniche\n- (no subject) ()\n- (no subject) (Co-auth)\n- Tommaso Berti ()\n- docs(release): v3.5.2 artifacts #skip-deploy [skip ci] (5bfb60e)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.5.2..v3.6.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.2...v3.6.0\n- File principali:\n- .github/workflows/ci.yml\n- .gitignore\n- .prettierignore\n- .prettierrc.json\n- AGENTS.md\n- README.md\n- e2e/language.spec.js\n- e2e/navigation.spec.js\n- eslint.config.js\n- index.html\n- jsconfig.json\n- package-lock.json\n- package.json\n- playwright.config.js\n- project-docs/ARCHITECTURE.md\n- project-docs/CURRENT_STATE.md\n- project-docs/INDEX.md\n- project-docs/NEXT_STEPS.md\n- project-docs/PROJECT_WRITING_GUIDE.md\n- public/data/exercises.json\n\n## English\n### Overview\n- Release generated from commits in range `v3.5.2..v3.6.0`.\n- Included commits: 13. Changed files: 127.\n\n### New Features\n- feat: add 404 page, Playwright e2e, and portfolio polish (3eeb56e)\n- feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup (2d05cac)\n- feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects (0b2e488)\n- feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components (56c9191)\n- feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages (342f956)\n- feat: implement i18n support with react-i18next and add localization files (2e1367c)\n- feat: add Logra project details and update package-lock.json (7dc76b0)\n- feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files (3e173e2)\n\n### Bug Fixes\n- fix: correct reversed property for ecommerce REST API project display (a635909)\n\n### Refactor & Engineering\n- (no subject) ()\n- (no subject) (Co-auth)\n- Tommaso Berti ()\n- docs(release): v3.5.2 artifacts #skip-deploy [skip ci] (5bfb60e)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.5.2..v3.6.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.2...v3.6.0",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.6.0",
+  "publishedAt": "2026-05-15T13:57:46+02:00",
   "history": [
+    {
+      "tag": "v3.6.0",
+      "version": "3.6.0",
+      "previousTag": "v3.5.2",
+      "releaseType": "minor",
+      "entries": [
+        {
+          "sha": "a635909ccc4ec2271a6f71a959b40d5221d98925",
+          "subject": "fix: correct reversed property for ecommerce REST API project display",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a635909ccc4ec2271a6f71a959b40d5221d98925",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T13:57:46+02:00"
+        },
+        {
+          "sha": "3eeb56e03dff2fcf4b44714d4fccab589c65ad83",
+          "subject": "feat: add 404 page, Playwright e2e, and portfolio polish",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3eeb56e03dff2fcf4b44714d4fccab589c65ad83",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:57:59+02:00"
+        },
+        {
+          "sha": "2d05cac56a4dda8d1f5ab5e631ac5f0e395228f3",
+          "subject": "feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2d05cac56a4dda8d1f5ab5e631ac5f0e395228f3",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:52:10+02:00"
+        },
+        {
+          "sha": "0b2e488ff5c72302e9685795182c67d1ac8ef4ff",
+          "subject": "feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0b2e488ff5c72302e9685795182c67d1ac8ef4ff",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:43:01+02:00"
+        },
+        {
+          "sha": "56c919113f638ae09eede5bcbd5add959fe2cd54",
+          "subject": "feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/56c919113f638ae09eede5bcbd5add959fe2cd54",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:41:10+02:00"
+        },
+        {
+          "sha": "342f956fd8c2801adc9e6bf86e2467dd4abad39d",
+          "subject": "feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/342f956fd8c2801adc9e6bf86e2467dd4abad39d",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:39:34+02:00"
+        },
+        {
+          "sha": "2e1367cb875a29944f5fdd950dfc5b3139f884f7",
+          "subject": "feat: implement i18n support with react-i18next and add localization files",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/2e1367cb875a29944f5fdd950dfc5b3139f884f7",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:32:56+02:00"
+        },
+        {
+          "sha": "7dc76b0af2e7a74d2985d27b2e9892ad72163241",
+          "subject": "feat: add Logra project details and update package-lock.json",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/7dc76b0af2e7a74d2985d27b2e9892ad72163241",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T12:19:29+02:00"
+        },
+        {
+          "sha": "3e173e2bb281d10e47ef84501005be356fc50e0f",
+          "subject": "feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/3e173e2bb281d10e47ef84501005be356fc50e0f",
+          "author": "Tommaso Berti",
+          "date": "2026-05-15T11:33:45+02:00"
+        },
+        {
+          "sha": "5bfb60e277b96e10c3721adb1c6e579d522b0d2e",
+          "subject": "docs(release): v3.5.2 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/5bfb60e277b96e10c3721adb1c6e579d522b0d2e",
+          "author": "github-actions[bot]",
+          "date": "2026-04-13T05:13:15Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v3.6.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.5.2..v3.6.0`.\n- Commit inclusi: 13. File modificati: 127.\n\n### Novita\n- feat: add 404 page, Playwright e2e, and portfolio polish (3eeb56e)\n- feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup (2d05cac)\n- feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects (0b2e488)\n- feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components (56c9191)\n- feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages (342f956)\n- feat: implement i18n support with react-i18next and add localization files (2e1367c)\n- feat: add Logra project details and update package-lock.json (7dc76b0)\n- feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files (3e173e2)\n\n### Correzioni\n- fix: correct reversed property for ecommerce REST API project display (a635909)\n\n### Migliorie Tecniche\n- (no subject) ()\n- (no subject) (Co-auth)\n- Tommaso Berti ()\n- docs(release): v3.5.2 artifacts #skip-deploy [skip ci] (5bfb60e)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.5.2..v3.6.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.2...v3.6.0\n- File principali:\n- .github/workflows/ci.yml\n- .gitignore\n- .prettierignore\n- .prettierrc.json\n- AGENTS.md\n- README.md\n- e2e/language.spec.js\n- e2e/navigation.spec.js\n- eslint.config.js\n- index.html\n- jsconfig.json\n- package-lock.json\n- package.json\n- playwright.config.js\n- project-docs/ARCHITECTURE.md\n- project-docs/CURRENT_STATE.md\n- project-docs/INDEX.md\n- project-docs/NEXT_STEPS.md\n- project-docs/PROJECT_WRITING_GUIDE.md\n- public/data/exercises.json\n\n## English\n### Overview\n- Release generated from commits in range `v3.5.2..v3.6.0`.\n- Included commits: 13. Changed files: 127.\n\n### New Features\n- feat: add 404 page, Playwright e2e, and portfolio polish (3eeb56e)\n- feat: add bilingual support for project details, enhance SEO management, and implement automated testing setup (2d05cac)\n- feat: add bilingual support for portfolio content with localized JSON files for home, contact, CV, about, and projects (0b2e488)\n- feat: refactor Home component and add HomeHeroActions and HomeCertificationBadges components (56c9191)\n- feat: add CV sections for summary, experience, skills, projects, certifications, education, and languages (342f956)\n- feat: implement i18n support with react-i18next and add localization files (2e1367c)\n- feat: add Logra project details and update package-lock.json (7dc76b0)\n- feat: add AGENTS, ARCHITECTURE, CURRENT_STATE, INDEX, NEXT_STEPS, and PROJECT_WRITING_GUIDE documentation files (3e173e2)\n\n### Bug Fixes\n- fix: correct reversed property for ecommerce REST API project display (a635909)\n\n### Refactor & Engineering\n- (no subject) ()\n- (no subject) (Co-auth)\n- Tommaso Berti ()\n- docs(release): v3.5.2 artifacts #skip-deploy [skip ci] (5bfb60e)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.5.2..v3.6.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.5.2...v3.6.0",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.6.0",
+      "publishedAt": "2026-05-15T13:57:46+02:00"
+    },
     {
       "tag": "v3.5.2",
       "version": "3.5.2",
@@ -235,8 +373,8 @@
     {
       "tag": "v3.1.0",
       "version": "3.1.0",
-      "previousTag": "v3.0.1",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "fd38e10eee297335f3defd7243c8a83687ad82cc",
@@ -251,19 +389,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/be98d3d60fb6469c2c46c91415f06b94e4bbed38",
           "author": "github-actions[bot]",
           "date": "2026-03-19T15:31:14Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v3.1.0\n\n## Italiano\n\n### Panoramica\nVersione: v3.1.0 (minor).  \nQuesta release introduce una nuova certificazione e migliora la visualizzazione dei tooltip delle tecnologie; include inoltre aggiornamenti ai file di internazionalizzazione e agli artefatti di release. Intervallo commit: v3.0.1..v3.1.0.\n\n### Novita\n- Aggiunta della certificazione \"full-stack engineer\" (commit fd38e10).\n- Migliorata la visualizzazione del tooltip delle tecnologie (commit fd38e10).\n\nFiles rilevanti: src/features/certifications/CertificationsSection.jsx, src/features/certifications/certificationIcons.js, src/features/certifications/certifications.data.js, src/pages/home/Home.jsx\n\n### Correzioni\n- Nessuna correzione specificata nei commit inclusi.\n\n### Migliorie Tecniche\n- Aggiornati i file di internazionalizzazione: src/i18n/it.json, src/i18n/en.json.\n- Aggiornati dati pubblici e artefatti di release: public/data/exercises.json, public/data/release-notes.json, release-notes/.payload-v3.0.1.json, release-notes/v3.0.1.md.\n- Commit di documentazione/artefatti di release: docs(release): v3.0.1 artifacts (be98d3d).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Non sono necessarie azioni di migrazione per questa release, basato sui commit forniti.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit disponibili.\n\n### Confronto e Intervallo Commit\n- Intervallo: v3.0.1..v3.1.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.1...v3.1.0\n\nCommit inclusi:\n- fd38e10 — feat: add full-stack engineer certification and enhance technology tooltip display #minor — Tommaso Berti — 2026-03-19T17:21:46+01:00  \n- be98d3d — docs(release): v3.0.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-19T15:31:14Z\n\n---\n\n## English\n\n### Overview\nVersion: v3.1.0 (minor).  \nThis release adds a certification and improves technology tooltip display; it also updates i18n files and release artifacts. Commit range: v3.0.1..v3.1.0.\n\n### New Features\n- Add full-stack engineer certification (commit fd38e10).\n- Enhance technology tooltip display (commit fd38e10).\n\nRelevant files: src/features/certifications/CertificationsSection.jsx, src/features/certifications/certificationIcons.js, src/features/certifications/certifications.data.js, src/pages/home/Home.jsx\n\n### Bug Fixes\n- No bug fixes specified in the included commits.\n\n### Refactor & Engineering\n- Updated i18n files: src/i18n/en.json, src/i18n/it.json.\n- Updated public data and release artifacts: public/data/exercises.json, public/data/release-notes.json, release-notes/.payload-v3.0.1.json, release-notes/v3.0.1.md.\n- Documentation/release artifacts commit: docs(release): v3.0.1 artifacts (be98d3d).\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided commits.\n\n### Known Limitations\n- No known limitations reported in the provided commits.\n\n### Diff & Commit Range\n- Range: v3.0.1..v3.1.0  \n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.1...v3.1.0\n\nIncluded commits:\n- fd38e10 — feat: add full-stack engineer certification and enhance technology tooltip display #minor — Tommaso Berti — 2026-03-19T17:21:46+01:00  \n- be98d3d — docs(release): v3.0.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-19T15:31:14Z",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.1.0",
-      "publishedAt": "2026-03-19T17:21:46+01:00"
-    },
-    {
-      "tag": "v3.0.1",
-      "version": "3.0.1",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "0f0bd9e38679c7568dd3906be447ff3d75715ebb",
           "subject": "feat: enhance release notes functionality with localization and GitHub link #patch",
@@ -319,26 +445,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bb676c29a0a80b29bda1b064d8106d112292680",
           "author": "github-actions[bot]",
           "date": "2026-03-18T11:51:24Z"
-        },
-        {
-          "sha": "b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
-          "subject": "feat: limit release notes to the 10 most recent entries and enhance ReleaseNotesModal with accordion support #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b7459abfc8f4e44eb3f6c5d3b01017935af721c7",
-          "author": "Tommaso Berti",
-          "date": "2026-03-18T12:49:51+01:00"
-        },
-        {
-          "sha": "0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
-          "subject": "docs(release): v2.9.0 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/0f3b5563e5f7791ae01b37f496ebf6f3b7117d8b",
-          "author": "github-actions[bot]",
-          "date": "2026-03-16T10:28:10Z"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v3.0.1\n\n## Italiano\n\n### Panoramica\nRilascio patch v3.0.1 generato il 2026-03-19T15:30:31.422Z. Intervallo di commit: v3.0.0..v3.0.1.\n\n### Novita\n- Nessuna nuova funzionalità in questo rilascio (releaseType = patch).\n\n### Correzioni\n- Nessuna correzione specifica registrata in questo range di commit.\n\n### Migliorie Tecniche\n- 0f0bd9e — enhance release notes functionality with localization and GitHub link\n  - Aggiornati i file di localizzazione: src/i18n/en.json, src/i18n/it.json.\n  - Modificato il componente della UI per le note di rilascio: src/app/layout/ReleaseNotesModal.jsx (inclusione del link di confronto GitHub).\n  - Aggiornati/dati pubblici relativi alle note di rilascio: public/data/release-notes.json.\n  - Aggiornato public/data/exercises.json.\n- c854abb — docs(release): v3.0.0 artifacts\n  - Aggiunti/aggiornati artefatti di rilascio: release-notes/.payload-v3.0.0.json, release-notes/v3.0.0.md.\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rispetto a v3.0.0.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta per gli utenti.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit inclusi.\n\n### Confronto e Intervallo Commit\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.0...v3.0.1\n- Range: v3.0.0..v3.0.1\n- Commit inclusi:\n  - 5e9ee82 — Merge remote-tracking branch 'origin/main' — Tommaso Berti (2026-03-19T16:26:58+01:00)\n  - 0f0bd9e — feat: enhance release notes functionality with localization and GitHub link #patch — Tommaso Berti (2026-03-19T16:26:49+01:00)\n  - c854abb — docs(release): v3.0.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T14:22:12Z)\n- File modificati:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v3.0.0.json\n  - release-notes/v3.0.0.md\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/i18n/en.json\n  - src/i18n/it.json\n\n---\n\n## English\n\n### Overview\nPatch release v3.0.1 generated at 2026-03-19T15:30:31.422Z. Commit range: v3.0.0..v3.0.1.\n\n### New Features\n- No new features in this release (releaseType = patch).\n\n### Bug Fixes\n- No bug fixes recorded in this commit range.\n\n### Refactor & Engineering\n- 0f0bd9e — enhance release notes functionality with localization and GitHub link\n  - Updated localization files: src/i18n/en.json, src/i18n/it.json.\n  - Updated release notes UI component: src/app/layout/ReleaseNotesModal.jsx (adds GitHub compare link).\n  - Updated public release notes data: public/data/release-notes.json.\n  - Updated public/data/exercises.json.\n- c854abb — docs(release): v3.0.0 artifacts\n  - Added/updated release artifacts: release-notes/.payload-v3.0.0.json, release-notes/v3.0.0.md.\n\n### Breaking Changes\n- No breaking changes compared to v3.0.0.\n\n### Migration Notes\n- No migration steps required for users.\n\n### Known Limitations\n- No known limitations reported in the included commits.\n\n### Diff & Commit Range\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.0...v3.0.1\n- Range: v3.0.0..v3.0.1\n- Commits:\n  - 5e9ee82 — Merge remote-tracking branch 'origin/main' — Tommaso Berti (2026-03-19T16:26:58+01:00)\n  - 0f0bd9e — feat: enhance release notes functionality with localization and GitHub link #patch — Tommaso Berti (2026-03-19T16:26:49+01:00)\n  - c854abb — docs(release): v3.0.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T14:22:12Z)\n- Changed files:\n  - public/data/exercises.json\n  - public/data/release-notes.json\n  - release-notes/.payload-v3.0.0.json\n  - release-notes/v3.0.0.md\n  - src/app/layout/ReleaseNotesModal.jsx\n  - src/i18n/en.json\n  - src/i18n/it.json",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.0.1",
-      "publishedAt": "2026-03-19T16:26:58+01:00"
+      "bodyMarkdown": "# Release Notes v3.1.0\n\n## Italiano\n\n### Panoramica\nVersione: v3.1.0 (minor).  \nQuesta release introduce una nuova certificazione e migliora la visualizzazione dei tooltip delle tecnologie; include inoltre aggiornamenti ai file di internazionalizzazione e agli artefatti di release. Intervallo commit: v3.0.1..v3.1.0.\n\n### Novita\n- Aggiunta della certificazione \"full-stack engineer\" (commit fd38e10).\n- Migliorata la visualizzazione del tooltip delle tecnologie (commit fd38e10).\n\nFiles rilevanti: src/features/certifications/CertificationsSection.jsx, src/features/certifications/certificationIcons.js, src/features/certifications/certifications.data.js, src/pages/home/Home.jsx\n\n### Correzioni\n- Nessuna correzione specificata nei commit inclusi.\n\n### Migliorie Tecniche\n- Aggiornati i file di internazionalizzazione: src/i18n/it.json, src/i18n/en.json.\n- Aggiornati dati pubblici e artefatti di release: public/data/exercises.json, public/data/release-notes.json, release-notes/.payload-v3.0.1.json, release-notes/v3.0.1.md.\n- Commit di documentazione/artefatti di release: docs(release): v3.0.1 artifacts (be98d3d).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata nei commit forniti.\n\n### Note di Migrazione\n- Non sono necessarie azioni di migrazione per questa release, basato sui commit forniti.\n\n### Limiti Noti\n- Nessun limite noto segnalato nei commit disponibili.\n\n### Confronto e Intervallo Commit\n- Intervallo: v3.0.1..v3.1.0  \n- Confronto: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.1...v3.1.0\n\nCommit inclusi:\n- fd38e10 — feat: add full-stack engineer certification and enhance technology tooltip display #minor — Tommaso Berti — 2026-03-19T17:21:46+01:00  \n- be98d3d — docs(release): v3.0.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-19T15:31:14Z\n\n---\n\n## English\n\n### Overview\nVersion: v3.1.0 (minor).  \nThis release adds a certification and improves technology tooltip display; it also updates i18n files and release artifacts. Commit range: v3.0.1..v3.1.0.\n\n### New Features\n- Add full-stack engineer certification (commit fd38e10).\n- Enhance technology tooltip display (commit fd38e10).\n\nRelevant files: src/features/certifications/CertificationsSection.jsx, src/features/certifications/certificationIcons.js, src/features/certifications/certifications.data.js, src/pages/home/Home.jsx\n\n### Bug Fixes\n- No bug fixes specified in the included commits.\n\n### Refactor & Engineering\n- Updated i18n files: src/i18n/en.json, src/i18n/it.json.\n- Updated public data and release artifacts: public/data/exercises.json, public/data/release-notes.json, release-notes/.payload-v3.0.1.json, release-notes/v3.0.1.md.\n- Documentation/release artifacts commit: docs(release): v3.0.1 artifacts (be98d3d).\n\n### Breaking Changes\n- No breaking changes detected in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided commits.\n\n### Known Limitations\n- No known limitations reported in the provided commits.\n\n### Diff & Commit Range\n- Range: v3.0.1..v3.1.0  \n- Compare: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.0.1...v3.1.0\n\nIncluded commits:\n- fd38e10 — feat: add full-stack engineer certification and enhance technology tooltip display #minor — Tommaso Berti — 2026-03-19T17:21:46+01:00  \n- be98d3d — docs(release): v3.0.1 artifacts #skip-deploy [skip ci] — github-actions[bot] — 2026-03-19T15:31:14Z",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.1.0",
+      "publishedAt": "2026-03-19T17:21:46+01:00"
     }
   ]
 }

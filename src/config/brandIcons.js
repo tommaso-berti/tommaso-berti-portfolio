@@ -1,4 +1,5 @@
 import {
+    SiAuth0,
     SiCaddy,
     SiCloudflare,
     SiCss,
@@ -16,9 +17,11 @@ import {
     SiOpenai,
     SiPostgresql,
     SiPostman,
+    SiPnpm,
     SiReactrouter,
     SiReact,
     SiRedux,
+    SiSentry,
     SiSimpleicons,
     SiIgdb,
     SiTailwindcss,
@@ -101,6 +104,12 @@ const BRAND_ICON_REGISTRY = {
         title: "express-session",
         colorPolicy: "fallback",
     },
+    auth0: {
+        id: "auth0",
+        component: SiAuth0,
+        color: "#EB5424",
+        title: "Auth0",
+    },
     vite: {
         id: "vite",
         component: SiVite,
@@ -125,6 +134,13 @@ const BRAND_ICON_REGISTRY = {
         component: SiSimpleicons,
         color: "#0055FF",
         title: "Framer Motion",
+        colorPolicy: "fallback",
+    },
+    nivo: {
+        id: "nivo",
+        component: SiSimpleicons,
+        color: "#0F766E",
+        title: "Nivo",
         colorPolicy: "fallback",
     },
     i18next: {
@@ -160,6 +176,18 @@ const BRAND_ICON_REGISTRY = {
         component: SiGithubactions,
         color: "#2088FF",
         title: "GitHub Actions",
+    },
+    sentry: {
+        id: "sentry",
+        component: SiSentry,
+        color: "#362D59",
+        title: "Sentry",
+    },
+    pnpm: {
+        id: "pnpm",
+        component: SiPnpm,
+        color: "#F69220",
+        title: "pnpm",
     },
     "swagger-openapi": {
         id: "swagger-openapi",

@@ -73,6 +73,10 @@
       "label": "express-session",
       "description": "Middleware sessionale usato per mantenere autenticazione utente lato server in modo sicuro e consistente."
     },
+    "auth0": {
+      "label": "Auth0",
+      "description": "Identity provider gestito usato per autenticazione di produzione, login ospitato e bootstrap di sessioni con ruoli coerenti."
+    },
     "postgresql": {
       "label": "PostgreSQL",
       "description": "Database relazionale scelto per affidabilità, integrità dei dati e query strutturate su catalogo prodotti, carrelli e ordini."
@@ -84,6 +88,14 @@
     "github-actions": {
       "label": "GitHub Actions",
       "description": "Pipeline CI/CD utilizzata per build e deploy versionati di frontend e backend."
+    },
+    "sentry": {
+      "label": "Sentry",
+      "description": "Layer di osservabilità usato per raccogliere errori runtime frontend e backend, release e smoke event."
+    },
+    "pnpm": {
+      "label": "pnpm",
+      "description": "Package manager per workspace usato per mantenere coerenti script monorepo, installazione dipendenze e build filtrate."
     },
     "swagger-openapi": {
       "label": "Swagger / OpenAPI",
@@ -144,6 +156,10 @@
     "framer-motion": {
       "label": "Framer Motion",
       "description": "Libreria di animazione usata per transizioni fluide, micro-interazioni e motion design delle card/componente UI."
+    },
+    "nivo": {
+      "label": "Nivo",
+      "description": "Libreria chart usata per dashboard e widget analitici con visualizzazioni riutilizzabili e coerenti col tema."
     }
   },
   "tech_categories": {
@@ -170,6 +186,9 @@
     "search_engine": "Motore di ricerca",
     "style_layer": "Strato di stile",
     "data_layer": "Data Layer",
+    "data_visualization": "Visualizzazione dati",
+    "observability": "Osservabilità",
+    "workspace_tooling": "Strumenti workspace",
     "ai_support": "Supporto AI"
   },
   "usage_levels": {

@@ -1,35 +1,43 @@
 {
   "title": "Logra",
-  "description": "Web app personale per gestire backlog, progressi, date di uscita e operazioni demo affidabili attorno al mio workflow gaming reale.",
+  "description": "App full-stack di media tracking, gaming-first, costruita per backlog, progressi, discover, import/export e operazioni demo affidabili.",
   "details": {
     "introduction": {
       "title": "Logra",
       "description": [
-        "Logra nasce da un’esigenza concreta: volevo una libreria gaming che rispecchiasse davvero come scelgo cosa giocare, seguo i progressi, gestisco backlog e tengo d’occhio le uscite future.",
-        "La piattaforma combina UI orientata al workflow, dati catalogo da IGDB, flussi controllati di ingest/sync, operazioni demo sicure e crediti dati espliciti, così il prodotto resta usabile e affidabile anche dal punto di vista operativo."
+        "Logra nasce da un’esigenza concreta: volevo un prodotto che seguisse il mio workflow reale di scelta, backlog, progressi, wishlist e uscite future, senza ridursi a una semplice lista di giochi salvati.",
+        "Nel tempo il progetto è diventato una web app full-stack gaming-first con shell pronta per più scope, demo locale separata dalle sessioni reali, landing pubblica, area admin, import/export dati e flussi operativi pensati per mantenere la demo affidabile anche mentre il prodotto evolve."
       ]
     },
+    "search_mechanics": [
+      "Il catalogo gaming parte da ingest controllato di dati IGDB, così Discover e Library lavorano su un dataset coerente, filtrabile e ottimizzato per query frequenti.",
+      "La ricerca combina testo, ordinamenti orientati al workflow e ranking featured, così l’esplorazione non mostra solo risultati corretti ma anche più utili nel contesto della scelta di cosa giocare.",
+      "L’import CSV/XLSX aggiunge una seconda meccanica di matching: preflight, risoluzione candidati, override manuali e normalizzazione piattaforme riducono errori quando i dati arrivano dall’esterno."
+    ],
     "lessons_learned": [
-      "Una UI orientata al workflow reale dell’utente migliora molto più della semplice estetica: riduce attrito e aumenta uso quotidiano.",
-      "Separare chiaramente contratti condivisi, logica API e componente frontend rende il progetto più stabile durante iterazioni frequenti.",
-      "Automatizzare deploy, seed e reset ambiente riduce errori manuali e rende le demo pubbliche più affidabili.",
-      "L’AI è più utile quando accelera fasi mirate (design GUI, script operativi, bootstrap), mantenendo revisione tecnica umana sulle decisioni finali."
+      "Una UI orientata al workflow reale dell’utente vale più di una UI genericamente curata: riduce attrito e rende il prodotto usabile tutti i giorni.",
+      "Separare frontend, API e contratti condivisi è fondamentale quando auth, import, admin e demo evolvono in parallelo.",
+      "Le operazioni contano quanto le feature: seed, reset demo, release notes e deploy versionati hanno un impatto diretto sulla credibilità del prodotto.",
+      "Guided tour, feedback contestuale e selettori stabili migliorano non solo UX ma anche debug, QA e iterazione futura."
     ],
     "technologies": {
       "react": {
-        "description": "React alimenta card, filtri, pannelli dettaglio, guided tour e superfici impostazioni riutilizzabili per interazioni frequenti sulla libreria."
+        "description": "React alimenta card, filtri, pannelli dettaglio, guided tour, landing preview e superfici impostazioni riutilizzabili su aree diverse del prodotto."
       },
       "vite": {
-        "description": "Vite mantiene rapido il ciclo frontend mentre vengono rifiniti stati UI densi come filtri, edit mode, overlay e widget dashboard."
+        "description": "Vite mantiene rapido il ciclo frontend mentre vengono rifiniti stati UI densi come filtri, edit mode, overlay, landing pubblica e widget dashboard."
       },
       "react-router": {
-        "description": "React Router organizza la navigazione scoped tra dashboard, discover, libreria, wishlist, stats, settings e onboarding."
+        "description": "React Router organizza routing scoped, aree protette, landing pubblica, pagine legali e flussi di onboarding senza duplicare la shell applicativa."
       },
       "mui": {
         "description": "MUI fornisce token tema e primitive accessibili per una UI operativa densa che deve restare leggibile."
       },
       "nodejs": {
-        "description": "Node.js esegue API e script operativi per seed, reset, migrazione e sync, mantenendo allineati flussi locali e produzione."
+        "description": "Node.js esegue API e script operativi per seed, reset, migrazione, sync catalogo e generazione fixture demo, mantenendo allineati flussi locali e produzione."
+      },
+      "auth0": {
+        "description": "Auth0 gestisce autenticazione reale e ruoli sensibili, lasciando la demo locale separata per non mescolare showcase pubblico e sessioni utente."
       },
       "caddy": {
         "description": "Caddy gestisce reverse proxy HTTPS e pubblicazione VPS, semplificando routing di produzione tra frontend e API."
@@ -39,6 +47,12 @@
       },
       "github-actions": {
         "description": "GitHub Actions automatizza deploy e manutenzioni controllate come reset demo, release notes e sync dati."
+      },
+      "sentry": {
+        "description": "Sentry aggiunge osservabilità su web e API, utile per intercettare errori reali senza affidarsi solo al debug locale."
+      },
+      "pnpm": {
+        "description": "pnpm tiene coerente il workspace monorepo di Logra, soprattutto quando web, API e contratti condivisi devono essere costruiti o testati in modo selettivo."
       },
       "webstorm": {
         "description": "WebStorm supporta debugging e refactor tra web, API, contratti condivisi e script operativi."
@@ -50,57 +64,76 @@
         "description": "TypeScript protegge contratti condivisi tra web, API e package, riducendo drift dei payload durante iterazioni rapide."
       },
       "fastify": {
-        "description": "Fastify struttura route API modulari, session auth, validazione e gestione request a basso overhead per operazioni sulla libreria."
+        "description": "Fastify struttura route API modulari, session auth, validazione, admin e surface operative con overhead ridotto."
       },
       "i18next": {
-        "description": "react-i18next centralizza copy IT/EN per onboarding, feedback, settings e stati dinamici della libreria gaming."
+        "description": "react-i18next centralizza copy IT/EN per landing, onboarding, feedback, settings, pagine legali e stati dinamici del prodotto."
       },
       "mongodb": {
-        "description": "MongoDB conserva utenti, sessioni, collezioni gaming e metadata operativi con flussi di migrazione/index per manutenzione lunga."
+        "description": "MongoDB conserva utenti, sessioni, collezioni gaming, feedback, announcement state e metadata operativi con flussi di migrazione/index per manutenzione lunga."
       },
       "igdb": {
-        "description": "IGDB fornisce metadata catalogo tramite ingest controllato, fallback discover e materializzazione avviata dall’utente."
+        "description": "IGDB fornisce metadata catalogo tramite ingest controllato, fallback Discover e materializzazione avviata dall’utente solo quando serve."
       },
       "zod": {
-        "description": "Zod valida contratti runtime tra frontend e API, rendendo prevedibili errori su settings, onboarding e payload libreria."
+        "description": "Zod valida contratti runtime tra frontend e API, rendendo prevedibili errori su settings, onboarding, import/export e payload libreria."
       },
       "tanstack-query": {
-        "description": "TanStack Query coordina cache, mutation e invalidation lato client per rendere reattivi aggiornamenti di libreria e wishlist."
+        "description": "TanStack Query coordina cache, mutation e invalidation lato client per rendere reattivi aggiornamenti di libreria, wishlist, admin e recap."
       },
       "framer-motion": {
-        "description": "Framer Motion gestisce transizioni di card, overlay e dettaglio mantenendo controllo nei flussi densi di edit e guided tour."
+        "description": "Framer Motion gestisce transizioni di card, overlay, landing preview e dettaglio mantenendo controllo nei flussi densi di edit e guided tour."
+      },
+      "nivo": {
+        "description": "Nivo supporta i grafici della sezione stats e delle analytics admin, trasformando i dati libreria in insight leggibili e più utili."
       }
     },
     "difficulties_faced": [
-      "Stabilizzare guided tour multi-step (overlay, spotlight, fallback target) senza bloccare interazioni critiche nei passaggi guidati.",
-      "Mantenere allineati frontend e API su contratti condivisi (settings, onboarding, preferenze) durante iterazioni rapide.",
-      "Gestire in modo affidabile seed/reset demo, migrazioni e cleanup collezioni legacy senza compromettere la demo pubblica.",
-      "Bilanciare densità informativa delle card con UX veloce, evitando attrito su edit mode, filtri e quick actions.",
-      "Conciliare qualità UX e stabilità operativa tra ambiente locale, CI/CD e deploy versionati su VPS."
+      "Mantenere allineati frontend, API e contratti condivisi mentre auth, admin, import/export e demo evolvevano contemporaneamente.",
+      "Separare bene demo locale e sessioni reali, così il portfolio pubblico restasse affidabile senza semplificare troppo il prodotto vero.",
+      "Gestire import CSV/XLSX con matching, override manuali e normalizzazione piattaforme senza trasformare il flusso in un wizard fragile.",
+      "Bilanciare densità informativa delle card con UX veloce, evitando attrito su edit mode, filtri, quick actions e guided tour contestuali.",
+      "Conciliare qualità UX e stabilità operativa tra ambiente locale, CI/CD, deploy versionati e manutenzioni controllate."
     ],
     "roadmap": {
       "v1": {
         "title": "v1.0.0",
         "content": [
-          "Rilasciare il prodotto core con login demo, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
-          "Introdurre impostazioni profilo/aspetto e scope release gating per far evolvere le aree feature in modo modulare.",
-          "Creare fondamenta operative per seed, bootstrap e gestione condivisa del ciclo demo."
+          "Rilasciare il prodotto core con demo login, gestione libreria giochi, status/progressi, preferiti e navigazione multi-sezione.",
+          "Introdurre impostazioni profilo/aspetto e scope release gating per preparare il prodotto a più domini senza duplicare la struttura.",
+          "Costruire la base operativa per seed, bootstrap e gestione condivisa del ciclo demo."
         ]
       },
       "v2": {
         "title": "v2.0.0",
         "content": [
-          "Espandere onboarding con guided tour multi-pagina e tour contestuali su card/edit mode per ridurre l’attrito iniziale.",
-          "Approfondire integrazione IGDB con ingest sync, segmentazione dati, fallback discover e controlli più chiari sulla qualità catalogo.",
-          "Rafforzare le operazioni produzione con credenziali bootstrap più sicure, documentazione aggiornata e procedure release più affidabili."
+          "Espandere onboarding con guided tour multi-pagina e tour contestuali su card e stats per ridurre l’attrito iniziale.",
+          "Approfondire integrazione IGDB con ingest sync, segmentazione dati, fallback Discover e controlli più chiari sulla qualità catalogo.",
+          "Rafforzare sicurezza e operazioni con documentazione più allineata e procedure release più affidabili."
         ]
       },
       "v3": {
         "title": "v3.0.0",
         "content": [
-          "Aggiungere feedback e bug report contestuali per ricevere segnalazioni di pagina più tracciabili.",
-          "Introdurre nuovi widget statistiche che trasformino i dati libreria in insight personali più utili.",
-          "Aggiungere configurazione per singolo widget su dati mostrati, livello dettaglio e controlli di visualizzazione."
+          "Introdurre Auth0 con login reale, ruoli più robusti e un’area admin dedicata alla gestione utenti.",
+          "Aggiungere feedback contestuale e bug report tracciabili per collegare meglio UX reale e manutenzione tecnica.",
+          "Espandere stats e widget, accompagnando il tutto con un refactor strutturale della codebase."
+        ]
+      },
+      "v4": {
+        "title": "v4.0.0",
+        "content": [
+          "Portare Logra oltre la sola libreria interna con landing pubblica, pagine legali, maintenance mode, announcement system e osservabilità.",
+          "Costruire import/export più seri con wizard CSV/XLSX, resume draft, matching avanzato, HLTB e controlli migliori sulla qualità dei dati.",
+          "Rendere più affidabili demo e operazioni con account deletion, fixture dedicate, recap settimanali e hardening dei flussi ambiente."
+        ]
+      },
+      "v5": {
+        "title": "v5.x",
+        "content": [
+          "Rifinire il library import con drag and drop, skip righe, warning più chiari, piattaforme ereditate e fixture QA più realistiche.",
+          "Rafforzare dashboard, stats e Discover con insight migliori, filtri piattaforma, performance indexing e summary più utili anche in demo locale.",
+          "Pulire i flussi admin e maintenance con access control più chiaro, feedback più gestibile e ulteriore modularizzazione delle parti più dense."
         ]
       }
     }

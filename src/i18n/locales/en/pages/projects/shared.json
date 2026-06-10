@@ -73,6 +73,10 @@
       "label": "express-session",
       "description": "Session middleware used to persist authenticated user state server-side in a secure and consistent way."
     },
+    "auth0": {
+      "label": "Auth0",
+      "description": "Managed identity provider used to handle production authentication flows, hosted login, and role-aware session bootstrap."
+    },
     "postgresql": {
       "label": "PostgreSQL",
       "description": "Relational database chosen for reliability, data integrity, and structured queries across products, carts, and orders."
@@ -84,6 +88,14 @@
     "github-actions": {
       "label": "GitHub Actions",
       "description": "CI/CD pipeline used for versioned frontend and backend build/deploy workflows."
+    },
+    "sentry": {
+      "label": "Sentry",
+      "description": "Observability layer used to capture frontend and backend runtime errors, releases, and smoke events."
+    },
+    "pnpm": {
+      "label": "pnpm",
+      "description": "Workspace package manager used to keep monorepo scripts, dependency installation, and filtered builds consistent."
     },
     "swagger-openapi": {
       "label": "Swagger / OpenAPI",
@@ -144,6 +156,10 @@
     "framer-motion": {
       "label": "Framer Motion",
       "description": "Animation library used for smooth transitions, micro-interactions, and motion design across cards and UI components."
+    },
+    "nivo": {
+      "label": "Nivo",
+      "description": "Charting library used to render dashboards and analytics widgets with reusable, theme-aware visualizations."
     }
   },
   "tech_categories": {
@@ -170,6 +186,9 @@
     "search_engine": "Search Engine",
     "style_layer": "Style Layer",
     "data_layer": "Data Layer",
+    "data_visualization": "Data Visualization",
+    "observability": "Observability",
+    "workspace_tooling": "Workspace Tooling",
     "ai_support": "AI support"
   },
   "usage_levels": {

@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-10T21:48:11.178Z",
+  "repositoryPath": "/home/runner/work/tommaso-berti-portfolio/tommaso-berti-portfolio",
+  "version": "v3.6.1",
+  "releaseType": "patch",
+  "fromRef": "v3.6.0",
+  "toRef": "v3.6.1",
+  "range": "v3.6.0..v3.6.1",
+  "compareUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.0...v3.6.1",
+  "commits": [
+    {
+      "sha": "323a9a744cd8af2e59d0a224e6067e5ee383d30d",
+      "shortSha": "323a9a7",
+      "subject": "Merge remote-tracking branch 'origin/main'",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-06-10T23:46:00+02:00"
+    },
+    {
+      "sha": "e63bb40160ee4e76c12b96e0d40dafde7b57def1",
+      "shortSha": "e63bb40",
+      "subject": "feat: add Auth0, Sentry, Nivo, and pnpm support; update project and shared configurations",
+      "body": "",
+      "author": "Tommaso Berti",
+      "date": "2026-06-10T23:45:53+02:00"
+    },
+    {
+      "sha": "675297461f7d861e1f88013b1802901286829e29",
+      "shortSha": "6752974",
+      "subject": "docs(release): v3.6.0 artifacts #skip-deploy [skip ci]",
+      "body": "",
+      "author": "github-actions[bot]",
+      "date": "2026-05-18T09:57:08Z"
+    }
+  ],
+  "changedFiles": [
+    "public/data/exercises.json",
+    "public/data/release-notes.json",
+    "release-notes/.payload-v3.6.0.json",
+    "release-notes/v3.0.1.md",
+    "release-notes/v3.6.0.md",
+    "src/config/brandIcons.js",
+    "src/i18n/locales/en/pages/projects/logra.json",
+    "src/i18n/locales/en/pages/projects/shared.json",
+    "src/i18n/locales/it/pages/projects/logra.json",
+    "src/i18n/locales/it/pages/projects/shared.json",
+    "src/pages/projects/projectsPages/projects.js",
+    "src/pages/projects/projectsPages/technologies.config.js"
+  ]
+}

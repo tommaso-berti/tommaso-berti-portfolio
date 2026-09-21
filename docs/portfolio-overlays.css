@@ -1,0 +1,465 @@
+:root {
+  --portfolio-paper: #f3f0e7;
+  --portfolio-paper-high: #f8f5ed;
+  --portfolio-paper-low: #ece8dc;
+
+  --portfolio-ink: #17202a;
+  --portfolio-ink-soft: #56606b;
+
+  --portfolio-line: rgba(23, 32, 42, 0.18);
+  --portfolio-line-strong: rgba(23, 32, 42, 0.30);
+
+  --portfolio-blue: #347cb2;
+  --portfolio-orange: #df733d;
+  --portfolio-yellow: #d0ab3d;
+  --portfolio-green: #668a69;
+
+  --portfolio-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ============================================================
+   TOOLTIP
+   ============================================================ */
+
+.portfolio-tooltip-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.portfolio-tooltip {
+  position: absolute;
+  z-index: 80;
+  left: 50%;
+  bottom: calc(100% + 10px);
+
+  width: max-content;
+  max-width: min(280px, calc(100vw - 24px));
+
+  color: var(--portfolio-ink);
+  pointer-events: none;
+
+  opacity: 0;
+  transform:
+    translateX(-50%)
+    translateY(5px)
+    scale(0.985);
+
+  transition:
+    opacity 150ms var(--portfolio-ease),
+    transform 190ms var(--portfolio-ease);
+
+  filter: drop-shadow(0 10px 22px rgba(23, 32, 42, 0.13));
+}
+
+.portfolio-tooltip.is-open {
+  opacity: 1;
+  transform:
+    translateX(-50%)
+    translateY(0)
+    scale(1);
+}
+
+.portfolio-tooltip__rail {
+  display: block;
+  height: 3px;
+  background: var(--portfolio-blue);
+}
+
+.portfolio-tooltip--orange .portfolio-tooltip__rail {
+  background: var(--portfolio-orange);
+}
+
+.portfolio-tooltip--yellow .portfolio-tooltip__rail {
+  background: var(--portfolio-yellow);
+}
+
+.portfolio-tooltip__content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px 11px;
+  align-items: center;
+
+  padding: 10px 12px 11px;
+
+  background: var(--portfolio-paper-high);
+  border: 1px solid var(--portfolio-line-strong);
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+}
+
+.portfolio-tooltip__code {
+  color: var(--portfolio-blue);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.portfolio-tooltip--orange .portfolio-tooltip__code {
+  color: var(--portfolio-orange);
+}
+
+.portfolio-tooltip--yellow .portfolio-tooltip__code {
+  color: var(--portfolio-yellow);
+}
+
+.portfolio-tooltip__title {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.portfolio-tooltip__description {
+  grid-column: 1 / -1;
+
+  max-width: 228px;
+
+  color: var(--portfolio-ink-soft);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.portfolio-tooltip__tip {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+
+  width: 9px;
+  height: 9px;
+
+  background: var(--portfolio-paper-high);
+  border-right: 1px solid var(--portfolio-line-strong);
+  border-bottom: 1px solid var(--portfolio-line-strong);
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* ============================================================
+   PROJECT PREVIEW
+   ============================================================ */
+
+.project-preview-anchor {
+  display: inline-block;
+}
+
+.project-preview {
+  position: fixed;
+  z-index: 70;
+
+  left: var(--preview-x);
+  top: var(--preview-y);
+
+  width: min(390px, calc(100vw - 28px));
+
+  color: var(--portfolio-ink);
+  pointer-events: none;
+
+  opacity: 0;
+  transform:
+    translate(14px, 12px)
+    scale(0.985);
+
+  transform-origin: top left;
+
+  transition:
+    opacity 170ms var(--portfolio-ease),
+    transform 220ms var(--portfolio-ease);
+
+  filter: drop-shadow(0 18px 42px rgba(23, 32, 42, 0.14));
+}
+
+.project-preview.is-open {
+  opacity: 1;
+  transform:
+    translate(14px, 12px)
+    scale(1);
+}
+
+.project-preview.is-pinned {
+  pointer-events: auto;
+}
+
+.project-preview__card {
+  display: block;
+  overflow: hidden;
+
+  background: #f7f3ea;
+  border: 1px solid var(--portfolio-line-strong);
+  border-radius: 9px;
+}
+
+.project-preview__accent {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 0.42fr;
+  gap: 2px;
+
+  height: 4px;
+  background: var(--portfolio-paper-low);
+}
+
+.project-preview__accent i:nth-child(1) {
+  background: var(--portfolio-blue);
+}
+
+.project-preview__accent i:nth-child(2) {
+  background: var(--portfolio-orange);
+}
+
+.project-preview__accent i:nth-child(3) {
+  background: var(--portfolio-yellow);
+}
+
+.project-preview__visual {
+  position: relative;
+  display: block;
+  height: 168px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(23, 32, 42, 0.065) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(23, 32, 42, 0.065) 1px,
+      transparent 1px
+    ),
+    #ede9de;
+
+  background-size: 28px 28px;
+
+  border-bottom: 1px solid var(--portfolio-line);
+}
+
+.project-preview__status {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--portfolio-ink-soft);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-preview__status > i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--portfolio-green);
+}
+
+.project-preview__visual-code {
+  position: absolute;
+  z-index: 3;
+  left: 14px;
+  bottom: 12px;
+
+  color: var(--portfolio-ink-soft);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-preview__default-visual {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.project-preview__orbit {
+  position: absolute;
+
+  width: 168px;
+  height: 168px;
+
+  border: 1px solid rgba(23, 32, 42, 0.16);
+  border-radius: 999px;
+}
+
+.project-preview__core {
+  position: relative;
+
+  width: 74px;
+  height: 74px;
+
+  border: 1px solid rgba(23, 32, 42, 0.35);
+  border-radius: 999px;
+
+  background: var(--portfolio-paper-high);
+
+  box-shadow:
+    0 0 0 10px rgba(52, 124, 178, 0.055),
+    0 0 0 24px rgba(52, 124, 178, 0.028);
+}
+
+.project-preview__core::before,
+.project-preview__core::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  background: var(--portfolio-ink);
+  opacity: 0.78;
+
+  transform: translate(-50%, -50%);
+}
+
+.project-preview__core::before {
+  width: 1px;
+  height: 31px;
+}
+
+.project-preview__core::after {
+  width: 31px;
+  height: 1px;
+}
+
+.project-preview__body {
+  display: block;
+  padding: 18px 18px 17px;
+}
+
+.project-preview__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.project-preview__heading strong {
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 590;
+  letter-spacing: -0.035em;
+}
+
+.project-preview__heading small {
+  flex: 0 0 auto;
+
+  padding: 5px 7px;
+
+  color: var(--portfolio-ink-soft);
+
+  border: 1px solid var(--portfolio-line);
+  border-radius: 999px;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-preview__description {
+  display: block;
+
+  max-width: 320px;
+  margin: 12px 0 16px;
+
+  color: var(--portfolio-ink-soft);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.project-preview__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding-top: 13px;
+
+  color: var(--portfolio-ink-soft);
+  border-top: 1px solid var(--portfolio-line);
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 9px;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-preview__footer b {
+  color: var(--portfolio-ink);
+  font-weight: 650;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 820px) {
+  .project-preview {
+    left: 14px;
+    right: 14px;
+    top: auto;
+    bottom: 14px;
+
+    width: auto;
+
+    transform: translateY(8px) scale(0.99);
+    transform-origin: bottom center;
+  }
+
+  .project-preview.is-open {
+    transform: translateY(0) scale(1);
+  }
+
+  .portfolio-tooltip {
+    max-width: min(260px, calc(100vw - 20px));
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-tooltip,
+  .project-preview {
+    transition-duration: 0.01ms;
+  }
+}

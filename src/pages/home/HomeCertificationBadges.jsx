@@ -20,17 +20,16 @@ const CERT_TECH_TOOLTIP_SLOT_PROPS = {
         sx: {
             maxWidth: 260,
             p: 1.2,
-            borderRadius: 2,
+            borderRadius: "0 0 6px 6px",
             border: "1px solid",
+            borderTop: "3px solid",
             borderColor: "divider",
+            borderTopColor: (theme) => theme.space.blue,
             backgroundColor: "background.paper",
             color: "text.primary",
-            boxShadow: 3,
-            backgroundImage: (theme) =>
-                theme.palette.mode === "dark"
-                    ? "linear-gradient(160deg, rgba(125,196,172,0.12), rgba(20,32,28,0.94) 62%)"
-                    : "linear-gradient(160deg, rgba(47,122,98,0.11), rgba(248,251,249,0.96) 62%)",
-            backdropFilter: "blur(6px)",
+            boxShadow: "0 10px 22px rgba(23,32,42,.13)",
+            fontSize: ".75rem",
+            lineHeight: 1.45,
             "& .MuiTypography-caption": {
                 color: "text.secondary",
                 lineHeight: 1.35,
@@ -139,9 +138,14 @@ export default function HomeCertificationBadges() {
                                             slotProps={CERT_TECH_TOOLTIP_SLOT_PROPS}
                                             title={
                                                 <Stack spacing={0.6} sx={{ py: 0.25 }}>
-                                                    <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                                                        {t("certifications.moreTechTooltip")}
-                                                    </Typography>
+                                                    <Stack direction="row" spacing={1} alignItems="center">
+                                                        <Typography variant="caption" sx={{ color: "space.blue", fontFamily: "monospace", fontSize: ".62rem", fontWeight: 800, letterSpacing: ".12em" }}>
+                                                            {`TECH-${String(hiddenIconsCount).padStart(2, "0")}`}
+                                                        </Typography>
+                                                        <Typography variant="caption" sx={{ fontWeight: 700 }}>
+                                                            {t("certifications.moreTechTooltip")}
+                                                        </Typography>
+                                                    </Stack>
                                                     {iconDefinitions.map((iconDefinition, index) => {
                                                         const TopicIcon = iconDefinition.component;
                                                         return (

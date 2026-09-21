@@ -43,6 +43,7 @@ export const makeTheme = (mode) => {
             MuiButton: { styleOverrides: { root: { borderRadius: 2, minHeight: 42, fontFamily: monoStack, fontSize: ".7rem", fontWeight: 800, letterSpacing: ".1em", transition: `transform ${motion.fast} ease, background-color ${motion.normal} ease, border-color ${motion.normal} ease`, "&:active": { transform: "translateY(1px) scale(.98)" } } } },
             MuiButtonBase: { styleOverrides: { root: { "&.Mui-focusVisible": { outline: `2px solid ${palette.space.blue}`, outlineOffset: 3 } } } },
             MuiChip: { styleOverrides: { root: { borderRadius: 1, fontFamily: monoStack, fontSize: ".66rem", fontWeight: 700, letterSpacing: ".04em" } } },
+            MuiTooltip: { styleOverrides: { tooltip: { maxWidth: 280, padding: "10px 12px", border: "1px solid", borderTop: `3px solid ${palette.space.blue}`, borderColor: palette.divider, borderRadius: "0 0 6px 6px", backgroundColor: palette.background.paper, color: palette.text.primary, boxShadow: "0 10px 22px rgba(23,32,42,.13)", fontSize: ".75rem", lineHeight: 1.45 }, arrow: { color: palette.background.paper, "&::before": { border: "1px solid", borderColor: palette.divider } } } },
             MuiTextField: { styleOverrides: { root: { "& .MuiOutlinedInput-root": { borderRadius: 1, backgroundColor: isDark ? "#14202A" : "#FBF7EE" } } } },
         },
     });

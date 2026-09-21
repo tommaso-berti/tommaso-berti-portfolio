@@ -13,6 +13,7 @@ export default function MiniWebappPreview({
                                               overlayLabel = "",
                                               disableFullscreen = false,
                                               deferLoad = false,
+                                              sx,
                                               loadPreviewLabel = "Load Preview",
                                               loadPreviewTooltip = "Click to load the preview only when needed to avoid unnecessary API calls.",
                                           }) {
@@ -141,8 +142,9 @@ export default function MiniWebappPreview({
                             backgroundColor: "rgba(0,0,0,0.6)",
                             "&:hover": {
                                 backgroundColor: "rgba(0,0,0,0.8)",
-                            },
-                        }}
+                    },
+                    ...sx,
+                }}
                     >
                         <OpenInFullIcon sx={{ fontSize: 18, color: "#fff" }} />
                     </IconButton>

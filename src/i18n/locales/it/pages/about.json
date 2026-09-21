@@ -11,6 +11,7 @@
   },
   "experience": {
     "title": "Studi ed Esperienze",
+    "current": "Attuale",
     "experiences": [
       {
         "year": "2016",
@@ -51,6 +52,51 @@
     "database": "Database",
     "languages-markup": "Linguaggi / Markup",
     "tools": "Strumenti"
+  },
+  "personnel": {
+    "header": "FASCICOLO PERSONALE / TB-01 / UNITÀ ESPLORAZIONE",
+    "heroEyebrow": "03 // FASCICOLO PERSONALE",
+    "heroTitle": "COSTRUISCO\nSISTEMI UTILI.",
+    "heroLead": "Sviluppatore software: affronto problemi complessi con curiosità, pensiero analitico e un approccio pragmatico e iterativo.",
+    "tags": ["REACT", "TYPESCRIPT", "MUI", "NODE.JS", "PRODUCT THINKING"],
+    "contactCta": "Apri comunicazioni",
+    "projectsCta": "Esplora i progetti",
+    "telemetry": [
+      { "label": "BASE", "value": "ITALIA" },
+      { "label": "SISTEMI PRINCIPALI", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "APPROCCIO", "value": "PRAGMATICO / ITERATIVO" },
+      { "label": "PROFILO", "value": "VERIFICATO", "status": true }
+    ],
+    "visual": {
+      "title": "MODULO IDENTITÀ // TOMMASO BERTI",
+      "status": "PROFILO VERIFICATO",
+      "node": "NODO TB-01",
+      "remote": "SEGNALE NOMINALE",
+      "interests": "VETTORE INTERESSI"
+    },
+    "modulesLabel": "Moduli del fascicolo personale",
+    "modules": {
+      "identity": "Identità",
+      "method": "Come lavoro",
+      "development": "Registro sviluppo",
+      "beyond": "Oltre il codice"
+    },
+    "identityTitle": "Sviluppatore prima di tutto. Sempre attento al prodotto.",
+    "identityLead": "Costruisco e miglioro software con attenzione alle persone che lo usano, ai sistemi che lo sostengono e ai compromessi che lo rendono manutenibile.",
+    "systems": [
+      { "label": "SISTEMI FRONTEND", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "RUNTIME APPLICATIVO", "value": "NODE.JS / EXPRESS" },
+      { "label": "METODO DI LAVORO", "value": "ANALIZZA / COSTRUISCI / AFFINA" }
+    ],
+    "methodTitle": "Costruire. Capire. Affinare.",
+    "principles": [
+      { "code": "01 // CHIAREZZA", "title": "Partire dal problema reale", "body": "Chiarisco contesto e vincoli prima di scegliere una strada di implementazione." },
+      { "code": "02 // PRAGMATISMO", "title": "Preferire un progresso utile", "body": "Cerco soluzioni concrete, adatte al prodotto, al team e al sistema già esistente." },
+      { "code": "03 // ITERAZIONE", "title": "Migliorare con intenzione", "body": "Considero feedback e manutenzione parte del lavoro, non un ripensamento successivo." }
+    ],
+    "closingLabel": "DICHIARAZIONE DI MISSIONE",
+    "closingTitle": "Un buon software dovrebbe sembrare naturale.",
+    "closingBody": "Architettura chiara, interfacce utili e meno attrito per le persone che ci fanno affidamento."
   },
   "certifications": {
     "title": "Certificazioni",

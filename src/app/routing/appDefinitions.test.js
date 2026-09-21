@@ -14,6 +14,7 @@ describe("resolvePageDefinition", () => {
 
     it("resolves static pages", () => {
         expect(resolvePageDefinition("/about")?.id).toBe("about");
+        expect(resolvePageDefinition("/services")?.id).toBe("services");
         expect(resolvePageDefinition("/contact")?.id).toBe("contact");
         expect(resolvePageDefinition("/cv")?.id).toBe("cv");
     });

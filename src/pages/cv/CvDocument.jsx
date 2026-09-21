@@ -44,7 +44,7 @@ export default function CvDocument({
             sx={{
                 px: { xs: 1.8, sm: 2.4, md: isCompact ? 3 : 4 },
                 py: { xs: 1.9, md: isCompact ? 2.2 : 3 },
-                borderRadius: 3,
+                borderRadius: 1,
                 width: "100%",
                 maxWidth: "100%",
                 mx: "auto",

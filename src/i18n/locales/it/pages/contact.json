@@ -1,5 +1,13 @@
 {
   "title": "Contattami",
+  "missionEyebrow": "05 // COLLEGAMENTO COMUNICAZIONI",
+  "missionNote": "STATO CANALE // APERTO",
+  "formTitle": "Apri un canale.",
+  "name": "Nome",
+  "email": "Email",
+  "message": "Messaggio",
+  "send": "Trasmetti messaggio",
+  "formHint": "Apre l'app email con il messaggio già compilato.",
   "eyebrow": "Collaborazioni e opportunita",
   "subtitle": "Se vuoi discutere una collaborazione, un progetto o una nuova opportunita professionale, scrivimi pure: valuto ogni contatto con attenzione.",
   "emailCta": "Scrivimi via email",

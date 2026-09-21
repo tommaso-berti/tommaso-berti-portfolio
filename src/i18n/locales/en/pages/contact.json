@@ -1,5 +1,13 @@
 {
   "title": "Contact me",
+  "missionEyebrow": "05 // COMMUNICATION UPLINK",
+  "missionNote": "CHANNEL STATUS // OPEN",
+  "formTitle": "Open a channel.",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "send": "Transmit message",
+  "formHint": "This opens your email app with the mission brief prefilled.",
   "eyebrow": "Collaborations and opportunities",
   "subtitle": "If you want to discuss a collaboration, a project, or a new professional opportunity, feel free to reach out. I review every message carefully.",
   "emailCta": "Email me",

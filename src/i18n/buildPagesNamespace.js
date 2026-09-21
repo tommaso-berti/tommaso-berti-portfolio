@@ -6,6 +6,7 @@ export function buildPagesNamespace(sections) {
     return {
         home: sections.home,
         contact: sections.contact,
+        services: sections.services,
         about: sections.about,
         projects: sections.projects,
         blog: sections.blog,

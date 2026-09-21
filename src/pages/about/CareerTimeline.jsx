@@ -99,7 +99,7 @@ export default function CareerTimeline() {
                                         ) : null}
                                         {isCurrentRole ? (
                                             <Chip
-                                                label="current"
+                                                label={t("current")}
                                                 size="small"
                                                 color="success"
                                                 sx={{ alignSelf: "flex-start" }}

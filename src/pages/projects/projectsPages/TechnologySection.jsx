@@ -3,7 +3,6 @@ import Tab from "@mui/material/Tab";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
-import LinearProgress from "@mui/material/LinearProgress";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -166,29 +165,7 @@ export default function TechnologySection({ technologies = [] }) {
                                                 </Stack>
                                             )}
                                         </Stack>
-                                    ) : (
-                                        typeof tech.level === "number" && (
-                                            <Stack spacing={1}>
-                                                <Stack
-                                                    direction="row"
-                                                    alignItems="center"
-                                                    justifyContent="space-between"
-                                                >
-                                                    <Typography variant="caption">
-                                                        {t('impact_on_the_project')}
-                                                    </Typography>
-                                                    <Typography variant="caption" fontWeight={600}>
-                                                        {tech.level}%
-                                                    </Typography>
-                                                </Stack>
-                                                <LinearProgress
-                                                    variant="determinate"
-                                                    value={tech.level}
-                                                    sx={{ borderRadius: 999 }}
-                                                />
-                                            </Stack>
-                                        )
-                                    )}
+                                    ) : null}
                                 </CardContent>
                             </Card>
                         );

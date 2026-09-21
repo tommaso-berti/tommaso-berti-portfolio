@@ -1,0 +1,12 @@
+{
+  "eyebrow": "04 // CAPACITÀ",
+  "title": "Cosa posso costruire",
+  "note": "SERVIZI DI SVILUPPO SELEZIONATI",
+  "items": [
+    { "title": "Applicazioni web", "description": "Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali." },
+    { "title": "Dashboard", "description": "Interfacce che rendono dati, stati e operazioni leggibili e azionabili." },
+    { "title": "API e integrazioni", "description": "Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto." },
+    { "title": "Strumenti di automazione", "description": "Utility mirate che riducono i flussi manuali e ripetitivi." }
+  ],
+  "cta": "Avvia un progetto"
+}

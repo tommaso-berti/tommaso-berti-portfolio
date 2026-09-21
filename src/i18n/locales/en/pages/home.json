@@ -1,5 +1,13 @@
 {
   "tooltipResume": "Download Resume",
+  "eyebrow": "TB-DEV // EXPLORATION LOG 2026",
+  "missionTitle": "BUILD.\nEXPLORE.\nIMPROVE.",
+  "missionLead": "I build practical software with clear interfaces, solid architecture, and a focus on real workflows.",
+  "orbitalTitle": "CELESTIAL DEVELOPMENT MAP",
+  "orbitalStatus": "SIGNAL NOMINAL",
+  "orbitalLabels": ["NODE TB-01", "ORBIT 067°", "SIGNAL NOMINAL", "EARTH SYSTEMS"],
+  "telemetry": [{"label":"PRIMARY STACK","value":"WEB"},{"label":"PROJECT TYPE","value":"APPS"},{"label":"SYSTEMS","value":"API"},{"label":"STATUS","value":"READY","status":true}],
+  "boot": ["[01] UI subsystem ........ READY", "[02] portfolio shell .... READY", "[03] mission profile .... TOMMASO BERTI"],
   "welcome": "Hello, I'm",
   "and": "and",
   "primaryCta": "Explore projects",

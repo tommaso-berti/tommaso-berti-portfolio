@@ -11,6 +11,7 @@
   },
   "experience": {
     "title": "Study and Experience",
+    "current": "Current",
     "experiences": [
       {
         "year": "2016",
@@ -51,6 +52,51 @@
     "database": "Database",
     "languages-markup": "Languages / Markup",
     "tools": "Tools"
+  },
+  "personnel": {
+    "header": "PERSONNEL FILE / TB-01 / EXPLORATION UNIT",
+    "heroEyebrow": "03 // PERSONNEL FILE",
+    "heroTitle": "I BUILD\nUSEFUL SYSTEMS.",
+    "heroLead": "A software developer who approaches complex problems with curiosity, analytical thinking, and pragmatic iteration.",
+    "tags": ["REACT", "TYPESCRIPT", "MUI", "NODE.JS", "PRODUCT THINKING"],
+    "contactCta": "Open communications",
+    "projectsCta": "Explore projects",
+    "telemetry": [
+      { "label": "BASE", "value": "ITALY" },
+      { "label": "PRIMARY SYSTEMS", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "APPROACH", "value": "PRAGMATIC / ITERATIVE" },
+      { "label": "PROFILE", "value": "VERIFIED", "status": true }
+    ],
+    "visual": {
+      "title": "IDENTITY MODULE // TOMMASO BERTI",
+      "status": "PROFILE VERIFIED",
+      "node": "NODE TB-01",
+      "remote": "SIGNAL NOMINAL",
+      "interests": "INTEREST VECTOR"
+    },
+    "modulesLabel": "Personnel file modules",
+    "modules": {
+      "identity": "Identity",
+      "method": "How I work",
+      "development": "Development log",
+      "beyond": "Beyond code"
+    },
+    "identityTitle": "Developer first. Product thinker always.",
+    "identityLead": "I build and improve software with attention to the people who use it, the systems that support it, and the trade-offs that keep it maintainable.",
+    "systems": [
+      { "label": "FRONTEND SYSTEMS", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "APPLICATION RUNTIME", "value": "NODE.JS / EXPRESS" },
+      { "label": "WORKING MODE", "value": "ANALYSE / BUILD / REFINE" }
+    ],
+    "methodTitle": "Build. Understand. Refine.",
+    "principles": [
+      { "code": "01 // CLARITY", "title": "Start from the real problem", "body": "I clarify the context and constraints before choosing an implementation path." },
+      { "code": "02 // PRAGMATISM", "title": "Prefer useful progress", "body": "I look for practical solutions that fit the product, the team, and the system already in place." },
+      { "code": "03 // ITERATION", "title": "Improve deliberately", "body": "I treat feedback and maintenance as part of the work, not as an afterthought." }
+    ],
+    "closingLabel": "MISSION STATEMENT",
+    "closingTitle": "Good software should feel obvious.",
+    "closingBody": "Clear architecture, useful interfaces, and less friction for the people relying on them."
   },
   "certifications": {
     "title": "Certifications",

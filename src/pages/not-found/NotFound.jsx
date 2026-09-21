@@ -18,7 +18,7 @@ export default function NotFound() {
             }}
         >
             <Typography component="p" variant="overline" color="secondary.main">
-                404
+                404 // LOST SIGNAL
             </Typography>
             <Typography component="h1" variant="h3">
                 {t("title")}

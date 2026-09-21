@@ -56,8 +56,8 @@ export default function HomeCertificationBadges() {
         <Paper
             component="aside"
             sx={{
-                width: { xs: "100%", md: "40%" },
-                maxWidth: { xs: "100%", md: 420 },
+                width: "100%",
+                maxWidth: "none",
                 p: { xs: 2, md: 2.3 },
                 borderRadius: 3,
                 display: "flex",
@@ -70,7 +70,17 @@ export default function HomeCertificationBadges() {
                 {t("certifications.subtitle")}
             </Typography>
 
-            <Stack spacing={1.2}>
+            <Box
+                sx={{
+                    display: "grid",
+                    gap: 1.2,
+                    gridTemplateColumns: {
+                        xs: "1fr",
+                        sm: "repeat(2, minmax(0, 1fr))",
+                        lg: "repeat(3, minmax(0, 1fr))",
+                    },
+                }}
+            >
                 {FEATURED_CERTIFICATIONS.map((cert) => {
                     const iconDefinitions = getCertificationIconDefinitions(cert);
                     const visibleIconDefinitions = iconDefinitions.slice(0, MAX_VISIBLE_CERT_ICONS);
@@ -209,7 +219,7 @@ export default function HomeCertificationBadges() {
                         </Paper>
                     );
                 })}
-            </Stack>
+            </Box>
 
             <Box sx={{ pt: 0.4 }}>
                 <Button

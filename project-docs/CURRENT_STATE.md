@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Snapshot as of 2026-05-15.
+Snapshot as of 2026-09-21.
 
 ## Confirmed
 - `AGENTS.md` is present in repo root.
@@ -20,6 +20,11 @@ Snapshot as of 2026-05-15.
 - `MiniWebappPreview` defers iframe loading with Intersection Observer when `deferLoad` is enabled.
 - Prettier (`npm run format`) and `jsconfig.json` (JS editor checks) are configured.
 - Legacy custom language context/hook removed in favor of `i18n.changeLanguage` and `useTranslation`.
+- The portfolio uses the aerospace-inspired exploration design system: `explorationLight` is the default palette and the persisted dark toggle uses a matching deep-space variant.
+- `/services` is a localized public route; shared mission UI primitives live in `src/features/mission-ui/`.
+- Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
+- Every project detail route now uses a shared mission-dossier treatment with real links/content, localized technical labels, and an opt-in live application preview; no project screenshots or product metrics were invented.
+- About is a localized personnel-file page with an original TB orbital visual and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
 
 ## Known Gaps
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).

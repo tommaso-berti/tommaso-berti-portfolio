@@ -26,7 +26,7 @@ export const cvActionLinkSx = {
     fontWeight: 700,
     border: "1px solid",
     borderColor: "divider",
-    borderRadius: 999,
+    borderRadius: 2,
     px: 1,
     py: 0.25,
     color: "secondary.main",

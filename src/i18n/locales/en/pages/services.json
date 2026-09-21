@@ -1,0 +1,12 @@
+{
+  "eyebrow": "04 // CAPABILITIES",
+  "title": "What I can build",
+  "note": "SELECTED DEVELOPMENT SERVICES",
+  "items": [
+    { "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows." },
+    { "title": "Dashboards", "description": "Interfaces that make data, states, and operations readable and actionable." },
+    { "title": "APIs & integrations", "description": "Backend services and data flows that connect product systems together." },
+    { "title": "Automation tools", "description": "Purpose-built utilities that reduce repetitive manual workflows." }
+  ],
+  "cta": "Start a project"
+}

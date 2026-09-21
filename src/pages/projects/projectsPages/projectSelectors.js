@@ -48,6 +48,16 @@ export function buildProjectPreviewModel(project, tProjects) {
     };
 }
 
+export function buildMissionModel(project, tProjects, index) {
+    const preview = buildProjectPreviewModel(project, tProjects);
+    const colors = { main: "space.blue", side: "space.orange" };
+    return {
+        ...preview,
+        overline: `${tProjects(project.overlineKey)} // ${String(index + 1).padStart(2, "0")}`,
+        color: colors[project.category] || "space.yellow",
+    };
+}
+
 export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
     const details = projectConfig?.details ?? {};
     const detailsTechnologies = Array.isArray(details.technologies) ? details.technologies : [];

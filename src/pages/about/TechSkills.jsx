@@ -11,7 +11,7 @@ import { SKILL_GROUPS } from "../../features/skills/skillGroups.js";
 const ICON_SIZE = 22;
 
 const SkillItem = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#fff",
+    backgroundColor: theme.space.panel,
     ...theme.typography.body2,
     padding: theme.spacing(1.5),
     textAlign: "left",
@@ -22,7 +22,7 @@ const SkillItem = styled(Paper)(({ theme }) => ({
         boxShadow: theme.shadows[6],
     },
     ...theme.applyStyles("dark", {
-        backgroundColor: "#1A2027",
+        backgroundColor: theme.space.panel,
     }),
 }));
 
@@ -35,7 +35,7 @@ function IconWrapper({ children }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "#ffffff",
+                backgroundColor: "transparent",
                 borderRadius: "6px",
                 border: "1px solid rgba(148, 163, 184, 0.25)",
             }}
@@ -59,7 +59,7 @@ function SkillCard({ label, iconId }) {
     );
 }
 
-export default function TechSkills() {
+export default function TechSkills({ embedded = false }) {
     const { t } = useTranslation("pages", { keyPrefix: "about.tech-skills" });
 
     return (
@@ -67,9 +67,10 @@ export default function TechSkills() {
             id="tech-skills"
             spacing={2.5}
             component="section"
-            sx={{ marginTop: "3rem", width: "100%", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}
+            sx={{ marginTop: embedded ? 0 : "3rem", width: "100%", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}
         >
-            <Typography variant="h3">{t("title")}</Typography>
+            <Typography variant="overline" color="text.secondary">DEVELOPMENT SYSTEMS</Typography>
+            <Typography component="h2" variant="h3">{t("title")}</Typography>
 
             {SKILL_GROUPS.map((group) => (
                 <Stack key={group.titleKey} spacing={2}>

@@ -21,9 +21,19 @@ System-level notes for the portfolio application.
   - Loads route map from `PAGE_DEFINITIONS`
   - Renders under shared `Layout`
 - Layout layer (`src/app/layout/`):
-  - Fixed header, breadcrumbs, nav, toggles, release notes modal, footer
+  - Fixed numbered mission header, language/theme toggles, release notes modal, and footer
 - Page layer (`src/pages/`):
-  - Home, About, Projects, Blog, Contact, CV, Project details
+  - Home, Projects, About, Services, Blog, Contact, CV, Project details
+- Mission UI (`src/features/mission-ui/`):
+  - Shared technical labels, color rails, original TB identity, orbital SVG, mission cards, capability cards, and restrained motion panels.
+  - The MUI theme provides the light/deep-space palettes plus compact motion timing; CSS media queries and `useReducedMotion` keep all decorative motion optional.
+- Project dossiers (`src/pages/projects/projectsPages/ProjectDossier.jsx`):
+  - Shared `/projects/:project` mission-dossier shell driven by the existing project config and localized content.
+  - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, module navigation, and existing detail content grouped as overview, system, interface, and development log.
+- About personnel file (`src/pages/about/`):
+  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and four selectable modules from existing biography content.
+  - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs.
+  - `IdentityVisualizer.jsx` is a decorative, reduced-motion-safe MUI visual; profile and career facts remain in the localized module content.
 
 ## Data and Request Flow
 - Static-first data model:

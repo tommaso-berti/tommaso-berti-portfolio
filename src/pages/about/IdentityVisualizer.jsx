@@ -1,11 +1,5 @@
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
-import ColorRail from "@/features/mission-ui/ColorRail.jsx";
-import StatusIndicator from "@/features/mission-ui/StatusIndicator.jsx";
-import { useReducedMotion } from "@/hooks/useReducedMotion.js";
+import CelestialProjectMap from "@/features/mission-ui/CelestialProjectMap.jsx";
 
-export default function IdentityVisualizer({ t }) {
-    const reduced = useReducedMotion();
-    return <Box component="section" sx={{ minHeight: { xs: 315, md: 360 }, position: "relative", border: "1px solid", borderColor: "divider", bgcolor: (theme) => theme.space.secondaryPaper, overflow: "hidden" }}><Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ px: 1.4, py: 1, borderBottom: "1px solid", borderColor: "divider" }}><TechnicalLabel>{t("visual.title")}</TechnicalLabel><StatusIndicator>{t("visual.status")}</StatusIndicator></Stack>{[[-17, 250, 92], [19, 305, 126], [43, 190, 70]].map(([rotation, width, height], index) => <Box key={rotation} aria-hidden="true" sx={{ position: "absolute", left: "50%", top: "52%", width, height, border: "1px solid", borderColor: "divider", borderRadius: "50%", transform: `translate(-50%, -50%) rotate(${rotation}deg)`, animation: index === 0 && !reduced ? "orbitalSpin 16s linear infinite" : "none" }} />)}<Box aria-label="TB" sx={{ position: "absolute", left: "50%", top: "52%", width: 132, height: 132, transform: "translate(-50%, -50%)", borderRadius: "50%", bgcolor: "space.blue", color: "#fff", border: "8px solid", borderColor: "background.paper", outline: "1px solid", outlineColor: "divider", display: "grid", placeItems: "center", fontSize: "1.75rem", fontWeight: 900 }}>TB</Box>{[["20%", "38%", "space.blue"], ["76%", "58%", "space.orange"], ["33%", "78%", "space.yellow"]].map(([left, top, color]) => <Box key={left} aria-hidden="true" sx={{ position: "absolute", left, top, width: 16, height: 16, borderRadius: "50%", bgcolor: color, border: "4px solid", borderColor: "background.paper", outline: "1px solid", outlineColor: "divider" }} />)}<TechnicalLabel sx={{ position: "absolute", left: 13, top: 54, fontSize: ".52rem" }}>{t("visual.node")}</TechnicalLabel><TechnicalLabel sx={{ position: "absolute", right: 13, top: 58, fontSize: ".52rem", textAlign: "right" }}>{t("visual.remote")}</TechnicalLabel><TechnicalLabel sx={{ position: "absolute", right: 13, bottom: 20, fontSize: ".52rem", textAlign: "right" }}>{t("visual.interests")}</TechnicalLabel><ColorRail sx={{ position: "absolute", bottom: 0, left: 0, right: 0 }} /></Box>;
+export default function IdentityVisualizer({ t, items }) {
+    return <CelestialProjectMap items={items} labels={{ title: t("visual.title") }} decorative />;
 }

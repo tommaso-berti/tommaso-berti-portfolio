@@ -23,6 +23,7 @@
     "modulesLabel": "Project detail modules",
     "roadmapMeta": "Mission timeline // orbital release path",
     "roadmapStatus": { "done": "Completed", "current": "Current focus", "planned": "Planned" },
+    "roadmapTerminal": { "releaseConsole": "release_console://mission_output", "systemReadout": "system_readout://active_modules", "loadRelease": "load release data", "activeModules": "system readout // active modules", "releaseProfile": "[01] release profile", "nodeStatus": "[02] node status", "deliveryState": "[03] delivery state", "ready": "ready", "queued": "queued", "note": "Terminal styling adapted to the project roadmap context." },
     "modules": { "overview": "Overview", "system": "System", "interface": "Interface", "development": "Development log" },
     "moduleLabels": { "overview": "MISSION BRIEF", "system": "SYSTEM ARCHITECTURE", "interface": "INTERFACE SYSTEM", "development": "DEVELOPMENT LOG" },
     "layeredPreview": {

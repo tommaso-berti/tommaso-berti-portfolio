@@ -21,10 +21,9 @@ function OrbitalSignature({ mission, accent, t }) {
                     <rect width="320" height="190" fill={`url(#${patternId})`} />
                     <line x1="0" y1="95" x2="320" y2="95" stroke="rgba(23,32,42,.24)" strokeWidth="1" />
                     <line x1="160" y1="0" x2="160" y2="190" stroke="rgba(23,32,42,.24)" strokeWidth="1" />
-                    <ellipse cx="160" cy="95" rx="116" ry="43" fill="none" stroke={accent} strokeWidth="4" transform="rotate(-16 160 95)" />
+                    <g transform="rotate(-16 160 95)"><ellipse cx="160" cy="95" rx="116" ry="43" fill="none" stroke={accent} strokeWidth="2" /><circle cx="234.6" cy="62.1" r="6" fill={accent} /></g>
                     <ellipse cx="160" cy="95" rx="78" ry="78" fill="none" stroke="rgba(23,32,42,.25)" strokeWidth="2" />
                     <circle cx="160" cy="95" r="18" fill="rgba(247,244,236,.9)" stroke={accent} strokeWidth="3" />
-                    <circle cx="220" cy="78" r="6" fill={accent} />
                 </Box>
             </Box> : <Box sx={{ mt: 1, height: 190, display: "grid", placeItems: "center", border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.06)" }}><Typography sx={{ px: 1.5, py: .9, border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.12)", fontFamily: "monospace", fontSize: ".7rem", letterSpacing: ".12em", color: "text.secondary" }}>✕ DATA UNAVAILABLE</Typography></Box>}
         </Box>
@@ -37,8 +36,8 @@ export default function MissionCard({ mission, selected, dimmed, onSelect, t }) 
     const markSx = {
         alignSelf: "center", justifySelf: "end", width: selected ? 82 : 60, height: selected ? 82 : 60, border: "1px solid", borderColor: "divider", borderRadius: "50%", position: "relative", display: "grid", placeItems: "center",
         transform: selected ? "rotate(12deg)" : "none", transition: "width 560ms cubic-bezier(.16,.84,.2,1), height 560ms cubic-bezier(.16,.84,.2,1), transform 560ms cubic-bezier(.16,.84,.2,1)",
-        "&::before": { content: '""', width: 6, height: 6, borderRadius: "50%", bgcolor: accent, boxShadow: "0 0 0 7px rgba(52,124,178,.09)" },
-        "&::after": { content: '""', position: "absolute", width: "78%", height: "26%", border: "1px solid", borderColor: "divider", borderRadius: "50%", transform: "rotate(-24deg)" },
+        "&::before": { content: '""', position: "absolute", left: "73.5%", top: "33.5%", width: 6, height: 6, borderRadius: "50%", bgcolor: accent, boxShadow: "0 0 0 7px rgba(52,124,178,.09)", transform: "translate(-50%, -50%)" },
+        "&::after": { content: '""', position: "absolute", width: "78%", height: "26%", border: "1px solid", borderColor: accent, borderRadius: "50%", transform: "rotate(-16deg)" },
     };
 
     return <Card component="article" data-project-card={mission.id} variant="outlined" sx={{ gridColumn: { xs: "auto", md: selected ? "1 / -1" : "auto" }, minWidth: 0, position: "relative", overflow: "hidden", borderColor: selected ? accent : "divider", bgcolor: selected ? "space.secondaryPaper" : "background.paper", opacity: dimmed ? .58 : 1, transition: "border-color 350ms ease, opacity 350ms ease, background-color 350ms ease", "&::before": { content: '""', position: "absolute", left: 0, top: 0, bottom: 0, width: 4, bgcolor: accent, transform: selected ? "scaleY(1)" : "scaleY(.32)", transformOrigin: "top", opacity: selected ? 1 : .75, transition: "transform 560ms cubic-bezier(.16,.84,.2,1), opacity 350ms ease" }, "&:hover::before": { transform: "scaleY(.58)" } }}>

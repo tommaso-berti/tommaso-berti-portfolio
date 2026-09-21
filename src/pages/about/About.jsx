@@ -10,6 +10,7 @@ import ColorRail from "@/features/mission-ui/ColorRail.jsx";
 import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
 import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
 import TelemetryStrip from "@/features/mission-ui/TelemetryStrip.jsx";
+import { buildCelestialMapItems } from "@/pages/projects/projectsPages/projectSelectors.js";
 
 export default function About() {
     const location = useLocation();
@@ -17,6 +18,8 @@ export default function About() {
     const [activeModule, setActiveModule] = useState(() => getAboutModuleFromHash(location.hash));
     const telemetry = t("personnel.telemetry", { returnObjects: true });
     const tags = t("personnel.tags", { returnObjects: true });
+    const { t: tProjects } = useTranslation("pages", { keyPrefix: "projects" });
+    const mapItems = buildCelestialMapItems(tProjects);
 
     useScrollToHash(8.5);
 
@@ -52,7 +55,7 @@ export default function About() {
                         <SpaceButton component={RouterLink} to="/projects" variant="outlined">{t("personnel.projectsCta")}</SpaceButton>
                     </Stack>
                 </Stack>
-                <Box sx={{ flex: 1, minWidth: 0 }}><IdentityVisualizer t={(key) => t(`personnel.${key}`)} /></Box>
+                <Box sx={{ flex: 1, minWidth: 0 }}><IdentityVisualizer t={(key) => t(`personnel.${key}`)} items={mapItems} /></Box>
             </Stack>
             <TelemetryStrip items={telemetry.map((item) => ({ ...item, status: item.status === true }))} />
             <AboutModuleTabs activeModule={activeModule} onChange={setActiveModule} t={t} />

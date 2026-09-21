@@ -29,11 +29,11 @@ System-level notes for the portfolio application.
   - The MUI theme provides the light/deep-space palettes plus compact motion timing; CSS media queries and `useReducedMotion` keep all decorative motion optional.
 - Project dossiers (`src/pages/projects/projectsPages/ProjectDossier.jsx`):
   - Shared `/projects/:project` mission-dossier shell driven by the existing project config and localized content.
-  - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, module navigation, and existing detail content grouped as overview, system, interface, and development log.
+  - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, shared mission-tab navigation, and existing detail content grouped as overview, system, interface, and development log.
 - About personnel file (`src/pages/about/`):
   - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and four selectable modules from existing biography content.
   - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs.
-  - `IdentityVisualizer.jsx` is a decorative, reduced-motion-safe MUI visual; profile and career facts remain in the localized module content.
+  - `IdentityVisualizer.jsx` reuses `CelestialProjectMap` in a decorative, reduced-motion-safe logo-centered mode; profile and career facts remain in the localized module content.
 
 ## Data and Request Flow
 - Static-first data model:

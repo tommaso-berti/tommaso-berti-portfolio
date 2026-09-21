@@ -26,8 +26,9 @@ Snapshot as of 2026-09-21.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.
 - Every project detail route now uses a shared mission-dossier treatment with real links/content, localized technical labels, and an opt-in live application preview; no project screenshots or product metrics were invented.
 - Project application modules use `LayeredApplicationPreview`: the e-commerce detail combines the deferred live iframe with layered survey/preview states, responsive touch/keyboard focus, and localized technical telemetry.
-- Project detail navigation uses mission tabs, editorial technology filters, and a responsive constellation roadmap with localized status labels and keyboard-accessible node selection.
-- About is a localized personnel-file page with an original TB orbital visual and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
+- Project detail and About module navigation share the same mission-tab treatment, with localized labels and responsive active-state styling; project details also include editorial technology filters and a constellation roadmap with keyboard-accessible node selection.
+- The global layout uses a flex-column shell with a growing main region, keeping the footer at the viewport bottom without trailing whitespace on short pages.
+- About is a localized personnel-file page with the shared home celestial system in a decorative logo-centered mode and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
 
 ## Known Gaps
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).

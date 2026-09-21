@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Bio from "./Bio.jsx";
 import Experience from "./Experience.jsx";
 import Hobbies from "./Hobbies.jsx";
@@ -6,6 +6,7 @@ import TechSkills from "./TechSkills.jsx";
 import CertificationsSection from "../../features/certifications/CertificationsSection.jsx";
 import MotionPanel from "../../features/mission-ui/MotionPanel.jsx";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
+import ProjectMissionTabs from "../projects/projectsPages/ProjectMissionTabs.jsx";
 
 const moduleOrder = ["identity", "method", "development", "beyond"];
 
@@ -66,18 +67,7 @@ function ModuleContent({ activeModule, t }) {
 export default function AboutModuleTabs({ activeModule, onChange, t }) {
     return (
         <Stack component="section" spacing={2.5} aria-label={t("personnel.modulesLabel")}>
-            <Stack direction="row" flexWrap="wrap" gap={1} role="toolbar" aria-label={t("personnel.modulesLabel")}>
-                {moduleOrder.map((module, index) => {
-                    const selected = activeModule === module;
-                    return (
-                        <Button aria-pressed={selected} key={module} onClick={() => onChange(module)} size="small"
-                            sx={{ border: "1px solid", borderColor: selected ? "space.blue" : "divider", color: selected ? "space.blue" : "text.primary", minHeight: 44, px: 1.5 }}
-                            variant={selected ? "contained" : "text"}>
-                            {String(index + 1).padStart(2, "0")}{" // "}{t(`personnel.modules.${module}`)}
-                        </Button>
-                    );
-                })}
-            </Stack>
+            <ProjectMissionTabs modules={moduleOrder} active={activeModule} onChange={onChange} t={t} labelPrefix="personnel.modules" ariaLabel={t("personnel.modulesLabel")} />
             <MotionPanel key={activeModule} component="div" sx={{ p: { xs: 2, sm: 3 } }}>
                 <ModuleContent activeModule={activeModule} t={t} />
             </MotionPanel>

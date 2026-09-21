@@ -15,6 +15,8 @@ export default function Layout() {
             maxWidth="xl"
             sx={{
                 minHeight: "100dvh",
+                display: "flex",
+                flexDirection: "column",
                 position: "relative",
                 "&::before": {
                     content: '""',
@@ -53,6 +55,7 @@ export default function Layout() {
                     width: "100%",
                     maxWidth: 1160,
                     mx: "auto",
+                    flexGrow: 1,
                     pt: { xs: "10.5rem", lg: "6.8rem" },
                     pb: { xs: 5, md: 7 },
                     minHeight: "calc(100dvh - 128px)",

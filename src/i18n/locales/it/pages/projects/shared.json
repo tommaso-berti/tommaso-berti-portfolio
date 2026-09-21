@@ -20,6 +20,9 @@
     "source": "Vedi sorgente",
     "channelReady": "Canale progetto pronto.",
     "channelNote": "Apri il progetto tramite il suo link pubblico verificato.",
+    "modulesLabel": "Moduli dettaglio progetto",
+    "roadmapMeta": "Timeline missione // percorso release orbitale",
+    "roadmapStatus": { "done": "Completato", "current": "Focus corrente", "planned": "Pianificato" },
     "modules": { "overview": "Panoramica", "system": "Sistema", "interface": "Interfaccia", "development": "Log di sviluppo" },
     "moduleLabels": { "overview": "BRIEF DI MISSIONE", "system": "ARCHITETTURA DEL SISTEMA", "interface": "SISTEMA INTERFACCIA", "development": "LOG DI SVILUPPO" },
     "layeredPreview": {

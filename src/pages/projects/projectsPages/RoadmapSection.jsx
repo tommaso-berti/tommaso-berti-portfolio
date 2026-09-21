@@ -1,139 +1,23 @@
-import Typography from "@mui/material/Typography";
+import { useState } from "react";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import {useState} from "react";
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-export default function RoadmapSection({roadmapTitle, roadmap, backLabel, nextLabel}) {
+export default function RoadmapSection({ roadmapTitle, roadmap, backLabel, nextLabel, t }) {
     const steps = Array.isArray(roadmap) ? roadmap : [];
     const [activeStep, setActiveStep] = useState(0);
+    if (!steps.length) return null;
+    const stateAt = (index) => index === 0 ? "current" : index < 3 ? "done" : "planned";
+    const selected = steps[activeStep];
+    const stateColor = (state) => state === "done" ? "space.green" : state === "current" ? "space.blue" : "#b4b4ae";
 
-    if (!steps.length) {
-        return null;
-    }
-
-    const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep(prevActiveStep => prevActiveStep - 1);
-    };
-
-    return (
-        <Box component="section" id="roadmap">
-            <Typography variant="h4" sx={{ mb: 4 }}>
-                {roadmapTitle}
-            </Typography>
-
-            <Box>
-                <Stepper activeStep={activeStep} alternativeLabel>
-                    {steps.map((step, index) => (
-                        <Step key={index}>
-                            <StepLabel
-                                sx={{
-                                    "& .MuiStepLabel-iconContainer .MuiStepIcon-root": {
-                                        transition: "0.25s",
-                                    },
-                                    "& .MuiStepLabel-iconContainer:hover .MuiStepIcon-root": {
-                                        transform: "translateY(-4px)",
-                                        boxShadow: 6,
-                                        borderRadius: "50%",
-                                    },
-                                }}
-                            >
-                                {step.title}
-                            </StepLabel>
-                        </Step>
-                    ))}
-                </Stepper>
-
-                <Container sx={{ width: "75%" }}>
-                    <Paper
-                        elevation={2}
-                        sx={{
-                            borderRadius: 3,
-                            mt: 4,
-                            p: 3,
-                            minHeight: "10rem",
-                            maxHeight: "20rem",
-                            overflowY: "auto",
-                            transition: "0.25s",
-                            "&:hover": {
-                                transform: "translateY(-4px)",
-                                boxShadow: 6,
-                            },
-                        }}
-                    >
-                        <Stack gap={2} direction="column">
-                            <Typography variant="h6">
-                                {steps[activeStep].title}
-                            </Typography>
-                            <List>
-                                {
-                                    (Array.isArray(steps[activeStep].content)
-                                        ? steps[activeStep].content
-                                        : [steps[activeStep].content]
-                                    ).map((content, index) => (
-                                        <ListItem key={index} sx={{p: 0}}>
-                                            <ListItemIcon sx={{ minWidth: 24 }}>•</ListItemIcon>
-                                            <ListItemText>
-                                                {content}
-                                            </ListItemText>
-                                        </ListItem>
-                                    ))
-                                }
-                            </List>
-                        </Stack>
-                    </Paper>
-
-                    <Stack
-                        direction="row"
-                        spacing={2}
-                        justifyContent="space-between"
-                        marginTop={2}
-                    >
-                        <Button
-                            disabled={activeStep === 0}
-                            onClick={handleBack}
-                            variant="outlined"
-                            sx={{
-                                transition: "0.25s",
-                                "&:hover": {
-                                    transform: "translateY(-4px)",
-                                    boxShadow: 6,
-                                }
-                            }}
-                        >
-                            {backLabel}
-                        </Button>
-
-                        <Button
-                            disabled={activeStep === steps.length - 1}
-                            onClick={handleNext}
-                            variant="contained"
-                            sx={{
-                                transition: "0.25s",
-                                "&:hover": {
-                                    transform: "translateY(-4px)",
-                                    boxShadow: 6,
-                                }
-                            }}
-                        >
-                            {nextLabel}
-                        </Button>
-                    </Stack>
-                </Container>
-            </Box>
+    return <Box component="section" id="roadmap" sx={{ position: "relative", overflow: "hidden", p: { xs: 1.5, md: 2.5 }, border: "1px solid", borderColor: "divider", bgcolor: "rgba(241,237,227,.62)", backgroundImage: "radial-gradient(circle, rgba(23,32,42,.15) 1px, transparent 1.2px), radial-gradient(circle, rgba(23,32,42,.1) 1px, transparent 1.2px)", backgroundSize: "84px 84px, 116px 116px", backgroundPosition: "10px 12px, 40px 54px" }}>
+        <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "flex-end" }} gap={1.5} sx={{ position: "relative", zIndex: 2, mb: 2.5 }}><Box><Typography variant="h4" sx={{ mb: .6 }}>{roadmapTitle}</Typography><Typography sx={{ fontFamily: "monospace", fontSize: ".58rem", letterSpacing: ".13em", textTransform: "uppercase", color: "text.secondary" }}>{t("dossier.roadmapMeta")}</Typography></Box><Stack direction="row" gap={1.4} flexWrap="wrap" sx={{ fontFamily: "monospace", fontSize: ".52rem", letterSpacing: ".1em", textTransform: "uppercase", color: "text.secondary" }}>{["done", "current", "planned"].map((item) => <Box key={item} component="span" sx={{ display: "flex", alignItems: "center", gap: .65 }}><Box component="i" sx={{ width: 8, height: 8, borderRadius: "50%", bgcolor: stateColor(item) }} />{t(`dossier.roadmapStatus.${item}`)}</Box>)}</Stack></Stack>
+        <Box sx={{ position: "relative", zIndex: 2, minHeight: { xs: 360, sm: 190 }, mb: 1.5 }}>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: `repeat(${steps.length}, 1fr)` }, gap: { xs: .75, sm: 0 }, alignItems: "center", position: "relative", minHeight: { xs: 350, sm: 170 } }}>{steps.map((step, index) => { const state = stateAt(index); return <Button key={step.title} onClick={() => setActiveStep(index)} aria-pressed={activeStep === index} disableRipple sx={{ minWidth: 0, minHeight: { xs: 62, sm: 150 }, px: 1, py: 1, display: "flex", flexDirection: { xs: "row", sm: "column" }, justifyContent: "center", gap: { xs: 1.2, sm: 1 }, color: "text.primary", border: 0, bgcolor: "transparent !important", boxShadow: "none !important", borderRadius: 0, outline: "none !important", "&:focus, &:focus-visible, &.Mui-focusVisible, &:active": { outline: "none !important", backgroundColor: "transparent !important", boxShadow: "none !important" }, "&:hover .roadmap-orbit, &[aria-pressed=true] .roadmap-orbit": { transform: "translateY(-3px) scale(1.04)", borderColor: "text.primary", boxShadow: "0 10px 18px rgba(23,32,42,.08)" } }}><Box className="roadmap-orbit" sx={{ position: "relative", width: 62, height: 62, flexShrink: 0, display: "grid", placeItems: "center", border: "1px solid", borderColor: activeStep === index ? "text.primary" : "rgba(23,32,42,.22)", borderRadius: "50%", bgcolor: state === "current" ? "rgba(59,124,164,.07)" : "rgba(255,255,255,.18)", transition: "transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease" }}><Box sx={{ position: "absolute", inset: 6, border: "1px dashed", borderColor: "rgba(23,32,42,.18)", borderRadius: "50%" }} /><Box sx={{ width: 18, height: 18, borderRadius: "50%", bgcolor: stateColor(state), boxShadow: state === "done" ? "0 0 0 8px rgba(112,149,118,.14)" : state === "current" ? "0 0 0 8px rgba(59,124,164,.18)" : "none" }} /></Box><Box sx={{ textAlign: { xs: "left", sm: "center" } }}><Typography sx={{ fontFamily: "monospace", fontSize: ".55rem", letterSpacing: ".12em", textTransform: "uppercase", color: "text.secondary" }}>{`${t("dossier.node")} ${String(index + 1).padStart(2, "0")}`}</Typography><Typography sx={{ fontWeight: 750, fontSize: ".86rem" }}>{step.title}</Typography></Box></Button>; })}</Box>
         </Box>
-    )
+        <Box sx={{ position: "relative", zIndex: 2, p: { xs: 1.5, md: 2 }, border: "1px solid", borderColor: "divider", bgcolor: "rgba(247,243,234,.65)", transition: "transform 220ms ease, box-shadow 220ms ease", "&:hover": { transform: "translateY(-2px)", boxShadow: "0 10px 22px rgba(23,32,42,.07)" } }}><Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} gap={1} sx={{ mb: 1 }}><Typography variant="h5">{selected.title}</Typography><Typography sx={{ fontFamily: "monospace", fontSize: ".55rem", letterSpacing: ".12em", textTransform: "uppercase", color: stateColor(stateAt(activeStep)) }}>{t(`dossier.roadmapStatus.${stateAt(activeStep)}`)}</Typography></Stack><Stack component="ul" spacing={.7} sx={{ pl: 2.2, m: 0 }}>{(Array.isArray(selected.content) ? selected.content : [selected.content]).map((content) => <Typography component="li" key={content} color="text.secondary" sx={{ lineHeight: 1.55 }}>{content}</Typography>)}</Stack></Box>
+        <Stack direction="row" justifyContent="space-between" sx={{ position: "relative", zIndex: 2, mt: 1.5 }}><Button disabled={activeStep === 0} onClick={() => setActiveStep((step) => step - 1)} variant="outlined">{backLabel}</Button><Button disabled={activeStep === steps.length - 1} onClick={() => setActiveStep((step) => step + 1)} variant="contained">{nextLabel}</Button></Stack>
+    </Box>;
 }

@@ -11,13 +11,22 @@ const TAB_ROWS = {
     deploy: { progress: 100, status: "statusDeploy", rows: [["target", "VPS"], ["channel", "PUBLIC"], ["build", "READY"], ["source", "AVAILABLE"], ["health", "NOMINAL"]] },
 };
 
+const PROJECT_TAB_ROWS = {
+    logra: {
+        survey: { progress: 84, status: "statusLink", rows: [["type", "FULL-STACK"], ["scope", "GAMING"], ["auth", "AUTH0"], ["api", "FASTIFY"], ["status", "READY"]] },
+        stack: { progress: 96, status: "statusStack", rows: [["client", "REACT"], ["bundler", "VITE"], ["router", "REACT ROUTER"], ["ui", "MUI"], ["lang", "TYPESCRIPT"]] },
+        deploy: { progress: 100, status: "statusDeploy", rows: [["target", "VPS"], ["channel", "PUBLIC"], ["build", "READY"], ["source", "AVAILABLE"], ["health", "NOMINAL"]] },
+    },
+};
+
 const MODES = ["layered", "scan", "focus"];
 
 export default function LayeredApplicationPreview({ project, preview, t }) {
     const [mode, setMode] = useState("layered");
     const [tab, setTab] = useState("survey");
     const [previewFront, setPreviewFront] = useState(false);
-    const current = TAB_ROWS[tab];
+    const tabRows = PROJECT_TAB_ROWS[project.id] || TAB_ROWS;
+    const current = tabRows[tab];
     const tx = (key) => t(`dossier.layeredPreview.${key}`);
 
     const activatePreview = () => {

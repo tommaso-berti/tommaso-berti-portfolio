@@ -20,5 +20,13 @@
     "toggleLanguageToIt": "Switch language to Italian",
     "toggleLanguageToEn": "Switch language to English",
     "openReleaseNotes": "Open release notes"
+  },
+  "headerControls": {
+    "languageTooltip": "LANG",
+    "languageTitle": "Language channel",
+    "italian": "Italiano",
+    "english": "English",
+    "themeTitle": "Display mode",
+    "themeCopy": "Technical feedback with restrained motion and no gaming-style glow."
   }
 }

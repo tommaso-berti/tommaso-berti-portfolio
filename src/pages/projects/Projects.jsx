@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
@@ -9,6 +8,7 @@ import { buildMissionModel, getProjectsByCategory } from "./projectsPages/projec
 import { useEnsureProjectsI18n } from "@/i18n/useEnsureProjectsI18n.js";
 import SectionHeader from "@/features/mission-ui/SectionHeader.jsx";
 import MissionCard from "@/features/mission-ui/MissionCard.jsx";
+import ProjectMissionTabs from "./projectsPages/ProjectMissionTabs.jsx";
 
 const ExercisesSection = lazy(() => import("./components/ExercisesSection.jsx"));
 
@@ -48,7 +48,7 @@ export default function Projects() {
     return <Stack id="projects" component="article" spacing={2.5}>
         <SectionHeader eyebrow="02 // MISSION ARCHIVE" title={t("title")} note="FILTER THE ARCHIVE" />
         <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800 }}>{t("description")}</Typography>
-        <Stack direction="row" gap={.7} flexWrap="wrap">{PROJECT_TABS.map(({ id, labelKey }) => <Button key={id} onClick={() => setTab(id)} variant={tab === id ? "contained" : "outlined"} aria-pressed={tab === id}>{t(labelKey)}</Button>)}</Stack>
+        <ProjectMissionTabs modules={PROJECT_TABS.map(({ id }) => id)} active={tab} onChange={setTab} t={t} labelPrefix="" labelKeys={Object.fromEntries(PROJECT_TABS.map(({ id, labelKey }) => [id, labelKey]))} ariaLabel={t("dossier.modulesLabel")} />
         {isPractice ? <Suspense fallback={<Typography>{t("exercises.loading")}</Typography>}><ExercisesSection isActive /></Suspense> : <Box ref={gridRef} sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" }, gap: 1.2, alignItems: "start" }}>
             {projects.map((mission) => <MissionCard key={mission.id} mission={mission} selected={mission.id === selectedId} dimmed={selectedId !== null && mission.id !== selectedId} onSelect={() => selectProject(mission.id)} t={t} />)}
         </Box>}

@@ -27,7 +27,9 @@ Snapshot as of 2026-09-21.
 - Every project detail route now uses a shared mission-dossier treatment with real links/content, localized technical labels, and an opt-in live application preview; no project screenshots or product metrics were invented.
 - Project application modules use `LayeredApplicationPreview`: the e-commerce detail combines the deferred live iframe with layered survey/preview states, responsive touch/keyboard focus, and localized technical telemetry.
 - Project detail and About module navigation share the same mission-tab treatment, with localized labels and responsive active-state styling; project details also include editorial technology filters and a constellation roadmap with keyboard-accessible node selection.
+- The Projects archive filters now reuse the same mission-tab component as project details and About, with localized labels and category-specific accent colors.
 - The global layout uses a flex-column shell with a growing main region, keeping the footer at the viewport bottom without trailing whitespace on short pages.
+- The fixed header keeps the horizontal primary navigation and uses a borderless shell plus borderless mission-control cluster for release notes, language, and theme; language/theme expose localized click-outside/Escape-safe popovers with restrained motion.
 - About is a localized personnel-file page with the shared home celestial system in a decorative logo-centered mode and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
 
 ## Known Gaps

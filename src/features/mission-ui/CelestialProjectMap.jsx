@@ -63,8 +63,8 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
                     const gray = Math.round(145 - frontness * 48);
                     path.setAttribute("d", `M ${first.x.toFixed(1)} ${first.y.toFixed(1)} L ${second.x.toFixed(1)} ${second.y.toFixed(1)}`);
                     path.setAttribute("stroke", active ? item.orbit.accent : `rgb(${gray}, ${gray + 7}, ${gray + 10})`);
-                    path.setAttribute("opacity", String((active ? 0.26 : 0.16) + frontness * (active ? 0.25 : 0.18)));
-                    path.setAttribute("stroke-width", String((active ? 0.9 : 0.7) + frontness * 0.38));
+                    path.setAttribute("opacity", String((active ? 0.3 : 0.19) + frontness * (active ? 0.25 : 0.18)));
+                    path.setAttribute("stroke-width", String((active ? 1.25 : 1.05) + frontness * 0.45));
                 });
                 const point = projectPoint(getOrbitPoint(item.orbit, item.orbit.phase + elapsed * item.orbit.speed), state.yaw, state.pitch, VIEWBOX.center);
                 const body = bodyRefs.current.get(item.id);
@@ -74,8 +74,15 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
                 }
                 if (active && cardRef.current) {
                     const card = cardRef.current;
-                    const left = clamp((point.x / VIEWBOX.width) * 100 + (point.x > VIEWBOX.center.x ? -27 : 4), 3, 67);
+                    const stageWidth = stageRef.current?.clientWidth || VIEWBOX.width;
+                    const cardWidth = card.offsetWidth || 270;
+                    const cardPercent = (cardWidth / stageWidth) * 100;
+                    const pointPercent = (point.x / VIEWBOX.width) * 100;
+                    const left = point.x > VIEWBOX.center.x
+                        ? clamp(pointPercent - cardPercent - 4, 3, 100 - cardPercent - 3)
+                        : clamp(pointPercent + 4, 3, 100 - cardPercent - 3);
                     const top = clamp((point.y / VIEWBOX.height) * 100 - 12, 15, 62);
+                    card.style.right = "auto";
                     card.style.left = `${left}%`;
                     card.style.top = `${top}%`;
                     card.style.transform = `scale(${clamp(point.scale, 0.86, 1.04).toFixed(3)})`;
@@ -127,7 +134,7 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
         <svg viewBox="0 0 920 600" role="img" aria-label={labels.title} style={{ width: "100%", height: "100%", minHeight: "inherit", display: "block" }}>
             <defs><radialGradient id="celestial-core" cx="34%" cy="28%" r="76%"><stop offset="0%" stopColor="#fffdf4"/><stop offset="30%" stopColor="#f4dfaa"/><stop offset="70%" stopColor="#d9aa50"/><stop offset="100%" stopColor="#9a6d2d"/></radialGradient><filter id="celestial-shadow"><feDropShadow dx="0" dy="3" stdDeviation="3" floodOpacity=".2"/></filter></defs>
             <g transform={decorative ? `translate(${VIEWBOX.center.x} ${VIEWBOX.center.y}) scale(1.35) translate(${-VIEWBOX.center.x} ${-VIEWBOX.center.y})` : undefined}>
-            <g>{configs.map((item) => <g key={item.id}>{Array.from({ length: 88 }, (_, index) => <path key={index} ref={(node) => { if (node) { const paths = orbitRefs.current.get(item.id) || []; paths[index] = node; orbitRefs.current.set(item.id, paths); } }} fill="none" strokeLinecap="round" vectorEffect="non-scaling-stroke" />)}</g>)}</g>
+            <g>{configs.map((item) => <g key={item.id}>{Array.from({ length: 88 }, (_, index) => <path key={index} ref={(node) => { if (node) { const paths = orbitRefs.current.get(item.id) || []; paths[index] = node; orbitRefs.current.set(item.id, paths); } }} fill="none" strokeLinecap="butt" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />)}</g>)}</g>
             <g ref={backBodiesRef}/>
             <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="72" fill="rgba(216,170,76,.08)"/><circle r="47" fill="none" stroke="rgba(114,94,54,.19)" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.28)" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.35)" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.26)" strokeDasharray="8 9" transform="rotate(82)"/><ellipse rx="15" ry="43" fill="none" stroke="rgba(89,94,94,.22)" strokeDasharray="7 9"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><circle r="26" fill="url(#celestial-core)" stroke="#9a7837" filter="url(#celestial-shadow)"/><circle cx="-8" cy="-9" r="6" fill="rgba(255,255,255,.38)"/><path d="M-19 -2 Q0 10 19 -2" fill="none" stroke="rgba(255,255,255,.38)"/><text y="67" textAnchor="middle" fontSize="8" fontWeight="800" letterSpacing="2" fill="#2b3a49">TB // DYSON CORE</text><text y="80" textAnchor="middle" fontSize="6.5" letterSpacing="1.8" fill="#858a88">DEVELOPER SYSTEM</text></>}</g>
             <g ref={frontBodiesRef}>{configs.map((item) => <g key={item.id} ref={(node) => { if (node) bodyRefs.current.set(item.id, node); }} {...(!decorative && { role: "button", tabIndex: "0", "aria-label": item.name, "aria-pressed": item.id === selectedId, onClick: () => select(item.id), onKeyDown: (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); select(item.id); } } })} style={{ cursor: decorative ? "default" : "pointer", transformOrigin: "0 0" }}><circle r={item.orbit.size + 8} fill="none" stroke={item.orbit.accent} strokeWidth="1.1" opacity={item.id === selectedId ? .75 : 0}/><circle r={item.orbit.size} fill={item.orbit.accent} filter="url(#celestial-shadow)"/><circle cx={-item.orbit.size * .24} cy={-item.orbit.size * .26} r={item.orbit.size * .22} fill="rgba(255,255,255,.32)"/></g>)}</g>

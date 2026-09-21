@@ -21,7 +21,7 @@ System-level notes for the portfolio application.
   - Loads route map from `PAGE_DEFINITIONS`
   - Renders under shared `Layout`
 - Layout layer (`src/app/layout/`):
-  - Fixed numbered mission header, language/theme toggles, release notes modal, and footer
+  - Fixed borderless mission header with horizontal primary navigation, borderless `HeaderControls` cluster, localized language/theme popovers, release notes modal, and footer
 - Page layer (`src/pages/`):
   - Home, Projects, About, Services, Blog, Contact, CV, Project details
 - Mission UI (`src/features/mission-ui/`):
@@ -30,6 +30,8 @@ System-level notes for the portfolio application.
 - Project dossiers (`src/pages/projects/projectsPages/ProjectDossier.jsx`):
   - Shared `/projects/:project` mission-dossier shell driven by the existing project config and localized content.
   - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, shared mission-tab navigation, and existing detail content grouped as overview, system, interface, and development log.
+- Shared mission tabs (`src/pages/projects/projectsPages/ProjectMissionTabs.jsx`):
+  - Reused by project details, the About personnel modules, and the Projects archive category filters so tab behavior and visual treatment remain aligned.
 - About personnel file (`src/pages/about/`):
   - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and four selectable modules from existing biography content.
   - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs.

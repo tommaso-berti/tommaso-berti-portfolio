@@ -33,6 +33,7 @@ Snapshot as of 2026-09-21.
 - The global layout uses a flex-column shell with a growing main region, keeping the footer at the viewport bottom without trailing whitespace on short pages.
 - The fixed header keeps the horizontal primary navigation and uses a lightly marked shell with corner brackets plus a borderless mission-control cluster for release notes, language, and theme; language/theme expose localized click-outside/Escape-safe popovers with restrained motion.
 - About is a localized personnel-file page with the shared home celestial system in a decorative logo-centered mode and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
+- The home certifications block follows the local starfield demo structure with a mission hero, archive HUD, status strip, credential dossiers, technical stack chips, and complete-archive CTA, while preserving real certification data, links, translations, and tooltips.
 
 ## Known Gaps
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).

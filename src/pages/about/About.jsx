@@ -36,11 +36,10 @@ export default function About() {
     return (
         <Stack id="about" component="article" spacing={{ xs: 3.5, md: 5 }}>
             <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}>
-                <TechnicalLabel>{t("personnel.header")}</TechnicalLabel>
+                <TechnicalLabel>{t("personnel.archiveHeader")}</TechnicalLabel>
             </Box>
             <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 3, md: 5 }} alignItems="stretch">
                 <Stack sx={{ flex: 1, justifyContent: "center" }} spacing={2.25}>
-                    <TechnicalLabel color="space.blue">{t("personnel.heroEyebrow")}</TechnicalLabel>
                     <Typography component="h1" variant="h2" sx={{ whiteSpace: "pre-line", maxWidth: 650 }}>
                         {t("personnel.heroTitle")}
                     </Typography>

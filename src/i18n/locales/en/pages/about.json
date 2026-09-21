@@ -55,6 +55,7 @@
   },
   "personnel": {
     "header": "PERSONNEL FILE / TB-01 / EXPLORATION UNIT",
+    "archiveHeader": "03 // PERSONNEL FILE",
     "heroEyebrow": "03 // PERSONNEL FILE",
     "heroTitle": "I BUILD\nUSEFUL SYSTEMS.",
     "heroLead": "A software developer who approaches complex problems with curiosity, analytical thinking, and pragmatic iteration.",

@@ -82,8 +82,7 @@ export default function MiniWebappPreview({
                                 width: "100%",
                                 height: "100%",
                                 px: 2,
-                                background:
-                                    "linear-gradient(160deg, rgba(25,118,210,0.12), rgba(0,0,0,0.04))",
+                                backgroundColor: "background.paper",
                             }}
                         >
                             <Typography variant="subtitle2" sx={{ fontWeight: 600, textAlign: "center" }}>

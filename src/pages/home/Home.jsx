@@ -19,8 +19,9 @@ export default function Home() {
     const mapLabels = t("celestialMap", { returnObjects: true });
     const mapItems = buildCelestialMapItems(tProjects);
     return <Stack component="article" spacing={{ xs: 3, md: 4 }}>
-        <Box component="section" sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1.1fr) minmax(360px, .9fr)" }, gap: { xs: 3, md: 4 }, alignItems: "center", minHeight: { md: "calc(100dvh - 13rem)" } }}>
-            <Stack spacing={1.5}><TechnicalLabel>{t("eyebrow")}</TechnicalLabel><Typography component="h1" variant="h1" sx={{ fontSize: "clamp(3.2rem, 7vw, 6.2rem)", whiteSpace: "pre-line" }}>{title.map((line, index) => <Box key={line} component="span" sx={{ display: "block", color: index === title.length - 1 ? "space.blue" : "inherit" }}>{line}</Box>)}</Typography><Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, fontSize: "1.05rem", mt: .5 }}>{t("missionLead")}</Typography><HomeHeroActions /><Box sx={{ pt: 1 }}><BootSequence lines={Array.isArray(boot) ? boot : []} /></Box></Stack>
+        <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}><TechnicalLabel>{t("eyebrow")}</TechnicalLabel></Box>
+        <Box component="section" sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1.1fr) minmax(360px, .9fr)" }, gap: { xs: 3, md: 4 }, alignItems: "center", minHeight: { md: "calc(100dvh - 17rem)" } }}>
+            <Stack spacing={1.5}><Typography component="h1" variant="h1" sx={{ fontSize: "clamp(3.2rem, 7vw, 6.2rem)", whiteSpace: "pre-line" }}>{title.map((line, index) => <Box key={line} component="span" sx={{ display: "block", color: index === title.length - 1 ? "space.blue" : "inherit" }}>{line}</Box>)}</Typography><Typography variant="body1" color="text.secondary" sx={{ maxWidth: 600, fontSize: "1.05rem", mt: .5 }}>{t("missionLead")}</Typography><HomeHeroActions /><Box sx={{ pt: 1 }}><BootSequence lines={Array.isArray(boot) ? boot : []} /></Box></Stack>
             <CelestialProjectMap items={mapItems} labels={mapLabels} />
         </Box>
         <TelemetryStrip items={Array.isArray(telemetry) ? telemetry : []} />

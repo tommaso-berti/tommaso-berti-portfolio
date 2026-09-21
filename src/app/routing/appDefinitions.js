@@ -1,17 +1,17 @@
 import { lazy } from "react";
 import { matchPath } from "react-router-dom";
 
-import { projects } from "../../pages/projects/projectsPages/projects.js";
+import { projects } from "@/pages/projects/projectsPages/projects.js";
 
-const Home = lazy(() => import("../../pages/home/Home.jsx"));
-const Projects = lazy(() => import("../../pages/projects/Projects.jsx"));
-const ProjectPage = lazy(() => import("../../pages/projects/projectsPages/ProjectPage.jsx"));
-const About = lazy(() => import("../../pages/about/About.jsx"));
-const Blog = lazy(() => import("../../pages/blog/Blog.jsx"));
-const Contact = lazy(() => import("../../pages/contact/Contact.jsx"));
-const Services = lazy(() => import("../../pages/services/Services.jsx"));
-const Cv = lazy(() => import("../../pages/cv/Cv.jsx"));
-const NotFound = lazy(() => import("../../pages/not-found/NotFound.jsx"));
+const Home = lazy(() => import("@/pages/home/Home.jsx"));
+const Projects = lazy(() => import("@/pages/projects/Projects.jsx"));
+const ProjectPage = lazy(() => import("@/pages/projects/projectsPages/ProjectPage.jsx"));
+const About = lazy(() => import("@/pages/about/About.jsx"));
+const Blog = lazy(() => import("@/pages/blog/Blog.jsx"));
+const Contact = lazy(() => import("@/pages/contact/Contact.jsx"));
+const Services = lazy(() => import("@/pages/services/Services.jsx"));
+const Cv = lazy(() => import("@/pages/cv/Cv.jsx"));
+const NotFound = lazy(() => import("@/pages/not-found/NotFound.jsx"));
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition

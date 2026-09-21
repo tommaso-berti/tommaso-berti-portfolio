@@ -663,7 +663,7 @@ Prototype:
 
 Conceptual production component:
 
-```tsx
+```text
 <IdentityModule profile={...} />
 ```
 

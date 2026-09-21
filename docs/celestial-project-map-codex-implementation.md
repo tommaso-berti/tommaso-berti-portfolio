@@ -66,12 +66,12 @@ The project map must be easy to scale.
 
 Adding a new project should ideally require only adding project data such as:
 
-```ts
+```json
 {
-  id: "new-project",
-  name: "New Project",
-  description: "Short description",
-  accent: "#...",
+  "id": "new-project",
+  "name": "New Project",
+  "description": "Short description",
+  "accent": "#347CB2"
 }
 ```
 
@@ -79,7 +79,7 @@ Orbit geometry should be derived automatically when explicit orbit parameters ar
 
 Create a reusable helper equivalent to:
 
-```ts
+```text
 createOrbitConfig(project, index)
 ```
 
@@ -177,13 +177,13 @@ The transition must be gradual.
 
 For example:
 
-```ts
+```text
 frontness = smoothstep(-transitionRange, transitionRange, depth)
 ```
 
 Then interpolate:
 
-```ts
+```text
 opacity
 strokeWidth
 strokeColor
@@ -459,7 +459,7 @@ export type OrbitConfig = {
 
 Suggested helper:
 
-```ts
+```text
 export function createOrbitConfig(
   project: ProjectMapItem,
   index: number

@@ -573,7 +573,7 @@ No large spinning animations.
 
 Respect:
 
-```css
+```text
 prefers-reduced-motion
 ```
 
@@ -1060,7 +1060,7 @@ Use the existing MUI theme setup.
 
 Suggested conceptual design tokens:
 
-```ts
+```text
 palette.background.default
 palette.background.paper
 
@@ -1205,7 +1205,9 @@ Avoid:
 All animation must respect:
 
 ```css
-@media (prefers-reduced-motion: reduce)
+@media (prefers-reduced-motion: reduce) {
+  /* disable non-essential motion */
+}
 ```
 
 ---
@@ -1558,15 +1560,17 @@ using MUI.
 Prototype CSS variables such as:
 
 ```css
---blue: #347CB2;
---orange: #DF733D;
+:root {
+  --blue: #347CB2;
+  --orange: #DF733D;
+}
 ```
 
 must become centralized MUI theme tokens rather than repeated literal values.
 
 Prototype page switching using:
 
-```js
+```text
 showPage(...)
 ```
 
@@ -1582,7 +1586,7 @@ Use real repository content and functionality.
 
 ## 38.1 Full interactive prototype source
 
-```html
+```text
 <div id="tb-multipage" class="w-full">
 <style>
 #tb-multipage{font-family:Arial,Helvetica,sans-serif;color:#17202a;--paper:#f3f0e7;--paper2:#ece8dc;--ink:#17202a;--muted:#71746f;--line:#c5c0b5;--blue:#347cb2;--orange:#df733d;--yellow:#d0ab3d;--red:#c94f4a;--green:#668a69}

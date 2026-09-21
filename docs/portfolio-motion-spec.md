@@ -455,18 +455,14 @@ Possible effects:
 
 Small press:
 
-```css
-.interactive:active {
-  transform: scale(0.97);
-}
+```text
+transform: scale(0.97);
 ```
 
 or:
 
-```css
-.interactive:active {
-  transform: translateY(1px);
-}
+```text
+transform: translateY(1px);
 ```
 
 Do not combine multiple exaggerated effects.

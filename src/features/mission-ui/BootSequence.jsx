@@ -1,6 +1,6 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useReducedMotion } from "../../hooks/useReducedMotion.js";
+import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 
 export default function BootSequence({ lines }) {
     const reducedMotion = useReducedMotion();

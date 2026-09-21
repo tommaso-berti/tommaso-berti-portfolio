@@ -841,7 +841,7 @@ Prototype:
 
 Production:
 
-```tsx
+```text
 <Tabs value={activeModule} onChange={...}>
 ```
 
@@ -850,7 +850,9 @@ or the existing MUI pattern already used by the project.
 Prototype:
 
 ```css
---blue: #347CB2;
+:root {
+  --blue: #347CB2;
+}
 ```
 
 Production:

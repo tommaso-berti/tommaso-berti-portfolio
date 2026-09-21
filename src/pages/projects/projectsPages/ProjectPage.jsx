@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 import { buildProjectDetailsModel, getProjectById } from "./projectSelectors.js";
 import { projects } from "./projects.js";
-import { useEnsureProjectsI18n } from "../../../i18n/useEnsureProjectsI18n.js";
+import { useEnsureProjectsI18n } from "@/i18n/useEnsureProjectsI18n.js";
 import ProjectDossier from "./ProjectDossier.jsx";
 
 export default function ProjectPage() {

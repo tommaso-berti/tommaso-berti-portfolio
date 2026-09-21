@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { useScrollToHash } from "../../hooks/useScrollToHash.js";
+import { useScrollToHash } from "@/hooks/useScrollToHash.js";
 import { useTranslation } from "react-i18next";
 import AboutModuleTabs from "./AboutModuleTabs.jsx";
 import IdentityVisualizer from "./IdentityVisualizer.jsx";
 import { getAboutModuleFromHash } from "./aboutModules.utils.js";
-import ColorRail from "../../features/mission-ui/ColorRail.jsx";
-import SpaceButton from "../../features/mission-ui/SpaceButton.jsx";
-import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
-import TelemetryStrip from "../../features/mission-ui/TelemetryStrip.jsx";
+import ColorRail from "@/features/mission-ui/ColorRail.jsx";
+import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
+import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
+import TelemetryStrip from "@/features/mission-ui/TelemetryStrip.jsx";
 
 export default function About() {
     const location = useLocation();

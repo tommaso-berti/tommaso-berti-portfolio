@@ -5,8 +5,8 @@ import IconButton from "@mui/material/IconButton";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import { lazy, Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
-import BrandMark from "../../features/mission-ui/BrandMark.jsx";
-import FriendlyNav from "../../features/FriendlyNav.jsx";
+import BrandMark from "@/features/mission-ui/BrandMark.jsx";
+import FriendlyNav from "@/features/FriendlyNav.jsx";
 import DarkModeToggle from "./DarkModeToggle.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
 

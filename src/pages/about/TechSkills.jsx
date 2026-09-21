@@ -5,8 +5,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 
-import { getBrandIconDefinition } from "../../config/brandIcons.js";
-import { SKILL_GROUPS } from "../../features/skills/skillGroups.js";
+import { getBrandIconDefinition } from "@/config/brandIcons.js";
+import { SKILL_GROUPS } from "@/features/skills/skillGroups.js";
 
 const ICON_SIZE = 22;
 

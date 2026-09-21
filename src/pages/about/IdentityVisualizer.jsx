@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
-import ColorRail from "../../features/mission-ui/ColorRail.jsx";
-import StatusIndicator from "../../features/mission-ui/StatusIndicator.jsx";
-import { useReducedMotion } from "../../hooks/useReducedMotion.js";
+import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
+import ColorRail from "@/features/mission-ui/ColorRail.jsx";
+import StatusIndicator from "@/features/mission-ui/StatusIndicator.jsx";
+import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 
 export default function IdentityVisualizer({ t }) {
     const reduced = useReducedMotion();

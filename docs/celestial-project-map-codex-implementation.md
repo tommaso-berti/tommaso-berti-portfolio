@@ -223,7 +223,7 @@ Use it as the main reference for composition, orbit behavior, depth interpolatio
 
 You do **not** need to preserve the exact implementation if you can reproduce it more cleanly in the real project.
 
-```html
+```text
 <div id="celestial-scalable" class="w-full min-w-0">
 <style>
 #celestial-scalable{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172534}

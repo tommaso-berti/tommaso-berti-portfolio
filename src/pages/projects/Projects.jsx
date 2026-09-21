@@ -9,12 +9,12 @@ import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import { PROJECT_TABS } from "./projectsPages/projectTabs.config.js";
 import { buildMissionModel, getProjectsByCategory } from "./projectsPages/projectSelectors.js";
-import { useEnsureProjectsI18n } from "../../i18n/useEnsureProjectsI18n.js";
-import SectionHeader from "../../features/mission-ui/SectionHeader.jsx";
-import MissionCard from "../../features/mission-ui/MissionCard.jsx";
-import MotionPanel from "../../features/mission-ui/MotionPanel.jsx";
-import SpaceButton from "../../features/mission-ui/SpaceButton.jsx";
-import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
+import { useEnsureProjectsI18n } from "@/i18n/useEnsureProjectsI18n.js";
+import SectionHeader from "@/features/mission-ui/SectionHeader.jsx";
+import MissionCard from "@/features/mission-ui/MissionCard.jsx";
+import MotionPanel from "@/features/mission-ui/MotionPanel.jsx";
+import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
+import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
 import MiniWebappPreview from "./components/MiniWebappPreview.jsx";
 
 const ExercisesSection = lazy(() => import("./components/ExercisesSection.jsx"));

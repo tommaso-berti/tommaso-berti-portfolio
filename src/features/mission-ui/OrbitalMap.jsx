@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import TechnicalLabel from "./TechnicalLabel.jsx";
 import ColorRail from "./ColorRail.jsx";
 import StatusIndicator from "./StatusIndicator.jsx";
-import { useReducedMotion } from "../../hooks/useReducedMotion.js";
+import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 
 export default function OrbitalMap({ title, status, labels = [] }) {
     const reducedMotion = useReducedMotion();

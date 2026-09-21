@@ -5,11 +5,11 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
-import SectionHeader from "../../features/mission-ui/SectionHeader.jsx";
-import MotionPanel from "../../features/mission-ui/MotionPanel.jsx";
-import SpaceButton from "../../features/mission-ui/SpaceButton.jsx";
-import StatusIndicator from "../../features/mission-ui/StatusIndicator.jsx";
-import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
+import SectionHeader from "@/features/mission-ui/SectionHeader.jsx";
+import MotionPanel from "@/features/mission-ui/MotionPanel.jsx";
+import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
+import StatusIndicator from "@/features/mission-ui/StatusIndicator.jsx";
+import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
 import { getStaticCvPdfPath } from "../cv/cvPdf.utils.js";
 import { buildContactMailto } from "./contact.utils.js";
 

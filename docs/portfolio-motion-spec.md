@@ -182,7 +182,7 @@ Page section entrance:
 
 Prefer restrained easing such as:
 
-```css
+```text
 ease
 ease-out
 cubic-bezier(.2,.75,.2,1)
@@ -197,7 +197,9 @@ Avoid exaggerated spring/bounce behavior for this portfolio.
 All non-essential animation must respect:
 
 ```css
-@media (prefers-reduced-motion: reduce)
+@media (prefers-reduced-motion: reduce) {
+  /* disable non-essential motion */
+}
 ```
 
 When reduced motion is requested:
@@ -454,13 +456,17 @@ Possible effects:
 Small press:
 
 ```css
-transform: scale(.97);
+.interactive:active {
+  transform: scale(0.97);
+}
 ```
 
 or:
 
 ```css
-transform: translateY(1px);
+.interactive:active {
+  transform: translateY(1px);
+}
 ```
 
 Do not combine multiple exaggerated effects.

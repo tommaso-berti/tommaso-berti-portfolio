@@ -8,9 +8,9 @@ import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
 import Tooltip from "@mui/material/Tooltip";
 import { Link as RouterLink } from "react-router-dom";
-import { FEATURED_CERTIFICATIONS } from "../../features/certifications/certifications.data.js";
-import { formatIssuedAt } from "../../features/certifications/certifications.utils.js";
-import { getCertificationIconDefinitions } from "../../features/certifications/certificationIcons.js";
+import { FEATURED_CERTIFICATIONS } from "@/features/certifications/certifications.data.js";
+import { formatIssuedAt } from "@/features/certifications/certifications.utils.js";
+import { getCertificationIconDefinitions } from "@/features/certifications/certificationIcons.js";
 import { certificationActionButtonSx, outlinedActionButtonSx } from "./homeHero.styles.js";
 
 const MAX_VISIBLE_CERT_ICONS = 6;

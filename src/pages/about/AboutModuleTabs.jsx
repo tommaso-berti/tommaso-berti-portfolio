@@ -67,7 +67,7 @@ function ModuleContent({ activeModule, t }) {
 export default function AboutModuleTabs({ activeModule, onChange, t }) {
     return (
         <Stack component="section" spacing={2.5} aria-label={t("personnel.modulesLabel")}>
-            <ProjectMissionTabs modules={moduleOrder} active={activeModule} onChange={onChange} t={t} labelPrefix="personnel.modules" ariaLabel={t("personnel.modulesLabel")} />
+            <ProjectMissionTabs modules={moduleOrder} active={activeModule} onChange={onChange} t={t} labelPrefix="personnel.modules" ariaLabel={t("personnel.modulesLabel")} accentOverrides={{ development: "space.yellow" }} />
             <MotionPanel key={activeModule} component="div" sx={{ p: { xs: 2, sm: 3 } }}>
                 <ModuleContent activeModule={activeModule} t={t} />
             </MotionPanel>

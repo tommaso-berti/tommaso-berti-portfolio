@@ -21,7 +21,7 @@ System-level notes for the portfolio application.
   - Loads route map from `PAGE_DEFINITIONS`
   - Renders under shared `Layout`
 - Layout layer (`src/app/layout/`):
-  - Fixed borderless mission header with horizontal primary navigation, borderless `HeaderControls` cluster, localized language/theme popovers, release notes modal, and footer
+  - Fixed mission header with subtle corner markers, horizontal primary navigation, borderless `HeaderControls` cluster, localized language/theme popovers, release notes modal, and footer
 - Page layer (`src/pages/`):
   - Home, Projects, About, Services, Blog, Contact, CV, Project details
 - Mission UI (`src/features/mission-ui/`):

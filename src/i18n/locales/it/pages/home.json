@@ -8,10 +8,8 @@
   "orbitalLabels": ["NODO TB-01", "ORBITA 067°", "SEGNALE NOMINALE", "SISTEMI TERRA"],
   "celestialMap": {
     "title": "MAPPA PROGETTI CELESTE",
-    "hint": "Il puntatore cambia prospettiva · seleziona un nodo progetto",
     "pause": "Pausa",
     "play": "Avvia",
-    "reset": "Reimposta",
     "fullscreen": "Schermo intero",
     "exit": "Esci",
     "selected": "PROGETTO SELEZIONATO",

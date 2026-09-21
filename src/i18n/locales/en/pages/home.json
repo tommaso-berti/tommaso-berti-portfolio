@@ -8,10 +8,8 @@
   "orbitalLabels": ["NODE TB-01", "ORBIT 067°", "SIGNAL NOMINAL", "EARTH SYSTEMS"],
   "celestialMap": {
     "title": "CELESTIAL PROJECT MAP",
-    "hint": "Pointer changes viewpoint · select a project node",
     "pause": "Pause",
     "play": "Play",
-    "reset": "Reset",
     "fullscreen": "Full screen",
     "exit": "Exit",
     "selected": "SELECTED PROJECT",

@@ -20,6 +20,14 @@ export default function Projects() {
     const gridRef = useRef(null);
     const isPractice = tab === "practice";
     const projects = useMemo(() => isPractice ? [] : getProjectsByCategory(tab).map((project, index) => buildMissionModel(project, t, index)), [isPractice, tab, t]);
+    const displayProjects = useMemo(() => {
+        if (!selectedId) return projects;
+        const selectedIndex = projects.findIndex(({ id }) => id === selectedId);
+        if (selectedIndex < 1 || selectedIndex % 2 === 0) return projects;
+        const reordered = [...projects];
+        [reordered[selectedIndex - 1], reordered[selectedIndex]] = [reordered[selectedIndex], reordered[selectedIndex - 1]];
+        return reordered;
+    }, [projects, selectedId]);
 
     useEffect(() => {
         if (projects.length && selectedId && !projects.some(({ id }) => id === selectedId)) setSelectedId(projects[0].id);
@@ -50,7 +58,7 @@ export default function Projects() {
         <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800 }}>{t("description")}</Typography>
         <ProjectMissionTabs modules={PROJECT_TABS.map(({ id }) => id)} active={tab} onChange={setTab} t={t} labelPrefix="" labelKeys={Object.fromEntries(PROJECT_TABS.map(({ id, labelKey }) => [id, labelKey]))} ariaLabel={t("dossier.modulesLabel")} />
         {isPractice ? <Suspense fallback={<Typography>{t("exercises.loading")}</Typography>}><ExercisesSection isActive /></Suspense> : <Box ref={gridRef} sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(2, minmax(0, 1fr))" }, gap: 1.2, alignItems: "start" }}>
-            {projects.map((mission) => <MissionCard key={mission.id} mission={mission} selected={mission.id === selectedId} dimmed={selectedId !== null && mission.id !== selectedId} onSelect={() => selectProject(mission.id)} t={t} />)}
+            {displayProjects.map((mission) => <MissionCard key={mission.id} mission={mission} selected={mission.id === selectedId} dimmed={selectedId !== null && mission.id !== selectedId} onSelect={() => selectProject(mission.id)} t={t} />)}
         </Box>}
     </Stack>;
 }

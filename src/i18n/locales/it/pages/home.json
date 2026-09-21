@@ -6,6 +6,18 @@
   "orbitalTitle": "MAPPA DI SVILUPPO CELESTE",
   "orbitalStatus": "SEGNALE NOMINALE",
   "orbitalLabels": ["NODO TB-01", "ORBITA 067°", "SEGNALE NOMINALE", "SISTEMI TERRA"],
+  "celestialMap": {
+    "title": "MAPPA PROGETTI CELESTE",
+    "hint": "Il puntatore cambia prospettiva · seleziona un nodo progetto",
+    "pause": "Pausa",
+    "play": "Avvia",
+    "reset": "Reimposta",
+    "fullscreen": "Schermo intero",
+    "exit": "Esci",
+    "selected": "PROGETTO SELEZIONATO",
+    "details": "Dettagli",
+    "live": "Apri sito"
+  },
   "telemetry": [{"label":"STACK PRINCIPALE","value":"WEB"},{"label":"TIPO PROGETTO","value":"APP"},{"label":"SISTEMI","value":"API"},{"label":"STATO","value":"PRONTO","status":true}],
   "boot": ["[01] Sottosistema UI ...... PRONTO", "[02] shell portfolio ..... PRONTO", "[03] profilo missione ... TOMMASO BERTI"],
   "welcome": "Ciao, sono",

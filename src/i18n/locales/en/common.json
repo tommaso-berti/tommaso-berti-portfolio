@@ -22,11 +22,11 @@
     "openReleaseNotes": "Open release notes"
   },
   "headerControls": {
-    "languageTooltip": "LANG",
+    "languageTooltip": "Lang",
     "languageTitle": "Language channel",
     "italian": "Italiano",
     "english": "English",
     "themeTitle": "Display mode",
-    "themeCopy": "Technical feedback with restrained motion and no gaming-style glow."
+    "themeCopy": "Choose light or dark mode."
   }
 }

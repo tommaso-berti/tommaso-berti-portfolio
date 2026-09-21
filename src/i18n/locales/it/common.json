@@ -22,11 +22,11 @@
     "openReleaseNotes": "Apri note di rilascio"
   },
   "headerControls": {
-    "languageTooltip": "LINGUA",
+    "languageTooltip": "Lingua",
     "languageTitle": "Canale lingua",
     "italian": "Italiano",
     "english": "English",
     "themeTitle": "Modalità display",
-    "themeCopy": "Feedback tecnico, movimento misurato e nessun effetto luminoso da videogioco."
+    "themeCopy": "Scegli la modalità chiara o scura."
   }
 }

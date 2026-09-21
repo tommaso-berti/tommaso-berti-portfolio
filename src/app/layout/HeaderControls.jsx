@@ -12,7 +12,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useThemeMode } from "../../contexts/ThemeContext.jsx";
 import ItFlag from "../../assets/icons/italy.png";
 import EnFlag from "../../assets/icons/united-kingdom.png";
-import { ensureLanguageLoaded } from "../../i18n/index.js";
+import { ensureLanguageLoaded } from "@/i18n/index.js";
 
 const ACCENTS = { blue: "space.blue", orange: "space.orange", yellow: "space.yellow", red: "space.red" };
 

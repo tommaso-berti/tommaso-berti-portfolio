@@ -30,6 +30,15 @@ Se Framer Motion è già disponibile, può essere preferibile usare `layout`, `l
 <div id="portfolio-project-morph" class="w-full min-w-0 py-3">
 <style>
 #portfolio-project-morph{
+  --viz-card:#f3f0e7;
+  --viz-panel:#ece8dc;
+  --viz-text:#17202a;
+  --viz-muted:#56606b;
+  --viz-border:rgba(23,32,42,.18);
+  --viz-series-2:#347cb2;
+  --viz-series-3:#df733d;
+  --viz-series-4:#d0ab3d;
+  --viz-series-5:#668a69;
   --paper:color-mix(in srgb,var(--viz-card) 94%,#e9dfc6 6%);
   --paper-2:color-mix(in srgb,var(--viz-panel) 96%,#eadfca 4%);
   --ink:var(--viz-text);

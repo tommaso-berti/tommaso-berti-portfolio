@@ -36,7 +36,8 @@
     transition:background .35s ease,color .35s ease;
   }
 
-  body.dark{
+  /*noinspection CssUnusedSymbol*/
+  body[data-theme="dark"]{
     --bg:#111417;
     --bg-2:#181C20;
     --panel:#171B1F;
@@ -321,7 +322,8 @@
   }
 </style>
 </head>
-<body>
+<body data-theme="light">
+  <div class="popover center open" hidden aria-hidden="true"></div>
   <main class="stage">
     <div class="guide">Header utility controls / concept 01</div>
 
@@ -432,7 +434,8 @@
   });
 
   function toggleTheme(){
-    const isDark = document.body.classList.toggle('dark');
+    const isDark = document.body.dataset.theme !== "dark";
+    document.body.dataset.theme = isDark ? "dark" : "light";
     themeTooltip.textContent = isDark ? 'MODE / DARK' : 'MODE / LIGHT';
     modeCode.textContent = isDark ? 'DARK' : 'LIGHT';
     document.querySelector('.corner-id').textContent =

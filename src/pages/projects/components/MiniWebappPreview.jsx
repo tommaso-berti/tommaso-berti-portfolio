@@ -2,7 +2,7 @@ import { Card, Box, Modal, IconButton, Button, Typography, Stack, Tooltip } from
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { useState } from "react";
-import { useInViewport } from "../../../hooks/useInViewport.js";
+import { useInViewport } from "@/hooks/useInViewport.js";
 
 export default function MiniWebappPreview({
                                               url,

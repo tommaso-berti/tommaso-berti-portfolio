@@ -154,8 +154,8 @@
   position: fixed;
   z-index: 70;
 
-  left: var(--preview-x);
-  top: var(--preview-y);
+  left: var(--preview-x, 0);
+  top: var(--preview-y, 0);
 
   width: min(390px, calc(100vw - 28px));
 

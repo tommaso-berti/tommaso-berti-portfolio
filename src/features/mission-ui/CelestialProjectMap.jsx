@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "react-router-dom";
-import { useReducedMotion } from "../../hooks/useReducedMotion.js";
+import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 import TechnicalLabel from "./TechnicalLabel.jsx";
 import { createOrbitConfig, getOrbitPoint, projectPoint, smoothstep } from "./celestialMap.utils.js";
 

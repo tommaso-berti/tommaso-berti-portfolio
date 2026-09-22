@@ -12,7 +12,7 @@ function getCredentialStack() {
     return CREDENTIAL_STACK.map((iconId) => skills.find((skill) => skill.iconId === iconId)?.label || iconId);
 }
 
-export default function Bio({ embedded = false, systems = [] }) {
+export default function Bio({ embedded = false, systems = [], telemetry = [] }) {
     const { t, i18n } = useTranslation("pages", { keyPrefix: "about.bio" });
     const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
     const profile = getCvProfile(language);
@@ -30,7 +30,7 @@ export default function Bio({ embedded = false, systems = [] }) {
                 </Stack>
                 <Typography color="text.secondary" sx={{ fontFamily: "monospace", fontSize: ".62rem", letterSpacing: ".1em", textTransform: "uppercase", flexShrink: 0 }}>{t("credential.moduleLabel")}</Typography>
             </Stack>
-            <PersonnelCredential profile={profile} stack={getCredentialStack()} systems={systems} bioDescription={t("description")} t={t} />
+            <PersonnelCredential profile={profile} stack={getCredentialStack()} systems={systems} telemetry={telemetry} bioDescription={t("description")} t={t} />
         </Stack>
     );
 }

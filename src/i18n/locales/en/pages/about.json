@@ -13,11 +13,11 @@
       "fields": {
         "holder": "01 / Holder",
         "role": "02 / Role class",
-        "base": "03 / Base",
-        "stack": "04 / Core stack",
-        "systems": "05 / Systems",
-        "bio": "06 / Bio profile",
-        "summary": "07 / Operating profile"
+        "base": "Base",
+        "stack": "03 / Core stack",
+        "systems": "04 / Systems",
+        "personality": "05 / Personality",
+        "bio": "06 / Bio profile"
       },
       "signatureLabel": "Personnel signature",
       "statusLabel": "System status",

@@ -23,7 +23,7 @@ Compact repository map for fast navigation.
 - `src/app/routing/appDefinitions.js`: route and breadcrumb source of truth
 - `src/pages/projects/projectsPages/projects.js`: projects catalog/config
 - `src/pages/projects/projectsPages/projectSelectors.js`: project view-model logic
-- `src/pages/about/`: localized personnel identity, credential, blueprint, timeline, and hobbies modules
+- `src/pages/about/`: localized personnel identity, compact telemetry credential, blueprint, timeline, and hobbies modules
 - `src/hooks/useLatestReleaseNotes.js`: release-notes data flow
 - `src/config/brandIcons.js`: centralized icon mapping
 

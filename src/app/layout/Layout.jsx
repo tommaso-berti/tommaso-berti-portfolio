@@ -4,6 +4,7 @@ import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
+import DocumentScrollRail from "./DocumentScrollRail.jsx";
 
 const MAIN_CONTENT_ID = "main-content";
 
@@ -47,6 +48,7 @@ export default function Layout() {
                 {t("a11y.skipToContent")}
             </Box>
             <Header />
+            <DocumentScrollRail />
             <Box
                 id={MAIN_CONTENT_ID}
                 component="main"

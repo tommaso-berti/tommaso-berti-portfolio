@@ -28,5 +28,19 @@
     "english": "English",
     "themeTitle": "Display mode",
     "themeCopy": "Choose light or dark mode."
+  },
+  "scrollRail": {
+    "label": "{{page}} document scroll index",
+    "step": "{{page}} {{step}}",
+    "steps": ["Opening", "Core", "Details", "Closing"],
+    "titles": {
+      "home": "01 // EXPLORATION LOG / TB-DEV / 2026",
+      "projects": "02 // MISSION ARCHIVE",
+      "services": "04 // CAPABILITIES",
+      "contact": "05 // COMMUNICATION UPLINK",
+      "cv": "06 // CV ARCHIVE",
+      "blog": "07 // FIELD NOTES",
+      "notFound": "00 // LOST SIGNAL"
+    }
   }
 }

@@ -32,7 +32,7 @@ function MethodModule({ t }) {
     );
 }
 
-function IdentityModule({ t }) {
+function IdentityModule({ t, telemetry }) {
     const systems = t("personnel.systems", { returnObjects: true });
 
     return (
@@ -42,26 +42,26 @@ function IdentityModule({ t }) {
                 <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.identityTitle")}</Typography>
                 <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>{t("personnel.identityLead")}</Typography>
             </Box>
-            <Bio embedded systems={systems} />
+            <Bio embedded systems={systems} telemetry={telemetry} />
             <TechSkills embedded />
             <CertificationsSection />
         </Stack>
     );
 }
 
-function ModuleContent({ activeModule, t }) {
+function ModuleContent({ activeModule, t, telemetry }) {
     if (activeModule === "method") return <MethodModule t={t} />;
     if (activeModule === "development") return <Experience embedded />;
     if (activeModule === "beyond") return <Hobbies embedded />;
-    return <IdentityModule t={t} />;
+    return <IdentityModule t={t} telemetry={telemetry} />;
 }
 
-export default function AboutModuleTabs({ activeModule, onChange, t }) {
+export default function AboutModuleTabs({ activeModule, onChange, t, telemetry = [] }) {
     return (
         <Stack component="section" spacing={2.5} aria-label={t("personnel.modulesLabel")}>
             <ProjectMissionTabs modules={moduleOrder} active={activeModule} onChange={onChange} t={t} labelPrefix="personnel.modules" ariaLabel={t("personnel.modulesLabel")} accentOverrides={{ development: "space.yellow" }} />
             <MotionPanel key={activeModule} component="div" sx={{ p: { xs: 2, sm: 3 } }}>
-                <ModuleContent activeModule={activeModule} t={t} />
+                <ModuleContent activeModule={activeModule} t={t} telemetry={telemetry} />
             </MotionPanel>
         </Stack>
     );

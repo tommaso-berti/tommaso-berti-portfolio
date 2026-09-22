@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
@@ -6,14 +8,22 @@ import Typography from "@mui/material/Typography";
 
 const STEP_FRACTIONS = [0, .34, .68, 1];
 
-export default function AboutScrollRail({ t }) {
+function getPageKey(pathname) {
+    if (pathname === "/") return "home";
+    if (pathname.startsWith("/projects")) return "projects";
+    const key = pathname.split("/").filter(Boolean)[0];
+    return ["about", "services", "contact", "cv", "blog"].includes(key) ? key : "notFound";
+}
+
+export default function DocumentScrollRail() {
+    const { pathname } = useLocation();
+    const { t } = useTranslation("common");
+    const { t: tAbout } = useTranslation("pages", { keyPrefix: "about" });
     const [progress, setProgress] = useState(0);
-    const steps = [
-        t("personnel.rail.steps.archive"),
-        t("personnel.rail.steps.identity"),
-        t("personnel.rail.steps.systems"),
-        t("personnel.rail.steps.closing"),
-    ];
+    const pageKey = getPageKey(pathname);
+    const pageLabel = pageKey === "notFound" ? t("notFound.title") : t(`nav.${pageKey}`);
+    const railTitle = pageKey === "about" ? tAbout("personnel.archiveHeader") : t(`scrollRail.titles.${pageKey}`);
+    const steps = t("scrollRail.steps", { returnObjects: true });
 
     useEffect(() => {
         let frame = 0;
@@ -33,7 +43,7 @@ export default function AboutScrollRail({ t }) {
             window.removeEventListener("resize", handleScroll);
             if (frame) window.cancelAnimationFrame(frame);
         };
-    }, []);
+    }, [pathname]);
 
     const activeStep = Math.min(steps.length - 1, Math.round(progress * (steps.length - 1)));
     const scrollToStep = (fraction) => {
@@ -43,10 +53,10 @@ export default function AboutScrollRail({ t }) {
     };
 
     return (
-        <Box component="aside" aria-label={t("personnel.rail.label")} sx={{ display: { xs: "none", lg: "flex" }, position: "sticky", top: "9rem", alignSelf: "flex-start", minHeight: "calc(100vh - 12rem)", justifyContent: "center", width: 32 }}>
+        <Box component="aside" aria-label={t("scrollRail.label", { page: railTitle })} sx={{ display: { xs: "none", xl: "flex" }, position: "fixed", top: "9rem", left: "calc(50% - 630px)", zIndex: 2, minHeight: "calc(100vh - 12rem)", justifyContent: "center", width: 32 }}>
             <Stack alignItems="center" spacing={2} sx={{ position: "relative", height: "min(620px, calc(100vh - 14rem))", py: 1 }}>
                 <Typography sx={{ writingMode: "vertical-rl", transform: "rotate(180deg)", color: "text.secondary", fontFamily: "monospace", fontSize: ".48rem", fontWeight: 800, letterSpacing: ".15em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
-                    {t("personnel.archiveHeader")}
+                    {railTitle}
                 </Typography>
                 <Box sx={{ position: "relative", flex: 1, width: 16, minHeight: 240 }}>
                     <Box aria-hidden="true" sx={{ position: "absolute", top: 8, bottom: 8, left: "50%", width: 1, bgcolor: "divider", transform: "translateX(-50%)" }} />
@@ -56,7 +66,7 @@ export default function AboutScrollRail({ t }) {
                             key={label}
                             component="button"
                             type="button"
-                            aria-label={label}
+                            aria-label={t("scrollRail.step", { page: pageLabel, step: label })}
                             aria-current={index === activeStep ? "step" : undefined}
                             onClick={() => scrollToStep(STEP_FRACTIONS[index])}
                             sx={{ position: "absolute", top: `${STEP_FRACTIONS[index] * 100}%`, left: "50%", width: 18, height: 18, borderRadius: "50%", transform: "translate(-50%, -50%)", "&:focus-visible": { outline: "2px solid", outlineColor: "space.blue", outlineOffset: 3 } }}

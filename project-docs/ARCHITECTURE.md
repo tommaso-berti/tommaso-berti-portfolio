@@ -33,11 +33,11 @@ System-level notes for the portfolio application.
 - Shared mission tabs (`src/pages/projects/projectsPages/ProjectMissionTabs.jsx`):
   - Reused by project details, the About personnel modules, and the Projects archive category filters so tab behavior and visual treatment remain aligned.
 - About personnel file (`src/pages/about/`):
-  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, a desktop-only sticky scroll rail, and four selectable modules from existing biography content.
+  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and four selectable modules from existing biography content; the shared `DocumentScrollRail` is mounted by `Layout` outside the main content width and follows scroll progress on all desktop pages.
   - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs.
   - `IdentityVisualizer.jsx` reuses `CelestialProjectMap` in a decorative, reduced-motion-safe logo-centered mode; profile and career facts remain in the localized module content.
   - `Experience.jsx` and `CareerTimeline.jsx` render the localized education/work archive with NASA-style filters, expandable entries, and the `study-and-experience` anchor.
-  - `PersonnelCredential` derives the identity card from localized CV/Bio data, including the Bio summary and personnel systems, while `TechnicalBlueprintPanel` renders the five original blueprint assets with registry-backed technology nodes and responsive connectors.
+  - `PersonnelCredential` derives the compact identity card from localized CV/Bio data, embeds the Bio profile, base, personality, and personnel systems, and uses the canonical telemetry values without duplicating the removed footer-only fields; the portrait supports a transparent PNG with the existing WebP/JPEG fallback chain. `TechnicalBlueprintPanel` renders the five original blueprint assets with registry-backed technology nodes and responsive connectors.
 
 ## Data and Request Flow
 - Static-first data model:

@@ -13,11 +13,11 @@
       "fields": {
         "holder": "01 / Titolare",
         "role": "02 / Classe ruolo",
-        "base": "03 / Base",
-        "stack": "04 / Stack principale",
-        "systems": "05 / Sistemi",
-        "bio": "06 / Profilo Bio",
-        "summary": "07 / Profilo operativo"
+        "base": "Base",
+        "stack": "03 / Stack principale",
+        "systems": "04 / Sistemi",
+        "personality": "05 / Personalità",
+        "bio": "06 / Profilo Bio"
       },
       "signatureLabel": "Firma personale",
       "statusLabel": "Stato sistema",

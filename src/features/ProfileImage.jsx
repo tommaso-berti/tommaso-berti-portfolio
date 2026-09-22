@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 import profileJpeg from "../assets/images/profilepicture.jpeg";
 import profileWebp from "../assets/images/profilepicture.webp";
+import profileTransparent from "../assets/images/profilepicture-transparent.png";
 
 /**
  * Profile photo with WebP source and JPEG fallback.
  */
-export default function ProfileImage({ alt, width = 200, height = 200, rounded = true, sx = {} }) {
+export default function ProfileImage({ alt, width = 200, height = 200, rounded = true, transparent = false, sx = {} }) {
     return (
         <Box
             component="picture"
@@ -18,6 +19,7 @@ export default function ProfileImage({ alt, width = 200, height = 200, rounded =
                 ...sx,
             }}
         >
+            {transparent && <source srcSet={profileTransparent} type="image/png" />}
             <source srcSet={profileWebp} type="image/webp" />
             <Box
                 component="img"

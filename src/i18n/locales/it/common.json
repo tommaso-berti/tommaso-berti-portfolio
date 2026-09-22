@@ -28,5 +28,19 @@
     "english": "English",
     "themeTitle": "Modalità display",
     "themeCopy": "Scegli la modalità chiara o scura."
+  },
+  "scrollRail": {
+    "label": "Indice di scorrimento del documento {{page}}",
+    "step": "{{page}} {{step}}",
+    "steps": ["Apertura", "Nucleo", "Dettagli", "Chiusura"],
+    "titles": {
+      "home": "01 // REGISTRO ESPLORAZIONE / TB-DEV / 2026",
+      "projects": "02 // ARCHIVIO MISSIONE",
+      "services": "04 // CAPACITÀ",
+      "contact": "05 // COLLEGAMENTO COMUNICAZIONI",
+      "cv": "06 // ARCHIVIO CV",
+      "blog": "07 // NOTE DI CAMPO",
+      "notFound": "00 // SEGNALE PERSO"
+    }
   }
 }

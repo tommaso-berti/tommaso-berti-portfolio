@@ -4,14 +4,13 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useScrollToHash } from "@/hooks/useScrollToHash.js";
 import { useTranslation } from "react-i18next";
 import AboutModuleTabs from "./AboutModuleTabs.jsx";
-import AboutScrollRail from "./AboutScrollRail.jsx";
 import IdentityVisualizer from "./IdentityVisualizer.jsx";
 import { getAboutModuleFromHash } from "./aboutModules.utils.js";
 import ColorRail from "@/features/mission-ui/ColorRail.jsx";
 import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
 import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
-import TelemetryStrip from "@/features/mission-ui/TelemetryStrip.jsx";
 import { buildCelestialMapItems } from "@/pages/projects/projectsPages/projectSelectors.js";
+import { normalizeTelemetry } from "./personnelCredential.utils.js";
 
 export default function About() {
     const location = useLocation();
@@ -35,8 +34,6 @@ export default function About() {
     }, []);
 
     return (
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "32px minmax(0, 1fr)" }, gap: { lg: 2 } }}>
-            <AboutScrollRail t={t} />
             <Stack id="about" component="article" spacing={{ xs: 3.5, md: 5 }}>
             <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}>
                 <TechnicalLabel>{t("personnel.archiveHeader")}</TechnicalLabel>
@@ -59,8 +56,7 @@ export default function About() {
                 </Stack>
                 <Box sx={{ flex: 1, minWidth: 0 }}><IdentityVisualizer t={(key) => t(`personnel.${key}`)} items={mapItems} /></Box>
             </Stack>
-            <TelemetryStrip items={telemetry.map((item) => ({ ...item, status: item.status === true }))} />
-            <AboutModuleTabs activeModule={activeModule} onChange={setActiveModule} t={t} />
+            <AboutModuleTabs activeModule={activeModule} onChange={setActiveModule} t={t} telemetry={normalizeTelemetry(telemetry)} />
             <Box component="section" sx={{ borderTop: "1px solid", borderColor: "divider", pt: 3 }}>
                 <ColorRail sx={{ mb: 2 }} />
                 <TechnicalLabel>{t("personnel.closingLabel")}</TechnicalLabel>
@@ -68,6 +64,5 @@ export default function About() {
                 <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 700 }}>{t("personnel.closingBody")}</Typography>
             </Box>
             </Stack>
-        </Box>
     );
 }

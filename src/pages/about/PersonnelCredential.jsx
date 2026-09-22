@@ -16,7 +16,10 @@ function CredentialField({ label, value, wide = false, children }) {
     );
 }
 
-export default function PersonnelCredential({ profile, stack, systems = [], bioDescription, t }) {
+export default function PersonnelCredential({ profile, stack, systems = [], telemetry = [], bioDescription, t }) {
+    const base = telemetry[0]?.value || profile.location;
+    const personality = telemetry[2]?.value || "";
+
     return (
         <Card component="article" variant="outlined" sx={{ position: "relative", overflow: "hidden", bgcolor: "background.paper" }}>
             <ColorRail />
@@ -31,29 +34,29 @@ export default function PersonnelCredential({ profile, stack, systems = [], bioD
                     </Box>
                 </Stack>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "150px minmax(0, 1fr)" }, mt: 1.7, border: "1px solid", borderColor: "divider" }}>
-                    <Stack sx={{ p: 1.5, borderBottom: { xs: "1px solid", sm: 0 }, borderRight: { sm: "1px solid" }, borderColor: "divider" }} spacing={1.5} justifyContent="space-between">
+                    <Stack sx={{ p: 1.5, borderBottom: { xs: "1px solid", sm: 0 }, borderColor: "divider" }} spacing={1.5} justifyContent="space-between">
                         <Box sx={{ display: "grid", placeItems: "center", minHeight: 150, p: 1, border: "1px solid", borderColor: "divider", bgcolor: "space.secondaryPaper" }}>
-                            <ProfileImage alt={t("profileAlt")} width={118} height={118} rounded={false} sx={{ width: "100%" }} />
+                            <ProfileImage alt={t("profileAlt")} width={118} height={118} rounded={false} transparent sx={{ width: "100%" }} />
                         </Box>
                         <TechnicalLabel sx={{ fontSize: ".52rem" }}>{t("credential.portraitMeta")}</TechnicalLabel>
                     </Stack>
                     <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))" } }}>
                         <CredentialField label={t("credential.fields.holder")} value={profile.name} wide />
                         <CredentialField label={t("credential.fields.role")} value={profile.role} />
-                        <CredentialField label={t("credential.fields.base")} value={profile.location} />
+                        <CredentialField label={t("credential.fields.base")} value={base} />
                         <CredentialField label={t("credential.fields.stack")} value={stack.join(" · ")} wide />
                         <CredentialField label={t("credential.fields.systems")} wide>
-                            <Stack spacing={.55} sx={{ mt: .7 }}>
+                            <Stack spacing={.8} sx={{ mt: .7, p: 1, border: "1px solid", borderColor: "divider" }}>
                                 {systems.map((system) => (
-                                    <Stack key={system.label} direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={.6} sx={{ pb: .45, borderBottom: "1px solid", borderColor: "divider" }}>
+                                    <Stack key={system.label} direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={.6}>
                                         <TechnicalLabel sx={{ fontSize: ".5rem" }}>{system.label}</TechnicalLabel>
                                         <Typography sx={{ fontFamily: "monospace", fontSize: ".68rem", fontWeight: 800, textAlign: { sm: "right" }, overflowWrap: "anywhere" }}>{system.value}</Typography>
                                     </Stack>
                                 ))}
                             </Stack>
                         </CredentialField>
+                        <CredentialField label={t("credential.fields.personality")} value={personality} wide />
                         <CredentialField label={t("credential.fields.bio")} value={bioDescription} wide />
-                        <CredentialField label={t("credential.fields.summary")} value={profile.compactSummary} wide />
                     </Box>
                 </Box>
                 <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={1.5} sx={{ pt: 1.5 }}>

@@ -1,9 +1,12 @@
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import { useTheme } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ProfileImage from "../../features/ProfileImage.jsx";
+import signatureLight from "../../assets/images/personnel-signature-artwork.png";
+import signatureDark from "../../assets/images/personnel-signature-artwork-dark.png";
 import ColorRail from "../../features/mission-ui/ColorRail.jsx";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 
@@ -17,6 +20,7 @@ function CredentialField({ label, value, wide = false, children }) {
 }
 
 export default function PersonnelCredential({ profile, stack, systems = [], telemetry = [], bioDescription, t }) {
+    const theme = useTheme();
     const base = telemetry[0]?.value || profile.location;
     const personality = telemetry[2]?.value || "";
 
@@ -27,14 +31,14 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                 <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={2} sx={{ pb: 1.7, borderBottom: "1px solid", borderColor: "divider" }}>
                     <Box>
                         <TechnicalLabel color="space.blue">{t("credential.kicker")}</TechnicalLabel>
-                        <Typography component="h3" variant="h4" sx={{ mt: .65 }}>{t("credential.title")}</Typography>
+                        <Typography component="h3" variant="h4" sx={{ mt: 1.1 }}>{t("credential.title")}</Typography>
                     </Box>
                     <Box aria-label={t("credential.sealLabel")} sx={{ width: 82, height: 82, flexShrink: 0, borderRadius: "50%", display: "grid", placeItems: "center", position: "relative", "&::before": { content: '""', position: "absolute", inset: 8, border: "1px dashed", borderColor: "divider", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", bottom: 11, left: "50%", width: 6, height: 6, borderRadius: "50%", bgcolor: "space.orange", transform: "translateX(-50%)" } }}>
                         <Box component="img" src="/tb-logo-1024.png" alt="" aria-hidden="true" sx={{ width: 58, height: 58, objectFit: "contain", borderRadius: "50%" }} />
                     </Box>
                 </Stack>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "150px minmax(0, 1fr)" }, mt: 1.7, border: "1px solid", borderColor: "divider" }}>
-                    <Stack sx={{ p: 1.5, borderBottom: { xs: "1px solid", sm: 0 }, borderColor: "divider" }} spacing={1.5} justifyContent="space-between">
+                    <Stack sx={{ p: 1.5, borderBottom: { xs: "1px solid", sm: 0 }, borderColor: "divider" }} spacing={1.1}>
                         <Box sx={{ display: "grid", placeItems: "center", minHeight: 150, p: 1, border: "1px solid", borderColor: "divider", bgcolor: "space.secondaryPaper" }}>
                             <ProfileImage alt={t("profileAlt")} width={118} height={118} rounded={false} transparent sx={{ width: "100%" }} />
                         </Box>
@@ -49,8 +53,8 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                             <Stack spacing={.8} sx={{ mt: .7, p: 1, border: "1px solid", borderColor: "divider" }}>
                                 {systems.map((system) => (
                                     <Stack key={system.label} direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={.6}>
-                                        <TechnicalLabel sx={{ fontSize: ".5rem" }}>{system.label}</TechnicalLabel>
-                                        <Typography sx={{ fontFamily: "monospace", fontSize: ".68rem", fontWeight: 800, textAlign: { sm: "right" }, overflowWrap: "anywhere" }}>{system.value}</Typography>
+                                        <TechnicalLabel sx={{ fontSize: ".62rem" }}>{system.label}</TechnicalLabel>
+                                        <Typography sx={{ fontFamily: "monospace", fontSize: ".72rem", fontWeight: 800, textAlign: { sm: "right" }, overflowWrap: "anywhere" }}>{system.value}</Typography>
                                     </Stack>
                                 ))}
                             </Stack>
@@ -62,7 +66,7 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                 <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={1.5} sx={{ pt: 1.5 }}>
                     <Box>
                         <TechnicalLabel sx={{ fontSize: ".52rem" }}>{t("credential.signatureLabel")}</TechnicalLabel>
-                        <Typography sx={{ mt: .35, fontFamily: "cursive", fontSize: "1rem" }}>{profile.name}</Typography>
+                        <Box component="img" src={theme.palette.mode === "dark" ? signatureDark : signatureLight} alt={t("credential.signatureAlt")} sx={{ display: "block", width: 260, maxWidth: "100%", height: 72, objectFit: "contain", objectPosition: "left center", mt: .2 }} />
                     </Box>
                     <Box sx={{ minWidth: { sm: 150 } }}>
                         <TechnicalLabel sx={{ fontSize: ".52rem" }}>{t("credential.statusLabel")}</TechnicalLabel>

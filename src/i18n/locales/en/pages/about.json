@@ -6,20 +6,21 @@
     "credential": {
       "moduleLabel": "IDENTITY MODULE / PERSONNEL RECORD",
       "kicker": "Portfolio authority / personnel credential",
-      "title": "Mission credential",
+      "title": "Credentials",
       "sealLabel": "Tommaso Berti profile credential",
       "seal": "PROFILE",
       "portraitMeta": "PERSONNEL PORTRAIT / IDENTITY NODE VERIFIED",
       "fields": {
         "holder": "01 / Holder",
         "role": "02 / Role class",
-        "base": "Base",
-        "stack": "03 / Core stack",
-        "systems": "04 / Systems",
-        "personality": "05 / Personality",
-        "bio": "06 / Bio profile"
+        "base": "03 / Base",
+        "stack": "04 / Core stack",
+        "systems": "05 / Systems",
+        "personality": "06 / Personality",
+        "bio": "07 / Bio profile"
       },
       "signatureLabel": "Personnel signature",
+      "signatureAlt": "Tommaso Berti signature",
       "statusLabel": "System status",
       "status": "VALID / ACTIVE"
     }

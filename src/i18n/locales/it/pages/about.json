@@ -6,20 +6,21 @@
     "credential": {
       "moduleLabel": "MODULO IDENTITÀ / RECORD PERSONALE",
       "kicker": "Autorità portfolio / credential personale",
-      "title": "Credential di missione",
+      "title": "Credenziali",
       "sealLabel": "Credential del profilo di Tommaso Berti",
       "seal": "PROFILO",
       "portraitMeta": "RITRATTO PERSONALE / NODO IDENTITÀ VERIFICATO",
       "fields": {
         "holder": "01 / Titolare",
         "role": "02 / Classe ruolo",
-        "base": "Base",
-        "stack": "03 / Stack principale",
-        "systems": "04 / Sistemi",
-        "personality": "05 / Personalità",
-        "bio": "06 / Profilo Bio"
+        "base": "03 / Base",
+        "stack": "04 / Stack principale",
+        "systems": "05 / Sistemi",
+        "personality": "06 / Personalità",
+        "bio": "07 / Profilo Bio"
       },
       "signatureLabel": "Firma personale",
+      "signatureAlt": "Firma di Tommaso Berti",
       "statusLabel": "Stato sistema",
       "status": "VALIDO / ATTIVO"
     }

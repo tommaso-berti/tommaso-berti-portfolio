@@ -20,6 +20,8 @@ export default function Bio({ embedded = false, systems = [], telemetry = [] }) 
     return (
         <Stack
             id="bio"
+            data-scroll-section
+            data-scroll-label={t("credential.moduleLabel")}
             spacing={{ xs: 2.5, md: 3.5 }}
             component="section"
             sx={{ scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}

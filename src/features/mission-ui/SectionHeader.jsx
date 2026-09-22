@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import TechnicalLabel from "./TechnicalLabel.jsx";
 
 export default function SectionHeader({ eyebrow, title, note, component = "h1" }) {
-    return <Stack spacing={2} sx={{ mb: { xs: 2.5, md: 3.5 } }}>
+    return <Stack data-scroll-section data-scroll-label={eyebrow} spacing={2} sx={{ mb: { xs: 2.5, md: 3.5 } }}>
         <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}><TechnicalLabel>{eyebrow}</TechnicalLabel></Box>
         <Stack direction={{ xs: "column", sm: "row" }} alignItems={{ sm: "flex-end" }} justifyContent="space-between" gap={1.5}>
             <Typography component={component} variant="h3">{title}</Typography>

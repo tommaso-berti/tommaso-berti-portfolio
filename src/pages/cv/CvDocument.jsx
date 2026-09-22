@@ -40,6 +40,8 @@ export default function CvDocument({
     return (
         <Paper
             data-cv-document
+            data-scroll-section
+            data-scroll-label={t("profileTitle", { defaultValue: "CV DOCUMENT" })}
             variant="outlined"
             sx={{
                 px: { xs: 1.8, sm: 2.4, md: isCompact ? 3 : 4 },

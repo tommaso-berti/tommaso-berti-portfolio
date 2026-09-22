@@ -38,7 +38,7 @@ export default function About() {
             <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}>
                 <TechnicalLabel>{t("personnel.archiveHeader")}</TechnicalLabel>
             </Box>
-            <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 3, md: 5 }} alignItems="stretch">
+            <Stack data-scroll-section data-scroll-label={t("personnel.heroEyebrow")} direction={{ xs: "column", md: "row" }} spacing={{ xs: 3, md: 5 }} alignItems="stretch">
                 <Stack sx={{ flex: 1, justifyContent: "center" }} spacing={2.25}>
                     <Typography component="h1" variant="h2" sx={{ whiteSpace: "pre-line", maxWidth: 650 }}>
                         {t("personnel.heroTitle")}
@@ -56,8 +56,8 @@ export default function About() {
                 </Stack>
                 <Box sx={{ flex: 1, minWidth: 0 }}><IdentityVisualizer t={(key) => t(`personnel.${key}`)} items={mapItems} /></Box>
             </Stack>
-            <AboutModuleTabs activeModule={activeModule} onChange={setActiveModule} t={t} telemetry={normalizeTelemetry(telemetry)} />
-            <Box component="section" sx={{ borderTop: "1px solid", borderColor: "divider", pt: 3 }}>
+            <Box data-scroll-section data-scroll-label={t("personnel.modules.identity")}><AboutModuleTabs activeModule={activeModule} onChange={setActiveModule} t={t} telemetry={normalizeTelemetry(telemetry)} /></Box>
+            <Box component="section" data-scroll-section data-scroll-label={t("personnel.closingLabel")} sx={{ borderTop: "1px solid", borderColor: "divider", pt: 3 }}>
                 <ColorRail sx={{ mb: 2 }} />
                 <TechnicalLabel>{t("personnel.closingLabel")}</TechnicalLabel>
                 <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.closingTitle")}</Typography>

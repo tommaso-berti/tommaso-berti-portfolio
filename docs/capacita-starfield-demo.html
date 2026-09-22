@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Capacità — Starfield / NASA demo</title>
+<style>
+  :root{
+    --paper:#f3efe5;
+    --paper-2:#f8f4eb;
+    --ink:#17232d;
+    --muted:#667078;
+    --line:#c8c2b7;
+    --line-strong:#9e9a91;
+    --blue:#347aa8;
+    --yellow:#d5ad3c;
+    --orange:#e06d43;
+    --red:#b85345;
+    --shadow:0 18px 44px rgba(23,35,45,.10);
+  }
+
+  *{box-sizing:border-box}
+  html{background:var(--paper)}
+  body{
+    margin:0;
+    min-height:100vh;
+    color:var(--ink);
+    font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      linear-gradient(rgba(23,35,45,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23,35,45,.035) 1px, transparent 1px),
+      var(--paper);
+    background-size:36px 36px;
+  }
+
+  button{font:inherit}
+
+  .page{
+    min-height:100vh;
+    padding:28px 28px 72px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .page:before{
+    content:"";
+    position:absolute;
+    width:540px;
+    height:540px;
+    border:1px solid rgba(52,122,168,.09);
+    border-radius:50%;
+    right:-250px;
+    top:-260px;
+    box-shadow:
+      0 0 0 84px rgba(52,122,168,.025),
+      0 0 0 168px rgba(52,122,168,.018);
+    pointer-events:none;
+  }
+
+  .wrap{
+    width:min(1180px, 100%);
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+
+  .top-rule{
+    height:1px;
+    background:linear-gradient(90deg,var(--line-strong),var(--line),transparent);
+    margin-bottom:12px;
+  }
+
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    font-size:12px;
+    letter-spacing:.20em;
+    text-transform:uppercase;
+    color:#59636a;
+    font-weight:700;
+    padding-bottom:12px;
+    border-bottom:1px solid rgba(158,154,145,.55);
+  }
+
+  .eyebrow .left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .eyebrow .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--blue);
+    box-shadow:0 0 0 4px rgba(52,122,168,.10);
+  }
+
+  .eyebrow .status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    letter-spacing:.12em;
+    opacity:.78;
+  }
+
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:30px;
+    align-items:end;
+    padding:18px 0 22px;
+  }
+
+  h1{
+    margin:0;
+    font-size:clamp(42px,6vw,68px);
+    line-height:.96;
+    letter-spacing:-.052em;
+    font-weight:760;
+  }
+
+  .hero-meta{
+    text-align:right;
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:12px;
+    line-height:1.65;
+    color:#5d656b;
+    padding-bottom:4px;
+  }
+
+  .hero-meta strong{
+    display:block;
+    color:var(--ink);
+    font-weight:800;
+  }
+
+  .matrix{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .card{
+    position:relative;
+    width:100%;
+    min-height:250px;
+    padding:0;
+    text-align:left;
+    color:inherit;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+    outline:none;
+  }
+
+  .card-shell{
+    position:relative;
+    height:100%;
+    min-height:250px;
+    background:rgba(248,244,235,.78);
+    border:1px solid var(--line);
+    clip-path:polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+    transition:
+      transform .28s cubic-bezier(.2,.8,.2,1),
+      box-shadow .28s ease,
+      background .28s ease,
+      border-color .28s ease;
+    overflow:hidden;
+  }
+
+  .card-shell:before{
+    content:"";
+    position:absolute;
+    top:0;right:0;
+    width:24px;height:24px;
+    background:
+      linear-gradient(135deg, transparent 48%, var(--line) 49%, var(--line) 52%, transparent 53%);
+    pointer-events:none;
+  }
+
+  .card-shell:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(110deg, transparent 0 42%, rgba(255,255,255,.38) 48%, transparent 54%);
+    transform:translateX(-115%);
+    transition:transform .7s ease;
+    pointer-events:none;
+  }
+
+  .card:hover .card-shell,
+  .card:focus-visible .card-shell{
+    transform:translateY(-4px);
+    background:rgba(252,249,242,.94);
+    border-color:#a8a398;
+    box-shadow:var(--shadow);
+  }
+
+  .card:hover .card-shell:after{
+    transform:translateX(115%);
+  }
+
+  .card.active .card-shell{
+    background:#fbf8f1;
+    border-color:#858981;
+    box-shadow:0 16px 40px rgba(23,35,45,.09);
+  }
+
+  .card.active .card-shell:before{
+    background:
+      linear-gradient(135deg, transparent 48%, var(--blue) 49%, var(--blue) 52%, transparent 53%);
+  }
+
+  .card-inner{
+    position:relative;
+    padding:20px 20px 18px;
+    min-height:250px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .card-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+  }
+
+  .index{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:40px;height:40px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:.02em;
+    background:rgba(243,239,229,.82);
+    transition:.25s ease;
+  }
+
+  .card.active .index{
+    border-color:var(--ink);
+    background:var(--ink);
+    color:var(--paper-2);
+  }
+
+  .schematic{
+    width:92px;
+    height:58px;
+    opacity:.58;
+    transition:.28s ease;
+  }
+
+  .card:hover .schematic,
+  .card.active .schematic{
+    opacity:.9;
+    transform:translateY(-1px);
+  }
+
+  .content{
+    margin-top:16px;
+    max-width:82%;
+  }
+
+  .kicker{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:10px;
+    color:#657079;
+  }
+
+  .kicker .mini-dot{
+    width:5px;height:5px;border-radius:50%;background:var(--blue);
+  }
+
+  .title{
+    margin:0;
+    font-size:28px;
+    line-height:1.08;
+    letter-spacing:-.028em;
+    font-weight:760;
+  }
+
+  .desc{
+    margin:10px 0 0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .details{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .34s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .details > div{
+    overflow:hidden;
+  }
+
+  .card.active .details{
+    grid-template-rows:1fr;
+  }
+
+  .details-content{
+    padding-top:14px;
+  }
+
+  .cap-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+
+  .cap{
+    border:1px solid #cbc6bb;
+    padding:6px 8px;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    font-size:10px;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    background:rgba(243,239,229,.72);
+  }
+
+  .telemetry{
+    margin-top:auto;
+    padding-top:18px;
+  }
+
+  .signal{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    height:4px;
+    position:relative;
+    overflow:visible;
+  }
+
+  .signal span:nth-child(1){background:var(--blue)}
+  .signal span:nth-child(2){background:var(--yellow)}
+  .signal span:nth-child(3){background:var(--orange)}
+
+  .marker{
+    position:absolute;
+    top:-4px;
+    left:18%;
+    width:2px;
+    height:12px;
+    background:var(--ink);
+    opacity:0;
+    transform:translateX(-50%);
+    transition:left .38s cubic-bezier(.2,.8,.2,1),opacity .22s ease;
+  }
+
+  .card.active .marker{opacity:1}
+  .card[data-id="2"].active .marker{left:42%}
+  .card[data-id="3"].active .marker{left:66%}
+  .card[data-id="4"].active .marker{left:84%}
+
+  .signal-meta{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:8px;
+    color:#71787e;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  .active-tag{
+    opacity:0;
+    transition:opacity .2s ease;
+    color:var(--ink);
+    font-weight:800;
+  }
+  .card.active .active-tag{opacity:1}
+
+  .corner-code{
+    position:absolute;
+    right:15px;
+    bottom:42px;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    color:rgba(23,35,45,.08);
+    font-size:64px;
+    font-weight:900;
+    letter-spacing:-.08em;
+    pointer-events:none;
+    user-select:none;
+    transition:.28s ease;
+  }
+  .card:hover .corner-code,.card.active .corner-code{color:rgba(23,35,45,.11)}
+
+  .footnote{
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    padding:14px 2px 0;
+    color:#6a7379;
+    font-family:"SFMono-Regular",Consolas,monospace;
+    font-size:10px;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+  }
+
+  .footnote span:last-child{text-align:right}
+
+  @media (max-width:780px){
+    .page{padding:20px 16px 44px}
+    .eyebrow .status{display:none}
+    .hero{
+      grid-template-columns:1fr;
+      align-items:start;
+      gap:10px;
+      padding:18px 0;
+    }
+    .hero-meta{text-align:left}
+    .matrix{grid-template-columns:1fr}
+    .card-shell,.card-inner{min-height:235px}
+    .content{max-width:100%;padding-right:22px}
+    .title{font-size:25px}
+    .schematic{width:78px}
+    .footnote{flex-direction:column}
+    .footnote span:last-child{text-align:left}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="wrap">
+    <div class="top-rule"></div>
+
+    <div class="eyebrow">
+      <div class="left"><span class="dot"></span><span>04 // CAPACITÀ</span></div>
+      <div class="status">SYSTEM / DEVELOPMENT MATRIX / <span>ONLINE</span></div>
+    </div>
+
+    <section class="hero">
+      <h1>Cosa posso<br>costruire</h1>
+      <div class="hero-meta">
+        <strong>Servizi di sviluppo selezionati</strong>
+        04 moduli / stack web moderno
+      </div>
+    </section>
+
+    <section class="matrix" id="matrix">
+
+      <button class="card active" data-id="1" aria-expanded="true">
+        <div class="card-shell">
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="index">01</span>
+              <svg class="schematic" viewBox="0 0 92 58" fill="none" aria-hidden="true">
+                <rect x="7.5" y="8.5" width="66" height="40" rx="2" stroke="currentColor"/>
+                <path d="M8 17H73M16 13h2M21 13h2M26 13h2" stroke="currentColor"/>
+                <path d="M18 27h25M18 34h39M18 41h30" stroke="currentColor" stroke-dasharray="3 3"/>
+                <path d="M79 18v28M75 22l4-4 4 4M75 42l4 4 4-4" stroke="currentColor"/>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="kicker"><span class="mini-dot"></span>PRODUCT SYSTEM / WEB</div>
+              <h2 class="title">Applicazioni web</h2>
+              <p class="desc">Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali.</p>
+              <div class="details"><div><div class="details-content">
+                <div class="cap-list">
+                  <span class="cap">React</span><span class="cap">TypeScript</span><span class="cap">PWA</span><span class="cap">Design system</span>
+                </div>
+              </div></div></div>
+            </div>
+            <div class="telemetry">
+              <div class="signal"><span></span><span></span><span></span><i class="marker"></i></div>
+              <div class="signal-meta"><span>UI</span><span class="active-tag">Modulo selezionato</span><span>DEPLOY</span></div>
+            </div>
+            <div class="corner-code">A1</div>
+          </div>
+        </div>
+      </button>
+
+      <button class="card" data-id="2" aria-expanded="false">
+        <div class="card-shell">
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="index">02</span>
+              <svg class="schematic" viewBox="0 0 92 58" fill="none" aria-hidden="true">
+                <rect x="8.5" y="9.5" width="68" height="39" rx="2" stroke="currentColor"/>
+                <path d="M15 39V29M24 39V22M33 39V33M42 39V18" stroke="currentColor"/>
+                <path d="M53 20h15M53 27h10M53 34h13" stroke="currentColor" stroke-dasharray="3 3"/>
+                <circle cx="83" cy="16" r="3.5" stroke="currentColor"/>
+                <path d="M83 20v22" stroke="currentColor"/>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="kicker"><span class="mini-dot"></span>DATA SYSTEM / CONTROL</div>
+              <h2 class="title">Dashboard</h2>
+              <p class="desc">Interfacce che rendono dati, stati e operazioni leggibili e azionabili.</p>
+              <div class="details"><div><div class="details-content">
+                <div class="cap-list">
+                  <span class="cap">Data viz</span><span class="cap">Realtime</span><span class="cap">Admin UI</span><span class="cap">Monitoring</span>
+                </div>
+              </div></div></div>
+            </div>
+            <div class="telemetry">
+              <div class="signal"><span></span><span></span><span></span><i class="marker"></i></div>
+              <div class="signal-meta"><span>DATA</span><span class="active-tag">Modulo selezionato</span><span>CONTROL</span></div>
+            </div>
+            <div class="corner-code">D2</div>
+          </div>
+        </div>
+      </button>
+
+      <button class="card" data-id="3" aria-expanded="false">
+        <div class="card-shell">
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="index">03</span>
+              <svg class="schematic" viewBox="0 0 92 58" fill="none" aria-hidden="true">
+                <circle cx="18" cy="29" r="7" stroke="currentColor"/>
+                <circle cx="46" cy="15" r="7" stroke="currentColor"/>
+                <circle cx="71" cy="36" r="7" stroke="currentColor"/>
+                <path d="M24 26l15-8M51 20l14 11M25 32l39 3" stroke="currentColor" stroke-dasharray="4 3"/>
+                <path d="M8 10h12M8 48h19M65 11h18" stroke="currentColor"/>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="kicker"><span class="mini-dot"></span>SERVICE LAYER / CONNECT</div>
+              <h2 class="title">API e integrazioni</h2>
+              <p class="desc">Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto.</p>
+              <div class="details"><div><div class="details-content">
+                <div class="cap-list">
+                  <span class="cap">REST</span><span class="cap">Node</span><span class="cap">Auth</span><span class="cap">Webhooks</span>
+                </div>
+              </div></div></div>
+            </div>
+            <div class="telemetry">
+              <div class="signal"><span></span><span></span><span></span><i class="marker"></i></div>
+              <div class="signal-meta"><span>INPUT</span><span class="active-tag">Modulo selezionato</span><span>OUTPUT</span></div>
+            </div>
+            <div class="corner-code">I3</div>
+          </div>
+        </div>
+      </button>
+
+      <button class="card" data-id="4" aria-expanded="false">
+        <div class="card-shell">
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="index">04</span>
+              <svg class="schematic" viewBox="0 0 92 58" fill="none" aria-hidden="true">
+                <path d="M18 32a15 15 0 1 1 26 10" stroke="currentColor"/>
+                <path d="M44 42l-1-9 9 2" stroke="currentColor"/>
+                <rect x="58.5" y="13.5" width="20" height="20" rx="2" stroke="currentColor"/>
+                <path d="M63 19h11M63 24h7M63 29h9M14 47h25" stroke="currentColor" stroke-dasharray="3 3"/>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="kicker"><span class="mini-dot"></span>FLOW SYSTEM / AUTOMATE</div>
+              <h2 class="title">Strumenti di automazione</h2>
+              <p class="desc">Utility mirate che riducono i flussi manuali e ripetitivi.</p>
+              <div class="details"><div><div class="details-content">
+                <div class="cap-list">
+                  <span class="cap">Jobs</span><span class="cap">Workflow</span><span class="cap">Scripts</span><span class="cap">Integrations</span>
+                </div>
+              </div></div></div>
+            </div>
+            <div class="telemetry">
+              <div class="signal"><span></span><span></span><span></span><i class="marker"></i></div>
+              <div class="signal-meta"><span>TRIGGER</span><span class="active-tag">Modulo selezionato</span><span>ACTION</span></div>
+            </div>
+            <div class="corner-code">F4</div>
+          </div>
+        </div>
+      </button>
+
+    </section>
+
+    <div class="footnote">
+      <span>Hover → elevazione / Click → dettagli modulo</span>
+      <span>TB // Portfolio capability system // rev.04</span>
+    </div>
+  </div>
+</main>
+
+<script>
+  const cards = [...document.querySelectorAll('.card')];
+
+  function activate(target){
+    const isAlreadyActive = target.classList.contains('active');
+    cards.forEach(card => {
+      card.classList.remove('active');
+      card.setAttribute('aria-expanded','false');
+    });
+
+    if(!isAlreadyActive){
+      target.classList.add('active');
+      target.setAttribute('aria-expanded','true');
+    }
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => activate(card));
+    card.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        activate(card);
+      }
+    });
+  });
+</script>
+</body>
+</html>

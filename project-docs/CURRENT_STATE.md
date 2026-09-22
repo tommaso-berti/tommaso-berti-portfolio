@@ -22,6 +22,7 @@ Snapshot as of 2026-09-21.
 - Legacy custom language context/hook removed in favor of `i18n.changeLanguage` and `useTranslation`.
 - The portfolio uses the aerospace-inspired exploration design system: `explorationLight` is the default palette and the persisted dark toggle uses a matching deep-space variant.
 - `/services` is a localized public route; shared mission UI primitives live in `src/features/mission-ui/`.
+- `/services` uses an interactive Starfield capability matrix: localized service cards expose technical schematics, telemetry, tags, keyboard-accessible expansion, and light/dark theme tokens.
 - Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.
 - The home celestial map keeps its original hero panel dimensions, with a measured zoom and a compact technical control toolbar anchored at the top right.

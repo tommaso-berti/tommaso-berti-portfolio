@@ -2,11 +2,14 @@
   "eyebrow": "04 // CAPACITÀ",
   "title": "Cosa posso costruire",
   "note": "SERVIZI DI SVILUPPO SELEZIONATI",
+  "activeLabel": "MODULO SELEZIONATO",
+  "interactionHint": "Hover → elevazione / Click → dettagli modulo",
+  "revision": "TB // Capability system // rev.04",
   "items": [
-    { "title": "Applicazioni web", "description": "Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali." },
-    { "title": "Dashboard", "description": "Interfacce che rendono dati, stati e operazioni leggibili e azionabili." },
-    { "title": "API e integrazioni", "description": "Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto." },
-    { "title": "Strumenti di automazione", "description": "Utility mirate che riducono i flussi manuali e ripetitivi." }
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Applicazioni web", "description": "Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboard", "description": "Interfacce che rendono dati, stati e operazioni leggibili e azionabili.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "API e integrazioni", "description": "Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Strumenti di automazione", "description": "Utility mirate che riducono i flussi manuali e ripetitivi.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
   "cta": "Avvia un progetto"
 }

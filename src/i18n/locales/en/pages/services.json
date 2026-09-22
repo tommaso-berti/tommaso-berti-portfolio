@@ -2,11 +2,14 @@
   "eyebrow": "04 // CAPABILITIES",
   "title": "What I can build",
   "note": "SELECTED DEVELOPMENT SERVICES",
+  "activeLabel": "SELECTED MODULE",
+  "interactionHint": "Hover → elevation / Click → module details",
+  "revision": "TB // Capability system // rev.04",
   "items": [
-    { "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows." },
-    { "title": "Dashboards", "description": "Interfaces that make data, states, and operations readable and actionable." },
-    { "title": "APIs & integrations", "description": "Backend services and data flows that connect product systems together." },
-    { "title": "Automation tools", "description": "Purpose-built utilities that reduce repetitive manual workflows." }
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "Interfaces that make data, states, and operations readable and actionable.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "Backend services and data flows that connect product systems together.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "Purpose-built utilities that reduce repetitive manual workflows.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
   "cta": "Start a project"
 }

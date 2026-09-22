@@ -38,6 +38,8 @@
     "latestIssue": "Ultimo rilascio",
     "specialization": "Specializzazione",
     "track": "Percorso",
+    "platform": "Piattaforma",
+    "statusLabel": "Stato",
     "focus": "Focus",
     "primaryNodes": "Nodi certificazione principali",
     "featuredView": "Vista / in evidenza",

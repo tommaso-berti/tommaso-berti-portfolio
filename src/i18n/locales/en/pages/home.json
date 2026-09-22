@@ -38,6 +38,8 @@
     "latestIssue": "Latest issue",
     "specialization": "Specialization",
     "track": "Track",
+    "platform": "Platform",
+    "statusLabel": "Status",
     "focus": "Focus",
     "primaryNodes": "Primary certification nodes",
     "featuredView": "View / featured",

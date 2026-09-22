@@ -43,42 +43,29 @@ function ArchiveMap({ t }) {
     );
 }
 
-function CornerBrackets() {
-    const positions = { tl: { top: 12, left: 12, borderTop: 1, borderLeft: 1 }, tr: { top: 12, right: 12, borderTop: 1, borderRight: 1 }, bl: { bottom: 12, left: 12, borderBottom: 1, borderLeft: 1 }, br: { bottom: 12, right: 12, borderBottom: 1, borderRight: 1 } };
-    return <>{Object.entries(positions).map(([position, sx]) => <Box key={position} sx={{ position: "absolute", width: 16, height: 16, borderColor: "text.secondary", pointerEvents: "none", ...sx }} />)}</>;
-}
-
 function CertificationCard({ cert, t }) {
     const iconDefinitions = getCertificationIconDefinitions(cert);
     const visibleIconDefinitions = iconDefinitions.slice(0, MAX_VISIBLE_CERT_ICONS);
     const hiddenIconsCount = Math.max(iconDefinitions.length - MAX_VISIBLE_CERT_ICONS, 0);
     const accent = CERTIFICATION_ACCENTS[cert.areaKey] || "space.blue";
     const credentialNumber = String(FEATURED_CERTIFICATIONS.indexOf(cert) + 14).padStart(3, "0");
-    const telemetry = [
+    const metadata = [
         { label: t("certifications.track"), value: t(`certifications.areas.${cert.areaKey}`, { defaultValue: cert.area }) },
-        { label: t("certifications.focus"), value: cert.platform },
+        { label: t("certifications.platform"), value: cert.platform },
+        { label: t("certifications.issuedAt"), value: formatIssuedAt(cert.issuedAt) },
+        { label: t("certifications.statusLabel"), value: t(`certifications.status.${cert.status}`, { defaultValue: cert.status }) },
     ];
 
     return (
-        <Paper component="article" variant="outlined" sx={{ position: "relative", minHeight: { xs: 390, md: 430 }, p: { xs: 2, md: 2.3 }, borderRadius: 2.5, overflow: "hidden", backgroundColor: "rgba(255,255,255,.18)", transition: "transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, border-color 260ms ease", "&::before": { content: '""', position: "absolute", right: -28, top: -28, width: 122, height: 122, border: "1px solid", borderColor: "rgba(52,124,178,.2)", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", right: 10, top: 22, width: 52, height: 52, border: "1px dashed", borderColor: "rgba(52,124,178,.22)", borderRadius: "50%" }, "&:hover": { transform: "translateY(-5px)", boxShadow: "0 18px 42px rgba(18,32,45,.08)", borderColor: accent } }}>
-            <CornerBrackets />
-            <Stack spacing={1.35} sx={{ height: "100%", position: "relative", zIndex: 1 }}>
+        <Paper component="article" variant="outlined" sx={{ position: "relative", display: "flex", height: "100%", minHeight: { xs: 390, md: 430 }, p: { xs: 2, md: 2.3 }, borderRadius: 2.5, overflow: "hidden", backgroundColor: "rgba(255,255,255,.18)", transition: "transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, border-color 260ms ease", "&::before": { content: '""', position: "absolute", right: -28, top: -28, width: 122, height: 122, border: "1px solid", borderColor: "rgba(52,124,178,.2)", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", right: 10, top: 22, width: 52, height: 52, border: "1px dashed", borderColor: "rgba(52,124,178,.22)", borderRadius: "50%" }, "&:hover": { transform: "translateY(-5px)", boxShadow: "0 18px 42px rgba(18,32,45,.08)", borderColor: accent } }}>
+            <Stack spacing={1.35} sx={{ flex: 1, position: "relative", zIndex: 1 }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="flex-start" gap={1}>
                     <Typography sx={{ color: "text.secondary", fontFamily: "monospace", fontSize: ".58rem", fontWeight: 800, letterSpacing: ".15em", textTransform: "uppercase" }}>{`credential / c-${credentialNumber}`}</Typography>
                     <Typography sx={{ display: "flex", alignItems: "center", gap: .7, color: "space.green", fontFamily: "monospace", fontSize: ".58rem", fontWeight: 800, letterSpacing: ".12em", textTransform: "uppercase" }}><Box component="span" sx={{ width: 7, height: 7, borderRadius: "50%", bgcolor: "currentColor", boxShadow: "0 0 12px currentColor" }} />{t("certifications.verified")}</Typography>
                 </Stack>
                 <Typography variant="h6" sx={{ maxWidth: "86%", minHeight: { xs: "4.62rem", md: "5.1rem" }, fontWeight: 800, fontSize: { xs: "1.28rem", md: "1.42rem" }, lineHeight: 1.2, letterSpacing: "-0.028em" }}>{cert.title}</Typography>
-                <Stack direction="row" spacing={.8} flexWrap="wrap">
-                    <Chip label={cert.platform} size="small" variant="outlined" sx={{ borderRadius: 1.1 }} />
-                    <Chip label={t(`certifications.areas.${cert.areaKey}`, { defaultValue: cert.area })} size="small" sx={{ borderRadius: 1.1, bgcolor: "space.secondaryPaper" }} />
-                    <Chip label={t(`certifications.status.${cert.status}`, { defaultValue: cert.status })} size="small" color={cert.status === "completed" ? "success" : "default"} variant={cert.status === "completed" ? "filled" : "outlined"} sx={{ borderRadius: 1.1 }} />
-                </Stack>
-                <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1} sx={{ py: 1.1, borderBottom: "1px dashed", borderColor: "divider" }}>
-                    <Typography variant="body2" color="text.secondary">{`${t("certifications.issuedAt")} · ${formatIssuedAt(cert.issuedAt)}`}</Typography>
-                    <Typography sx={{ px: 1, py: .65, border: "1px solid", borderColor: "divider", borderRadius: 99, color: "space.orange", fontFamily: "monospace", fontSize: ".55rem", fontWeight: 800, letterSpacing: ".12em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{t("certifications.verified")}</Typography>
-                </Stack>
-                <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: .8 }}>{telemetry.map((item) => <Box key={item.label} sx={{ minHeight: 72, p: 1.15, border: "1px solid", borderColor: "divider", borderRadius: 1.5, backgroundColor: "rgba(255,255,255,.12)" }}><Typography sx={{ mb: .7, color: "text.secondary", fontFamily: "monospace", fontSize: ".54rem", fontWeight: 800, letterSpacing: ".14em", textTransform: "uppercase" }}>{item.label}</Typography><Typography sx={{ fontSize: ".82rem", fontWeight: 700, lineHeight: 1.35 }}>{item.value}</Typography></Box>)}</Box>
-                <Stack direction="row" gap={.7} flexWrap="wrap">
+                <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: .8 }}>{metadata.map((item) => <Box key={item.label} sx={{ minHeight: 58, p: 1, border: "1px solid", borderColor: "divider", borderRadius: 1.5, backgroundColor: "rgba(255,255,255,.12)" }}><Typography sx={{ mb: .55, color: "text.secondary", fontFamily: "monospace", fontSize: ".54rem", fontWeight: 800, letterSpacing: ".14em", textTransform: "uppercase" }}>{item.label}</Typography><Typography sx={{ fontSize: ".82rem", fontWeight: 700, lineHeight: 1.25 }}>{item.value}</Typography></Box>)}</Box>
+                <Stack direction="row" gap={.7} flexWrap="wrap" sx={{ minHeight: 56 }}>
                     {visibleIconDefinitions.map((iconDefinition, index) => <Chip key={`${cert.id}-${iconDefinition.id}-${index}`} label={iconDefinition.title || iconDefinition.id} size="small" variant="outlined" sx={{ borderRadius: 1.1, "& .MuiChip-label": { color: iconDefinition.color } }} />)}
                     {hiddenIconsCount > 0 ? <Tooltip arrow placement="top" slotProps={CERT_TECH_TOOLTIP_SLOT_PROPS} title={<Stack spacing={.6} sx={{ py: .25 }}>{iconDefinitions.map((iconDefinition, index) => { const TopicIcon = iconDefinition.component; return <Stack key={`${cert.id}-tooltip-${iconDefinition.id}-${index}`} direction="row" spacing={.7} alignItems="center"><TopicIcon size={14} color={iconDefinition.color} /><Typography variant="caption">{iconDefinition.title || iconDefinition.id}</Typography></Stack>; })}</Stack>}><ButtonBase aria-label={t("certifications.moreTechAria", { count: hiddenIconsCount, title: cert.title })} sx={{ minWidth: 42, height: 28, px: .8, border: "1px solid", borderColor: "divider", borderRadius: 1.1, fontFamily: "monospace", fontSize: ".65rem", fontWeight: 800, color: "text.secondary" }}>{`+${hiddenIconsCount}`}</ButtonBase></Tooltip> : null}
                 </Stack>

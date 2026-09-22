@@ -42,7 +42,7 @@ function NodeCard({ node, blueprintId, active, onSelect, setCardRef, t }) {
     );
 }
 
-export default function TechnicalBlueprintPanel({ t }) {
+export default function TechnicalBlueprintPanel({ t, showHeader = true }) {
     const [activeBlueprintId, setActiveBlueprintId] = useState(TECH_BLUEPRINTS[0].id);
     const [activeNodeId, setActiveNodeId] = useState(TECH_BLUEPRINTS[0].nodes[0].id);
     const [paths, setPaths] = useState([]);
@@ -66,11 +66,11 @@ export default function TechnicalBlueprintPanel({ t }) {
 
     return (
         <Stack spacing={2.25}>
-            <Box>
+            {showHeader ? <Box>
                 <TechnicalLabel color="space.blue">{t("eyebrow")}</TechnicalLabel>
                 <Typography component="h3" variant="h4" sx={{ mt: .7 }}>{t("title")}</Typography>
                 <Typography color="text.secondary" sx={{ mt: .8, maxWidth: 760 }}>{t("lead")}</Typography>
-            </Box>
+            </Box> : null}
             <Box component="nav" aria-label={t("tabsLabel")} sx={{ display: "flex", overflowX: "auto", gap: .75, p: .75, border: "1px solid", borderColor: "divider", bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(22,33,44,.82)" : "rgba(242,239,230,.55)" }}>
                 {TECH_BLUEPRINTS.map((item, index) => <Button key={item.id} onClick={() => selectBlueprint(item.id)} aria-pressed={item.id === activeBlueprintId} variant={item.id === activeBlueprintId ? "contained" : "outlined"} sx={{ flex: "1 0 150px", minHeight: 46, justifyContent: "flex-start", gap: 1, fontSize: ".6rem" }}><span style={{ opacity: .7 }}>{`0${index + 1}`}</span>{t(`tabs.${item.id}`)}</Button>)}
             </Box>

@@ -219,9 +219,19 @@
     },
     "modules": {
       "identity": "Identità",
+      "technical": "Competenze tecniche",
+      "certifications": "Certificazioni",
       "method": "Come lavoro",
       "development": "Studi ed esperienze",
       "beyond": "Oltre il codice"
+    },
+    "moduleEyebrows": {
+      "identity": "01 // RECORD IDENTITÀ",
+      "technical": "02 // SISTEMI TECNICI",
+      "certifications": "03 // ARCHIVIO CREDENZIALI",
+      "development": "04 // STUDI ED ESPERIENZE",
+      "method": "05 // METODO DI LAVORO",
+      "beyond": "06 // OLTRE IL CODICE"
     },
     "identityTitle": "Sviluppatore prima di tutto. Sempre attento al prodotto.",
     "identityLead": "Costruisco e miglioro software con attenzione alle persone che lo usano, ai sistemi che lo sostengono e ai compromessi che lo rendono manutenibile.",

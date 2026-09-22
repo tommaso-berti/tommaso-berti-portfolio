@@ -4,5 +4,5 @@ import TechnicalBlueprintPanel from "./TechnicalBlueprintPanel.jsx";
 
 export default function TechSkills({ embedded = false }) {
     const { t } = useTranslation("pages", { keyPrefix: "about.tech-skills" });
-    return <Box id="tech-skills" data-scroll-section data-scroll-label={t("eyebrow")} component="section" sx={{ mt: embedded ? 0 : "3rem", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}><TechnicalBlueprintPanel embedded={embedded} t={t} /></Box>;
+    return <Box id="tech-skills" data-scroll-section data-scroll-label={t("eyebrow")} component="section" sx={{ mt: embedded ? 0 : "3rem", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}><TechnicalBlueprintPanel t={t} showHeader={!embedded} /></Box>;
 }

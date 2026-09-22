@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 
 const ACCENTS = {
     overview: "space.red", system: "space.orange", interface: "space.yellow", development: "space.blue",
-    identity: "space.red", method: "space.orange", beyond: "space.blue",
+    identity: "space.red", technical: "space.blue", certifications: "space.yellow", method: "space.orange", beyond: "space.blue",
     all: "space.blue", main: "space.red", side: "space.orange", practice: "space.yellow",
 };
 

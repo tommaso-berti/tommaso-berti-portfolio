@@ -219,9 +219,19 @@
     },
     "modules": {
       "identity": "Identity",
+      "technical": "Technical skills",
+      "certifications": "Certifications",
       "method": "How I work",
       "development": "Education & experience",
       "beyond": "Beyond code"
+    },
+    "moduleEyebrows": {
+      "identity": "01 // IDENTITY RECORD",
+      "technical": "02 // TECHNICAL SYSTEMS",
+      "certifications": "03 // CREDENTIAL ARCHIVE",
+      "development": "04 // CAREER ARCHIVE",
+      "method": "05 // WORKING METHOD",
+      "beyond": "06 // BEYOND CODE"
     },
     "identityTitle": "Developer first. Product thinker always.",
     "identityLead": "I build and improve software with attention to the people who use it, the systems that support it, and the trade-offs that keep it maintainable.",

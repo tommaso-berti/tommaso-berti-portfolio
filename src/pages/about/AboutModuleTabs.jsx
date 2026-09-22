@@ -8,17 +8,21 @@ import MotionPanel from "../../features/mission-ui/MotionPanel.jsx";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 import ProjectMissionTabs from "../projects/projectsPages/ProjectMissionTabs.jsx";
 
-const moduleOrder = ["identity", "development", "method", "beyond"];
+const moduleOrder = ["identity", "technical", "certifications", "development", "method", "beyond"];
+
+function AboutModuleHeader({ eyebrow, title, lead }) {
+    return <Box>
+        <TechnicalLabel>{eyebrow}</TechnicalLabel>
+        <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{title}</Typography>
+        {lead ? <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>{lead}</Typography> : null}
+    </Box>;
+}
 
 function MethodModule({ t }) {
     const principles = t("personnel.principles", { returnObjects: true });
 
     return (
         <Stack spacing={3}>
-            <Box>
-                <TechnicalLabel>{t("personnel.modules.method")}</TechnicalLabel>
-                <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.methodTitle")}</Typography>
-            </Box>
             <Stack spacing={1.25}>
                 {principles.map((principle) => (
                     <Box key={principle.code} sx={{ borderLeft: "3px solid", borderColor: "space.blue", pl: 2, py: 0.5 }}>
@@ -37,23 +41,32 @@ function IdentityModule({ t, telemetry }) {
 
     return (
         <Stack spacing={4}>
-            <Box>
-                <TechnicalLabel>{t("personnel.modules.identity")}</TechnicalLabel>
-                <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.identityTitle")}</Typography>
-                <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>{t("personnel.identityLead")}</Typography>
-            </Box>
             <Bio embedded systems={systems} telemetry={telemetry} />
-            <TechSkills embedded />
-            <CertificationsSection />
         </Stack>
     );
 }
 
+function TechnicalModule({ t }) {
+    return <Stack spacing={3}>
+        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.technical")} title={t("tech-skills.title")} lead={t("tech-skills.lead")} />
+        <TechSkills embedded />
+    </Stack>;
+}
+
+function CertificationsModule({ t }) {
+    return <Stack spacing={3}>
+        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.certifications")} title={t("certifications.title")} lead={t("certifications.subtitle")} />
+        <CertificationsSection embedded />
+    </Stack>;
+}
+
 function ModuleContent({ activeModule, t, telemetry }) {
-    if (activeModule === "method") return <MethodModule t={t} />;
-    if (activeModule === "development") return <Experience embedded />;
-    if (activeModule === "beyond") return <Hobbies embedded />;
-    return <IdentityModule t={t} telemetry={telemetry} />;
+    if (activeModule === "technical") return <TechnicalModule t={t} />;
+    if (activeModule === "certifications") return <CertificationsModule t={t} />;
+    if (activeModule === "method") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.method")} title={t("personnel.methodTitle")} /><MethodModule t={t} /></Stack>;
+    if (activeModule === "development") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.development")} title={t("experience.title")} /><Experience embedded /></Stack>;
+    if (activeModule === "beyond") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.beyond")} title={t("hobbies.title")} /><Hobbies embedded /></Stack>;
+    return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.identity")} title={t("personnel.identityTitle")} lead={t("personnel.identityLead")} /><IdentityModule t={t} telemetry={telemetry} /></Stack>;
 }
 
 export default function AboutModuleTabs({ activeModule, onChange, t, telemetry = [] }) {

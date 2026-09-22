@@ -5,14 +5,16 @@ import profileWebp from "../assets/images/profilepicture.webp";
 /**
  * Profile photo with WebP source and JPEG fallback.
  */
-export default function ProfileImage({ alt, width = 200, height = 200, sx = {} }) {
+export default function ProfileImage({ alt, width = 200, height = 200, rounded = true, sx = {} }) {
     return (
         <Box
             component="picture"
             sx={{
                 display: "block",
-                width,
+                width: `min(100%, ${width}px)`,
                 height,
+                maxWidth: "100%",
+                overflow: "hidden",
                 ...sx,
             }}
         >
@@ -28,7 +30,7 @@ export default function ProfileImage({ alt, width = 200, height = 200, sx = {} }
                 sx={{
                     width: "100%",
                     height: "100%",
-                    borderRadius: "50%",
+                    borderRadius: rounded ? "50%" : 1,
                     objectFit: "cover",
                     display: "block",
                 }}

@@ -25,4 +25,11 @@ test.describe("Portfolio navigation", () => {
         await page.goto("/");
         await expect(page.getByRole("link", { name: /^blog$/i })).toHaveCount(0);
     });
+
+    test("About identity exposes the credential and blueprint systems", async ({ page }) => {
+        await page.goto("/about#tech-skills");
+        await expect(page.getByRole("heading", { name: /Mission credential|Credential di missione/i })).toBeVisible();
+        await page.getByRole("button", { name: /02 runtime/i }).click();
+        await expect(page.getByRole("heading", { name: /Application runtime stack|Stack runtime applicativo/i })).toBeVisible();
+    });
 });

@@ -32,7 +32,9 @@ Snapshot as of 2026-09-21.
 - The Projects archive promotes a selected card before its grid-mate when needed, so the expanded dossier opens without leaving a small companion card above it.
 - The global layout uses a flex-column shell with a growing main region, keeping the footer at the viewport bottom without trailing whitespace on short pages.
 - The fixed header keeps the horizontal primary navigation and uses a lightly marked shell with corner brackets plus a borderless mission-control cluster for release notes, language, and theme; language/theme expose localized click-outside/Escape-safe popovers with restrained motion.
-- About is a localized personnel-file page with the shared home celestial system in a decorative logo-centered mode and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
+- About is a localized personnel-file page with the shared home celestial system in a decorative logo-centered mode, a thin desktop sticky scroll rail, and four accessible modules. Existing `/about#…` destinations activate their mapped module through `aboutModules.utils.js`, preserving biography, skills, certifications, timeline, and hobbies content.
+- About prioritizes the `Education & experience` module before `How I work`; the former uses a localized NASA/starfield career archive with work/education filters and expandable timeline entries while preserving the `#study-and-experience` anchor.
+- About identity now includes a localized, non-editable personnel credential derived from CV/Bio data, with Bio and personnel-system fields embedded in the card, plus a five-tab technical blueprint panel using the original ISS, Artemis, LSO, Saturn V, and Dyson Sphere drawings with accessible technology-node selection.
 - The home certifications block follows the local starfield demo structure with a mission hero, archive HUD, status strip, credential dossiers, technical stack chips, and complete-archive CTA, while preserving real certification data, links, translations, and tooltips.
 
 ## Known Gaps

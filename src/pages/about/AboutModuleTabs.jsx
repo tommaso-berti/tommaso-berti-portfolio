@@ -8,7 +8,7 @@ import MotionPanel from "../../features/mission-ui/MotionPanel.jsx";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 import ProjectMissionTabs from "../projects/projectsPages/ProjectMissionTabs.jsx";
 
-const moduleOrder = ["identity", "method", "development", "beyond"];
+const moduleOrder = ["identity", "development", "method", "beyond"];
 
 function MethodModule({ t }) {
     const principles = t("personnel.principles", { returnObjects: true });
@@ -42,15 +42,7 @@ function IdentityModule({ t }) {
                 <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.identityTitle")}</Typography>
                 <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>{t("personnel.identityLead")}</Typography>
             </Box>
-            <Stack spacing={1}>
-                {systems.map((system) => (
-                    <Box key={system.label} sx={{ borderBottom: "1px solid", borderColor: "divider", display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "space-between", py: 1 }}>
-                        <TechnicalLabel>{system.label}</TechnicalLabel>
-                        <Typography sx={{ fontFamily: "monospace", fontSize: "0.78rem" }}>{system.value}</Typography>
-                    </Box>
-                ))}
-            </Stack>
-            <Bio embedded />
+            <Bio embedded systems={systems} />
             <TechSkills embedded />
             <CertificationsSection />
         </Stack>

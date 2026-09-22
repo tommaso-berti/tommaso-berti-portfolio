@@ -4,6 +4,7 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useScrollToHash } from "@/hooks/useScrollToHash.js";
 import { useTranslation } from "react-i18next";
 import AboutModuleTabs from "./AboutModuleTabs.jsx";
+import AboutScrollRail from "./AboutScrollRail.jsx";
 import IdentityVisualizer from "./IdentityVisualizer.jsx";
 import { getAboutModuleFromHash } from "./aboutModules.utils.js";
 import ColorRail from "@/features/mission-ui/ColorRail.jsx";
@@ -34,7 +35,9 @@ export default function About() {
     }, []);
 
     return (
-        <Stack id="about" component="article" spacing={{ xs: 3.5, md: 5 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "32px minmax(0, 1fr)" }, gap: { lg: 2 } }}>
+            <AboutScrollRail t={t} />
+            <Stack id="about" component="article" spacing={{ xs: 3.5, md: 5 }}>
             <Box sx={{ borderBlock: "1px solid", borderColor: "divider", py: 1 }}>
                 <TechnicalLabel>{t("personnel.archiveHeader")}</TechnicalLabel>
             </Box>
@@ -64,6 +67,7 @@ export default function About() {
                 <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{t("personnel.closingTitle")}</Typography>
                 <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 700 }}>{t("personnel.closingBody")}</Typography>
             </Box>
-        </Stack>
+            </Stack>
+        </Box>
     );
 }

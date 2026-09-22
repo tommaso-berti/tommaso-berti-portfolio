@@ -2,7 +2,27 @@
   "bio": {
     "title": "Bio",
     "profileAlt": "Foto profilo di Tommaso Berti",
-    "description": "Sono Tommaso Berti, sviluppatore software con una forte passione per la tecnologia e per la creazione di strumenti utili. Mi piace affrontare problemi complessi, trovare soluzioni pratiche e migliorare costantemente il mio modo di lavorare. Nel mio lavoro cerco sempre di combinare curiosità, approccio analitico e pragmatismo, sia quando sviluppo nuove funzionalità sia quando ottimizzo sistemi esistenti."
+    "description": "Sono Tommaso Berti, sviluppatore software con una forte passione per la tecnologia e per la creazione di strumenti utili. Mi piace affrontare problemi complessi, trovare soluzioni pratiche e migliorare costantemente il mio modo di lavorare. Nel mio lavoro cerco sempre di combinare curiosità, approccio analitico e pragmatismo, sia quando sviluppo nuove funzionalità sia quando ottimizzo sistemi esistenti.",
+    "credential": {
+      "moduleLabel": "MODULO IDENTITÀ / RECORD PERSONALE",
+      "kicker": "Autorità portfolio / credential personale",
+      "title": "Credential di missione",
+      "sealLabel": "Credential del profilo di Tommaso Berti",
+      "seal": "PROFILO",
+      "portraitMeta": "RITRATTO PERSONALE / NODO IDENTITÀ VERIFICATO",
+      "fields": {
+        "holder": "01 / Titolare",
+        "role": "02 / Classe ruolo",
+        "base": "03 / Base",
+        "stack": "04 / Stack principale",
+        "systems": "05 / Sistemi",
+        "bio": "06 / Profilo Bio",
+        "summary": "07 / Profilo operativo"
+      },
+      "signatureLabel": "Firma personale",
+      "statusLabel": "Stato sistema",
+      "status": "VALIDO / ATTIVO"
+    }
   },
   "hobbies": {
     "title": "Hobby",
@@ -11,34 +31,63 @@
   },
   "experience": {
     "title": "Studi ed Esperienze",
+    "eyebrow": "ARCHIVIO CARRIERA / FORMAZIONE + ESPERIENZA",
+    "filterLabel": "Filtra archivio carriera",
+    "filters": { "all": "Tutto", "work": "Esperienze", "study": "Formazione" },
+    "archiveCount": "Archivio // {{count}} record",
     "current": "Attuale",
     "experiences": [
       {
+        "type": "study",
+        "code": "EDU-03",
+        "kind": "Diploma",
+        "coords": ["LIVELLO / DIPLOMA", "ANNO / 2016"],
         "year": "2016",
         "title": "Diploma di Liceo Scientifico",
         "description": "Ho completato il Liceo Scientifico, acquisendo solide basi in matematica, fisica e informatica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e le capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e un approccio strutturato ai temi complessi."
       },
       {
+        "type": "study",
+        "code": "EDU-02",
+        "kind": "Università",
+        "coords": ["PERCORSO / INGEGNERIA", "SEDE / PADOVA"],
         "year": "2016–2018",
         "title": "Ingegneria Informatica — Università di Padova (Veneto, Italia)",
         "description": "Durante i primi due anni universitari a Padova ho studiato le basi dell’ingegneria informatica e della progettazione di algoritmi. Ho lavorato in laboratorio su esercitazioni pratiche e collaborato con i compagni su progetti di programmazione. Questo periodo mi ha dato una solida base teorica e competenze di lavoro di squadra applicate allo sviluppo software."
       },
       {
+        "type": "study",
+        "code": "EDU-01",
+        "kind": "Università",
+        "coords": ["PERCORSO / INFORMATICA", "SEDE / VENEZIA"],
         "year": "2018–2020",
         "title": "Informatica — Università di Venezia (Veneto, Italia)",
         "description": "Proseguendo gli studi a Venezia mi sono concentrato su architetture di sistemi, database e sviluppo web. Ho partecipato a progetti accademici che prevedevano la realizzazione di applicazioni e la sperimentazione con tecnologie moderne. Questa esperienza ha rafforzato la mia autonomia e adattabilità."
       },
       {
+        "type": "work",
+        "code": "EXP-03",
+        "kind": "Associazione",
+        "coords": ["AREA / WEB + EVENTI", "STATO / IN CORSO"],
         "year": "2018–present",
         "title": "Art.Ap",
         "description": "Ho lavorato come guida durante due mostre temporanee e mi sono occupato della gestione del sito ufficiale dell’associazione. Le mie attività includevano assistenza ai visitatori, aggiornamento dei contenuti e coordinamento con il team delle esposizioni."
       },
       {
+        "type": "work",
+        "code": "EXP-02",
+        "kind": "Collaborazione",
+        "coords": ["MODALITÀ / COLLAB", "AREA / WEB"],
         "year": "2019–2020",
         "title": "DeFra Web - Collaboratore",
         "description": "Ho gestito contenuti web utilizzando piattaforme CMS e mi sono occupato di backup periodici. Ho lavorato anche su aggiornamenti di cataloghi, migrazioni, incontri con i clienti, documentazione e modifiche in PHP/CSS/HTML."
       },
       {
+        "type": "work",
+        "code": "EXP-01",
+        "kind": "Impiego",
+        "coords": ["MODALITÀ / FULL-TIME", "STATO / ATTIVO"],
+        "current": true,
         "year": "2021–present",
         "title": "Kubix Link (A Lectra Company) - Dipendente full-time",
         "description": "Contribuisco a soluzioni digitali PLM/PIM per il settore moda. Il mio ruolo coinvolge collaborazione trasversale tra team e processi dati in cloud."
@@ -51,7 +100,89 @@
     "backend-runtime": "Back-end / Runtime",
     "database": "Database",
     "languages-markup": "Linguaggi / Markup",
-    "tools": "Strumenti"
+    "tools": "Strumenti",
+    "eyebrow": "02 // SISTEMI TECNICI",
+    "lead": "Una tavola tecnica alla volta: seleziona un sistema per ispezionare le tecnologie collegate ai nodi verificati del blueprint.",
+    "tabsLabel": "Sistemi blueprint tecnici",
+    "tabs": {
+      "frontend": "Frontend",
+      "runtime": "Runtime",
+      "database": "Database",
+      "languages": "Linguaggi",
+      "tools": "Strumenti"
+    },
+    "blueprints": {
+      "frontend": {
+        "code": "SISTEMA / FRONTEND",
+        "title": "Assemblaggio interfaccia",
+        "meta": "RIFERIMENTO / ISS · ARCHITETTURA UI MODULARE",
+        "alt": "Blueprint della ISS usato come tavola del sistema frontend",
+        "nodes": {
+          "react": { "code": "01 / NODO", "name": "React", "description": "Nucleo a componenti riutilizzabili per le interfacce." },
+          "typescript": { "code": "02 / NODO", "name": "TypeScript", "description": "Contratti tipizzati per modifiche più sicure." },
+          "mui": { "code": "03 / NODO", "name": "MUI", "description": "Primitive con tema per il sistema visivo condiviso." },
+          "html": { "code": "04 / NODO", "name": "HTML5", "description": "Struttura semantica e basi accessibili." },
+          "css": { "code": "05 / NODO", "name": "CSS3", "description": "Layout responsive, stati e trattamento visivo." },
+          "javascript": { "code": "06 / NODO", "name": "JavaScript", "description": "Logica applicativa e interazione browser-side." }
+        }
+      },
+      "runtime": {
+        "code": "SISTEMA / RUNTIME",
+        "title": "Stack runtime applicativo",
+        "meta": "RIFERIMENTO / ARTEMIS · STACK DI SERVIZI A STADI",
+        "alt": "Blueprint Artemis usato come tavola del runtime applicativo",
+        "nodes": {
+          "nodejs": { "code": "01 / NODO", "name": "Node.js", "description": "Livello di esecuzione per API e script operativi." },
+          "express": { "code": "02 / NODO", "name": "Express", "description": "Composizione di middleware e route REST." },
+          "fastify": { "code": "03 / NODO", "name": "Fastify", "description": "Runtime API essenziale usato nei lavori full-stack." },
+          "caddy": { "code": "04 / NODO", "name": "Caddy", "description": "Gateway HTTPS e confine reverse proxy." },
+          "nginx": { "code": "05 / NODO", "name": "Nginx", "description": "Livello di serving e proxy per sistemi pubblicati." },
+          "cloudflare": { "code": "06 / NODO", "name": "Cloudflare", "description": "Routing edge e porta d’accesso di rete." }
+        }
+      },
+      "database": {
+        "code": "SISTEMA / DATI",
+        "title": "Hub dati e persistenza",
+        "meta": "RIFERIMENTO / LSO · MODULI DATI STRUTTURATI",
+        "alt": "Blueprint del Lunar Space Outpost usato come tavola dati",
+        "nodes": {
+          "mongodb": { "code": "01 / NODO", "name": "MongoDB", "description": "Persistenza documentale per dati applicativi evolutivi." },
+          "postgresql": { "code": "02 / NODO", "name": "PostgreSQL", "description": "Nucleo relazionale per vincoli e join espliciti." },
+          "sql": { "code": "03 / NODO", "name": "SQL", "description": "Linguaggio per accesso a dati strutturati." },
+          "yaml": { "code": "04 / NODO", "name": "YAML", "description": "Configurazione e metadata con struttura leggibile." },
+          "igdb": { "code": "05 / NODO", "name": "IGDB", "description": "Fonte dati gaming esterna usata nei flussi progetto." },
+          "zod": { "code": "06 / NODO", "name": "Zod", "description": "Validazione runtime per confini dati più sicuri." }
+        }
+      },
+      "languages": {
+        "code": "SISTEMA / LINGUAGGI",
+        "title": "Stack dei linguaggi di programmazione",
+        "meta": "RIFERIMENTO / SATURN V · STACK LINGUISTICO MULTI-STADIO",
+        "alt": "Blueprint del Saturn V usato come tavola dei linguaggi",
+        "nodes": {
+          "typescript": { "code": "01 / NODO", "name": "TypeScript", "description": "Contratti statici per superfici applicative estese." },
+          "javascript": { "code": "02 / NODO", "name": "JavaScript", "description": "Linguaggio principale di esecuzione browser e Node.js." },
+          "html": { "code": "03 / NODO", "name": "HTML", "description": "Struttura semantica di documenti e contenuti." },
+          "css": { "code": "04 / NODO", "name": "CSS", "description": "Presentazione, responsive layout e motion states." },
+          "bash": { "code": "05 / NODO", "name": "Bash", "description": "Automazione CLI e helper per il deploy." },
+          "sql": { "code": "06 / NODO", "name": "SQL", "description": "Query strutturate e operazioni di reporting." }
+        }
+      },
+      "tools": {
+        "code": "SISTEMA / TOOLING",
+        "title": "Ecosistema strumenti di sviluppo",
+        "meta": "RIFERIMENTO / DYSON SPHERE · ECOSISTEMA DI SUPPORTO",
+        "alt": "Blueprint della Dyson Sphere usato come tavola del tooling",
+        "nodes": {
+          "git": { "code": "01 / NODO", "name": "Git", "description": "Storico versioni e tracciamento controllato dei cambiamenti." },
+          "github": { "code": "02 / NODO", "name": "GitHub", "description": "Hub per repository e collaborazione." },
+          "github-actions": { "code": "03 / NODO", "name": "GitHub Actions", "description": "Controlli e workflow di deploy ripetibili." },
+          "postman": { "code": "04 / NODO", "name": "Postman", "description": "Ispezione rapida delle API e diagnostica delle richieste." },
+          "webstorm": { "code": "05 / NODO", "name": "WebStorm", "description": "Ambiente principale per navigazione, codice e refactor." },
+          "codex": { "code": "06 / NODO", "name": "Codex", "description": "Supporto alla costruzione con revisione e verifica." }
+        }
+      }
+    }
   },
   "personnel": {
     "header": "FASCICOLO PERSONALE / TB-01 / UNITÀ ESPLORAZIONE",
@@ -76,10 +207,19 @@
       "interests": "VETTORE INTERESSI"
     },
     "modulesLabel": "Moduli del fascicolo personale",
+    "rail": {
+      "label": "Indice laterale del documento About",
+      "steps": {
+        "archive": "Apertura archivio",
+        "identity": "Record identità",
+        "systems": "Sistemi tecnici",
+        "closing": "Dichiarazione di missione"
+      }
+    },
     "modules": {
       "identity": "Identità",
       "method": "Come lavoro",
-      "development": "Registro sviluppo",
+      "development": "Studi ed esperienze",
       "beyond": "Oltre il codice"
     },
     "identityTitle": "Sviluppatore prima di tutto. Sempre attento al prodotto.",

@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { getBrandIconDefinition } from "../../config/brandIcons.js";
+import { getBrandIconDefinition } from "../../config/brandIcons";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 import { getTechnicalBlueprint, TECH_BLUEPRINTS } from "./technicalBlueprints.config.js";
 import { buildConnectorPaths } from "./technicalBlueprints.utils.js";

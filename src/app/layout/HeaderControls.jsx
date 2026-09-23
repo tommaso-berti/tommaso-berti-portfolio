@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
@@ -77,7 +78,7 @@ function PopoverShell({ anchorEl, onClose, onMouseEnter, onMouseLeave, title, co
 
 const itemSx = { width: "100%", minHeight: 38, px: 1, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2, color: "text.primary", fontFamily: "monospace", fontSize: ".68rem", fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", textDecoration: "none", "&:hover": { bgcolor: "action.hover" } };
 
-export default function HeaderControls({ onOpenReleaseNotes }) {
+export default function HeaderControls() {
     const { i18n, t } = useTranslation("common");
     const { mode, toggleTheme } = useThemeMode();
     const [anchor, setAnchor] = useState(null);
@@ -130,7 +131,12 @@ export default function HeaderControls({ onOpenReleaseNotes }) {
 
     return (
         <Box sx={{ display: "flex", alignItems: "center", gap: .15 }}>
-            <ControlButton label={t("a11y.openReleaseNotes")} accent="red" onClick={onOpenReleaseNotes}>
+            <ControlButton
+                component={Link}
+                to="/cv"
+                label={t("a11y.openCustomCv")}
+                accent="red"
+            >
                 <DescriptionOutlinedIcon fontSize="small" />
             </ControlButton>
             <ControlButton label={`${t("headerControls.languageTooltip")} / ${language.toUpperCase()}`} accent="orange" active={panel === "language"} showTooltip={false} onMouseEnter={(event) => openPanel(event, "language")} onMouseLeave={scheduleClose} onFocus={(event) => openPanel(event, "language")} onClick={(event) => openPanel(event, "language")} aria-expanded={panel === "language"}>

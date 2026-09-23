@@ -19,18 +19,19 @@
     "toggleThemeDark": "Attiva modalità scura",
     "toggleLanguageToIt": "Passa alla lingua italiana",
     "toggleLanguageToEn": "Passa alla lingua inglese",
-    "openReleaseNotes": "Apri note di rilascio"
+    "openReleaseNotes": "Apri note di rilascio",
+    "openCustomCv": "Apri e personalizza il CV"
   },
   "pageClosingLines": {
-    "home": "PORTFOLIO PERSONALE / SEGNALE ATTIVO",
-    "projects": "ARCHIVIO PROGETTI / CONSULTAZIONE ATTIVA",
-    "projectDetails": "SCHEDA PROGETTO / SISTEMA ONLINE",
-    "about": "PROFILO PERSONALE / IDENTITÀ VERIFICATA",
-    "services": "SERVIZI SOFTWARE / DISPONIBILI PER NUOVI PROGETTI",
-    "contact": "CONTATTI / CANALE APERTO",
-    "cv": "PERCORSO PROFESSIONALE / CV AGGIORNATO",
-    "blog": "NOTE DI CAMPO / AGGIORNAMENTI PUBBLICATI",
-    "notFound": "PAGINA NON TROVATA / ROTTA NON DISPONIBILE"
+    "home": "PORTFOLIO SYSTEM / ONLINE",
+    "projects": "PROJECT ARCHIVE / INDEX READY",
+    "projectDetails": "PROJECT DOSSIER / SYSTEM ONLINE",
+    "about": "PERSONNEL FILE / IDENTITY VERIFIED",
+    "services": "SOFTWARE SERVICES / READY FOR DELIVERY",
+    "contact": "COMMS CHANNEL / OPEN",
+    "cv": "CAREER RECORD / CV AVAILABLE",
+    "blog": "FIELD NOTES / ARCHIVE READY",
+    "notFound": "ROUTE ERROR / PAGE NOT FOUND"
   },
   "headerControls": {
     "languageTooltip": "Lingua",
@@ -48,7 +49,7 @@
     "titles": {
       "home": "01 // REGISTRO ESPLORAZIONE / TB-DEV / 2026",
       "projects": "02 // ARCHIVIO MISSIONE",
-      "services": "04 // CAPACITÀ",
+      "services": "04 // SERVIZI",
       "contact": "05 // COLLEGAMENTO COMUNICAZIONI",
       "cv": "06 // ARCHIVIO CV",
       "blog": "07 // NOTE DI CAMPO",

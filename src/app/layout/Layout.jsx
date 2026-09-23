@@ -7,10 +7,14 @@ import Footer from "./Footer.jsx";
 import DocumentScrollRail from "./DocumentScrollRail.jsx";
 import Stack from "@mui/material/Stack";
 import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
+import { lazy, Suspense, useState } from "react";
+
+const ReleaseNotesModal = lazy(() => import("./ReleaseNotesModal.jsx"));
 
 const MAIN_CONTENT_ID = "main-content";
 
 export default function Layout() {
+    const [releaseNotesOpen, setReleaseNotesOpen] = useState(false);
     const { t } = useTranslation("common");
     const { pathname } = useLocation();
     const closingPage = pathname === "/" ? "home"
@@ -83,7 +87,12 @@ export default function Layout() {
                     <Box sx={{ height: "1px", flex: 1, bgcolor: "divider" }} />
                 </Stack>
             </Box>
-            <Footer />
+            <Footer onOpenReleaseNotes={() => setReleaseNotesOpen(true)} />
+            {releaseNotesOpen ? (
+                <Suspense fallback={null}>
+                    <ReleaseNotesModal open onClose={() => setReleaseNotesOpen(false)} />
+                </Suspense>
+            ) : null}
         </Container>
     );
 }

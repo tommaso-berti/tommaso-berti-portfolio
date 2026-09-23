@@ -1,8 +1,14 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
+import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes.js";
+import { APP_VERSION } from "../../lib/version.js";
 
-export default function Footer() {
+export default function Footer({ onOpenReleaseNotes }) {
+    const { t } = useTranslation("common");
+    const { data } = useLatestReleaseNotes();
+    const version = data?.version || APP_VERSION;
     return (
         <Container
             component="footer"
@@ -28,7 +34,32 @@ export default function Footer() {
                 }}
             >
                 <Typography variant="overline" color="text.secondary">
-                    TB // SOFTWARE DEVELOPER
+                    TB // SOFTWARE DEVELOPER //{" "}
+                    <Typography
+                        component="button"
+                        variant="overline"
+                        onClick={onOpenReleaseNotes}
+                        aria-label={t("a11y.openReleaseNotes")}
+                        color="space.orange"
+                        sx={{
+                            display: "inline",
+                            p: 0,
+                            border: 0,
+                            background: "none",
+                            fontFamily: "inherit",
+                            fontSize: "inherit",
+                            fontWeight: "inherit",
+                            lineHeight: "inherit",
+                            letterSpacing: "inherit",
+                            textTransform: "inherit",
+                            cursor: "pointer",
+                            verticalAlign: "baseline",
+                            "&:hover": { color: "text.primary" },
+                            "&:focus-visible": { outline: "2px solid", outlineColor: "primary.main", outlineOffset: 2 },
+                        }}
+                    >
+                        {`v${version}`}
+                    </Typography>
                 </Typography>
                 <Typography variant="overline" color="text.secondary">
                     BUILD // EXPLORE // IMPROVE

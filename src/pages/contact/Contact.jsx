@@ -504,11 +504,6 @@ export default function Contact() {
         </MotionPanel>
       </Box>
 
-      <Stack direction="row" alignItems="center" gap={1.5} sx={{ color: 'text.secondary' }}>
-        <Box sx={{ height: '1px', flex: 1, bgcolor: 'divider' }} />
-        <TechnicalLabel>{t('footerLine')}</TechnicalLabel>
-        <Box sx={{ height: '1px', flex: 1, bgcolor: 'divider' }} />
-      </Stack>
     </Stack>
   );
 }

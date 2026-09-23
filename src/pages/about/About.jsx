@@ -6,9 +6,7 @@ import { useTranslation } from 'react-i18next';
 import AboutModuleTabs from './AboutModuleTabs.jsx';
 import IdentityVisualizer from './IdentityVisualizer.jsx';
 import { getAboutModuleFromHash } from './aboutModules.utils.js';
-import ColorRail from '@/features/mission-ui/ColorRail.jsx';
 import SpaceButton from '@/features/mission-ui/SpaceButton.jsx';
-import TechnicalLabel from '@/features/mission-ui/TechnicalLabel.jsx';
 import MissionRail from '@/features/mission-ui/MissionRail.jsx';
 import { buildCelestialMapItems } from '@/pages/projects/projectsPages/projectSelectors.js';
 import { normalizeTelemetry } from './personnelCredential.utils.js';
@@ -80,21 +78,6 @@ export default function About() {
           t={t}
           telemetry={normalizeTelemetry(telemetry)}
         />
-      </Box>
-      <Box
-        component="section"
-        data-scroll-section
-        data-scroll-label={t('personnel.closingLabel')}
-        sx={{ borderTop: '1px solid', borderColor: 'divider', pt: 3 }}
-      >
-        <ColorRail sx={{ mb: 2 }} />
-        <TechnicalLabel>{t('personnel.closingLabel')}</TechnicalLabel>
-        <Typography component="h2" variant="h3" sx={{ mt: 1 }}>
-          {t('personnel.closingTitle')}
-        </Typography>
-        <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 700 }}>
-          {t('personnel.closingBody')}
-        </Typography>
       </Box>
     </Stack>
   );

@@ -1,15 +1,27 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Container } from "@mui/material";
 import Box from "@mui/material/Box";
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import DocumentScrollRail from "./DocumentScrollRail.jsx";
+import Stack from "@mui/material/Stack";
+import TechnicalLabel from "@/features/mission-ui/TechnicalLabel.jsx";
 
 const MAIN_CONTENT_ID = "main-content";
 
 export default function Layout() {
     const { t } = useTranslation("common");
+    const { pathname } = useLocation();
+    const closingPage = pathname === "/" ? "home"
+        : pathname === "/projects" ? "projects"
+            : pathname.startsWith("/projects/") ? "projectDetails"
+                : pathname === "/about" ? "about"
+                    : pathname === "/services" ? "services"
+                        : pathname === "/contact" ? "contact"
+                            : pathname === "/cv" ? "cv"
+                                : pathname === "/blog" ? "blog"
+                                    : "notFound";
 
     return (
         <Container
@@ -65,6 +77,11 @@ export default function Layout() {
                 }}
             >
                 <Outlet />
+                <Stack direction="row" alignItems="center" gap={1.5} sx={{ mt: { xs: 3, md: 4 }, color: "text.secondary" }}>
+                    <Box sx={{ height: "1px", flex: 1, bgcolor: "divider" }} />
+                    <TechnicalLabel>{t(`pageClosingLines.${closingPage}`)}</TechnicalLabel>
+                    <Box sx={{ height: "1px", flex: 1, bgcolor: "divider" }} />
+                </Stack>
             </Box>
             <Footer />
         </Container>

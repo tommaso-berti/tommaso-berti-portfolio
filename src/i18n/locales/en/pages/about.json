@@ -220,8 +220,7 @@
       "steps": {
         "archive": "Archive opening",
         "identity": "Identity record",
-        "systems": "Technical systems",
-        "closing": "Mission statement"
+        "systems": "Technical systems"
       }
     },
     "modules": {
@@ -257,10 +256,7 @@
       "processLabel": "Working phase selection",
       "focusLabel": "Focus",
       "selectionLabel": "Process selection"
-    },
-    "closingLabel": "MISSION STATEMENT",
-    "closingTitle": "Good software should feel obvious.",
-    "closingBody": "Clear architecture, useful interfaces, and less friction for the people relying on them."
+    }
   },
   "certifications": {
     "title": "Certifications",

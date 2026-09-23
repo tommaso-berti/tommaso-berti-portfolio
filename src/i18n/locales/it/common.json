@@ -21,6 +21,17 @@
     "toggleLanguageToEn": "Passa alla lingua inglese",
     "openReleaseNotes": "Apri note di rilascio"
   },
+  "pageClosingLines": {
+    "home": "PORTFOLIO / HOME / SEGNALE ATTIVO",
+    "projects": "PORTFOLIO / PROGETTI / ARCHIVIO APERTO",
+    "projectDetails": "SCHEDA PROGETTO / SISTEMA / ONLINE",
+    "about": "FASCICOLO PERSONALE / IDENTITÀ / VERIFICATA",
+    "services": "COMPETENZE / SERVIZI / DISPONIBILI",
+    "contact": "PORTFOLIO / COMMS / OPEN CHANNEL",
+    "cv": "PERCORSO PROFESSIONALE / CV / VERIFICATO",
+    "blog": "NOTE DI CAMPO / BLOG / ARCHIVIO",
+    "notFound": "SEGNALE PERSO / ROTTA / NON TROVATA"
+  },
   "headerControls": {
     "languageTooltip": "Lingua",
     "languageTitle": "Canale lingua",

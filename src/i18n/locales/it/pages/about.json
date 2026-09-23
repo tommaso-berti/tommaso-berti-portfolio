@@ -220,8 +220,7 @@
       "steps": {
         "archive": "Apertura archivio",
         "identity": "Record identità",
-        "systems": "Sistemi tecnici",
-        "closing": "Dichiarazione di missione"
+        "systems": "Sistemi tecnici"
       }
     },
     "modules": {
@@ -257,10 +256,7 @@
       "processLabel": "Selezione della fase di lavoro",
       "focusLabel": "Focus",
       "selectionLabel": "Selezione processo"
-    },
-    "closingLabel": "DICHIARAZIONE DI MISSIONE",
-    "closingTitle": "Un buon software dovrebbe sembrare naturale.",
-    "closingBody": "Architettura chiara, interfacce utili e meno attrito per le persone che ci fanno affidamento."
+    }
   },
   "certifications": {
     "title": "Certificazioni",

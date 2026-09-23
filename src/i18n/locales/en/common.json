@@ -21,6 +21,17 @@
     "toggleLanguageToEn": "Switch language to English",
     "openReleaseNotes": "Open release notes"
   },
+  "pageClosingLines": {
+    "home": "PORTFOLIO / HOME / SIGNAL ACTIVE",
+    "projects": "PORTFOLIO / PROJECTS / ARCHIVE OPEN",
+    "projectDetails": "PROJECT DOSSIER / SYSTEM / ONLINE",
+    "about": "PERSONNEL FILE / IDENTITY / VERIFIED",
+    "services": "CAPABILITIES / SERVICES / AVAILABLE",
+    "contact": "PORTFOLIO / COMMS / OPEN CHANNEL",
+    "cv": "CAREER RECORD / CV / VERIFIED",
+    "blog": "FIELD NOTES / BLOG / ARCHIVE",
+    "notFound": "SIGNAL LOST / ROUTE / NOT FOUND"
+  },
   "headerControls": {
     "languageTooltip": "Lang",
     "languageTitle": "Language channel",

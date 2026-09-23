@@ -1,5 +1,5 @@
 export const outlinedActionButtonSx = {
-    transition: "0.25s",
+    transition: "background-color 260ms ease, border-color 260ms ease",
     whiteSpace: "nowrap",
     borderWidth: 1,
     borderColor: "divider",
@@ -8,8 +8,6 @@ export const outlinedActionButtonSx = {
     cursor: "pointer",
     textTransform: "none",
     "&:hover": {
-        transform: "translateY(-4px)",
-        boxShadow: 6,
         borderColor: "text.secondary",
         backgroundColor: "action.hover",
         cursor: "pointer",
@@ -22,12 +20,4 @@ export const certificationActionButtonSx = {
     minWidth: 0,
     justifyContent: "center",
     alignSelf: "flex-start",
-};
-
-export const containedPrimaryButtonSx = {
-    transition: "0.25s",
-    "&:hover": {
-        transform: "translateY(-4px)",
-        boxShadow: 6,
-    },
 };

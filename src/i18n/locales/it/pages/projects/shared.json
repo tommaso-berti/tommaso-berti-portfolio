@@ -79,6 +79,10 @@
   "exercises": {
     "title": "Esercizi",
     "subtitle": "Repository GitHub stellati che uso come esercizi pratici e riferimenti di studio.",
+    "repoMeta": "Practice repo // {{index}}",
+    "practiceMeta": "Practice flow",
+    "updated": "Aggiornato {{date}}",
+    "footerLabel": "Practice archive / lightweight module / portfolio system",
     "loadMore": "Carica altri",
     "loading": "Caricamento...",
     "empty": "Nessun esercizio disponibile al momento.",

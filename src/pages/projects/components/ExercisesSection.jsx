@@ -3,7 +3,6 @@ import {
     Box,
     Button,
     Card,
-    CardActions,
     CardContent,
     Chip,
     Link,
@@ -20,6 +19,8 @@ import { useTranslation } from "react-i18next";
 import { getLanguageColor, getStaticExerciseDescription } from "./exercises.utils.js";
 import { useExercisesData } from "./useExercisesData.js";
 
+const CARD_ACCENTS = ["space.yellow", "space.blue", "space.green", "space.orange", "space.red"];
+
 export default function ExercisesSection({ isActive }) {
     const { t, i18n } = useTranslation("pages", { keyPrefix: "projects" });
     const language = i18n.language?.toLowerCase().startsWith("it") ? "it" : "en";
@@ -30,32 +31,33 @@ export default function ExercisesSection({ isActive }) {
     const showLoadMoreLoading = isActive && isLoading && items.length > 0;
     const canShowLoadMore = hasInitialized && !showInitialLoading && hasMore;
     const actionButtonSx = {
-        transition: "0.25s",
+        borderColor: "divider",
+        color: "text.primary",
+        transition: "transform 160ms ease, background-color 260ms ease, border-color 260ms ease",
         whiteSpace: "nowrap",
         "&:hover": {
-            transform: "translateY(-4px)",
-            boxShadow: 6,
+            transform: "translateY(-2px)",
+            bgcolor: "text.primary",
+            color: "background.paper",
+            borderColor: "text.primary",
         },
     };
 
+    const formatUpdatedDate = (date) => {
+        if (!date) return "-";
+        return new Intl.DateTimeFormat(language === "it" ? "it-IT" : "en-GB").format(new Date(date));
+    };
+
     return (
-        <Box component="section" aria-live="polite" sx={{ display: isActive ? "block" : "none", py: 4 }}>
-            <Stack spacing={2}>
-                <Typography variant="h4" component="h2">
-                    {t("exercises.title")}
-                </Typography>
-
-                <Typography variant="body1" color="text.secondary">
-                    {t("exercises.subtitle")}
-                </Typography>
-
+        <Box component="section" aria-live="polite" sx={{ display: isActive ? "block" : "none", py: 2 }}>
+            <Stack spacing={2.5}>
                 {error ? <Alert severity="error">{t("exercises.error")}</Alert> : null}
 
                 {showInitialLoading ? (
                     <Stack spacing={2}>
                         {[0, 1, 2].map((index) => (
-                            <Card key={index} variant="outlined">
-                                <CardContent>
+                            <Card key={index} component="article" variant="outlined" sx={{ p: 2.5 }}>
+                                <CardContent sx={{ p: 0, "&:last-child": { pb: 0 } }}>
                                     <Stack spacing={1.25}>
                                         <Skeleton variant="text" width="45%" height={34} />
                                         <Skeleton variant="text" width="100%" />
@@ -63,9 +65,6 @@ export default function ExercisesSection({ isActive }) {
                                         <Skeleton variant="rounded" width={120} height={24} />
                                     </Stack>
                                 </CardContent>
-                                <CardActions>
-                                    <Skeleton variant="rounded" width={120} height={32} />
-                                </CardActions>
                             </Card>
                         ))}
                     </Stack>
@@ -77,38 +76,82 @@ export default function ExercisesSection({ isActive }) {
                     </Typography>
                 ) : null}
 
-                <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 2 }}>
-                    {items.map((repository) => (
+                <Stack spacing={2}>
+                    {items.map((repository, index) => {
+                        const accent = CARD_ACCENTS[index % CARD_ACCENTS.length];
+                        return (
                         <Card
                             key={repository.id}
+                            component="article"
                             variant="outlined"
                             sx={{
-                                height: "100%",
-                                borderColor: "divider",
-                                borderRadius: 1.5,
-                                boxShadow: "none",
+                                position: "relative",
+                                overflow: "hidden",
+                                bgcolor: "background.paper",
+                                transition: "transform 160ms ease, box-shadow 160ms ease",
+                                "&::before": {
+                                    content: '""',
+                                    position: "absolute",
+                                    left: 0,
+                                    top: 0,
+                                    bottom: 0,
+                                    width: 4,
+                                    bgcolor: accent,
+                                },
+                                "&:hover": {
+                                    transform: "translateY(-2px)",
+                                    boxShadow: "0 14px 36px rgba(22,33,45,.08)",
+                                },
                             }}
                         >
-                            <CardContent>
-                                <Stack spacing={1.5}>
+                            <CardContent sx={{ p: { xs: 2, sm: 2.75 }, pl: { xs: 2.5, sm: 3.25 }, "&:last-child": { pb: { xs: 2, sm: 2.75 } } }}>
+                                <Stack spacing={1.75}>
                                     <Stack
                                         direction="row"
-                                        spacing={1}
-                                        alignItems="center"
+                                        spacing={2}
+                                        alignItems="flex-start"
                                         justifyContent="space-between"
                                         useFlexGap
-                                        flexWrap="wrap"
+                                        flexDirection={{ xs: "column", md: "row" }}
                                     >
-                                        <Typography
-                                            variant="h6"
-                                            component="h3"
-                                            sx={{ fontWeight: 600, color: "primary.main" }}
-                                        >
-                                            {repository.name}
-                                        </Typography>
+                                        <Box sx={{ minWidth: 0, flex: 1 }}>
+                                            <Stack
+                                                direction="row"
+                                                spacing={1.25}
+                                                alignItems="center"
+                                                useFlexGap
+                                                flexWrap="wrap"
+                                                sx={{
+                                                    mb: 1.25,
+                                                    color: "text.secondary",
+                                                    fontFamily: "monospace",
+                                                    fontSize: ".62rem",
+                                                    fontWeight: 800,
+                                                    letterSpacing: ".1em",
+                                                    textTransform: "uppercase",
+                                                }}
+                                            >
+                                                <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: accent }} />
+                                                <Box component="span">{t("exercises.repoMeta", { index: String(index + 1).padStart(2, "0") })}</Box>
+                                                <Box component="span" sx={{ width: 22, height: 1, bgcolor: "divider" }} />
+                                                <Box component="span">{repository.topicLabels?.[0] || t("exercises.practiceMeta")}</Box>
+                                            </Stack>
+                                            <Typography
+                                                variant="h5"
+                                                component="h3"
+                                                sx={{ letterSpacing: "-.055em", lineHeight: .95, mb: .8, overflowWrap: "anywhere" }}
+                                            >
+                                                {repository.name}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.55, maxWidth: "none" }}>
+                                                {getStaticExerciseDescription(repository.name, language) ||
+                                                    repository.description ||
+                                                    t("exercises.fallbackDescription")}
+                                            </Typography>
+                                        </Box>
 
                                         <Button
-                                            variant="text"
+                                            variant="outlined"
                                             component={Link}
                                             href={repository.html_url}
                                             target="_blank"
@@ -122,15 +165,9 @@ export default function ExercisesSection({ isActive }) {
                                             }
                                             sx={actionButtonSx}
                                         >
-                                            GitHub
+                                            {t("exercises.openOnGithub")}
                                         </Button>
                                     </Stack>
-
-                                    <Typography variant="body2" color="text.secondary">
-                                        {getStaticExerciseDescription(repository.name, language) ||
-                                            repository.description ||
-                                            t("exercises.fallbackDescription")}
-                                    </Typography>
 
                                     {Array.isArray(repository.topicLabels) &&
                                     repository.topicLabels.length > 0 ? (
@@ -143,8 +180,8 @@ export default function ExercisesSection({ isActive }) {
                                                     sx={{
                                                         bgcolor: "action.selected",
                                                         color: "primary.main",
-                                                        borderRadius: 2,
-                                                        fontSize: "0.72rem",
+                                                        borderRadius: 1,
+                                                        fontSize: ".66rem",
                                                     }}
                                                 />
                                             ))}
@@ -171,10 +208,7 @@ export default function ExercisesSection({ isActive }) {
                                             </Typography>
                                         </Stack>
                                         <Typography variant="caption">
-                                            Updated{" "}
-                                            {repository.updated_at
-                                                ? new Date(repository.updated_at).toLocaleDateString()
-                                                : "-"}
+                                            {t("exercises.updated", { date: formatUpdatedDate(repository.updated_at) })}
                                         </Typography>
                                     </Stack>
 
@@ -184,11 +218,13 @@ export default function ExercisesSection({ isActive }) {
                                             <Box
                                                 sx={{
                                                     display: "flex",
-                                                    width: { xs: "100%", sm: "50%" },
-                                                    height: 8,
+                                                    width: "min(760px, 100%)",
+                                                    height: 10,
                                                     borderRadius: 999,
                                                     overflow: "hidden",
                                                     bgcolor: "action.hover",
+                                                    border: "1px solid",
+                                                    borderColor: "rgba(23,32,42,.06)",
                                                 }}
                                             >
                                                 {repository.languageBreakdown.map((item, index) => (
@@ -238,14 +274,15 @@ export default function ExercisesSection({ isActive }) {
                                 </Stack>
                             </CardContent>
                         </Card>
-                    ))}
-                </Box>
+                        );
+                    })}
+                </Stack>
 
                 {showLoadMoreLoading ? (
                     <Stack spacing={2}>
                         {[0, 1].map((index) => (
-                            <Card key={`loading-${index}`} variant="outlined">
-                                <CardContent>
+                            <Card key={`loading-${index}`} component="article" variant="outlined" sx={{ p: 2.5 }}>
+                                <CardContent sx={{ p: 0, "&:last-child": { pb: 0 } }}>
                                     <Stack spacing={1.25}>
                                         <Skeleton variant="text" width="40%" height={30} />
                                         <Skeleton variant="text" width="100%" />
@@ -255,6 +292,27 @@ export default function ExercisesSection({ isActive }) {
                             </Card>
                         ))}
                     </Stack>
+                ) : null}
+
+                {!showInitialLoading && items.length > 0 ? (
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            mt: .5,
+                            color: "text.secondary",
+                            fontFamily: "monospace",
+                            fontSize: ".58rem",
+                            fontWeight: 800,
+                            letterSpacing: ".12em",
+                            textTransform: "uppercase",
+                            "&::before": { content: '""', height: 1, flex: 1, bgcolor: "divider" },
+                            "&::after": { content: '""', height: 1, flex: 1, bgcolor: "divider" },
+                        }}
+                    >
+                        <Box component="span">{t("exercises.footerLabel")}</Box>
+                    </Box>
                 ) : null}
 
                 {canShowLoadMore ? (

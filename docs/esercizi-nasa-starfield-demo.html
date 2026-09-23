@@ -1,0 +1,218 @@
+
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esercizi — demo stile NASA/Starfield</title>
+<style>
+:root{
+  --bg:#f4f0e7;
+  --panel:#f8f4ec;
+  --ink:#16212d;
+  --muted:#667078;
+  --line:#cbc4b7;
+  --blue:#5e8fb7;
+  --orange:#d67942;
+  --yellow:#dbc44d;
+  --red:#d96b67;
+  --green:#7aa286;
+  --purple:#69538f;
+  --shadow:0 10px 30px rgba(22,33,45,.06);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(21,32,45,.09) 1px, transparent 1.2px) 0 0/22px 22px,
+    var(--bg);
+}
+.page{max-width:1480px;margin:0 auto;padding:32px 28px 48px}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;padding:0 0 16px;margin-bottom:12px;
+  border-bottom:1px solid var(--line);
+  font:700 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:.16em;color:#5f666b;text-transform:uppercase;
+}
+.eyebrow .accent{color:var(--yellow)}
+.hero{display:flex;gap:24px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+h1{margin:0;font-size:clamp(48px,7vw,76px);line-height:.9;letter-spacing:-.06em;font-weight:700}
+.intro{max-width:700px;color:var(--muted);font-size:18px;line-height:1.55;margin:0 0 6px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 24px}
+.chip{
+  border:1px solid var(--line);background:rgba(248,244,236,.8);color:#5d666d;
+  padding:9px 12px;font:700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.18s ease;
+}
+.chip:hover,.chip.active{border-color:var(--ink);background:rgba(22,33,45,.05);color:var(--ink)}
+.list{display:flex;flex-direction:column;gap:16px}
+.card{
+  position:relative;border:1px solid var(--line);background:rgba(248,244,236,.72);
+  box-shadow:var(--shadow);overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(22,33,45,.08)}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent, var(--yellow))}
+.card-inner{padding:22px 22px 18px 24px}
+.topline{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
+.meta{
+  display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:12px;
+  color:#5e666c;font:700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.meta .dot{width:6px;height:6px;border-radius:999px;background:var(--accent, var(--yellow))}
+.meta .sep{width:22px;height:1px;background:var(--line)}
+.repo-title{margin:0 0 10px;font-size:30px;line-height:1.04;letter-spacing:-.04em;font-weight:700}
+.desc{margin:0;max-width:1000px;color:var(--muted);font-size:16px;line-height:1.55}
+.actions{display:flex;align-items:center;gap:10px;padding-top:2px;flex-wrap:wrap;justify-content:flex-end}
+.action{
+  display:inline-flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid var(--line);
+  background:transparent;color:var(--ink);text-decoration:none;
+  font:700 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:.12em;text-transform:uppercase;transition:.18s ease;
+}
+.action:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.stats{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;color:#677077;font-size:14px}
+.langbar{
+  display:flex;width:min(760px,100%);height:10px;border-radius:999px;overflow:hidden;
+  margin-top:18px;background:#eee7db;border:1px solid rgba(22,33,45,.06);
+}
+.seg{height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:14px 18px;margin-top:14px;color:#4e5861;font-size:14px}
+.item{display:inline-flex;align-items:center;gap:8px}
+.bullet{width:8px;height:8px;border-radius:999px;display:inline-block}
+.footerline{
+  display:flex;align-items:center;gap:12px;margin-top:26px;color:#7a807f;
+  font:700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.footerline::before,.footerline::after{content:"";height:1px;flex:1;background:var(--line)}
+@media (max-width:900px){
+  .hero{display:block}
+  .intro{margin-top:14px}
+  .topline{grid-template-columns:1fr}
+  .actions{justify-content:flex-start}
+  .repo-title{font-size:26px}
+}
+@media (max-width:560px){
+  .page{padding:18px 14px 34px}
+  .card-inner{padding:18px 16px 16px 18px}
+  .repo-title{font-size:24px}
+  .desc{font-size:15px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="eyebrow"><span class="accent">07</span><span>// ARCHIVIO ESERCIZI</span><span style="margin-left:auto">PRACTICE REPOS / ACTIVE</span></div>
+
+  <section class="hero">
+    <div><h1>Esercizi</h1></div>
+    <p class="intro">
+      Repository GitHub usati come <strong>esercizi pratici e riferimenti di studio</strong>.
+      Layout più sobrio delle card progetto, ma coerente con lo stesso sistema visivo NASA / Starfield.
+    </p>
+  </section>
+
+  <div class="toolbar">
+    <button class="chip active">Tutti</button>
+    <button class="chip">Full-stack</button>
+    <button class="chip">API</button>
+    <button class="chip">Frontend</button>
+    <button class="chip">Study repo</button>
+  </div>
+
+  <section class="list">
+    <article class="card" style="--accent: var(--yellow);">
+      <div class="card-inner">
+        <div class="topline">
+          <div>
+            <div class="meta">
+              <span class="dot"></span><span>Practice repo // 01</span><span class="sep"></span><span>MVC flow</span>
+            </div>
+            <h2 class="repo-title">mvc-to-do-list</h2>
+            <p class="desc">Applicazione To-Do List full-stack sviluppata con Node.js, Express, PostgreSQL e React per esercitare l’architettura MVC, integrazione REST API e setup di sviluppo locale.</p>
+          </div>
+          <div class="actions">
+            <a class="action" href="#" onclick="return false;">GitHub ↗</a>
+            <a class="action" href="#" onclick="return false;">Open ↗</a>
+          </div>
+        </div>
+        <div class="stats"><span>★ 1</span><span>⑂ 0</span><span>Updated 16/03/2026</span></div>
+        <div class="langbar">
+          <div class="seg" style="width:73.4%; background: var(--yellow)"></div>
+          <div class="seg" style="width:17.3%; background: var(--orange)"></div>
+          <div class="seg" style="width:9.3%; background: var(--purple)"></div>
+        </div>
+        <div class="legend">
+          <span class="item"><i class="bullet" style="background: var(--yellow)"></i>JavaScript 73.4%</span>
+          <span class="item"><i class="bullet" style="background: var(--orange)"></i>HTML 17.3%</span>
+          <span class="item"><i class="bullet" style="background: var(--purple)"></i>CSS 9.3%</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" style="--accent: var(--blue);">
+      <div class="card-inner">
+        <div class="topline">
+          <div>
+            <div class="meta">
+              <span class="dot"></span><span>Practice repo // 02</span><span class="sep"></span><span>Backend focus</span>
+            </div>
+            <h2 class="repo-title">boss-machine</h2>
+            <p class="desc">Progetto full-stack orientato al backend con Node.js ed Express. Include una REST API per la gestione di minion, idee e meeting, con middleware di validazione e client React/Redux integrato.</p>
+          </div>
+          <div class="actions">
+            <a class="action" href="#" onclick="return false;">GitHub ↗</a>
+            <a class="action" href="#" onclick="return false;">Open ↗</a>
+          </div>
+        </div>
+        <div class="stats"><span>★ 1</span><span>⑂ 0</span><span>Updated 16/03/2026</span></div>
+        <div class="langbar">
+          <div class="seg" style="width:98.8%; background: var(--yellow)"></div>
+          <div class="seg" style="width:1.1%; background: var(--purple)"></div>
+          <div class="seg" style="width:0.1%; background: var(--orange)"></div>
+        </div>
+        <div class="legend">
+          <span class="item"><i class="bullet" style="background: var(--yellow)"></i>JavaScript 98.8%</span>
+          <span class="item"><i class="bullet" style="background: var(--purple)"></i>CSS 1.1%</span>
+          <span class="item"><i class="bullet" style="background: var(--orange)"></i>HTML 0.0%</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" style="--accent: var(--green);">
+      <div class="card-inner">
+        <div class="topline">
+          <div>
+            <div class="meta">
+              <span class="dot"></span><span>Practice repo // 03</span><span class="sep"></span><span>Mini app</span>
+            </div>
+            <h2 class="repo-title">redditMini</h2>
+            <p class="desc">Piccolo esercizio usato per sperimentare struttura frontend, componentizzazione e consumo di dati. Ottimo come repo rapido da studio e riferimento personale.</p>
+          </div>
+          <div class="actions">
+            <a class="action" href="#" onclick="return false;">GitHub ↗</a>
+            <a class="action" href="#" onclick="return false;">Open ↗</a>
+          </div>
+        </div>
+        <div class="stats"><span>★ 1</span><span>⑂ 0</span><span>Updated 16/03/2026</span></div>
+        <div class="langbar">
+          <div class="seg" style="width:77.2%; background: var(--yellow)"></div>
+          <div class="seg" style="width:20.9%; background: var(--purple)"></div>
+          <div class="seg" style="width:1.9%; background: var(--orange)"></div>
+        </div>
+        <div class="legend">
+          <span class="item"><i class="bullet" style="background: var(--yellow)"></i>JavaScript 77.2%</span>
+          <span class="item"><i class="bullet" style="background: var(--purple)"></i>CSS 20.9%</span>
+          <span class="item"><i class="bullet" style="background: var(--orange)"></i>HTML 1.9%</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <div class="footerline"><span>Practice archive / lightweight module / portfolio system</span></div>
+</main>
+</body>
+</html>

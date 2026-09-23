@@ -79,6 +79,10 @@
   "exercises": {
     "title": "Exercises",
     "subtitle": "Selected GitHub starred repositories I use as practical exercises and learning references.",
+    "repoMeta": "Practice repo // {{index}}",
+    "practiceMeta": "Practice flow",
+    "updated": "Updated {{date}}",
+    "footerLabel": "Practice archive / lightweight module / portfolio system",
     "loadMore": "Load more",
     "loading": "Loading...",
     "empty": "No exercises found right now.",

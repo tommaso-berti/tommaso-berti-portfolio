@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import Bio from "./Bio.jsx";
-import Experience from "./Experience.jsx";
+import Experience, { ExperienceFilters } from "./Experience.jsx";
 import Hobbies from "./Hobbies.jsx";
 import TechSkills from "./TechSkills.jsx";
 import CertificationsSection from "../../features/certifications/CertificationsSection.jsx";
@@ -34,7 +35,7 @@ function IdentityModule({ t, telemetry }) {
 }
 
 function TechnicalModule({ t }) {
-    return <Stack spacing={3}>
+    return <Stack spacing={1.5}>
         <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.technical")} title={t("tech-skills.title")} lead={t("tech-skills.lead")} />
         <TechSkills embedded />
     </Stack>;
@@ -47,11 +48,23 @@ function CertificationsModule({ t }) {
     </Stack>;
 }
 
+function DevelopmentModule({ t }) {
+    const [filter, setFilter] = useState("all");
+
+    return <Stack spacing={3}>
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2.5} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }}>
+            <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.development")} title={t("experience.title")} />
+            <ExperienceFilters filter={filter} onChange={setFilter} t={(key, options) => t(`experience.${key}`, options)} />
+        </Stack>
+        <Experience embedded filter={filter} onFilterChange={setFilter} />
+    </Stack>;
+}
+
 function ModuleContent({ activeModule, t, telemetry }) {
     if (activeModule === "technical") return <TechnicalModule t={t} />;
     if (activeModule === "certifications") return <CertificationsModule t={t} />;
     if (activeModule === "method") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.method")} title={t("personnel.methodTitle")} /><MethodModule t={t} /></Stack>;
-    if (activeModule === "development") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.development")} title={t("experience.title")} /><Experience embedded /></Stack>;
+    if (activeModule === "development") return <DevelopmentModule t={t} />;
     if (activeModule === "beyond") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.beyond")} title={t("hobbies.title")} /><Hobbies embedded /></Stack>;
     return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.identity")} title={t("personnel.identityTitle")} lead={t("personnel.identityLead")} /><IdentityModule t={t} telemetry={telemetry} /></Stack>;
 }

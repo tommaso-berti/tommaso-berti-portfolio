@@ -3,6 +3,46 @@
   "missionEyebrow": "05 // COMMUNICATION UPLINK",
   "missionNote": "CHANNEL STATUS // OPEN",
   "formTitle": "Open a channel.",
+  "consoleTitle": "Transmission console",
+  "signalLabel": "Signal nominal",
+  "channels": {
+    "email": "Primary channel · direct reply",
+    "linkedin": "Network · professional opportunities",
+    "github": "Code · projects · technical collaboration"
+  },
+  "topics": {
+    "collaboration": "COLLABORATION",
+    "project": "PROJECT",
+    "opportunity": "OPPORTUNITY",
+    "other": "OTHER"
+  },
+  "telemetry": {
+    "activeLink": "ACTIVE LINK",
+    "channelState": "CHANNEL STATE",
+    "region": "REGION",
+    "responseMode": "RESPONSE MODE",
+    "ready": "READY",
+    "async": "ASYNC"
+  },
+  "subjectLabel": "SUBJECT",
+  "reset": "RESET PAYLOAD",
+  "fieldLabels": {
+    "name": "CALL SIGN / NAME",
+    "email": "RETURN CHANNEL / EMAIL",
+    "message": "PAYLOAD / MESSAGE"
+  },
+  "placeholders": {
+    "name": "Your name",
+    "email": "name@domain.com",
+    "message": "Tell me what you have in mind..."
+  },
+  "status": {
+    "incomplete": "SYSTEM STANDBY // PAYLOAD INCOMPLETE",
+    "ready": "SYSTEM READY // PAYLOAD COMPLETE",
+    "handoff": "PAYLOAD READY // EMAIL HANDOFF INITIATED"
+  },
+  "availability": "Available for new digital missions, collaborations, and products to build.",
+  "footerLine": "PORTFOLIO / COMMS / OPEN CHANNEL",
   "name": "Name",
   "email": "Email",
   "message": "Message",

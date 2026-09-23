@@ -3,6 +3,7 @@
 Snapshot as of 2026-09-23.
 
 ## Confirmed
+
 - `AGENTS.md` is present in repo root.
 - `project-docs/` memory docs are present.
 - App stack and scripts in `package.json` are aligned with README.
@@ -39,13 +40,17 @@ Snapshot as of 2026-09-23.
 - The home certifications block follows the local starfield demo structure with a mission hero, archive HUD, status strip, credential dossiers, technical stack chips, and complete-archive CTA, while preserving real certification data, links, translations, and tooltips.
 - About's `How I work` module now uses a localized three-phase process panel inspired by `docs/come-lavoro-starfield-demo-targeted-fix.html`, with selectable phase cards, focus chips, telemetry, and responsive SVG schematics rebuilt from the finalized problem-framing, trade-off, and iteration-loop chart references; the diagrams remain theme-aware and accessible in light/dark modes.
 - About's `Beyond code` module now uses a localized three-card hobby panel inspired by `docs/hobby-nasa-starfield-demo.html`, with selectable volleyball, gaming/technology, and travel cards, live personal telemetry, tags, route legend, responsive layout, and light/dark theme support.
+- The Contact page now follows `docs/contatti-nasa-starfield-demo.html` with a responsive communications rail, hover-only external channel links, technical field labels, demo-matched field padding/heights and focus treatment, topic selection, message counter, completion progress bar, reset action, and truthful `mailto` handoff status while preserving the shared MUI mission UI and bilingual content.
+- Shared page rails now use `MissionRail` across Home, About, Services, Projects, and Contact, separating the orange page index from the eyebrow label and aligning optional metadata opposite it. SectionHeader page titles and the About hero also use the same reduced demo-aligned scale as Contact.
 
 ## Known Gaps
+
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).
 - Client-side SEO still depends on JS for dynamic meta; static `index.html` is Italian-first fallback only.
 - No full TypeScript migration (project remains JS with `jsconfig.json` for editor support).
 
 ## Operational Notes
+
 - `npm run lint`, `npm run i18n:check`, `npm test`, and `npm run test:e2e` are local safety checks.
 - `npm run build:analyze` writes `dist/bundle-stats.html` for bundle inspection.
 - `npm run data:refresh` regenerates static JSON consumed at runtime.

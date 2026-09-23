@@ -3,6 +3,46 @@
   "missionEyebrow": "05 // COLLEGAMENTO COMUNICAZIONI",
   "missionNote": "STATO CANALE // APERTO",
   "formTitle": "Apri un canale.",
+  "consoleTitle": "Console di trasmissione",
+  "signalLabel": "Segnale nominale",
+  "channels": {
+    "email": "Canale principale · risposta diretta",
+    "linkedin": "Network · opportunità professionali",
+    "github": "Codice · progetti · collaborazione tecnica"
+  },
+  "topics": {
+    "collaboration": "COLLABORAZIONE",
+    "project": "PROGETTO",
+    "opportunity": "OPPORTUNITÀ",
+    "other": "ALTRO"
+  },
+  "telemetry": {
+    "activeLink": "ACTIVE LINK",
+    "channelState": "CHANNEL STATE",
+    "region": "REGION",
+    "responseMode": "RESPONSE MODE",
+    "ready": "READY",
+    "async": "ASYNC"
+  },
+  "subjectLabel": "OGGETTO",
+  "reset": "RESET PAYLOAD",
+  "fieldLabels": {
+    "name": "CALL SIGN / NOME",
+    "email": "RETURN CHANNEL / EMAIL",
+    "message": "PAYLOAD / MESSAGGIO"
+  },
+  "placeholders": {
+    "name": "Il tuo nome",
+    "email": "nome@dominio.it",
+    "message": "Raccontami cosa hai in mente..."
+  },
+  "status": {
+    "incomplete": "SYSTEM STANDBY // PAYLOAD INCOMPLETO",
+    "ready": "SYSTEM READY // PAYLOAD COMPLETO",
+    "handoff": "PAYLOAD PRONTO // HANDOFF EMAIL AVVIATO"
+  },
+  "availability": "Disponibile per nuove missioni digitali, collaborazioni e prodotti da costruire.",
+  "footerLine": "PORTFOLIO / COMMS / OPEN CHANNEL",
   "name": "Nome",
   "email": "Email",
   "message": "Messaggio",

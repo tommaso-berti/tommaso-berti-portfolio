@@ -37,6 +37,7 @@ Snapshot as of 2026-09-21.
 - About prioritizes the `Education & experience` module before `How I work`; the former uses a localized NASA/starfield career archive with work/education filters and expandable timeline entries while preserving the `#study-and-experience` anchor.
 - About identity now includes a localized, non-editable personnel credential derived from CV/Bio data, with base, personality, Bio, and personnel-system fields embedded directly in the card, reduced separators, a transparent portrait PNG with WebP/JPEG fallback, and transparent light/dark variants of the supplied personnel signature; the five-tab technical blueprint panel uses the original ISS, Artemis, LSO, Saturn V, and Dyson Sphere drawings with accessible technology-node selection.
 - The home certifications block follows the local starfield demo structure with a mission hero, archive HUD, status strip, credential dossiers, technical stack chips, and complete-archive CTA, while preserving real certification data, links, translations, and tooltips.
+- About's `How I work` module now uses a localized three-phase process panel inspired by `docs/come-lavoro-starfield-demo-targeted-fix.html`, with selectable phase cards, focus chips, telemetry, responsive SVG schematics, and light/dark theme support.
 
 ## Known Gaps
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).

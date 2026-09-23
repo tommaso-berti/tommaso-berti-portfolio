@@ -205,7 +205,7 @@
 
       <div class="grid">
         <div class="steps" id="steps">
-          <button class="step active" data-id="1">
+          <div class="step active" data-id="1" role="button" tabindex="0">
             <div class="step-shell">
               <div class="step-bar"></div>
               <div class="step-head">
@@ -215,9 +215,9 @@
               </div>
               <div class="step-index">01</div>
             </div>
-          </button>
+        </div>
 
-          <button class="step" data-id="2">
+          <div class="step" data-id="2" role="button" tabindex="0">
             <div class="step-shell">
               <div class="step-bar"></div>
               <div class="step-head">
@@ -227,9 +227,9 @@
               </div>
               <div class="step-index">02</div>
             </div>
-          </button>
+        </div>
 
-          <button class="step" data-id="3">
+          <div class="step" data-id="3" role="button" tabindex="0">
             <div class="step-shell">
               <div class="step-bar"></div>
               <div class="step-head">
@@ -239,7 +239,7 @@
               </div>
               <div class="step-index">03</div>
             </div>
-          </button>
+        </div>
         </div>
 
         <aside class="panel">
@@ -289,14 +289,14 @@
   const defs = `
     <defs>
       <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
-        <path d="M16 0H0V16" stroke="currentColor" stroke-opacity=".05" vector-effect="non-scaling-stroke"/>
+        <path d="M16 0H0V16" stroke="currentColor" stroke-opacity=".05" style="vector-effect:non-scaling-stroke"/>
       </pattern>
       <marker id="arrow" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto">
         <path d="M0 0L10 5L0 10Z" fill="currentColor" opacity=".78"/>
       </marker>
     </defs>
     <rect x="0" y="0" width="420" height="190" fill="url(#grid)"/>
-    <rect x="8.5" y="8.5" width="403" height="173" fill="none" stroke="currentColor" stroke-opacity=".15" vector-effect="non-scaling-stroke"/>
+    <rect x="8.5" y="8.5" width="403" height="173" fill="none" stroke="currentColor" stroke-opacity=".15" style="vector-effect:non-scaling-stroke"/>
   `;
   const label = (x,y,text,anchor='start',size=8.5,opacity=1) =>
     `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="monospace" font-size="${size}" fill="currentColor" opacity="${opacity}">${text}</text>`;
@@ -316,7 +316,7 @@
         ${label(210,23,'PROBLEM CORE','middle',8,.72)}
         ${label(396,23,'OUTPUT FILTER','end',8,.72)}
 
-        <g stroke="currentColor" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke">
+        <g stroke="currentColor" stroke-width="1.2" fill="none" style="vector-effect:non-scaling-stroke">
           <rect x="24.5" y="36.5" width="92" height="24" rx="2"/>
           <rect x="24.5" y="80.5" width="92" height="24" rx="2"/>
           <rect x="24.5" y="124.5" width="92" height="24" rx="2"/>
@@ -363,7 +363,7 @@
         ${label(220,23,'EVALUATION MATRIX','middle',8,.72)}
         ${label(396,23,'SELECTED DELIVERY','end',8,.72)}
 
-        <g stroke="currentColor" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke">
+        <g stroke="currentColor" stroke-width="1.2" fill="none" style="vector-effect:non-scaling-stroke">
           <rect x="26.5" y="42.5" width="88" height="22" rx="2"/>
           <rect x="26.5" y="84.5" width="88" height="22" rx="2"/>
           <rect x="26.5" y="126.5" width="88" height="22" rx="2"/>
@@ -413,7 +413,7 @@
         ${label(24,23,'POST-RELEASE LOOP','start',8,.72)}
         ${label(396,23,'STABILITY CHECK','end',8,.72)}
 
-        <g stroke="currentColor" stroke-width="1.2" fill="none" vector-effect="non-scaling-stroke">
+        <g stroke="currentColor" stroke-width="1.2" fill="none" style="vector-effect:non-scaling-stroke">
           <circle cx="132.5" cy="94.5" r="45" stroke-opacity=".35"/>
           <path d="M132.5 49.5 A45 45 0 0 1 177.5 94.5" marker-end="url(#arrow)"/>
           <path d="M177.5 94.5 A45 45 0 0 1 132.5 139.5" marker-end="url(#arrow)"/>
@@ -485,7 +485,15 @@
     schematicCode.textContent=item.schematicCode;
     schematicSvg.innerHTML=item.svg;
   }
-  steps.forEach(step=>step.addEventListener('click',()=>render(step.dataset.id)));
+  steps.forEach(step=>{
+    step.addEventListener('click',()=>render(step.dataset.id));
+    step.addEventListener('keydown',event=>{
+      if(event.key==='Enter'||event.key===' '){
+        event.preventDefault();
+        render(step.dataset.id);
+      }
+    });
+  });
   render(1);
 </script>
 </body>

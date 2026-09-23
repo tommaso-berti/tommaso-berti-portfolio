@@ -81,7 +81,7 @@ export default function Layout() {
                 }}
             >
                 <Outlet />
-                <Stack direction="row" alignItems="center" gap={1.5} sx={{ mt: { xs: 3, md: 4 }, color: "text.secondary" }}>
+                <Stack data-cv-closing={pathname === "/cv" ? "" : undefined} direction="row" alignItems="center" gap={1.5} sx={{ mt: { xs: 3, md: 4 }, color: "text.secondary" }}>
                     <Box sx={{ height: "1px", flex: 1, bgcolor: "divider" }} />
                     <TechnicalLabel>{t(`pageClosingLines.${closingPage}`)}</TechnicalLabel>
                     <Box sx={{ height: "1px", flex: 1, bgcolor: "divider" }} />

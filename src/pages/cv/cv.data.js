@@ -90,8 +90,9 @@ const EDUCATION_BY_LANGUAGE = {
         {
             period: "2016",
             title: "High School Diploma (Scientific Lyceum)",
-            institution: "Italy",
-            description: "Scientific path with focus on mathematics, physics, and analytical problem solving.",
+            institution: "Liceo Scientifico Tito Lucrezio Caro",
+            description:
+                "Scientific path with focus on mathematics, physics, and analytical problem solving.",
         },
         {
             period: "2016-2020",
@@ -104,8 +105,9 @@ const EDUCATION_BY_LANGUAGE = {
         {
             period: "2016",
             title: "Diploma di Liceo Scientifico",
-            institution: "Italia",
-            description: "Percorso scientifico con focus su matematica, fisica e problem solving analitico.",
+            institution: "Liceo Scientifico Tito Lucrezio Caro",
+            description:
+                "Percorso scientifico con focus su matematica, fisica e problem solving analitico.",
         },
         {
             period: "2016-2020",
@@ -179,12 +181,10 @@ export function getCvProjects(t) {
         .slice(0, 2)
         .map((item) => ({
             id: item.id,
-            title: t(`projects.${item.id}.title`),
-            description: t(`projects.${item.id}.description`),
+            title: t(`projects.${item.titleKey}`),
+            description: t(`projects.${item.descriptionKey}`),
             url: item.secondaryAction?.href || item.githubHref || "",
-            label: item.secondaryAction?.href
-                ? t("cv.projectLive")
-                : t("cv.projectRepo"),
+            label: item.secondaryAction?.href ? t("cv.projectLive") : t("cv.projectRepo"),
         }));
 }
 
@@ -195,6 +195,5 @@ function toDateValue(issuedAt) {
 }
 
 export function getCvCertifications() {
-    return [...CERTIFICATIONS]
-        .sort((a, b) => toDateValue(b.issuedAt) - toDateValue(a.issuedAt));
+    return [...CERTIFICATIONS].sort((a, b) => toDateValue(b.issuedAt) - toDateValue(a.issuedAt));
 }

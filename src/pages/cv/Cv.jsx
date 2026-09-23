@@ -21,7 +21,12 @@ export default function Cv() {
     } = useCvPageData();
 
     return (
-        <Stack data-cv-page component="article" spacing={{ xs: 2, md: 2.5 }}>
+        <Stack
+            data-cv-page
+            component="article"
+            spacing={{ xs: 2, md: 2.5 }}
+            sx={{ mt: { xs: -1, lg: -1.5 } }}
+        >
             <CvPrintGlobalStyles />
             <CvControls
                 controls={controls}

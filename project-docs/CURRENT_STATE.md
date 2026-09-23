@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Snapshot as of 2026-09-23.
+Snapshot as of 2026-09-24.
 
 ## Confirmed
 
@@ -46,6 +46,7 @@ Snapshot as of 2026-09-23.
 - The Contact page now follows `docs/contatti-nasa-starfield-demo.html` with a responsive communications rail, hover-only external channel links, technical field labels, demo-matched field padding/heights and focus treatment, topic selection, message counter, completion progress bar, reset action, and truthful `mailto` handoff status while preserving the shared MUI mission UI and bilingual content.
 - The Projects Exercises tab now follows `docs/esercizi-nasa-starfield-demo.html` with demo-aligned vertical repository cards, theme-token accent bars, metadata, GitHub action, repository stats, language bars, legends, responsive layout, and bilingual footer labels; the tab intentionally enters directly into the cards after the shared Projects navigation, while filtering remains out of scope until GitHub data exposes reliable categories.
 - Shared page rails now use `MissionRail` across Home, About, Services, Projects, and Contact, separating the orange page index from the eyebrow label and aligning optional metadata opposite it. SectionHeader page titles and the About hero also use the same reduced demo-aligned scale as Contact.
+- The `/cv` page follows `docs/cv_nasa_starfield_demo_v5.html` with a localized, sticky CV control deck, technical accent rail and dot texture, profile/portrait header, timeline, and responsive skills/projects layout. Main projects and certifications come from the shared page data; compact density shows the same three featured certifications as Home. Existing bilingual CV data, PDF actions, visibility controls, dark theme, and A4 print rules remain in place; styling reuses app typography and palette tokens.
 
 ## Known Gaps
 

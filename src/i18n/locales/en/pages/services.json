@@ -3,7 +3,7 @@
   "title": "What I can build",
   "note": "SELECTED DEVELOPMENT SERVICES",
   "activeLabel": "SELECTED MODULE",
-  "interactionHint": "Hover → elevation / Click → module details",
+  "interactionHint": "Hover → elevation / module details",
   "revision": "TB // Capability system // rev.04",
   "items": [
     { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },

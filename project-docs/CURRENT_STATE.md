@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Snapshot as of 2026-09-21.
+Snapshot as of 2026-09-23.
 
 ## Confirmed
 - `AGENTS.md` is present in repo root.
@@ -22,7 +22,7 @@ Snapshot as of 2026-09-21.
 - Legacy custom language context/hook removed in favor of `i18n.changeLanguage` and `useTranslation`.
 - The portfolio uses the aerospace-inspired exploration design system: `explorationLight` is the default palette and the persisted dark toggle uses a matching deep-space variant.
 - `/services` is a localized public route; shared mission UI primitives live in `src/features/mission-ui/`.
-- `/services` uses an interactive Starfield capability matrix: localized service cards expose technical schematics, telemetry, tags, keyboard-accessible expansion, and light/dark theme tokens.
+- `/services` uses an interactive Starfield capability matrix: localized service cards expose technical schematics, telemetry, tags, hover/focus-driven expansion, and light/dark theme tokens without requiring a click.
 - Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.
 - The home celestial map keeps its original hero panel dimensions, with a measured zoom and a compact technical control toolbar anchored at the top right.
@@ -37,7 +37,8 @@ Snapshot as of 2026-09-21.
 - About prioritizes the `Education & experience` module before `How I work`; the former uses a localized NASA/starfield career archive with work/education filters and expandable timeline entries while preserving the `#study-and-experience` anchor.
 - About identity now includes a localized, non-editable personnel credential derived from CV/Bio data, with base, personality, Bio, and personnel-system fields embedded directly in the card, reduced separators, a transparent portrait PNG with WebP/JPEG fallback, and transparent light/dark variants of the supplied personnel signature; the five-tab technical blueprint panel uses the original ISS, Artemis, LSO, Saturn V, and Dyson Sphere drawings with accessible technology-node selection.
 - The home certifications block follows the local starfield demo structure with a mission hero, archive HUD, status strip, credential dossiers, technical stack chips, and complete-archive CTA, while preserving real certification data, links, translations, and tooltips.
-- About's `How I work` module now uses a localized three-phase process panel inspired by `docs/come-lavoro-starfield-demo-targeted-fix.html`, with selectable phase cards, focus chips, telemetry, responsive SVG schematics, and light/dark theme support.
+- About's `How I work` module now uses a localized three-phase process panel inspired by `docs/come-lavoro-starfield-demo-targeted-fix.html`, with selectable phase cards, focus chips, telemetry, and responsive SVG schematics rebuilt from the finalized problem-framing, trade-off, and iteration-loop chart references; the diagrams remain theme-aware and accessible in light/dark modes.
+- About's `Beyond code` module now uses a localized three-card hobby panel inspired by `docs/hobby-nasa-starfield-demo.html`, with selectable volleyball, gaming/technology, and travel cards, live personal telemetry, tags, route legend, responsive layout, and light/dark theme support.
 
 ## Known Gaps
 - Blog route is still a placeholder page (hidden from nav, reachable at `/blog`).

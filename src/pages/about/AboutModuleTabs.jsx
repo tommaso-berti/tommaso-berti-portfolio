@@ -18,7 +18,7 @@ const moduleAccentOverrides = {
 function AboutModuleHeader({ eyebrow, title, lead }) {
     return <Box>
         <TechnicalLabel>{eyebrow}</TechnicalLabel>
-        <Typography component="h2" variant="h3" sx={{ mt: 1 }}>{title}</Typography>
+        <Typography component="h2" variant="h3" sx={{ mt: { xs: 1.5, md: 2 } }}>{title}</Typography>
         {lead ? <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>{lead}</Typography> : null}
     </Box>;
 }

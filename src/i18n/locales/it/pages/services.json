@@ -3,7 +3,7 @@
   "title": "Cosa posso costruire",
   "note": "SERVIZI DI SVILUPPO SELEZIONATI",
   "activeLabel": "MODULO SELEZIONATO",
-  "interactionHint": "Hover → elevazione / Click → dettagli modulo",
+  "interactionHint": "Hover → elevazione / dettagli modulo",
   "revision": "TB // Capability system // rev.04",
   "items": [
     { "kicker": "PRODUCT SYSTEM / WEB", "title": "Applicazioni web", "description": "Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },

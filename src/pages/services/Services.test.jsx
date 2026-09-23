@@ -17,7 +17,7 @@ vi.mock("react-i18next", () => ({
     useTranslation: () => ({
         t: (key, options) => {
             if (key === "items" && options?.returnObjects) return services;
-            return { eyebrow: "04 // CAPABILITIES", title: "What I can build", note: "SELECTED SERVICES", activeLabel: "SELECTED MODULE", interactionHint: "Click for details", revision: "REV.04", cta: "Start a project" }[key] ?? key;
+            return { eyebrow: "04 // CAPABILITIES", title: "What I can build", note: "SELECTED SERVICES", activeLabel: "SELECTED MODULE", interactionHint: "Hover for details", revision: "REV.04", cta: "Start a project" }[key] ?? key;
         },
     }),
 }));
@@ -38,24 +38,29 @@ function renderCard(props) {
 }
 
 describe("CapabilityCard", () => {
-    it("renders collapsed details and expands them through the accessible control", () => {
-        const onSelect = vi.fn();
-        const { rerender } = renderCard({ ...item, active: false, onSelect });
+    it("renders collapsed details and expands them on hover and focus", () => {
+        const onActivate = vi.fn();
+        const onDeactivate = vi.fn();
+        const { rerender } = renderCard({ ...item, active: false, onActivate, onDeactivate });
         const control = screen.getByRole("button", { name: /web applications/i });
 
         expect(control).toHaveAttribute("aria-expanded", "false");
         expect(screen.queryByText("React")).toBeInTheDocument();
-        fireEvent.click(control);
-        expect(onSelect).toHaveBeenCalledWith("01");
+        fireEvent.mouseEnter(control);
+        expect(onActivate).toHaveBeenCalledWith("01");
+        fireEvent.focus(control);
+        expect(onActivate).toHaveBeenCalledWith("01");
 
-        rerender(<ThemeProvider theme={makeTheme("light")}><CapabilityCard {...item} active onSelect={onSelect} /></ThemeProvider>);
+        rerender(<ThemeProvider theme={makeTheme("light")}><CapabilityCard {...item} active onActivate={onActivate} onDeactivate={onDeactivate} /></ThemeProvider>);
         expect(control).toHaveAttribute("aria-expanded", "true");
         expect(screen.getByText("SELECTED MODULE")).toBeVisible();
+        fireEvent.mouseLeave(control);
+        expect(onDeactivate).toHaveBeenCalledWith("01");
     });
 });
 
 describe("Services", () => {
-    it("starts with one active card and toggles the selected module", () => {
+    it("activates only the hovered card and clears it on leave", () => {
         render(<ThemeProvider theme={makeTheme("light")}><MemoryRouter><Services /></MemoryRouter></ThemeProvider>);
         const cards = screen.getAllByRole("button").filter((button) => button.hasAttribute("aria-expanded"));
 
@@ -64,11 +69,11 @@ describe("Services", () => {
         expect(screen.getAllByText("D2")).toHaveLength(1);
         expect(screen.getAllByText("I3")).toHaveLength(1);
         expect(screen.getAllByText("F4")).toHaveLength(1);
-        expect(cards.filter((card) => card.getAttribute("aria-expanded") === "true")).toHaveLength(1);
-        fireEvent.click(cards[1]);
+        expect(cards.filter((card) => card.getAttribute("aria-expanded") === "true")).toHaveLength(0);
+        fireEvent.mouseEnter(cards[1]);
         expect(cards[0]).toHaveAttribute("aria-expanded", "false");
         expect(cards[1]).toHaveAttribute("aria-expanded", "true");
-        fireEvent.click(cards[1]);
+        fireEvent.mouseLeave(cards[1]);
         expect(cards.some((card) => card.getAttribute("aria-expanded") === "true")).toBe(false);
     });
 });

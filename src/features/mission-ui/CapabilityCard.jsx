@@ -23,12 +23,12 @@ function Schematic({ variant }) {
     return <svg viewBox="0 0 92 58" fill="none" aria-hidden="true"><rect x="7.5" y="8.5" width="66" height="40" rx="2" stroke="currentColor" /><path d="M8 17H73M16 13h2M21 13h2M26 13h2" stroke="currentColor" /><path d="M18 27h25M18 34h39M18 41h30" stroke="currentColor" strokeDasharray="3 3" /><path d="M79 18v28M75 22l4-4 4 4M75 42l4 4 4-4" stroke="currentColor" /></svg>;
 }
 
-export default function CapabilityCard({ code, displayCode = code, title, description, kicker, tags = [], signalStart, signalEnd, active, activeLabel, variant = 0, onSelect }) {
+export default function CapabilityCard({ code, displayCode = code, title, description, kicker, tags = [], signalStart, signalEnd, active, activeLabel, variant = 0, onActivate, onDeactivate }) {
     const detailsId = `service-details-${code}`;
     const markerPosition = markerPositions[variant] ?? markerPositions[0];
 
     return <Card component="article" variant="outlined" sx={{ position: "relative", overflow: "hidden", bgcolor: active ? "background.paper" : "space.panel", borderColor: active ? "text.primary" : "divider", transform: active ? "translateY(-2px)" : "none", transition: "transform 260ms cubic-bezier(.2,.8,.2,1), border-color 260ms ease, background-color 260ms ease", "&:hover": { transform: "translateY(-4px)", borderColor: "text.secondary" } }}>
-        <CardActionArea component="button" disableRipple onClick={() => onSelect(code)} aria-expanded={active} aria-controls={detailsId} sx={{ height: "100%", display: "block", color: "inherit", textAlign: "left", "&:focus-visible": { outline: "1px solid", outlineColor: "text.secondary", outlineOffset: -2 } }}>
+        <CardActionArea component="button" disableRipple onMouseEnter={() => onActivate(code)} onMouseLeave={() => onDeactivate(code)} onFocus={() => onActivate(code)} onBlur={() => onDeactivate(code)} aria-expanded={active} aria-controls={detailsId} sx={{ height: "100%", display: "block", color: "inherit", textAlign: "left", "&:focus-visible": { outline: "1px solid", outlineColor: "text.secondary", outlineOffset: -2 } }}>
             <CardContent sx={{ position: "relative", zIndex: 1, minHeight: { xs: 235, sm: 250 }, p: { xs: 2, sm: 2.5 }, display: "flex", flexDirection: "column" }}>
                 <Box sx={{ position: "absolute", top: { xs: ".85rem", sm: "1rem" }, right: { xs: ".85rem", sm: "1rem" }, width: 92, height: 58, color: "text.secondary", opacity: active ? .9 : .58, transition: "opacity 260ms ease, transform 260ms ease", transform: active ? "translateY(-1px)" : "none", "& svg": { width: "100%", height: "100%" } }}><Schematic variant={variant} /></Box>
                 <Box sx={{ maxWidth: { xs: "100%", sm: "82%" } }}>

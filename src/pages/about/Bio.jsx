@@ -1,8 +1,8 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
-import { getCvProfile } from "../cv/cv.data.js";
 import { SKILL_GROUPS } from "../../features/skills/skillGroups.js";
+import { getCvProfile } from "../cv/cv.data.js";
 import PersonnelCredential from "./PersonnelCredential.jsx";
 
 const CREDENTIAL_STACK = ["react", "mui", "nodejs", "express"];

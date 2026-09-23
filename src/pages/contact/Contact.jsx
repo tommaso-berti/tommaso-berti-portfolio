@@ -414,13 +414,12 @@ export default function Contact() {
               placeholder={t('placeholders.message')}
               multiline
               minRows={6}
-              inputProps={{ maxLength: 1200 }}
               required
               value={values.message}
               onChange={updateValue('message')}
               slotProps={{
                 inputLabel: { shrink: true },
-                htmlInput: { 'aria-label': t('fieldLabels.message') },
+                htmlInput: { 'aria-label': t('fieldLabels.message'), maxLength: 1200 },
               }}
               sx={fieldLabelSx}
             />

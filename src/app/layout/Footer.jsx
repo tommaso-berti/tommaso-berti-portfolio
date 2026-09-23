@@ -2,8 +2,8 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
-import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes.js";
-import { APP_VERSION } from "../../lib/version.js";
+import { useLatestReleaseNotes } from "../../hooks/useLatestReleaseNotes";
+import { APP_VERSION } from "../../lib/version";
 
 export default function Footer({ onOpenReleaseNotes }) {
     const { t } = useTranslation("common");

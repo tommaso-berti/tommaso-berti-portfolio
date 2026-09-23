@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getBrandIconDefinition } from "../../config/brandIcons";
+import { getBrandIconDefinition } from "@/config/brandIcons.js";
 import { getTechnicalBlueprint, TECH_BLUEPRINTS } from "./technicalBlueprints.config.js";
 import { buildConnectorPaths } from "./technicalBlueprints.utils.js";
 

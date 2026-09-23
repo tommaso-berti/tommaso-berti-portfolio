@@ -289,36 +289,31 @@ export default function Contact() {
               }}
             >
               <Box
+                component="svg"
                 aria-hidden="true"
-                sx={{
-                  width: 42,
-                  height: 42,
-                  flex: '0 0 auto',
-                  border: '1px solid',
-                  borderColor: 'space.blue',
-                  borderRadius: '50%',
-                  position: 'relative',
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    inset: 5,
-                    border: '1px solid',
-                    borderColor: 'space.orange',
-                    borderRadius: '50%',
-                    transform: 'rotate(-24deg) scaleX(1.35)',
-                  },
-                  '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    width: 7,
-                    height: 7,
-                    borderRadius: '50%',
-                    bgcolor: 'space.blue',
-                    top: 14,
-                    left: 14,
-                  },
-                }}
-              />
+                viewBox="0 0 42 42"
+                sx={{ width: 42, height: 42, flex: '0 0 auto', overflow: 'visible', color: 'space.blue' }}
+              >
+                <circle cx="21" cy="21" r="20" fill="none" stroke="currentColor" opacity=".35" />
+                <ellipse
+                  cx="21"
+                  cy="21"
+                  rx="15"
+                  ry="7"
+                  fill="none"
+                  stroke="var(--mui-palette-space-orange, #df733d)"
+                  strokeWidth="1"
+                  transform="rotate(-24 21 21)"
+                />
+                <circle
+                  cx="18.2"
+                  cy="14.6"
+                  r="3.2"
+                  fill="currentColor"
+                  stroke="var(--mui-palette-background-paper, #f7f4ec)"
+                  strokeWidth="1.5"
+                />
+              </Box>
               <span>{t('availability')}</span>
             </Box>
           </Stack>

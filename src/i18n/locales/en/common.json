@@ -22,15 +22,15 @@
     "openReleaseNotes": "Open release notes"
   },
   "pageClosingLines": {
-    "home": "PORTFOLIO / HOME / SIGNAL ACTIVE",
-    "projects": "PORTFOLIO / PROJECTS / ARCHIVE OPEN",
-    "projectDetails": "PROJECT DOSSIER / SYSTEM / ONLINE",
-    "about": "PERSONNEL FILE / IDENTITY / VERIFIED",
-    "services": "CAPABILITIES / SERVICES / AVAILABLE",
-    "contact": "PORTFOLIO / COMMS / OPEN CHANNEL",
-    "cv": "CAREER RECORD / CV / VERIFIED",
-    "blog": "FIELD NOTES / BLOG / ARCHIVE",
-    "notFound": "SIGNAL LOST / ROUTE / NOT FOUND"
+    "home": "PERSONAL PORTFOLIO / SIGNAL ACTIVE",
+    "projects": "PROJECT ARCHIVE / OPEN FOR EXPLORATION",
+    "projectDetails": "PROJECT DOSSIER / SYSTEM ONLINE",
+    "about": "PERSONAL PROFILE / IDENTITY VERIFIED",
+    "services": "SOFTWARE SERVICES / AVAILABLE FOR NEW PROJECTS",
+    "contact": "CONTACT / CHANNEL OPEN",
+    "cv": "CAREER HISTORY / CV UPDATED",
+    "blog": "FIELD NOTES / LATEST UPDATES",
+    "notFound": "PAGE NOT FOUND / ROUTE UNAVAILABLE"
   },
   "headerControls": {
     "languageTooltip": "Lang",
@@ -38,7 +38,8 @@
     "italian": "Italiano",
     "english": "English",
     "themeTitle": "Display mode",
-    "themeCopy": "Choose light or dark mode."
+    "lightTheme": "Light mode",
+    "darkTheme": "Dark mode"
   },
   "scrollRail": {
     "label": "{{page}} document scroll index",

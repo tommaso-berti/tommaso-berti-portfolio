@@ -8,8 +8,10 @@ import CelestialProjectMap from '../../features/mission-ui/CelestialProjectMap.j
 import MissionRail from '../../features/mission-ui/MissionRail.jsx';
 import BootSequence from '../../features/mission-ui/BootSequence.jsx';
 import { buildCelestialMapItems } from '../projects/projectsPages/projectSelectors.js';
+import { useEnsureProjectsI18n } from '@/i18n/useEnsureProjectsI18n.js';
 
 export default function Home() {
+  const projectsI18nReady = useEnsureProjectsI18n();
   const { t } = useTranslation('pages', { keyPrefix: 'home' });
   const title = t('missionTitle').split('\n');
   const boot = t('boot', { returnObjects: true });
@@ -18,7 +20,11 @@ export default function Home() {
   const mapItems = buildCelestialMapItems(tProjects);
   return (
     <Stack component="article" spacing={{ xs: 3, md: 4 }}>
-      <MissionRail eyebrow={t('eyebrow')} />
+      <MissionRail
+        eyebrow={t('eyebrow')}
+        trailing="ORIGIN NODE / TB-01"
+        trailingSx={{ display: { xs: 'none', sm: 'block' } }}
+      />
       <Box
         component="section"
         data-scroll-section
@@ -62,7 +68,11 @@ export default function Home() {
             <BootSequence lines={Array.isArray(boot) ? boot : []} />
           </Box>
         </Stack>
-        <CelestialProjectMap items={mapItems} labels={mapLabels} />
+        {projectsI18nReady ? (
+          <CelestialProjectMap items={mapItems} labels={mapLabels} />
+        ) : (
+          <Box sx={{ minHeight: { xs: 360, md: 480 } }} />
+        )}
       </Box>
       <Box component="section" data-scroll-section data-scroll-label={t('certifications.eyebrow')}>
         <HomeCertificationBadges />

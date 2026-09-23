@@ -22,15 +22,15 @@
     "openReleaseNotes": "Apri note di rilascio"
   },
   "pageClosingLines": {
-    "home": "PORTFOLIO / HOME / SEGNALE ATTIVO",
-    "projects": "PORTFOLIO / PROGETTI / ARCHIVIO APERTO",
-    "projectDetails": "SCHEDA PROGETTO / SISTEMA / ONLINE",
-    "about": "FASCICOLO PERSONALE / IDENTITÀ / VERIFICATA",
-    "services": "COMPETENZE / SERVIZI / DISPONIBILI",
-    "contact": "PORTFOLIO / COMMS / OPEN CHANNEL",
-    "cv": "PERCORSO PROFESSIONALE / CV / VERIFICATO",
-    "blog": "NOTE DI CAMPO / BLOG / ARCHIVIO",
-    "notFound": "SEGNALE PERSO / ROTTA / NON TROVATA"
+    "home": "PORTFOLIO PERSONALE / SEGNALE ATTIVO",
+    "projects": "ARCHIVIO PROGETTI / CONSULTAZIONE ATTIVA",
+    "projectDetails": "SCHEDA PROGETTO / SISTEMA ONLINE",
+    "about": "PROFILO PERSONALE / IDENTITÀ VERIFICATA",
+    "services": "SERVIZI SOFTWARE / DISPONIBILI PER NUOVI PROGETTI",
+    "contact": "CONTATTI / CANALE APERTO",
+    "cv": "PERCORSO PROFESSIONALE / CV AGGIORNATO",
+    "blog": "NOTE DI CAMPO / AGGIORNAMENTI PUBBLICATI",
+    "notFound": "PAGINA NON TROVATA / ROTTA NON DISPONIBILE"
   },
   "headerControls": {
     "languageTooltip": "Lingua",
@@ -38,7 +38,8 @@
     "italian": "Italiano",
     "english": "English",
     "themeTitle": "Modalità display",
-    "themeCopy": "Scegli la modalità chiara o scura."
+    "lightTheme": "Modalità chiara",
+    "darkTheme": "Modalità scura"
   },
   "scrollRail": {
     "label": "Indice di scorrimento del documento {{page}}",

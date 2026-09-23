@@ -34,7 +34,11 @@ export default function About() {
 
   return (
     <Stack id="about" component="article" spacing={{ xs: 3.5, md: 5 }}>
-      <MissionRail eyebrow={t('personnel.archiveHeader')} />
+      <MissionRail
+        eyebrow={t('personnel.archiveHeader')}
+        trailing="PERSONNEL NODE / BIO-01"
+        trailingSx={{ display: { xs: 'none', sm: 'block' } }}
+      />
       <Stack
         data-scroll-section
         data-scroll-label={t('personnel.heroEyebrow')}

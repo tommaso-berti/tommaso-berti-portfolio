@@ -11,5 +11,51 @@
     { "kicker": "SERVICE LAYER / CONNECT", "title": "API e integrazioni", "description": "Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
     { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Strumenti di automazione", "description": "Utility mirate che riducono i flussi manuali e ripetitivi.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
-  "cta": "Avvia un progetto"
+  "cta": "Avvia un progetto",
+  "matrix": {
+    "label": "capability matrix",
+    "title": "Cosa può includere ogni modulo",
+    "note": "",
+    "legend": "● core · ○ opzionale · — non primario",
+    "ariaLabel": "Matrice delle capability per servizio",
+    "capability": "Capability",
+    "columns": ["WEB", "DASHBOARD", "API", "AUTOMAZIONE"],
+    "values": { "core": "Incluso", "optional": "Opzionale", "none": "Non principale" },
+    "rows": [
+      { "label": "Interfaccia responsive", "values": ["core", "core", "none", "none"] },
+      { "label": "Visualizzazione dati", "values": ["optional", "core", "optional", "none"] },
+      { "label": "Autenticazione", "values": ["core", "core", "core", "optional"] },
+      { "label": "REST / API", "values": ["optional", "core", "core", "core"] },
+      { "label": "Dati in tempo reale", "values": ["optional", "core", "core", "optional"] },
+      { "label": "Integrazioni esterne", "values": ["optional", "optional", "core", "core"] },
+      { "label": "Database", "values": ["core", "core", "core", "core"] },
+      { "label": "Rilascio", "values": ["core", "core", "core", "core"] },
+      { "label": "Monitoraggio", "values": ["optional", "core", "core", "core"] }
+    ]
+  },
+  "scope": {
+    "label": "collaboration scope",
+    "title": "Dove posso inserirmi",
+    "note": "collaborazione / scope flessibile",
+    "newProject": { "label": "progetto nuovo", "title": "Da un problema a una prima versione reale", "description": "Posso partire da un'esigenza, un'idea o un flusso già definito e trasformarlo in un prodotto tecnico funzionante, mantenendo scope e complessità sotto controllo.", "chips": ["MVP", "Prototipo", "Strumento interno", "Applicazione in produzione"] },
+    "existing": { "label": "sistema esistente", "rows": [
+      { "key": "AFFINARE", "description": "Migliorare interfacce, UX e flussi già esistenti." },
+      { "key": "COLLEGARE", "description": "Collegare API, dati e servizi esterni." },
+      { "key": "AUTOMATIZZARE", "description": "Ridurre attività manuali e ripetitive." },
+      { "key": "ESTENDERE", "description": "Aggiungere capability senza stravolgere il sistema." }
+    ] }
+  },
+  "delivery": {
+    "label": "delivery",
+    "title": "Dall'implementazione all'ambiente reale",
+    "note": "pacchetto di consegna / scope standard",
+    "items": [
+      { "label": "code", "title": "Struttura manutenibile", "description": "Componenti leggibili, organizzazione coerente e scelte tecniche pensate per evolvere senza introdurre attrito inutile.", "foot": "struttura / componenti / convenzioni" },
+      { "label": "integrazione", "title": "Sistema connesso", "description": "Frontend, servizi, autenticazione, dati e integrazioni vengono trattati come parti dello stesso prodotto.", "foot": "api / auth / dati / servizi" },
+      { "label": "rilascio", "title": "Pronto all'uso", "description": "Build, configurazione e rilascio fanno parte del risultato: il progetto deve arrivare fino a un ambiente realmente utilizzabile.", "foot": "build / rilascio / validazione" }
+    ]
+  },
+  "method": { "label": "metodo di lavoro / rif. about-05", "title": "Vuoi sapere come affronto un progetto?", "description": "Chiarezza, pragmatismo e iterazione sono approfonditi nella sezione dedicata al mio metodo di lavoro.", "cta": "Apri // Come lavoro" },
+  "finalCta": { "label": "canale aperto", "title": "Hai qualcosa da costruire?", "description": "Raccontami il problema. La tecnologia viene dopo.", "cta": "Apri comunicazioni" },
+  "footer": "cosa realizzo / interfaccia pubblica"
 }

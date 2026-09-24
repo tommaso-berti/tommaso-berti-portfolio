@@ -11,5 +11,51 @@
     { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "Backend services and data flows that connect product systems together.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
     { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "Purpose-built utilities that reduce repetitive manual workflows.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
-  "cta": "Start a project"
+  "cta": "Start a project",
+  "matrix": {
+    "label": "capability matrix",
+    "title": "What each module can include",
+    "note": "",
+    "legend": "● core · ○ optional · — not primary",
+    "ariaLabel": "Capability matrix by service",
+    "capability": "Capability",
+    "columns": ["WEB", "DASHBOARD", "API", "AUTOMATION"],
+    "values": { "core": "Included", "optional": "Optional", "none": "Not primary" },
+    "rows": [
+      { "label": "Responsive UI", "values": ["core", "core", "none", "none"] },
+      { "label": "Data visualization", "values": ["optional", "core", "optional", "none"] },
+      { "label": "Authentication", "values": ["core", "core", "core", "optional"] },
+      { "label": "REST / API", "values": ["optional", "core", "core", "core"] },
+      { "label": "Realtime data", "values": ["optional", "core", "core", "optional"] },
+      { "label": "Third-party integrations", "values": ["optional", "optional", "core", "core"] },
+      { "label": "Database", "values": ["core", "core", "core", "core"] },
+      { "label": "Deployment", "values": ["core", "core", "core", "core"] },
+      { "label": "Monitoring", "values": ["optional", "core", "core", "core"] }
+    ]
+  },
+  "scope": {
+    "label": "collaboration scope",
+    "title": "Where I can contribute",
+    "note": "engagement / flexible scope",
+    "newProject": { "label": "new project", "title": "From a problem to a real first version", "description": "I can start from a need, an idea, or a defined workflow and turn it into a working technical product while keeping scope and complexity under control.", "chips": ["MVP", "Prototype", "Internal tool", "Production app"] },
+    "existing": { "label": "existing system", "rows": [
+      { "key": "REFINE", "description": "Improve existing interfaces, UX, and workflows." },
+      { "key": "CONNECT", "description": "Connect APIs, data, and external services." },
+      { "key": "AUTOMATE", "description": "Reduce repetitive manual work." },
+      { "key": "EXTEND", "description": "Add capabilities without reshaping the whole system." }
+    ] }
+  },
+  "delivery": {
+    "label": "delivery",
+    "title": "From implementation to a real environment",
+    "note": "delivery package / standard scope",
+    "items": [
+      { "label": "code", "title": "Maintainable structure", "description": "Readable components, coherent organization, and technical choices designed to evolve without unnecessary friction.", "foot": "structure / components / conventions" },
+      { "label": "integration", "title": "Connected system", "description": "Frontend, services, authentication, data, and integrations are handled as parts of the same product.", "foot": "api / auth / data / services" },
+      { "label": "deploy", "title": "Ready to use", "description": "Build, configuration, and release are part of the result: the project should reach an environment people can actually use.", "foot": "build / release / validation" }
+    ]
+  },
+  "method": { "label": "working method / ref. about-05", "title": "Want to know how I approach a project?", "description": "Clarity, pragmatism, and iteration are covered in the section dedicated to my working method.", "cta": "Open // How I work" },
+  "finalCta": { "label": "open channel", "title": "Have something to build?", "description": "Tell me about the problem. Technology comes later.", "cta": "Open contact" },
+  "footer": "what I build / public interface"
 }

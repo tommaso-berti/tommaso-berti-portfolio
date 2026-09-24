@@ -13,6 +13,7 @@ describe("getAboutModuleFromHash", () => {
         expect(getAboutModuleFromHash("#tech-skills")).toBe("technical");
         expect(getAboutModuleFromHash("#certifications")).toBe("certifications");
         expect(getAboutModuleFromHash("#study-and-experience")).toBe("development");
+        expect(getAboutModuleFromHash("#method")).toBe("method");
         expect(getAboutModuleFromHash("#hobbies")).toBe("beyond");
     });
 });

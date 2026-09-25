@@ -6,6 +6,7 @@
     "blog": "Blog",
     "contact": "Contact",
     "services": "Services",
+    "systems": "Systems",
     "cv": "CV"
   },
   "notFound": {
@@ -20,7 +21,16 @@
     "toggleLanguageToIt": "Switch language to Italian",
     "toggleLanguageToEn": "Switch language to English",
     "openReleaseNotes": "Open release notes",
-    "openCustomCv": "Open and customize the CV"
+    "openCustomCv": "Open and customize the CV",
+    "primaryNavigation": "Primary navigation",
+    "systemStatus": "System status",
+    "breadcrumb": "Breadcrumb",
+    "closePreview": "Close preview"
+  },
+  "preview": {
+    "title": "Preview",
+    "load": "Load preview",
+    "loadTooltip": "Load the preview only when needed to avoid unnecessary API calls."
   },
   "pageClosingLines": {
     "home": "PORTFOLIO SYSTEM / ONLINE",
@@ -28,6 +38,7 @@
     "projectDetails": "PROJECT DOSSIER / SYSTEM ONLINE",
     "about": "PERSONNEL FILE / IDENTITY VERIFIED",
     "services": "SOFTWARE SERVICES / READY FOR DELIVERY",
+    "systems": "DEVELOPMENT SYSTEMS / OPERATIONAL",
     "contact": "COMMS CHANNEL / OPEN",
     "cv": "CAREER RECORD / CV AVAILABLE",
     "blog": "FIELD NOTES / ARCHIVE READY",
@@ -50,9 +61,10 @@
       "home": "01 // EXPLORATION LOG / TB-DEV / 2026",
       "projects": "02 // MISSION ARCHIVE",
       "services": "04 // SERVICES",
-      "contact": "05 // COMMUNICATION UPLINK",
-      "cv": "06 // CV ARCHIVE",
-      "blog": "07 // FIELD NOTES",
+      "systems": "05 // SYSTEMS",
+      "contact": "06 // COMMUNICATION UPLINK",
+      "cv": "07 // CV ARCHIVE",
+      "blog": "08 // FIELD NOTES",
       "notFound": "00 // LOST SIGNAL"
     }
   }

@@ -1,0 +1,149 @@
+{
+  "eyebrow": "05 // SISTEMI",
+  "title": "Dietro i miei progetti",
+  "note": "AMBIENTE / PROCESSI / INFRASTRUTTURA",
+  "sectionLabels": {
+    "ai": "FLUSSO AI",
+    "infrastructure": "INFRASTRUTTURA PERSONALE",
+    "boundary": "AMBIENTI SEPARATI",
+    "environment": "STRUMENTI",
+    "links": "PROSSIMI PASSI"
+  },
+  "intro": {
+    "label": "ambiente di sviluppo",
+    "lead": "Sviluppo progetti personali parallelamente a un lavoro full-time. Uso strumenti di AI per accelerare l'esecuzione e una VPS personale per pubblicare applicazioni e imparare cosa succede oltre il frontend. Direzione, requisiti e verifica restano sotto la mia responsabilità.",
+    "tags": ["Sviluppo assistito dall'AI", "Linux VPS", "Progetti personali"]
+  },
+  "summary": {
+    "label": "panoramica dell'ambiente",
+    "items": [
+      { "label": "MODELLO DI SVILUPPO", "value": "Lavoro full-time + progetti personali" },
+      { "label": "SUPPORTO ALLA PRODUTTIVITÀ", "value": "Cursor / Codex" },
+      { "label": "INFRASTRUTTURA PERSONALE", "value": "IONOS VPS / Linux" }
+    ]
+  },
+  "ai": {
+    "title": "Più tempo per costruire, meno attrito nell'esecuzione",
+    "note": "DIREZIONE UMANA / ESECUZIONE ASSISTITA",
+    "modeLabel": "Seleziona un ambito in cui uso l'AI",
+    "modeNames": { "ui": "UI e interfacce", "research": "Ricerca tecnica", "integration": "Integrazioni", "iteration": "Iterazione" },
+    "intro": {
+      "label": "PERCHÉ L'AI",
+      "title": "Un acceleratore, non un pilota automatico",
+      "description": "Con poco tempo da dedicare ai progetti personali, uso l'AI per ridurre il lavoro ripetitivo e velocizzare ricerca, interfacce e integrazioni. La direzione del prodotto e la valutazione del risultato restano mie.",
+      "tools": ["CURSOR", "CODEX"]
+    },
+    "constraint": {
+      "label": "VINCOLO // TEMPO",
+      "title": "Il tempo è una risorsa limitata",
+      "description": "Lavorare full-time lascia una finestra precisa per progettare, programmare, verificare e mantenere applicazioni personali.",
+      "outcome": "AI → UN MODELLO DI SVILUPPO SOSTENIBILE"
+    },
+    "flow": { "direction": "LA MIA DIREZIONE E I VINCOLI", "review": "LA MIA VERIFICA E DECISIONE" },
+    "responsibilities": {
+      "human": { "label": "DECIDO E DEFINISCO", "items": ["Direzione del prodotto", "Requisiti e vincoli", "Scelte finali", "Verifica del risultato"] },
+      "ai": { "label": "L'AI ACCELERA" }
+    },
+    "modes": {
+      "ui": {
+        "code": "ASSIST / UI-01",
+        "title": "Portare una direzione visiva nell'interfaccia",
+        "description": "Definisco stile, obiettivi e comportamento. L'AI mi aiuta a tradurre queste indicazioni in componenti e layout, così posso concentrarmi prima sulla qualità e poi sui dettagli ripetitivi.",
+        "flow": "CURSOR / CODEX · IMPLEMENTAZIONE UI",
+        "support": ["Implementazione UI", "Creazione componenti", "Iterazione layout", "Codice ripetitivo"]
+      },
+      "research": {
+        "code": "ASSIST / TECH-02",
+        "title": "Orientarmi tra tecnologie e approcci",
+        "description": "Uso l'AI per confrontare librerie, architetture e documentazione. Restringo le opzioni e verifico poi la scelta nel contesto concreto del progetto.",
+        "flow": "AI RESEARCH · CONFRONTO TECNICO",
+        "support": ["Ricerca di tecnologie", "Confronto di librerie", "Opzioni architetturali", "Sintesi della documentazione"]
+      },
+      "integration": {
+        "code": "ASSIST / INT-03",
+        "title": "Avviare integrazioni che richiedono nuova ricerca",
+        "description": "Quando collego API, servizi o sistemi meno familiari, l'AI mi aiuta a esplorare il problema e a preparare una prima soluzione da verificare e adattare.",
+        "flow": "CURSOR / CODEX · SUPPORTO INTEGRAZIONE",
+        "support": ["Esplorazione API", "Struttura iniziale", "Casi limite", "Trasformazione dati"]
+      },
+      "iteration": {
+        "code": "ASSIST / ITER-04",
+        "title": "Lasciare più spazio alla valutazione",
+        "description": "Refactoring e modifiche ripetitive richiedono meno tempo quando posso confrontare rapidamente alternative. Uso il tempo risparmiato per controllare il comportamento e rifinire la soluzione.",
+        "flow": "AI ASSISTANCE · ITERAZIONE RAPIDA",
+        "support": ["Refactoring", "Modifiche ripetitive", "Trasformazione del codice", "Revisione delle alternative"]
+      }
+    }
+  },
+  "infrastructure": {
+    "title": "I progetti non finiscono su localhost",
+    "note": "NODO PERSONALE / IONOS / VPS-01",
+    "modeLabel": "Esplora le aree ospitate sulla VPS personale",
+    "modeNames": { "apps": "WEB APP", "api": "API", "data": "DATI", "experiments": "LAB" },
+    "diagram": { "label": "TOPOLOGIA DI DEPLOY PERSONALE", "code": "DIAG / INFRA-01", "internet": "INTERNET", "edge": "EDGE / DNS", "server": "IONOS VPS / LINUX" },
+    "services": { "apps": "WEB APP", "api": "API", "data": "DATI", "jobs": "JOB", "monitor": "MONITORAGGIO", "experiments": "ESPERIMENTI" },
+    "detailLabel": "PERCHÉ UNA VPS PERSONALE",
+    "modes": {
+      "apps": {
+        "title": "Applicazioni sempre raggiungibili",
+        "description": "Uso una VPS IONOS per ospitare web app e servizi personali. Il rapporto tra costo e prestazioni mi permette di tenere online più progetti e imparare cosa serve per gestirli oltre lo sviluppo frontend.",
+        "services": ["apps"],
+        "facts": [
+          { "label": "SCOPO", "value": "Progetti personali e sperimentazione" },
+          { "label": "PROVIDER", "value": "IONOS" },
+          { "label": "APPRENDIMENTO", "value": "Deploy, Linux e gestione di servizi" }
+        ]
+      },
+      "api": {
+        "title": "Servizi backend sotto il mio controllo",
+        "description": "Ospitare API nello stesso ambiente mi fa lavorare con processi backend, configurazione e comunicazione tra frontend e server.",
+        "services": ["api", "jobs"],
+        "facts": [
+          { "label": "SCOPO", "value": "API e servizi per applicazioni personali" },
+          { "label": "AMBIENTE", "value": "Linux VPS" },
+          { "label": "APPRENDIMENTO", "value": "Processi, networking e deploy" }
+        ]
+      },
+      "data": {
+        "title": "Dati e continuità fanno parte del sistema",
+        "description": "Gestire dati e servizi persistenti rende concrete responsabilità come configurazione, backup, sicurezza e continuità del servizio.",
+        "services": ["data", "monitor"],
+        "facts": [
+          { "label": "SCOPO", "value": "Servizi persistenti dei progetti" },
+          { "label": "ATTENZIONE", "value": "Configurazione e backup" },
+          { "label": "APPRENDIMENTO", "value": "Operatività e affidabilità" }
+        ]
+      },
+      "experiments": {
+        "title": "Un laboratorio per provare idee reali",
+        "description": "La VPS è anche un ambiente in cui provare automazioni e piccoli servizi senza trasformare il computer locale nel sistema di produzione.",
+        "services": ["experiments", "jobs", "monitor"],
+        "facts": [
+          { "label": "SCOPO", "value": "Esperimenti e automazioni personali" },
+          { "label": "AMBIENTE", "value": "Separato dallo sviluppo locale" },
+          { "label": "APPRENDIMENTO", "value": "Backend, Linux e infrastruttura" }
+        ]
+      }
+    }
+  },
+  "boundary": {
+    "title": "Ambienti personali e cliente restano separati",
+    "note": "SEPARAZIONE / REQUISITI DEL PROGETTO",
+    "environments": [
+      { "label": "PERSONALE // NODO CONDIVISO", "title": "La mia VPS", "description": "È l'ambiente personale per applicazioni, servizi ed esperimenti che gestisco direttamente.", "items": ["WEB APP PERSONALI", "API PERSONALI", "ESPERIMENTI", "AMBIENTE DI APPRENDIMENTO"] },
+      { "label": "CLIENTE // AMBIENTE DEDICATO", "title": "Infrastruttura definita sul progetto", "description": "Un progetto cliente non viene assegnato automaticamente alla mia infrastruttura. Ambiente e deploy dipendono dai requisiti reali.", "items": ["VPS / CLOUD DEDICATO", "INFRASTRUTTURA DEL CLIENTE", "ON-PREMISE SE RICHIESTO", "CONFIGURAZIONE SPECIFICA"] }
+    ],
+    "policy": { "title": "I carichi del cliente restano fuori dall'infrastruttura personale.", "description": "Prima del rilascio valuto isolamento, requisiti, proprietà dell'infrastruttura e modalità di deploy per ogni progetto." }
+  },
+  "environment": {
+    "title": "Gli strumenti che uso ogni giorno",
+    "note": "CONFIGURAZIONE DI SVILUPPO",
+    "items": [
+      { "label": "EDITOR", "value": "VS Code / WebStorm", "detail": "sviluppo quotidiano" },
+      { "label": "AI CODING", "value": "Cursor / Codex", "detail": "supporto all'implementazione" },
+      { "label": "CODICE SORGENTE", "value": "GitHub", "detail": "repository e flussi di lavoro" },
+      { "label": "AMBIENTE DI ESECUZIONE", "value": "macOS + Linux VPS", "detail": "sviluppo locale e host remoto" }
+    ]
+  },
+  "links": { "title": "Dal sistema al progetto", "note": "STRUMENTI / COLLABORAZIONE / RISULTATI", "description": "Questi strumenti sostengono il modo in cui costruisco, collaboro e porto online i progetti.", "services": "Servizi", "method": "Come lavoro", "contact": "Contatti" }
+}

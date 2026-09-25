@@ -7,6 +7,7 @@ export function buildPagesNamespace(sections) {
         home: sections.home,
         contact: sections.contact,
         services: sections.services,
+        systems: sections.systems,
         about: sections.about,
         projects: sections.projects,
         blog: sections.blog,

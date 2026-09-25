@@ -82,7 +82,7 @@ export default function CvDocument({
             </Box>
             <Box sx={{ position: "relative", zIndex: 1, px: { xs: 2, sm: 3, md: isCompact ? 3.5 : 4.5 }, py: { xs: 2, md: isCompact ? 2.5 : 3.5 } }}>
                 <Stack spacing={0}>
-                    <CvHeaderSection profile={profile} />
+                    <CvHeaderSection profile={profile} profileImageAlt={t("cv.profileImageAlt")} />
                     <CvSummarySection profile={profile} isCompact={isCompact} t={t} />
 
                     {controls.showExperience ? (

@@ -3,7 +3,7 @@
 Compact repository map for fast navigation.
 
 ## Project Summary
-- Personal portfolio SPA with multilingual UI (IT/EN), theme toggle, projects area, CV page, and release notes modal.
+- Personal portfolio SPA with multilingual UI (IT/EN), theme toggle, projects area, Systems page, CV page, and release notes modal.
 - Build/runtime model: static frontend with local/CI-generated JSON snapshots.
 
 ## Top-Level Layout
@@ -24,6 +24,7 @@ Compact repository map for fast navigation.
 - `src/pages/projects/projectsPages/projects.js`: projects catalog/config
 - `src/pages/projects/projectsPages/projectSelectors.js`: project view-model logic
 - `src/pages/about/`: localized personnel identity plus the six-module About system, including the credential, technical blueprint, career timeline, working method, and hobbies modules
+- `src/pages/systems/`: localized development environment page with interactive AI workflow and personal VPS views
 - `src/hooks/useLatestReleaseNotes.js`: release-notes data flow
 - `src/config/brandIcons.js`: centralized icon mapping
 
@@ -40,7 +41,7 @@ Compact repository map for fast navigation.
 - `project-docs/PROJECT_WRITING_GUIDE.md`: guidance for writing portfolio project descriptions
 
 ## Tests / Checks
-- No dedicated test suite detected in repo layout.
+- Vitest covers routing, i18n namespace builders, and project selectors.
 - Available quality checks:
   - `npm run lint`
   - `npm run i18n:check`

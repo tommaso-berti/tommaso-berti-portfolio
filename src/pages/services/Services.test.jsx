@@ -24,6 +24,7 @@ vi.mock("react-i18next", () => ({
             if (key === "delivery.items" && options?.returnObjects) return [{ label: "code", title: "Maintainable structure", description: "Readable components.", foot: "structure" }];
             return {
                 eyebrow: "04 // CAPABILITIES", title: "What I can build", note: "SELECTED SERVICES", activeLabel: "SELECTED MODULE", interactionHint: "Hover for details", revision: "REV.04", cta: "Start a project",
+                "sectionLabels.capabilities": "CAPABILITIES", "sectionLabels.matrix": "SERVICE MATRIX", "sectionLabels.scope": "COLLABORATION SCOPE", "sectionLabels.delivery": "DELIVERY", "sectionLabels.method": "WORKING METHOD", "sectionLabels.contact": "CONTACT",
                 "matrix.label": "capability matrix", "matrix.title": "What each module can include", "matrix.note": "Legend", "matrix.legend": "Core, optional, not primary", "matrix.ariaLabel": "Capability matrix", "matrix.capability": "Capability", "matrix.values.core": "Included", "matrix.values.optional": "Optional", "matrix.values.none": "Not primary",
                 "scope.label": "collaboration scope", "scope.title": "Where I can contribute", "scope.note": "flexible", "scope.newProject.label": "new project", "scope.newProject.title": "A first version", "scope.newProject.description": "From an idea.", "scope.existing.label": "existing system",
                 "delivery.label": "delivery", "delivery.title": "Ready to use", "delivery.note": "standard", "method.label": "working method", "method.title": "How I work", "method.description": "See my method.", "method.cta": "Open method", "finalCta.label": "contact", "finalCta.title": "Have something to build?", "finalCta.description": "Tell me about it.", "finalCta.cta": "Contact", footer: "public interface"
@@ -70,6 +71,23 @@ describe("CapabilityCard", () => {
 });
 
 describe("Services", () => {
+    it("exposes six numbered service sections as scroll targets", () => {
+        const { container } = render(<ThemeProvider theme={makeTheme("light")}><MemoryRouter><Services /></MemoryRouter></ThemeProvider>);
+
+        expect(container.querySelectorAll("[data-scroll-section]")).toHaveLength(7);
+        const headings = [
+            ["SRV-01", "CAPABILITIES"],
+            ["SRV-02", "SERVICE MATRIX"],
+            ["SRV-03", "COLLABORATION SCOPE"],
+            ["SRV-04", "DELIVERY"],
+            ["SRV-05", "WORKING METHOD"],
+            ["SRV-06", "CONTACT"],
+        ];
+        for (const [code, label] of headings) {
+            expect(screen.getByText(`${code} // ${label}`)).toBeInTheDocument();
+        }
+    });
+
     it("links the selected service to the matrix and keeps the click selection", () => {
         render(<ThemeProvider theme={makeTheme("light")}><MemoryRouter><Services /></MemoryRouter></ThemeProvider>);
         const cards = screen.getAllByRole("button").filter((button) => button.hasAttribute("aria-expanded"));

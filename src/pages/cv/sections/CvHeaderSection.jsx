@@ -10,7 +10,7 @@ import { contactMetaSx, cvSectionSx } from "../cv.styles.js";
 /**
  * @param {{ profile: import("../cv.data.js").CvProfile }} props
  */
-export default function CvHeaderSection({ profile }) {
+export default function CvHeaderSection({ profile, profileImageAlt }) {
     return (
         <Stack data-cv-section spacing={1.1} sx={cvSectionSx}>
             <Box
@@ -115,7 +115,7 @@ export default function CvHeaderSection({ profile }) {
                         }}
                     >
                         <ProfileImage
-                            alt="Tommaso Berti profile"
+                            alt={profileImageAlt}
                             width={112}
                             height={112}
                             sx={{

@@ -11,7 +11,7 @@ export const EXERCISE_DESCRIPTIONS = {
         "boss-machine":
             "Boss Machine è un progetto full-stack orientato al backend sviluppato con Node.js ed Express. Implementa una REST API completa per gestire minion, idee da un milione di dollari, meeting e assegnazioni di lavoro annidate, includendo middleware di validazione personalizzati e un client React/Redux integrato.",
         "mvc-to-do-list":
-            "Una applicazione To-Do List full-stack sviluppata con Node.js, Express, PostgreSQL e React per praticare l'architettura MVC. Il progetto implementa un flusso completo di creazione, lettura e cancellazione delle attività, integrazione tramite REST API e configurazione per lo sviluppo locale.",
+            "Un'applicazione To-Do List full-stack sviluppata con Node.js, Express, PostgreSQL e React per praticare l'architettura MVC. Il progetto implementa un flusso completo di creazione, lettura e cancellazione delle attività, integrazione tramite REST API e configurazione per lo sviluppo locale.",
     },
     en: {
         "lodash-copy":

@@ -22,10 +22,11 @@ export default function Layout() {
             : pathname.startsWith("/projects/") ? "projectDetails"
                 : pathname === "/about" ? "about"
                     : pathname === "/services" ? "services"
-                        : pathname === "/contact" ? "contact"
-                            : pathname === "/cv" ? "cv"
-                                : pathname === "/blog" ? "blog"
-                                    : "notFound";
+                        : pathname === "/systems" ? "systems"
+                            : pathname === "/contact" ? "contact"
+                                : pathname === "/cv" ? "cv"
+                                    : pathname === "/blog" ? "blog"
+                                        : "notFound";
 
     return (
         <Container

@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Snapshot as of 2026-09-24.
+Snapshot as of 2026-09-25.
 
 ## Confirmed
 
@@ -23,7 +23,8 @@ Snapshot as of 2026-09-24.
 - Legacy custom language context/hook removed in favor of `i18n.changeLanguage` and `useTranslation`.
 - The portfolio uses the aerospace-inspired exploration design system: `explorationLight` is the default palette and the persisted dark toggle uses a matching deep-space variant.
 - `/services` is a localized public route; shared mission UI primitives live in `src/features/mission-ui/`.
-- `/services` uses an interactive Starfield capability matrix: localized service cards expose technical schematics, telemetry, tags, hover/focus-driven expansion, and light/dark theme tokens without requiring a click.
+- `/systems` is a localized public route at navigation position 05, covering AI-assisted development, personal VPS infrastructure, client environment boundaries, and daily tools; its AI workflow and infrastructure views are interactive and theme-aware.
+- `/services` uses six numbered, localized `SRV-01`–`SRV-06` sections that feed the document scroll rail; its interactive Starfield capability matrix includes technical schematics, telemetry, tags, hover/focus-driven expansion, and light/dark theme tokens.
 - Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.
 - The home celestial map keeps its original hero panel dimensions, with a measured zoom and a compact technical control toolbar anchored at the top right.
@@ -36,7 +37,7 @@ Snapshot as of 2026-09-24.
 - The fixed header keeps the horizontal primary navigation and uses a lightly marked shell with corner brackets plus a borderless mission-control cluster linking to the customizable CV and opening localized language/theme popovers; the footer shows the latest published version, whose button opens release notes.
 - MUI Paper and Card surfaces share a site-wide 4px corner radius from the theme, including page-specific cards and panels.
 - The shared layout adds a localized technical closure line between every page body and the global footer, reusing the former Contact-page treatment.
-- The layout now exposes a thin, localized desktop document scroll rail outside the main content width on every page; its dots target explicit page sections, supports keyboard-accessible step controls, and uses only start/end dots with a full bar when the document does not scroll. It stays hidden where viewport space is insufficient. About remains a localized personnel-file page with six accessible modules in a shared container, including dedicated technical and certification tabs, while preserving `/about#…` destinations.
+- The layout exposes a thin, localized desktop document scroll rail outside the main content width; its dots map one-to-one to top-level page sections, use an offset below the fixed header, and update when content size changes. The active dot and progress line follow the reached section, and the rail stays hidden where viewport space is insufficient. About remains a localized personnel-file page with six accessible modules in a shared container, including dedicated technical and certification tabs, while preserving `/about#…` destinations.
 - About prioritizes the `Education & experience` module before `How I work`; the former uses a localized NASA/starfield career archive with work/education filters and expandable timeline entries while preserving the `#study-and-experience` anchor.
 - About identity now includes a localized, non-editable personnel credential derived from CV/Bio data, with base, personality, Bio, and personnel-system fields embedded directly in the card, reduced separators, a transparent portrait PNG with WebP/JPEG fallback, and transparent light/dark variants of the supplied personnel signature; the five-tab technical blueprint panel uses the original ISS, Artemis, LSO, Saturn V, and Dyson Sphere drawings with accessible technology-node selection.
 - The home certifications block follows the local starfield demo structure with a mission hero, a data-driven archive map showing certification counts by subject area, compact real-data status metrics beneath the hero/map row, credential dossiers, technical stack chips, and complete-archive CTA.

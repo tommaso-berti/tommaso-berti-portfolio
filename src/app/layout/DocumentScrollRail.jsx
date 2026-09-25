@@ -5,12 +5,13 @@ import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { getActiveScrollSection, getDocumentScrollSections, getScrollRailProgress } from "./documentScrollRail.utils.js";
 
 function getPageKey(pathname) {
     if (pathname === "/") return "home";
     if (pathname.startsWith("/projects")) return "projects";
     const key = pathname.split("/").filter(Boolean)[0];
-    return ["about", "services", "contact", "cv", "blog"].includes(key) ? key : "notFound";
+    return ["about", "services", "systems", "contact", "cv", "blog"].includes(key) ? key : "notFound";
 }
 
 export default function DocumentScrollRail() {
@@ -32,25 +33,10 @@ export default function DocumentScrollRail() {
         const stepLabels = stepKey.split("|");
         const collectSections = () => {
             const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-            const nodes = Array.from(document.querySelectorAll("[data-scroll-section]"));
-            const scrollable = maxScroll > 8;
-            const hasSectionTargets = scrollable && nodes.length >= 2;
-            const targetItems = hasSectionTargets ? nodes.map((node, index) => ({
-                    label: node.dataset.scrollLabel || node.querySelector("h1, h2, h3")?.textContent?.trim() || stepLabels[index % stepLabels.length],
-                    scrollTop: index === 0 ? 0 : Math.min(maxScroll, Math.max(0, node.getBoundingClientRect().top + window.scrollY - 112)),
-                })) : [];
-            const distinctTargetItems = targetItems.filter((item, index) => index === 0 || item.scrollTop - targetItems[index - 1].scrollTop > 24);
-            const targetsWithEndpoint = distinctTargetItems.length >= 2 && distinctTargetItems[distinctTargetItems.length - 1].scrollTop < maxScroll - 24
-                ? [...distinctTargetItems, { label: stepLabels[stepLabels.length - 1], scrollTop: maxScroll }]
-                : distinctTargetItems;
-            const items = targetsWithEndpoint.length >= 2
-                ? targetsWithEndpoint
-                : [
-                    { label: stepLabels[0], scrollTop: 0 },
-                    { label: stepLabels[stepLabels.length - 1], scrollTop: maxScroll },
-                ];
-            setSectionModel({ items, maxScroll, scrollable });
-            setProgress(scrollable ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 1);
+            const main = document.querySelector("main") || document.body;
+            const model = getDocumentScrollSections(main, maxScroll, stepLabels);
+            setSectionModel(model);
+            setProgress(model.scrollable ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 1);
         };
         const updateProgress = () => {
             frame = 0;
@@ -64,23 +50,29 @@ export default function DocumentScrollRail() {
         collectSections();
         window.addEventListener("scroll", handleScroll, { passive: true });
         window.addEventListener("resize", collectSections);
+        const main = document.querySelector("main") || document.body;
         const observer = new MutationObserver(collectSections);
-        observer.observe(document.querySelector("main") || document.body, { childList: true, subtree: true });
+        observer.observe(main, { childList: true, characterData: true, subtree: true });
+        const resizeObserver = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(collectSections);
+        resizeObserver?.observe(main);
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", collectSections);
             observer.disconnect();
+            resizeObserver?.disconnect();
             if (frame) window.cancelAnimationFrame(frame);
         };
     }, [pathname, stepKey]);
 
     const items = sectionModel.items.length ? sectionModel.items : [{ label: steps[0], scrollTop: 0 }, { label: steps[steps.length - 1], scrollTop: 0 }];
     const activeStep = sectionModel.scrollable
-        ? items.reduce((closest, item, index) => Math.abs(window.scrollY - item.scrollTop) < Math.abs(window.scrollY - items[closest].scrollTop) ? index : closest, 0)
+        ? getActiveScrollSection(items, window.scrollY)
         : progress >= 1 ? items.length - 1 : 0;
+    const railProgress = sectionModel.scrollable ? getScrollRailProgress(items, window.scrollY) : progress;
     const scrollToStep = (item) => {
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        window.scrollTo({ top: item.scrollTop, behavior: reducedMotion ? "auto" : "smooth" });
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({ top: Math.min(item.scrollTop, maxScroll), behavior: reducedMotion ? "auto" : "smooth" });
     };
 
     return (
@@ -91,7 +83,7 @@ export default function DocumentScrollRail() {
                 </Typography>
                 <Box sx={{ position: "relative", flex: 1, width: 16, minHeight: 240 }}>
                     <Box aria-hidden="true" sx={{ position: "absolute", top: 8, bottom: 8, left: "50%", width: 1, bgcolor: "divider", transform: "translateX(-50%)" }} />
-                    <Box aria-hidden="true" sx={{ position: "absolute", top: 8, left: "50%", width: 1, height: "calc(100% - 16px)", bgcolor: "space.orange", transform: "translateX(-50%) scaleY(var(--scroll-progress))", transformOrigin: "top", "--scroll-progress": progress }} />
+                    <Box aria-hidden="true" sx={{ position: "absolute", top: 8, left: "50%", width: 1, height: "calc(100% - 16px)", bgcolor: "space.orange", transform: "translateX(-50%) scaleY(var(--scroll-progress))", transformOrigin: "top", "--scroll-progress": railProgress }} />
                     {items.map((item, index) => (
                         <ButtonBase
                             key={`${item.label}-${index}`}
@@ -100,7 +92,7 @@ export default function DocumentScrollRail() {
                             aria-label={t("scrollRail.step", { page: pageLabel, step: item.label })}
                             aria-current={index === activeStep ? "step" : undefined}
                             onClick={() => scrollToStep(item)}
-                            sx={{ position: "absolute", top: `${sectionModel.scrollable ? (item.scrollTop / Math.max(1, sectionModel.maxScroll)) * 100 : index === 0 ? 0 : 100}%`, left: "50%", width: 18, height: 18, borderRadius: "50%", transform: "translate(-50%, -50%)", "&:focus-visible": { outline: "2px solid", outlineColor: "space.blue", outlineOffset: 3 } }}
+                            sx={{ position: "absolute", top: index === 0 ? "0%" : index === items.length - 1 ? "100%" : `${8 + (index / (items.length - 1)) * 84}%`, left: "50%", width: 18, height: 18, borderRadius: "50%", transform: "translate(-50%, -50%)", "&:focus-visible": { outline: "2px solid", outlineColor: "space.blue", outlineOffset: 3 } }}
                         >
                             <Box aria-hidden="true" sx={{ width: index === activeStep ? 9 : 7, height: index === activeStep ? 9 : 7, border: "1px solid", borderColor: index === activeStep ? "space.orange" : "text.primary", borderRadius: "50%", bgcolor: index <= activeStep ? "space.orange" : "background.paper", transition: "background-color 180ms ease, border-color 180ms ease, width 180ms ease, height 180ms ease" }} />
                         </ButtonBase>

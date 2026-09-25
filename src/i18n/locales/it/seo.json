@@ -16,9 +16,13 @@
       "title": "Chi Sono | Tommaso Berti",
       "description": "Profilo professionale, esperienza, competenze tecniche e percorso formativo di Tommaso Berti."
     },
+    "systems": {
+      "title": "Systems | Tommaso Berti",
+      "description": "Gli strumenti, i processi e l'infrastruttura che sostengono i progetti di Tommaso Berti."
+    },
     "contact": {
       "title": "Contatti | Tommaso Berti",
-      "description": "Contatta Tommaso Berti per collaborazioni, progetti e opportunita professionali."
+      "description": "Contatta Tommaso Berti per collaborazioni, progetti e opportunità professionali."
     },
     "blog": {
       "title": "Blog | Tommaso Berti",

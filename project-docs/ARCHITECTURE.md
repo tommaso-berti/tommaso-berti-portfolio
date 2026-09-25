@@ -23,7 +23,7 @@ System-level notes for the portfolio application.
 - Layout layer (`src/app/layout/`):
   - Fixed mission header with subtle corner markers, horizontal primary navigation, borderless `HeaderControls` cluster linking to the customizable CV and localized language/theme popovers; the footer shows the latest published version and opens the release notes modal.
 - Page layer (`src/pages/`):
-  - Home, Projects, About, Services, Blog, Contact, CV, Project details
+  - Home, Projects, About, Services, Systems, Blog, Contact, CV, Project details
 - Mission UI (`src/features/mission-ui/`):
   - Shared technical labels, color rails, original TB identity, orbital SVG, mission cards, capability cards, and restrained motion panels.
   - The MUI theme provides the light/deep-space palettes plus compact motion timing; CSS media queries and `useReducedMotion` keep all decorative motion optional.
@@ -33,10 +33,11 @@ System-level notes for the portfolio application.
 - Shared mission tabs (`src/pages/projects/projectsPages/ProjectMissionTabs.jsx`):
   - Reused by project details, the About personnel modules, and the Projects archive category filters so tab behavior and visual treatment remain aligned.
 - About personnel file (`src/pages/about/`):
-  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and six selectable modules (`identity`, `technical`, `certifications`, `development`, `method`, `beyond`) inside the shared MotionPanel treatment; technical skills and certifications own their tabs while keeping their internal blueprint and credential cards. The shared `DocumentScrollRail` is mounted by `Layout` outside the main content width and follows explicit `[data-scroll-section]` targets on desktop pages, falling back to two endpoints with a full bar when a page does not scroll.
+  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and six selectable modules (`identity`, `technical`, `certifications`, `development`, `method`, `beyond`) inside the shared MotionPanel treatment; technical skills and certifications own their tabs while keeping their internal blueprint and credential cards. The shared `DocumentScrollRail` is mounted by `Layout` outside the main content width, uses only top-level `[data-scroll-section]` targets, aligns jumps below the fixed header, and tracks the active section on desktop pages.
   - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs; the technical and certification hashes now activate their dedicated tabs.
 - `IdentityVisualizer.jsx` reuses `CelestialProjectMap` in a decorative, reduced-motion-safe logo-centered mode; profile and career facts remain in the localized module content.
 - `MethodModule.jsx` renders the localized working-method process as three keyboard-accessible phases with a responsive detail panel; `MethodSchematic.jsx` owns the data-selected SVG diagrams and theme-aware visual treatment.
+- `/systems` uses `src/pages/systems/Systems.jsx` to compose the bilingual development environment page; its AI workflow and VPS topology panels keep selection state in React and reuse the MUI theme with keyboard-accessible controls. Its five numbered content sections are the top-level targets for the document scroll rail.
 - `Experience.jsx` and `CareerTimeline.jsx` render the localized education/work archive with NASA-style filters, expandable entries, and the `study-and-experience` anchor.
   - `PersonnelCredential` derives the compact identity card from localized CV/Bio data, embeds the Bio profile, base, personality, and personnel systems, and uses the canonical telemetry values without duplicating the removed footer-only fields; the portrait supports a transparent PNG with the existing WebP/JPEG fallback chain and the supplied signature has transparent light/dark variants. `TechnicalBlueprintPanel` renders the five original blueprint assets with registry-backed technology nodes and responsive connectors.
 

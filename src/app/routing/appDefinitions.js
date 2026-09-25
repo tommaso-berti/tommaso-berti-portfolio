@@ -10,6 +10,7 @@ const About = lazy(() => import("@/pages/about/About.jsx"));
 const Blog = lazy(() => import("@/pages/blog/Blog.jsx"));
 const Contact = lazy(() => import("@/pages/contact/Contact.jsx"));
 const Services = lazy(() => import("@/pages/services/Services.jsx"));
+const Systems = lazy(() => import("@/pages/systems/Systems.jsx"));
 const Cv = lazy(() => import("@/pages/cv/Cv.jsx"));
 const NotFound = lazy(() => import("@/pages/not-found/NotFound.jsx"));
 
@@ -99,6 +100,15 @@ export const PAGE_DEFINITIONS = [
         experimental: false,
     },
     {
+        id: "systems",
+        path: "/systems",
+        component: Systems,
+        breadcrumbContext: "systems",
+        navKey: "systems",
+        showInHomeMenu: true,
+        experimental: false,
+    },
+    {
         id: "contact",
         path: "/contact",
         component: Contact,
@@ -165,6 +175,11 @@ export const BREADCRUMB_CONTEXT_DEFINITIONS = {
         type: "path",
         basePath: "/",
         items: [{ id: "services", titleKey: "nav.services", fallback: "services" }],
+    },
+    systems: {
+        type: "path",
+        basePath: "/",
+        items: [{ id: "systems", titleKey: "nav.systems", fallback: "systems" }],
     },
     projects: {
         type: "path",

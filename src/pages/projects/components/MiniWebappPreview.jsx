@@ -2,6 +2,7 @@ import { Card, Box, Modal, IconButton, Button, Typography, Stack, Tooltip } from
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useInViewport } from "@/hooks/useInViewport.js";
 
 export default function MiniWebappPreview({
@@ -9,14 +10,18 @@ export default function MiniWebappPreview({
                                               width = 480,
                                               height = 300,
                                               scale = 0.8,
-                                              title = "Preview",
+                                              title: titleProp,
                                               overlayLabel = "",
                                               disableFullscreen = false,
                                               deferLoad = false,
                                               sx,
-                                              loadPreviewLabel = "Load Preview",
-                                              loadPreviewTooltip = "Click to load the preview only when needed to avoid unnecessary API calls.",
+                                              loadPreviewLabel: loadPreviewLabelProp,
+                                              loadPreviewTooltip: loadPreviewTooltipProp,
                                           }) {
+    const { t } = useTranslation("common");
+    const title = titleProp || t("preview.title");
+    const loadPreviewLabel = loadPreviewLabelProp || t("preview.load");
+    const loadPreviewTooltip = loadPreviewTooltipProp || t("preview.loadTooltip");
     const [open, setOpen] = useState(false);
     const [inlineEnabled, setInlineEnabled] = useState(false);
     const observeViewport = deferLoad && !inlineEnabled;
@@ -197,7 +202,7 @@ export default function MiniWebappPreview({
                         <IconButton
                             onClick={handleClose}
                             size="small"
-                            aria-label="Close preview"
+                            aria-label={t("a11y.closePreview")}
                             sx={{
                                 position: "absolute",
                                 top: 8,

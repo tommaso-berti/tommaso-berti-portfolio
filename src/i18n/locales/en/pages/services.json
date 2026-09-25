@@ -5,6 +5,23 @@
   "activeLabel": "SELECTED MODULE",
   "interactionHint": "Hover → elevation / module details",
   "revision": "TB // Capability system // rev.04",
+  "sectionLabels": {
+    "capabilities": "CAPABILITIES",
+    "matrix": "SERVICE MATRIX",
+    "scope": "COLLABORATION SCOPE",
+    "delivery": "DELIVERY",
+    "method": "WORKING METHOD",
+    "contact": "CONTACT"
+  },
+  "sections": {
+    "capabilities": "Development capabilities",
+    "capabilitiesNote": "AVAILABLE MODULES",
+    "matrix": "What each module can include",
+    "scope": "Where I can contribute",
+    "delivery": "From implementation to a real environment",
+    "method": "The method behind delivery",
+    "contact": "Let's discuss your project"
+  },
   "items": [
     { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
     { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "Interfaces that make data, states, and operations readable and actionable.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },

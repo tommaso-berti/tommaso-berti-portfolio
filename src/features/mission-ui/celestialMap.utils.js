@@ -1,6 +1,6 @@
 const GOLDEN_ANGLE = 137.507764;
 const PALETTE = ["#347CB2", "#DF733D", "#D0AB3D", "#C94F4A", "#668A69"];
-const PLANET_IMAGES = ["neptune.png", "mars.png", "mercury.png", "mars.png", "earth.png"];
+const PLANET_IMAGES = ["neptune-clean.png", "mars.png", "mercury.png", "mars.png", "earth.png"];
 const PLANET_IMAGE_BY_ACCENT = Object.fromEntries(PALETTE.map((accent, index) => [
     accent,
     `/assets/celestial-project-map/${PLANET_IMAGES[index]}`,

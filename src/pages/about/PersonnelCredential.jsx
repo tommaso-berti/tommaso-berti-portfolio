@@ -54,7 +54,7 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                                 {systems.map((system) => (
                                     <Stack key={system.label} direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={.6}>
                                         <TechnicalLabel sx={{ fontSize: ".62rem" }}>{system.label}</TechnicalLabel>
-                                        <Typography sx={{ fontFamily: "monospace", fontSize: ".72rem", fontWeight: 800, textAlign: { sm: "right" }, overflowWrap: "anywhere" }}>{system.value}</Typography>
+                                        <Typography sx={{ fontFamily: (theme) => theme.fonts.mono, fontSize: ".72rem", fontWeight: 800, textAlign: { sm: "right" }, overflowWrap: "anywhere" }}>{system.value}</Typography>
                                     </Stack>
                                 ))}
                             </Stack>
@@ -70,7 +70,7 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                     </Box>
                     <Box sx={{ minWidth: { sm: 150 } }}>
                         <TechnicalLabel sx={{ fontSize: ".52rem" }}>{t("credential.statusLabel")}</TechnicalLabel>
-                        <Typography sx={{ mt: .35, color: "success.main", fontFamily: "monospace", fontSize: ".65rem", fontWeight: 900, letterSpacing: ".1em" }}>{t("credential.status")}</Typography>
+                        <Typography sx={{ mt: .35, color: "success.main", fontFamily: (theme) => theme.fonts.mono, fontSize: ".65rem", fontWeight: 900, letterSpacing: ".1em" }}>{t("credential.status")}</Typography>
                     </Box>
                 </Stack>
             </CardContent>

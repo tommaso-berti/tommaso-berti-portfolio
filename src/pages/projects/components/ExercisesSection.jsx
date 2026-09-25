@@ -124,7 +124,7 @@ export default function ExercisesSection({ isActive }) {
                                                 sx={{
                                                     mb: 1.25,
                                                     color: "text.secondary",
-                                                    fontFamily: "monospace",
+                                                    fontFamily: (theme) => theme.fonts.mono,
                                                     fontSize: ".62rem",
                                                     fontWeight: 800,
                                                     letterSpacing: ".1em",
@@ -302,7 +302,7 @@ export default function ExercisesSection({ isActive }) {
                             gap: 1.5,
                             mt: .5,
                             color: "text.secondary",
-                            fontFamily: "monospace",
+                            fontFamily: (theme) => theme.fonts.mono,
                             fontSize: ".58rem",
                             fontWeight: 800,
                             letterSpacing: ".12em",

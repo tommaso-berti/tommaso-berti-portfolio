@@ -25,6 +25,7 @@ Snapshot as of 2026-09-25.
 - `/services` is a localized public route; shared mission UI primitives live in `src/features/mission-ui/`.
 - `/systems` is a localized public route at navigation position 05, covering AI-assisted development, personal VPS infrastructure, client environment boundaries, and daily tools; its AI workflow and infrastructure views are interactive and theme-aware.
 - `/style` is a localized, unlisted direct route that demonstrates the current theme tokens, typography, controls, surfaces, diagrams, and motion in the active theme; SEO marks it `noindex, nofollow`.
+- Shared mission styling now exposes the existing monospace stack and panel entrance timing through the MUI theme; Services and Systems reuse the same numbered section heading and static panel surface. `/style` shows both shared patterns and the updated font/motion tokens.
 - `/services` uses six numbered, localized `SRV-01`–`SRV-06` sections that feed the document scroll rail; its interactive Starfield capability matrix includes technical schematics, telemetry, tags, hover/focus-driven expansion, and light/dark theme tokens.
 - Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.

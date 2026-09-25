@@ -27,7 +27,7 @@
   },
   "type": { "sample": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "body": "Body text stays open and readable at 1.7 line height.", "bodySecondary": "Body 2 / secondary", "mono": "MISSION / 01   •   SYSTEM READY" },
   "controls": { "contained": "Primary action", "outlined": "Secondary action", "text": "Text action", "disabled": "Unavailable", "status": "System ready", "focusHint": "Tab to a control to inspect its keyboard focus style." },
-  "surfaces": { "panelLabel": "MOTION PANEL", "cardLabel": "MISSION CARD", "panelCopy": "Use a restrained border, a compact technical label, and one clear piece of content.", "chip": "ACTIVE MODULE", "patch": "TB" },
+  "surfaces": { "panelLabel": "MOTION PANEL", "staticPanelLabel": "STATIC PANEL", "headingLabel": "MISSION SECTION", "headingTitle": "Shared section heading", "panelCopy": "Use a restrained border, a compact technical label, and one clear piece of content.", "chip": "ACTIVE MODULE", "patch": "TB" },
   "graphics": { "diagramLabel": "Orbital schematic showing a primary body and two paths", "chartLabel": "Three-color signal rail", "chartCaption": "Signals use color and labels together.", "blueSignal": "BLUE / ACTIVE", "yellowSignal": "YELLOW / CATEGORY", "orangeSignal": "ORANGE / MARKER" },
-  "motion": { "fast": "Fast feedback", "normal": "Standard transition", "slow": "Expanded transition", "radius": "Corner radius", "spacing": "Base spacing", "contentWidth": "Main content width", "responsive": "responsive", "reducedMotion": "Decorative animation respects the operating system reduced-motion preference." }
+  "motion": { "fast": "Fast feedback", "normal": "Standard transition", "enter": "Panel entrance", "slow": "Expanded transition", "radius": "Corner radius", "spacing": "Base spacing", "contentWidth": "Main content width", "responsive": "responsive", "reducedMotion": "Decorative animation respects the operating system reduced-motion preference." }
 }

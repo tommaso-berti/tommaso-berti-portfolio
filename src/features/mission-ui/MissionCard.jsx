@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
 import SpaceButton from "./SpaceButton.jsx";
 import TechnicalLabel from "./TechnicalLabel.jsx";
@@ -26,14 +27,15 @@ function OrbitalSignature({ mission, accent, t }) {
                     <ellipse cx="160" cy="95" rx="78" ry="78" fill="none" stroke="rgba(23,32,42,.25)" strokeWidth="2" />
                     <circle cx="160" cy="95" r="18" fill="rgba(247,244,236,.9)" stroke={accent} strokeWidth="3" />
                 </Box>
-            </Box> : <Box sx={{ mt: 1, height: 190, display: "grid", placeItems: "center", border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.06)" }}><Typography sx={{ px: 1.5, py: .9, border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.12)", fontFamily: "monospace", fontSize: ".7rem", letterSpacing: ".12em", color: "text.secondary" }}>✕ DATA UNAVAILABLE</Typography></Box>}
+            </Box> : <Box sx={{ mt: 1, height: 190, display: "grid", placeItems: "center", border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.06)" }}><Typography sx={{ px: 1.5, py: .9, border: "1px solid", borderColor: "divider", bgcolor: "rgba(23,32,42,.12)", fontFamily: (theme) => theme.fonts.mono, fontSize: ".7rem", letterSpacing: ".12em", color: "text.secondary" }}>✕ DATA UNAVAILABLE</Typography></Box>}
         </Box>
         <Stack direction="row" justifyContent="space-between" sx={{ pt: 1, mt: 2, borderTop: "1px solid", borderColor: "divider" }}><TechnicalLabel sx={{ fontSize: ".58rem" }}>{`${t("dossier.node")} ${mission.id.toUpperCase()}`}</TechnicalLabel><TechnicalLabel sx={{ fontSize: ".58rem" }}>{mission.accent ? "SYS.OK" : "SCAN.UNAVAILABLE"}</TechnicalLabel></Stack>
     </Box>;
 }
 
 export default function MissionCard({ mission, selected, dimmed, onSelect, t }) {
-    const accent = mission.accent || (mission.color === "space.orange" ? "#DF733D" : "#347CB2");
+    const theme = useTheme();
+    const accent = mission.accent || (mission.color === "space.orange" ? theme.space.orange : theme.space.blue);
     const markSx = {
         alignSelf: "center", justifySelf: "end", width: selected ? 82 : 60, height: selected ? 82 : 60, border: "1px solid", borderColor: "divider", borderRadius: "50%", position: "relative", display: "grid", placeItems: "center",
         transform: selected ? "rotate(12deg)" : "none", transition: "width 560ms cubic-bezier(.16,.84,.2,1), height 560ms cubic-bezier(.16,.84,.2,1), transform 560ms cubic-bezier(.16,.84,.2,1)",

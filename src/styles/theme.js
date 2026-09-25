@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const motion = { fast: "160ms", normal: "260ms", slow: "380ms", easing: "cubic-bezier(.2,.75,.2,1)" };
+const motion = { fast: "160ms", normal: "260ms", enter: "300ms", slow: "380ms", easing: "cubic-bezier(.2,.75,.2,1)" };
 const palettes = {
     light: {
         mode: "light", primary: { main: "#17202A", contrastText: "#F7F3EA" }, secondary: { main: "#347CB2" }, success: { main: "#668A69" },
@@ -22,7 +22,7 @@ export const makeTheme = (mode) => {
     const palette = palettes[mode === "dark" ? "dark" : "light"];
     const isDark = palette.mode === "dark";
     return createTheme({
-        palette, space: palette.space, motion, shape: { borderRadius: 4 },
+        palette, space: palette.space, motion, fonts: { mono: "monospace", technical: monoStack }, shape: { borderRadius: 4 },
         typography: {
             fontFamily: fontStack,
             h1: { fontWeight: 900, letterSpacing: "-.052em", lineHeight: .92 },

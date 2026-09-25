@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
@@ -10,7 +9,9 @@ import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 
 import MissionPatch from "@/features/mission-ui/MissionPatch.jsx";
+import MissionSurface from "@/features/mission-ui/MissionSurface.jsx";
 import MotionPanel from "@/features/mission-ui/MotionPanel.jsx";
+import MissionSectionHeading from "@/features/mission-ui/MissionSectionHeading.jsx";
 import SectionHeader from "@/features/mission-ui/SectionHeader.jsx";
 import SpaceButton from "@/features/mission-ui/SpaceButton.jsx";
 import StatusIndicator from "@/features/mission-ui/StatusIndicator.jsx";
@@ -64,7 +65,7 @@ function ColorSwatches({ t }) {
                         <Stack direction="row" justifyContent="space-between" gap={1} sx={{ px: 1.2, py: 1 }}>
                             <Box sx={{ minWidth: 0 }}>
                                 <TechnicalLabel sx={{ fontSize: ".58rem", overflowWrap: "anywhere" }}>{t(`tokens.${key}`)}</TechnicalLabel>
-                                <Typography variant="caption" color="text.secondary" sx={{ fontFamily: "monospace", fontWeight: 800 }}>{color.toUpperCase()}</Typography>
+                                <Typography variant="caption" color="text.secondary" sx={{ fontFamily: (theme) => theme.fonts.mono, fontWeight: 800 }}>{color.toUpperCase()}</Typography>
                             </Box>
                             <Box aria-hidden="true" sx={{ width: 9, height: 9, flex: "0 0 auto", mt: 0.35, bgcolor: color, border: "1px solid", borderColor: "divider" }} />
                         </Stack>
@@ -133,9 +134,8 @@ export default function Style() {
                         <Typography variant="body2" color="text.secondary">{t("type.bodySecondary")}</Typography>
                         <Typography variant="overline">{t("type.mono")}</Typography>
                         <TechnicalLabel sx={{ overflowWrap: "anywhere" }}>{theme.typography.fontFamily}</TechnicalLabel>
-                        <TechnicalLabel sx={{ fontFamily: "'Roboto Mono', ui-monospace, monospace", overflowWrap: "anywhere" }}>
-                            Roboto Mono / ui-monospace / monospace
-                        </TechnicalLabel>
+                        <TechnicalLabel sx={{ fontFamily: (theme) => theme.fonts.technical, overflowWrap: "anywhere" }}>{theme.fonts.technical}</TechnicalLabel>
+                        <TechnicalLabel sx={{ fontFamily: (theme) => theme.fonts.mono, overflowWrap: "anywhere" }}>{theme.fonts.mono}</TechnicalLabel>
                     </Stack>
                 </Paper>
             </ShowcaseSection>
@@ -164,14 +164,15 @@ export default function Style() {
                             <Chip label={t("surfaces.chip")} size="small" color="primary" variant="outlined" />
                         </Stack>
                     </MotionPanel>
-                    <Card variant="outlined" sx={{ p: 2.5, borderRadius: 0 }}>
+                    <MissionSurface sx={{ p: 2.5, borderRadius: 0 }}>
                         <Stack spacing={1.5} alignItems="flex-start">
-                            <TechnicalLabel>{t("surfaces.cardLabel")}</TechnicalLabel>
+                            <TechnicalLabel>{t("surfaces.staticPanelLabel")}</TechnicalLabel>
                             <Typography variant="h5">{t("surfaces.panelCopy")}</Typography>
                             <MissionPatch label={t("surfaces.patch")} size="sm" />
                         </Stack>
-                    </Card>
+                    </MissionSurface>
                 </Box>
+                <MissionSectionHeading code="REF-04" label={t("surfaces.headingLabel")} title={t("surfaces.headingTitle")} />
             </ShowcaseSection>
 
             <ShowcaseSection id="style-graphics" section={t("sections.graphics", { returnObjects: true })}>
@@ -196,10 +197,11 @@ export default function Style() {
 
             <ShowcaseSection id="style-motion" section={t("sections.motion", { returnObjects: true })}>
                 <Paper variant="outlined" sx={{ p: { xs: 2, md: 2.5 }, borderRadius: 0 }}>
-                    <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(5, 1fr)" }, gap: 2 }}>
+                    <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(3, 1fr)", lg: "repeat(6, 1fr)" }, gap: 2 }}>
                         {[
                             ["fast", t("motion.fast"), theme.motion.fast],
                             ["normal", t("motion.normal"), theme.motion.normal],
+                            ["enter", t("motion.enter"), theme.motion.enter],
                             ["slow", t("motion.slow"), theme.motion.slow],
                             ["radius", t("motion.radius"), `${theme.shape.borderRadius}px`],
                             ["spacing", t("motion.spacing"), theme.spacing(1)],

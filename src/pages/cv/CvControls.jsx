@@ -16,7 +16,7 @@ import SpaceButton from "../../features/mission-ui/SpaceButton.jsx";
 import { cvActionButtonSx } from "./cv.styles.js";
 
 const cvToggleLabelSx = {
-    fontFamily: "monospace",
+    fontFamily: (theme) => theme.fonts.mono,
     fontSize: ".56rem",
     fontWeight: 700,
     letterSpacing: ".055em",
@@ -79,7 +79,7 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                 sx={{
                     mb: 0.65,
                     color: "space.blue",
-                    fontFamily: "monospace",
+                    fontFamily: (theme) => theme.fonts.mono,
                     fontSize: ".6rem",
                     fontWeight: 800,
                     letterSpacing: ".15em",
@@ -121,7 +121,7 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                 px: 1.5,
                                 py: 0.55,
                                 minWidth: 96,
-                                fontFamily: "monospace",
+                                fontFamily: (theme) => theme.fonts.mono,
                                 fontSize: ".59rem",
                                 textTransform: "uppercase",
                                 letterSpacing: ".08em",

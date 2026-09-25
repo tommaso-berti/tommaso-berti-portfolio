@@ -26,6 +26,7 @@ Compact repository map for fast navigation.
 - `src/pages/about/`: localized personnel identity plus the six-module About system, including the credential, technical blueprint, career timeline, working method, and hobbies modules
 - `src/pages/systems/`: localized development environment page with interactive AI workflow and personal VPS views
 - `src/pages/style/Style.jsx`: bilingual visual reference for the live design system, available directly at `/style`
+- `src/styles/theme.js` and `src/features/mission-ui/`: MUI design tokens plus shared mission section headings, static surfaces, labels, and controls
 - `src/hooks/useLatestReleaseNotes.js`: release-notes data flow
 - `src/config/brandIcons.js`: centralized icon mapping
 

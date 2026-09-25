@@ -79,7 +79,7 @@ export default function Layout() {
                     pt: { xs: "10.5rem", lg: "6.8rem" },
                     pb: { xs: 5, md: 7 },
                     minHeight: "calc(100dvh - 128px)",
-                    animation: "panelEnter 300ms cubic-bezier(.2,.75,.2,1)",
+                    animation: (theme) => `panelEnter ${theme.motion.enter} ${theme.motion.easing}`,
                 }}
             >
                 <Outlet />

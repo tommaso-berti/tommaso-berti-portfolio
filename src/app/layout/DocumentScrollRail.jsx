@@ -79,7 +79,7 @@ export default function DocumentScrollRail() {
     return (
         <Box component="aside" aria-label={t("scrollRail.label", { page: railTitle })} sx={{ display: { xs: "none", xl: "flex" }, position: "fixed", top: "9rem", left: "calc(50% - 630px)", zIndex: 2, minHeight: "calc(100vh - 12rem)", justifyContent: "center", width: 32 }}>
             <Stack alignItems="center" spacing={2} sx={{ position: "relative", height: "min(620px, calc(100vh - 14rem))", py: 1 }}>
-                <Typography sx={{ writingMode: "vertical-rl", transform: "rotate(180deg)", color: "text.secondary", fontFamily: "monospace", fontSize: ".48rem", fontWeight: 800, letterSpacing: ".15em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+                <Typography sx={{ writingMode: "vertical-rl", transform: "rotate(180deg)", color: "text.secondary", fontFamily: (theme) => theme.fonts.mono, fontSize: ".48rem", fontWeight: 800, letterSpacing: ".15em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
                     {railTitle}
                 </Typography>
                 <Box sx={{ position: "relative", flex: 1, width: 16, minHeight: 240 }}>

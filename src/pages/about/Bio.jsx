@@ -30,7 +30,7 @@ export default function Bio({ embedded = false, systems = [], telemetry = [] }) 
                 <Stack spacing={1.2} sx={{ maxWidth: 760 }}>
                     <Typography component={embedded ? "h3" : "h2"} variant={embedded ? "h4" : "h3"}>{t("title")}</Typography>
                 </Stack>
-                <Typography color="text.secondary" sx={{ fontFamily: "monospace", fontSize: ".62rem", letterSpacing: ".1em", textTransform: "uppercase", flexShrink: 0 }}>{t("credential.moduleLabel")}</Typography>
+                <Typography color="text.secondary" sx={{ fontFamily: (theme) => theme.fonts.mono, fontSize: ".62rem", letterSpacing: ".1em", textTransform: "uppercase", flexShrink: 0 }}>{t("credential.moduleLabel")}</Typography>
             </Stack>
             <PersonnelCredential profile={profile} stack={getCredentialStack()} systems={systems} telemetry={telemetry} bioDescription={t("description")} t={t} />
         </Stack>

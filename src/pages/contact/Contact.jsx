@@ -4,6 +4,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import MotionPanel from '@/features/mission-ui/MotionPanel.jsx';
 import SpaceButton from '@/features/mission-ui/SpaceButton.jsx';
@@ -97,6 +98,7 @@ const fieldLabelSx = {
 
 export default function Contact() {
   const { t, i18n } = useTranslation('pages', { keyPrefix: 'contact' });
+  const theme = useTheme();
   const [values, setValues] = useState(initialValues);
   const [hoveredChannel, setHoveredChannel] = useState('email');
   const [activeTopic, setActiveTopic] = useState('collaboration');
@@ -219,7 +221,7 @@ export default function Contact() {
                         component="strong"
                         sx={{
                           display: 'block',
-                          fontFamily: 'monospace',
+                          fontFamily: (theme) => theme.fonts.mono,
                           fontSize: '.75rem',
                           fontWeight: 800,
                           letterSpacing: '.12em',
@@ -301,7 +303,7 @@ export default function Contact() {
                   rx="15"
                   ry="7"
                   fill="none"
-                  stroke="var(--mui-palette-space-orange, #df733d)"
+                  stroke={theme.space.orange}
                   strokeWidth="1"
                   transform="rotate(-24 21 21)"
                 />
@@ -310,7 +312,7 @@ export default function Contact() {
                   cy="14.6"
                   r="3.2"
                   fill="currentColor"
-                  stroke="var(--mui-palette-background-paper, #f7f4ec)"
+                  stroke={theme.palette.background.paper}
                   strokeWidth="1.5"
                 />
               </Box>
@@ -362,7 +364,7 @@ export default function Contact() {
                       color: isActive ? 'space.blue' : 'text.secondary',
                       px: 1.25,
                       py: 0.9,
-                      fontFamily: 'monospace',
+                      fontFamily: (theme) => theme.fonts.mono,
                       fontSize: '.62rem',
                       fontWeight: 800,
                       letterSpacing: '.1em',
@@ -446,7 +448,7 @@ export default function Contact() {
                   px: 1.5,
                   py: 1.25,
                   color: 'text.secondary',
-                  fontFamily: 'monospace',
+                  fontFamily: (theme) => theme.fonts.mono,
                   fontSize: '.62rem',
                   fontWeight: 800,
                   letterSpacing: '.1em',
@@ -470,7 +472,7 @@ export default function Contact() {
                   statusKey === 'ready' || statusKey === 'handoff'
                     ? 'success.main'
                     : 'text.secondary',
-                fontFamily: 'monospace',
+                fontFamily: (theme) => theme.fonts.mono,
                 fontSize: '.62rem',
                 fontWeight: 800,
                 letterSpacing: '.08em',

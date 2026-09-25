@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { alpha, useTheme } from "@mui/material/styles";
 import { getBrandIconDefinition } from "@/config/brandIcons.js";
 import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 import { getTechnicalBlueprint, TECH_BLUEPRINTS } from "./technicalBlueprints.config.js";
@@ -43,6 +44,7 @@ function NodeCard({ node, blueprintId, active, onSelect, setCardRef, t }) {
 }
 
 export default function TechnicalBlueprintPanel({ t, showHeader = true }) {
+    const theme = useTheme();
     const [activeBlueprintId, setActiveBlueprintId] = useState(TECH_BLUEPRINTS[0].id);
     const [activeNodeId, setActiveNodeId] = useState(TECH_BLUEPRINTS[0].nodes[0].id);
     const [paths, setPaths] = useState([]);
@@ -85,7 +87,7 @@ export default function TechnicalBlueprintPanel({ t, showHeader = true }) {
                     </Box>
                     <Stack spacing={1.25} sx={{ zIndex: 2, justifyContent: "space-around" }}>{blueprint.nodes.filter((node) => node.side === "right").map((node) => <NodeCard key={node.id} node={node} blueprintId={blueprint.id} active={node.id === activeNodeId} onSelect={setActiveNodeId} setCardRef={(id, element) => element ? cardRefs.current.set(id, element) : cardRefs.current.delete(id)} t={t} />)}</Stack>
                     <Box component="svg" aria-hidden="true" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1, display: { xs: "none", md: "block" } }}>
-                        {paths.map((path) => <path key={path.id} d={path.d} fill="none" stroke={path.id === activeNodeId ? "#DF733D" : "rgba(16,27,36,.38)"} strokeWidth={path.id === activeNodeId ? 1.8 : 1.1} strokeDasharray="3 5" vectorEffect="non-scaling-stroke" />)}
+                        {paths.map((path) => <path key={path.id} d={path.d} fill="none" stroke={path.id === activeNodeId ? theme.space.orange : alpha(theme.palette.text.primary, .38)} strokeWidth={path.id === activeNodeId ? 1.8 : 1.1} strokeDasharray="3 5" vectorEffect="non-scaling-stroke" />)}
                     </Box>
                 </Box>
             </Box>

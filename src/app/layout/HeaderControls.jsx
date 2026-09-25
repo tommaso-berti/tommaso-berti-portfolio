@@ -65,7 +65,7 @@ function PopoverShell({ anchorEl, onClose, onMouseEnter, onMouseLeave, title, co
                     onMouseLeave={onMouseLeave}
                     sx={{ width: minWidth, maxWidth: "calc(100vw - 32px)", p: 1, borderColor: "divider", borderRadius: 0, boxShadow: "0 12px 28px rgba(23,32,42,.14)" }}
                 >
-                    <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: .75, pb: .9, borderBottom: "1px solid", borderColor: "divider", color: "text.secondary", fontFamily: "monospace", fontSize: ".62rem", fontWeight: 800, letterSpacing: ".13em", textTransform: "uppercase" }}>
+                    <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: .75, pb: .9, borderBottom: "1px solid", borderColor: "divider", color: "text.secondary", fontFamily: (theme) => theme.fonts.mono, fontSize: ".62rem", fontWeight: 800, letterSpacing: ".13em", textTransform: "uppercase" }}>
                         <span>{title}</span>
                         {code ? <Box component="span" sx={{ color: ACCENTS[accent] }}>{code}</Box> : <Box component="span" sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "space.green", boxShadow: "0 0 0 3px color-mix(in srgb, currentColor 18%, transparent)" }} />}
                     </Stack>
@@ -76,7 +76,7 @@ function PopoverShell({ anchorEl, onClose, onMouseEnter, onMouseLeave, title, co
     );
 }
 
-const itemSx = { width: "100%", minHeight: 38, px: 1, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2, color: "text.primary", fontFamily: "monospace", fontSize: ".68rem", fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", textDecoration: "none", "&:hover": { bgcolor: "action.hover" } };
+const itemSx = { width: "100%", minHeight: 38, px: 1, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2, color: "text.primary", fontFamily: (theme) => theme.fonts.mono, fontSize: ".68rem", fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", textDecoration: "none", "&:hover": { bgcolor: "action.hover" } };
 
 export default function HeaderControls() {
     const { i18n, t } = useTranslation("common");

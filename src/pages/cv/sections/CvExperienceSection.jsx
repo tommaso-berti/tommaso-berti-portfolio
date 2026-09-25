@@ -25,7 +25,7 @@ export default function CvExperienceSection({ experiences, isCompact, t }) {
                             breakInside: "avoid",
                         }}
                     >
-                        <Typography variant="caption" color="text.secondary" sx={{ pt: 0.35, fontFamily: "monospace", fontWeight: 700, letterSpacing: ".03em" }}>{item.year}</Typography>
+                        <Typography variant="caption" color="text.secondary" sx={{ pt: 0.35, fontFamily: (theme) => theme.fonts.mono, fontWeight: 700, letterSpacing: ".03em" }}>{item.year}</Typography>
                         <Box aria-hidden="true" sx={{ position: "relative", minHeight: isCompact ? 52 : 64, "&::before": { content: '""', position: "absolute", top: 5, left: 5, width: 8, height: 8, border: "2px solid", borderColor: "space.blue", bgcolor: "background.paper", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", top: 17, bottom: -10, left: 9, width: "1px", bgcolor: "divider" }, "[data-cv-timeline-entry]:last-of-type &::after": { display: "none" } }} />
                         <Box>
                             <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1.3 }}>{item.title}</Typography>

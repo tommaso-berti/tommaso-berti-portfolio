@@ -42,6 +42,7 @@
     "contact": "COMMS CHANNEL / OPEN",
     "cv": "CAREER RECORD / CV AVAILABLE",
     "blog": "FIELD NOTES / ARCHIVE READY",
+    "style": "STYLE REFERENCE / SYSTEM INDEXED",
     "notFound": "ROUTE ERROR / PAGE NOT FOUND"
   },
   "headerControls": {
@@ -65,6 +66,7 @@
       "contact": "06 // COMMUNICATION UPLINK",
       "cv": "07 // CV ARCHIVE",
       "blog": "08 // FIELD NOTES",
+      "style": "09 // STYLE REFERENCE",
       "notFound": "00 // LOST SIGNAL"
     }
   }

@@ -12,6 +12,7 @@ const Contact = lazy(() => import("@/pages/contact/Contact.jsx"));
 const Services = lazy(() => import("@/pages/services/Services.jsx"));
 const Systems = lazy(() => import("@/pages/systems/Systems.jsx"));
 const Cv = lazy(() => import("@/pages/cv/Cv.jsx"));
+const Style = lazy(() => import("@/pages/style/Style.jsx"));
 const NotFound = lazy(() => import("@/pages/not-found/NotFound.jsx"));
 
 /**
@@ -124,6 +125,13 @@ export const PAGE_DEFINITIONS = [
         breadcrumbContext: "cv",
         navKey: "cv",
         showInHomeMenu: true,
+        experimental: false,
+    },
+    {
+        id: "style",
+        path: "/style",
+        component: Style,
+        breadcrumbContext: "home",
         experimental: false,
     },
     {

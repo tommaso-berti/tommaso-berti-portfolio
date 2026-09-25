@@ -23,7 +23,8 @@ System-level notes for the portfolio application.
 - Layout layer (`src/app/layout/`):
   - Fixed mission header with subtle corner markers, horizontal primary navigation, borderless `HeaderControls` cluster linking to the customizable CV and localized language/theme popovers; the footer shows the latest published version and opens the release notes modal.
 - Page layer (`src/pages/`):
-  - Home, Projects, About, Services, Systems, Blog, Contact, CV, Project details
+  - Home, Projects, About, Services, Systems, Blog, Contact, CV, Style reference, Project details
+- `/style` is an unlisted, bilingual route documenting the active MUI palette, typography, shared components, graphics, and motion. Its SEO metadata uses `noindex, nofollow`; examples follow the active theme and reuse mission UI components.
 - Mission UI (`src/features/mission-ui/`):
   - Shared technical labels, color rails, original TB identity, orbital SVG, mission cards, capability cards, and restrained motion panels.
   - The MUI theme provides the light/deep-space palettes plus compact motion timing; CSS media queries and `useReducedMotion` keep all decorative motion optional.

@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const PAGES_SECTIONS = ["home", "contact", "about", "blog", "cv"];
+const PAGES_SECTIONS = ["home", "contact", "about", "blog", "cv", "style"];
 const PROJECT_IDS = ["codexpane", "ecommerce-rest-api", "artap", "portfolio", "logra"];
 
 function collectLeafPaths(node, basePath = "", output = []) {

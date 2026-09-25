@@ -25,7 +25,8 @@ export default function Layout() {
                         : pathname === "/systems" ? "systems"
                             : pathname === "/contact" ? "contact"
                                 : pathname === "/cv" ? "cv"
-                                    : pathname === "/blog" ? "blog"
+                                        : pathname === "/blog" ? "blog"
+                                            : pathname === "/style" ? "style"
                                         : "notFound";
 
     return (

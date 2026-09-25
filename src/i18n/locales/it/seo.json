@@ -39,6 +39,10 @@
     "cv": {
       "title": "CV | Tommaso Berti",
       "description": "CV interattivo di Tommaso Berti con esportazione PDF e impaginazione orientata ai recruiter."
+    },
+    "style": {
+      "title": "Guida di stile | Tommaso Berti",
+      "description": "Riferimento visivo per il design system del portfolio: colori, tipografia, componenti, grafica e movimento."
     }
   }
 }

@@ -26,6 +26,14 @@ test.describe("Portfolio navigation", () => {
         await expect(page.getByRole("link", { name: /^blog$/i })).toHaveCount(0);
     });
 
+    test("style reference is directly reachable, unlisted, and noindex", async ({ page }) => {
+        await page.goto("/style");
+        await expect(page.getByRole("heading", { name: /style reference|guida di stile/i, level: 1 })).toBeVisible();
+        await expect(page.locator('nav a[href="/style"]')).toHaveCount(0);
+        await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+        await expect(page.getByRole("heading", { name: /color system|sistema cromatico/i })).toBeVisible();
+    });
+
     test("About identity exposes the credential and blueprint systems", async ({ page }) => {
         await page.goto("/about#tech-skills");
         await expect(page.getByRole("heading", { name: /Mission credential|Credential di missione/i })).toBeVisible();

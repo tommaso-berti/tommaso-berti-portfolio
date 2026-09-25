@@ -11,19 +11,20 @@ function getPageKey(pathname) {
     if (pathname === "/") return "home";
     if (pathname.startsWith("/projects")) return "projects";
     const key = pathname.split("/").filter(Boolean)[0];
-    return ["about", "services", "systems", "contact", "cv", "blog"].includes(key) ? key : "notFound";
+    return ["about", "services", "systems", "contact", "cv", "blog", "style"].includes(key) ? key : "notFound";
 }
 
 export default function DocumentScrollRail() {
     const { pathname } = useLocation();
     const { t } = useTranslation("common");
+    const { t: tStyle } = useTranslation("pages", { keyPrefix: "style" });
     const { t: tAbout } = useTranslation("pages", { keyPrefix: "about" });
     const [progress, setProgress] = useState(0);
     const [sectionModel, setSectionModel] = useState({ items: [], maxScroll: 0, scrollable: false });
     const sectionModelRef = useRef(sectionModel);
     sectionModelRef.current = sectionModel;
     const pageKey = getPageKey(pathname);
-    const pageLabel = pageKey === "notFound" ? t("notFound.title") : t(`nav.${pageKey}`);
+    const pageLabel = pageKey === "notFound" ? t("notFound.title") : pageKey === "style" ? tStyle("title") : t(`nav.${pageKey}`);
     const railTitle = pageKey === "about" ? tAbout("personnel.archiveHeader") : t(`scrollRail.titles.${pageKey}`);
     const steps = t("scrollRail.steps", { returnObjects: true });
     const stepKey = Array.isArray(steps) ? steps.join("|") : String(steps);

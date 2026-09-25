@@ -19,6 +19,7 @@ const ROUTE_META_KEYS = [
     { match: (pathname) => pathname === "/contact", key: "contact" },
     { match: (pathname) => pathname === "/blog", key: "blog" },
     { match: (pathname) => pathname === "/cv", key: "cv" },
+    { match: (pathname) => pathname === "/style", key: "style" },
 ];
 
 function ensureMetaTag(attribute, name) {
@@ -115,6 +116,11 @@ export default function SeoMetaManager() {
         document.documentElement.lang = language;
 
         setMetaTag("name", "description", description);
+        if (matchedPageId === "style") {
+            setMetaTag("name", "robots", "noindex, nofollow");
+        } else {
+            document.head.querySelector('meta[name="robots"]')?.remove();
+        }
         setMetaTag("property", "og:title", title);
         setMetaTag("property", "og:description", description);
         setMetaTag("property", "og:type", pathname === "/" ? "website" : "article");
@@ -136,7 +142,7 @@ export default function SeoMetaManager() {
             `${canonicalUrl}${canonicalUrl.includes("?") ? "&" : "?"}lang=${alternateLocale}`
         );
         ensureAlternateLink("x-default").setAttribute("href", `${SITE_URL}/`);
-    }, [language, pathname, projectId, routeKey, t, tPages]);
+    }, [language, matchedPageId, pathname, projectId, routeKey, t, tPages]);
 
     return null;
 }

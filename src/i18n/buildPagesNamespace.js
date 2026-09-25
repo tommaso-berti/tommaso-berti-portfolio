@@ -12,5 +12,6 @@ export function buildPagesNamespace(sections) {
         projects: sections.projects,
         blog: sections.blog,
         cv: sections.cv,
+        style: sections.style,
     };
 }

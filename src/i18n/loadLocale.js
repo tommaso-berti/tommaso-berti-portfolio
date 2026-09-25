@@ -9,6 +9,7 @@ const PAGE_SECTION_LOADERS = {
     about: (lang) => import(`./locales/${lang}/pages/about.json`),
     blog: (lang) => import(`./locales/${lang}/pages/blog.json`),
     cv: (lang) => import(`./locales/${lang}/pages/cv.json`),
+    style: (lang) => import(`./locales/${lang}/pages/style.json`),
 };
 
 async function loadCoreNamespaces(lang) {

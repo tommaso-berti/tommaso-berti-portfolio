@@ -21,6 +21,7 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
     const orbitRefs = useRef(new Map());
     const backBodiesRef = useRef(null);
     const frontBodiesRef = useRef(null);
+    const frontOrbitsRef = useRef(null);
     const animationRef = useRef();
     const selectedRef = useRef(null);
     const stateRef = useRef({ yaw: -8, pitch: 7, targetYaw: -8, targetPitch: 7, paused: reducedMotion, started: performance.now(), pausedAt: 0, visible: true });
@@ -31,6 +32,7 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
     const [renderKey, setRenderKey] = useState(0);
     const configs = useMemo(() => items.map((item, index) => ({ ...item, orbit: createOrbitConfig(item, index) })), [items]);
     const selected = configs.find((item) => item.id === selectedId);
+    const renderOrbitPaths = (layer) => configs.map((item) => <g key={item.id}>{Array.from({ length: 88 }, (_, index) => <path key={index} ref={(node) => { if (node) { const paths = orbitRefs.current.get(item.id) || []; paths[index] = { ...paths[index], [layer]: node }; orbitRefs.current.set(item.id, paths); } }} fill="none" strokeLinecap="butt" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />)}</g>);
 
     useEffect(() => { selectedRef.current = selectedId; }, [selectedId]);
     useEffect(() => {
@@ -54,18 +56,28 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
             const elapsed = state.paused ? state.pausedAt : now - state.started;
             configs.forEach((item) => {
                 const active = item.id === selectedRef.current;
-                const paths = orbitRefs.current.get(item.id) || [];
-                paths.forEach((path, index) => {
+                    const paths = orbitRefs.current.get(item.id) || [];
+                    paths.forEach((path, index) => {
                     const a1 = (index / paths.length) * Math.PI * 2;
                     const a2 = ((index + 1) / paths.length) * Math.PI * 2;
                     const first = projectPoint(getOrbitPoint(item.orbit, a1), state.yaw, state.pitch, VIEWBOX.center);
                     const second = projectPoint(getOrbitPoint(item.orbit, a2), state.yaw, state.pitch, VIEWBOX.center);
-                    const frontness = smoothstep(-165, 165, (first.z + second.z) / 2);
+                    const depth = (first.z + second.z) / 2;
+                    const frontness = smoothstep(-165, 165, depth);
+                    const frontLayer = smoothstep(-8, 8, depth);
                     const gray = Math.round(145 - frontness * 48);
-                    path.setAttribute("d", `M ${first.x.toFixed(1)} ${first.y.toFixed(1)} L ${second.x.toFixed(1)} ${second.y.toFixed(1)}`);
-                    path.setAttribute("stroke", active ? item.orbit.accent : `rgb(${gray}, ${gray + 7}, ${gray + 10})`);
-                    path.setAttribute("opacity", String((active ? 0.3 : 0.19) + frontness * (active ? 0.25 : 0.18)));
-                    path.setAttribute("stroke-width", String((active ? 1.25 : 1.05) + frontness * 0.45));
+                    const d = `M ${first.x.toFixed(1)} ${first.y.toFixed(1)} L ${second.x.toFixed(1)} ${second.y.toFixed(1)}`;
+                    const stroke = active ? item.orbit.accent : `rgb(${gray}, ${gray + 7}, ${gray + 10})`;
+                    const opacity = (active ? 0.3 : 0.19) + frontness * (active ? 0.25 : 0.18);
+                    const width = (active ? 1.25 : 1.05) + frontness * 0.45;
+                    path.back.setAttribute("d", d);
+                    path.front.setAttribute("d", d);
+                    path.back.setAttribute("stroke", stroke);
+                    path.front.setAttribute("stroke", stroke);
+                    path.back.setAttribute("opacity", String(opacity * (1 - frontLayer)));
+                    path.front.setAttribute("opacity", String(opacity * frontLayer));
+                    path.back.setAttribute("stroke-width", String(width));
+                    path.front.setAttribute("stroke-width", String(width));
                 });
                 const point = projectPoint(getOrbitPoint(item.orbit, item.orbit.phase + elapsed * item.orbit.speed), state.yaw, state.pitch, VIEWBOX.center);
                 const body = bodyRefs.current.get(item.id);
@@ -133,11 +145,11 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
         {!decorative && <Box sx={{ position: "absolute", zIndex: 5, top: 14, left: 16, right: { xs: 16, md: 220 } }}><TechnicalLabel>{labels.title}</TechnicalLabel></Box>}
         {!decorative && <Stack direction="row" gap={.35} flexWrap="wrap" sx={{ position: "absolute", zIndex: 5, top: 10, right: 12, maxWidth: { xs: "calc(100% - 24px)", sm: "none" }, p: .35, border: "1px solid", borderTop: "3px solid", borderColor: "divider", borderTopColor: selected?.orbit.accent || "space.blue", bgcolor: "rgba(241,237,227,.82)" }}><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={togglePause} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{paused ? labels.play : labels.pause}</SpaceButton><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={fullscreen} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{nativeFullscreen || expanded ? labels.exit : labels.fullscreen}</SpaceButton></Stack>}
         <svg viewBox="0 0 920 600" role="img" aria-label={labels.title} style={{ width: "100%", height: "100%", minHeight: "inherit", display: "block" }}>
-            <defs><filter id="celestial-shadow"><feDropShadow dx="0" dy="3" stdDeviation="3" floodOpacity=".2"/></filter></defs>
             <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y}) scale(${decorative ? 1 : 1.22}) translate(${-VIEWBOX.center.x} ${-VIEWBOX.center.y})`}>
-            <g>{configs.map((item) => <g key={item.id}>{Array.from({ length: 88 }, (_, index) => <path key={index} ref={(node) => { if (node) { const paths = orbitRefs.current.get(item.id) || []; paths[index] = node; orbitRefs.current.set(item.id, paths); } }} fill="none" strokeLinecap="butt" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />)}</g>)}</g>
+            <g>{renderOrbitPaths("back")}</g>
             <g ref={backBodiesRef}/>
-            <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="72" fill="rgba(216,170,76,.08)"/><circle r="47" fill="none" stroke="rgba(114,94,54,.19)" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.28)" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.35)" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.26)" strokeDasharray="8 9" transform="rotate(82)"/><ellipse rx="15" ry="43" fill="none" stroke="rgba(89,94,94,.22)" strokeDasharray="7 9"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><image href="/assets/celestial-project-map/sun.png" x="-34" y="-34" width="68" height="68" preserveAspectRatio="xMidYMid meet" filter="url(#celestial-shadow)"/><text y="67" textAnchor="middle" fontSize="8" fontWeight="800" letterSpacing="2" fill="#2b3a49">TB // DYSON CORE</text><text y="80" textAnchor="middle" fontSize="6.5" letterSpacing="1.8" fill="#858a88">DEVELOPER SYSTEM</text></>}</g>
+            <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="47" fill="none" stroke="rgba(114,94,54,.46)" strokeWidth="1.15" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.55)" strokeWidth="1.15" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.68)" strokeWidth="1.2" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.58)" strokeWidth="1.2" strokeDasharray="8 9" transform="rotate(82)"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><image href="/assets/celestial-project-map/sun.png" x="-34" y="-34" width="68" height="68" preserveAspectRatio="xMidYMid meet"/><text y="67" textAnchor="middle" fontSize="8" fontWeight="800" letterSpacing="2" fill="#2b3a49">TB // DYSON CORE</text><text y="80" textAnchor="middle" fontSize="6.5" letterSpacing="1.8" fill="#858a88">DEVELOPER SYSTEM</text></>}</g>
+            <g ref={frontOrbitsRef}>{renderOrbitPaths("front")}</g>
             <g ref={frontBodiesRef}>{configs.map((item) => {
                 const bodySize = (item.orbit.size + 5) * 2;
                 return <g key={item.id} ref={(node) => { if (node) bodyRefs.current.set(item.id, node); }} {...(!decorative && { role: "button", tabIndex: "0", "aria-label": item.name, "aria-pressed": item.id === selectedId, onClick: () => select(item.id), onKeyDown: (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); select(item.id); } } })} style={{ cursor: decorative ? "default" : "pointer", transformOrigin: "0 0" }}><circle r={bodySize / 2 + 2} fill="none" stroke={item.orbit.accent} strokeWidth="1.1" opacity={item.id === selectedId ? .75 : 0}/><image href={item.orbit.bodyImage} x={-bodySize / 2} y={-bodySize / 2} width={bodySize} height={bodySize} preserveAspectRatio="xMidYMid meet"/><circle r={bodySize / 2 + 3} fill="transparent" pointerEvents="all" /></g>;

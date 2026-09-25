@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import i18n from "../../i18n/index.js";
+import i18n from "../../i18n";
 import { ensureProjectsNamespace } from "../../i18n/loadLocale.js";
 import { resolvePageDefinition } from "../routing/appDefinitions.js";
 

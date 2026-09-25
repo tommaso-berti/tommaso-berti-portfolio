@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Paper from "@mui/material/Paper";
@@ -15,6 +15,7 @@ const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 export default function CelestialProjectMap({ items, labels, decorative = false }) {
     const reducedMotion = useReducedMotion();
+    const orbitClipId = `dyson-orbit-front-${useId().replaceAll(":", "")}`;
     const stageRef = useRef(null);
     const cardRef = useRef(null);
     const bodyRefs = useRef(new Map());
@@ -149,6 +150,8 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
             <g>{renderOrbitPaths("back")}</g>
             <g ref={backBodiesRef}/>
             <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="47" fill="none" stroke="rgba(114,94,54,.46)" strokeWidth="1.15" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.55)" strokeWidth="1.15" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.68)" strokeWidth="1.2" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.58)" strokeWidth="1.2" strokeDasharray="8 9" transform="rotate(82)"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><image href="/assets/celestial-project-map/sun.png" x="-34" y="-34" width="68" height="68" preserveAspectRatio="xMidYMid meet"/><text y="67" textAnchor="middle" fontSize="8" fontWeight="800" letterSpacing="2" fill="#2b3a49">TB // DYSON CORE</text><text y="80" textAnchor="middle" fontSize="6.5" letterSpacing="1.8" fill="#858a88">DEVELOPER SYSTEM</text></>}</g>
+            <defs><clipPath id={orbitClipId} clipPathUnits="userSpaceOnUse"><rect x="-55" y="0" width="110" height="55" /></clipPath></defs>
+            <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`} clipPath={`url(#${orbitClipId})`}><circle r="47" fill="none" stroke="rgba(114,94,54,.46)" strokeWidth="1.15" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.55)" strokeWidth="1.15" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.68)" strokeWidth="1.2" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.58)" strokeWidth="1.2" strokeDasharray="8 9" transform="rotate(82)"/></g>
             <g ref={frontOrbitsRef}>{renderOrbitPaths("front")}</g>
             <g ref={frontBodiesRef}>{configs.map((item) => {
                 const bodySize = (item.orbit.size + 5) * 2;

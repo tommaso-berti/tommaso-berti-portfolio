@@ -1,5 +1,10 @@
 const GOLDEN_ANGLE = 137.507764;
 const PALETTE = ["#347CB2", "#DF733D", "#D0AB3D", "#C94F4A", "#668A69"];
+const PLANET_IMAGES = ["neptune.png", "mars.png", "mercury.png", "mars.png", "earth.png"];
+const PLANET_IMAGE_BY_ACCENT = Object.fromEntries(PALETTE.map((accent, index) => [
+    accent,
+    `/assets/celestial-project-map/${PLANET_IMAGES[index]}`,
+]));
 
 export function getCelestialAccent(project, index = 0) {
     return project?.accent || PALETTE[index % PALETTE.length];
@@ -8,6 +13,7 @@ export function getCelestialAccent(project, index = 0) {
 export function createOrbitConfig(project, index) {
     const orbit = project.orbit || {};
     const wave = Math.sin((index + 1) * 1.91);
+    const accent = getCelestialAccent(project, index);
     return {
         radius: orbit.radius ?? 128 + index * 42,
         phase: orbit.phase ?? ((index * GOLDEN_ANGLE) * Math.PI) / 180,
@@ -16,7 +22,8 @@ export function createOrbitConfig(project, index) {
         tiltY: orbit.tiltY ?? Math.cos((index + 1) * 1.37) * 16,
         tiltZ: orbit.tiltZ ?? ((index * 43) % 72) - 36,
         size: orbit.size ?? Math.max(9, 15 - index * 0.65),
-        accent: getCelestialAccent(project, index),
+        accent,
+        bodyImage: PLANET_IMAGE_BY_ACCENT[accent.toUpperCase()] || PLANET_IMAGE_BY_ACCENT[PALETTE[index % PALETTE.length]],
     };
 }
 

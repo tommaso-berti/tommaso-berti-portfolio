@@ -24,6 +24,7 @@ function NodeCard({ node, blueprintId, active, onSelect, setCardRef, t }) {
             component="button"
             ref={(element) => setCardRef(node.id, element)}
             onClick={() => onSelect(node.id)}
+            onMouseEnter={() => onSelect(node.id)}
             onFocus={() => onSelect(node.id)}
             aria-pressed={active}
             sx={{ display: "block", width: "100%", minWidth: 0, p: { xs: 1, md: 1.25 }, textAlign: "left", border: "1px solid", borderColor: active ? "text.primary" : "divider", bgcolor: active ? "background.paper" : (theme) => theme.palette.mode === "dark" ? "rgba(29,45,58,.92)" : "rgba(247,243,234,.72)", color: "text.primary", position: "relative", transition: "transform 160ms ease, border-color 160ms ease, background-color 160ms ease", "&::before": { content: '""', position: "absolute", left: -1, top: -1, width: active ? 64 : 34, height: 3, bgcolor: active ? "space.orange" : "space.blue", transition: "width 160ms ease" }, "&:hover": { transform: "translateY(-2px)", borderColor: "text.primary" }, "&:focus-visible": { outline: "2px solid", outlineColor: "space.blue", outlineOffset: 2 } }}

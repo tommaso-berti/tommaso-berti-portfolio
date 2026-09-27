@@ -110,7 +110,6 @@
     "languages-markup": "Linguaggi / Markup",
     "tools": "Strumenti",
     "eyebrow": "02 // SISTEMI TECNICI",
-    "lead": "Una tavola tecnica alla volta: seleziona un sistema per ispezionare le tecnologie collegate ai nodi verificati del blueprint.",
     "tabsLabel": "Sistemi blueprint tecnici",
     "tabs": {
       "frontend": "Frontend",

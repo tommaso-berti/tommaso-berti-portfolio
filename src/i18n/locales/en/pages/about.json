@@ -110,7 +110,6 @@
     "languages-markup": "Languages / Markup",
     "tools": "Tools",
     "eyebrow": "02 // TECHNICAL SYSTEMS",
-    "lead": "One technical drawing at a time: select a system to inspect the technologies connected to its verified blueprint nodes.",
     "tabsLabel": "Technical blueprint systems",
     "tabs": {
       "frontend": "Frontend",

@@ -36,14 +36,14 @@ function IdentityModule({ t, telemetry }) {
 
 function TechnicalModule({ t }) {
     return <Stack spacing={1.5}>
-        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.technical")} title={t("tech-skills.title")} lead={t("tech-skills.lead")} />
+        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.technical")} title={t("tech-skills.title")} />
         <TechSkills embedded />
     </Stack>;
 }
 
 function CertificationsModule({ t }) {
     return <Stack spacing={3}>
-        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.certifications")} title={t("certifications.title")} lead={t("certifications.subtitle")} />
+        <AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.certifications")} title={t("certifications.title")} />
         <CertificationsSection embedded />
     </Stack>;
 }

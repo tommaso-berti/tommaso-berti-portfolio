@@ -1,10 +1,16 @@
 {
+  "footer": {
+    "tagline": "BUILD // EXPLORE // IMPROVE",
+    "location": "BASED ON EARTH // AVAILABLE REMOTELY"
+  },
   "nav": {
     "home": "Home",
     "projects": "Projects",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
+    "services": "Services",
+    "systems": "Systems",
     "cv": "CV"
   },
   "notFound": {
@@ -18,6 +24,54 @@
     "toggleThemeDark": "Switch to dark mode",
     "toggleLanguageToIt": "Switch language to Italian",
     "toggleLanguageToEn": "Switch language to English",
-    "openReleaseNotes": "Open release notes"
+    "openReleaseNotes": "Open release notes",
+    "openCustomCv": "Open and customize the CV",
+    "primaryNavigation": "Primary navigation",
+    "systemStatus": "System status",
+    "breadcrumb": "Breadcrumb",
+    "closePreview": "Close preview"
+  },
+  "preview": {
+    "title": "Preview",
+    "load": "Load preview",
+    "loadTooltip": "Load the preview only when needed to avoid unnecessary API calls."
+  },
+  "pageClosingLines": {
+    "home": "PORTFOLIO SYSTEM / ONLINE",
+    "projects": "PROJECT ARCHIVE / INDEX READY",
+    "projectDetails": "PROJECT DOSSIER / SYSTEM ONLINE",
+    "about": "PERSONNEL FILE / IDENTITY VERIFIED",
+    "services": "SOFTWARE SERVICES / READY FOR DELIVERY",
+    "systems": "DEVELOPMENT SYSTEMS / OPERATIONAL",
+    "contact": "COMMS CHANNEL / OPEN",
+    "cv": "CAREER RECORD / CV AVAILABLE",
+    "blog": "FIELD NOTES / ARCHIVE READY",
+    "style": "STYLE REFERENCE / SYSTEM INDEXED",
+    "notFound": "ROUTE ERROR / PAGE NOT FOUND"
+  },
+  "headerControls": {
+    "languageTooltip": "Lang",
+    "languageTitle": "Language channel",
+    "italian": "Italiano",
+    "english": "English",
+    "themeTitle": "Display mode",
+    "lightTheme": "Light mode",
+    "darkTheme": "Dark mode"
+  },
+  "scrollRail": {
+    "label": "{{page}} document scroll index",
+    "step": "{{page}} {{step}}",
+    "steps": ["Opening", "Core", "Details", "Closing"],
+    "titles": {
+      "home": "01 // EXPLORATION LOG / TB-DEV / 2026",
+      "projects": "02 // MISSION ARCHIVE",
+      "services": "04 // SERVICES",
+      "systems": "05 // SYSTEMS",
+      "contact": "06 // CONTACT",
+      "cv": "07 // CV ARCHIVE",
+      "blog": "08 // FIELD NOTES",
+      "style": "09 // STYLE REFERENCE",
+      "notFound": "00 // LOST SIGNAL"
+    }
   }
 }

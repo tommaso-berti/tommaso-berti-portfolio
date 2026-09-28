@@ -1,12 +1,59 @@
 {
   "title": "Contattami",
-  "eyebrow": "Collaborazioni e opportunita",
-  "subtitle": "Se vuoi discutere una collaborazione, un progetto o una nuova opportunita professionale, scrivimi pure: valuto ogni contatto con attenzione.",
+  "missionEyebrow": "06 // CONTATTI",
+  "missionNote": "STATO CANALE // APERTO",
+  "formTitle": "Mettiamoci in contatto.",
+  "consoleTitle": "Console di trasmissione",
+  "signalLabel": "Segnale nominale",
+  "channels": {
+    "email": "Canale principale · contatto diretto",
+    "linkedin": "Lavoro · opportunità professionali",
+    "github": "Codice · progetti · collaborazione tecnica"
+  },
+  "topics": {
+    "collaboration": "COLLABORAZIONE",
+    "project": "PROGETTO",
+    "opportunity": "OPPORTUNITÀ",
+    "other": "ALTRO"
+  },
+  "telemetry": {
+    "activeLink": "ACTIVE LINK",
+    "channelState": "CHANNEL STATE",
+    "region": "REGION",
+    "responseMode": "RESPONSE MODE",
+    "ready": "READY",
+    "async": "ASYNC"
+  },
+  "subjectLabel": "OGGETTO",
+  "reset": "CANCELLA MESSAGGIO",
+  "fieldLabels": {
+    "name": "NOME / CALL SIGN",
+    "email": "EMAIL / RETURN CHANNEL",
+    "message": "MESSAGGIO / PAYLOAD"
+  },
+  "placeholders": {
+    "name": "Il tuo nome",
+    "email": "nome@dominio.it",
+    "message": "Raccontami cosa hai in mente..."
+  },
+  "status": {
+    "incomplete": "SYSTEM STANDBY // MESSAGGIO INCOMPLETO",
+    "ready": "SYSTEM READY // PAYLOAD COMPLETO",
+    "handoff": "PAYLOAD PRONTO // HANDOFF EMAIL AVVIATO"
+  },
+  "availability": "Disponibile per nuovi progetti, collaborazioni e opportunità professionali.",
+  "name": "Nome",
+  "email": "Email",
+  "message": "Messaggio",
+  "send": "Trasmetti messaggio",
+  "formHint": "Apre l'app email con il messaggio già compilato.",
+  "eyebrow": "Collaborazioni e opportunità",
+  "subtitle": "Se vuoi parlarmi di un progetto, di una collaborazione o di un’opportunità professionale, scrivimi pure. Ti risponderò appena possibile.",
   "emailCta": "Scrivimi via email",
   "emailHelper": "Canale principale per collaborazioni e progetti. Se possibile, includi obiettivo e contesto del tuo messaggio.",
   "linkedinCta": "Apri LinkedIn",
   "linkedinDescription": "Per networking professionale, aggiornamenti rapidi e contatti diretti.",
-  "resumeCta": "Scarica CV",
+  "resumeCta": "Apri CV",
   "resumeDescription": "Versione aggiornata del mio profilo con esperienza, stack e competenze.",
   "socialTitle": "Link utili",
   "responseTime": "Di solito rispondo entro 24-48 ore."

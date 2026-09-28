@@ -1,6 +1,6 @@
 {
   "title": "Logra",
-  "description": "App full-stack di media tracking, gaming-first, costruita per backlog, progressi, discover, import/export e operazioni demo affidabili.",
+  "description": "Un’app full-stack nata per tenere traccia di videogiochi e altri contenuti, organizzando backlog e progressi in un unico posto. Nel tempo ho aggiunto ricerca, import ed export dei dati e una modalità demo che permette di provare l’app senza configurazioni particolari.",
   "details": {
     "introduction": {
       "title": "Logra",
@@ -15,7 +15,7 @@
       "L’import CSV/XLSX aggiunge una seconda meccanica di matching: preflight, risoluzione candidati, override manuali e normalizzazione piattaforme riducono errori quando i dati arrivano dall’esterno."
     ],
     "lessons_learned": [
-      "Una UI orientata al workflow reale dell’utente vale più di una UI genericamente curata: riduce attrito e rende il prodotto usabile tutti i giorni.",
+      "Una UI progettata intorno alle abitudini reali dell’utente vale più di una UI solo ben rifinita: rende il prodotto più semplice da usare ogni giorno.",
       "Separare frontend, API e contratti condivisi è fondamentale quando auth, import, admin e demo evolvono in parallelo.",
       "Le operazioni contano quanto le feature: seed, reset demo, release notes e deploy versionati hanno un impatto diretto sulla credibilità del prodotto.",
       "Guided tour, feedback contestuale e selettori stabili migliorano non solo UX ma anche debug, QA e iterazione futura."
@@ -92,7 +92,7 @@
       "Mantenere allineati frontend, API e contratti condivisi mentre auth, admin, import/export e demo evolvevano contemporaneamente.",
       "Separare bene demo locale e sessioni reali, così il portfolio pubblico restasse affidabile senza semplificare troppo il prodotto vero.",
       "Gestire import CSV/XLSX con matching, override manuali e normalizzazione piattaforme senza trasformare il flusso in un wizard fragile.",
-      "Bilanciare densità informativa delle card con UX veloce, evitando attrito su edit mode, filtri, quick actions e guided tour contestuali.",
+      "Bilanciare la quantità di informazioni nelle card con una UX veloce, mantenendo semplici edit mode, filtri, quick actions e guided tour contestuali.",
       "Conciliare qualità UX e stabilità operativa tra ambiente locale, CI/CD, deploy versionati e manutenzioni controllate."
     ],
     "roadmap": {
@@ -107,7 +107,7 @@
       "v2": {
         "title": "v2.0.0",
         "content": [
-          "Espandere onboarding con guided tour multi-pagina e tour contestuali su card e stats per ridurre l’attrito iniziale.",
+          "Espandere onboarding con guided tour multi-pagina e tour contestuali su card e stats, per aiutare i nuovi utenti a iniziare.",
           "Approfondire integrazione IGDB con ingest sync, segmentazione dati, fallback Discover e controlli più chiari sulla qualità catalogo.",
           "Rafforzare sicurezza e operazioni con documentazione più allineata e procedure release più affidabili."
         ]

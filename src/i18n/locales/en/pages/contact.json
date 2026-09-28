@@ -1,12 +1,59 @@
 {
   "title": "Contact me",
+  "missionEyebrow": "06 // CONTACT",
+  "missionNote": "CHANNEL STATUS // OPEN",
+  "formTitle": "Let's get in touch.",
+  "consoleTitle": "Transmission console",
+  "signalLabel": "Signal nominal",
+  "channels": {
+    "email": "Primary channel · direct contact",
+    "linkedin": "Work · professional opportunities",
+    "github": "Code · projects · technical collaboration"
+  },
+  "topics": {
+    "collaboration": "COLLABORATION",
+    "project": "PROJECT",
+    "opportunity": "OPPORTUNITY",
+    "other": "OTHER"
+  },
+  "telemetry": {
+    "activeLink": "ACTIVE LINK",
+    "channelState": "CHANNEL STATE",
+    "region": "REGION",
+    "responseMode": "RESPONSE MODE",
+    "ready": "READY",
+    "async": "ASYNC"
+  },
+  "subjectLabel": "SUBJECT",
+  "reset": "CLEAR MESSAGE",
+  "fieldLabels": {
+    "name": "NAME / CALL SIGN",
+    "email": "EMAIL / RETURN CHANNEL",
+    "message": "MESSAGE / PAYLOAD"
+  },
+  "placeholders": {
+    "name": "Your name",
+    "email": "name@domain.com",
+    "message": "Tell me what you have in mind..."
+  },
+  "status": {
+    "incomplete": "SYSTEM STANDBY // MESSAGE INCOMPLETE",
+    "ready": "SYSTEM READY // PAYLOAD COMPLETE",
+    "handoff": "PAYLOAD READY // EMAIL HANDOFF INITIATED"
+  },
+  "availability": "Available for new projects, collaborations, and professional opportunities.",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "send": "Transmit message",
+  "formHint": "This opens your email app with the mission brief prefilled.",
   "eyebrow": "Collaborations and opportunities",
-  "subtitle": "If you want to discuss a collaboration, a project, or a new professional opportunity, feel free to reach out. I review every message carefully.",
+  "subtitle": "If you want to tell me about a project, collaboration, or professional opportunity, feel free to get in touch. I’ll reply as soon as I can.",
   "emailCta": "Email me",
   "emailHelper": "Primary channel for projects and collaborations. If possible, include your goal and context in the message.",
   "linkedinCta": "Open LinkedIn",
   "linkedinDescription": "For professional networking, quick updates, and direct outreach.",
-  "resumeCta": "Download Resume",
+  "resumeCta": "View CV",
   "resumeDescription": "Latest version of my profile with experience, stack, and skills.",
   "socialTitle": "Useful links",
   "responseTime": "I usually reply within 24-48 hours."

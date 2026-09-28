@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import {
     buildProjectPreviewModel,
+    buildMissionModel,
+    buildCelestialMapItems,
     getProjectById,
     getProjectsByCategory,
 } from "./projectSelectors.js";
@@ -31,5 +33,17 @@ describe("projectSelectors", () => {
         expect(model.id).toBe("logra");
         expect(model.title).toBe("translated:logra.title");
         expect(model.primaryAction.label).toBe("translated:primaryAction");
+    });
+
+    it("builds a mission model from real project configuration", () => {
+        const model = buildMissionModel(getProjectById("logra"), (key) => key, 0);
+        expect(model.overline).toContain("01");
+        expect(model.technologies.length).toBeGreaterThan(0);
+    });
+
+    it("builds map items from the complete project catalog", () => {
+        const items = buildCelestialMapItems((key) => key);
+        expect(items).toHaveLength(getProjectsByCategory("all").length);
+        expect(items[0]).toMatchObject({ id: "logra", detailPath: "/projects/logra" });
     });
 });

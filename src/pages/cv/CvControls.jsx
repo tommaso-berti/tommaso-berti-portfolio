@@ -1,6 +1,5 @@
 import {
     Box,
-    Button,
     FormControlLabel,
     Paper,
     Stack,
@@ -13,7 +12,27 @@ import {
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import SpaceButton from "../../features/mission-ui/SpaceButton.jsx";
 import { cvActionButtonSx } from "./cv.styles.js";
+
+const cvToggleLabelSx = {
+    fontFamily: (theme) => theme.fonts.mono,
+    fontSize: ".56rem",
+    fontWeight: 700,
+    letterSpacing: ".055em",
+    textTransform: "uppercase",
+};
+
+const cvSwitchSx = {
+    ml: 0.2,
+    mr: 0.2,
+    flexShrink: 0,
+    "& .MuiSwitch-switchBase.Mui-checked": { color: "space.orange" },
+    "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+        bgcolor: "space.orange",
+        opacity: 0.65,
+    },
+};
 
 /**
  * @typedef {import("./cv.data.js").CvControlsState} CvControlsState
@@ -33,15 +52,42 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
             data-cv-controls
             variant="outlined"
             sx={{
-                px: { xs: 1.2, md: 1.6 },
-                py: { xs: 1, md: 1.2 },
-                borderRadius: 2.5,
+                px: { xs: 1.3, md: 1.7 },
+                py: { xs: 1.1, md: 1.35 },
+                borderRadius: 0,
                 position: { xs: "static", md: "sticky" },
-                top: { md: "7.9rem" },
+                top: { md: "9.5rem", lg: "6.5rem" },
                 zIndex: 5,
                 overflowX: "visible",
+                bgcolor: "background.paper",
+                backgroundImage: "none",
+                border: "1px solid",
+                borderColor: "divider",
+                boxShadow: "0 8px 26px rgba(23,32,42,.08)",
+                "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 3,
+                    bgcolor: "space.blue",
+                },
             }}
         >
+            <Typography
+                sx={{
+                    mb: 0.65,
+                    color: "space.blue",
+                    fontFamily: (theme) => theme.fonts.mono,
+                    fontSize: ".6rem",
+                    fontWeight: 800,
+                    letterSpacing: ".15em",
+                    textTransform: "uppercase",
+                }}
+            >
+                {t("cv.controlDeckTitle")}
+            </Typography>
             <Stack
                 direction={{ xs: "column", lg: "row" }}
                 spacing={{ xs: 1.1, lg: 0.8 }}
@@ -65,19 +111,21 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                         }}
                         aria-label={t("cv.densityLabel")}
                         sx={{
-                            borderRadius: "999px",
+                            borderRadius: 0,
                             overflow: "hidden",
                             border: "1px solid",
                             borderColor: "divider",
                             backgroundColor: "background.paper",
                             "& .MuiToggleButtonGroup-grouped": {
                                 border: "0 !important",
-                                px: 1.8,
-                                py: 0.65,
-                                minWidth: 104,
+                                px: 1.5,
+                                py: 0.55,
+                                minWidth: 96,
+                                fontFamily: (theme) => theme.fonts.mono,
+                                fontSize: ".59rem",
                                 textTransform: "uppercase",
-                                letterSpacing: "0.02em",
-                                fontWeight: 600,
+                                letterSpacing: ".08em",
+                                fontWeight: 800,
                                 color: "text.secondary",
                                 transition: "0.2s",
                                 "&:not(:first-of-type)": {
@@ -89,11 +137,11 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                     color: "text.primary",
                                 },
                                 "&.Mui-selected": {
-                                    backgroundColor: "primary.main",
+                                    backgroundColor: "space.blue",
                                     color: "primary.contrastText",
                                 },
                                 "&.Mui-selected:hover": {
-                                    backgroundColor: "primary.dark",
+                                    backgroundColor: "space.blue",
                                 },
                                 "&.Mui-focusVisible": {
                                     outline: "2px solid",
@@ -111,6 +159,7 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                         control={
                             <Switch
                                 checked={controls.showExperience}
+                                slotProps={{ input: { "aria-label": t("cv.showExperience") } }}
                                 onChange={(event) => {
                                     setControls((previous) => ({
                                         ...previous,
@@ -119,14 +168,19 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                 }}
                             />
                         }
-                        label={<Typography noWrap variant="body1">{t("cv.showExperience")}</Typography>}
-                        sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
+            label={
+                <Typography noWrap sx={cvToggleLabelSx}>
+                    {t("cv.showExperience")}
+                </Typography>
+            }
+            sx={cvSwitchSx}
                     />
 
                     <FormControlLabel
                         control={
                             <Switch
                                 checked={controls.showProjects}
+                                slotProps={{ input: { "aria-label": t("cv.showProjects") } }}
                                 onChange={(event) => {
                                     setControls((previous) => ({
                                         ...previous,
@@ -135,14 +189,19 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                 }}
                             />
                         }
-                        label={<Typography noWrap variant="body1">{t("cv.showProjects")}</Typography>}
-                        sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
+            label={
+                <Typography noWrap sx={cvToggleLabelSx}>
+                    {t("cv.showProjects")}
+                </Typography>
+            }
+            sx={cvSwitchSx}
                     />
 
                     <FormControlLabel
                         control={
                             <Switch
                                 checked={controls.showCertifications}
+                                slotProps={{ input: { "aria-label": t("cv.showCertifications") } }}
                                 onChange={(event) => {
                                     setControls((previous) => ({
                                         ...previous,
@@ -151,8 +210,12 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                 }}
                             />
                         }
-                        label={<Typography noWrap variant="body1">{t("cv.showCertifications")}</Typography>}
-                        sx={{ ml: 0.2, mr: 0.2, flexShrink: 0 }}
+            label={
+                <Typography noWrap sx={cvToggleLabelSx}>
+                    {t("cv.showCertifications")}
+                </Typography>
+            }
+            sx={cvSwitchSx}
                     />
                 </Stack>
 
@@ -160,10 +223,19 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                     direction={{ xs: "column", sm: "row" }}
                     spacing={1}
                     alignItems={{ sm: "center", lg: "center" }}
-                    sx={{ flexWrap: { lg: "nowrap" }, minWidth: 0, ml: { lg: "auto" }, flex: { lg: "0 0 auto" } }}
+                    sx={{
+                        flexWrap: { lg: "nowrap" },
+                        minWidth: 0,
+                        ml: { lg: "auto" },
+                        flex: { lg: "0 0 auto" },
+                    }}
                 >
-                    <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ flexWrap: "nowrap", minWidth: 0 }}>
-                        <Button
+                    <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={1}
+                        sx={{ flexWrap: "nowrap", minWidth: 0 }}
+                    >
+                        <SpaceButton
                             variant="contained"
                             startIcon={<DownloadRoundedIcon />}
                             onClick={() => window.print()}
@@ -191,8 +263,6 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                         sx={{
                                             width: 18,
                                             height: 18,
-                                            borderRadius: "999px",
-                                            border: "1px solid rgba(255,255,255,0.55)",
                                             color: "rgba(255,255,255,0.92)",
                                             display: "inline-flex",
                                             alignItems: "center",
@@ -201,7 +271,7 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                                             "&:focus-visible": {
                                                 outline: "2px solid",
                                                 outlineColor: "rgba(255,255,255,0.95)",
-                                                outlineOffset: 2,
+                                                outlineOffset: 1,
                                             },
                                         }}
                                     >
@@ -212,8 +282,8 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                             sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                         >
                             {t("cv.downloadPdfCurrentView")}
-                        </Button>
-                        <Button
+                        </SpaceButton>
+                        <SpaceButton
                             component="a"
                             href={staticCvPdfPath}
                             target="_blank"
@@ -224,7 +294,7 @@ export default function CvControls({ controls, setControls, staticCvPdfPath, t }
                             sx={{ ...cvActionButtonSx, minWidth: { sm: 230, lg: 0 } }}
                         >
                             {t("cv.downloadStaticPdf")}
-                        </Button>
+                        </SpaceButton>
                     </Stack>
                 </Stack>
             </Stack>

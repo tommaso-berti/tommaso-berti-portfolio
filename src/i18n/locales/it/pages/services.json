@@ -1,0 +1,76 @@
+{
+  "eyebrow": "04 // SERVIZI",
+  "title": "Cosa posso costruire",
+  "description": "Posso sviluppare un progetto da zero oppure intervenire su qualcosa che esiste già: applicazioni web, dashboard, integrazioni e automazioni, fino alla pubblicazione.",
+  "note": "SOFTWARE SERVICES",
+  "activeLabel": "MODULO SELEZIONATO",
+  "interactionHint": "Hover → elevazione / dettagli modulo",
+  "revision": "TB // Capability system // rev.04",
+  "sectionLabels": {
+    "capabilities": "CAPACITÀ",
+    "matrix": "MATRICE SERVIZI",
+    "scope": "AMBITO DI LAVORO",
+    "delivery": "CONSEGNA",
+    "method": "METODO DI LAVORO",
+    "contact": "CONTATTO"
+  },
+  "sections": {
+    "capabilities": "Cosa posso realizzare",
+    "matrix": "Cosa può includere ogni servizio",
+    "scope": "Dove posso inserirmi",
+    "delivery": "Dall'implementazione all'ambiente reale",
+    "method": "Il metodo dietro la consegna",
+    "contact": "Parliamo del tuo progetto"
+  },
+  "items": [
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Applicazioni web", "description": "Sviluppo applicazioni web su misura, dalle interfacce ai flussi principali, con una struttura pensata per rimanere semplice da modificare anche quando il progetto cresce.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboard", "description": "Organizzo dati, indicatori e informazioni in dashboard facili da leggere, così ciò che conta è visibile subito e può essere utilizzato per prendere decisioni.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "API e integrazioni", "description": "Collego applicazioni, servizi e fonti di dati attraverso API e integrazioni, permettendo ai diversi sistemi di scambiarsi informazioni senza passaggi manuali.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Strumenti di automazione", "description": "Automatizzo attività ripetitive e flussi che oggi richiedono interventi manuali, riducendo tempo perso e possibilità di errore.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
+  ],
+  "cta": "Avvia un progetto",
+  "matrix": {
+    "label": "matrice delle funzionalità",
+    "title": "Cosa può includere ogni servizio",
+    "note": "",
+    "legend": "● Incluso · ○ Se necessario · — Non centrale",
+    "ariaLabel": "Matrice delle funzionalità per servizio",
+    "capability": "Funzionalità",
+    "columns": ["WEB", "DASHBOARD", "API", "AUTOMAZIONE"],
+    "values": { "core": "Incluso", "optional": "Se necessario", "none": "Non centrale" },
+    "rows": [
+      { "label": "Interfaccia responsive", "values": ["core", "core", "none", "none"] },
+      { "label": "Visualizzazione dati", "values": ["optional", "core", "optional", "none"] },
+      { "label": "Autenticazione", "values": ["core", "core", "core", "optional"] },
+      { "label": "REST / API", "values": ["optional", "core", "core", "core"] },
+      { "label": "Dati in tempo reale", "values": ["optional", "core", "core", "optional"] },
+      { "label": "Integrazioni esterne", "values": ["optional", "optional", "core", "core"] },
+      { "label": "Database", "values": ["core", "core", "core", "core"] },
+      { "label": "Pubblicazione", "values": ["core", "core", "core", "core"] },
+      { "label": "Monitoraggio", "values": ["optional", "core", "core", "core"] }
+    ]
+  },
+  "scope": {
+    "label": "collaboration scope",
+    "title": "Da un nuovo progetto a un sistema già esistente",
+    "newProject": { "label": "progetto nuovo", "title": "Da un problema a una prima versione reale", "description": "Posso partire da un'esigenza, da un'idea o da un flusso già definito e arrivare a una prima versione realmente utilizzabile, scegliendo insieme cosa è importante costruire subito e cosa può aspettare.", "chips": ["MVP", "Prototipo", "Strumento interno", "Applicazione in produzione"] },
+    "existing": { "label": "sistema esistente", "rows": [
+      { "key": "MIGLIORARE", "description": "Migliorare interfacce, esperienza d'uso e flussi già esistenti senza dover ripartire da zero." },
+      { "key": "COLLEGARE", "description": "Integrare API, dati e servizi esterni con ciò che è già presente." },
+      { "key": "AUTOMATIZZARE", "description": "Ridurre attività manuali e passaggi ripetitivi attraverso automazioni mirate." },
+      { "key": "ESTENDERE", "description": "Aggiungere nuove funzionalità mantenendo compatibile e gestibile il sistema esistente." }
+    ] }
+  },
+  "delivery": {
+    "label": "delivery",
+    "title": "Il lavoro non finisce con il codice",
+    "items": [
+      { "label": "code", "title": "Struttura manutenibile", "description": "Codice organizzato, componenti leggibili e convenzioni coerenti rendono il progetto più semplice da correggere, modificare ed estendere nel tempo.", "foot": "struttura / componenti / convenzioni" },
+      { "label": "integrazione", "title": "Sistema connesso", "description": "Le diverse parti dell'applicazione vengono progettate per funzionare insieme, collegando correttamente interfaccia, dati, autenticazione e servizi esterni.", "foot": "api / auth / dati / servizi" },
+      { "label": "rilascio", "title": "Pronto all'uso", "description": "Il risultato non deve funzionare soltanto sul computer di sviluppo: configurazione, build e pubblicazione fanno parte del lavoro necessario per renderlo realmente utilizzabile.", "foot": "build / pubblicazione / validazione" }
+    ]
+  },
+  "method": { "label": "metodo di lavoro / rif. about-05", "title": "Vuoi vedere come lavoro su un progetto?", "cta": "Scopri come lavoro" },
+  "finalCta": { "label": "canale aperto", "title": "Hai qualcosa da costruire o un’idea da sviluppare?", "cta": "Parliamo del tuo progetto" },
+  "footer": "cosa realizzo / interfaccia pubblica"
+}

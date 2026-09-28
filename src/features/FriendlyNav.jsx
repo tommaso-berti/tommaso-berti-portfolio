@@ -1,68 +1,16 @@
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
+import ButtonBase from "@mui/material/ButtonBase";
 import Stack from "@mui/material/Stack";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import { PAGE_DEFINITIONS } from "../app/routing/appDefinitions.js";
 import { useTranslation } from "react-i18next";
 
-function isTopLevelPage(page) {
-    if (!page?.component) return false;
-    if (!page.navKey) return false;
-    if (page.showInNav === false) return false;
-    if (!page.path) return false;
-    if (page.path.includes(":") || page.path === "*") return false;
-    return true;
-}
-
-function isActivePath(pathname, targetPath) {
-    if (targetPath === "/") return pathname === "/";
-    return pathname === targetPath || pathname.startsWith(`${targetPath}/`);
-}
+const NAV = [["home", "/", "01"], ["projects", "/projects", "02"], ["about", "/about", "03"], ["services", "/services", "04"], ["systems", "/systems", "05"], ["contact", "/contact", "06"]];
 
 export default function FriendlyNav() {
     const { pathname } = useLocation();
-    const { t } = useTranslation();
-
-    const navItems = PAGE_DEFINITIONS.filter(isTopLevelPage).map((page) => ({
-        id: page.id,
-        path: page.path,
-        label: t(`common:nav.${page.navKey}`, { defaultValue: page.id }),
-    }));
-
-    return (
-        <Box sx={{ width: "100%", overflowX: "auto", overflowY: "hidden" }}>
-            <Stack direction="row" spacing={1} sx={{ width: "max-content", minWidth: "100%", py: 0.25 }}>
-                {navItems.map((item) => {
-                    const active = isActivePath(pathname, item.path);
-
-                    return (
-                        <Chip
-                            key={item.id}
-                            label={item.label}
-                            clickable
-                            component={RouterLink}
-                            to={item.path}
-                            color={active ? "secondary" : "default"}
-                            variant={active ? "filled" : "outlined"}
-                            aria-current={active ? "page" : undefined}
-                            sx={{
-                                borderRadius: 1.5,
-                                fontWeight: 600,
-                                textTransform: "none",
-                                borderColor: "divider",
-                                "&:hover": {
-                                    backgroundColor: active ? "secondary.main" : "action.hover",
-                                },
-                                "&:focus-visible": {
-                                    outline: "2px solid",
-                                    outlineColor: "secondary.main",
-                                    outlineOffset: 2,
-                                },
-                            }}
-                        />
-                    );
-                })}
-            </Stack>
-        </Box>
-    );
+    const { t } = useTranslation("common");
+    return <Box component="nav" aria-label={t("a11y.primaryNavigation")} sx={{ overflowX: "auto" }}><Stack direction="row" spacing={{ xs: .25, md: .9 }} sx={{ width: "max-content", minWidth: "100%", justifyContent: { md: "flex-end" } }}>{NAV.map(([id, path, number]) => {
+        const active = path === "/" ? pathname === path : pathname === path || pathname.startsWith(`${path}/`);
+        return <ButtonBase key={id} component={RouterLink} to={path} aria-current={active ? "page" : undefined} sx={{ minHeight: 42, px: { xs: .75, sm: 1 }, position: "relative", fontFamily: (theme) => theme.fonts.mono, fontSize: ".76rem", fontWeight: 800, letterSpacing: ".07em", whiteSpace: "nowrap", color: active ? "text.primary" : "text.secondary", "&::after": { content: '""', position: "absolute", bottom: 2, left: 8, right: 8, height: 2, bgcolor: "space.blue", transform: active ? "scaleX(1)" : "scaleX(0)", transition: "transform 220ms ease" }, "&:hover::after": { transform: "scaleX(1)" } }}>{number} {t(`nav.${id}`)}</ButtonBase>;
+    })}</Stack></Box>;
 }

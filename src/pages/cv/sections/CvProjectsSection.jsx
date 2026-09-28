@@ -1,5 +1,5 @@
 import { Box, Link, Stack, Typography } from "@mui/material";
-import { cvActionLinkSx } from "../cv.styles.js";
+import { cvActionLinkSx, cvSectionTitleSx } from "../cv.styles.js";
 
 /**
  * @param {{
@@ -10,11 +10,11 @@ import { cvActionLinkSx } from "../cv.styles.js";
  */
 export default function CvProjectsSection({ projects, isCompact, t }) {
     return (
-        <Stack data-cv-section spacing={0.9}>
-            <Typography variant="h5">{t("cv.selectedProjects")}</Typography>
+        <Stack spacing={0.9}>
+            <Typography variant="h5" sx={cvSectionTitleSx}>{t("cv.selectedProjects")}</Typography>
             <Stack spacing={0.9}>
                 {projects.map((project) => (
-                    <Box key={project.id}>
+                    <Box key={project.id} sx={{ p: 1.3, border: "1px solid", borderColor: "divider", bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(255,255,255,.025)" : "rgba(255,255,255,.35)" }}>
                         <Stack direction="row" justifyContent="space-between" gap={1}>
                             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                                 {project.title}

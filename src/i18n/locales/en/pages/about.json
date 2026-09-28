@@ -2,45 +2,102 @@
   "bio": {
     "title": "Bio",
     "profileAlt": "Tommaso Berti profile picture",
-    "description": "I’m Tommaso Berti, a software developer with a strong passion for technology and building useful tools. I enjoy tackling complex problems, finding practical solutions, and continuously improving how I work. In my day-to-day work, I combine curiosity, analytical thinking, and pragmatism, both when developing new features and when optimizing existing systems."
+    "description": "I’m Tommaso Berti, a software developer. I like building useful tools and understanding a problem before I start writing code.\n\nOver time, I’ve worked on both new features and improvements to existing applications and systems. That’s a part of the work I particularly enjoy: figuring out what can be simplified, what could work better, and finding a sensible way to get there.\n\nI keep experimenting through personal projects, which I use to explore technologies, tools, and parts of software development that I don’t always get to work with in my day-to-day job.",
+    "credential": {
+      "moduleLabel": "PROFILE / PERSONNEL RECORD",
+      "title": "Key details",
+      "sealLabel": "Tommaso Berti profile",
+      "seal": "PROFILE",
+      "portraitMeta": "PORTRAIT / PERSONAL PROFILE",
+      "fields": {
+        "holder": "01 / Name",
+        "role": "02 / Role",
+        "base": "03 / Base",
+        "stack": "04 / Core stack",
+        "systems": "05 / Systems",
+        "personality": "06 / Working approach",
+        "bio": "07 / Profile"
+      },
+      "signatureLabel": "Personnel signature",
+      "signatureAlt": "Tommaso Berti signature",
+      "statusLabel": "System status",
+      "status": "ACTIVE"
+    }
   },
   "hobbies": {
     "title": "Hobbies",
-    "description1": "I have played volleyball for many years, and it has taught me discipline, teamwork, and pressure management. As a setter, I need to make quick and reasoned decisions during play while staying focused, even in intense moments.",
-    "description2": "I’m also passionate about gaming and technology. Through games, I’ve explored creative worlds and stories that continue to fuel my curiosity and imagination. I enjoy traveling, seeking new experiences, and connecting with different people, because strong interpersonal exchange helps me grow both personally and professionally."
+    "sectionLabel": "PERSONAL LOG",
+    "lead": "When I’m away from code, my free time often goes to volleyball, video games, technology, and travel. They’re very different interests, but they all keep me curious and help me see things from a different perspective.",
+    "telemetry": { "title": "Personal telemetry", "live": "Live", "trait": "Primary trait", "mode": "Operating mode" },
+    "footer": { "route": "SPORT / DIGITAL WORLDS / TRAVEL", "legend": ["Team", "Explore", "Travel"] },
+    "items": [
+      { "id": "volleyball", "code": "A-01", "kicker": "TEAM PLAY", "title": "Volleyball", "description": "I play volleyball as a setter, a role that means reading the game and deciding in seconds how to build the play. That’s exactly what I enjoy about it: it takes teamwork, focus, and a cool head.", "telemetry": "I have played volleyball for many years. As a setter, I need to read the game quickly, coordinate the team, and stay focused in intense moments.", "trait": "Quick decisions", "mode": "Pressure / teamwork", "tags": ["Teamwork", "Focus", "Timing"] },
+      { "id": "gaming", "code": "B-02", "kicker": "Digital worlds", "title": "Gaming & technology", "description": "Video games and technology have been among my longest-standing interests. In games, I’m drawn to carefully built worlds, strong stories, and the kind of immersion that makes you lose track of time. Technology, meanwhile, fuels my curiosity about what’s new and how it works.", "telemetry": "Games and technology are my space for exploration: creative worlds, complex systems, storytelling, and new perspectives that keep curiosity active.", "trait": "Exploration", "mode": "Creativity / systems", "tags": ["Worldbuilding", "Tech", "Curiosity"] },
+      { "id": "travel", "code": "C-03", "kicker": "Field notes", "title": "Travel", "description": "What I enjoy most about travel is the change in perspective: seeing new places, encountering different ways of life, and stepping out of my routine for a few days. It’s one of the best ways I know to come home with new experiences and ideas.", "telemetry": "Travel means leaving the familiar context, living new experiences, and meeting different perspectives: a concrete way to keep growing.", "trait": "New perspectives", "mode": "People / places", "tags": ["Culture", "People", "Perspective"] }
+    ]
   },
   "experience": {
     "title": "Study and Experience",
+    "eyebrow": "CAREER ARCHIVE / EDUCATION + EXPERIENCE",
+    "filterLabel": "Filter career archive",
+    "filters": { "all": "All", "work": "Experience", "study": "Education" },
+    "archiveCount": "Archive // {{count}} records",
+    "current": "Current",
     "experiences": [
       {
+        "type": "study",
+        "code": "EDU-03",
+        "kind": "Diploma",
+        "coords": ["LEVEL / DIPLOMA", "YEAR / 2016"],
         "year": "2016",
         "title": "High School Diploma (Scientific Lyceum)",
-        "description": "I completed my Scientific High School studies, gaining solid foundations in mathematics, physics, and computer science. I participated in various school projects that strengthened my analytical thinking and problem-solving abilities. This school experience taught me methodological discipline and how to approach complex topics with structure."
+        "description": "I completed my Scientific High School studies, building a solid foundation in mathematics and physics. I took part in several school projects that strengthened my analytical thinking and problem-solving skills. The experience taught me methodological discipline and a structured approach to complex topics."
       },
       {
+        "type": "study",
+        "code": "EDU-02",
+        "kind": "University",
+        "coords": ["TRACK / ENGINEERING", "LOC / PADUA"],
         "year": "2016–2018",
         "title": "Computer Engineering University in Padua (Veneto, Italy)",
         "description": "During my first two university years in Padua, I studied the fundamentals of computer engineering and algorithm design. I worked on practical labs and collaborated with classmates on programming projects. This period gave me a strong academic base and teamwork skills applied to software development."
       },
       {
+        "type": "study",
+        "code": "EDU-01",
+        "kind": "University",
+        "coords": ["TRACK / COMPUTER SCIENCE", "LOC / VENICE"],
         "year": "2018–2020",
         "title": "Computer university in Venice (Veneto, Italy)",
         "description": "Continuing my studies in Venice, I focused on system architectures, databases, and web development. I took part in academic projects that involved building applications and experimenting with modern technologies. This experience strengthened my independence and adaptability."
       },
       {
+        "type": "work",
+        "code": "EXP-03",
+        "kind": "Association",
+        "coords": ["AREA / WEB + EVENTS", "STATUS / ONGOING"],
         "year": "2018–present",
         "title": "Art.Ap",
         "description": "I worked as a guide during two temporary exhibitions and managed the organization’s official website. My tasks included visitor assistance, content updates, and coordination with the exhibition team."
       },
       {
+        "type": "work",
+        "code": "EXP-02",
+        "kind": "Collaboration",
+        "coords": ["MODE / COLLAB", "AREA / WEB"],
         "year": "2019–2020",
         "title": "DeFra Web - Contractor",
-        "description": "I managed web content using CMS platforms and handled periodic backups. I also worked on catalog updates, migrations, client meetings, documentation, and PHP/CSS/HTML adjustments."
+        "description": "I managed web content through CMS platforms and handled regular backups. I also updated catalogs, supported migrations, and made changes in PHP, CSS, and HTML."
       },
       {
+        "type": "work",
+        "code": "EXP-01",
+        "kind": "Employment",
+        "coords": ["MODE / FULL-TIME", "STATUS / ACTIVE"],
+        "current": true,
         "year": "2021–present",
         "title": "Kubix Link (A Lectra Company) - Full time employee",
-        "description": "I contribute to digital solutions for PLM/PIM in the fashion industry. My role involves cross-team collaboration and cloud-based data processes."
+        "description": "I’m part of the Kubix Link PLM Delivery Expert team: we review customer reports and manage regular releases of bug fixes and new features. I also implement the PLM, drawing on an in-depth knowledge of the platform."
       }
     ]
   },
@@ -48,14 +105,176 @@
     "title": "Tech Skills",
     "frontend": "Frontend",
     "backend-runtime": "Backend / Runtime",
-    "database": "Database",
+    "database": "Data & Validation",
     "languages-markup": "Languages / Markup",
-    "tools": "Tools"
+    "tools": "Tools",
+    "eyebrow": "02 // TECHNICAL SYSTEMS",
+    "tabsLabel": "Technical blueprint systems",
+    "tabs": {
+      "frontend": "Frontend",
+      "runtime": "Runtime",
+      "database": "Data & Validation",
+      "languages": "Languages",
+      "tools": "Tools"
+    },
+    "blueprints": {
+      "frontend": {
+        "code": "SYSTEM / FRONTEND",
+        "title": "Interface assembly",
+        "meta": "REFERENCE / ISS · MODULAR UI ARCHITECTURE",
+        "alt": "ISS blueprint used as the frontend system drawing",
+        "nodes": {
+          "react": { "code": "01 / NODE", "name": "React", "description": "A component-based architecture for dynamic interfaces that keeps logic, state, and presentation separate. It helps complex screens remain responsive and consistent as an application grows." },
+          "typescript": { "code": "02 / NODE", "name": "TypeScript", "description": "Adds a type system to JavaScript and makes data, structures, and contracts between parts of the code explicit. This makes applications more predictable and reduces hard-to-trace errors." },
+          "mui": { "code": "03 / NODE", "name": "MUI", "description": "A React component system for building consistent, accessible, and highly customizable interfaces. It provides a solid foundation for a distinct visual identity without rebuilding every element from scratch." },
+          "html": { "code": "04 / NODE", "name": "HTML5", "description": "Defines the semantic structure of a web page. A well-structured document is easier to understand for both browsers and the people using it." },
+          "css": { "code": "05 / NODE", "name": "CSS3", "description": "Controls layout, responsive design, animation, and the visual behavior of an interface. It turns a functional structure into a polished experience that adapts to different screens." },
+          "javascript": { "code": "06 / NODE", "name": "JavaScript", "description": "Powers the logic and dynamic behavior of web applications, allowing an interface to respond, update, and communicate with other services in real time." }
+        }
+      },
+      "runtime": {
+        "code": "SYSTEM / RUNTIME",
+        "title": "Application runtime stack",
+        "meta": "REFERENCE / ARTEMIS · STAGED SERVICE STACK",
+        "alt": "Artemis blueprint used as the application runtime drawing",
+        "nodes": {
+          "nodejs": { "code": "01 / NODE", "name": "Node.js", "description": "Runs JavaScript on the server through an asynchronous, event-driven runtime. It supports APIs, services, and backend processes within the same ecosystem as the frontend." },
+          "express": { "code": "02 / NODE", "name": "Express", "description": "A minimal framework for organizing APIs, routes, and middleware in Node.js applications. Its simple, flexible structure helps manage communication between the frontend, server, and external services." },
+          "fastify": { "code": "03 / NODE", "name": "Fastify", "description": "A backend framework focused on performance, validation, and well-structured APIs. It helps services stay fast and organized as endpoints and complexity grow." },
+          "caddy": { "code": "04 / NODE", "name": "Caddy", "description": "A web server and reverse proxy with automatic HTTPS and deliberately simple configuration. It makes it easier to move a service from a local environment to a secure, publicly reachable deployment." },
+          "nginx": { "code": "05 / NODE", "name": "Nginx", "description": "A web server and reverse proxy for routing requests, serving content, and coordinating multiple services. It acts as an infrastructure entry point, directing traffic to the right destination." },
+          "cloudflare": { "code": "06 / NODE", "name": "Cloudflare", "description": "A distributed layer for DNS, proxying, caching, and web traffic protection. Sitting in front of the infrastructure, it helps make services faster, more resilient, and less directly exposed to the internet." }
+        }
+      },
+      "database": {
+        "code": "SYSTEM / DATA & VALIDATION",
+        "title": "Data & Validation",
+        "meta": "REFERENCE / LSO · STRUCTURED DATA MODULES",
+        "alt": "Lunar Space Outpost blueprint used as the data system drawing",
+        "nodes": {
+          "mongodb": { "code": "01 / NODE", "name": "MongoDB", "description": "A document database that stores data in flexible structures rather than fixed tables. It suits data models that evolve over time without requiring a rigid relational schema." },
+          "postgresql": { "code": "02 / NODE", "name": "PostgreSQL", "description": "A relational database built to manage structured data, relationships, and constraints reliably. It works especially well when information must remain consistent and closely connected." },
+          "sql": { "code": "03 / NODE", "name": "SQL", "description": "A declarative language for querying and manipulating relational databases. It can extract, combine, and transform large amounts of information where that data is stored." },
+          "yaml": { "code": "04 / NODE", "name": "YAML", "description": "A text format commonly used to describe configuration and workflows in a compact, readable way. It often connects code with the way tools and services are configured." },
+          "igdb": { "code": "05 / NODE", "name": "IGDB", "description": "A specialized API providing a large, structured catalog of video game data. It lets an application use external information without building and maintaining the same catalog itself." },
+          "zod": { "code": "06 / NODE", "name": "Zod", "description": "A validation library that checks data at runtime against schemas defined in code. It prevents incomplete or incorrectly formatted information from silently spreading through an application." }
+        }
+      },
+      "languages": {
+        "code": "SYSTEM / LANGUAGES",
+        "title": "Programming language stack",
+        "meta": "REFERENCE / SATURN V · MULTI-STAGE LANGUAGE STACK",
+        "alt": "Saturn V blueprint used as the programming language drawing",
+        "nodes": {
+          "typescript": { "code": "01 / NODE", "name": "TypeScript", "description": "A superset of JavaScript that adds static types, interfaces, and richer ways to describe code. In complex projects, it clarifies what different parts of an application expect from data." },
+          "javascript": { "code": "02 / NODE", "name": "JavaScript", "description": "A core language of the modern web, used in both browsers and on servers. It connects interfaces, application logic, and services across much of today’s web development." },
+          "html": { "code": "03 / NODE", "name": "HTML", "description": "A markup language that describes the structure and meaning of page content. It defines not only where something appears, but also its role in the interface." },
+          "css": { "code": "04 / NODE", "name": "CSS", "description": "A language for defining how interface elements look and are arranged. It covers visual presentation, from the overall layout to the smallest interaction details." },
+          "bash": { "code": "05 / NODE", "name": "Bash", "description": "A scripting language commonly used in Unix and Linux environments. It combines commands and automates tasks that would otherwise require many manual steps." },
+          "sql": { "code": "06 / NODE", "name": "SQL", "description": "A language for working with relational data. It provides a direct, precise way to query information without always going through application logic." }
+        }
+      },
+      "tools": {
+        "code": "SYSTEM / TOOLING",
+        "title": "Development tooling ecosystem",
+        "meta": "REFERENCE / DYSON SPHERE · SUPPORT TOOLING ECOSYSTEM",
+        "alt": "Dyson Sphere blueprint used as the development tooling drawing",
+        "nodes": {
+          "git": { "code": "01 / NODE", "name": "Git", "description": "A distributed version control system that tracks code changes and supports parallel lines of development. Each change stays traceable and can be reversed when needed." },
+          "github": { "code": "02 / NODE", "name": "GitHub", "description": "A platform built around Git that brings repositories, reviews, issues, and code collaboration together. It helps teams organize and manage a project beyond the files on an individual computer." },
+          "github-actions": { "code": "03 / NODE", "name": "GitHub Actions", "description": "A workflow automation system triggered by repository events. It turns repeated tasks such as checks, builds, and validations into processes that run automatically." },
+          "postman": { "code": "04 / NODE", "name": "Postman", "description": "A workspace for exploring and testing APIs. It makes it possible to inspect data exchanged between an application and a server, independently of the rest of the interface." },
+          "webstorm": { "code": "05 / NODE", "name": "WebStorm", "description": "An IDE for the JavaScript and TypeScript ecosystem, with integrated code analysis, refactoring, and debugging. It provides a more structured view of a project than a basic text editor." },
+          "codex": { "code": "06 / NODE", "name": "Codex", "description": "A development assistant that can understand a project’s context and work directly with its code. It reduces repetitive work and speeds up exploration, while developers remain responsible for decisions and final review." }
+        }
+      }
+    }
+  },
+  "personnel": {
+    "header": "PERSONNEL FILE / TB-01 / EXPLORATION UNIT",
+    "archiveHeader": "03 // PERSONNEL FILE",
+    "heroEyebrow": "03 // PERSONNEL FILE",
+    "heroTitle": "I BUILD\nUSEFUL SOFTWARE.",
+    "heroLead": "I like understanding problems, simplifying them, and turning them into software that works well and is enjoyable to use. I take a practical approach: build, try, fix, and keep improving.",
+    "tags": ["REACT", "TYPESCRIPT", "MUI", "NODE.JS", "ITERATION"],
+    "contactCta": "Open communications",
+    "projectsCta": "Explore projects",
+    "telemetry": [
+      { "label": "BASE", "value": "ITALY" },
+      { "label": "PRIMARY SYSTEMS", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "APPROACH", "value": "UNDERSTAND / BUILD / IMPROVE" },
+      { "label": "PROFILE", "value": "VERIFIED", "status": true }
+    ],
+    "visual": {
+      "title": "PROFILE // PERSONNEL RECORD",
+      "status": "PROFILE VERIFIED",
+      "node": "NODE TB-01",
+      "remote": "SIGNAL NOMINAL",
+      "interests": "INTEREST VECTOR"
+    },
+    "modulesLabel": "Personnel file modules",
+    "rail": {
+      "label": "About document scroll index",
+      "steps": {
+        "archive": "Archive opening",
+        "identity": "Identity record",
+        "systems": "Technical systems"
+      }
+    },
+    "modules": {
+      "identity": "Identity",
+      "technical": "Technical skills",
+      "certifications": "Certifications",
+      "method": "How I work",
+      "development": "Education & experience",
+      "beyond": "Beyond code"
+    },
+    "moduleEyebrows": {
+      "identity": "01 // IDENTITY RECORD",
+      "technical": "02 // TECHNICAL SYSTEMS",
+      "certifications": "03 // CREDENTIAL ARCHIVE",
+      "development": "04 // CAREER ARCHIVE",
+      "method": "05 // WORKING METHOD",
+      "beyond": "06 // BEYOND CODE"
+    },
+    "identityTitle": "I care about more than writing code",
+    "identityLead": "When I work on a project, I first try to understand the problem it needs to solve. Then I think about how people will use it, how it fits into the wider system, and how to keep it simple to change over time.",
+    "systems": [
+      { "label": "FRONTEND", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "BACKEND", "value": "NODE.JS / EXPRESS" },
+      { "label": "APPROACH", "value": "UNDERSTAND / BUILD / IMPROVE" }
+    ],
+    "methodTitle": "Understand. Build. Improve.",
+    "principles": [
+      {"code": "01 // CLARITY", "title": "Understand before building", "body": "Before thinking about a solution, I try to understand what really needs to work, for whom, and within which constraints.", "panelCode": "PHASE 01 / CLARITY", "state": "BEFORE THE CODE", "detail": "Before choosing technologies or starting development, I define what needs to be achieved, the context it must work in, and the limits to consider. Understanding the problem early keeps me from building the wrong thing well.", "focus": ["Objective", "Context", "Constraints", "Priorities", "Scope"], "telemetry": {"left": "Context", "right": "Constraints"}, "schematicLabels": {"title": "Problem framing schematic", "code": "DIAG / 01-A", "input": "INFORMATION", "core": "PROBLEM TO SOLVE", "output": "DECISIONS", "objective": "OBJECTIVE", "context": "USE CONTEXT", "constraints": "CONSTRAINTS", "successSignal": "SUCCESS CRITERION", "real": "DEFINED PROBLEM", "scope": "CLEAR SCOPE", "criteria": "SUCCESS CRITERIA", "path": "TECHNICAL DIRECTION", "synth": "SYNTHESIZE", "discover": "01 / GATHER", "frame": "02 / FRAME", "decide": "03 / DECIDE"}},
+      {"code": "02 // PRAGMATISM", "title": "Choose what is truly needed", "body": "I am not looking for the most sophisticated solution, but the one that makes the most sense for the product, context, and problem to solve.", "panelCode": "PHASE 02 / PRAGMATISM", "state": "Pragmatic execution", "detail": "I compare options by the value they bring, the time they take, and how easy they will be to maintain. The aim is a solid, sustainable solution that moves the product forward.", "focus": ["Trade-offs", "Value", "Simplicity", "Context", "Delivery"], "telemetry": {"left": "Trade-off", "right": "Delivery"}, "schematicLabels": {"title": "Decision trade-off schematic", "code": "DIAG / 02-B", "paths": "CANDIDATE PATHS", "matrix": "WEIGHTED EVALUATION MATRIX", "delivery": "CHOSEN SOLUTION", "optionA": "OPTION A", "optionB": "OPTION B", "optionC": "OPTION C", "time": "TIME", "cost": "COST", "maintenance": "MAINT.", "risk": "RISK", "score": "SCORE", "fast": "FAST", "slow": "SLOW", "low": "LOW", "mid": "MID", "high": "HIGH", "selected": "SELECTED", "usefulProgress": "USEFUL PROGRESS", "candidates": "CANDIDATES", "tradeoffs": "TRADE-OFFS", "deliveryShort": "DELIVERY", "footer": "PREFER PROGRESS OVER THEORETICAL PERFECTION"}},
+      {"code": "03 // ITERATION", "title": "Improve after the first release", "body": "A first version is also a chance to learn: real use, feedback, and maintenance help reveal what is truly worth improving.", "panelCode": "PHASE 03 / ITERATION", "state": "Continuous improvement", "detail": "After release, I gather feedback and observe how people use the product. This helps me address the problems that come up and choose useful improvements without adding unnecessary complexity.", "focus": ["Feedback", "Improvements", "Maintenance", "Evolution", "Quality"], "telemetry": {"left": "Feedback", "right": "Refine"}, "schematicLabels": {"title": "Iteration loop schematic", "code": "DIAG / 03-C", "loop": "POST-RELEASE LOOP", "check": "STABILITY CHECK", "ship": "SHIP", "observe": "OBSERVE", "refine": "REFINE", "learn": "LEARN", "collect": "collect", "audit": "audit", "planAction": "plan", "validate": "validate", "release": "release", "prioritize": "prioritize", "measure": "measure", "feedback": "USER FEEDBACK", "friction": "ISSUES FOUND", "plan": "NEXT VERSION PLAN", "footer": "SHIP / OBSERVE / LEARN / REFINE / REPEAT"}}
+    ],
+    "methodUi": {
+      "processLabel": "Working phase selection",
+      "focusLabel": "Focus",
+      "selectionLabel": "Process selection"
+    }
   },
   "certifications": {
     "title": "Certifications",
-    "subtitle": "Continuous learning path with certifications grouped by study area.",
+    "subtitle": "Continuous learning archive with verified credentials grouped around the skills I use in practice.",
+    "archiveEyebrow": "MISSION ARCHIVE / CREDENTIAL CONTROL",
+    "archiveStatus": "Archive status",
+    "online": "Online",
+    "verified": "Verified",
+    "credentials": "Credentials",
+    "activeEntries": "certifications",
+    "latestIssue": "Last updated",
+    "specialization": "Specialization",
+    "filterLabel": "Filter archive",
+    "filterAll": "All credentials",
+    "filterCount": "Showing {{count}} of {{total}} credentials",
+    "sectionLabel": "Section",
     "issuedAt": "Issued",
+    "track": "Track",
+    "platform": "Platform",
+    "statusLabel": "Status",
     "verifyCta": "View",
     "status": {
       "completed": "Completed",

@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
+import TechnicalLabel from "../../features/mission-ui/TechnicalLabel.jsx";
 
 export default function Blog() {
     const { t } = useTranslation("pages", { keyPrefix: "blog" });
@@ -22,6 +23,7 @@ export default function Blog() {
                 justifyContent: "center",
         }}
         >
+            <TechnicalLabel sx={{ position: "absolute", top: 24 }}>EXPLORATION LOG // PENDING</TechnicalLabel>
             <Typography variant="h1">
                 {statusLabel}
             </Typography>

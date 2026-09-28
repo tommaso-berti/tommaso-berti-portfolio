@@ -1,6 +1,7 @@
 import { Link, Stack, Typography } from "@mui/material";
 import { formatIssuedAt } from "../../../features/certifications/certifications.utils.js";
 import { cvActionLinkSx } from "../cv.styles.js";
+import { cvSectionSx, cvSectionTitleSx } from "../cv.styles.js";
 
 /**
  * @param {{
@@ -10,9 +11,9 @@ import { cvActionLinkSx } from "../cv.styles.js";
  */
 export default function CvCertificationsSection({ certifications, t }) {
     return (
-        <Stack data-cv-section spacing={0.9}>
-            <Typography variant="h5">{t("cv.certifications")}</Typography>
-            <Stack spacing={0.75}>
+        <Stack data-cv-section spacing={0.9} sx={cvSectionSx}>
+            <Typography variant="h5" sx={cvSectionTitleSx}>{t("cv.certifications")}</Typography>
+            <Stack spacing={0}>
                 {certifications.map((certification) => (
                     <Stack
                         key={certification.id}
@@ -21,6 +22,7 @@ export default function CvCertificationsSection({ certifications, t }) {
                         justifyContent="space-between"
                         alignItems="baseline"
                         gap={1}
+                        sx={{ py: 0.8, borderBottom: "1px dotted", borderColor: "divider", "&:last-child": { borderBottom: 0 } }}
                     >
                         <Stack data-cv-cert-main spacing={0.15}>
                             <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>

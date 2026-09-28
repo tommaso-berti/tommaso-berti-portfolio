@@ -4,9 +4,12 @@ import { buildProjectsNamespace, PROJECT_IDS } from "./buildProjectsNamespace.js
 const PAGE_SECTION_LOADERS = {
     home: (lang) => import(`./locales/${lang}/pages/home.json`),
     contact: (lang) => import(`./locales/${lang}/pages/contact.json`),
+    services: (lang) => import(`./locales/${lang}/pages/services.json`),
+    systems: (lang) => import(`./locales/${lang}/pages/systems.json`),
     about: (lang) => import(`./locales/${lang}/pages/about.json`),
     blog: (lang) => import(`./locales/${lang}/pages/blog.json`),
     cv: (lang) => import(`./locales/${lang}/pages/cv.json`),
+    style: (lang) => import(`./locales/${lang}/pages/style.json`),
 };
 
 async function loadCoreNamespaces(lang) {

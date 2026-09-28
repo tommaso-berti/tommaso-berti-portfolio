@@ -108,7 +108,7 @@ export default function BreadCrumbs() {
 
             <Breadcrumbs
                 separator={<Typography variant="h5">/</Typography>}
-                aria-label="breadcrumb"
+                aria-label={t("a11y.breadcrumb")}
                 sx={{ "& .MuiBreadcrumbs-separator": { mx: 1 } }}
             >
                 {crumbs.map((item, idx) => (

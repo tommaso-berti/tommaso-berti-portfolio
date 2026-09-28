@@ -21,9 +21,26 @@ System-level notes for the portfolio application.
   - Loads route map from `PAGE_DEFINITIONS`
   - Renders under shared `Layout`
 - Layout layer (`src/app/layout/`):
-  - Fixed header, breadcrumbs, nav, toggles, release notes modal, footer
+  - Fixed mission header with subtle corner markers, horizontal primary navigation, borderless `HeaderControls` cluster linking to the customizable CV and localized language/theme popovers; the footer shows the latest published version and opens the release notes modal.
 - Page layer (`src/pages/`):
-  - Home, About, Projects, Blog, Contact, CV, Project details
+  - Home, Projects, About, Services, Systems, Blog, Contact, CV, Style reference, Project details
+- `/style` is an unlisted, bilingual route documenting the active MUI palette, typography, shared components, graphics, and motion. Its SEO metadata uses `noindex, nofollow`; examples follow the active theme and reuse mission UI components.
+- Mission UI (`src/features/mission-ui/`):
+  - Shared technical labels, numbered section headings, static mission surfaces, color rails, original TB identity, orbital SVG, mission cards, capability cards, and restrained motion panels.
+  - The MUI theme provides the light/deep-space palettes, reusable monospaced font values, and motion timing. `MissionSurface` owns the static bordered `space.panel` treatment while `MotionPanel` retains entrance animation. CSS media queries and `useReducedMotion` keep decorative motion optional.
+- Project dossiers (`src/pages/projects/projectsPages/ProjectDossier.jsx`):
+  - Shared `/projects/:project` mission-dossier shell driven by the existing project config and localized content.
+  - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, shared mission-tab navigation, and existing detail content grouped as overview, system, interface, and development log.
+- Shared mission tabs (`src/pages/projects/projectsPages/ProjectMissionTabs.jsx`):
+  - Reused by project details, the About personnel modules, and the Projects archive category filters so tab behavior and visual treatment remain aligned.
+- About personnel file (`src/pages/about/`):
+  - `About.jsx` composes the personnel header, factual telemetry, TB identity visual, and six selectable modules (`identity`, `technical`, `certifications`, `development`, `method`, `beyond`) inside the shared MotionPanel treatment; technical skills and certifications own their tabs while keeping their internal blueprint and credential cards. The shared `DocumentScrollRail` is mounted by `Layout` outside the main content width, uses only top-level `[data-scroll-section]` targets, aligns jumps below the fixed header, and tracks the active section on desktop pages.
+  - `aboutModules.utils.js` maps the public legacy hashes (`bio`, `tech-skills`, `certifications`, `study-and-experience`, `hobbies`) to the corresponding active module without changing URLs; the technical and certification hashes now activate their dedicated tabs.
+- `IdentityVisualizer.jsx` reuses `CelestialProjectMap` in a decorative, reduced-motion-safe logo-centered mode; profile and career facts remain in the localized module content.
+- `MethodModule.jsx` renders the localized working-method process as three keyboard-accessible phases with a responsive detail panel; `MethodSchematic.jsx` owns the data-selected SVG diagrams and theme-aware visual treatment.
+- `/systems` uses `src/pages/systems/Systems.jsx` to compose the bilingual development environment page; its AI workflow and VPS topology panels keep selection state in React and reuse the MUI theme with keyboard-accessible controls. Its five numbered content sections are the top-level targets for the document scroll rail.
+- `Experience.jsx` and `CareerTimeline.jsx` render the localized education/work archive with NASA-style filters, expandable entries, and the `study-and-experience` anchor.
+  - `PersonnelCredential` derives the compact identity card from localized CV/Bio data, embeds the Bio profile, base, personality, and personnel systems, and uses the canonical telemetry values without duplicating the removed footer-only fields; the portrait supports a transparent PNG with the existing WebP/JPEG fallback chain and the supplied signature has transparent light/dark variants. `TechnicalBlueprintPanel` renders the five original blueprint assets with registry-backed technology nodes and responsive connectors.
 
 ## Data and Request Flow
 - Static-first data model:

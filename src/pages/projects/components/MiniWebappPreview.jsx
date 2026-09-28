@@ -2,20 +2,26 @@ import { Card, Box, Modal, IconButton, Button, Typography, Stack, Tooltip } from
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { useState } from "react";
-import { useInViewport } from "../../../hooks/useInViewport.js";
+import { useTranslation } from "react-i18next";
+import { useInViewport } from "@/hooks/useInViewport.js";
 
 export default function MiniWebappPreview({
                                               url,
                                               width = 480,
                                               height = 300,
                                               scale = 0.8,
-                                              title = "Preview",
+                                              title: titleProp,
                                               overlayLabel = "",
                                               disableFullscreen = false,
                                               deferLoad = false,
-                                              loadPreviewLabel = "Load Preview",
-                                              loadPreviewTooltip = "Click to load the preview only when needed to avoid unnecessary API calls.",
+                                              sx,
+                                              loadPreviewLabel: loadPreviewLabelProp,
+                                              loadPreviewTooltip: loadPreviewTooltipProp,
                                           }) {
+    const { t } = useTranslation("common");
+    const title = titleProp || t("preview.title");
+    const loadPreviewLabel = loadPreviewLabelProp || t("preview.load");
+    const loadPreviewTooltip = loadPreviewTooltipProp || t("preview.loadTooltip");
     const [open, setOpen] = useState(false);
     const [inlineEnabled, setInlineEnabled] = useState(false);
     const observeViewport = deferLoad && !inlineEnabled;
@@ -81,8 +87,7 @@ export default function MiniWebappPreview({
                                 width: "100%",
                                 height: "100%",
                                 px: 2,
-                                background:
-                                    "linear-gradient(160deg, rgba(25,118,210,0.12), rgba(0,0,0,0.04))",
+                                backgroundColor: "background.paper",
                             }}
                         >
                             <Typography variant="subtitle2" sx={{ fontWeight: 600, textAlign: "center" }}>
@@ -141,8 +146,9 @@ export default function MiniWebappPreview({
                             backgroundColor: "rgba(0,0,0,0.6)",
                             "&:hover": {
                                 backgroundColor: "rgba(0,0,0,0.8)",
-                            },
-                        }}
+                    },
+                    ...sx,
+                }}
                     >
                         <OpenInFullIcon sx={{ fontSize: 18, color: "#fff" }} />
                     </IconButton>
@@ -196,7 +202,7 @@ export default function MiniWebappPreview({
                         <IconButton
                             onClick={handleClose}
                             size="small"
-                            aria-label="Close preview"
+                            aria-label={t("a11y.closePreview")}
                             sx={{
                                 position: "absolute",
                                 top: 8,

@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
+import { cvSectionSx, cvSectionTitleSx } from "../cv.styles.js";
 
 /**
  * @param {{
@@ -10,8 +11,8 @@ import { Box, Stack, Typography } from "@mui/material";
  */
 export default function CvEducationLanguagesSection({ education, spokenLanguages, isCompact, t }) {
     return (
-        <Stack data-cv-section data-cv-section-splittable spacing={0.9}>
-            <Typography variant="h5">{t("cv.educationAndLanguages")}</Typography>
+        <Stack data-cv-section data-cv-section-splittable spacing={0.9} sx={cvSectionSx}>
+            <Typography variant="h5" sx={cvSectionTitleSx}>{t("cv.educationAndLanguages")}</Typography>
             <Box
                 sx={{
                     display: "grid",
@@ -45,7 +46,7 @@ export default function CvEducationLanguagesSection({ education, spokenLanguages
                     ))}
                 </Stack>
 
-                <Stack spacing={0.6}>
+                    <Stack spacing={0.6} sx={{ borderLeft: { xs: 0, md: "1px solid" }, borderColor: "divider", pl: { xs: 0, md: 2.2 }, ml: { xs: 0, md: 0.5 } }}>
                     {spokenLanguages.map((item) => (
                         <Stack
                             key={item.name}

@@ -1,0 +1,33 @@
+{
+  "eyebrow": "RIFERIMENTO / SISTEMA VISIVO",
+  "title": "Guida di stile",
+  "note": "IMPLEMENTAZIONE ATTUALE",
+  "intro": "Un indice visivo di colori, tipografia, controlli, superfici, diagrammi e movimento usati nel portfolio. Gli esempi seguono il tema attivo.",
+  "sections": {
+    "colors": { "eyebrow": "01 // TOKEN COLORE", "title": "Sistema cromatico", "description": "Carta tecnica calda e inchiostro scuro definiscono entrambi i temi. Il blu guida le interazioni principali; arancione, giallo, rosso e verde distinguono i segnali secondari." },
+    "type": { "eyebrow": "02 // TIPOGRAFIA", "title": "Gerarchia tipografica", "description": "Titoli espressivi e compatti si affiancano a testi leggibili e a etichette tecniche monospaziate." },
+    "controls": { "eyebrow": "03 // INTERAZIONE", "title": "Pulsanti e stati", "description": "I controlli usano etichette compatte maiuscole, indicatori di focus chiari e una sottile barra cromatica di riscontro." },
+    "surfaces": { "eyebrow": "04 // PANNELLI", "title": "Schede e superfici", "description": "Pannelli piatti con angoli discreti da 4px usano bordi sottili e contrasto tra superfici al posto di ombre marcate." },
+    "graphics": { "eyebrow": "05 // GRAFICA", "title": "Grafica tecnica", "description": "Orbitali, griglie, barre di segnale e schemi semplici aggiungono un carattere aerospaziale mantenendo le informazioni leggibili." },
+    "motion": { "eyebrow": "06 // MOVIMENTO E LAYOUT", "title": "Movimento e impaginazione", "description": "Le animazioni sono brevi e funzionali. I layout usano la larghezza condivisa e la scala di spaziatura MUI, adattandosi agli schermi stretti." }
+  },
+  "tokens": {
+    "backgroundDefault": "background.default",
+    "backgroundPaper": "background.paper",
+    "panel": "space.panel",
+    "secondaryPaper": "space.secondaryPaper",
+    "ink": "text.primary",
+    "secondaryInk": "text.secondary",
+    "border": "divider",
+    "blue": "space.blue",
+    "orange": "space.orange",
+    "yellow": "space.yellow",
+    "red": "space.red",
+    "green": "space.green"
+  },
+  "type": { "sample": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "body": "Il testo corrente resta arioso e leggibile con un'interlinea di 1,7.", "bodySecondary": "Testo 2 / secondario", "mono": "MISSIONE / 01   •   SISTEMA PRONTO" },
+  "controls": { "contained": "Azione principale", "outlined": "Azione secondaria", "text": "Azione testuale", "disabled": "Non disponibile", "status": "Sistema pronto", "focusHint": "Usa Tab per vedere il focus da tastiera sui controlli." },
+  "surfaces": { "panelLabel": "PANNELLO DINAMICO", "staticPanelLabel": "PANNELLO STATICO", "headingLabel": "SEZIONE MISSIONE", "headingTitle": "Titolo di sezione condiviso", "panelCopy": "Usa un bordo discreto, un'etichetta tecnica compatta e un contenuto chiaro.", "chip": "MODULO ATTIVO", "patch": "TB" },
+  "graphics": { "diagramLabel": "Schema orbitale con un corpo centrale e due traiettorie", "chartLabel": "Rail di segnale a tre colori", "chartCaption": "I segnali usano insieme colore ed etichette.", "blueSignal": "BLU / ATTIVO", "yellowSignal": "GIALLO / CATEGORIA", "orangeSignal": "ARANCIONE / MARCATORE" },
+  "motion": { "fast": "Riscontro rapido", "normal": "Transizione standard", "enter": "Ingresso pannello", "slow": "Transizione estesa", "radius": "Raggio degli angoli", "spacing": "Spaziatura base", "contentWidth": "Larghezza contenuto", "responsive": "responsive", "reducedMotion": "Le animazioni decorative rispettano la preferenza di sistema per il movimento ridotto." }
+}

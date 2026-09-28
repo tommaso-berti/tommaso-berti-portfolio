@@ -2,8 +2,8 @@ import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import i18n from "../../i18n/index.js";
-import { ensureProjectsNamespace } from "../../i18n/loadLocale.js";
+import i18n from "../../i18n";
+import { ensureProjectsNamespace } from "@/i18n/loadLocale.js";
 import { resolvePageDefinition } from "../routing/appDefinitions.js";
 
 const SITE_URL = "https://www.tommasoberti.com";
@@ -15,9 +15,12 @@ const ROUTE_META_KEYS = [
     { match: (pathname) => pathname === "/projects", key: "projects" },
     { match: (pathname) => pathname.startsWith("/projects/"), key: "projectDetail" },
     { match: (pathname) => pathname === "/about", key: "about" },
+    { match: (pathname) => pathname === "/services", key: "services" },
+    { match: (pathname) => pathname === "/systems", key: "systems" },
     { match: (pathname) => pathname === "/contact", key: "contact" },
     { match: (pathname) => pathname === "/blog", key: "blog" },
     { match: (pathname) => pathname === "/cv", key: "cv" },
+    { match: (pathname) => pathname === "/style", key: "style" },
 ];
 
 function ensureMetaTag(attribute, name) {
@@ -114,6 +117,11 @@ export default function SeoMetaManager() {
         document.documentElement.lang = language;
 
         setMetaTag("name", "description", description);
+        if (matchedPageId === "style") {
+            setMetaTag("name", "robots", "noindex, nofollow");
+        } else {
+            document.head.querySelector('meta[name="robots"]')?.remove();
+        }
         setMetaTag("property", "og:title", title);
         setMetaTag("property", "og:description", description);
         setMetaTag("property", "og:type", pathname === "/" ? "website" : "article");
@@ -135,7 +143,7 @@ export default function SeoMetaManager() {
             `${canonicalUrl}${canonicalUrl.includes("?") ? "&" : "?"}lang=${alternateLocale}`
         );
         ensureAlternateLink("x-default").setAttribute("href", `${SITE_URL}/`);
-    }, [language, pathname, projectId, routeKey, t, tPages]);
+    }, [language, matchedPageId, pathname, projectId, routeKey, t, tPages]);
 
     return null;
 }

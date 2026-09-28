@@ -3,7 +3,7 @@ import { GlobalStyles } from "@mui/material";
 const printStyles = {
     "@page": {
         size: "A4",
-        margin: "13mm",
+        margin: "3mm 13mm 10mm",
     },
     "@media print": {
         "*, *::before, *::after": {
@@ -24,10 +24,15 @@ const printStyles = {
         footer: {
             display: "none !important",
         },
+        "[data-cv-closing]": {
+            display: "none !important",
+        },
         main: {
             maxWidth: "100% !important",
             paddingTop: "0 !important",
             paddingBottom: "0 !important",
+            minHeight: "auto !important",
+            flexGrow: "0 !important",
         },
         "[data-cv-page]": {
             width: "100% !important",
@@ -53,6 +58,23 @@ const printStyles = {
             maxWidth: "100% !important",
             overflowX: "visible !important",
             paddingRight: "1mm !important",
+            color: "#111 !important",
+        },
+        "[data-cv-document] *": {
+            color: "#111 !important",
+        },
+        "[data-cv-document]::before": {
+            display: "none !important",
+        },
+        "[data-cv-document] > .MuiBox-root:last-of-type": {
+            paddingTop: "0 !important",
+            paddingBottom: "0 !important",
+        },
+        "[data-cv-document] [data-cv-section]:first-of-type": {
+            paddingTop: "0 !important",
+        },
+        "[data-cv-accent-rail]": {
+            height: "3mm !important",
         },
         "[data-cv-section]": {
             breakInside: "auto",
@@ -68,9 +90,19 @@ const printStyles = {
             textDecoration: "none !important",
         },
         "[data-cv-social-link]": {
-            whiteSpace: "nowrap !important",
-            overflowWrap: "normal !important",
-            wordBreak: "normal !important",
+            whiteSpace: "normal !important",
+            overflowWrap: "anywhere !important",
+            wordBreak: "break-word !important",
+        },
+        "[data-cv-social-links]": {
+            flexWrap: "wrap !important",
+            columnGap: "3mm !important",
+            rowGap: "1mm !important",
+            maxWidth: "100% !important",
+        },
+        "[data-cv-social-links] > .MuiStack-root": {
+            minWidth: "0 !important",
+            maxWidth: "100% !important",
         },
         "[data-cv-action-link]": {
             display: "none !important",
@@ -160,11 +192,6 @@ const printStyles = {
             height: "24mm !important",
             borderRadius: "50% !important",
             objectFit: "cover !important",
-        },
-        "[data-cv-document]::after": {
-            content: "\"\"",
-            display: "block",
-            height: "8mm",
         },
     },
 };

@@ -1,0 +1,147 @@
+{
+  "eyebrow": "05 // SISTEMI",
+  "title": "Dietro i miei progetti",
+  "note": "AMBIENTE / PROCESSI / INFRASTRUTTURA",
+  "sectionLabels": {
+    "ai": "FLUSSO AI",
+    "infrastructure": "INFRASTRUTTURA PERSONALE",
+    "boundary": "AMBIENTI SEPARATI",
+    "environment": "STRUMENTI",
+    "links": "PROSSIMI PASSI"
+  },
+  "intro": {
+    "label": "ambiente di sviluppo",
+    "lead": "Porto avanti i miei progetti personali nel tempo libero, parallelamente al mio lavoro. L’AI mi aiuta a velocizzare alcune fasi dello sviluppo, mentre una VPS personale mi permette di pubblicare applicazioni e sperimentare anche con infrastruttura, deploy e servizi backend. ",
+    "tags": ["Sviluppo assistito dall'AI", "Linux VPS", "Progetti personali"]
+  },
+  "summary": {
+    "label": "panoramica dell'ambiente",
+    "items": [
+      { "label": "MODELLO DI SVILUPPO", "value": "Lavoro full-time + progetti personali" },
+      { "label": "SUPPORTO ALLA PRODUTTIVITÀ", "value": "Cursor / Codex" },
+      { "label": "INFRASTRUTTURA PERSONALE", "value": "IONOS VPS / Linux" }
+    ]
+  },
+  "ai": {
+    "title": "Più tempo per sviluppare, meno per le attività ripetitive",
+    "modeLabel": "Seleziona un ambito in cui uso l'AI",
+    "modeNames": { "ui": "UI e interfacce", "research": "Ricerca tecnica", "integration": "Integrazioni", "iteration": "Iterazione" },
+    "intro": {
+      "label": "PERCHÉ L’AI",
+      "title": "Un supporto durante lo sviluppo",
+      "description": "Uso Cursor e Codex come strumenti di supporto durante lo sviluppo: mi aiutano nella ricerca tecnica, nella realizzazione delle interfacce, nel refactoring e nelle integrazioni più complesse. Li uso per velocizzare il lavoro, non per delegare le decisioni sul prodotto o sull’architettura.",
+      "tools": ["CURSOR", "CODEX"]
+    },
+    "constraint": {
+      "label": "VINCOLO // TEMPO",
+      "title": "Il tempo è una risorsa limitata",
+      "description": "Porto avanti questi progetti nel tempo libero, parallelamente al mio lavoro. Per questo cerco di concentrare il tempo disponibile sulle parti che richiedono davvero il mio intervento: progettazione, scelte tecniche, sviluppo e verifica del risultato.",
+      "outcome": "PIÙ TEMPO SULLE DECISIONI, MENO SULLE ATTIVITÀ RIPETITIVE"
+    },
+    "responsibilities": {
+      "context": { "label": "CONTESTO" },
+      "ai": { "label": "SUPPORTO AI" }
+    },
+    "modes": {
+      "ui": {
+        "code": "ASSIST / UI-01",
+        "title": "Dall’idea all’interfaccia",
+        "description": "Definisco come deve funzionare e presentarsi una schermata, poi uso l’AI per accelerare la realizzazione di componenti, layout e varianti. Questo rende molto più veloce passare dall’idea a qualcosa che posso provare direttamente.",
+        "flow": "CURSOR / CODEX · UI ASSIST",
+        "context": ["Comportamento", "Struttura della schermata", "Stile", "Vincoli del progetto"],
+        "support": ["Componenti", "Layout", "Responsive", "Varianti grafiche"]
+      },
+      "research": {
+        "code": "ASSIST / TECH-02",
+        "title": "Confrontare le opzioni prima di scegliere",
+        "description": "Quando devo approfondire una tecnologia o un approccio che conosco meno, l’AI mi permette di raccogliere velocemente alternative, differenze e aspetti da approfondire, riducendo il tempo necessario per orientarmi nella documentazione.",
+        "flow": "AI RESEARCH · CONFRONTO",
+        "context": ["Requisiti", "Tecnologie coinvolte", "Vincoli", "Domande da chiarire"],
+        "support": ["Ricerca iniziale", "Confronto tra librerie", "Sintesi della documentazione", "Alternative possibili"]
+      },
+      "integration": {
+        "code": "ASSIST / INT-03",
+        "title": "Capire più in fretta API e servizi nuovi",
+        "description": "Quando devo collegare un servizio o un’API che conosco meno, l’AI mi aiuta a leggere la documentazione, capire autenticazione e formati dei dati e preparare una prima integrazione da provare sul progetto.",
+        "flow": "CURSOR / CODEX · INTEGRATION ASSIST",
+        "context": ["API da integrare", "Autenticazione", "Dati in ingresso e uscita", "Comportamento atteso"],
+        "support": ["Lettura documentazione", "Struttura iniziale", "Mapping dei dati", "Gestione dei casi particolari"]
+      },
+      "iteration": {
+        "code": "ASSIST / ITER-04",
+        "title": "Velocizzare modifiche e refactoring",
+        "description": "Refactoring e modifiche ripetitive possono richiedere molto tempo anche quando il risultato da ottenere è già chiaro. L’AI accelera queste operazioni e rende più rapido provare alternative e applicare modifiche al codice.",
+        "flow": "AI ASSIST · REFACTOR / CHANGE",
+        "context": ["Codice esistente", "Modifica richiesta", "Comportamento da mantenere", "Area interessata"],
+        "support": ["Refactoring", "Modifiche su più file", "Codice ripetitivo", "Varianti implementative"]
+      }
+    }
+  },
+  "infrastructure": {
+    "title": "I miei progetti, anche online",
+    "modeLabel": "Esplora le aree ospitate sulla VPS personale",
+    "modeNames": { "apps": "WEB APP", "api": "API", "data": "DATI", "experiments": "LAB" },
+    "diagram": { "label": "TOPOLOGIA DI DEPLOY PERSONALE", "code": "DIAG / INFRA-01", "internet": "INTERNET", "edge": "EDGE / DNS", "server": "IONOS VPS / LINUX" },
+    "services": { "apps": "WEB APP", "api": "API", "data": "DATI", "jobs": "JOB", "monitor": "MONITORAGGIO", "experiments": "ESPERIMENTI" },
+    "detailLabel": "PERCHÉ USO UNA VPS PERSONALE",
+    "modes": {
+      "apps": {
+        "title": "Applicazioni online, non solo demo locali",
+        "description": "Uso una VPS IONOS per ospitare le mie web app, API e alcuni servizi personali. Mi permette di tenere online più progetti con costi contenuti e, soprattutto, di fare esperienza con tutto ciò che viene dopo lo sviluppo locale: deploy, Linux, configurazione dei servizi, aggiornamenti e monitoraggio.",
+        "services": ["apps"],
+        "facts": [
+          { "label": "SCOPO", "value": "Progetti personali e sperimentazione" },
+          { "label": "PROVIDER", "value": "IONOS" },
+          { "label": "APPRENDIMENTO", "value": "Deploy, Linux e gestione di servizi" }
+        ]
+      },
+      "api": {
+        "title": "Servizi backend sotto il mio controllo",
+        "description": "Ospitare API nello stesso ambiente mi fa lavorare con processi backend, configurazione e comunicazione tra frontend e server.",
+        "services": ["api", "jobs"],
+        "facts": [
+          { "label": "SCOPO", "value": "API e servizi per applicazioni personali" },
+          { "label": "AMBIENTE", "value": "Linux VPS" },
+          { "label": "APPRENDIMENTO", "value": "Processi, networking e deploy" }
+        ]
+      },
+      "data": {
+        "title": "Dati e continuità fanno parte del sistema",
+        "description": "Gestire dati e servizi persistenti rende concrete responsabilità come configurazione, backup, sicurezza e continuità del servizio.",
+        "services": ["data", "monitor"],
+        "facts": [
+          { "label": "SCOPO", "value": "Servizi persistenti dei progetti" },
+          { "label": "ATTENZIONE", "value": "Configurazione e backup" },
+          { "label": "APPRENDIMENTO", "value": "Operatività e affidabilità" }
+        ]
+      },
+      "experiments": {
+        "title": "Un laboratorio per provare idee reali",
+        "description": "La VPS è anche un ambiente in cui provare automazioni e piccoli servizi senza trasformare il computer locale nel sistema di produzione.",
+        "services": ["experiments", "jobs", "monitor"],
+        "facts": [
+          { "label": "SCOPO", "value": "Esperimenti e automazioni personali" },
+          { "label": "AMBIENTE", "value": "Separato dallo sviluppo locale" },
+          { "label": "APPRENDIMENTO", "value": "Backend, Linux e infrastruttura" }
+        ]
+      }
+    }
+  },
+  "boundary": {
+    "title": "Tengo separati i miei progetti personali da quelli dei clienti",
+    "environments": [
+      { "label": "PERSONALE // VPS", "title": "La mia VPS", "description": "Uso una VPS personale per tenere online i miei progetti, le API e i servizi che sviluppo nel tempo libero. È anche il mio ambiente di prova: mi permette di sperimentare con Linux, deploy, configurazioni, monitoraggio e gestione dei servizi senza fermarmi allo sviluppo in locale. Mi interessa seguire un progetto anche dopo il codice, capire come si comporta una volta pubblicato e imparare a gestire l’infrastruttura che lo sostiene.", "items": ["WEB APP", "API E SERVIZI", "DEPLOY E MONITORAGGIO", "SPERIMENTAZIONE"] },
+      { "label": "CLIENTE // AMBIENTE DEDICATO", "title": "Un’infrastruttura adatta al progetto", "description": "Per i progetti destinati a un cliente non utilizzo la mia infrastruttura personale. L’ambiente viene scelto in base alle esigenze del progetto, ai servizi necessari e al contesto in cui dovrà funzionare. Può essere una VPS dedicata, un servizio cloud oppure l’infrastruttura già disponibile presso il cliente. In questo modo ogni progetto rimane indipendente e può essere gestito nel proprio ambiente.", "items": ["VPS O CLOUD DEDICATO", "INFRASTRUTTURA ESISTENTE", "ON-PREMISE, SE NECESSARIO", "CONFIGURAZIONE SU MISURA"] }
+    ]
+  },
+  "environment": {
+    "title": "Gli strumenti che uso ogni giorno",
+    "items": [
+      { "label": "EDITOR", "value": "VS Code / WebStorm", "detail": "Gli ambienti che uso ogni giorno per scrivere, navigare e modificare il codice." },
+      { "label": "AI", "value": "Cursor / Codex", "detail": "Supporto durante lo sviluppo, il refactoring, la ricerca tecnica e l’implementazione." },
+      { "label": "CODICE SORGENTE", "value": "GitHub", "detail": "Gestione del codice, versionamento e organizzazione dei repository." },
+      { "label": "AMBIENTE DI ESECUZIONE", "value": "macOS + Linux VPS", "detail": "Sviluppo in locale su macOS e gestione di applicazioni e servizi sulla VPS Linux." }
+    ]
+  },
+  "links": { "title": "Dagli strumenti ai progetti", "description": "Strumenti, AI e infrastruttura fanno parte dello stesso processo: mi aiutano a sviluppare i progetti, provarli e portarli dal mio computer a un ambiente realmente utilizzabile.", "services": "Servizi", "method": "Come lavoro", "contact": "Contatti" }
+}

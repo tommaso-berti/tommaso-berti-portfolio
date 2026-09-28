@@ -1,0 +1,33 @@
+{
+  "eyebrow": "REFERENCE / VISUAL SYSTEM",
+  "title": "Style reference",
+  "note": "CURRENT IMPLEMENTATION",
+  "intro": "A visual index of the colors, type, controls, surfaces, diagrams, and motion used across this portfolio. Examples follow the active theme.",
+  "sections": {
+    "colors": { "eyebrow": "01 // COLOR TOKENS", "title": "Color system", "description": "Warm technical paper and dark ink anchor both themes. Blue carries primary interaction; orange, yellow, red, and green mark supporting signals." },
+    "type": { "eyebrow": "02 // TYPOGRAPHY", "title": "Type hierarchy", "description": "Expressive, tightly tracked headings pair with readable body copy and compact monospaced instrument labels." },
+    "controls": { "eyebrow": "03 // INTERACTION", "title": "Buttons and states", "description": "Controls use compact uppercase labels, clear focus outlines, and a small accent rail for feedback." },
+    "surfaces": { "eyebrow": "04 // PANELS", "title": "Cards and surfaces", "description": "Flat panels with restrained 4px corners rely on thin borders and surface contrast instead of heavy shadows." },
+    "graphics": { "eyebrow": "05 // GRAPHICS", "title": "Technical graphics", "description": "Orbital paths, grids, signal bars, and simple schematics add an aerospace character while keeping information legible." },
+    "motion": { "eyebrow": "06 // MOTION & LAYOUT", "title": "Motion and layout", "description": "Motion stays brief and purposeful. Layouts use the shared content width and MUI spacing scale, adapting to narrow screens." }
+  },
+  "tokens": {
+    "backgroundDefault": "background.default",
+    "backgroundPaper": "background.paper",
+    "panel": "space.panel",
+    "secondaryPaper": "space.secondaryPaper",
+    "ink": "text.primary",
+    "secondaryInk": "text.secondary",
+    "border": "divider",
+    "blue": "space.blue",
+    "orange": "space.orange",
+    "yellow": "space.yellow",
+    "red": "space.red",
+    "green": "space.green"
+  },
+  "type": { "sample": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "body": "Body text stays open and readable at 1.7 line height.", "bodySecondary": "Body 2 / secondary", "mono": "MISSION / 01   •   SYSTEM READY" },
+  "controls": { "contained": "Primary action", "outlined": "Secondary action", "text": "Text action", "disabled": "Unavailable", "status": "System ready", "focusHint": "Tab to a control to inspect its keyboard focus style." },
+  "surfaces": { "panelLabel": "MOTION PANEL", "staticPanelLabel": "STATIC PANEL", "headingLabel": "MISSION SECTION", "headingTitle": "Shared section heading", "panelCopy": "Use a restrained border, a compact technical label, and one clear piece of content.", "chip": "ACTIVE MODULE", "patch": "TB" },
+  "graphics": { "diagramLabel": "Orbital schematic showing a primary body and two paths", "chartLabel": "Three-color signal rail", "chartCaption": "Signals use color and labels together.", "blueSignal": "BLUE / ACTIVE", "yellowSignal": "YELLOW / CATEGORY", "orangeSignal": "ORANGE / MARKER" },
+  "motion": { "fast": "Fast feedback", "normal": "Standard transition", "enter": "Panel entrance", "slow": "Expanded transition", "radius": "Corner radius", "spacing": "Base spacing", "contentWidth": "Main content width", "responsive": "responsive", "reducedMotion": "Decorative animation respects the operating system reduced-motion preference." }
+}

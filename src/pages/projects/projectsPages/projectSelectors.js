@@ -1,5 +1,6 @@
 import { projects } from "./projects.js";
 import { TECHNOLOGIES } from "./technologies.config.js";
+import { getCelestialAccent } from "@/features/mission-ui/celestialMap.utils.js";
 
 export function getProjectsByCategory(categoryId) {
     if (categoryId === "all") return projects;
@@ -46,6 +47,31 @@ export function buildProjectPreviewModel(project, tProjects) {
             loadPreviewTooltip: tProjects("load_preview_tooltip"),
         },
     };
+}
+
+export function buildMissionModel(project, tProjects, index) {
+    const preview = buildProjectPreviewModel(project, tProjects);
+    const colors = { main: "space.blue", side: "space.orange" };
+    const celestialIndex = projects.findIndex(({ id }) => id === project.id);
+    return {
+        ...preview,
+        overline: `${tProjects(project.overlineKey)} // ${String(index + 1).padStart(2, "0")}`,
+        color: colors[project.category] || "space.yellow",
+        accent: getCelestialAccent(project, celestialIndex),
+    };
+}
+
+export function buildCelestialMapItems(tProjects) {
+    return projects.map((project) => ({
+        id: project.id,
+        name: tProjects(project.titleKey),
+        description: tProjects(project.descriptionKey),
+        detailPath: `/projects/${project.id}`,
+        liveHref: project.secondaryAction.href,
+        githubHref: project.githubHref,
+        orbit: project.orbit,
+        accent: getCelestialAccent(project, projects.findIndex(({ id }) => id === project.id)),
+    }));
 }
 
 export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {

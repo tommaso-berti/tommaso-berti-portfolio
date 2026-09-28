@@ -1,10 +1,16 @@
 {
+  "footer": {
+    "tagline": "COSTRUIRE // ESPLORARE // MIGLIORARE",
+    "location": "BASE SULLA TERRA // DISPONIBILE DA REMOTO"
+  },
   "nav": {
     "home": "Home",
     "projects": "Progetti",
     "about": "Chi sono",
     "blog": "Blog",
     "contact": "Contatti",
+    "services": "Servizi",
+    "systems": "Sistemi",
     "cv": "CV"
   },
   "notFound": {
@@ -18,6 +24,54 @@
     "toggleThemeDark": "Attiva modalità scura",
     "toggleLanguageToIt": "Passa alla lingua italiana",
     "toggleLanguageToEn": "Passa alla lingua inglese",
-    "openReleaseNotes": "Apri note di rilascio"
+    "openReleaseNotes": "Apri note di rilascio",
+    "openCustomCv": "Apri e personalizza il CV",
+    "primaryNavigation": "Navigazione principale",
+    "systemStatus": "Stato del sistema",
+    "breadcrumb": "Percorso di navigazione",
+    "closePreview": "Chiudi anteprima"
+  },
+  "preview": {
+    "title": "Anteprima",
+    "load": "Carica anteprima",
+    "loadTooltip": "Carica l'anteprima solo quando serve, per evitare chiamate API non necessarie."
+  },
+  "pageClosingLines": {
+    "home": "PORTFOLIO SYSTEM / ONLINE",
+    "projects": "PROJECT ARCHIVE / INDEX READY",
+    "projectDetails": "PROJECT DOSSIER / SYSTEM ONLINE",
+    "about": "PERSONNEL FILE / IDENTITY VERIFIED",
+    "services": "SOFTWARE SERVICES / READY FOR DELIVERY",
+    "systems": "SISTEMI DI SVILUPPO / OPERATIVI",
+    "contact": "COMMS CHANNEL / OPEN",
+    "cv": "CAREER RECORD / CV AVAILABLE",
+    "blog": "FIELD NOTES / ARCHIVE READY",
+    "style": "STYLE REFERENCE / SYSTEM INDEXED",
+    "notFound": "ROUTE ERROR / PAGE NOT FOUND"
+  },
+  "headerControls": {
+    "languageTooltip": "Lingua",
+    "languageTitle": "Canale lingua",
+    "italian": "Italiano",
+    "english": "English",
+    "themeTitle": "Modalità display",
+    "lightTheme": "Modalità chiara",
+    "darkTheme": "Modalità scura"
+  },
+  "scrollRail": {
+    "label": "Indice di scorrimento del documento {{page}}",
+    "step": "{{page}} {{step}}",
+    "steps": ["Apertura", "Nucleo", "Dettagli", "Chiusura"],
+    "titles": {
+      "home": "01 // REGISTRO ESPLORAZIONE / TB-DEV / 2026",
+      "projects": "02 // ARCHIVIO MISSIONE",
+      "services": "04 // SERVIZI",
+      "systems": "05 // SISTEMI",
+      "contact": "06 // CONTATTI",
+      "cv": "07 // ARCHIVIO CV",
+      "blog": "08 // NOTE DI CAMPO",
+      "style": "09 // RIFERIMENTO STILE",
+      "notFound": "00 // SEGNALE PERSO"
+    }
   }
 }

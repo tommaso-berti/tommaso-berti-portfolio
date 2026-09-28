@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import i18n from "./index.js";
 import { ensureProjectsNamespace } from "./loadLocale.js";
 
 /**
@@ -9,24 +8,33 @@ import { ensureProjectsNamespace } from "./loadLocale.js";
  */
 export function useEnsureProjectsI18n() {
     const { i18n: i18nInstance } = useTranslation();
-    const [ready, setReady] = useState(() => {
-        const lang = i18nInstance.language?.toLowerCase().startsWith("it") ? "it" : "en";
-        return Boolean(i18nInstance.getResource(lang, "pages")?.projects?.logra?.title);
+    const language = i18nInstance.language?.toLowerCase().startsWith("it") ? "it" : "en";
+    const [readyLanguage, setReadyLanguage] = useState(() => {
+        const initialLanguage = i18nInstance.language?.toLowerCase().startsWith("it") ? "it" : "en";
+        return i18nInstance.getResource(initialLanguage, "pages")?.projects?.logra?.title
+            ? initialLanguage
+            : null;
     });
 
     useEffect(() => {
         let cancelled = false;
 
-        void ensureProjectsNamespace(i18n, i18nInstance.language).then(() => {
+        if (i18nInstance.getResource(language, "pages")?.projects?.logra?.title) {
+            setReadyLanguage(language);
+            return undefined;
+        }
+
+        setReadyLanguage(null);
+        void ensureProjectsNamespace(i18nInstance, language).then(() => {
             if (!cancelled) {
-                setReady(true);
+                setReadyLanguage(language);
             }
         });
 
         return () => {
             cancelled = true;
         };
-    }, [i18nInstance.language]);
+    }, [i18nInstance, language]);
 
-    return ready;
+    return readyLanguage === language;
 }

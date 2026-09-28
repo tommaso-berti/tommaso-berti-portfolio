@@ -1,16 +1,19 @@
 import { lazy } from "react";
 import { matchPath } from "react-router-dom";
 
-import { projects } from "../../pages/projects/projectsPages/projects.js";
+import { projects } from "@/pages/projects/projectsPages/projects.js";
 
-const Home = lazy(() => import("../../pages/home/Home.jsx"));
-const Projects = lazy(() => import("../../pages/projects/Projects.jsx"));
-const ProjectPage = lazy(() => import("../../pages/projects/projectsPages/ProjectPage.jsx"));
-const About = lazy(() => import("../../pages/about/About.jsx"));
-const Blog = lazy(() => import("../../pages/blog/Blog.jsx"));
-const Contact = lazy(() => import("../../pages/contact/Contact.jsx"));
-const Cv = lazy(() => import("../../pages/cv/Cv.jsx"));
-const NotFound = lazy(() => import("../../pages/not-found/NotFound.jsx"));
+const Home = lazy(() => import("@/pages/home/Home.jsx"));
+const Projects = lazy(() => import("@/pages/projects/Projects.jsx"));
+const ProjectPage = lazy(() => import("@/pages/projects/projectsPages/ProjectPage.jsx"));
+const About = lazy(() => import("@/pages/about/About.jsx"));
+const Blog = lazy(() => import("@/pages/blog/Blog.jsx"));
+const Contact = lazy(() => import("@/pages/contact/Contact.jsx"));
+const Services = lazy(() => import("@/pages/services/Services.jsx"));
+const Systems = lazy(() => import("@/pages/systems/Systems.jsx"));
+const Cv = lazy(() => import("@/pages/cv/Cv.jsx"));
+const Style = lazy(() => import("@/pages/style/Style.jsx"));
+const NotFound = lazy(() => import("@/pages/not-found/NotFound.jsx"));
 
 /**
  * @typedef {Object} BreadcrumbItemDefinition
@@ -89,6 +92,24 @@ export const PAGE_DEFINITIONS = [
         experimental: true,
     },
     {
+        id: "services",
+        path: "/services",
+        component: Services,
+        breadcrumbContext: "services",
+        navKey: "services",
+        showInHomeMenu: true,
+        experimental: false,
+    },
+    {
+        id: "systems",
+        path: "/systems",
+        component: Systems,
+        breadcrumbContext: "systems",
+        navKey: "systems",
+        showInHomeMenu: true,
+        experimental: false,
+    },
+    {
         id: "contact",
         path: "/contact",
         component: Contact,
@@ -104,6 +125,13 @@ export const PAGE_DEFINITIONS = [
         breadcrumbContext: "cv",
         navKey: "cv",
         showInHomeMenu: true,
+        experimental: false,
+    },
+    {
+        id: "style",
+        path: "/style",
+        component: Style,
+        breadcrumbContext: "home",
         experimental: false,
     },
     {
@@ -150,6 +178,16 @@ export const BREADCRUMB_CONTEXT_DEFINITIONS = {
         type: "hash",
         basePath: "/about",
         items: ABOUT_ITEMS,
+    },
+    services: {
+        type: "path",
+        basePath: "/",
+        items: [{ id: "services", titleKey: "nav.services", fallback: "services" }],
+    },
+    systems: {
+        type: "path",
+        basePath: "/",
+        items: [{ id: "systems", titleKey: "nav.systems", fallback: "systems" }],
     },
     projects: {
         type: "path",

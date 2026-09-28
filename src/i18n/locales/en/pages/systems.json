@@ -1,0 +1,147 @@
+{
+  "eyebrow": "05 // SYSTEMS",
+  "title": "Behind my projects",
+  "note": "ENVIRONMENT / PROCESS / INFRASTRUCTURE",
+  "sectionLabels": {
+    "ai": "AI WORKFLOW",
+    "infrastructure": "PERSONAL INFRASTRUCTURE",
+    "boundary": "SEPARATE ENVIRONMENTS",
+    "environment": "TOOLCHAIN",
+    "links": "NEXT STEPS"
+  },
+  "intro": {
+    "label": "development environment",
+    "lead": "I work on personal projects in my free time, alongside my job. AI helps me speed up parts of development, while a personal VPS lets me publish applications and experiment with infrastructure, deployment, and backend services.",
+    "tags": ["AI-assisted development", "Linux VPS", "Personal projects"]
+  },
+  "summary": {
+    "label": "environment overview",
+    "items": [
+      { "label": "DEVELOPMENT MODEL", "value": "Full-time work + personal projects" },
+      { "label": "ACCELERATION LAYER", "value": "Cursor / Codex" },
+      { "label": "PERSONAL INFRA", "value": "IONOS VPS / Linux" }
+    ]
+  },
+  "ai": {
+    "title": "More time to build, less time on repetitive tasks",
+    "modeLabel": "Select an area where I use AI",
+    "modeNames": { "ui": "UI and interfaces", "research": "Technical research", "integration": "Integrations", "iteration": "Iteration" },
+    "intro": {
+      "label": "WHY AI",
+      "title": "Support during development",
+      "description": "I use Cursor and Codex to support my development work: they help with technical research, interface implementation, refactoring, and more complex integrations. I use them to work faster, not to delegate product or architecture decisions.",
+      "tools": ["CURSOR", "CODEX"]
+    },
+    "constraint": {
+      "label": "CONSTRAINT // TIME",
+      "title": "Time is a real constraint",
+      "description": "I work on these projects in my free time, alongside my job. I try to focus that time on the parts that need my input: planning, technical decisions, development, and checking the result.",
+      "outcome": "MORE TIME FOR DECISIONS, LESS FOR REPETITIVE TASKS"
+    },
+    "responsibilities": {
+      "context": { "label": "CONTEXT" },
+      "ai": { "label": "AI SUPPORT" }
+    },
+    "modes": {
+      "ui": {
+        "code": "ASSIST / UI-01",
+        "title": "From idea to interface",
+        "description": "I define how a screen should work and look, then use AI to speed up the creation of components, layouts, and variants. This makes it much faster to go from an idea to something I can try out directly.",
+        "flow": "CURSOR / CODEX · UI ASSIST",
+        "context": ["Behavior", "Screen structure", "Style", "Project constraints"],
+        "support": ["Components", "Layouts", "Responsive design", "Visual variants"]
+      },
+      "research": {
+        "code": "ASSIST / TECH-02",
+        "title": "Compare options before choosing",
+        "description": "When I need to explore a technology or approach I know less well, AI helps me quickly gather alternatives, differences, and points to investigate, reducing the time it takes to find my way through the documentation.",
+        "flow": "AI RESEARCH · COMPARISON",
+        "context": ["Requirements", "Technologies involved", "Constraints", "Questions to clarify"],
+        "support": ["Initial research", "Library comparison", "Documentation synthesis", "Possible alternatives"]
+      },
+      "integration": {
+        "code": "ASSIST / INT-03",
+        "title": "Understand new APIs and services faster",
+        "description": "When I need to connect a service or API I know less well, AI helps me read the documentation, understand authentication and data formats, and prepare an initial integration to try in the project.",
+        "flow": "CURSOR / CODEX · INTEGRATION ASSIST",
+        "context": ["API to integrate", "Authentication", "Input and output data", "Expected behavior"],
+        "support": ["Documentation review", "Initial structure", "Data mapping", "Handling special cases"]
+      },
+      "iteration": {
+        "code": "ASSIST / ITER-04",
+        "title": "Speed up changes and refactoring",
+        "description": "Refactoring and repetitive changes can take a lot of time even when the desired outcome is already clear. AI speeds up these tasks and makes it quicker to try alternatives and apply code changes.",
+        "flow": "AI ASSIST · REFACTOR / CHANGE",
+        "context": ["Existing code", "Requested change", "Behavior to preserve", "Area affected"],
+        "support": ["Refactoring", "Changes across files", "Repetitive code", "Implementation variants"]
+      }
+    }
+  },
+  "infrastructure": {
+    "title": "My projects, available online",
+    "modeLabel": "Explore the areas hosted on my personal VPS",
+    "modeNames": { "apps": "WEB APPS", "api": "APIs", "data": "DATA", "experiments": "LAB" },
+    "diagram": { "label": "PERSONAL DEPLOYMENT TOPOLOGY", "code": "DIAG / INFRA-01", "internet": "INTERNET", "edge": "EDGE / DNS", "server": "IONOS VPS / LINUX" },
+    "services": { "apps": "WEB APPS", "api": "APIs", "data": "DATA", "jobs": "JOBS", "monitor": "MONITORING", "experiments": "EXPERIMENTS" },
+    "detailLabel": "WHY I USE A PERSONAL VPS",
+    "modes": {
+      "apps": {
+        "title": "Online applications, not just local demos",
+        "description": "I use an IONOS VPS to host my web apps, APIs, and some personal services. It lets me keep several projects online at a reasonable cost and, more importantly, gives me hands-on experience with what comes after local development: deployment, Linux, service configuration, updates, and monitoring.",
+        "services": ["apps"],
+        "facts": [
+          { "label": "PURPOSE", "value": "Personal projects and experimentation" },
+          { "label": "PROVIDER", "value": "IONOS" },
+          { "label": "LEARNING", "value": "Deployment, Linux, and service operations" }
+        ]
+      },
+      "api": {
+        "title": "Backend services under my control",
+        "description": "Hosting APIs in the same environment gives me hands-on experience with backend processes, service configuration, and communication between frontend and server.",
+        "services": ["api", "jobs"],
+        "facts": [
+          { "label": "PURPOSE", "value": "APIs and services for personal applications" },
+          { "label": "ENVIRONMENT", "value": "Linux VPS" },
+          { "label": "LEARNING", "value": "Processes, networking, and deployment" }
+        ]
+      },
+      "data": {
+        "title": "Data and continuity are part of the system",
+        "description": "Running persistent data and services makes responsibilities like configuration, backups, security, and service continuity tangible.",
+        "services": ["data", "monitor"],
+        "facts": [
+          { "label": "PURPOSE", "value": "Persistent project services" },
+          { "label": "FOCUS", "value": "Configuration and backups" },
+          { "label": "LEARNING", "value": "Operations and reliability" }
+        ]
+      },
+      "experiments": {
+        "title": "A lab for trying real ideas",
+        "description": "The VPS is also a place to try automations and small services without turning my local computer into the production environment.",
+        "services": ["experiments", "jobs", "monitor"],
+        "facts": [
+          { "label": "PURPOSE", "value": "Personal experiments and automation" },
+          { "label": "ENVIRONMENT", "value": "Separate from local development" },
+          { "label": "LEARNING", "value": "Backend, Linux, and infrastructure" }
+        ]
+      }
+    }
+  },
+  "boundary": {
+    "title": "I keep my personal projects separate from client projects",
+    "environments": [
+      { "label": "PERSONAL // VPS", "title": "My VPS", "description": "I use a personal VPS to keep my projects, APIs, and services online. I develop them in my free time. It is also my test environment: I can experiment with Linux, deployments, configuration, monitoring, and service management beyond local development. I like following a project beyond the code, seeing how it performs once published, and learning to manage the infrastructure behind it.", "items": ["WEB APPS", "APIs AND SERVICES", "DEPLOYMENT AND MONITORING", "EXPERIMENTS"] },
+      { "label": "CLIENT // DEDICATED ENVIRONMENT", "title": "Infrastructure suited to the project", "description": "I do not use my personal infrastructure for client projects. The environment is chosen based on the project’s needs, required services, and where it needs to run. It could be a dedicated VPS, a cloud service, or infrastructure already available at the client’s organization. This keeps each project independent and lets it run in its own environment.", "items": ["DEDICATED VPS OR CLOUD", "EXISTING INFRASTRUCTURE", "ON-PREMISE WHEN NEEDED", "TAILORED CONFIGURATION"] }
+    ]
+  },
+  "environment": {
+    "title": "Tools I keep close at hand",
+    "items": [
+      { "label": "EDITORS", "value": "VS Code / WebStorm", "detail": "The editors I use every day to write, browse, and edit code." },
+      { "label": "AI", "value": "Cursor / Codex", "detail": "Support for development, refactoring, technical research, and implementation." },
+      { "label": "SOURCE CODE", "value": "GitHub", "detail": "Source control, versioning, and repository organization." },
+      { "label": "RUNTIME", "value": "macOS + Linux VPS", "detail": "Local development on macOS and management of applications and services on a Linux VPS." }
+    ]
+  },
+  "links": { "title": "From tools to projects", "description": "Tools, AI, and infrastructure are part of the same process: they help me develop projects, try them out, and take them from my computer to an environment people can actually use.", "services": "Services", "method": "How I work", "contact": "Contact" }
+}

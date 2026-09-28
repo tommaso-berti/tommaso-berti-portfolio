@@ -15,7 +15,7 @@
       "CSV/XLSX import adds a second matching layer: preflight checks, candidate resolution, manual overrides, and platform normalization reduce mistakes when data comes from outside the app."
     ],
     "lessons_learned": [
-      "A workflow-driven UI matters more than generic polish: it reduces friction and makes the product useful every day.",
+      "A UI shaped around real user workflows matters more than generic polish: it makes the product easier to use every day.",
       "Keeping frontend, API, and shared contracts clearly separated is essential once auth, admin, import/export, and demo flows evolve in parallel.",
       "Operations matter as much as features: seed flows, demo resets, release notes, and versioned deploys directly affect product credibility.",
       "Guided tours, contextual feedback, and stable selectors improve not only UX but also debugging, QA, and future iteration."
@@ -92,7 +92,7 @@
       "Keeping frontend, API, and shared contracts aligned while auth, admin, import/export, and demo flows were evolving at the same time.",
       "Separating the local demo from real sessions so the public showcase stayed reliable without flattening the real product too much.",
       "Handling CSV/XLSX import with matching, manual overrides, and platform normalization without turning the wizard into a fragile flow.",
-      "Balancing dense card information with a fast UX, especially around edit mode, filters, quick actions, and contextual guided tours.",
+      "Balancing the amount of information on each card with a fast UX, especially around edit mode, filters, quick actions, and contextual guided tours.",
       "Maintaining UX quality and operational stability across local environments, CI/CD, versioned deploys, and controlled maintenance flows."
     ],
     "roadmap": {
@@ -107,7 +107,7 @@
       "v2": {
         "title": "v2.0.0",
         "content": [
-          "Expand onboarding with multi-page guided tours and contextual card and stats tours to reduce adoption friction.",
+          "Expand onboarding with multi-page guided tours and contextual card and stats tours to help new users get started.",
           "Deepen IGDB integration with ingest sync, data segmentation, Discover fallback, and clearer catalog-quality controls.",
           "Strengthen security and operations with more aligned docs and more reliable release procedures."
         ]

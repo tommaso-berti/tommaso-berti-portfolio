@@ -23,7 +23,7 @@
     ]
   },
   "ai": {
-    "title": "Più tempo per costruire, meno attrito nell'esecuzione",
+    "title": "Più tempo per sviluppare, meno passaggi manuali",
     "note": "DIREZIONE UMANA / ESECUZIONE ASSISTITA",
     "modeLabel": "Seleziona un ambito in cui uso l'AI",
     "modeNames": { "ui": "UI e interfacce", "research": "Ricerca tecnica", "integration": "Integrazioni", "iteration": "Iterazione" },

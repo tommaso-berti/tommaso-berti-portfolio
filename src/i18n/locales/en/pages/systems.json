@@ -23,7 +23,7 @@
     ]
   },
   "ai": {
-    "title": "More time to build, less execution friction",
+    "title": "More time to build, fewer manual steps",
     "note": "HUMAN DIRECTION / ASSISTED EXECUTION",
     "modeLabel": "Select an area where I use AI",
     "modeNames": { "ui": "UI and interfaces", "research": "Technical research", "integration": "Integrations", "iteration": "Iteration" },

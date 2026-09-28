@@ -16,24 +16,24 @@
   "sections": {
     "capabilities": "Development capabilities",
     "capabilitiesNote": "AVAILABLE MODULES",
-    "matrix": "What each module can include",
+    "matrix": "What each service can include",
     "scope": "Where I can contribute",
     "delivery": "From implementation to a real environment",
     "method": "The method behind delivery",
     "contact": "Let's discuss your project"
   },
   "items": [
-    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "Responsive, maintainable applications built around real product workflows.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
-    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "Interfaces that make data, states, and operations readable and actionable.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
-    { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "Backend services and data flows that connect product systems together.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
-    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "Purpose-built utilities that reduce repetitive manual workflows.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "I build web applications around each project’s needs, with intuitive interfaces and a structure that can grow over time.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "I highlight key data in clear dashboards to show what's working and where to focus next.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "I connect applications and services through APIs so their data and features can work together without manual handoffs.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "I build tools to automate repetitive tasks, cutting manual steps and reducing the chance of errors.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
   "cta": "Start a project",
   "matrix": {
     "label": "capability matrix",
-    "title": "What each module can include",
+    "title": "What each service can include",
     "note": "",
-    "legend": "● core · ○ optional · — not primary",
+    "legend": "● Included · ○ Optional · — Not included",
     "ariaLabel": "Capability matrix by service",
     "capability": "Capability",
     "columns": ["WEB", "DASHBOARD", "API", "AUTOMATION"],
@@ -67,12 +67,12 @@
     "title": "From implementation to a real environment",
     "note": "delivery package / standard scope",
     "items": [
-      { "label": "code", "title": "Maintainable structure", "description": "Readable components, coherent organization, and technical choices designed to evolve without unnecessary friction.", "foot": "structure / components / conventions" },
+      { "label": "code", "title": "Maintainable structure", "description": "Readable components, coherent organization, and technical choices that make the project easier to change and extend.", "foot": "structure / components / conventions" },
       { "label": "integration", "title": "Connected system", "description": "Frontend, services, authentication, data, and integrations are handled as parts of the same product.", "foot": "api / auth / data / services" },
       { "label": "deploy", "title": "Ready to use", "description": "Build, configuration, and release are part of the result: the project should reach an environment people can actually use.", "foot": "build / release / validation" }
     ]
   },
-  "method": { "label": "working method / ref. about-05", "title": "Want to know how I approach a project?", "description": "Clarity, pragmatism, and iteration are covered in the section dedicated to my working method.", "cta": "Open // How I work" },
-  "finalCta": { "label": "open channel", "title": "Have something to build?", "description": "Tell me about the problem. Technology comes later.", "cta": "Open contact" },
+  "method": { "label": "working method / ref. about-05", "title": "Want to know how I approach a project?", "cta": "See how I work" },
+  "finalCta": { "label": "open channel", "title": "Have something to build or an idea to develop?", "cta": "Let's talk about your project" },
   "footer": "what I build / public interface"
 }

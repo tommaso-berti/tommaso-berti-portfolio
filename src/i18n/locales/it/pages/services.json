@@ -16,26 +16,26 @@
   "sections": {
     "capabilities": "Le aree in cui posso intervenire",
     "capabilitiesNote": "MODULI DISPONIBILI",
-    "matrix": "Cosa può includere ogni modulo",
+    "matrix": "Cosa può includere ogni servizio",
     "scope": "Dove posso inserirmi",
     "delivery": "Dall'implementazione all'ambiente reale",
     "method": "Il metodo dietro la consegna",
     "contact": "Parliamo del tuo progetto"
   },
   "items": [
-    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Applicazioni web", "description": "Applicazioni responsive e manutenibili costruite attorno a flussi di prodotto reali.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
-    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboard", "description": "Interfacce che rendono dati, stati e operazioni leggibili e azionabili.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
-    { "kicker": "SERVICE LAYER / CONNECT", "title": "API e integrazioni", "description": "Servizi backend e flussi dati che collegano fra loro i sistemi di prodotto.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
-    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Strumenti di automazione", "description": "Utility mirate che riducono i flussi manuali e ripetitivi.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Applicazioni web", "description": "Creo applicazioni web su misura, con interfacce intuitive e una struttura che può evolvere insieme al progetto.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboard", "description": "Metto in evidenza i dati più importanti con dashboard chiare, per capire cosa sta funzionando e dove intervenire.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "API e integrazioni", "description": "Collego applicazioni e servizi tramite API, così dati e funzionalità possono comunicare senza passaggi manuali.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Strumenti di automazione", "description": "Creo strumenti che automatizzano attività ripetitive, riducendo i passaggi manuali e il rischio di errori.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
   "cta": "Avvia un progetto",
   "matrix": {
-    "label": "capability matrix",
-    "title": "Cosa può includere ogni modulo",
+    "label": "matrice delle funzionalità",
+    "title": "Cosa può includere ogni servizio",
     "note": "",
-    "legend": "● core · ○ opzionale · — non primario",
-    "ariaLabel": "Matrice delle capability per servizio",
-    "capability": "Capability",
+    "legend": "● Incluso · ○ Opzionale · — Non principale",
+    "ariaLabel": "Matrice delle funzionalità per servizio",
+    "capability": "Funzionalità",
     "columns": ["WEB", "DASHBOARD", "API", "AUTOMAZIONE"],
     "values": { "core": "Incluso", "optional": "Opzionale", "none": "Non principale" },
     "rows": [
@@ -59,7 +59,7 @@
       { "key": "AFFINARE", "description": "Migliorare interfacce, UX e flussi già esistenti." },
       { "key": "COLLEGARE", "description": "Collegare API, dati e servizi esterni." },
       { "key": "AUTOMATIZZARE", "description": "Ridurre attività manuali e ripetitive." },
-      { "key": "ESTENDERE", "description": "Aggiungere capability senza stravolgere il sistema." }
+      { "key": "ESTENDERE", "description": "Aggiungere funzionalità senza stravolgere il sistema." }
     ] }
   },
   "delivery": {
@@ -67,12 +67,12 @@
     "title": "Dall'implementazione all'ambiente reale",
     "note": "pacchetto di consegna / scope standard",
     "items": [
-      { "label": "code", "title": "Struttura manutenibile", "description": "Componenti leggibili, organizzazione coerente e scelte tecniche pensate per evolvere senza introdurre attrito inutile.", "foot": "struttura / componenti / convenzioni" },
+      { "label": "code", "title": "Struttura manutenibile", "description": "Componenti leggibili, organizzazione coerente e scelte tecniche che rendono più semplice modificare ed estendere il progetto.", "foot": "struttura / componenti / convenzioni" },
       { "label": "integrazione", "title": "Sistema connesso", "description": "Frontend, servizi, autenticazione, dati e integrazioni vengono trattati come parti dello stesso prodotto.", "foot": "api / auth / dati / servizi" },
       { "label": "rilascio", "title": "Pronto all'uso", "description": "Build, configurazione e rilascio fanno parte del risultato: il progetto deve arrivare fino a un ambiente realmente utilizzabile.", "foot": "build / rilascio / validazione" }
     ]
   },
-  "method": { "label": "metodo di lavoro / rif. about-05", "title": "Vuoi sapere come affronto un progetto?", "description": "Chiarezza, pragmatismo e iterazione sono approfonditi nella sezione dedicata al mio metodo di lavoro.", "cta": "Apri // Come lavoro" },
-  "finalCta": { "label": "canale aperto", "title": "Hai qualcosa da costruire?", "description": "Raccontami il problema. La tecnologia viene dopo.", "cta": "Apri comunicazioni" },
+  "method": { "label": "metodo di lavoro / rif. about-05", "title": "Vuoi sapere come affronto un progetto?", "cta": "Scopri come lavoro" },
+  "finalCta": { "label": "canale aperto", "title": "Hai qualcosa da costruire o un’idea da sviluppare?", "cta": "Parliamo del tuo progetto" },
   "footer": "cosa realizzo / interfaccia pubblica"
 }

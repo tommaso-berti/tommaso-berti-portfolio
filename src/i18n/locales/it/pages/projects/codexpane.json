@@ -6,7 +6,7 @@
       "title": "CodexPane",
       "description": [
         "CodexPane nasce da un problema operativo reale: durante studio e sviluppo perdevo tempo passando tra tab di documentazione, snippet, esempi e piccoli esperimenti. L’ho costruito come workspace focalizzato per arrivare più rapidamente da una domanda tecnica a un’implementazione utilizzabile.",
-        "Il progetto combina documentazione curata, esempi pratici, cheatsheet, ricerca lato client e playground interattivi in un flusso unico. Il valore non è nel numero di feature, ma nel modo in cui queste riducono attrito durante studio e sviluppo."
+        "Il progetto combina documentazione curata, esempi pratici, cheatsheet, ricerca lato client e playground interattivi in un unico spazio. Il valore non è nel numero di feature, ma nel modo in cui aiutano a passare rapidamente dalla consultazione alla pratica."
       ]
     },
     "search_mechanics": [
@@ -56,7 +56,7 @@
       "Mantenere coerenza visiva tra documentazione, esempi e aree interattive lasciando spazio alle esigenze di ogni tipo di contenuto."
     ],
     "lessons_learned": [
-      "Uno strumento di consultazione tecnica è utile solo se riduce davvero l’attrito della ricerca: struttura dei contenuti e velocità contano più del numero di feature.",
+      "Uno strumento di consultazione tecnica è utile se permette di trovare rapidamente ciò che serve: struttura dei contenuti e velocità contano più del numero di feature.",
       "La ricerca lato client funziona bene quando il modello dati viene pensato per l’indicizzazione fin dall’inizio.",
       "Un prodotto di documentazione richiede disciplina editoriale: naming, gerarchia ed esempi devono evolvere insieme.",
       "Gli esempi interattivi sono più efficaci quando supportano il flusso di lettura invece di diventare una destinazione separata."

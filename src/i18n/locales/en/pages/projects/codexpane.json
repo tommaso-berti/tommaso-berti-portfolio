@@ -6,7 +6,7 @@
       "title": "CodexPane",
       "description": [
         "CodexPane started from a practical workflow issue: while studying and developing, I was losing time switching between documentation tabs, snippets, examples, and small experiments. I built it as a focused workspace for moving from technical question to usable implementation faster.",
-        "The project combines curated documentation, practical examples, cheatsheets, client-side search, and interactive playgrounds in one flow. Its value is not the number of features, but the way those pieces reduce friction during study and development."
+        "The project brings curated documentation, practical examples, cheatsheets, client-side search, and interactive playgrounds together. Its value is not the number of features, but how quickly it helps people move from looking something up to putting it into practice."
       ]
     },
     "search_mechanics": [
@@ -56,7 +56,7 @@
       "Maintaining visual consistency across documentation, examples, and interactive areas while still allowing each content type to breathe."
     ],
     "lessons_learned": [
-      "A technical reference tool is useful only when it reduces lookup friction; fast search and clean content structure matter more than feature count.",
+      "A technical reference tool is useful when it helps people find what they need quickly; fast search and clear content structure matter more than feature count.",
       "Client-side search works well when the content model is designed for indexing from the beginning.",
       "Documentation products need editorial discipline: naming, hierarchy, and examples must evolve together.",
       "Interactive examples are strongest when they support the reading flow instead of becoming a separate destination."

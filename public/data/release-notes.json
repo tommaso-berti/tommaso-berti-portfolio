@@ -1,29 +1,41 @@
 {
-  "generatedAt": "2026-06-10T21:48:17.385Z",
-  "latestTag": "v3.6.1",
-  "latestVersion": "3.6.1",
-  "previousTag": "v3.6.0",
-  "releaseType": "patch",
+  "generatedAt": "2026-09-28T15:49:04.806Z",
+  "latestTag": "v4.0.0",
+  "latestVersion": "4.0.0",
+  "previousTag": "v3.6.1",
+  "releaseType": "major",
   "entries": [
     {
-      "sha": "e63bb40160ee4e76c12b96e0d40dafde7b57def1",
-      "subject": "feat: add Auth0, Sentry, Nivo, and pnpm support; update project and shared configurations",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/e63bb40160ee4e76c12b96e0d40dafde7b57def1",
-      "author": "Tommaso Berti",
-      "date": "2026-06-10T23:45:53+02:00"
-    },
-    {
-      "sha": "675297461f7d861e1f88013b1802901286829e29",
-      "subject": "docs(release): v3.6.0 artifacts #skip-deploy [skip ci]",
-      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/675297461f7d861e1f88013b1802901286829e29",
+      "sha": "c6322d27bffce91c1fc942a1624cf89554b37fd2",
+      "subject": "docs(release): v3.6.1 artifacts #skip-deploy [skip ci]",
+      "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6322d27bffce91c1fc942a1624cf89554b37fd2",
       "author": "github-actions[bot]",
-      "date": "2026-05-18T09:57:08Z"
+      "date": "2026-06-10T21:48:24Z"
     }
   ],
-  "bodyMarkdown": "# Release Notes v3.6.1\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.6.0..v3.6.1`.\n- Commit inclusi: 3. File modificati: 12.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- feat: add Auth0, Sentry, Nivo, and pnpm support; update project and shared configurations (e63bb40)\n\n### Migliorie Tecniche\n- Merge remote-tracking branch 'origin/main' (323a9a7)\n- docs(release): v3.6.0 artifacts #skip-deploy [skip ci] (6752974)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.6.0..v3.6.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.0...v3.6.1\n- File principali:\n- public/data/exercises.json\n- public/data/release-notes.json\n- release-notes/.payload-v3.6.0.json\n- release-notes/v3.0.1.md\n- release-notes/v3.6.0.md\n- src/config/brandIcons.js\n- src/i18n/locales/en/pages/projects/logra.json\n- src/i18n/locales/en/pages/projects/shared.json\n- src/i18n/locales/it/pages/projects/logra.json\n- src/i18n/locales/it/pages/projects/shared.json\n- src/pages/projects/projectsPages/projects.js\n- src/pages/projects/projectsPages/technologies.config.js\n\n## English\n### Overview\n- Release generated from commits in range `v3.6.0..v3.6.1`.\n- Included commits: 3. Changed files: 12.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- feat: add Auth0, Sentry, Nivo, and pnpm support; update project and shared configurations (e63bb40)\n\n### Refactor & Engineering\n- Merge remote-tracking branch 'origin/main' (323a9a7)\n- docs(release): v3.6.0 artifacts #skip-deploy [skip ci] (6752974)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.6.0..v3.6.1`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.0...v3.6.1",
-  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.6.1",
-  "publishedAt": "2026-06-10T23:46:00+02:00",
+  "bodyMarkdown": "# Release Notes v4.0.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.6.1..v4.0.0`.\n- Commit inclusi: 2. File modificati: 206.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- Nessun bug fix rilevato.\n\n### Migliorie Tecniche\n- Merge pull request #4 from tommaso-berti/feat/starfield-portfolio-redesign (c9d4ba1)\n- docs(release): v3.6.1 artifacts #skip-deploy [skip ci] (c6322d2)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.6.1..v4.0.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.1...v4.0.0\n- File principali:\n- e2e/language.spec.js\n- e2e/navigation.spec.js\n- index.html\n- project-docs/ARCHITECTURE.md\n- project-docs/CURRENT_STATE.md\n- project-docs/INDEX.md\n- public/assets/blueprints/artemis.png\n- public/assets/blueprints/dyson-sphere.png\n- public/assets/blueprints/iss.png\n- public/assets/blueprints/lso.png\n- public/assets/blueprints/saturn-V.png\n- public/assets/celestial-project-map/ariel.png\n- public/assets/celestial-project-map/callisto.png\n- public/assets/celestial-project-map/cassini.png\n- public/assets/celestial-project-map/ceres.png\n- public/assets/celestial-project-map/charon.png\n- public/assets/celestial-project-map/curiosity.png\n- public/assets/celestial-project-map/deimos.png\n- public/assets/celestial-project-map/dione.png\n- public/assets/celestial-project-map/earth.png\n\n## English\n### Overview\n- Release generated from commits in range `v3.6.1..v4.0.0`.\n- Included commits: 2. Changed files: 206.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- No bug fixes detected.\n\n### Refactor & Engineering\n- Merge pull request #4 from tommaso-berti/feat/starfield-portfolio-redesign (c9d4ba1)\n- docs(release): v3.6.1 artifacts #skip-deploy [skip ci] (c6322d2)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.6.1..v4.0.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.1...v4.0.0",
+  "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v4.0.0",
+  "publishedAt": "2026-09-28T17:43:36+02:00",
   "history": [
+    {
+      "tag": "v4.0.0",
+      "version": "4.0.0",
+      "previousTag": "v3.6.1",
+      "releaseType": "major",
+      "entries": [
+        {
+          "sha": "c6322d27bffce91c1fc942a1624cf89554b37fd2",
+          "subject": "docs(release): v3.6.1 artifacts #skip-deploy [skip ci]",
+          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/c6322d27bffce91c1fc942a1624cf89554b37fd2",
+          "author": "github-actions[bot]",
+          "date": "2026-06-10T21:48:24Z"
+        }
+      ],
+      "source": "local",
+      "bodyMarkdown": "# Release Notes v4.0.0\n\n## Italiano\n### Panoramica\n- Rilascio generato da commit nel range `v3.6.1..v4.0.0`.\n- Commit inclusi: 2. File modificati: 206.\n\n### Novita\n- Nessuna nuova funzionalita rilevata.\n\n### Correzioni\n- Nessun bug fix rilevato.\n\n### Migliorie Tecniche\n- Merge pull request #4 from tommaso-berti/feat/starfield-portfolio-redesign (c9d4ba1)\n- docs(release): v3.6.1 artifacts #skip-deploy [skip ci] (c6322d2)\n\n### Modifiche Incompatibili\n- Nessuna breaking change rilevata.\n\n### Note di Migrazione\n- Nessuna migrazione richiesta in base ai commit disponibili.\n\n### Limiti Noti\n- Generazione in fallback senza sintesi AI: contenuto derivato direttamente dai commit.\n\n### Confronto e Intervallo Commit\n- Range: `v3.6.1..v4.0.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.1...v4.0.0\n- File principali:\n- e2e/language.spec.js\n- e2e/navigation.spec.js\n- index.html\n- project-docs/ARCHITECTURE.md\n- project-docs/CURRENT_STATE.md\n- project-docs/INDEX.md\n- public/assets/blueprints/artemis.png\n- public/assets/blueprints/dyson-sphere.png\n- public/assets/blueprints/iss.png\n- public/assets/blueprints/lso.png\n- public/assets/blueprints/saturn-V.png\n- public/assets/celestial-project-map/ariel.png\n- public/assets/celestial-project-map/callisto.png\n- public/assets/celestial-project-map/cassini.png\n- public/assets/celestial-project-map/ceres.png\n- public/assets/celestial-project-map/charon.png\n- public/assets/celestial-project-map/curiosity.png\n- public/assets/celestial-project-map/deimos.png\n- public/assets/celestial-project-map/dione.png\n- public/assets/celestial-project-map/earth.png\n\n## English\n### Overview\n- Release generated from commits in range `v3.6.1..v4.0.0`.\n- Included commits: 2. Changed files: 206.\n\n### New Features\n- No new features detected.\n\n### Bug Fixes\n- No bug fixes detected.\n\n### Refactor & Engineering\n- Merge pull request #4 from tommaso-berti/feat/starfield-portfolio-redesign (c9d4ba1)\n- docs(release): v3.6.1 artifacts #skip-deploy [skip ci] (c6322d2)\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required based on available commits.\n\n### Known Limitations\n- Fallback mode without AI synthesis: content is directly derived from commits.\n\n### Diff & Commit Range\n- Range: `v3.6.1..v4.0.0`\n- Compare URL: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.6.1...v4.0.0",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v4.0.0",
+      "publishedAt": "2026-09-28T17:43:36+02:00"
+    },
     {
       "tag": "v3.6.1",
       "version": "3.6.1",
@@ -291,8 +303,8 @@
     {
       "tag": "v3.3.0",
       "version": "3.3.0",
-      "previousTag": "v3.2.0",
-      "releaseType": "minor",
+      "previousTag": null,
+      "releaseType": "patch",
       "entries": [
         {
           "sha": "dca5dee017d5cae2bb890071cb17912d16a3c365",
@@ -307,19 +319,7 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/b772965a799054823155072f129aeacb013ad6a5",
           "author": "github-actions[bot]",
           "date": "2026-03-19T23:40:21Z"
-        }
-      ],
-      "source": "local",
-      "bodyMarkdown": "# Release Notes v3.3.0\n\n## Italiano\n### Panoramica\n- Tipo di release: minor (secondo payload.releaseType).\n- Principale aggiornamento: rifattorizzazione del componente CV per usare gruppi di competenze condivisi e aggiunta di un toggle per visualizzare l'esperienza.\n\n### Novita\n- Rifattorizzazione del componente CV per utilizzare gruppi di skill condivisi (commit dca5dee).\n- Aggiunto toggle per mostrare/nascondere l'esperienza nella sezione CV/Competenze (commit dca5dee).\n\n### Correzioni\n- Nessuna correzione segnalata nei commit inclusi.\n\n### Migliorie Tecniche\n- Introduzione/aggiornamento di src/features/skills/skillGroups.js (condivisione dei gruppi di competenze).\n- Aggiornamenti a componenti e dati: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- Aggiornamenti alle traduzioni: src/i18n/it.json, src/i18n/en.json.\n- Aggiornamento/aggiunta di artifact di rilascio e file di note di rilascio (release-notes/*.md, .payload) tramite commit docs (b772965).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile indicata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta nota basata sul metadata dei commit.\n\n### Limiti Noti\n- Nessuna limitazione nota nel metadata fornito.\n\n### Confronto e Intervallo Commit\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commit inclusi:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n\n## English\n### Overview\n- Release type: minor (per payload.releaseType).\n- Main update: refactor of the CV component to use shared skill groups and addition of an experience toggle.\n\n### New Features\n- Refactor CV component to use shared skill groups (commit dca5dee).\n- Added an experience toggle for the CV/skills section (commit dca5dee).\n\n### Bug Fixes\n- No bug fixes reported in the included commits.\n\n### Refactor & Engineering\n- Added/updated src/features/skills/skillGroups.js to centralize skill groups.\n- Changes to components and data: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- i18n updates: src/i18n/en.json, src/i18n/it.json.\n- Release artifacts and release-notes files updated (release-notes/*.md, .payload) via docs commit (b772965).\n\n### Breaking Changes\n- No breaking changes indicated in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided metadata.\n\n### Known Limitations\n- No known limitations present in the provided metadata.\n\n### Diff & Commit Range\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commits:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.3.0",
-      "publishedAt": "2026-03-20T11:32:21+01:00"
-    },
-    {
-      "tag": "v3.2.0",
-      "version": "3.2.0",
-      "previousTag": null,
-      "releaseType": "patch",
-      "entries": [
+        },
         {
           "sha": "4ef76bb3506b63076ae8c7a301990c8e07a9a8e8",
           "subject": "feat: add CV page with dynamic and static PDF download options #minor",
@@ -375,26 +375,12 @@
           "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/09f45340cc013d8f144cf069a68c16e23f2ec6de",
           "author": "Tommaso Berti",
           "date": "2026-03-19T12:26:25+01:00"
-        },
-        {
-          "sha": "a86b6344f6762e0870680cb2ab1598ed1727145c",
-          "subject": "feat: add certifications section to About page and enhance related components #minor",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/a86b6344f6762e0870680cb2ab1598ed1727145c",
-          "author": "Tommaso Berti",
-          "date": "2026-03-19T11:41:48+01:00"
-        },
-        {
-          "sha": "8bdc4a64623be75687c18eb082f379b4c0a96b3b",
-          "subject": "docs(release): v2.10.1 artifacts #skip-deploy [skip ci]",
-          "url": "https://github.com/tommaso-berti/tommaso-berti-portfolio/commit/8bdc4a64623be75687c18eb082f379b4c0a96b3b",
-          "author": "github-actions[bot]",
-          "date": "2026-03-18T23:19:01Z"
         }
       ],
       "source": "local",
-      "bodyMarkdown": "# Release Notes v3.2.0\n\n## Italiano\n\n### Panoramica\nRilascio minore che introduce una pagina CV con opzioni di download PDF (statico e dinamico) e aggiornamenti tecnici e di documentazione.\n\n### Novita\n- feat: Aggiunta pagina CV con opzioni di download PDF dinamico e PDF statico.\n  - File principali: src/pages/cv/Cv.jsx, src/pages/cv/cv.data.js, src/pages/cv/cvPdf.utils.js, public/Curriculum_Tommaso_Berti_static_it.pdf, public/Curriculum_Tommaso_Berti_static_en.pdf\n\n### Correzioni\n- Nessuna correzione funzionale inclusa in questo rilascio.\n\n### Migliorie Tecniche\n- Aggiornamenti internazionalizzazione: src/i18n/it.json, src/i18n/en.json\n- Aggiornamenti UI/layout e SEO: src/app/layout/Footer.jsx, src/app/layout/SeoMetaManager.jsx\n- Routing / definizioni app aggiornate: src/app/routing/appDefinitions.js\n- Modifiche a pagina contatti: src/pages/contact/Contact.jsx\n- Dati pubblici e artefatti di release aggiornati: public/data/exercises.json, public/data/release-notes.json, release-notes/*.md, release-notes/.payload-v3.1.0.json\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile rilevata.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta.\n\n### Limiti Noti\n- Nessun limite noto documentato nel metadata dei commit.\n\n### Confronto e Intervallo Commit\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.1.0...v3.2.0\n- Intervallo commit: v3.1.0..v3.2.0\n- Commit inclusi:\n  - 4ef76bb — feat: add CV page with dynamic and static PDF download options #minor — Tommaso Berti (2026-03-20T00:39:04+01:00)\n  - 2d66eec — docs(release): v3.1.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T16:23:15Z)\n\n---\n\n## English\n\n### Overview\nMinor release that adds a CV page with static and dynamic PDF download options, plus documentation and technical updates.\n\n### New Features\n- feat: Add CV page with dynamic and static PDF download options.\n  - Key files: src/pages/cv/Cv.jsx, src/pages/cv/cv.data.js, src/pages/cv/cvPdf.utils.js, public/Curriculum_Tommaso_Berti_static_en.pdf, public/Curriculum_Tommaso_Berti_static_it.pdf\n\n### Bug Fixes\n- No functional bug fixes included in this release.\n\n### Refactor & Engineering\n- i18n updates: src/i18n/en.json, src/i18n/it.json\n- Layout and SEO updates: src/app/layout/Footer.jsx, src/app/layout/SeoMetaManager.jsx\n- Routing/app definitions updated: src/app/routing/appDefinitions.js\n- Contact page changes: src/pages/contact/Contact.jsx\n- Public data and release artifacts updated: public/data/exercises.json, public/data/release-notes.json, release-notes/*.md, release-notes/.payload-v3.1.0.json\n\n### Breaking Changes\n- No breaking changes detected.\n\n### Migration Notes\n- No migration steps required.\n\n### Known Limitations\n- No known limitations documented in the provided commit metadata.\n\n### Diff & Commit Range\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.1.0...v3.2.0\n- Commit range: v3.1.0..v3.2.0\n- Commits:\n  - 4ef76bb — feat: add CV page with dynamic and static PDF download options #minor — Tommaso Berti (2026-03-20T00:39:04+01:00)\n  - 2d66eec — docs(release): v3.1.0 artifacts #skip-deploy [skip ci] — github-actions[bot] (2026-03-19T16:23:15Z)",
-      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.2.0",
-      "publishedAt": "2026-03-20T00:39:04+01:00"
+      "bodyMarkdown": "# Release Notes v3.3.0\n\n## Italiano\n### Panoramica\n- Tipo di release: minor (secondo payload.releaseType).\n- Principale aggiornamento: rifattorizzazione del componente CV per usare gruppi di competenze condivisi e aggiunta di un toggle per visualizzare l'esperienza.\n\n### Novita\n- Rifattorizzazione del componente CV per utilizzare gruppi di skill condivisi (commit dca5dee).\n- Aggiunto toggle per mostrare/nascondere l'esperienza nella sezione CV/Competenze (commit dca5dee).\n\n### Correzioni\n- Nessuna correzione segnalata nei commit inclusi.\n\n### Migliorie Tecniche\n- Introduzione/aggiornamento di src/features/skills/skillGroups.js (condivisione dei gruppi di competenze).\n- Aggiornamenti a componenti e dati: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- Aggiornamenti alle traduzioni: src/i18n/it.json, src/i18n/en.json.\n- Aggiornamento/aggiunta di artifact di rilascio e file di note di rilascio (release-notes/*.md, .payload) tramite commit docs (b772965).\n\n### Modifiche Incompatibili\n- Nessuna modifica incompatibile indicata nei commit forniti.\n\n### Note di Migrazione\n- Nessuna azione di migrazione richiesta nota basata sul metadata dei commit.\n\n### Limiti Noti\n- Nessuna limitazione nota nel metadata fornito.\n\n### Confronto e Intervallo Commit\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commit inclusi:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])\n\n## English\n### Overview\n- Release type: minor (per payload.releaseType).\n- Main update: refactor of the CV component to use shared skill groups and addition of an experience toggle.\n\n### New Features\n- Refactor CV component to use shared skill groups (commit dca5dee).\n- Added an experience toggle for the CV/skills section (commit dca5dee).\n\n### Bug Fixes\n- No bug fixes reported in the included commits.\n\n### Refactor & Engineering\n- Added/updated src/features/skills/skillGroups.js to centralize skill groups.\n- Changes to components and data: src/pages/cv/Cv.jsx, src/pages/about/TechSkills.jsx, src/pages/cv/cv.data.js.\n- i18n updates: src/i18n/en.json, src/i18n/it.json.\n- Release artifacts and release-notes files updated (release-notes/*.md, .payload) via docs commit (b772965).\n\n### Breaking Changes\n- No breaking changes indicated in the provided commits.\n\n### Migration Notes\n- No migration steps required based on the provided metadata.\n\n### Known Limitations\n- No known limitations present in the provided metadata.\n\n### Diff & Commit Range\n- Range: v3.2.0..v3.3.0\n- Diff: https://github.com/tommaso-berti/tommaso-berti-portfolio/compare/v3.2.0...v3.3.0\n- Commits:\n  - dca5dee — feat: refactor CV component to use shared skill groups and add experience toggle #minor (Tommaso Berti)\n  - b772965 — docs(release): v3.2.0 artifacts #skip-deploy [skip ci] (github-actions[bot])",
+      "releaseUrl": "https://github.com/tommaso-berti/tommaso-berti-portfolio/releases/tag/v3.3.0",
+      "publishedAt": "2026-03-20T11:32:21+01:00"
     }
   ]
 }

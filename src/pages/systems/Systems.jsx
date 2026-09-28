@@ -27,7 +27,7 @@ export default function Systems() {
 
     return <Stack component="article" spacing={{ xs: 3, md: 4 }}>
         <SectionHeader eyebrow={t("eyebrow")} title={t("title")} note={t("note")} systemId="DEVELOPMENT SYSTEM / SYS-05" />
-        <Stack spacing={2} sx={{ maxWidth: 900 }}>
+        <Stack spacing={2}>
             <Typography component="p" color="text.secondary" sx={{ fontSize: { md: "1.1rem" }, lineHeight: 1.75 }}>{t("intro.lead")}</Typography>
             <Stack direction="row" gap={.75} flexWrap="wrap">{t("intro.tags", { returnObjects: true }).map((tag) => <Chip key={tag} label={tag} size="small" variant="outlined" />)}</Stack>
         </Stack>
@@ -70,7 +70,7 @@ export default function Systems() {
         <Box component="section" data-scroll-section data-scroll-label={`SYS-05 // ${t("sectionLabels.links")}`}>
             <MissionSectionHeading code="SYS-05" label={t("sectionLabels.links")} title={t("links.title")} />
             <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ sm: "center" }} gap={2} sx={{ p: { xs: 2, sm: 2.5 }, border: "1px solid", borderColor: "divider", bgcolor: "space.panel" }}>
-                <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 560 }}>{t("links.description")}</Typography>
+                <Typography variant="body2" color="text.secondary">{t("links.description")}</Typography>
                 <Stack direction="row" flexWrap="wrap" gap={1}>
                     <SpaceButton component={RouterLink} to="/services" variant="outlined">{t("links.services")} →</SpaceButton>
                     <SpaceButton component={RouterLink} to="/about#method" variant="outlined">{t("links.method")} →</SpaceButton>

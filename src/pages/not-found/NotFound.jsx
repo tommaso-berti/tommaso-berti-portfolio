@@ -23,7 +23,7 @@ export default function NotFound() {
             <Typography component="h1" variant="h3">
                 {t("title")}
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 560 }}>
+            <Typography variant="body1" color="text.secondary">
                 {t("description")}
             </Typography>
             <Button component={RouterLink} to="/" variant="contained" sx={{ mt: 1 }}>

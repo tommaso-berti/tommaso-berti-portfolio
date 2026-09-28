@@ -59,7 +59,7 @@ export default function Home() {
           <Typography
             variant="body1"
             color="text.secondary"
-            sx={{ maxWidth: 600, fontSize: '1.05rem', mt: 0.5 }}
+            sx={{ fontSize: '1.05rem', mt: 0.5 }}
           >
             {t('missionLead')}
           </Typography>

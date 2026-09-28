@@ -39,7 +39,7 @@ export default function Hobbies({ embedded = false }) {
 
     return <Stack id="hobbies" spacing={3} component="section" sx={{ marginTop: embedded ? 0 : "3rem", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}>
         {!embedded ? <><Typography variant="overline" color="text.secondary">{t("sectionLabel")}</Typography><Typography component="h2" variant="h3">{t("title")}</Typography></> : null}
-        <Typography color="text.secondary" sx={{ maxWidth: 760 }}>{t("lead")}</Typography>
+        <Typography color="text.secondary">{t("lead")}</Typography>
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(3, minmax(0, 1fr))" }, gap: { xs: 1.5, md: 2.5 }, alignItems: "stretch" }}>
             {items.map((item, index) => <HobbyCard key={item.id} item={item} index={index} />)}
         </Box>

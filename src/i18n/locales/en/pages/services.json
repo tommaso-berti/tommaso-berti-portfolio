@@ -1,7 +1,8 @@
 {
   "eyebrow": "04 // SERVICES",
   "title": "What I can build",
-  "note": "SELECTED DEVELOPMENT SERVICES",
+  "description": "I can build a project from scratch or improve something that already exists: web applications, dashboards, integrations, and automations, through to publication.",
+  "note": "SOFTWARE SERVICES",
   "activeLabel": "SELECTED MODULE",
   "interactionHint": "Hover → elevation / module details",
   "revision": "TB // Capability system // rev.04",
@@ -14,8 +15,7 @@
     "contact": "CONTACT"
   },
   "sections": {
-    "capabilities": "Development capabilities",
-    "capabilitiesNote": "AVAILABLE MODULES",
+    "capabilities": "What I can build",
     "matrix": "What each service can include",
     "scope": "Where I can contribute",
     "delivery": "From implementation to a real environment",
@@ -23,21 +23,21 @@
     "contact": "Let's discuss your project"
   },
   "items": [
-    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "I build web applications around each project’s needs, with intuitive interfaces and a structure that can grow over time.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
-    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "I highlight key data in clear dashboards to show what's working and where to focus next.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
-    { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "I connect applications and services through APIs so their data and features can work together without manual handoffs.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
-    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "I build tools to automate repetitive tasks, cutting manual steps and reducing the chance of errors.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
+    { "kicker": "PRODUCT SYSTEM / WEB", "title": "Web applications", "description": "I build custom web applications, from interfaces to core workflows, with a structure that stays easy to change as the project grows.", "tags": ["React", "TypeScript", "PWA", "Design system"], "signalStart": "UI", "signalEnd": "DEPLOY" },
+    { "kicker": "DATA SYSTEM / CONTROL", "title": "Dashboards", "description": "I organize data, metrics, and information into easy-to-read dashboards, making what matters visible at a glance and useful for decision-making.", "tags": ["Data viz", "Realtime", "Admin UI", "Monitoring"], "signalStart": "DATA", "signalEnd": "CONTROL" },
+    { "kicker": "SERVICE LAYER / CONNECT", "title": "APIs & integrations", "description": "I connect applications, services, and data sources through APIs and integrations, so different systems can exchange information without manual steps.", "tags": ["REST", "Node", "Auth", "Webhooks"], "signalStart": "INPUT", "signalEnd": "OUTPUT" },
+    { "kicker": "FLOW SYSTEM / AUTOMATE", "title": "Automation tools", "description": "I automate repetitive tasks and workflows that currently require manual work, saving time and reducing the chance of errors.", "tags": ["Jobs", "Workflow", "Scripts", "Integrations"], "signalStart": "TRIGGER", "signalEnd": "ACTION" }
   ],
   "cta": "Start a project",
   "matrix": {
     "label": "capability matrix",
     "title": "What each service can include",
     "note": "",
-    "legend": "● Included · ○ Optional · — Not included",
+    "legend": "● Included · ○ When needed · — Not central",
     "ariaLabel": "Capability matrix by service",
     "capability": "Capability",
     "columns": ["WEB", "DASHBOARD", "API", "AUTOMATION"],
-    "values": { "core": "Included", "optional": "Optional", "none": "Not primary" },
+    "values": { "core": "Included", "optional": "When needed", "none": "Not central" },
     "rows": [
       { "label": "Responsive UI", "values": ["core", "core", "none", "none"] },
       { "label": "Data visualization", "values": ["optional", "core", "optional", "none"] },
@@ -46,33 +46,31 @@
       { "label": "Realtime data", "values": ["optional", "core", "core", "optional"] },
       { "label": "Third-party integrations", "values": ["optional", "optional", "core", "core"] },
       { "label": "Database", "values": ["core", "core", "core", "core"] },
-      { "label": "Deployment", "values": ["core", "core", "core", "core"] },
+      { "label": "Publication", "values": ["core", "core", "core", "core"] },
       { "label": "Monitoring", "values": ["optional", "core", "core", "core"] }
     ]
   },
   "scope": {
     "label": "collaboration scope",
-    "title": "Where I can contribute",
-    "note": "engagement / flexible scope",
-    "newProject": { "label": "new project", "title": "From a problem to a real first version", "description": "I can start from a need, an idea, or a defined workflow and turn it into a working technical product while keeping scope and complexity under control.", "chips": ["MVP", "Prototype", "Internal tool", "Production app"] },
+    "title": "From a new project to an existing system",
+    "newProject": { "label": "new project", "title": "From a problem to a real first version", "description": "I can start from a need, an idea, or a defined workflow and reach a first usable version, deciding together what matters now and what can wait.", "chips": ["MVP", "Prototype", "Internal tool", "Production app"] },
     "existing": { "label": "existing system", "rows": [
-      { "key": "REFINE", "description": "Improve existing interfaces, UX, and workflows." },
-      { "key": "CONNECT", "description": "Connect APIs, data, and external services." },
-      { "key": "AUTOMATE", "description": "Reduce repetitive manual work." },
-      { "key": "EXTEND", "description": "Add capabilities without reshaping the whole system." }
+      { "key": "IMPROVE", "description": "Improve existing interfaces, user experience, and workflows without starting over." },
+      { "key": "CONNECT", "description": "Integrate APIs, data, and external services with what is already in place." },
+      { "key": "AUTOMATE", "description": "Reduce manual tasks and repetitive steps with targeted automations." },
+      { "key": "EXTEND", "description": "Add features while keeping the existing system compatible and manageable." }
     ] }
   },
   "delivery": {
     "label": "delivery",
-    "title": "From implementation to a real environment",
-    "note": "delivery package / standard scope",
+    "title": "The work does not end with the code",
     "items": [
-      { "label": "code", "title": "Maintainable structure", "description": "Readable components, coherent organization, and technical choices that make the project easier to change and extend.", "foot": "structure / components / conventions" },
-      { "label": "integration", "title": "Connected system", "description": "Frontend, services, authentication, data, and integrations are handled as parts of the same product.", "foot": "api / auth / data / services" },
-      { "label": "deploy", "title": "Ready to use", "description": "Build, configuration, and release are part of the result: the project should reach an environment people can actually use.", "foot": "build / release / validation" }
+      { "label": "code", "title": "Maintainable structure", "description": "Organized code, readable components, and consistent conventions make the project easier to fix, change, and extend over time.", "foot": "structure / components / conventions" },
+      { "label": "integration", "title": "Connected system", "description": "The different parts of the application are designed to work together, connecting the interface, data, authentication, and external services.", "foot": "api / auth / data / services" },
+      { "label": "deploy", "title": "Ready to use", "description": "The result should work beyond a development computer: configuration, builds, and publication are part of making it genuinely usable.", "foot": "build / publication / validation" }
     ]
   },
-  "method": { "label": "working method / ref. about-05", "title": "Want to know how I approach a project?", "cta": "See how I work" },
+  "method": { "label": "working method / ref. about-05", "title": "Want to see how I work on a project?", "cta": "See how I work" },
   "finalCta": { "label": "open channel", "title": "Have something to build or an idea to develop?", "cta": "Let's talk about your project" },
   "footer": "what I build / public interface"
 }

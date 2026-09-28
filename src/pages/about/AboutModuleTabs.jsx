@@ -15,11 +15,11 @@ const moduleAccentOverrides = {
     development: "space.yellow", method: "space.blue", beyond: "space.red",
 };
 
-function AboutModuleHeader({ eyebrow, title, lead, leadMaxWidth = 760 }) {
+function AboutModuleHeader({ eyebrow, title, lead }) {
     return <Box>
         <Typography variant="overline" sx={{ color: "space.orange", fontFamily: (theme) => theme.fonts.mono }}>{eyebrow}</Typography>
         <Typography component="h2" variant="h3" sx={{ mt: { xs: 1.5, md: 2 } }}>{title}</Typography>
-        {lead ? <Typography color="text.secondary" sx={{ mt: 1, maxWidth: leadMaxWidth }}>{lead}</Typography> : null}
+        {lead ? <Typography color="text.secondary" sx={{ mt: 1 }}>{lead}</Typography> : null}
     </Box>;
 }
 
@@ -65,7 +65,7 @@ function ModuleContent({ activeModule, t, telemetry }) {
     if (activeModule === "method") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.method")} title={t("personnel.methodTitle")} /><MethodModule t={t} /></Stack>;
     if (activeModule === "development") return <DevelopmentModule t={t} />;
     if (activeModule === "beyond") return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.beyond")} title={t("hobbies.title")} /><Hobbies embedded /></Stack>;
-    return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.identity")} title={t("personnel.identityTitle")} lead={t("personnel.identityLead")} leadMaxWidth="100%" /><IdentityModule t={t} telemetry={telemetry} /></Stack>;
+    return <Stack spacing={3}><AboutModuleHeader eyebrow={t("personnel.moduleEyebrows.identity")} title={t("personnel.identityTitle")} lead={t("personnel.identityLead")} /><IdentityModule t={t} telemetry={telemetry} /></Stack>;
 }
 
 export default function AboutModuleTabs({ activeModule, onChange, t, telemetry = [] }) {

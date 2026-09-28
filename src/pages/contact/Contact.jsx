@@ -178,7 +178,7 @@ export default function Contact() {
             >
               {t('formTitle')}
             </Typography>
-            <Typography color="text.secondary" sx={{ lineHeight: 1.65, maxWidth: 560 }}>
+            <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
               {t('subtitle')}
             </Typography>
 

@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import MissionRail from './MissionRail.jsx';
 
-export default function SectionHeader({ eyebrow, title, note, systemId, component = 'h1' }) {
+export default function SectionHeader({ eyebrow, title, description, note, systemId, component = 'h1' }) {
   return (
     <Stack
       data-scroll-section
@@ -29,6 +29,11 @@ export default function SectionHeader({ eyebrow, title, note, systemId, componen
           {title}
         </Typography>
       </Stack>
+      {description ? (
+        <Typography variant="body1" color="text.secondary">
+          {description}
+        </Typography>
+      ) : null}
     </Stack>
   );
 }

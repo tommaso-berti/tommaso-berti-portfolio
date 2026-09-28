@@ -54,7 +54,7 @@ export default function About() {
           >
             {t('personnel.heroTitle')}
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { md: '1.1rem' }, maxWidth: 630 }}>
+          <Typography color="text.secondary" sx={{ fontSize: { md: '1.1rem' } }}>
             {t('personnel.heroLead')}
           </Typography>
           <Stack direction="row" flexWrap="wrap" gap={0.75}>

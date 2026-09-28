@@ -41,7 +41,7 @@ function ShowcaseSection({ id, section, children }) {
                     <Typography component="h2" variant="h3" sx={{ mt: 0.5, mb: 1 }}>
                         {section.title}
                     </Typography>
-                    <Typography color="text.secondary" sx={{ maxWidth: 760 }}>
+                    <Typography color="text.secondary">
                         {section.description}
                     </Typography>
                 </Box>
@@ -111,7 +111,7 @@ export default function Style() {
         <Stack spacing={{ xs: 5, md: 7 }} sx={colorCssVars}>
             <Box>
                 <SectionHeader eyebrow={t("eyebrow")} title={t("title")} note={t("note")} systemId="REF-01" />
-                <Typography color="text.secondary" sx={{ maxWidth: 780, mt: 2 }}>
+                <Typography color="text.secondary" sx={{ mt: 2 }}>
                     {t("intro")}
                 </Typography>
             </Box>

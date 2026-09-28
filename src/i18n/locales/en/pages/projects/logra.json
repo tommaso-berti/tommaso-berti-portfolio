@@ -1,6 +1,6 @@
 {
   "title": "Logra",
-  "description": "Gaming-first full-stack media-tracking app built around backlog decisions, progress, discovery, import/export, and reliable demo operations.",
+  "description": "A full-stack app for tracking games and other media, with backlog and progress tools in one place. Over time, I added search, data import and export, and a demo mode that lets people try the app without extra setup.",
   "details": {
     "introduction": {
       "title": "Logra",

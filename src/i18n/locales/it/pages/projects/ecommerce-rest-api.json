@@ -1,6 +1,6 @@
 {
   "title": "E-commerce REST API",
-  "description": "Demo e-commerce full-stack pensata per esercitare flussi prodotto, autenticazione a sessione, API documentate e deploy VPS versionato con vincoli realistici.",
+  "description": "Un progetto full-stack realizzato per approfondire lo sviluppo di un e-commerce completo, dalla gestione dei prodotti all’autenticazione e alle API. Mi è servito anche per lavorare su aspetti meno visibili dell’applicazione, come documentazione, gestione delle sessioni e pubblicazione su VPS.",
   "details": {
     "introduction": {
       "title": "E-commerce REST API",

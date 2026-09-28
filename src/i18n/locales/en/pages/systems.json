@@ -11,7 +11,7 @@
   },
   "intro": {
     "label": "development environment",
-    "lead": "I build personal projects alongside a full-time job. I use AI tools to speed up execution and a personal VPS to publish applications and learn what happens beyond the frontend. Product direction, requirements, and validation remain my responsibility.",
+    "lead": "I work on personal projects in my free time, alongside my job. AI helps me speed up parts of development, while a personal VPS lets me publish applications and experiment with infrastructure, deployment, and backend services. I remain in control of the decisions, requirements, and final result.",
     "tags": ["AI-assisted development", "Linux VPS", "Personal projects"]
   },
   "summary": {
@@ -23,21 +23,20 @@
     ]
   },
   "ai": {
-    "title": "More time to build, fewer manual steps",
-    "note": "HUMAN DIRECTION / ASSISTED EXECUTION",
+    "title": "More time to build, less time on repetitive tasks",
     "modeLabel": "Select an area where I use AI",
     "modeNames": { "ui": "UI and interfaces", "research": "Technical research", "integration": "Integrations", "iteration": "Iteration" },
     "intro": {
       "label": "WHY AI",
-      "title": "An accelerator, not an autopilot",
-      "description": "With limited time for personal projects, I use AI to reduce repetitive work and speed up research, interfaces, and integrations. Product direction and evaluation of the outcome remain mine.",
+      "title": "Support during development",
+      "description": "I use Cursor and Codex to support my development work: they help with technical research, interface implementation, refactoring, and more complex integrations. I use them to work faster, not to delegate product or architecture decisions.",
       "tools": ["CURSOR", "CODEX"]
     },
     "constraint": {
       "label": "CONSTRAINT // TIME",
       "title": "Time is a real constraint",
-      "description": "Working full-time leaves a defined window to design, build, validate, and maintain personal applications.",
-      "outcome": "AI → A SUSTAINABLE DEVELOPMENT MODEL"
+      "description": "I work on these projects in my free time, alongside my job. I try to focus that time on the parts that need my input: planning, technical decisions, development, and checking the result.",
+      "outcome": "MORE TIME FOR DECISIONS, LESS FOR REPETITIVE TASKS"
     },
     "flow": { "direction": "MY DIRECTION AND CONSTRAINTS", "review": "MY REVIEW AND DECISION" },
     "responsibilities": {
@@ -47,8 +46,8 @@
     "modes": {
       "ui": {
         "code": "ASSIST / UI-01",
-        "title": "Turning a visual direction into an interface",
-        "description": "I define the style, goals, and behavior. AI helps translate that direction into components and layouts, so I can focus on quality before repetitive details.",
+        "title": "From idea to interface",
+        "description": "I define the interface’s style, behavior, and goals. AI helps turn that direction into components and layouts, speeding up implementation and later iterations. I review and refine the final result myself.",
         "flow": "CURSOR / CODEX · UI IMPLEMENTATION",
         "support": ["UI implementation", "Component creation", "Layout iteration", "Repetitive code"]
       },
@@ -76,17 +75,16 @@
     }
   },
   "infrastructure": {
-    "title": "My projects go beyond localhost",
-    "note": "PERSONAL NODE / IONOS / VPS-01",
+    "title": "My projects, available online",
     "modeLabel": "Explore the areas hosted on my personal VPS",
     "modeNames": { "apps": "WEB APPS", "api": "APIs", "data": "DATA", "experiments": "LAB" },
     "diagram": { "label": "PERSONAL DEPLOYMENT TOPOLOGY", "code": "DIAG / INFRA-01", "internet": "INTERNET", "edge": "EDGE / DNS", "server": "IONOS VPS / LINUX" },
     "services": { "apps": "WEB APPS", "api": "APIs", "data": "DATA", "jobs": "JOBS", "monitor": "MONITORING", "experiments": "EXPERIMENTS" },
-    "detailLabel": "WHY A PERSONAL VPS",
+    "detailLabel": "WHY I USE A PERSONAL VPS",
     "modes": {
       "apps": {
-        "title": "Applications people can reach",
-        "description": "I use an IONOS VPS to host web apps and personal services. Its cost-to-performance ratio lets me keep multiple projects online and learn what it takes to run them beyond frontend development.",
+        "title": "Online applications, not just local demos",
+        "description": "I use an IONOS VPS to host my web apps, APIs, and some personal services. It lets me keep several projects online at a reasonable cost and, more importantly, gives me hands-on experience with what comes after local development: deployment, Linux, service configuration, updates, and monitoring.",
         "services": ["apps"],
         "facts": [
           { "label": "PURPOSE", "value": "Personal projects and experimentation" },
@@ -127,23 +125,20 @@
     }
   },
   "boundary": {
-    "title": "Personal and client environments stay separate",
-    "note": "SEPARATION / PROJECT REQUIREMENTS",
+    "title": "I keep my personal projects separate from client projects",
     "environments": [
-      { "label": "PERSONAL // SHARED NODE", "title": "My VPS", "description": "My personal environment for applications, services, and experiments that I manage directly.", "items": ["PERSONAL WEB APPS", "PERSONAL APIs", "EXPERIMENTS", "LEARNING ENVIRONMENT"] },
-      { "label": "CLIENT // DEDICATED ENVIRONMENT", "title": "Infrastructure shaped around the project", "description": "Client projects are not automatically placed on my infrastructure. The environment and deployment depend on actual requirements.", "items": ["DEDICATED VPS / CLOUD", "CLIENT INFRASTRUCTURE", "ON-PREMISE WHEN REQUIRED", "PROJECT-SPECIFIC CONFIGURATION"] }
-    ],
-    "policy": { "title": "Client workloads stay outside my personal infrastructure.", "description": "Before release, I consider isolation, requirements, infrastructure ownership, and deployment for each project." }
+      { "label": "PERSONAL // VPS", "title": "My VPS", "description": "I use a personal VPS to keep my projects, APIs, and services online. I develop them in my free time. It is also my test environment: I can experiment with Linux, deployments, configuration, monitoring, and service management beyond local development. I like following a project beyond the code, seeing how it performs once published, and learning to manage the infrastructure behind it.", "items": ["WEB APPS", "APIs AND SERVICES", "DEPLOYMENT AND MONITORING", "EXPERIMENTS"] },
+      { "label": "CLIENT // DEDICATED ENVIRONMENT", "title": "Infrastructure suited to the project", "description": "I do not reuse my personal infrastructure for client projects. The environment is chosen and configured around the project’s needs, required services, and where it will be used. It could be a dedicated VPS, a cloud service, or infrastructure already available at the client’s organization. The goal is to keep each project independent, easy to manage, and suited to the environment where it will run.", "items": ["DEDICATED VPS OR CLOUD", "EXISTING INFRASTRUCTURE", "ON-PREMISE WHEN NEEDED", "TAILORED CONFIGURATION"] }
+    ]
   },
   "environment": {
     "title": "Tools I keep close at hand",
-    "note": "DEVELOPMENT CONFIGURATION",
     "items": [
-      { "label": "EDITORS", "value": "VS Code / WebStorm", "detail": "daily development" },
-      { "label": "AI CODING", "value": "Cursor / Codex", "detail": "implementation support" },
-      { "label": "SOURCE", "value": "GitHub", "detail": "repositories and workflow" },
-      { "label": "RUNTIME", "value": "macOS + Linux VPS", "detail": "local development and remote host" }
+      { "label": "EDITORS", "value": "VS Code / WebStorm", "detail": "The editors I use for day-to-day development." },
+      { "label": "AI", "value": "Cursor / Codex", "detail": "Support for development, refactoring, technical research, and implementation." },
+      { "label": "SOURCE CODE", "value": "GitHub", "detail": "Source control, versioning, and repository organization." },
+      { "label": "RUNTIME", "value": "macOS + Linux VPS", "detail": "Local development on macOS and remote services on Linux." }
     ]
   },
-  "links": { "title": "From systems to projects", "note": "TOOLS / COLLABORATION / OUTCOMES", "description": "These tools support how I build, collaborate, and bring projects online.", "services": "Services", "method": "How I work", "contact": "Contact" }
+  "links": { "title": "From systems to projects", "description": "These tools are part of how I work: they help me build faster, try new approaches, and take projects from local code to something people can use online.", "services": "Services", "method": "How I work", "contact": "Contact" }
 }

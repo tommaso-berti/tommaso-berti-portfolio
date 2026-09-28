@@ -11,7 +11,7 @@
   },
   "intro": {
     "label": "ambiente di sviluppo",
-    "lead": "Sviluppo progetti personali parallelamente a un lavoro full-time. Uso strumenti di AI per accelerare l'esecuzione e una VPS personale per pubblicare applicazioni e imparare cosa succede oltre il frontend. Direzione, requisiti e verifica restano sotto la mia responsabilità.",
+    "lead": "Porto avanti i miei progetti personali nel tempo libero, parallelamente al mio lavoro. L’AI mi aiuta a velocizzare alcune fasi dello sviluppo, mentre una VPS personale mi permette di pubblicare applicazioni e sperimentare anche con infrastruttura, deploy e servizi backend. Scelte, requisiti e risultato finale restano sempre sotto il mio controllo.",
     "tags": ["Sviluppo assistito dall'AI", "Linux VPS", "Progetti personali"]
   },
   "summary": {
@@ -23,21 +23,20 @@
     ]
   },
   "ai": {
-    "title": "Più tempo per sviluppare, meno passaggi manuali",
-    "note": "DIREZIONE UMANA / ESECUZIONE ASSISTITA",
+    "title": "Più tempo per sviluppare, meno per le attività ripetitive",
     "modeLabel": "Seleziona un ambito in cui uso l'AI",
     "modeNames": { "ui": "UI e interfacce", "research": "Ricerca tecnica", "integration": "Integrazioni", "iteration": "Iterazione" },
     "intro": {
-      "label": "PERCHÉ L'AI",
-      "title": "Un acceleratore, non un pilota automatico",
-      "description": "Con poco tempo da dedicare ai progetti personali, uso l'AI per ridurre il lavoro ripetitivo e velocizzare ricerca, interfacce e integrazioni. La direzione del prodotto e la valutazione del risultato restano mie.",
+      "label": "PERCHÉ L’AI",
+      "title": "Un supporto durante lo sviluppo",
+      "description": "Uso Cursor e Codex come strumenti di supporto durante lo sviluppo: mi aiutano nella ricerca tecnica, nella realizzazione delle interfacce, nel refactoring e nelle integrazioni più complesse. Li uso per velocizzare il lavoro, non per delegare le decisioni sul prodotto o sull’architettura.",
       "tools": ["CURSOR", "CODEX"]
     },
     "constraint": {
       "label": "VINCOLO // TEMPO",
       "title": "Il tempo è una risorsa limitata",
-      "description": "Lavorare full-time lascia una finestra precisa per progettare, programmare, verificare e mantenere applicazioni personali.",
-      "outcome": "AI → UN MODELLO DI SVILUPPO SOSTENIBILE"
+      "description": "Porto avanti questi progetti nel tempo libero, parallelamente al mio lavoro. Per questo cerco di concentrare il tempo disponibile sulle parti che richiedono davvero il mio intervento: progettazione, scelte tecniche, sviluppo e verifica del risultato.",
+      "outcome": "PIÙ TEMPO SULLE DECISIONI, MENO SULLE ATTIVITÀ RIPETITIVE"
     },
     "flow": { "direction": "LA MIA DIREZIONE E I VINCOLI", "review": "LA MIA VERIFICA E DECISIONE" },
     "responsibilities": {
@@ -47,8 +46,8 @@
     "modes": {
       "ui": {
         "code": "ASSIST / UI-01",
-        "title": "Portare una direzione visiva nell'interfaccia",
-        "description": "Definisco stile, obiettivi e comportamento. L'AI mi aiuta a tradurre queste indicazioni in componenti e layout, così posso concentrarmi prima sulla qualità e poi sui dettagli ripetitivi.",
+        "title": "Dall’idea all’interfaccia",
+        "description": "Definisco lo stile, il comportamento e gli obiettivi dell’interfaccia. L’AI mi aiuta a trasformare queste indicazioni in componenti e layout, velocizzando soprattutto l’implementazione e le successive iterazioni. Il risultato finale viene poi rivisto e rifinito da me.",
         "flow": "CURSOR / CODEX · IMPLEMENTAZIONE UI",
         "support": ["Implementazione UI", "Creazione componenti", "Iterazione layout", "Codice ripetitivo"]
       },
@@ -76,17 +75,16 @@
     }
   },
   "infrastructure": {
-    "title": "I progetti non finiscono su localhost",
-    "note": "NODO PERSONALE / IONOS / VPS-01",
+    "title": "I miei progetti, anche online",
     "modeLabel": "Esplora le aree ospitate sulla VPS personale",
     "modeNames": { "apps": "WEB APP", "api": "API", "data": "DATI", "experiments": "LAB" },
     "diagram": { "label": "TOPOLOGIA DI DEPLOY PERSONALE", "code": "DIAG / INFRA-01", "internet": "INTERNET", "edge": "EDGE / DNS", "server": "IONOS VPS / LINUX" },
     "services": { "apps": "WEB APP", "api": "API", "data": "DATI", "jobs": "JOB", "monitor": "MONITORAGGIO", "experiments": "ESPERIMENTI" },
-    "detailLabel": "PERCHÉ UNA VPS PERSONALE",
+    "detailLabel": "PERCHÉ USO UNA VPS PERSONALE",
     "modes": {
       "apps": {
-        "title": "Applicazioni sempre raggiungibili",
-        "description": "Uso una VPS IONOS per ospitare web app e servizi personali. Il rapporto tra costo e prestazioni mi permette di tenere online più progetti e imparare cosa serve per gestirli oltre lo sviluppo frontend.",
+        "title": "Applicazioni online, non solo demo locali",
+        "description": "Uso una VPS IONOS per ospitare le mie web app, API e alcuni servizi personali. Mi permette di tenere online più progetti con costi contenuti e, soprattutto, di fare esperienza con tutto ciò che viene dopo lo sviluppo locale: deploy, Linux, configurazione dei servizi, aggiornamenti e monitoraggio.",
         "services": ["apps"],
         "facts": [
           { "label": "SCOPO", "value": "Progetti personali e sperimentazione" },
@@ -127,23 +125,20 @@
     }
   },
   "boundary": {
-    "title": "Ambienti personali e cliente restano separati",
-    "note": "SEPARAZIONE / REQUISITI DEL PROGETTO",
+    "title": "Tengo separati i miei progetti personali da quelli dei clienti",
     "environments": [
-      { "label": "PERSONALE // NODO CONDIVISO", "title": "La mia VPS", "description": "È l'ambiente personale per applicazioni, servizi ed esperimenti che gestisco direttamente.", "items": ["WEB APP PERSONALI", "API PERSONALI", "ESPERIMENTI", "AMBIENTE DI APPRENDIMENTO"] },
-      { "label": "CLIENTE // AMBIENTE DEDICATO", "title": "Infrastruttura definita sul progetto", "description": "Un progetto cliente non viene assegnato automaticamente alla mia infrastruttura. Ambiente e deploy dipendono dai requisiti reali.", "items": ["VPS / CLOUD DEDICATO", "INFRASTRUTTURA DEL CLIENTE", "ON-PREMISE SE RICHIESTO", "CONFIGURAZIONE SPECIFICA"] }
-    ],
-    "policy": { "title": "I carichi del cliente restano fuori dall'infrastruttura personale.", "description": "Prima del rilascio valuto isolamento, requisiti, proprietà dell'infrastruttura e modalità di deploy per ogni progetto." }
+      { "label": "PERSONALE // VPS", "title": "La mia VPS", "description": "Uso una VPS personale per tenere online i miei progetti, le API e i servizi che sviluppo nel tempo libero. È anche il mio ambiente di prova: mi permette di sperimentare con Linux, deploy, configurazioni, monitoraggio e gestione dei servizi senza fermarmi al semplice sviluppo in locale. Mi interessa seguire un progetto anche dopo il codice, capire come si comporta una volta pubblicato e imparare a gestire l’infrastruttura che lo sostiene.", "items": ["WEB APP", "API E SERVIZI", "DEPLOY E MONITORAGGIO", "SPERIMENTAZIONE"] },
+      { "label": "CLIENTE // AMBIENTE DEDICATO", "title": "Un’infrastruttura adatta al progetto", "description": "Per i progetti destinati a un cliente non riutilizzo la mia infrastruttura personale. L’ambiente viene scelto e configurato in base alle esigenze del progetto, ai servizi necessari e al contesto in cui dovrà essere utilizzato. Può trattarsi di una VPS dedicata, di un servizio cloud oppure dell’infrastruttura già disponibile presso il cliente. L’obiettivo è mantenere ogni progetto indipendente, facile da gestire e adatto all’ambiente in cui dovrà funzionare.", "items": ["VPS O CLOUD DEDICATO", "INFRASTRUTTURA ESISTENTE", "ON-PREMISE, SE NECESSARIO", "CONFIGURAZIONE SU MISURA"] }
+    ]
   },
   "environment": {
     "title": "Gli strumenti che uso ogni giorno",
-    "note": "CONFIGURAZIONE DI SVILUPPO",
     "items": [
-      { "label": "EDITOR", "value": "VS Code / WebStorm", "detail": "sviluppo quotidiano" },
-      { "label": "AI CODING", "value": "Cursor / Codex", "detail": "supporto all'implementazione" },
-      { "label": "CODICE SORGENTE", "value": "GitHub", "detail": "repository e flussi di lavoro" },
-      { "label": "AMBIENTE DI ESECUZIONE", "value": "macOS + Linux VPS", "detail": "sviluppo locale e host remoto" }
+      { "label": "EDITOR", "value": "VS Code / WebStorm", "detail": "Gli ambienti che utilizzo per lo sviluppo quotidiano." },
+      { "label": "AI", "value": "Cursor / Codex", "detail": "Supporto durante sviluppo, refactoring, ricerca tecnica e implementazione." },
+      { "label": "CODICE SORGENTE", "value": "GitHub", "detail": "Gestione del codice, versionamento e organizzazione dei repository." },
+      { "label": "AMBIENTE DI ESECUZIONE", "value": "macOS + Linux VPS", "detail": "Sviluppo locale su macOS e gestione dei servizi remoti su Linux." }
     ]
   },
-  "links": { "title": "Dal sistema al progetto", "note": "STRUMENTI / COLLABORAZIONE / RISULTATI", "description": "Questi strumenti sostengono il modo in cui costruisco, collaboro e porto online i progetti.", "services": "Servizi", "method": "Come lavoro", "contact": "Contatti" }
+  "links": { "title": "Dal sistema al progetto", "description": "Questi strumenti fanno parte del mio modo di lavorare: mi aiutano a sviluppare più velocemente, sperimentare nuove soluzioni e portare i progetti dal codice locale a qualcosa di realmente utilizzabile online.", "services": "Servizi", "method": "Come lavoro", "contact": "Contatti" }
 }

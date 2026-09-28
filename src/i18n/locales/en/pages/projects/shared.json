@@ -2,8 +2,9 @@
   "title": "Projects",
   "dossier": {
     "archive": "PROJECT ARCHIVE",
+    "archiveEntries": "{{count}} ENTRIES",
     "mission": "MISSION",
-    "projectReady": "PROJECT READY",
+    "projectReady": "STATUS",
     "projectType": "PROJECT TYPE",
     "primaryStack": "PRIMARY STACK",
     "interface": "INTERFACE",
@@ -15,7 +16,7 @@
     "liveLinkAvailable": "LIVE LINK AVAILABLE",
     "collapse": "Collapse dossier",
     "orbitalSignature": "ORBITAL SIGNATURE",
-    "activeMission": "ACTIVE MISSION",
+    "activeMission": "ONLINE",
     "launch": "Launch project",
     "source": "View source",
     "channelReady": "Project channel ready.",
@@ -25,7 +26,7 @@
     "roadmapStatus": { "done": "Completed", "current": "Current focus", "planned": "Planned" },
     "roadmapTerminal": { "releaseConsole": "release_console://mission_output", "systemReadout": "system_readout://active_modules", "loadRelease": "load release data", "activeModules": "system readout // active modules", "releaseProfile": "[01] release profile", "nodeStatus": "[02] node status", "deliveryState": "[03] delivery state", "ready": "ready", "queued": "queued", "note": "Terminal styling adapted to the project roadmap context." },
     "modules": { "overview": "Overview", "system": "System", "interface": "Interface", "development": "Development log" },
-    "moduleLabels": { "overview": "MISSION BRIEF", "system": "SYSTEM ARCHITECTURE", "interface": "INTERFACE SYSTEM", "development": "DEVELOPMENT LOG" },
+    "moduleLabels": { "overview": "OVERVIEW", "system": "SYSTEM ARCHITECTURE", "interface": "INTERFACE SYSTEM", "development": "DEVELOPMENT LOG" },
     "layeredPreview": {
       "module": "APPLICATION MODULE",
       "ready": "BUILD READY",
@@ -64,7 +65,7 @@
       "focus": "Focus preview"
     }
   },
-  "description": "This project collection reflects my passion for building useful tools, exploring new technologies, and continuously improving my skills. Some projects start from curiosity, others from the need to optimize my workflow or test new ideas. In my software development work, I use AI as practical support: it helps accelerate specific phases, improve code quality, and validate new solutions quickly, always with critical review of the output.",
+  "description": "Here are some of the projects I have built over time. Some started with a practical need, while others gave me a chance to try new technologies or explore parts of software development I wanted to understand better. Each project is also an opportunity to learn something new, build on what I already know, and turn an idea into a product people can use.",
   "live_preview": "Interactive demo",
   "load_preview": "Load preview",
   "load_preview_tooltip": "The preview loads only on click to avoid unnecessary API calls.",

@@ -1,6 +1,6 @@
 {
   "title": "CodexPane",
-  "description": "Focused technical reference workspace that turns scattered docs, examples, cheatsheets, and playgrounds into one fast study flow.",
+  "description": "A project created to bring documentation, notes, code examples, and small playgrounds together. The goal is to have a quick reference while I study or work, without searching across different sources for the same information each time.",
   "details": {
     "introduction": {
       "title": "CodexPane",

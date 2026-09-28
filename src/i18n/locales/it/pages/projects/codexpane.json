@@ -1,6 +1,6 @@
 {
   "title": "CodexPane",
-  "description": "Workspace tecnico focalizzato che riunisce documentazione, esempi, cheatsheet e playground in un unico flusso di studio rapido.",
+  "description": "Un progetto nato per raccogliere in un solo posto documentazione, appunti, esempi di codice e piccoli playground. L’obiettivo è avere un ambiente rapido da consultare mentre studio o lavoro, senza dover cercare ogni volta le stesse informazioni in fonti diverse.",
   "details": {
     "introduction": {
       "title": "CodexPane",

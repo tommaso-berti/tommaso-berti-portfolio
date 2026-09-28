@@ -2,8 +2,9 @@
   "title": "Progetti",
   "dossier": {
     "archive": "ARCHIVIO PROGETTI",
+    "archiveEntries": "{{count}} PROGETTI",
     "mission": "MISSIONE",
-    "projectReady": "PROGETTO PRONTO",
+    "projectReady": "STATO",
     "projectType": "TIPO PROGETTO",
     "primaryStack": "STACK PRINCIPALE",
     "interface": "INTERFACCIA",
@@ -15,7 +16,7 @@
     "liveLinkAvailable": "LINK PUBBLICO DISPONIBILE",
     "collapse": "Chiudi dossier",
     "orbitalSignature": "FIRMA ORBITALE",
-    "activeMission": "MISSIONE ATTIVA",
+    "activeMission": "ONLINE",
     "launch": "Apri progetto",
     "source": "Vedi sorgente",
     "channelReady": "Canale progetto pronto.",
@@ -25,7 +26,7 @@
     "roadmapStatus": { "done": "Completato", "current": "Focus corrente", "planned": "Pianificato" },
     "roadmapTerminal": { "releaseConsole": "release_console://mission_output", "systemReadout": "system_readout://active_modules", "loadRelease": "carica dati release", "activeModules": "system readout // moduli attivi", "releaseProfile": "[01] profilo release", "nodeStatus": "[02] stato nodo", "deliveryState": "[03] stato delivery", "ready": "pronto", "queued": "in coda", "note": "Stile terminale adattato al contesto roadmap del progetto." },
     "modules": { "overview": "Panoramica", "system": "Sistema", "interface": "Interfaccia", "development": "Log di sviluppo" },
-    "moduleLabels": { "overview": "BRIEF DI MISSIONE", "system": "ARCHITETTURA DEL SISTEMA", "interface": "SISTEMA INTERFACCIA", "development": "LOG DI SVILUPPO" },
+    "moduleLabels": { "overview": "PANORAMICA", "system": "ARCHITETTURA DEL SISTEMA", "interface": "SISTEMA INTERFACCIA", "development": "LOG DI SVILUPPO" },
     "layeredPreview": {
       "module": "MODULO APPLICAZIONE",
       "ready": "BUILD PRONTO",
@@ -64,7 +65,7 @@
       "focus": "Focus preview"
     }
   },
-  "description": "Questa raccolta di progetti riflette la mia passione per creare strumenti utili, sperimentare nuove tecnologie e migliorare costantemente le mie competenze. Alcuni progetti nascono dalla curiosità, altri dalla volontà di ottimizzare il workflow o esplorare nuove idee. Nel mio lavoro da sviluppatore software utilizzo l’AI come supporto concreto: accelera alcune fasi, migliora la qualità del codice e mi aiuta a validare rapidamente nuove soluzioni, sempre con verifica critica dei risultati.",
+  "description": "Qui raccolgo alcuni dei progetti che ho realizzato nel tempo. Alcuni sono nati per risolvere esigenze concrete, altri per sperimentare nuove tecnologie o approfondire aspetti dello sviluppo che volevo conoscere meglio. Ogni progetto è anche un’occasione per provare qualcosa di nuovo, migliorare quello che già conosco e portare un’idea fino a un prodotto realmente utilizzabile.",
   "live_preview": "Demo interattiva",
   "load_preview": "Carica anteprima",
   "load_preview_tooltip": "L’anteprima viene caricata solo al click per evitare chiamate API non necessarie.",

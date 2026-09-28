@@ -28,7 +28,7 @@ describe("Hobbies", () => {
         expect(screen.getAllByRole("article")).toHaveLength(3);
         expect(screen.queryByRole("button")).not.toBeInTheDocument();
         expect(screen.queryByText("Personal telemetry")).not.toBeInTheDocument();
-        expect(screen.getByText("Volleyball")).toBeInTheDocument();
-        expect(screen.getByText("Travel")).toBeInTheDocument();
+        expect(screen.getByRole("heading", { name: "Volleyball" })).toBeInTheDocument();
+        expect(screen.getByRole("heading", { name: "Travel" })).toBeInTheDocument();
     });
 });

@@ -1,4 +1,8 @@
 {
+  "footer": {
+    "tagline": "BUILD // EXPLORE // IMPROVE",
+    "location": "BASED ON EARTH // AVAILABLE REMOTELY"
+  },
   "nav": {
     "home": "Home",
     "projects": "Projects",

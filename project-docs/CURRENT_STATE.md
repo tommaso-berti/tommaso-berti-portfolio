@@ -15,7 +15,7 @@ Snapshot as of 2026-09-25.
 - GitHub Actions workflow `.github/workflows/ci.yml` runs lint, i18n check, unit tests, build, and Playwright e2e on push/PR.
 - Vitest smoke tests cover routing resolution, i18n namespace builders, and project selectors.
 - Playwright e2e covers home, navigation, 404, language toggle, and hidden blog nav.
-- SEO: per-project meta in `SeoMetaManager`, JSON-LD (`Person` + `WebSite`), `public/robots.txt`, `public/sitemap.xml`, hreflang alternate links.
+- SEO: per-project and public-route meta in `SeoMetaManager`, JSON-LD (`Person` + `WebSite`), `public/robots.txt`, `public/sitemap.xml`, hreflang alternate links.
 - Dedicated `NotFound` page for unknown routes; Blog route remains available but hidden from primary nav (`showInNav: false`).
 - Profile images use WebP + JPEG fallback via `ProfileImage`; Google Fonts load asynchronously in `index.html`.
 - `MiniWebappPreview` defers iframe loading with Intersection Observer when `deferLoad` is enabled.

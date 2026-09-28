@@ -16,6 +16,10 @@
       "title": "Chi Sono | Tommaso Berti",
       "description": "Profilo professionale, esperienza, competenze tecniche e percorso formativo di Tommaso Berti."
     },
+    "services": {
+      "title": "Servizi | Tommaso Berti",
+      "description": "Servizi di sviluppo software: applicazioni web, API, integrazioni e soluzioni pratiche pensate per ogni progetto."
+    },
     "systems": {
       "title": "Systems | Tommaso Berti",
       "description": "Gli strumenti, i processi e l'infrastruttura che sostengono i progetti di Tommaso Berti."

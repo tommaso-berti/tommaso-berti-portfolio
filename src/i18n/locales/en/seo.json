@@ -16,6 +16,10 @@
       "title": "About | Tommaso Berti",
       "description": "Professional profile, experience, technical skills, and background of Tommaso Berti."
     },
+    "services": {
+      "title": "Services | Tommaso Berti",
+      "description": "Software development services: web applications, APIs, integrations, and practical solutions tailored to each project."
+    },
     "systems": {
       "title": "Systems | Tommaso Berti",
       "description": "The tools, processes, and infrastructure behind Tommaso Berti's projects."

@@ -32,7 +32,7 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                     <Box>
                         <Typography component="h3" variant="h4" sx={{ mt: 1.1 }}>{t("credential.title")}</Typography>
                     </Box>
-                    <Box aria-label={t("credential.sealLabel")} sx={{ width: 82, height: 82, flexShrink: 0, borderRadius: "50%", display: "grid", placeItems: "center", position: "relative", "&::before": { content: '""', position: "absolute", inset: 8, border: "1px dashed", borderColor: "divider", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", bottom: 11, left: "50%", width: 6, height: 6, borderRadius: "50%", bgcolor: "space.orange", transform: "translateX(-50%)" } }}>
+                    <Box aria-label={t("credential.sealLabel")} sx={{ width: 82, height: 82, flexShrink: 0, borderRadius: "50%", display: "grid", placeItems: "center", position: "relative", "&::before": { content: '""', position: "absolute", inset: 8, border: "1px dashed", borderColor: "divider", borderRadius: "50%" } }}>
                         <Box component="img" src="/tb-logo-1024.png" alt="" aria-hidden="true" sx={{ width: 58, height: 58, objectFit: "contain", borderRadius: "50%" }} />
                     </Box>
                 </Stack>

@@ -4,6 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
 import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 import TechnicalLabel from "./TechnicalLabel.jsx";
@@ -14,6 +15,7 @@ const VIEWBOX = { width: 920, height: 600, center: { x: 460, y: 300 } };
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 export default function CelestialProjectMap({ items, labels, decorative = false }) {
+    const theme = useTheme();
     const reducedMotion = useReducedMotion();
     const stageRef = useRef(null);
     const cardRef = useRef(null);
@@ -43,7 +45,10 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
     useEffect(() => {
         const stage = stageRef.current;
         if (!stage) return undefined;
-        const observer = new IntersectionObserver(([entry]) => { stateRef.current.visible = entry.isIntersecting; }, { threshold: 0.05 });
+        const observer = new IntersectionObserver(([entry]) => {
+            stateRef.current.visible = entry.isIntersecting;
+            if (entry.isIntersecting) setRenderKey((value) => value + 1);
+        }, { threshold: 0.05 });
         observer.observe(stage);
         return () => observer.disconnect();
     }, []);
@@ -143,12 +148,12 @@ export default function CelestialProjectMap({ items, labels, decorative = false 
     return <Paper component="section" variant="outlined" ref={stageRef} onPointerMove={decorative ? undefined : moveViewpoint} onPointerLeave={decorative ? undefined : resetViewpoint} sx={{ position: "relative", overflow: "hidden", minHeight: decorative ? { xs: 315, md: 360 } : { xs: 520, md: 560 }, bgcolor: "space.secondaryPaper", ...(expanded && { position: "fixed", inset: 12, zIndex: 1300, minHeight: "auto" }), "&:fullscreen": { width: "100%", height: "100%", borderRadius: 0 } }}>
         {!decorative && <Box aria-hidden="true" sx={{ position: "absolute", inset: 0, opacity: .32, backgroundImage: "linear-gradient(rgba(23,32,42,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(23,32,42,.03) 1px,transparent 1px)", backgroundSize: "44px 44px" }} />}
         {!decorative && <Box sx={{ position: "absolute", zIndex: 5, top: 14, left: 16, right: { xs: 16, md: 220 } }}><TechnicalLabel>{labels.title}</TechnicalLabel></Box>}
-        {!decorative && <Stack direction="row" gap={.35} flexWrap="wrap" sx={{ position: "absolute", zIndex: 5, top: 10, right: 12, maxWidth: { xs: "calc(100% - 24px)", sm: "none" }, p: .35, border: "1px solid", borderTop: "3px solid", borderColor: "divider", borderTopColor: selected?.orbit.accent || "space.blue", bgcolor: "rgba(241,237,227,.82)" }}><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={togglePause} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{paused ? labels.play : labels.pause}</SpaceButton><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={fullscreen} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{nativeFullscreen || expanded ? labels.exit : labels.fullscreen}</SpaceButton></Stack>}
+        {!decorative && <Stack direction="row" gap={.35} flexWrap="wrap" sx={{ position: "absolute", zIndex: 5, top: 10, right: 12, maxWidth: { xs: "calc(100% - 24px)", sm: "none" }, p: .35, border: "1px solid", borderTop: "3px solid", borderColor: "divider", borderTopColor: selected?.orbit.accent || "space.blue", bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(22,33,44,.94)" : "rgba(241,237,227,.82)" }}><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={togglePause} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{paused ? labels.play : labels.pause}</SpaceButton><SpaceButton size="small" variant="outlined" barColor={selected?.orbit.accent || "space.blue"} onClick={fullscreen} sx={{ minHeight: 28, px: .8, fontSize: ".58rem" }}>{nativeFullscreen || expanded ? labels.exit : labels.fullscreen}</SpaceButton></Stack>}
         <svg viewBox="0 0 920 600" role="img" aria-label={labels.title} style={{ width: "100%", height: "100%", minHeight: "inherit", display: "block" }}>
             <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y}) scale(${decorative ? 1 : 1.22}) translate(${-VIEWBOX.center.x} ${-VIEWBOX.center.y})`}>
             <g>{renderOrbitPaths("back")}</g>
             <g ref={backBodiesRef}/>
-            <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="47" fill="none" stroke="rgba(114,94,54,.46)" strokeWidth="1.15" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.55)" strokeWidth="1.15" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.68)" strokeWidth="1.2" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.58)" strokeWidth="1.2" strokeDasharray="8 9" transform="rotate(82)"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><image href="/assets/celestial-project-map/sun.png" x="-34" y="-34" width="68" height="68" preserveAspectRatio="xMidYMid meet"/><text y="67" textAnchor="middle" fontSize="8" fontWeight="800" letterSpacing="2" fill="#2b3a49">TB // DYSON CORE</text><text y="80" textAnchor="middle" fontSize="6.5" letterSpacing="1.8" fill="#858a88">DEVELOPER SYSTEM</text></>}</g>
+            <g transform={`translate(${VIEWBOX.center.x} ${VIEWBOX.center.y})`}><circle r="47" fill="none" stroke="rgba(114,94,54,.46)" strokeWidth="1.15" strokeDasharray="4 7"/><circle r="38" fill="none" stroke="rgba(114,94,54,.55)" strokeWidth="1.15" strokeDasharray="10 8"/><ellipse rx="44" ry="16" fill="none" stroke="rgba(114,94,54,.68)" strokeWidth="1.2" strokeDasharray="13 7" transform="rotate(24)"/><ellipse rx="43" ry="15" fill="none" stroke="rgba(114,94,54,.58)" strokeWidth="1.2" strokeDasharray="8 9" transform="rotate(82)"/>{decorative ? <image href="/tb-logo-1024.png" x="-56" y="-56" width="112" height="112" preserveAspectRatio="xMidYMid slice" /> : <><image href="/assets/celestial-project-map/sun.png" x="-34" y="-34" width="68" height="68" preserveAspectRatio="xMidYMid meet"/><text y="70" textAnchor="middle" fontSize="14" fontWeight="800" letterSpacing="2" fill={theme.palette.text.primary}>TB // DYSON CORE</text><text y="87" textAnchor="middle" fontSize="10" letterSpacing="1.8" fill={theme.palette.text.secondary}>DEVELOPER SYSTEM</text></>}</g>
             <g ref={frontOrbitsRef}>{renderOrbitPaths("front")}</g>
             <g ref={frontBodiesRef}>{configs.map((item) => {
                 const bodySize = (item.orbit.size + 5) * 2;

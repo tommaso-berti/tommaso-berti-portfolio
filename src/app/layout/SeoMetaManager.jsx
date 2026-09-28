@@ -15,6 +15,7 @@ const ROUTE_META_KEYS = [
     { match: (pathname) => pathname === "/projects", key: "projects" },
     { match: (pathname) => pathname.startsWith("/projects/"), key: "projectDetail" },
     { match: (pathname) => pathname === "/about", key: "about" },
+    { match: (pathname) => pathname === "/services", key: "services" },
     { match: (pathname) => pathname === "/systems", key: "systems" },
     { match: (pathname) => pathname === "/contact", key: "contact" },
     { match: (pathname) => pathname === "/blog", key: "blog" },

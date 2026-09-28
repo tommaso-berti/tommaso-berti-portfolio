@@ -8,7 +8,7 @@ import CareerTimeline from "./CareerTimeline.jsx";
 export function ExperienceFilters({ filter, onChange, t }) {
     const filters = ["all", "work", "study"];
 
-    return <Stack direction="row" gap={0.5} flexWrap="wrap" role="group" aria-label={t("filterLabel")} sx={{ p: 0.5, border: "1px solid", borderColor: "divider", bgcolor: "rgba(246,242,233,.6)" }}>
+    return <Stack direction="row" gap={0.5} flexWrap="wrap" role="group" aria-label={t("filterLabel")} sx={{ p: 0.5, border: "1px solid", borderColor: "divider", bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(22,33,44,.92)" : "rgba(246,242,233,.6)" }}>
         {filters.map((filterKey) => <Button key={filterKey} size="small" variant={filter === filterKey ? "contained" : "text"} aria-pressed={filter === filterKey} onClick={() => onChange(filterKey)} sx={{ minHeight: 34, px: 1.15, fontSize: ".6rem", color: filter === filterKey ? undefined : "text.secondary" }}>{t(`filters.${filterKey}`)}</Button>)}
     </Stack>;
 }

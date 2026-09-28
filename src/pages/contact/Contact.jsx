@@ -6,12 +6,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 import MotionPanel from '@/features/mission-ui/MotionPanel.jsx';
 import SpaceButton from '@/features/mission-ui/SpaceButton.jsx';
 import StatusIndicator from '@/features/mission-ui/StatusIndicator.jsx';
 import TechnicalLabel from '@/features/mission-ui/TechnicalLabel.jsx';
 import MissionRail from '@/features/mission-ui/MissionRail.jsx';
-import { getStaticCvPdfPath } from '../cv/cvPdf.utils.js';
 import { buildContactMailto } from './contact.utils.js';
 
 const channels = [
@@ -271,9 +271,8 @@ export default function Contact() {
             </Box>
 
             <SpaceButton
-              component="a"
-              href={getStaticCvPdfPath(language)}
-              target="_blank"
+              component={RouterLink}
+              to="/cv"
               variant="outlined"
               sx={{ alignSelf: 'flex-start' }}
             >

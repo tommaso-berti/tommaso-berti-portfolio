@@ -108,7 +108,7 @@ export default function HomeCertificationBadges() {
     const latestCertification = CERTIFICATIONS[0];
     const statusAccents = ["space.red", "space.orange", "space.yellow", "space.blue"];
     const statusItems = [
-        { label: t("certifications.archiveStatus"), value: `${t("certifications.online")} / ${t("certifications.verified")}` },
+        { label: t("certifications.archiveStatus"), value: t("certifications.online") },
         { label: t("certifications.credentials"), value: `${CERTIFICATIONS.length} ${t("certifications.activeEntries")}` },
         { label: t("certifications.latestIssue"), value: latestCertification?.issuedAt?.replace("-", " / ") },
         { label: t("certifications.specialization"), value: t("certifications.areas.fullstack") },

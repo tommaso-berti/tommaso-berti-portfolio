@@ -38,7 +38,7 @@ function NodeCard({ node, blueprintId, active, onSelect, setCardRef, t }) {
                     <Typography sx={{ fontWeight: 850, fontSize: ".94rem", lineHeight: 1.15, mt: .25, overflowWrap: "anywhere" }}>{copy.name}</Typography>
                 </Box>
             </Stack>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: .8, fontSize: ".72rem", lineHeight: 1.4, overflowWrap: "anywhere", wordBreak: "break-word" }}>{copy.description}</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: .8, fontSize: ".78rem", lineHeight: 1.45, overflowWrap: "anywhere", wordBreak: "break-word" }}>{copy.description}</Typography>
             <Box aria-hidden="true" sx={{ position: "absolute", top: "50%", width: 8, height: 8, borderRadius: "50%", bgcolor: active ? "space.orange" : "space.blue", boxShadow: active ? "0 0 0 4px rgba(223,115,61,.14)" : "0 0 0 4px rgba(52,124,178,.11)", transform: "translateY(-50%)", ...(node.side === "left" ? { right: -5 } : { left: -5 }) }} />
         </ButtonBase>
     );
@@ -78,7 +78,7 @@ export default function TechnicalBlueprintPanel({ t, showHeader = true }) {
                 {TECH_BLUEPRINTS.map((item, index) => <Button key={item.id} onClick={() => selectBlueprint(item.id)} aria-pressed={item.id === activeBlueprintId} variant={item.id === activeBlueprintId ? "contained" : "outlined"} sx={{ flex: "1 0 150px", minHeight: 46, justifyContent: "flex-start", gap: 1, fontSize: ".6rem" }}><span style={{ opacity: .7 }}>{`0${index + 1}`}</span>{t(`tabs.${item.id}`)}</Button>)}
             </Box>
             <Box sx={{ border: "1px solid", borderColor: "divider", bgcolor: (theme) => theme.palette.mode === "dark" ? "rgba(22,33,44,.68)" : "rgba(242,239,230,.45)", overflow: "hidden" }}>
-                <Box ref={diagramRef} sx={{ position: "relative", display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(145px, .5fr) minmax(420px, 2fr) minmax(145px, .5fr)" }, gap: { xs: 1.25, md: 1.5 }, p: { xs: 1.25, sm: 2 }, minHeight: { md: 760 } }}>
+                <Box ref={diagramRef} sx={{ position: "relative", display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(190px, .9fr) minmax(400px, 1.6fr) minmax(190px, .9fr)" }, gap: { xs: 1.25, md: 1.5 }, p: { xs: 1.25, sm: 2 }, minHeight: { md: 760 } }}>
                     <Stack spacing={1.25} sx={{ zIndex: 2, justifyContent: "space-around" }}>{blueprint.nodes.filter((node) => node.side === "left").map((node) => <NodeCard key={node.id} node={node} blueprintId={blueprint.id} active={node.id === activeNodeId} onSelect={setActiveNodeId} setCardRef={(id, element) => element ? cardRefs.current.set(id, element) : cardRefs.current.delete(id)} t={t} />)}</Stack>
                     <Box sx={{ position: "relative", minHeight: { xs: 620, md: 720 }, overflow: "hidden", order: { xs: -1, md: 0 } }}>
                         <Box sx={{ position: "absolute", inset: 0, zIndex: 1 }}>

@@ -64,13 +64,12 @@ export default function CertificationsSection({ embedded = false }) {
             return groups;
         }, []);
     }, [activeFilter, filteredCertifications]);
-    const completedCount = CERTIFICATIONS.filter((cert) => cert.status === "completed").length;
     const latestCertification = CERTIFICATIONS[0];
     const summary = [
-        { label: t("archiveStatus"), value: `${t("online")} / ${t("verified")}` },
+        { label: t("archiveStatus"), value: t("online") },
         { label: t("credentials"), value: `${CERTIFICATIONS.length} ${t("activeEntries")}` },
-        { label: t("completed"), value: `${completedCount} / ${CERTIFICATIONS.length}` },
-        { label: t("latestIssue"), value: formatIssuedAt(latestCertification?.issuedAt) },
+        { label: t("latestIssue"), value: latestCertification?.issuedAt?.replace("-", " / ") },
+        { label: t("specialization"), value: t("areas.fullstack") },
     ];
 
     return <Stack id="certifications" data-scroll-section data-scroll-label={t("archiveEyebrow")} spacing={2.2} component="section" sx={{ marginTop: embedded ? 0 : "3rem", width: "100%", scrollMarginTop: { xs: "8.75rem", md: "9.5rem" } }}>

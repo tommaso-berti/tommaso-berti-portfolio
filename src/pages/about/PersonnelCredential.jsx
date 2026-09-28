@@ -30,7 +30,6 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
             <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
                 <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={2} sx={{ pb: 1.7, borderBottom: "1px solid", borderColor: "divider" }}>
                     <Box>
-                        <TechnicalLabel color="space.blue">{t("credential.kicker")}</TechnicalLabel>
                         <Typography component="h3" variant="h4" sx={{ mt: 1.1 }}>{t("credential.title")}</Typography>
                     </Box>
                     <Box aria-label={t("credential.sealLabel")} sx={{ width: 82, height: 82, flexShrink: 0, borderRadius: "50%", display: "grid", placeItems: "center", position: "relative", "&::before": { content: '""', position: "absolute", inset: 8, border: "1px dashed", borderColor: "divider", borderRadius: "50%" }, "&::after": { content: '""', position: "absolute", bottom: 11, left: "50%", width: 6, height: 6, borderRadius: "50%", bgcolor: "space.orange", transform: "translateX(-50%)" } }}>
@@ -46,7 +45,7 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                     </Stack>
                     <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, minmax(0, 1fr))" } }}>
                         <CredentialField label={t("credential.fields.holder")} value={profile.name} wide />
-                        <CredentialField label={t("credential.fields.role")} value={profile.role} />
+                        <CredentialField label={t("credential.fields.role")} value={profile.role.replace(/\s+(?:and|e)\s+/i, " · ")} />
                         <CredentialField label={t("credential.fields.base")} value={base} />
                         <CredentialField label={t("credential.fields.stack")} value={stack.join(" · ")} wide />
                         <CredentialField label={t("credential.fields.systems")} wide>
@@ -60,7 +59,11 @@ export default function PersonnelCredential({ profile, stack, systems = [], tele
                             </Stack>
                         </CredentialField>
                         <CredentialField label={t("credential.fields.personality")} value={personality} wide />
-                        <CredentialField label={t("credential.fields.bio")} value={bioDescription} wide />
+                        <CredentialField label={t("credential.fields.bio")} wide>
+                            <Stack spacing={1} sx={{ mt: .55 }}>
+                                {bioDescription.split("\n\n").map((paragraph) => <Typography key={paragraph} sx={{ fontSize: ".78rem", lineHeight: 1.5 }}>{paragraph}</Typography>)}
+                            </Stack>
+                        </CredentialField>
                     </Box>
                 </Box>
                 <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" gap={1.5} sx={{ pt: 1.5 }}>

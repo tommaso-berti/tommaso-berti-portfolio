@@ -31,7 +31,7 @@
     "archiveDistribution": "Credentials by area",
     "archiveMapDescription": "Certification distribution by subject area: each node's size and number show how many credentials belong to that area.",
     "archiveStatus": "Archive status",
-    "online": "Available",
+    "online": "Online",
     "verified": "Verified",
     "credentials": "Credentials",
     "credentialsCount": "{{count}} credentials",

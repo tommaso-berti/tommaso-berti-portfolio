@@ -2,27 +2,26 @@
   "bio": {
     "title": "Bio",
     "profileAlt": "Foto profilo di Tommaso Berti",
-    "description": "Sono Tommaso Berti, sviluppatore software con una forte passione per la tecnologia e per la creazione di strumenti utili. Mi piace affrontare problemi complessi, trovare soluzioni pratiche e migliorare costantemente il mio modo di lavorare. Nel mio lavoro cerco sempre di combinare curiosità, approccio analitico e pragmatismo, sia quando sviluppo nuove funzionalità sia quando ottimizzo sistemi esistenti.",
+    "description": "Sono Tommaso Berti, sviluppatore software. Mi piace costruire strumenti che abbiano un’utilità concreta e capire davvero un problema prima di iniziare a scrivere codice.\n\nNel tempo ho lavorato sia sullo sviluppo di nuove funzionalità sia sul miglioramento di applicazioni e sistemi già esistenti. È una parte del lavoro che apprezzo particolarmente: capire cosa può essere semplificato, cosa può funzionare meglio e trovare il modo più sensato per arrivarci.\n\nContinuo a sperimentare anche attraverso i miei progetti personali, che uso per approfondire tecnologie, strumenti e aspetti dello sviluppo che nel lavoro quotidiano non sempre ho occasione di esplorare.",
     "credential": {
-      "moduleLabel": "MODULO IDENTITÀ / RECORD PERSONALE",
-      "kicker": "Autorità portfolio / credential personale",
-      "title": "Credenziali",
-      "sealLabel": "Credential del profilo di Tommaso Berti",
+      "moduleLabel": "PROFILO / RECORD PERSONALE",
+      "title": "Dati principali",
+      "sealLabel": "Profilo di Tommaso Berti",
       "seal": "PROFILO",
-      "portraitMeta": "RITRATTO PERSONALE / NODO IDENTITÀ VERIFICATO",
+      "portraitMeta": "RITRATTO / PROFILO PERSONALE",
       "fields": {
-        "holder": "01 / Titolare",
-        "role": "02 / Classe ruolo",
+        "holder": "01 / Nome",
+        "role": "02 / Ruolo",
         "base": "03 / Base",
         "stack": "04 / Stack principale",
         "systems": "05 / Sistemi",
-        "personality": "06 / Personalità",
-        "bio": "07 / Profilo Bio"
+        "personality": "06 / Modo di lavorare",
+        "bio": "07 / Profilo"
       },
       "signatureLabel": "Firma personale",
       "signatureAlt": "Firma di Tommaso Berti",
       "statusLabel": "Stato sistema",
-      "status": "VALIDO / ATTIVO"
+      "status": "ATTIVO"
     }
   },
   "hobbies": {
@@ -52,7 +51,7 @@
         "coords": ["LIVELLO / DIPLOMA", "ANNO / 2016"],
         "year": "2016",
         "title": "Diploma di Liceo Scientifico",
-        "description": "Ho completato il Liceo Scientifico, acquisendo solide basi in matematica, fisica e informatica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e le capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e un approccio strutturato ai temi complessi."
+        "description": "Ho completato il Liceo Scientifico, acquisendo solide basi in matematica e fisica. Ho partecipato a vari progetti scolastici che hanno rafforzato il mio pensiero analitico e le capacità di problem solving. Questa esperienza mi ha insegnato disciplina metodologica e un approccio strutturato ai temi complessi."
       },
       {
         "type": "study",
@@ -88,7 +87,7 @@
         "coords": ["MODALITÀ / COLLAB", "AREA / WEB"],
         "year": "2019–2020",
         "title": "DeFra Web - Collaboratore",
-        "description": "Ho gestito contenuti web utilizzando piattaforme CMS e mi sono occupato di backup periodici. Ho lavorato anche su aggiornamenti di cataloghi, migrazioni, incontri con i clienti, documentazione e modifiche in PHP/CSS/HTML."
+        "description": "Ho gestito contenuti web con piattaforme CMS e svolto backup periodici. Mi sono occupato di aggiornamenti di cataloghi, migrazioni e interventi in PHP, CSS e HTML."
       },
       {
         "type": "work",
@@ -98,7 +97,7 @@
         "current": true,
         "year": "2021–present",
         "title": "Kubix Link (A Lectra Company) - Dipendente full-time",
-        "description": "Contribuisco a soluzioni digitali PLM/PIM per il settore moda. Il mio ruolo coinvolge collaborazione trasversale tra team e processi dati in cloud."
+        "description": "Faccio parte del team Delivery Expert di Kubix Link PLM: analizziamo i report dei clienti e gestiamo i rilasci periodici di correzioni e nuove funzionalità. Mi occupo inoltre dell’implementazione del PLM, mettendo a frutto una conoscenza approfondita della piattaforma."
       }
     ]
   },
@@ -106,7 +105,7 @@
     "title": "Competenze Tecniche",
     "frontend": "Frontend",
     "backend-runtime": "Back-end / Runtime",
-    "database": "Database",
+    "database": "Dati & Validazione",
     "languages-markup": "Linguaggi / Markup",
     "tools": "Strumenti",
     "eyebrow": "02 // SISTEMI TECNICI",
@@ -114,7 +113,7 @@
     "tabs": {
       "frontend": "Frontend",
       "runtime": "Runtime",
-      "database": "Database",
+      "database": "Dati & Validazione",
       "languages": "Linguaggi",
       "tools": "Strumenti"
     },
@@ -125,12 +124,12 @@
         "meta": "RIFERIMENTO / ISS · ARCHITETTURA UI MODULARE",
         "alt": "Blueprint della ISS usato come tavola del sistema frontend",
         "nodes": {
-          "react": { "code": "01 / NODO", "name": "React", "description": "Nucleo a componenti riutilizzabili per le interfacce." },
-          "typescript": { "code": "02 / NODO", "name": "TypeScript", "description": "Contratti tipizzati per modifiche più sicure." },
-          "mui": { "code": "03 / NODO", "name": "MUI", "description": "Primitive con tema per il sistema visivo condiviso." },
-          "html": { "code": "04 / NODO", "name": "HTML5", "description": "Struttura semantica e basi accessibili." },
-          "css": { "code": "05 / NODO", "name": "CSS3", "description": "Layout responsive, stati e trattamento visivo." },
-          "javascript": { "code": "06 / NODO", "name": "JavaScript", "description": "Logica applicativa e interazione browser-side." }
+          "react": { "code": "01 / NODO", "name": "React", "description": "Architettura a componenti per costruire interfacce dinamiche mantenendo separate logica, stato e presentazione. È ciò che consente a schermate complesse di rimanere reattive e coerenti mentre l’applicazione cresce." },
+          "typescript": { "code": "02 / NODO", "name": "TypeScript", "description": "Aggiunge un sistema di tipi a JavaScript e rende espliciti dati, strutture e contratti tra le diverse parti del codice. Il risultato è un’applicazione più prevedibile e meno soggetta a errori difficili da individuare." },
+          "mui": { "code": "03 / NODO", "name": "MUI", "description": "Sistema di componenti React pensato per costruire interfacce coerenti, accessibili e profondamente personalizzabili. Offre una base solida su cui sviluppare un’identità grafica senza ricostruire ogni elemento da zero." },
+          "html": { "code": "04 / NODO", "name": "HTML5", "description": "Definisce la struttura semantica dei contenuti che compongono una pagina web. Una buona struttura rende l’interfaccia più comprensibile sia al browser sia alle persone che la utilizzano." },
+          "css": { "code": "05 / NODO", "name": "CSS3", "description": "Gestisce layout, responsive design, animazioni e comportamento visivo dell’interfaccia. È il livello che trasforma una struttura funzionale in un’esperienza visiva curata e adattabile a ogni schermo." },
+          "javascript": { "code": "06 / NODO", "name": "JavaScript", "description": "Gestisce la logica e il comportamento dinamico delle applicazioni web. È ciò che permette a un’interfaccia di reagire, aggiornarsi e comunicare con altri servizi in tempo reale." }
         }
       },
       "runtime": {
@@ -139,26 +138,26 @@
         "meta": "RIFERIMENTO / ARTEMIS · STACK DI SERVIZI A STADI",
         "alt": "Blueprint Artemis usato come tavola del runtime applicativo",
         "nodes": {
-          "nodejs": { "code": "01 / NODO", "name": "Node.js", "description": "Livello di esecuzione per API e script operativi." },
-          "express": { "code": "02 / NODO", "name": "Express", "description": "Composizione di middleware e route REST." },
-          "fastify": { "code": "03 / NODO", "name": "Fastify", "description": "Runtime API essenziale usato nei lavori full-stack." },
-          "caddy": { "code": "04 / NODO", "name": "Caddy", "description": "Gateway HTTPS e confine reverse proxy." },
-          "nginx": { "code": "05 / NODO", "name": "Nginx", "description": "Livello di serving e proxy per sistemi pubblicati." },
-          "cloudflare": { "code": "06 / NODO", "name": "Cloudflare", "description": "Routing edge e porta d’accesso di rete." }
+          "nodejs": { "code": "01 / NODO", "name": "Node.js", "description": "Porta JavaScript sul lato server attraverso un runtime asincrono e orientato agli eventi. Consente di costruire API, servizi e processi backend utilizzando lo stesso ecosistema del frontend." },
+          "express": { "code": "02 / NODO", "name": "Express", "description": "Framework minimale per organizzare API, route e middleware in applicazioni Node.js. Offre una struttura semplice e flessibile per gestire la comunicazione tra frontend, server e servizi esterni." },
+          "fastify": { "code": "03 / NODO", "name": "Fastify", "description": "Framework backend orientato a prestazioni, validazione e gestione strutturata delle API. È pensato per mantenere servizi veloci e ordinati anche quando aumentano endpoint e complessità." },
+          "caddy": { "code": "04 / NODO", "name": "Caddy", "description": "Web server e reverse proxy con HTTPS automatico e una configurazione volutamente essenziale. Semplifica il passaggio da un servizio che gira localmente a uno realmente raggiungibile e protetto online." },
+          "nginx": { "code": "05 / NODO", "name": "Nginx", "description": "Web server e reverse proxy utilizzato per instradare richieste, distribuire contenuti e coordinare più servizi. Agisce come porta d’ingresso dell’infrastruttura, decidendo dove deve essere indirizzato il traffico." },
+          "cloudflare": { "code": "06 / NODO", "name": "Cloudflare", "description": "Layer distribuito per DNS, proxy, caching e protezione del traffico web. Si colloca davanti all’infrastruttura e contribuisce a renderla più veloce, resiliente e meno esposta direttamente a Internet." }
         }
       },
       "database": {
-        "code": "SISTEMA / DATI",
-        "title": "Hub dati e persistenza",
+        "code": "SISTEMA / DATI & VALIDAZIONE",
+        "title": "Dati & Validazione",
         "meta": "RIFERIMENTO / LSO · MODULI DATI STRUTTURATI",
         "alt": "Blueprint del Lunar Space Outpost usato come tavola dati",
         "nodes": {
-          "mongodb": { "code": "01 / NODO", "name": "MongoDB", "description": "Persistenza documentale per dati applicativi evolutivi." },
-          "postgresql": { "code": "02 / NODO", "name": "PostgreSQL", "description": "Nucleo relazionale per vincoli e join espliciti." },
-          "sql": { "code": "03 / NODO", "name": "SQL", "description": "Linguaggio per accesso a dati strutturati." },
-          "yaml": { "code": "04 / NODO", "name": "YAML", "description": "Configurazione e metadata con struttura leggibile." },
-          "igdb": { "code": "05 / NODO", "name": "IGDB", "description": "Fonte dati gaming esterna usata nei flussi progetto." },
-          "zod": { "code": "06 / NODO", "name": "Zod", "description": "Validazione runtime per confini dati più sicuri." }
+          "mongodb": { "code": "01 / NODO", "name": "MongoDB", "description": "Database documentale che memorizza dati in strutture flessibili invece che in tabelle rigidamente definite. È adatto a modelli che possono evolvere nel tempo senza richiedere una struttura relazionale molto rigida." },
+          "postgresql": { "code": "02 / NODO", "name": "PostgreSQL", "description": "Database relazionale progettato per gestire dati strutturati, relazioni e vincoli con grande affidabilità. È particolarmente efficace quando le informazioni devono rimanere coerenti e fortemente collegate tra loro." },
+          "sql": { "code": "03 / NODO", "name": "SQL", "description": "Linguaggio dichiarativo per interrogare e manipolare database relazionali. Consente di estrarre, combinare e trasformare grandi quantità di informazioni direttamente nel punto in cui vengono conservate." },
+          "yaml": { "code": "04 / NODO", "name": "YAML", "description": "Formato testuale usato soprattutto per rappresentare configurazioni e workflow in modo compatto e leggibile. È spesso il collegamento tra il codice e il modo in cui strumenti e servizi vengono configurati." },
+          "igdb": { "code": "05 / NODO", "name": "IGDB", "description": "API specializzata che espone un ampio catalogo strutturato di dati sul mondo dei videogiochi. Permette a un’applicazione di arricchirsi con informazioni esterne senza dover costruire e mantenere internamente lo stesso archivio." },
+          "zod": { "code": "06 / NODO", "name": "Zod", "description": "Sistema di validazione che verifica i dati durante l’esecuzione secondo schemi definiti nel codice. Impedisce che informazioni incomplete o nel formato sbagliato si propaghino silenziosamente nell’applicazione." }
         }
       },
       "languages": {
@@ -167,12 +166,12 @@
         "meta": "RIFERIMENTO / SATURN V · STACK LINGUISTICO MULTI-STADIO",
         "alt": "Blueprint del Saturn V usato come tavola dei linguaggi",
         "nodes": {
-          "typescript": { "code": "01 / NODO", "name": "TypeScript", "description": "Contratti statici per superfici applicative estese." },
-          "javascript": { "code": "02 / NODO", "name": "JavaScript", "description": "Linguaggio principale di esecuzione browser e Node.js." },
-          "html": { "code": "03 / NODO", "name": "HTML", "description": "Struttura semantica di documenti e contenuti." },
-          "css": { "code": "04 / NODO", "name": "CSS", "description": "Presentazione, responsive layout e motion states." },
-          "bash": { "code": "05 / NODO", "name": "Bash", "description": "Automazione CLI e helper per il deploy." },
-          "sql": { "code": "06 / NODO", "name": "SQL", "description": "Query strutturate e operazioni di reporting." }
+          "typescript": { "code": "01 / NODO", "name": "TypeScript", "description": "Superset di JavaScript che introduce tipi statici, interfacce e strumenti più evoluti per descrivere il codice. Nei progetti complessi rende più chiaro cosa ci si aspetta dai dati e dalle diverse parti dell’applicazione." },
+          "javascript": { "code": "02 / NODO", "name": "JavaScript", "description": "Linguaggio che costituisce la base dell’ecosistema web moderno, utilizzabile sia nel browser sia sul server. Collega interfaccia, logica applicativa e servizi in gran parte delle applicazioni web contemporanee." },
+          "html": { "code": "03 / NODO", "name": "HTML", "description": "Linguaggio di markup che descrive struttura e significato dei contenuti di una pagina. Non definisce soltanto dove appare qualcosa, ma anche che ruolo ha all’interno dell’interfaccia." },
+          "css": { "code": "04 / NODO", "name": "CSS", "description": "Linguaggio che definisce presentazione e disposizione degli elementi dell’interfaccia. Gestisce tutto ciò che riguarda la resa visiva, dal layout generale fino ai più piccoli dettagli di interazione." },
+          "bash": { "code": "05 / NODO", "name": "Bash", "description": "Linguaggio di scripting strettamente legato agli ambienti Unix e Linux. Consente di combinare comandi e automatizzare operazioni che altrimenti richiederebbero numerosi passaggi manuali sul sistema." },
+          "sql": { "code": "06 / NODO", "name": "SQL", "description": "Linguaggio dedicato alla gestione dei dati relazionali. Offre un modo diretto e preciso per interrogare le informazioni senza dover passare necessariamente dalla logica dell’applicazione." }
         }
       },
       "tools": {
@@ -181,12 +180,12 @@
         "meta": "RIFERIMENTO / DYSON SPHERE · ECOSISTEMA DI SUPPORTO",
         "alt": "Blueprint della Dyson Sphere usato come tavola del tooling",
         "nodes": {
-          "git": { "code": "01 / NODO", "name": "Git", "description": "Storico versioni e tracciamento controllato dei cambiamenti." },
-          "github": { "code": "02 / NODO", "name": "GitHub", "description": "Hub per repository e collaborazione." },
-          "github-actions": { "code": "03 / NODO", "name": "GitHub Actions", "description": "Controlli e workflow di deploy ripetibili." },
-          "postman": { "code": "04 / NODO", "name": "Postman", "description": "Ispezione rapida delle API e diagnostica delle richieste." },
-          "webstorm": { "code": "05 / NODO", "name": "WebStorm", "description": "Ambiente principale per navigazione, codice e refactor." },
-          "codex": { "code": "06 / NODO", "name": "Codex", "description": "Supporto alla costruzione con revisione e verifica." }
+          "git": { "code": "01 / NODO", "name": "Git", "description": "Sistema distribuito di versionamento che registra l’evoluzione del codice e permette di lavorare su più linee di sviluppo in parallelo. Ogni modifica rimane tracciabile e, quando serve, reversibile." },
+          "github": { "code": "02 / NODO", "name": "GitHub", "description": "Piattaforma costruita attorno a Git che centralizza repository, revisioni, issue e collaborazione sul codice. È il luogo in cui il progetto viene organizzato e seguito oltre i singoli file presenti sul computer." },
+          "github-actions": { "code": "03 / NODO", "name": "GitHub Actions", "description": "Sistema di automazione basato su workflow collegati agli eventi di un repository. Trasforma operazioni ripetitive come verifiche, build e controlli in processi eseguiti automaticamente." },
+          "postman": { "code": "04 / NODO", "name": "Postman", "description": "Ambiente dedicato all’esplorazione e al collaudo delle API. Permette di osservare direttamente lo scambio di dati tra applicazione e server, isolandolo dal resto dell’interfaccia." },
+          "webstorm": { "code": "05 / NODO", "name": "WebStorm", "description": "IDE specializzato nell’ecosistema JavaScript e TypeScript con analisi del codice, refactoring e debugging integrati. Offre una visione più strutturata del progetto rispetto a un semplice editor di testo." },
+          "codex": { "code": "06 / NODO", "name": "Codex", "description": "Assistente di sviluppo capace di comprendere il contesto di un progetto e intervenire direttamente sul codice. Riduce il lavoro meccanico e accelera l’esplorazione delle soluzioni, lasciando allo sviluppatore le scelte e la verifica finale." }
         }
       }
     }
@@ -195,19 +194,19 @@
     "header": "FASCICOLO PERSONALE / TB-01 / UNITÀ ESPLORAZIONE",
     "archiveHeader": "03 // FASCICOLO PERSONALE",
     "heroEyebrow": "03 // FASCICOLO PERSONALE",
-    "heroTitle": "COSTRUISCO\nSISTEMI UTILI.",
-    "heroLead": "Sviluppatore software: affronto problemi complessi con curiosità, pensiero analitico e un approccio pragmatico e iterativo.",
-    "tags": ["REACT", "TYPESCRIPT", "MUI", "NODE.JS", "PRODUCT THINKING"],
+    "heroTitle": "COSTRUISCO\nSTRUMENTI UTILI.",
+    "heroLead": "Mi piace capire i problemi, semplificarli e trasformarli in software che funzioni bene e sia piacevole da usare. Lavoro in modo pratico: costruisco, provo, correggo e continuo a migliorare.",
+    "tags": ["REACT", "TYPESCRIPT", "MUI", "NODE.JS", "ITERAZIONE"],
     "contactCta": "Apri comunicazioni",
     "projectsCta": "Esplora i progetti",
     "telemetry": [
       { "label": "BASE", "value": "ITALIA" },
       { "label": "SISTEMI PRINCIPALI", "value": "REACT / TYPESCRIPT / MUI" },
-      { "label": "APPROCCIO", "value": "PRAGMATICO / ITERATIVO" },
+      { "label": "APPROCCIO", "value": "CAPIRE / COSTRUIRE / MIGLIORARE" },
       { "label": "PROFILO", "value": "VERIFICATO", "status": true }
     ],
     "visual": {
-      "title": "MODULO IDENTITÀ // TOMMASO BERTI",
+      "title": "PROFILO // RECORD PERSONALE",
       "status": "PROFILO VERIFICATO",
       "node": "NODO TB-01",
       "remote": "SEGNALE NOMINALE",
@@ -238,12 +237,12 @@
       "method": "05 // METODO DI LAVORO",
       "beyond": "06 // OLTRE IL CODICE"
     },
-    "identityTitle": "Sviluppatore prima di tutto. Sempre attento al prodotto.",
-    "identityLead": "Costruisco e miglioro software con attenzione alle persone che lo usano, ai sistemi che lo sostengono e ai compromessi che lo rendono manutenibile.",
+    "identityTitle": "Non mi interessa solo scrivere codice",
+    "identityLead": "Quando lavoro a un progetto cerco di capire prima di tutto quale problema deve risolvere. Poi penso a come dovrà essere usato, a come si inserisce nel resto del sistema e a come mantenerlo semplice da modificare nel tempo.",
     "systems": [
-      { "label": "SISTEMI FRONTEND", "value": "REACT / TYPESCRIPT / MUI" },
-      { "label": "RUNTIME APPLICATIVO", "value": "NODE.JS / EXPRESS" },
-      { "label": "METODO DI LAVORO", "value": "ANALIZZA / COSTRUISCI / AFFINA" }
+      { "label": "FRONTEND", "value": "REACT / TYPESCRIPT / MUI" },
+      { "label": "BACKEND", "value": "NODE.JS / EXPRESS" },
+      { "label": "APPROCCIO", "value": "ANALIZZA / COSTRUISCI / MIGLIORA" }
     ],
     "methodTitle": "Costruire. Capire. Affinare.",
     "principles": [
@@ -265,9 +264,9 @@
     "online": "Online",
     "verified": "Verificato",
     "credentials": "Credenziali",
-    "activeEntries": "voci attive",
-    "completed": "Completate",
-    "latestIssue": "Ultimo rilascio",
+    "activeEntries": "certificazioni",
+    "latestIssue": "Ultimo aggiornamento",
+    "specialization": "Specializzazione",
     "filterLabel": "Filtra archivio",
     "filterAll": "Tutte le credenziali",
     "filterCount": "Mostrate {{count}} di {{total}} credenziali",

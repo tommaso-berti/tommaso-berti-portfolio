@@ -3,12 +3,17 @@ import { test, expect } from "@playwright/test";
 test.describe("Portfolio navigation", () => {
     test("home loads with hero content", async ({ page }) => {
         await page.goto("/");
-        await expect(page.getByRole("heading", { name: "Tommaso Berti", level: 1 })).toBeVisible();
+        await expect(
+            page.getByRole("heading", {
+                level: 1,
+                name: /BUILD.*EXPLORE.*IMPROVE|COSTRUISCI.*ESPLORA.*MIGLIORA/i,
+            })
+        ).toBeVisible();
     });
 
     test("navigates to projects from header chips", async ({ page }) => {
         await page.goto("/");
-        await page.getByRole("link", { name: /^projects$|^progetti$/i }).click();
+        await page.getByRole("link", { name: /02\s+Projects|02\s+Progetti/i }).click();
         await expect(page).toHaveURL(/\/projects$/);
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     });
@@ -34,10 +39,12 @@ test.describe("Portfolio navigation", () => {
         await expect(page.getByRole("heading", { name: /color system|sistema cromatico/i })).toBeVisible();
     });
 
-    test("About identity exposes the credential and blueprint systems", async ({ page }) => {
+    test("About technical module exposes blueprint systems", async ({ page }) => {
         await page.goto("/about#tech-skills");
-        await expect(page.getByRole("heading", { name: /Mission credential|Credential di missione/i })).toBeVisible();
-        await page.getByRole("button", { name: /02 runtime/i }).click();
-        await expect(page.getByRole("heading", { name: /Application runtime stack|Stack runtime applicativo/i })).toBeVisible();
+        await expect(
+            page.getByRole("heading", { name: /Tech Skills|Competenze Tecniche/i, level: 2 })
+        ).toBeVisible();
+        await page.getByRole("button", { name: /02\s*Runtime/i }).click();
+        await expect(page.getByRole("button", { name: /Node\.js/i }).first()).toBeVisible();
     });
 });

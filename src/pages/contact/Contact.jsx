@@ -329,7 +329,7 @@ export default function Contact() {
           <Stack spacing={1.5}>
             <Stack direction="row" justifyContent="space-between" alignItems="flex-start" gap={2}>
               <Box>
-                <TechnicalLabel>TX / 05-COMMS</TechnicalLabel>
+                <TechnicalLabel>TX / 06-COMMS</TechnicalLabel>
                 <Typography component="h2" sx={{ mt: 0.8, fontSize: '1.55rem', fontWeight: 750 }}>
                   {t('consoleTitle')}
                 </Typography>

@@ -1,13 +1,13 @@
 {
   "title": "Contattami",
-  "missionEyebrow": "05 // COLLEGAMENTO COMUNICAZIONI",
+  "missionEyebrow": "06 // CONTATTI",
   "missionNote": "STATO CANALE // APERTO",
-  "formTitle": "Apri un canale.",
+  "formTitle": "Mettiamoci in contatto.",
   "consoleTitle": "Console di trasmissione",
   "signalLabel": "Segnale nominale",
   "channels": {
-    "email": "Canale principale · risposta diretta",
-    "linkedin": "Network · opportunità professionali",
+    "email": "Canale principale · contatto diretto",
+    "linkedin": "Lavoro · opportunità professionali",
     "github": "Codice · progetti · collaborazione tecnica"
   },
   "topics": {
@@ -25,11 +25,11 @@
     "async": "ASYNC"
   },
   "subjectLabel": "OGGETTO",
-  "reset": "RESET PAYLOAD",
+  "reset": "CANCELLA MESSAGGIO",
   "fieldLabels": {
-    "name": "CALL SIGN / NOME",
-    "email": "RETURN CHANNEL / EMAIL",
-    "message": "PAYLOAD / MESSAGGIO"
+    "name": "NOME / CALL SIGN",
+    "email": "EMAIL / RETURN CHANNEL",
+    "message": "MESSAGGIO / PAYLOAD"
   },
   "placeholders": {
     "name": "Il tuo nome",
@@ -37,18 +37,18 @@
     "message": "Raccontami cosa hai in mente..."
   },
   "status": {
-    "incomplete": "SYSTEM STANDBY // PAYLOAD INCOMPLETO",
+    "incomplete": "SYSTEM STANDBY // MESSAGGIO INCOMPLETO",
     "ready": "SYSTEM READY // PAYLOAD COMPLETO",
     "handoff": "PAYLOAD PRONTO // HANDOFF EMAIL AVVIATO"
   },
-  "availability": "Disponibile per nuove missioni digitali, collaborazioni e prodotti da costruire.",
+  "availability": "Disponibile per nuovi progetti, collaborazioni e opportunità professionali.",
   "name": "Nome",
   "email": "Email",
   "message": "Messaggio",
   "send": "Trasmetti messaggio",
   "formHint": "Apre l'app email con il messaggio già compilato.",
   "eyebrow": "Collaborazioni e opportunità",
-  "subtitle": "Se vuoi discutere una collaborazione, un progetto o una nuova opportunità professionale, scrivimi pure: valuto ogni contatto con attenzione.",
+  "subtitle": "Se vuoi parlarmi di un progetto, di una collaborazione o di un’opportunità professionale, scrivimi pure. Ti risponderò appena possibile.",
   "emailCta": "Scrivimi via email",
   "emailHelper": "Canale principale per collaborazioni e progetti. Se possibile, includi obiettivo e contesto del tuo messaggio.",
   "linkedinCta": "Apri LinkedIn",

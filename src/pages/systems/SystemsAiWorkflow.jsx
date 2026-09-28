@@ -43,18 +43,13 @@ export default function SystemsAiWorkflow({ t }) {
                     <Typography component="h3" variant="h5" sx={{ mt: .4 }}>{active.title}</Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mt: .75, lineHeight: 1.7 }}>{active.description}</Typography>
                 </Box>
-                <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr auto 1.1fr auto 1fr" }, alignItems: "center", gap: 1 }}>
-                    {[t("ai.flow.direction"), active.flow, t("ai.flow.review")].map((label, index) => <Box key={`${label}-${index}`} sx={{ display: "contents" }}>
-                        {index > 0 ? <Typography aria-hidden="true" sx={{ textAlign: "center", color: "text.secondary", display: { xs: "none", sm: "block" } }}>→</Typography> : null}
-                        <Box sx={{ p: 1.25, border: "1px solid", borderColor: index === 1 ? "space.blue" : "divider", boxShadow: index === 1 ? "inset 0 -3px 0" : "none", bgcolor: "background.default", textAlign: "center" }}>
-                            <Typography variant="overline" sx={{ fontFamily: (theme) => theme.fonts.mono }}>{label}</Typography>
-                        </Box>
-                    </Box>)}
+                <Box sx={{ p: 1.25, border: "1px solid", borderColor: "space.blue", boxShadow: "inset 0 -3px 0", bgcolor: "background.default", textAlign: "center" }}>
+                    <Typography variant="overline" sx={{ fontFamily: (theme) => theme.fonts.mono }}>{active.flow}</Typography>
                 </Box>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, borderTop: "1px solid", borderColor: "divider", pt: 1.5, gap: 2 }}>
-                    {["human", "ai"].map((side) => <Box key={side}>
-                        <Typography variant="overline" sx={{ color: side === "human" ? "space.orange" : "space.blue", fontFamily: (theme) => theme.fonts.mono }}>{t(`ai.responsibilities.${side}.label`)}</Typography>
-                        {(side === "human" ? t("ai.responsibilities.human.items", { returnObjects: true }) : active.support).map((item) => <Typography key={item} variant="body2" sx={{ py: .55, borderBottom: "1px solid", borderColor: "divider", "&:last-child": { borderBottom: 0 } }}>{item}</Typography>)}
+                    {[{ key: "context", items: active.context, color: "space.orange" }, { key: "ai", items: active.support, color: "space.blue" }].map(({ key, items, color }) => <Box key={key}>
+                        <Typography variant="overline" sx={{ color, fontFamily: (theme) => theme.fonts.mono }}>{t(`ai.responsibilities.${key}.label`)}</Typography>
+                        {items.map((item) => <Typography key={item} variant="body2" sx={{ py: .55, borderBottom: "1px solid", borderColor: "divider", "&:last-child": { borderBottom: 0 } }}>{item}</Typography>)}
                     </Box>)}
                 </Box>
             </Stack>

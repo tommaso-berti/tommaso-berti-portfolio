@@ -4,6 +4,7 @@ import {
     buildProjectPreviewModel,
     buildMissionModel,
     buildCelestialMapItems,
+    buildProjectDetailsModel,
     getProjectById,
     getProjectsByCategory,
 } from "./projectSelectors.js";
@@ -39,6 +40,33 @@ describe("projectSelectors", () => {
         const model = buildMissionModel(getProjectById("logra"), (key) => key, 0);
         expect(model.overline).toContain("01");
         expect(model.technologies.length).toBeGreaterThan(0);
+    });
+
+    it("builds WattDaCar links and explicit roadmap states", () => {
+        const project = getProjectById("wattdacar");
+        const t = (key, options) => options?.returnObjects ? [] : `translated:${key}`;
+        const preview = buildProjectPreviewModel(project, t);
+        const details = buildProjectDetailsModel(project, t, t);
+
+        expect(project.category).toBe("main");
+        expect(getProjectsByCategory("main").slice(0, 2).map(({ id }) => id)).toEqual([
+            "logra",
+            "wattdacar",
+        ]);
+        expect(project.statusKey).toBe("wattdacar.betaStatus");
+        expect(preview.statusLabel).toBe("translated:wattdacar.betaStatus");
+        expect(preview.secondaryAction).toEqual({
+            label: "translated:wattdacar.openRestricted",
+            href: "https://wattdacar.tommasoberti.com",
+        });
+        expect(preview.githubAction.label).toBe("translated:wattdacar.privateRepository");
+        expect(details.searchMechanicsTitle).toBe("translated:search_mechanics_title");
+        expect(details.roadmap.map(({ status }) => status)).toEqual([
+            "done",
+            "done",
+            "done",
+            "planned",
+        ]);
     });
 
     it("builds map items from the complete project catalog", () => {

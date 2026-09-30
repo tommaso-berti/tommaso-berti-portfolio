@@ -1,4 +1,4 @@
-const PROJECT_IDS = ["codexpane", "ecommerce-rest-api", "artap", "portfolio", "logra"];
+const PROJECT_IDS = ["codexpane", "ecommerce-rest-api", "artap", "portfolio", "logra", "wattdacar"];
 
 /**
  * Merges shared projects copy with per-project locale fragments.

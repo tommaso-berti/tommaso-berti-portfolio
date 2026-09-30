@@ -6,9 +6,12 @@ import Typography from "@mui/material/Typography";
 
 export default function RoadmapSection({ roadmapTitle, roadmap, t }) {
     const steps = Array.isArray(roadmap) ? roadmap : [];
-    const [activeStep, setActiveStep] = useState(1);
+    const [activeStep, setActiveStep] = useState(() => {
+        const currentIndex = steps.findIndex((step) => step.status === "current");
+        return currentIndex >= 0 ? currentIndex : Math.max(0, Math.min(1, steps.length - 1));
+    });
     if (!steps.length) return null;
-    const stateAt = (index) => index === 0 ? "current" : index < 3 ? "done" : "planned";
+    const stateAt = (index) => steps[index]?.status || (index === 0 ? "current" : index < 3 ? "done" : "planned");
     const stateColor = (state) => state === "done" ? "space.green" : state === "current" ? "space.blue" : "#afafa8";
     const selected = steps[activeStep];
     const terminal = (key) => t(`dossier.roadmapTerminal.${key}`);

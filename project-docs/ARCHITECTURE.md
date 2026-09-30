@@ -29,8 +29,8 @@ System-level notes for the portfolio application.
   - Shared technical labels, numbered section headings, static mission surfaces, color rails, original TB identity, orbital SVG, mission cards, capability cards, and restrained motion panels.
   - The MUI theme provides the light/deep-space palettes, reusable monospaced font values, and motion timing. `MissionSurface` owns the static bordered `space.panel` treatment while `MotionPanel` retains entrance animation. CSS media queries and `useReducedMotion` keep decorative motion optional.
 - Project dossiers (`src/pages/projects/projectsPages/ProjectDossier.jsx`):
-  - Shared `/projects/:project` mission-dossier shell driven by the existing project config and localized content.
-  - Includes a technical application frame around the existing opt-in live preview, truthful telemetry, shared mission-tab navigation, and existing detail content grouped as overview, system, interface, and development log.
+  - Shared `/projects/:project` mission-dossier shell driven by project config and localized content. Projects may set their own mechanics heading, status, and explicit roadmap states; WattDaCar is the second main project and uses an unpublished private-beta sign-in panel because its hosted app disallows cross-origin framing.
+  - Includes a technical application frame around the project-specific preview, truthful telemetry, shared mission-tab navigation, and existing detail content grouped as overview, system, interface, and development log.
 - Shared mission tabs (`src/pages/projects/projectsPages/ProjectMissionTabs.jsx`):
   - Reused by project details, the About personnel modules, and the Projects archive category filters so tab behavior and visual treatment remain aligned.
 - About personnel file (`src/pages/about/`):

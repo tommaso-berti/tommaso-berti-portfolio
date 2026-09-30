@@ -1,0 +1,86 @@
+{
+  "title": "WattDaCar",
+  "description": "Piattaforma personale per i dati Tesla: integra Fleet API e telemetria MQTT con worker e Mosquitto, trasformando grandi volumi di eventi e filmati TeslaCam in uno storico consultabile e WattCam.",
+  "betaStatus": "BETA · NON PUBBLICATO",
+  "publicationStatus": "Beta privata · non pubblicato",
+  "openRestricted": "Apri WattDaCar · beta privata",
+  "restrictedAccess": "BETA PRIVATA · NON PUBBLICATO",
+  "restrictedDescription": "WattDaCar è in beta privata e non è ancora pubblicato. Il sito è protetto da login e l’accesso è limitato agli account autorizzati.",
+  "restrictedAction": "Vai al login",
+  "privateRepository": "Repository privato",
+  "repositoryNote": "WattDaCar è in beta privata e non è ancora pubblicato; il repository GitHub è privato.",
+  "details": {
+    "introduction": {
+      "title": "Leggere l’auto nel tempo",
+      "description": [
+        "Ho creato WattDaCar per trasformare i dati della mia Tesla in uno storico utile, non in una serie di schermate isolate. Il backend si integra con Tesla Fleet API per i dati e le operazioni supportate e riceve la telemetria tramite MQTT; dashboard, viaggi, ricariche e consumi diventano così parti della stessa vista nel tempo.",
+        "La parte difficile è sostenere flussi diversi per frequenza, formato e dimensione: gli eventi telemetrici arrivano in quantità e non coincidono sempre con viaggi o sessioni già ricostruiti, mentre i filmati TeslaCam sono file molto più pesanti dei normali record. Un worker elabora i messaggi in background attraverso Mosquitto, normalizza e persiste i dati senza caricare il percorso interattivo dell’API; WattCam mantiene invece consultazione ed esportazione dei clip sul dispositivo, senza spostare quei file voluminosi sul server."
+      ]
+    },
+    "difficulties_faced": [
+      "Integrare Tesla Fleet API e telemetria MQTT, gestendo credenziali e accesso al veicolo lato server senza esporre token al browser.",
+      "Gestire il flusso continuo e il volume degli eventi telemetrici con un worker e Mosquitto, separando ingestione, normalizzazione e persistenza dalle richieste dell’interfaccia.",
+      "Ricostruire distanze, consumi e costi da fonti con granularità e copertura diverse, distinguendo misure, stime, dati parziali e informazioni mancanti.",
+      "Gestire insieme record strutturati e filmati TeslaCam: i clip hanno dimensioni e requisiti di accesso diversi, quindi WattCam li consulta localmente invece di trasferirli nel flusso API."
+    ],
+    "search_mechanics_title": "Come si consultano i dati",
+    "search_mechanics": [
+      "Tesla Fleet API collega il backend al veicolo; per la telemetria, Mosquitto riceve i messaggi MQTT e un worker li consuma fuori dal ciclo delle richieste web. L’ingestione continua resta così separata dalle API usate dall’interfaccia.",
+      "Il worker valida e normalizza gli eventi prima di salvarli e renderli utili per stato, viaggi e ricariche. Separare eventi grezzi e dati aggregati è essenziale: la telemetria è più frequente e abbondante delle informazioni che l’utente deve consultare.",
+      "WattCam gestisce il caso diverso dei filmati TeslaCam: permette di esplorare ed esportare clip locali senza inviare al backend file molto più voluminosi dei dati di viaggio. Watt Coach usa invece le informazioni disponibili per suggerimenti contestuali.",
+      "L’accesso Tesla è passivo e in sola lettura, salvo un singolo comando di risveglio dell’auto che richiede conferma esplicita."
+    ],
+    "lessons_learned": [
+      "La telemetria ad alta frequenza richiede ingestione e processamento asincroni: la dashboard deve ricevere dati utili e coerenti, non inseguire ogni messaggio grezzo.",
+      "Quando sorgenti e granularità cambiano, provenienza, timestamp e qualità del dato fanno parte del modello: aiutano a ricostruire lo storico senza presentare stime o lacune come misure certe.",
+      "I dati non hanno tutti lo stesso costo: eventi e aggregati si prestano a persistenza e analisi, mentre i video richiedono un percorso separato per evitare trasferimenti e archiviazione sproporzionati."
+    ],
+    "technologies": {
+      "react": { "description": "React organizza dashboard e strumenti in viste riutilizzabili per stato del veicolo, storico e analisi." },
+      "typescript": { "description": "TypeScript rende più chiari i modelli condivisi tra interfaccia, API e dati del veicolo." },
+      "mui": { "description": "MUI fornisce componenti e temi per mantenere leggibili dashboard dense, dettagli e controlli responsive." },
+      "tanstack-query": { "description": "TanStack Query coordina caricamento, cache e aggiornamento dei dati mostrati nelle diverse sezioni." },
+      "fastify": { "description": "Fastify espone le API che raccolgono e servono al frontend dati normalizzati e limitati all’utente." },
+      "tesla-fleet-api": { "description": "Tesla Fleet API collega il backend ai dati e alle operazioni consentite del veicolo; credenziali e richieste restano server-side." },
+      "mqtt": { "description": "MQTT trasporta la telemetria Tesla come messaggi asincroni, separando gli aggiornamenti frequenti dalle richieste dell’interfaccia." },
+      "mosquitto": { "description": "Eclipse Mosquitto riceve e distribuisce i messaggi MQTT; il worker li consuma senza bloccare le API web." },
+      "worker": { "description": "Un worker in background valida, normalizza e persiste i volumi di eventi telemetrici, gestendo il flusso indipendentemente dalle richieste utente." },
+      "mongodb": { "description": "MongoDB conserva profili, snapshot del veicolo, viaggi e ricariche con dati isolati per proprietario." },
+      "zod": { "description": "Zod valida i contratti condivisi tra frontend e API, intercettando payload incompleti o non validi." },
+      "auth0": { "description": "Auth0 gestisce l’accesso di produzione prima che un utente possa consultare i dati del veicolo." },
+      "caddy": { "description": "Caddy serve il frontend via HTTPS e instrada le richieste API verso il backend sulla VPS." },
+      "github-actions": { "description": "GitHub Actions automatizza build e deploy versionati di frontend e backend." },
+      "pnpm": { "description": "pnpm gestisce il monorepo e i contratti condivisi tra applicazione web e API." }
+    },
+    "roadmap": {
+      "demo": {
+        "title": "Base demo",
+        "content": [
+          "Ho costruito l’applicazione web e le API con dati demo coerenti per sviluppare le schermate principali prima del collegamento al veicolo.",
+          "Ho definito contratti condivisi e flussi locali per verificare dashboard e storico senza dipendere da una Tesla connessa."
+        ]
+      },
+      "tesla": {
+        "title": "Collegamento Tesla",
+        "content": [
+          "Ho integrato Tesla Fleet API e la ricezione della telemetria MQTT tramite Mosquitto e un worker lato server.",
+          "Ho normalizzato eventi, stato del veicolo, viaggi e sessioni di ricarica prima di renderli disponibili alle viste dell’app."
+        ]
+      },
+      "history": {
+        "title": "Storico e strumenti",
+        "content": [
+          "Ho ampliato dashboard e dettagli con analisi di efficienza, batteria, costi e pianificazione.",
+          "Ho aggiunto Watt Coach, manutenzione e WattCam, mantenendo i filmati TeslaCam locali e separati dai flussi di telemetria."
+        ]
+      },
+      "landing": {
+        "title": "Landing pubblica",
+        "content": [
+          "Preparare una pagina pubblica che presenti il prodotto e le sue funzionalità senza richiedere un account.",
+          "Affiancare alla landing un percorso di accesso chiaro per gli utenti autorizzati."
+        ]
+      }
+    }
+  }
+}

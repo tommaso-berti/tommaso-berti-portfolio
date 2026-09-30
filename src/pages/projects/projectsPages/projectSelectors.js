@@ -17,6 +17,7 @@ export function buildProjectPreviewModel(project, tProjects) {
         overline: `${tProjects(project.overlineKey)} · ${tProjects(project.titleKey)}`,
         title: tProjects(project.titleKey),
         description: tProjects(project.descriptionKey),
+        statusLabel: project.statusLabelKey ? tProjects(project.statusLabelKey) : null,
         reversed: project.reversed,
         primaryAction: {
             label: tProjects(project.primaryAction.labelKey),
@@ -28,7 +29,7 @@ export function buildProjectPreviewModel(project, tProjects) {
         },
         githubAction: project.githubHref
             ? {
-                label: tProjects("exercises.openOnGithub"),
+                label: tProjects(project.githubLabelKey || "exercises.openOnGithub"),
                 href: project.githubHref,
             }
             : null,
@@ -77,7 +78,9 @@ export function buildCelestialMapItems(tProjects) {
 export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
     const details = projectConfig?.details ?? {};
     const detailsTechnologies = Array.isArray(details.technologies) ? details.technologies : [];
-    const detailsRoadmapIds = Array.isArray(details.roadmapIds) ? details.roadmapIds : [];
+    const detailsRoadmapSteps = Array.isArray(details.roadmapSteps)
+        ? details.roadmapSteps
+        : (Array.isArray(details.roadmapIds) ? details.roadmapIds.map((id) => ({ id })) : []);
 
     const introductionParagraphsRaw = tProject("introduction.description", {
         returnObjects: true,
@@ -92,6 +95,9 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
             ? introductionParagraphsRaw
             : [],
         difficulties: Array.isArray(difficultiesRaw) ? difficultiesRaw : [],
+        searchMechanicsTitle: tProject("search_mechanics_title", {
+            defaultValue: tProjects("search_mechanics_title"),
+        }),
         searchMechanics: Array.isArray(searchMechanicsRaw) ? searchMechanicsRaw : [],
         lessonsLearned: Array.isArray(lessonsRaw) ? lessonsRaw : [],
         technologies: detailsTechnologies.map(({ id, level, roleKey, usageKey }) => {
@@ -112,9 +118,10 @@ export function buildProjectDetailsModel(projectConfig, tProject, tProjects) {
                 description: projectDescription,
             };
         }),
-        roadmap: detailsRoadmapIds.map((stepId) => ({
-            title: tProject(`roadmap.${stepId}.title`),
-            content: tProject(`roadmap.${stepId}.content`, { returnObjects: true }),
+        roadmap: detailsRoadmapSteps.map(({ id, status }) => ({
+            title: tProject(`roadmap.${id}.title`),
+            content: tProject(`roadmap.${id}.content`, { returnObjects: true }),
+            ...(status ? { status } : {}),
         })),
     };
 }

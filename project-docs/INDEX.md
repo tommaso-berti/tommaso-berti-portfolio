@@ -23,6 +23,7 @@ Compact repository map for fast navigation.
 - `src/app/routing/appDefinitions.js`: route and breadcrumb source of truth
 - `src/pages/projects/projectsPages/projects.js`: projects catalog/config
 - `src/pages/projects/projectsPages/projectSelectors.js`: project view-model logic
+- Project locale fragments under `src/i18n/locales/{en,it}/pages/projects/`; WattDaCar uses a gated preview and explicit roadmap statuses.
 - `src/pages/about/`: localized personnel identity plus the six-module About system, including the credential, technical blueprint, career timeline, working method, and hobbies modules
 - `src/pages/systems/`: localized development environment page with interactive AI workflow and personal VPS views
 - `src/pages/style/Style.jsx`: bilingual visual reference for the live design system, available directly at `/style`

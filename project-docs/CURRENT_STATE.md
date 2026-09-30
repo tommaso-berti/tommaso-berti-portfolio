@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-Snapshot as of 2026-09-25.
+Snapshot as of 2026-09-30.
 
 ## Confirmed
 
@@ -30,7 +30,7 @@ Snapshot as of 2026-09-25.
 - Motion uses CSS/MUI only, is limited to instrumentation-style feedback, and honours `prefers-reduced-motion`.
 - The home hero uses `CelestialProjectMap`: a catalog-derived SVG project map with generated orbit geometry, accessible selection, moving project cards/CTAs, reduced-motion support, and fullscreen fallback.
 - The home celestial map keeps its original hero panel dimensions, with a measured zoom and a compact technical control toolbar anchored at the top right.
-- Every project detail route now uses a shared mission-dossier treatment with real links/content, localized technical labels, and an opt-in live application preview; no project screenshots or product metrics were invented.
+- Every project detail route uses the shared localized mission dossier. WattDaCar is the second main project, labeled as an unpublished private beta in both languages, with an explicit private repository link, a sign-in preview panel, and roadmap states sourced from its project config; the remaining projects keep the opt-in live application preview.
 - Project application modules use `LayeredApplicationPreview`: the e-commerce detail combines the deferred live iframe with layered survey/preview states, responsive touch/keyboard focus, and localized technical telemetry.
 - Project detail and About module navigation share the same mission-tab treatment, with localized labels and responsive active-state styling; project details also include editorial technology filters and a constellation roadmap with keyboard-accessible node selection.
 - The Projects archive filters now reuse the same mission-tab component as project details and About, with localized labels and category-specific accent colors.

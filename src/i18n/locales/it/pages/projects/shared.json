@@ -202,6 +202,22 @@
       "label": "Fastify",
       "description": "Framework API ad alte prestazioni usato per strutturare route, validazione e middleware con overhead ridotto."
     },
+    "tesla-fleet-api": {
+      "label": "Tesla Fleet API",
+      "description": "API ufficiali Tesla usate dal backend per integrare dati e operazioni consentite del veicolo, mantenendo credenziali e richieste lato server."
+    },
+    "mqtt": {
+      "label": "MQTT",
+      "description": "Protocollo di messaggistica leggero usato per ricevere la telemetria Tesla in modo asincrono, separando gli aggiornamenti frequenti dalle richieste dell’interfaccia."
+    },
+    "mosquitto": {
+      "label": "Eclipse Mosquitto",
+      "description": "Broker MQTT che riceve e distribuisce i messaggi di telemetria ai processi incaricati di validarli e salvarli."
+    },
+    "worker": {
+      "label": "Background Worker",
+      "description": "Processo in background che consuma gli eventi telemetrici, li normalizza e li persiste senza bloccare le API web."
+    },
     "i18next": {
       "label": "react-i18next",
       "description": "Libreria i18n utilizzata per localizzazione multi-lingua, fallback e gestione centralizzata delle traduzioni UI."
